@@ -1,0 +1,97 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches:
+      - master
+      - development
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    branches:
+      - master
+      - development
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Cache the Maven packages to speed up build
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: "${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}"
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Read settings xml from secret
+        run: (umask  077 ; echo ${{ secrets.GH_SETTINGS_XML }} | base64 --decode > settings.xml)
+
+      - name: Build with Maven for Uhgpocusecase_1
+        shell: bash
+        run: |
+          cd cics-usecases/Uhgpocusecase_1
+          mvn -B package --file pom.xml -s ../../settings.xml
+
+      - name: Update dependency graph for Uhgpocusecase_1
+        uses: advanced-security/maven-dependency-submission-action@v3
+        with:
+          directory: 'cics-usecases/Uhgpocusecase_1'
+
+      - name: Build with Maven for Uhgpocusecase_2
+        shell: bash
+        run: |
+          cd cics-usecases/Uhgpocusecase_2
+          mvn -B package --file pom.xml -s ../../settings.xml
+
+      - name: Update dependency graph for Uhgpocusecase_2
+        uses: advanced-security/maven-dependency-submission-action@v3
+        with:
+          directory: 'cics-usecases/Uhgpocusecase_2'
+
+      - name: Build with Maven for CF03SECU
+        shell: bash
+        run: |
+          cd cics-usecases/CF03SECU
+          mvn -B package --file pom.xml -s ../../settings.xml
+
+      - name: Update dependency graph for CF03SECU
+        uses: advanced-security/maven-dependency-submission-action@v3
+        with:
+          directory: 'cics-usecases/CF03SECU'
+
+      - name: Build with Maven for CICS0009
+        shell: bash
+        run: |
+          cd cics-usecases/CICS0009
+          mvn -B package --file pom.xml -s ../../settings.xml
+
+      - name: Update dependency graph for CICS0009
+        uses: advanced-security/maven-dependency-submission-action@v3
+        with:
+          directory: 'cics-usecases/CICS0009'
+
+      - name: Build with Maven for CICS0012
+        shell: bash
+        run: |
+          cd cics-usecases/CICS0012
+          mvn -B package --file pom.xml -s ../../settings.xml
+
+      - name: Update dependency graph for CICS0012
+        uses: advanced-security/maven-dependency-submission-action@v3
+        with:
+          directory: 'cics-usecases/CICS0012'
