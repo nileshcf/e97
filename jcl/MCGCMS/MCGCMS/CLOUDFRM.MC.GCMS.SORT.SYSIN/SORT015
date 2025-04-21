@@ -1,0 +1,8 @@
+  INCLUDE COND=(24,2,CH,EQ,C'61',OR,24,2,CH,EQ,C'62')                   00010000
+  INREC FIELDS=(1,4,24,2,38,1,C'000000000000000001')                    00011000
+  SORT FIELDS=(5,2,CH,A,7,1,CH,A)                                       00020000
+  SUM FIELDS=(8,18,ZD)                                                  00030000
+  OUTFIL FNAMES=SORTOF1,INCLUDE=(7,1,CH,EQ,C'C'),                       00040000
+      OUTREC=(5,2,X,7,1,X,8,18),CONVERT                                 00050000
+  OUTFIL FNAMES=SORTOF2,SAVE,                                           00060000
+      OUTREC=(5,2,X,7,1,X,8,18),CONVERT                                 00070000

@@ -1,0 +1,370 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 01/11/2023  Time 10:38:57   Page     1                
+0Invocation parameters:                                                                                                              
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(OPT),AWO,NUMPROC(PFD),TEST(ALL,SYM,SEPARATE)                                                        
+                                                                                                                                     
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"  
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no   
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".                                    
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler         
+                       invocation parameter took precedence.                                                                         
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(COMPAT)                                                                                                                    
+    AWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(PFD)                                                                                                                     
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 01/11/2023  Time 10:38:57   Page     2                
+0 NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+    TEST(HOOK,SEPARATE,NOEJPD)                                                                                                       
+  NOTHREAD                                                                                                                           
+    TRUNC(OPT)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT3     Date 01/11/2023  Time 10:38:57   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0/* INIT3                                                                                                                            
+   000001         000010 IDENTIFICATION DIVISION.                                                                                    
+   000002         000020 PROGRAM-ID.  INIT3.                                                                                         
+   000003         000030 AUTHOR.      CFR.                                                                                           
+   000004         008950 ENVIRONMENT DIVISION.                                                                                       
+   000005         008960 INPUT-OUTPUT SECTION.                                                                                       
+   000006         008970 FILE-CONTROL.                                                                                               
+   000007         009850                                                                                                             
+   000008         009860 DATA DIVISION.                                                                                              
+   000009         009870 FILE SECTION.                                                                                               
+   000010         009880                                                                                                             
+   000011         041790 WORKING-STORAGE SECTION.                                                                                    
+   000012         041791                                                                                                             
+   000013         041792 77 WS-I                                 PIC 9.                            BLW=00000+000         1C          
+   000014         041793 01 WS-DATA-TABLE.                                                         BLW=00000+008         0CL70       
+   000015         041794    05 FILLER OCCURS 5  TIMES.                                             BLW=00000+008,0000000 0CL14       
+   000016         041795       10 WS-CHAR                        PIC X(10).                        BLW=00000+008,0000000 10C         
+   000017         041796       10 WS-DISP-NUM                    PIC 9(2).                         BLW=00000+012,000000A 2C          
+   000018         041797       10 WS-SMALLINT                    PIC 9(4) COMP.                    BLW=00000+014,000000C 2C          
+   000019         042200*                                                                                                            
+   000020         042400*                                                                                                            
+   000021         122726 LINKAGE SECTION.                                                                                            
+   000022         122730                                                                                                             
+   000023         122760                                                                                                             
+   000024         122780 PROCEDURE DIVISION.                                                                                         
+   000025         122781*                                                                                                            
+   000026         122782 0000-MAINLINE.                                                                                              
+   000027         122783     PERFORM VARYING WS-I FROM 1 BY 1 UNTIL WS-I > 5                       13 13                             
+   000028      1  122784         EVALUATE WS-I                                                     13                                
+   000029      1  122785             WHEN 1                                                                                          
+   000030      2  122786                  MOVE ALL 'A' TO WS-CHAR (WS-I)                           16 13                             
+   000031      1  122787             WHEN 2                                                                                          
+   000032      2  122788                  MOVE ALL 'B' TO WS-CHAR (WS-I)                           16 13                             
+   000033      1  122789             WHEN 3                                                                                          
+   000034      2  122790                  MOVE ALL 'C' TO WS-CHAR (WS-I)                           16 13                             
+   000035      1  122791             WHEN 4                                                                                          
+   000036      2  122792                  MOVE ALL 'D' TO WS-CHAR (WS-I)                           16 13                             
+   000037      1  122793             WHEN 5                                                                                          
+   000038      2  122794                  MOVE ALL 'E' TO WS-CHAR (WS-I)                           16 13                             
+   000039      1  122795         END-EVALUATE                                                                                        
+   000040      1  122796         MOVE WS-I TO WS-DISP-NUM (WS-I)                                   13 17 13                          
+   000041      1  122797                      WS-SMALLINT (WS-I)                                   18 13                             
+   000042         122798     END-PERFORM                                                                                             
+   000043         122799*                                                                                                            
+   000044         122800     DISPLAY '>>>> PRINTING WS-DATA-TABLE BEFORE INITIALIZE'                                                 
+   000045         122801     DISPLAY ' '                                                                                             
+   000046         122802     PERFORM 1000-PRINT                                                    58                                
+   000047         122803        THRU 1000-EXIT.                                                    66                                
+   000048         122816*                                                                                                            
+   000049         122817     INITIALIZE WS-DATA-TABLE                                              14                                
+   000050         122818*                                                                                                            
+   000051         122819     DISPLAY '>>>> PRINTING WS-DATA-TABLE AFTER  INITIALIZE'                                                 
+   000052         122820     DISPLAY ' '                                                                                             
+   000053         122821     PERFORM 1000-PRINT                                                    58                                
+   000054         122822        THRU 1000-EXIT.                                                    66                                
+   000055         122900*                                                                                                            
+   000056         215580     GOBACK.                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT3     Date 01/11/2023  Time 10:38:57   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000057         215581*                                                                                                            
+   000058         215590 1000-PRINT.                                                                                                 
+   000059         215600*                                                                                                            
+   000060         215610     PERFORM VARYING WS-I FROM 1 BY 1 UNTIL WS-I > 5                       13 13                             
+   000061      1  215620         DISPLAY 'WS-CHAR     ('WS-I') = ' WS-CHAR (WS-I)                  13 16 13                          
+                                                                                                                                     
+ ==000061==> IGYPS0001-W A blank was missing before character "W" in column 39.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000061==> IGYPS0001-W A blank was missing before character "'" in column 43.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000062      1  215630         DISPLAY 'WS-DISP-NUM ('WS-I') = ' WS-DISP-NUM (WS-I)              13 17 13                          
+                                                                                                                                     
+ ==000062==> IGYPS0001-W A blank was missing before character "W" in column 39.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000062==> IGYPS0001-W A blank was missing before character "'" in column 43.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000063      1  215640         DISPLAY 'WS-SMALLINT ('WS-I') = ' WS-SMALLINT (WS-I)              13 18 13                          
+                                                                                                                                     
+ ==000063==> IGYPS0001-W A blank was missing before character "W" in column 39.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000063==> IGYPS0001-W A blank was missing before character "'" in column 43.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000064         215650     END-PERFORM.                                                                                            
+   000065         215800*                                                                                                            
+   000066         215900 1000-EXIT.                                                                                                  
+   000067         216000     EXIT.                                                                                                   
+ */ INIT3                                                                                                                            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT3     Date 01/11/2023  Time 10:38:57   Page     5                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       16   WS-CHAR. . . . . . . . . . . .  M30 M32 M34 M36 M38 61                                                                   
+       14   WS-DATA-TABLE. . . . . . . . .  M49                                                                                      
+       17   WS-DISP-NUM. . . . . . . . . .  M40 62                                                                                   
+       13   WS-I . . . . . . . . . . . . .  M27 27 28 30 32 34 36 38 40 40 41 M60 60 61 61 62 62 63 63                               
+       18   WS-SMALLINT. . . . . . . . . .  M41 63                                                                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT3     Date 01/11/2023  Time 10:38:57   Page     6                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+       26   0000-MAINLINE                                                                                                            
+       66   1000-EXIT. . . . . . . . . . .  E47 E54                                                                                  
+       58   1000-PRINT . . . . . . . . . .  P46 P53                                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT3     Date 01/11/2023  Time 10:38:57   Page     7                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   INIT3                                                                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT3     Date 01/11/2023  Time 10:38:57   Page     8                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID INIT3-------------------------------------------------------------------------------------------------------*    
+     13   77 WS-I. . . . . . . . . . . . . . . . . . . . . BLW=00000  000               DS 1C           Disp-Num                     
+     14   1  WS-DATA-TABLE . . . . . . . . . . . . . . . . BLW=00000  008               DS 0CL70        Group                        
+     15     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  008   0 000 000   DS 0CL14        Group          O             
+     16       3  WS-CHAR . . . . . . . . . . . . . . . . . BLW=00000  008   0 000 000   DS 10C          Display                      
+     17       3  WS-DISP-NUM . . . . . . . . . . . . . . . BLW=00000  012   0 000 00A   DS 2C           Disp-Num                     
+     18       3  WS-SMALLINT . . . . . . . . . . . . . . . BLW=00000  014   0 000 00C   DS 2C           Binary                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT3     Date 01/11/2023  Time 10:38:57   Page     9                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 00002C BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000354 FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |    
+ 00011C  (LIT+32)     4040                                                                     |                                |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT3     Date 01/11/2023  Time 10:38:57   Page    10                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000128 FOR 00022C BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000130  (LIT+0)      FFFFFFFC 00001000 00000004 FFFFFFF2 00000001 00000000 000E6E6E 6E6E40D7  |...............2..........>>>> P|    
+ 000150  (LIT+32)     D9C9D5E3 C9D5C740 E6E260C4 C1E3C160 E3C1C2D3 C540C1C6 E3C5D940 40C9D5C9  |RINTING WS-DATA-TABLE AFTER  INI|    
+ 000170  (LIT+64)     E3C9C1D3 C9E9C56E 6E6E6E40 D7D9C9D5 E3C9D5C7 40E6E260 C4C1E3C1 60E3C1C2  |TIALIZE>>>> PRINTING WS-DATA-TAB|    
+ 000190  (LIT+96)     D3C540C2 C5C6D6D9 C540C9D5 C9E3C9C1 D3C9E9C5 E6E260E2 D4C1D3D3 C9D5E340  |LE BEFORE INITIALIZEWS-SMALLINT |    
+ 0001B0  (LIT+128)    4DE6E260 C4C9E2D7 60D5E4D4 404DE6E2 60C3C8C1 D9404040 40404D40 40404040  |(WS-DISP-NUM (WS-CHAR     (     |    
+ 0001D0  (LIT+160)    40404040 40C5C5C5 C5C5C5C5 C5C5C5C4 C4C4C4C4 C4C4C4C4 C4C3C3C3 C3C3C3C3  |     EEEEEEEEEEDDDDDDDDDDCCCCCCC|    
+ 0001F0  (LIT+192)    C3C3C3C2 C2C2C2C2 C2C2C2C2 C2C1C1C1 C1C1C1C1 C1C1C1E2 E8E2D6E4 E34040C9  |CCCBBBBBBBBBBAAAAAAAAAASYSOUT  I|    
+ 000210  (LIT+224)    C7E9E2D9 E3C3C4C9 D5C9E3F3 5D407E40 1F000000 00000001 2C000000 01000001  |GZSRTCDINIT3) = ................|    
+ 000230  (LIT+256)    30000000 01000000 00000000 00000000 00000000 00000000 00000000 00000000  |................................|    
+ 000250  (LIT+288)    00000000 00000000 00800000 00400000 00000000 00000000 00F0F040 00000000  |............. ...........00 ....|    
+ 000270  (LIT+320)    00000000 00000000 00000040 00000000 25C00001 C0000508 00002400 EF014000  |........... .................. .|    
+ 000290  (LIT+352)    000D0800 0024007C 40000001 0900012C 00004000 00040800 002400F4 02020004  |.......@ ......... ........4....|    
+ 0002B0  (LIT+384)    2D005800 00012800 06FF0140 00000D08 00002400 89400000 01090001 2C000040  |........... ........i ......... |    
+ 0002D0  (LIT+416)    00000408 00002400 F4400000 022D0058 00000128 0004FF01 4000000D 08000024  |........4 .............. .......|    
+ 0002F0  (LIT+448)    00964000 00010900 012C0000 40000004 08000024 00F44000 000A2D00 58000001  |.o ......... ........4 .........|    
+ 000310  (LIT+480)    280008FF 01400000 2D080000 240022FF 01400000 01080000 2400F5FF 01400000  |..... ........... ........5.. ..|    
+ 000330  (LIT+512)    2D080000 24004FFF 40000000 0040C000 01400005 08000024 00EF02C0 00050800  |......|. .... ... ..............|    
+ 000350  (LIT+544)    002400EF                                                                 |....                            |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000027 000470 PERFORM                       000028 000484 EVALUATE                      000029 000488 WHEN                          
+ 000030 000498 MOVE                          000031 0004BE WHEN                          000032 0004CE MOVE                          
+ 000033 0004F4 WHEN                          000034 000504 MOVE                          000035 00052A WHEN                          
+ 000036 00053A MOVE                          000037 000560 WHEN                          000038 000570 MOVE                          
+ 000040 000592 MOVE                          000042 0005CC END-PERFORM                   000044 0005F2 DISPLAY                       
+ 000045 000604 DISPLAY                       000046 000616 PERFORM                       000049 000636 INITIALIZE                    
+ 000051 00066A DISPLAY                       000052 00067C DISPLAY                       000053 00068E PERFORM                       
+ 000056 0006AE GOBACK                        000060 0006C2 PERFORM                       000061 0006D6 DISPLAY                       
+ 000062 000700 DISPLAY                       000063 000726 DISPLAY                       000064 00074C END-PERFORM                   
+ 000067 000772 EXIT                                                                                                                  
+0                                                                                                                                    
+   DEBUGINF TABLE LOCATED AT 0007FC FOR 000044 BYTES                                                                                 
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT3     Date 01/11/2023  Time 10:38:57   Page    11                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  TEST INFORMATION AREA                                                                                    
+                    00015C  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT3     Date 01/11/2023  Time 10:38:57   Page    12                
+0                                                                                                                                    
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  000000E8  VARIABLE-LENGTH CELLS                                                                                    
+                  00000100  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000108  PERFORM SAVE CELLS                                                                                       
+                  00000118  TEMPORARY STORAGE-2                                                                                      
+                  00000128  TEMPORARY STORAGE-3                                                                                      
+                  00000130  CALL STATEMENT PROGRAM NAME                                                                              
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000170 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 0000004E BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 000001D0 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 000870                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 0009CC FOR LENGTH 00009A                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT3     Date 01/11/2023  Time 10:38:57   Page    13                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+                                                                                                                                     
+     61  IGYPS0001-W   A blank was missing before character "W" in column 39.  A blank was assumed.                                  
+                                                                                                                                     
+                       Same message on line:     62     63                                                                           
+                                                                                                                                     
+     61  IGYPS0001-W   A blank was missing before character "'" in column 43.  A blank was assumed.                                  
+                                                                                                                                     
+                       Same message on line:     62     63                                                                           
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       9           1              8                                                                                         
+-* Statistics for COBOL program INIT3:                                                                                               
+ *    Source records = 67                                                                                                            
+ *    Data Division statements = 5                                                                                                   
+ *    Procedure Division statements = 21                                                                                             
+0End of compilation 1,  program INIT3,  highest severity 4.                                                                          
+0Return code 4                                                                                                                       

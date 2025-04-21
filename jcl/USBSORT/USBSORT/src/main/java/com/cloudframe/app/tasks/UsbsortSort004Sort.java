@@ -1,0 +1,186 @@
+package com.cloudframe.app.tasks;
+import java.util.List;
+import com.cloudframe.app.utility.SpringContextHandler;
+import org.springframework.beans.factory.InitializingBean;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.RandomAccessFile;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.batch.core.StepExecutionListener;
+import org.springframework.batch.core.step.tasklet.Tasklet;
+import org.springframework.batch.core.ExitStatus;
+import org.springframework.batch.core.StepContribution;
+import org.springframework.batch.core.StepExecution;
+import org.springframework.batch.core.scope.context.ChunkContext;
+import org.springframework.batch.repeat.RepeatStatus;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import com.cloudframe.app.sort.file.UsbsortSort004SortIn;
+import com.cloudframe.app.sort.file.UsbsortSort004SortOut;
+import com.cloudframe.app.CFStepHandler;
+import com.cloudframe.app.process.BaseProcess;
+import com.cloudframe.app.sort.UsbsortSort004Detail;
+import java.util.ArrayList;
+
+import java.util.Arrays; 
+import org.springframework.batch.core.StepExecutionListener;
+import org.springframework.batch.core.scope.context.ChunkContext;
+import org.springframework.batch.core.step.tasklet.Tasklet;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Value;
+import com.cloudframe.app.data.Field;
+import com.cloudframe.app.utility.CFUtil;
+import com.cloudframe.app.sort.file.UsbsortSort004SortIn;
+import java.util.List;
+import java.util.Comparator;
+import java.util.stream.Collectors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.batch.core.StepExecutionListener;
+import org.springframework.batch.core.step.tasklet.Tasklet;
+import org.springframework.batch.core.ExitStatus;
+import org.springframework.batch.core.StepContribution;
+import org.springframework.batch.core.StepExecution;
+
+import org.springframework.batch.core.scope.context.ChunkContext;
+import org.springframework.batch.repeat.RepeatStatus;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import com.cloudframe.app.process.BaseProcess;
+import com.cloudframe.app.sort.UsbsortSort004Detail;
+import org.springframework.beans.factory.annotation.Value;
+public class UsbsortSort004Sort extends BaseProcess implements Tasklet, StepExecutionListener, InitializingBean {
+
+	private final Logger logger = LoggerFactory.getLogger(UsbsortSort004Sort.class);
+
+/**
+ * Executor Service Initialize is used for SORT statements
+ * Creates an Executor that uses a single worker thread operating off an unbounded queue.
+ */
+@Override
+public void afterPropertiesSet() throws Exception {
+	startExecutorServ();
+}
+
+    private String useTempFile="yes";
+
+    int recCounter = 0;
+     byte[] filter1 = convertChar2EbcdicBytes("NONVSAM".toCharArray());
+	@Autowired
+	CFStepHandler cfStepHandler;
+
+	@Autowired
+	@Qualifier("batch_usbsortsort004")
+	UsbsortSort004Detail sortDetail;
+	
+	@Autowired
+	@Qualifier("UsbsortSort004SortOut")
+	UsbsortSort004SortOut sortOut;
+	
+
+
+	
+	@Autowired
+	@Qualifier("UsbsortSort004SortIn")
+	UsbsortSort004SortIn sortIn;
+	
+	
+    int recordCount = 0;
+
+
+
+    private String filePath = "";
+
+	@Override
+	public void beforeStep(StepExecution stepExecution) {
+		sortIn.open("r", sortIn.getFileName(), sortIn.getRecordLen(), sortIn.isFBRec());
+	    useSortTempFile(sortDetail.getTempFileVal());
+		sortOut.open("w", filePath + sortOut.getFileName(), sortOut.getRecordLen(), sortOut.isFBRec());  
+		if (isWriteInTempFile()) {
+            this.setRaFile(sortDetail.getRaFile());
+            this.setTmpFile(sortDetail.getTempFile());
+            this.setExecutorService(sortDetail.getExecutorService());
+		} else {
+		    createRandomAccessFile();
+		}
+		logger.debug("Sort Writer initialized.");
+	}
+
+	@Override
+	public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
+		// FileOut write process begin, Extract sorted record and write it to the output file
+          byte[] record = sortIn.readRecord();
+          while (!sortIn.hasEnded() && record != null) {
+           byte[] outRecBytes = record;
+		int originalLen = sortIn.getRecordLen() - 4;
+    	boolean isVlscmp = record.length < originalLen;
+    	byte[] tempRecord = isVlscmp ? createPaddedRecord(record, originalLen) : record;
+	   if(((Field.compareBytes(tempRecord,filter1,223,0,7,7) == 0))) {
+
+
+		  
+		    		    
+		    //write into sortOut file
+			sortOut.setRecord(outRecBytes, sortOut.getRecordLen());
+			sortOut.write(); 			
+			recordCount++;
+			//ended
+          }
+		record = sortIn.readRecord();
+        }
+
+
+		cfStepHandler.updateSortStepExecution("sort004");
+		return RepeatStatus.FINISHED;
+	}
+
+@Override
+	public ExitStatus afterStep(StepExecution stepExecution) {
+		sortIn.close();
+		logger.debug("Sort input Reader ended.");
+logger.info("STEPNAME: USBSORTSORT004 Execution completed, number of RECORDS - IN: {},  OUT: {}", sortDetail.getRecInCounter(), recordCount);
+		sortOut.close();
+
+		if(isWriteInTempFile()) {
+			stopExecutorServ();
+		}
+		removeTempFile();
+		logger.debug("Sort Writer ended.");
+		SpringContextHandler.handleDispPostionAtStepEnd(true);
+		return ExitStatus.COMPLETED;
+	}
+
+
+
+    private void createRandomAccessFile() {          
+		try {
+			this.setRaFile(new RandomAccessFile(new File(filePath + sortIn.getFileName()), "rw"));
+		} catch (FileNotFoundException e) {
+			logger.error("Error access on file - Exception: {} ", e.getMessage());
+		}
+    }
+	  
+	  
+	  
+	  
+
+
+    /**
+	 * This method adds empty spaces at the end of a record to ensure it matches a specified record length. 
+	 * It is intended for comparison purposes and is specifically used with VB records that have a COND attribute.
+	 */
+    private byte[] createPaddedRecord(byte[] record, int originalLen) {
+        byte[] tempRecord = new byte[originalLen];
+        byte[] fillBytes = convertChar2EbcdicBytes(CFUtil.fillSpaces(originalLen - record.length));
+        copyRecordBytes(record, tempRecord, 0, 0, record.length);
+        copyRecordBytes(fillBytes, tempRecord, 0, record.length, fillBytes.length);
+        return tempRecord;
+    }
+
+
+
+
+
+}

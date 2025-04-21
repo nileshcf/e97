@@ -1,0 +1,51 @@
+11:58:59.553 [main] INFO  o.s.boot.StartupInfoLogger.logStarting   50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1228857 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/DELVSAM1/DELVSAM1/target/DELVSAM1-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/DELVSAM1/DELVSAM1)
+11:58:59.567 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo  654 - No active profile set, falling back to 1 default profile: "default"
+11:59:03.495 [main] INFO  c.c.a.dao.CFDataSourceConfiguration.dataSourceStatus  165 - CFDataSourceConfiguration initialization status...
+11:59:03.496 [main] INFO  c.c.a.dao.CFDataSourceConfiguration.dataSourceStatus  172 - VSAM Datasource initialized. 
+11:59:03.731 [main] INFO  o.s.boot.StartupInfoLogger.logStarted   56 - Started CFApplication in 5.887 seconds (process running for 7.033)
+11:59:03.755 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo  107 - CFDataConnectIO version : 5.0.0.21
+11:59:03.840 [main] INFO  c.c.a.u.d.plus.CFDcioConfiguration.cfDataConnectIOPlusInfo   28 - CFDataConnectIOPlus version : 5.0.0.21
+11:59:03.880 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.initDatabase  189 - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+11:59:05.056 [main] INFO  o.s.b.a.b.JobLauncherApplicationRunner.run  168 - Running default command line with: []
+11:59:05.150 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  154 - Job: [SimpleJob: [name=DELVSAM1]] launched with the following parameters: [{}]
+11:59:05.215 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [delvsam]
+11:59:05.374 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  109 - HikariPool-1 - Starting...
+11:59:05.458 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast  554 - HikariPool-1 - Added connection conn16: url=jdbc:h2:file:./cf-vsam-db user=SA
+11:59:05.464 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  122 - HikariPool-1 - Start completed.
+11:59:05.510 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [delvsam] executed in 293ms
+11:59:05.531 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [defvsam]
+11:59:05.584 [main] INFO  c.c.app.vsam.dao.VsamRepository.lambda$createTable$1  211 - Executing query : create table CLOUDFRM_IDCAMS_PRINT_VSAMKSDS(
+primary_key binary(65) primary key not null,
+RECORD_DATA blob not null); 
+11:59:05.598 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [defvsam] executed in 66ms
+11:59:05.617 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [repvsam]
+11:59:06.264 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [repvsam] executed in 646ms
+11:59:06.306 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [vsamout]
+11:59:06.328 [main] INFO  c.c.app.vsam.dao.VsamRepository.createTemplateForRead  446 - Using separate datasource for export cluster
+11:59:06.332 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  109 - HikariPool-2 - Starting...
+11:59:06.334 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast  554 - HikariPool-2 - Added connection conn53: url=jdbc:h2:file:./cf-vsam-db user=SA
+11:59:06.335 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  122 - HikariPool-2 - Start completed.
+11:59:06.545 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [vsamout] executed in 237ms
+11:59:06.554 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [printSummary]
+11:59:06.571 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  264 - JOB : DELVSAM1 ENDED -  0000
+11:59:06.572 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  268 - 
+
+Stepwise Execution Summary :
++--------------------------------------------------------------+
+| STEPNAME     | PROGRAM     | RC          | ELAPSED           |
+|              |             |             | HH:MM:SS:ss       |
++--------------------------------------------------------------+
+| DELVSAM      | IDCAMS      | 00          | 00:00:00:293      |
++--------------------------------------------------------------+
+| DEFVSAM      | IDCAMS      | 00          | 00:00:00:066      |
++--------------------------------------------------------------+
+| REPVSAM      | IDCAMS      | 00          | 00:00:00:646      |
++--------------------------------------------------------------+
+| VSAMOUT      | IDCAMS      | 00          | 00:00:00:237      |
++--------------------------------------------------------------+
+  
+11:59:06.578 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [printSummary] executed in 23ms
+11:59:06.591 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  161 - Job: [SimpleJob: [name=DELVSAM1]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 1s406ms
+11:59:06.601 [main] INFO  com.zaxxer.hikari.HikariDataSource.close  349 - HikariPool-1 - Shutdown initiated...
+11:59:06.606 [main] INFO  com.zaxxer.hikari.HikariDataSource.close  351 - HikariPool-1 - Shutdown completed.
+11:59:06.607 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.shutdownDatabase  220 - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'

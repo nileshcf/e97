@@ -1,0 +1,843 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 01/07/2021  Time 22:23:42   Page     1                
+0Invocation parameters:                                                                                                              
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(BIN),AWO,NUMPROC(PFD),TEST(ALL,SYM,SEPARATE)                                                        
+                                                                                                                                     
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"  
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no   
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".                                    
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler         
+                       invocation parameter took precedence.                                                                         
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(COMPAT)                                                                                                                    
+    AWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(PFD)                                                                                                                     
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 01/07/2021  Time 22:23:42   Page     2                
+0 NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+    TEST(HOOK,SEPARATE,NOEJPD)                                                                                                       
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0/* CFSORT09                                                                                                                         
+   000001         000100*                                                                                                            
+   000002         000200* THIS PROGRAM IS DESIGNED TO GENERATE IT'S OWN TEST DATA                                                    
+   000003         000300* FOR UNIT TESTING INTERNAL SORT WITH NUMERIC KEY VALUES.                                                    
+   000004         000400*                                                                                                            
+   000005         000410* IT WILL EITHER GENERATE THE TESTDATA OUTPUT FILE OR PERFORM                                                
+   000006         000420* AN INTERNAL SORT, DEPENDING UPON THE PASSED PARAMETER.                                                     
+   000007         000430*                                                                                                            
+   000008         000500 IDENTIFICATION DIVISION.                                         00010000                                   
+   000009         000600 PROGRAM-ID. CFSORT09.                                            00020001                                   
+   000010         000700                                                                  00030000                                   
+   000011         000800 ENVIRONMENT DIVISION.                                            00040000                                   
+   000012         000900    INPUT-OUTPUT SECTION.                                         00050000                                   
+   000013         001000    FILE-CONTROL.                                                 00060000                                   
+   000014         001110       SELECT DISPLAY-FILE                                                 46                                
+   000015         001120              ASSIGN OUTFILE                                                                                 
+   000016         001130              STATUS WS-DISPLAY-FILE-STATUS.                               85                                
+   000017         001140*                                                                                                            
+   000018         001150       SELECT TESTDATA-FILE                                                50                                
+   000019         001160              ASSIGN TESTDATA.                                                                               
+   000020         001170*                                                                                                            
+   000021         001171       SELECT SORTWORK-FILE                                                31                                
+   000022         001172              ASSIGN SORTWORK.                                                                               
+   000023         001180*                                                                                                            
+   000024         001300 DATA DIVISION.                                                   00110000                                   
+   000025         001400 FILE SECTION.                                                    00120000                                   
+   000026         001500*                                                                                                            
+   000027         001600*    BINARY, COMP, COMP-4, COMP-5 ARE BASICALLY THE SAME                                                     
+   000028         001700*    DATATYPE, SO THE CODE BELOW IS REALLY TO ASSURE ALL                                                     
+   000029         001800*    RESERVED WORDS ARE HANDLED                                                                              
+   000030         001900*                                                                                                            
+   000031         002000 SD  SORTWORK-FILE                                                                                           
+   000032         002010     DATA RECORD IS SORTWORK-RECORD.                                       *                                 
+   000033         002100 01  SORTWORK-RECORD.                                                      BLF=00000+000         0CL59       
+   000034         002101     05  SORTWORK-KEY-ZONE-DEC      PIC S9(18).                            BLF=00000+000,0000000 18C         
+   000035         002102     05  SORTWORK-KEY-SEP-1         PIC X(03).                             BLF=00000+012,0000012 3C          
+   000036         002103     05  SORTWORK-KEY-COMP-3        PIC S9(18) COMP-3.                     BLF=00000+015,0000015 10P         
+   000037         002104     05  SORTWORK-KEY-SEP-2         PIC X(03).                             BLF=00000+01F,000001F 3C          
+   000038         002105     05  SORTWORK-KEY-BINARY        PIC S9(09) BINARY.                     BLF=00000+022,0000022 4C          
+   000039         002106     05  SORTWORK-KEY-SEP-3         PIC X(03).                             BLF=00000+026,0000026 3C          
+   000040         002107     05  SORTWORK-KEY-COMP          PIC S9(09) COMP.                       BLF=00000+029,0000029 4C          
+   000041         002108     05  SORTWORK-KEY-SEP-4         PIC X(03).                             BLF=00000+02D,000002D 3C          
+   000042         002109     05  SORTWORK-KEY-COMP-4        PIC S9(09) COMP-4.                     BLF=00000+030,0000030 4C          
+   000043         002110     05  SORTWORK-KEY-SEP-5         PIC X(03).                             BLF=00000+034,0000034 3C          
+   000044         002111     05  SORTWORK-KEY-COMP-5        PIC S9(09) COMP-5.                     BLF=00000+037,0000037 4C          
+   000045         003300*                                                                                                            
+   000046         003316 FD  DISPLAY-FILE.                                                                                           
+                                                                                                                                     
+ ==000046==> IGYGR1216-I A "RECORDING MODE" of "F" was assumed for file "DISPLAY-FILE".                                              
+                                                                                                                                     
+   000047         003317 01  DISPLAY-RECORD.                                                       BLF=00001+000         0CL133      
+   000048         003318     05  DISPLAY-STR               PIC X(133).                             BLF=00001+000,0000000 133C        
+   000049         003319*                                                                                                            
+   000050         003320 FD  TESTDATA-FILE.                                                                                          
+                                                                                                                                     
+ ==000050==> IGYGR1216-I A "RECORDING MODE" of "F" was assumed for file "TESTDATA-FILE".                                             
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000051         003321 01  TESTDATA-RECORD.                                                      BLF=00002+000         0CL59       
+   000052         003322     05 TESTDATA-KEY-ZONE-DEC      PIC S9(18).                             BLF=00002+000,0000000 18C         
+   000053         003323     05 TESTDATA-KEY-SEP-1         PIC X(03).                              BLF=00002+012,0000012 3C          
+   000054         003324     05 TESTDATA-KEY-COMP-3        PIC S9(18) COMP-3.                      BLF=00002+015,0000015 10P         
+   000055         003325     05 TESTDATA-KEY-SEP-2         PIC X(03).                              BLF=00002+01F,000001F 3C          
+   000056         003326     05 TESTDATA-KEY-BINARY        PIC S9(09) BINARY.                      BLF=00002+022,0000022 4C          
+   000057         003327     05 TESTDATA-KEY-SEP-3         PIC X(03).                              BLF=00002+026,0000026 3C          
+   000058         003328     05 TESTDATA-KEY-COMP          PIC S9(09) COMP.                        BLF=00002+029,0000029 4C          
+   000059         003329     05 TESTDATA-KEY-SEP-4         PIC X(03).                              BLF=00002+02D,000002D 3C          
+   000060         003330     05 TESTDATA-KEY-COMP-4        PIC S9(09) COMP-4.                      BLF=00002+030,0000030 4C          
+   000061         003331     05 TESTDATA-KEY-SEP-5         PIC X(03).                              BLF=00002+034,0000034 3C          
+   000062         003332     05 TESTDATA-KEY-COMP-5        PIC S9(09) COMP-5.                      BLF=00002+037,0000037 4C          
+   000063         003340*                                                                                                            
+   000064         003400 WORKING-STORAGE SECTION.                                                                                    
+   000065         003500*                                                                                                            
+   000066         003510 01  W-SORTDATA-RECORD.                                                    BLW=00000+000         0CL59       
+   000067         003520     05 W-SORTDATA-KEY-ZONE-DEC     PIC S9(18).                            BLW=00000+000,0000000 18C         
+   000068         003530     05 W-SORTDATA-KEY-SEP-1        PIC X(03).                             BLW=00000+012,0000012 3C          
+   000069         003540     05 W-SORTDATA-KEY-COMP-3       PIC S9(18) COMP-3.                     BLW=00000+015,0000015 10P         
+   000070         003550     05 W-SORTDATA-KEY-SEP-2        PIC X(03).                             BLW=00000+01F,000001F 3C          
+   000071         003560     05 W-SORTDATA-KEY-BINARY       PIC S9(09) BINARY.                     BLW=00000+022,0000022 4C          
+   000072         003570     05 W-SORTDATA-KEY-SEP-3        PIC X(03).                             BLW=00000+026,0000026 3C          
+   000073         003580     05 W-SORTDATA-KEY-COMP         PIC S9(09) COMP.                       BLW=00000+029,0000029 4C          
+   000074         003590     05 W-SORTDATA-KEY-SEP-4        PIC X(03).                             BLW=00000+02D,000002D 3C          
+   000075         003591     05 W-SORTDATA-KEY-COMP-4       PIC S9(09) COMP-4.                     BLW=00000+030,0000030 4C          
+   000076         003592     05 W-SORTDATA-KEY-SEP-5        PIC X(03).                             BLW=00000+034,0000034 3C          
+   000077         003593     05 W-SORTDATA-KEY-COMP-5       PIC S9(09) COMP-5.                     BLW=00000+037,0000037 4C          
+   000078         003594*                                                                                                            
+   000079         003600 77 I                               PIC S9(09) COMP-5 VALUE 0.             BLW=00000+040         4C          
+   000080         003700 77 J                               PIC S9(09) COMP-5 VALUE 0.             BLW=00000+048         4C          
+   000081         003801 77 K                               PIC S9(09) COMP-5 VALUE 0.             BLW=00000+050         4C          
+   000082         003802 77 L                               PIC S9(09) COMP-5 VALUE 1.             BLW=00000+058         4C          
+   000083         003807 77 DISP-I                          PIC -9(18).                            BLW=00000+060         19C         
+   000084         003808 77 DISP-J                          PIC 9(18).                             BLW=00000+078         18C         
+   000085         003810 77 WS-DISPLAY-FILE-STATUS          PIC X(02).                             BLW=00000+090         2C          
+   000086         003830 77 WS-TESTDATA-FILE-SW             PIC X(01) VALUE 'N'.                   BLW=00000+098         1C          
+   000087         003840    88 WS-TESTDATA-FILE-OPEN                  VALUE 'Y'.                                                     
+   000088         003900*                                                                                                            
+   000089         004000 LINKAGE SECTION.                                                                                            
+   000090         004100*                                                                                                            
+   000091         004200 01  L-PARM-G.                                                             BLL=00001+000         0CL10       
+   000092         004300     05 L-PARM-LEN                  PIC S9(04) COMP.                       BLL=00001+000,0000000 2C          
+   000093         004400     05 L-PARM-SORT-KEY             PIC X(08).                             BLL=00001+002,0000002 8C          
+   000094         004600        88 L-PARM-SORT-BINARY                  VALUE 'BINARY'.                                               
+   000095         004700        88 L-PARM-SORT-COMP                    VALUE 'COMP'.                                                 
+   000096         004800        88 L-PARM-SORT-COMP-1                  VALUE 'COMP-1'.                                               
+   000097         004900        88 L-PARM-SORT-COMP-2                  VALUE 'COMP-2'.                                               
+   000098         005000        88 L-PARM-SORT-COMP-3                  VALUE 'COMP-3'.                                               
+   000099         005100        88 L-PARM-SORT-COMP-4                  VALUE 'COMP-4'.                                               
+   000100         005200        88 L-PARM-SORT-COMP-5                  VALUE 'COMP-5'.                                               
+   000101         005300        88 L-PARM-SORT-ZONE-DECIMAL            VALUE 'ZONE-DEC'.                                             
+   000102         005400*                                                                                                            
+   000103         005410 PROCEDURE DIVISION USING L-PARM-G.                                        91                                
+   000104         005500*                                                                                                            
+   000105         005600 0000-MAINLINE.                                                                                              
+   000106         005700                                                                                                             
+   000107         005710      OPEN OUTPUT DISPLAY-FILE                                             46                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000108         005720      IF NOT (WS-DISPLAY-FILE-STATUS = '00')                               85                                
+   000109      1  005730         DISPLAY 'OPEN DISPLAY-FILE ERROR ' WS-DISPLAY-FILE-STATUS         85                                
+   000110      1  005740         GOBACK                                                                                              
+   000111         005760      END-IF                                                                                                 
+   000112         005770*                                                                                                            
+   000113         005800      MOVE    'PROGRAM CFSORT09 HAS BEGUN' TO DISPLAY-RECORD               47                                
+   000114         005810      WRITE DISPLAY-RECORD                                                 47                                
+   000115         005820*                                                                                                            
+   000116         005830      MOVE SPACES TO DISPLAY-RECORD                                        IMP 47                            
+   000117         005840      WRITE DISPLAY-RECORD                                                 47                                
+   000118         005910                                                                                                             
+   000119         006000      MOVE ZERO            TO RETURN-CODE                                  IMP IMP                           
+   000120         006100                                                                                                             
+   000121         006200      PERFORM 0010-INIT                                                    183                               
+   000122         006300         THRU 0010-INIT-X                                                  293                               
+   000123         006400                                                                                                             
+   000124         006500      EVALUATE TRUE                                                                                          
+   000125         006600                                                                                                             
+   000126         007110          WHEN L-PARM-SORT-BINARY                                          94                                
+   000127      1  007120               SORT SORTWORK-FILE                                          31                                
+                                                                                                                                     
+ ==000127==> IGYPG3134-I File "TESTDATA-FILE" in the "USING" phrase of the "SORT" statement would                                    
+                         have been eligible for the "FASTSRT" compiler option.                                                       
+                                                                                                                                     
+   000128      1  007122                    ON ASCENDING KEY SORTWORK-KEY-BINARY                   38                                
+   000129      1  007123                    USING TESTDATA-FILE                                    50                                
+   000130      1  007150                    OUTPUT PROCEDURE IS 2000-RETURN-RECORDS                297                               
+   000131         007160                                                                                                             
+   000132         007200          WHEN L-PARM-SORT-COMP                                            95                                
+   000133      1  007300               SORT SORTWORK-FILE                                          31                                
+                                                                                                                                     
+ ==000133==> IGYPG3134-I File "TESTDATA-FILE" in the "USING" phrase of the "SORT" statement would                                    
+                         have been eligible for the "FASTSRT" compiler option.                                                       
+                                                                                                                                     
+   000134      1  007400                    ON ASCENDING KEY SORTWORK-KEY-COMP                     40                                
+   000135      1  007500                    USING TESTDATA-FILE                                    50                                
+   000136      1  007600                    OUTPUT PROCEDURE IS 2000-RETURN-RECORDS                297                               
+   000137         007700                                                                                                             
+   000138         007800          WHEN L-PARM-SORT-COMP-4                                          99                                
+   000139      1  007900               SORT SORTWORK-FILE                                          31                                
+                                                                                                                                     
+ ==000139==> IGYPG3134-I File "TESTDATA-FILE" in the "USING" phrase of the "SORT" statement would                                    
+                         have been eligible for the "FASTSRT" compiler option.                                                       
+                                                                                                                                     
+   000140      1  008000                    ON ASCENDING KEY SORTWORK-KEY-COMP-4                   42                                
+   000141      1  008100                    USING TESTDATA-FILE                                    50                                
+   000142      1  008200                    OUTPUT PROCEDURE IS 2000-RETURN-RECORDS                297                               
+   000143         008300                                                                                                             
+   000144         008400          WHEN L-PARM-SORT-COMP-5                                          100                               
+   000145      1  008500               SORT SORTWORK-FILE                                          31                                
+                                                                                                                                     
+ ==000145==> IGYPG3134-I File "TESTDATA-FILE" in the "USING" phrase of the "SORT" statement would                                    
+                         have been eligible for the "FASTSRT" compiler option.                                                       
+                                                                                                                                     
+   000146      1  008600                    ON ASCENDING KEY SORTWORK-KEY-COMP-5                   44                                
+   000147      1  008700                    USING TESTDATA-FILE                                    50                                
+   000148      1  008800                    OUTPUT PROCEDURE IS 2000-RETURN-RECORDS                297                               
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000149         008900                                                                                                             
+   000150         009000          WHEN L-PARM-SORT-COMP-3                                          98                                
+   000151      1  009100               SORT SORTWORK-FILE                                          31                                
+                                                                                                                                     
+ ==000151==> IGYPG3134-I File "TESTDATA-FILE" in the "USING" phrase of the "SORT" statement would                                    
+                         have been eligible for the "FASTSRT" compiler option.                                                       
+                                                                                                                                     
+   000152      1  009200                    ON ASCENDING KEY SORTWORK-KEY-COMP-3                   36                                
+   000153      1  009300                    USING TESTDATA-FILE                                    50                                
+   000154      1  009400                    OUTPUT PROCEDURE IS 2000-RETURN-RECORDS                297                               
+   000155         009500                                                                                                             
+   000156         009600          WHEN L-PARM-SORT-ZONE-DECIMAL                                    101                               
+   000157      1  009700               SORT SORTWORK-FILE                                          31                                
+                                                                                                                                     
+ ==000157==> IGYPG3134-I File "TESTDATA-FILE" in the "USING" phrase of the "SORT" statement would                                    
+                         have been eligible for the "FASTSRT" compiler option.                                                       
+                                                                                                                                     
+   000158      1  009800                    ON ASCENDING KEY SORTWORK-KEY-ZONE-DEC                 34                                
+   000159      1  009900                    USING TESTDATA-FILE                                    50                                
+   000160      1  010000                    OUTPUT PROCEDURE IS 2000-RETURN-RECORDS                297                               
+   000161         010100                                                                                                             
+   000162         010200          WHEN OTHER                                                                                         
+   000163      1  010300               MOVE    'UNEXPECTED ERROR, TERMINATING'                                                       
+   000164      1  010301                 TO DISPLAY-RECORD                                         47                                
+   000165      1  010310               WRITE DISPLAY-RECORD                                        47                                
+   000166      1  010320               MOVE SPACES TO DISPLAY-RECORD                               IMP 47                            
+   000167      1  010330               WRITE DISPLAY-RECORD                                        47                                
+   000168      1  010500               MOVE 16           TO RETURN-CODE                            IMP                               
+   000169      1  010600               GOBACK                                                                                        
+   000170         010700                                                                                                             
+   000171         010800      END-EVALUATE                                                                                           
+   000172         010900                                                                                                             
+   000173         010902      MOVE SPACES TO DISPLAY-RECORD                                        IMP 47                            
+   000174         010903      WRITE DISPLAY-RECORD                                                 47                                
+   000175         010910      MOVE    'PROGRAM CFSORT09 NORMAL END'                                                                  
+   000176         010920       TO DISPLAY-RECORD                                                   47                                
+   000177         010921      WRITE DISPLAY-RECORD                                                 47                                
+   000178         010930                                                                                                             
+   000179         010940      CLOSE DISPLAY-FILE                                                   46                                
+   000180         010950                                                                                                             
+   000181         011000      STOP RUN.                                                                                              
+   000182         011200*                                                                                                            
+   000183         011300 0010-INIT.                                                                                                  
+   000184         011400*                                                                                                            
+   000185         011500      IF L-PARM-LEN < LENGTH OF L-PARM-G                                   92 IMP 91                         
+   000186      1  011520         MOVE SPACES TO DISPLAY-RECORD                                     IMP 47                            
+   000187      1  011600         STRING  'INVALID OR MISSING PARAMETER PASSED, VALID '                                               
+   000188      1  011700                 'VALUES ARE: BINARY, COMP, COMP-3, COMP-4, '                                                
+   000189      1  011800                 'COMP-5, ZONE-DEC.'                                                                         
+   000190      1  011801                 DELIMITED BY SIZE                                                                           
+   000191      1  011802           INTO DISPLAY-RECORD                                             47                                
+   000192      1  011803         END-STRING                                                                                          
+   000193      1  011810         WRITE DISPLAY-RECORD                                              47                                
+   000194      1  011820         MOVE SPACES TO DISPLAY-RECORD                                     IMP 47                            
+   000195      1  011830         WRITE DISPLAY-RECORD                                              47                                
+   000196      1  012000         MOVE 16           TO RETURN-CODE                                  IMP                               
+   000197      1  012100         GOBACK                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000198         012200      END-IF                                                                                                 
+   000199         012300                                                                                                             
+   000200         012310      MOVE SPACES TO DISPLAY-RECORD                                        IMP 47                            
+   000201         012400      STRING  'SORT RECORD BYTES WILL BE DISPLAYED AS FOLLOWS'                                               
+   000202         012500              ' IN BINARY FORM'                                                                              
+   000203         012501                 DELIMITED BY SIZE                                                                           
+   000204         012502        INTO DISPLAY-RECORD                                                47                                
+   000205         012503      END-STRING                                                                                             
+   000206         012504      WRITE DISPLAY-RECORD                                                 47                                
+   000207         012600      MOVE    '111111111 | 22222 | 3333 | 4444 | 5555 | 6666'                                                
+   000208         012620        TO DISPLAY-RECORD                                                  47                                
+   000209         012630      WRITE DISPLAY-RECORD                                                 47                                
+   000210         012700      MOVE '1. ZONE-DECIMAL' TO DISPLAY-RECORD                             47                                
+   000211         012710      WRITE DISPLAY-RECORD                                                 47                                
+   000212         012800      MOVE '2. COMP-3' TO DISPLAY-RECORD                                   47                                
+   000213         012810      WRITE DISPLAY-RECORD                                                 47                                
+   000214         012900      MOVE '3. BINARY' TO DISPLAY-RECORD                                   47                                
+   000215         012910      WRITE DISPLAY-RECORD                                                 47                                
+   000216         013000      MOVE '4. COMP  ' TO DISPLAY-RECORD                                   47                                
+   000217         013010      WRITE DISPLAY-RECORD                                                 47                                
+   000218         013100      MOVE '5. COMP-4' TO DISPLAY-RECORD                                   47                                
+   000219         013110      WRITE DISPLAY-RECORD                                                 47                                
+   000220         013200      MOVE '6. COMP-5' TO DISPLAY-RECORD                                   47                                
+   000221         013210      WRITE DISPLAY-RECORD                                                 47                                
+   000222         013300      MOVE ' ' TO DISPLAY-RECORD                                           47                                
+   000223         013310      WRITE DISPLAY-RECORD                                                 47                                
+   000224         013400                                                                                                             
+   000225         013500      EVALUATE TRUE                                                                                          
+   000226         013637                                                                                                             
+   000227         013640          WHEN L-PARM-SORT-BINARY                                          94                                
+   000228      1  013650               MOVE 'USING BINARY SORT KEY'                                                                  
+   000229      1  013660                 TO DISPLAY-RECORD                                         47                                
+   000230      1  013670               WRITE DISPLAY-RECORD                                        47                                
+   000231      1  013680               MOVE ' '                                                                                      
+   000232      1  013690                 TO DISPLAY-RECORD                                         47                                
+   000233      1  013691               WRITE DISPLAY-RECORD                                        47                                
+   000234         013692                                                                                                             
+   000235         013700          WHEN L-PARM-SORT-COMP                                            95                                
+   000236      1  013710               MOVE 'USING COMP SORT KEY'                                                                    
+   000237      1  013711                 TO DISPLAY-RECORD                                         47                                
+   000238      1  013712               WRITE DISPLAY-RECORD                                        47                                
+   000239      1  013720               MOVE  ' '                                                                                     
+   000240      1  013721                 TO DISPLAY-RECORD                                         47                                
+   000241      1  013722               WRITE DISPLAY-RECORD                                        47                                
+   000242         013730                                                                                                             
+   000243         013800          WHEN L-PARM-SORT-COMP-4                                          99                                
+   000244      1  013810               MOVE 'USING COMP-4 SORT KEY'                                                                  
+   000245      1  013811                 TO DISPLAY-RECORD                                         47                                
+   000246      1  013812               WRITE DISPLAY-RECORD                                        47                                
+   000247      1  013820               MOVE  ' '                                                                                     
+   000248      1  013821                 TO DISPLAY-RECORD                                         47                                
+   000249      1  013822               WRITE DISPLAY-RECORD                                        47                                
+   000250         013830                                                                                                             
+   000251         013900          WHEN L-PARM-SORT-COMP-5                                          100                               
+   000252      1  014000               MOVE 'USING COMP-5 SORT KEY'                                                                  
+   000253      1  014001                 TO DISPLAY-RECORD                                         47                                
+   000254      1  014010               WRITE DISPLAY-RECORD                                        47                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page     8                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000255      1  014020               MOVE  ' '                                                                                     
+   000256      1  014030                 TO DISPLAY-RECORD                                         47                                
+   000257      1  014110               WRITE DISPLAY-RECORD                                        47                                
+   000258         014200                                                                                                             
+   000259         014300          WHEN L-PARM-SORT-COMP-3                                          98                                
+   000260      1  014400               MOVE 'USING PACKED-DECIMAL SORT KEY'                                                          
+   000261      1  014401                 TO DISPLAY-RECORD                                         47                                
+   000262      1  014410               WRITE DISPLAY-RECORD                                        47                                
+   000263      1  014420               MOVE  ' '                                                                                     
+   000264      1  014430                 TO DISPLAY-RECORD                                         47                                
+   000265      1  014440               WRITE DISPLAY-RECORD                                        47                                
+   000266         014600                                                                                                             
+   000267         014700          WHEN L-PARM-SORT-ZONE-DECIMAL                                    101                               
+   000268      1  014800               MOVE 'USING ZONE-DECIMAL SORT KEY'                                                            
+   000269      1  014801                 TO DISPLAY-RECORD                                         47                                
+   000270      1  014802               WRITE DISPLAY-RECORD                                        47                                
+   000271      1  014803               MOVE  ' '                                                                                     
+   000272      1  014804                 TO DISPLAY-RECORD                                         47                                
+   000273      1  014805               WRITE DISPLAY-RECORD                                        47                                
+   000274         015000                                                                                                             
+   000275         015100          WHEN OTHER                                                                                         
+   000276      1  015110               MOVE SPACES TO DISPLAY-RECORD                               IMP 47                            
+   000277      1  015200               STRING  'INVALID OR MISSING PARAMETER PASSED,'                                                
+   000278      1  015300                     ' VALID VALUES ARE: BINARY, COMP, COMP-3, '                                             
+   000279      1  015400                     'COMP-4, COMP-5, ZONE-DEC.'                                                             
+   000280      1  015401                 DELIMITED BY SIZE                                                                           
+   000281      1  015402                 INTO DISPLAY-RECORD                                       47                                
+   000282      1  015403               END-STRING                                                                                    
+   000283      1  015404               WRITE DISPLAY-RECORD                                        47                                
+   000284      1  015420               MOVE  ' '                                                                                     
+   000285      1  015430                 TO DISPLAY-RECORD                                         47                                
+   000286      1  015440               WRITE DISPLAY-RECORD                                        47                                
+   000287      1  015600               MOVE 16           TO RETURN-CODE                            IMP                               
+   000288      1  015700               GOBACK                                                                                        
+   000289         015800                                                                                                             
+   000290         015900      END-EVALUATE                                                                                           
+   000291         016000      .                                                                                                      
+   000292         016100*                                                                                                            
+   000293         016200 0010-INIT-X.                                                                                                
+   000294         016300      EXIT.                                                                                                  
+   000295         016400*                                                                                                            
+   000296         020210*                                                                                                            
+   000297         020300 2000-RETURN-RECORDS.                                                                                        
+   000298         020400*                                                                                                            
+   000299         020500      MOVE 1            TO I                                               79                                
+   000300         020600                                                                                                             
+   000301         020700      PERFORM VARYING J FROM 0 BY 1                                        80                                
+   000302         020800        UNTIL I = -1                                                       79                                
+   000303         020900                                                                                                             
+   000304      1  021000          RETURN SORTWORK-FILE RECORD INTO W-SORTDATA-RECORD               31 66                             
+   000305      1  021100              AT END                                                                                         
+   000306      2  021200                 MOVE -1 TO I                                              79                                
+   000307      1  021300          END-RETURN                                                                                         
+   000308         021310                                                                                                             
+   000309      1  021312          MOVE J                   TO DISP-J                               80 84                             
+   000310      1  021313          MOVE W-SORTDATA-KEY-ZONE-DEC                                     67                                
+   000311      1  021314            TO DISP-I                                                      83                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page     9                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000312         021315                                                                                                             
+   000313      1  021316          STRING   'RETURNED REC: ' DISP-J ' | '                           84                                
+   000314      1  021317                   'VALUE IS: '     DISP-I ' | '                           83                                
+   000315      1  021318              W-SORTDATA-RECORD                                            66                                
+   000316      1  021319              DELIMITED BY SIZE                                                                              
+   000317      1  021320              INTO DISPLAY-RECORD                                          47                                
+   000318      1  021321          END-STRING                                                                                         
+   000319         021322                                                                                                             
+   000320      1  021360         WRITE DISPLAY-RECORD                                              47                                
+   000321         021500                                                                                                             
+   000322         021600      END-PERFORM                                                                                            
+   000323         021700      .                                                                                                      
+ */ CFSORT09                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page    10                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       83   DISP-I . . . . . . . . . . . .  M311 314                                                                                 
+       84   DISP-J . . . . . . . . . . . .  M309 313                                                                                 
+       46   DISPLAY-FILE . . . . . . . . .  14 107 179                                                                               
+       47   DISPLAY-RECORD . . . . . . . .  M113 114 M116 117 M164 165 M166 167 M173 174 M176 177 M186 M191 193 M194 195             
+                                            M200 M204 206 M208 209 M210 211 M212 213 M214 215 M216 217 M218 219 M220 221             
+                                            M222 223 M229 230 M232 233 M237 238 M240 241 M245 246 M248 249 M253 254 M256             
+                                            257 M261 262 M264 265 M269 270 M272 273 M276 M281 283 M285 286 M317 320                  
+       48   DISPLAY-STR                                                                                                              
+       79   I. . . . . . . . . . . . . . .  M299 302 M306                                                                            
+       80   J. . . . . . . . . . . . . . .  M301 309                                                                                 
+       81   K                                                                                                                        
+       82   L                                                                                                                        
+       91   L-PARM-G . . . . . . . . . . .  103 185                                                                                  
+       92   L-PARM-LEN . . . . . . . . . .  185                                                                                      
+       94   L-PARM-SORT-BINARY . . . . . .  126 227                                                                                  
+       95   L-PARM-SORT-COMP . . . . . . .  132 235                                                                                  
+       96   L-PARM-SORT-COMP-1                                                                                                       
+       97   L-PARM-SORT-COMP-2                                                                                                       
+       98   L-PARM-SORT-COMP-3 . . . . . .  150 259                                                                                  
+       99   L-PARM-SORT-COMP-4 . . . . . .  138 243                                                                                  
+      100   L-PARM-SORT-COMP-5 . . . . . .  144 251                                                                                  
+       93   L-PARM-SORT-KEY                                                                                                          
+      101   L-PARM-SORT-ZONE-DECIMAL . . .  156 267                                                                                  
+        0   RETURN-CODE. . . . . . . . . .  M119 M168 M196 M287                                                                      
+       31   SORTWORK-FILE. . . . . . . . .  21 127 133 139 145 151 157 304                                                           
+       38   SORTWORK-KEY-BINARY. . . . . .  128                                                                                      
+       40   SORTWORK-KEY-COMP. . . . . . .  134                                                                                      
+       36   SORTWORK-KEY-COMP-3. . . . . .  152                                                                                      
+       42   SORTWORK-KEY-COMP-4. . . . . .  140                                                                                      
+       44   SORTWORK-KEY-COMP-5. . . . . .  146                                                                                      
+       35   SORTWORK-KEY-SEP-1                                                                                                       
+       37   SORTWORK-KEY-SEP-2                                                                                                       
+       39   SORTWORK-KEY-SEP-3                                                                                                       
+       41   SORTWORK-KEY-SEP-4                                                                                                       
+       43   SORTWORK-KEY-SEP-5                                                                                                       
+       34   SORTWORK-KEY-ZONE-DEC. . . . .  158                                                                                      
+       33   SORTWORK-RECORD                                                                                                          
+       50   TESTDATA-FILE. . . . . . . . .  18 129 135 141 147 153 159                                                               
+       56   TESTDATA-KEY-BINARY                                                                                                      
+       58   TESTDATA-KEY-COMP                                                                                                        
+       54   TESTDATA-KEY-COMP-3                                                                                                      
+       60   TESTDATA-KEY-COMP-4                                                                                                      
+       62   TESTDATA-KEY-COMP-5                                                                                                      
+       53   TESTDATA-KEY-SEP-1                                                                                                       
+       55   TESTDATA-KEY-SEP-2                                                                                                       
+       57   TESTDATA-KEY-SEP-3                                                                                                       
+       59   TESTDATA-KEY-SEP-4                                                                                                       
+       61   TESTDATA-KEY-SEP-5                                                                                                       
+       52   TESTDATA-KEY-ZONE-DEC                                                                                                    
+       51   TESTDATA-RECORD                                                                                                          
+       71   W-SORTDATA-KEY-BINARY                                                                                                    
+       73   W-SORTDATA-KEY-COMP                                                                                                      
+       69   W-SORTDATA-KEY-COMP-3                                                                                                    
+       75   W-SORTDATA-KEY-COMP-4                                                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page    11                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0      77   W-SORTDATA-KEY-COMP-5                                                                                                    
+       68   W-SORTDATA-KEY-SEP-1                                                                                                     
+       70   W-SORTDATA-KEY-SEP-2                                                                                                     
+       72   W-SORTDATA-KEY-SEP-3                                                                                                     
+       74   W-SORTDATA-KEY-SEP-4                                                                                                     
+       76   W-SORTDATA-KEY-SEP-5                                                                                                     
+       67   W-SORTDATA-KEY-ZONE-DEC. . . .  310                                                                                      
+       66   W-SORTDATA-RECORD. . . . . . .  M304 315                                                                                 
+       85   WS-DISPLAY-FILE-STATUS . . . .  16 108 109                                                                               
+       87   WS-TESTDATA-FILE-OPEN                                                                                                    
+       86   WS-TESTDATA-FILE-SW                                                                                                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page    12                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      105   0000-MAINLINE                                                                                                            
+      183   0010-INIT. . . . . . . . . . .  P121                                                                                     
+      293   0010-INIT-X. . . . . . . . . .  E122                                                                                     
+      297   2000-RETURN-RECORDS. . . . . .  P130 P136 P142 P148 P154 P160                                                            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page    13                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        9   CFSORT09                                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page    14                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      9  PROGRAM-ID CFSORT09----------------------------------------------------------------------------------------------------*    
+     31   SD SORTWORK-FILE . . . . . . . . . . . . . . . .                                              SORT           F             
+     33   1  SORTWORK-RECORD . . . . . . . . . . . . . . . BLF=00000  000               DS 0CL59        Group                        
+     34     2  SORTWORK-KEY-ZONE-DEC . . . . . . . . . . . BLF=00000  000   0 000 000   DS 18C          Disp-Num                     
+     35     2  SORTWORK-KEY-SEP-1. . . . . . . . . . . . . BLF=00000  012   0 000 012   DS 3C           Display                      
+     36     2  SORTWORK-KEY-COMP-3 . . . . . . . . . . . . BLF=00000  015   0 000 015   DS 10P          Packed-Dec                   
+     37     2  SORTWORK-KEY-SEP-2. . . . . . . . . . . . . BLF=00000  01F   0 000 01F   DS 3C           Display                      
+     38     2  SORTWORK-KEY-BINARY . . . . . . . . . . . . BLF=00000  022   0 000 022   DS 4C           Binary                       
+     39     2  SORTWORK-KEY-SEP-3. . . . . . . . . . . . . BLF=00000  026   0 000 026   DS 3C           Display                      
+     40     2  SORTWORK-KEY-COMP . . . . . . . . . . . . . BLF=00000  029   0 000 029   DS 4C           Binary                       
+     41     2  SORTWORK-KEY-SEP-4. . . . . . . . . . . . . BLF=00000  02D   0 000 02D   DS 3C           Display                      
+     42     2  SORTWORK-KEY-COMP-4 . . . . . . . . . . . . BLF=00000  030   0 000 030   DS 4C           Binary                       
+     43     2  SORTWORK-KEY-SEP-5. . . . . . . . . . . . . BLF=00000  034   0 000 034   DS 3C           Display                      
+     44     2  SORTWORK-KEY-COMP-5 . . . . . . . . . . . . BLF=00000  037   0 000 037   DS 4C           Binary                       
+     46   FD DISPLAY-FILE. . . . . . . . . . . . . . . . .                                              QSAM           F             
+     47   1  DISPLAY-RECORD. . . . . . . . . . . . . . . . BLF=00001  000               DS 0CL133       Group                        
+     48     2  DISPLAY-STR . . . . . . . . . . . . . . . . BLF=00001  000   0 000 000   DS 133C         Display                      
+     50   FD TESTDATA-FILE . . . . . . . . . . . . . . . .                                              QSAM           F             
+     51   1  TESTDATA-RECORD . . . . . . . . . . . . . . . BLF=00002  000               DS 0CL59        Group                        
+     52     2  TESTDATA-KEY-ZONE-DEC . . . . . . . . . . . BLF=00002  000   0 000 000   DS 18C          Disp-Num                     
+     53     2  TESTDATA-KEY-SEP-1. . . . . . . . . . . . . BLF=00002  012   0 000 012   DS 3C           Display                      
+     54     2  TESTDATA-KEY-COMP-3 . . . . . . . . . . . . BLF=00002  015   0 000 015   DS 10P          Packed-Dec                   
+     55     2  TESTDATA-KEY-SEP-2. . . . . . . . . . . . . BLF=00002  01F   0 000 01F   DS 3C           Display                      
+     56     2  TESTDATA-KEY-BINARY . . . . . . . . . . . . BLF=00002  022   0 000 022   DS 4C           Binary                       
+     57     2  TESTDATA-KEY-SEP-3. . . . . . . . . . . . . BLF=00002  026   0 000 026   DS 3C           Display                      
+     58     2  TESTDATA-KEY-COMP . . . . . . . . . . . . . BLF=00002  029   0 000 029   DS 4C           Binary                       
+     59     2  TESTDATA-KEY-SEP-4. . . . . . . . . . . . . BLF=00002  02D   0 000 02D   DS 3C           Display                      
+     60     2  TESTDATA-KEY-COMP-4 . . . . . . . . . . . . BLF=00002  030   0 000 030   DS 4C           Binary                       
+     61     2  TESTDATA-KEY-SEP-5. . . . . . . . . . . . . BLF=00002  034   0 000 034   DS 3C           Display                      
+     62     2  TESTDATA-KEY-COMP-5 . . . . . . . . . . . . BLF=00002  037   0 000 037   DS 4C           Binary                       
+     66   1  W-SORTDATA-RECORD . . . . . . . . . . . . . . BLW=00000  000               DS 0CL59        Group                        
+     67     2  W-SORTDATA-KEY-ZONE-DEC . . . . . . . . . . BLW=00000  000   0 000 000   DS 18C          Disp-Num                     
+     68     2  W-SORTDATA-KEY-SEP-1. . . . . . . . . . . . BLW=00000  012   0 000 012   DS 3C           Display                      
+     69     2  W-SORTDATA-KEY-COMP-3 . . . . . . . . . . . BLW=00000  015   0 000 015   DS 10P          Packed-Dec                   
+     70     2  W-SORTDATA-KEY-SEP-2. . . . . . . . . . . . BLW=00000  01F   0 000 01F   DS 3C           Display                      
+     71     2  W-SORTDATA-KEY-BINARY . . . . . . . . . . . BLW=00000  022   0 000 022   DS 4C           Binary                       
+     72     2  W-SORTDATA-KEY-SEP-3. . . . . . . . . . . . BLW=00000  026   0 000 026   DS 3C           Display                      
+     73     2  W-SORTDATA-KEY-COMP . . . . . . . . . . . . BLW=00000  029   0 000 029   DS 4C           Binary                       
+     74     2  W-SORTDATA-KEY-SEP-4. . . . . . . . . . . . BLW=00000  02D   0 000 02D   DS 3C           Display                      
+     75     2  W-SORTDATA-KEY-COMP-4 . . . . . . . . . . . BLW=00000  030   0 000 030   DS 4C           Binary                       
+     76     2  W-SORTDATA-KEY-SEP-5. . . . . . . . . . . . BLW=00000  034   0 000 034   DS 3C           Display                      
+     77     2  W-SORTDATA-KEY-COMP-5 . . . . . . . . . . . BLW=00000  037   0 000 037   DS 4C           Binary                       
+     79   77 I . . . . . . . . . . . . . . . . . . . . . . BLW=00000  040               DS 4C           Binary                       
+     80   77 J . . . . . . . . . . . . . . . . . . . . . . BLW=00000  048               DS 4C           Binary                       
+     81   77 K . . . . . . . . . . . . . . . . . . . . . . BLW=00000  050               DS 4C           Binary                       
+     82   77 L . . . . . . . . . . . . . . . . . . . . . . BLW=00000  058               DS 4C           Binary                       
+     83   77 DISP-I. . . . . . . . . . . . . . . . . . . . BLW=00000  060               DS 19C          Disp-Num-Edit                
+     84   77 DISP-J. . . . . . . . . . . . . . . . . . . . BLW=00000  078               DS 18C          Disp-Num                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page    15                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+     85   77 WS-DISPLAY-FILE-STATUS. . . . . . . . . . . . BLW=00000  090               DS 2C           Display                      
+     86   77 WS-TESTDATA-FILE-SW . . . . . . . . . . . . . BLW=00000  098               DS 1C           Display                      
+     87   88 WS-TESTDATA-FILE-OPEN . . . . . . . . . . . .                                                                           
+     91   1  L-PARM-G. . . . . . . . . . . . . . . . . . . BLL=00001  000               DS 0CL10        Group                        
+     92     2  L-PARM-LEN. . . . . . . . . . . . . . . . . BLL=00001  000   0 000 000   DS 2C           Binary                       
+     93     2  L-PARM-SORT-KEY . . . . . . . . . . . . . . BLL=00001  002   0 000 002   DS 8C           Display                      
+     94     88 L-PARM-SORT-BINARY. . . . . . . . . . . . .                                                                           
+     95     88 L-PARM-SORT-COMP. . . . . . . . . . . . . .                                                                           
+     96     88 L-PARM-SORT-COMP-1. . . . . . . . . . . . .                                                                           
+     97     88 L-PARM-SORT-COMP-2. . . . . . . . . . . . .                                                                           
+     98     88 L-PARM-SORT-COMP-3. . . . . . . . . . . . .                                                                           
+     99     88 L-PARM-SORT-COMP-4. . . . . . . . . . . . .                                                                           
+    100     88 L-PARM-SORT-COMP-5. . . . . . . . . . . . .                                                                           
+    101     88 L-PARM-SORT-ZONE-DECIMAL. . . . . . . . . .                                                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page    16                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000040 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000960 FOR LINE 9                                                                                               
+ PBL2    AT LOCATION 001966 FOR LINE 249                                                                                             
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      3B9ACA00 00000001 00000000 40404040 40404040 40404040 40404040 40404040  |............                    |    
+ 00011C  (LIT+32)     40404040 40404040 4040F0F0 F0F0F0F0 F0F0                                 |          00000000              |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page    17                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 00013C FOR 0006E3 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 00014C  (LIT+0)      FFFFFFFC 00001000 FFFFFFFF 0000000A 00000001 00000000 00100000 40E2D6D9  |............................ SOR|    
+ 00016C  (LIT+32)     E340C6C9 C5D3C4E2 7E4DF0F0 F0F16BF0 F0F1F86B C3E3D66B C15D40D9 C5C3D6D9  |T FIELDS=(0001,0018,CTO,A) RECOR|    
+ 00018C  (LIT+64)     C440E3E8 D7C57EC6 6BD3C5D5 C7E3C87E 4DF0F0F0 F0F5F96B 6B5D4000 0040E2D6  |D TYPE=F,LENGTH=(000059,,) .. SO|    
+ 0001AC  (LIT+96)     D9E340C6 C9C5D3C4 E27E4DF0 F0F2F26B F0F0F1F0 6BD7C46B C15D40D9 C5C3D6D9  |RT FIELDS=(0022,0010,PD,A) RECOR|    
+ 0001CC  (LIT+128)    C440E3E8 D7C57EC6 6BD3C5D5 C7E3C87E 4DF0F0F0 F0F5F96B 6B5D4000 0040E2D6  |D TYPE=F,LENGTH=(000059,,) .. SO|    
+ 0001EC  (LIT+160)    D9E340C6 C9C5D3C4 E27E4DF0 F0F5F66B F0F0F0F4 6BC6C96B C15D40D9 C5C3D6D9  |RT FIELDS=(0056,0004,FI,A) RECOR|    
+ 00020C  (LIT+192)    C440E3E8 D7C57EC6 6BD3C5D5 C7E3C87E 4DF0F0F0 F0F5F96B 6B5D4000 0040E2D6  |D TYPE=F,LENGTH=(000059,,) .. SO|    
+ 00022C  (LIT+224)    D9E340C6 C9C5D3C4 E27E4DF0 F0F4F96B F0F0F0F4 6BC6C96B C15D40D9 C5C3D6D9  |RT FIELDS=(0049,0004,FI,A) RECOR|    
+ 00024C  (LIT+256)    C440E3E8 D7C57EC6 6BD3C5D5 C7E3C87E 4DF0F0F0 F0F5F96B 6B5D4000 0040E2D6  |D TYPE=F,LENGTH=(000059,,) .. SO|    
+ 00026C  (LIT+288)    D9E340C6 C9C5D3C4 E27E4DF0 F0F4F26B F0F0F0F4 6BC6C96B C15D40D9 C5C3D6D9  |RT FIELDS=(0042,0004,FI,A) RECOR|    
+ 00028C  (LIT+320)    C440E3E8 D7C57EC6 6BD3C5D5 C7E3C87E 4DF0F0F0 F0F5F96B 6B5D4000 0040E2D6  |D TYPE=F,LENGTH=(000059,,) .. SO|    
+ 0002AC  (LIT+352)    D9E340C6 C9C5D3C4 E27E4DF0 F0F3F56B F0F0F0F4 6BC6C96B C15D40D9 C5C3D6D9  |RT FIELDS=(0035,0004,FI,A) RECOR|    
+ 0002CC  (LIT+384)    C440E3E8 D7C57EC6 6BD3C5D5 C7E3C87E 4DF0F0F0 F0F5F96B 6B5D40F1 F1F1F1F1  |D TYPE=F,LENGTH=(000059,,) 11111|    
+ 0002EC  (LIT+416)    F1F1F1F1 404F40F2 F2F2F2F2 404F40F3 F3F3F340 4F40F4F4 F4F4404F 40F5F5F5  |1111 | 22222 | 3333 | 4444 | 555|    
+ 00030C  (LIT+448)    F5404F40 F6F6F6F6 E4E2C9D5 C740D7C1 C3D2C5C4 60C4C5C3 C9D4C1D3 40E2D6D9  |5 | 6666USING PACKED-DECIMAL SOR|    
+ 00032C  (LIT+480)    E340D2C5 E8E4D5C5 E7D7C5C3 E3C5C440 C5D9D9D6 D96B40E3 C5D9D4C9 D5C1E3C9  |T KEYUNEXPECTED ERROR, TERMINATI|    
+ 00034C  (LIT+512)    D5C7E4E2 C9D5C740 E9D6D5C5 60C4C5C3 C9D4C1D3 40E2D6D9 E340D2C5 E8D7D9D6  |NGUSING ZONE-DECIMAL SORT KEYPRO|    
+ 00036C  (LIT+544)    C7D9C1D4 40C3C6E2 D6D9E3F0 F940D5D6 D9D4C1D3 40C5D5C4 D7D9D6C7 D9C1D440  |GRAM CFSORT09 NORMAL ENDPROGRAM |    
+ 00038C  (LIT+576)    C3C6E2D6 D9E3F0F9 40C8C1E2 40C2C5C7 E4D5D6D7 C5D540C4 C9E2D7D3 C1E860C6  |CFSORT09 HAS BEGUNOPEN DISPLAY-F|    
+ 0003AC  (LIT+608)    C9D3C540 C5D9D9D6 D940E4E2 C9D5C740 C3D6D4D7 60F540E2 D6D9E340 D2C5E8E4  |ILE ERROR USING COMP-5 SORT KEYU|    
+ 0003CC  (LIT+640)    E2C9D5C7 40C3D6D4 D760F440 E2D6D9E3 40D2C5E8 E4E2C9D5 C740C2C9 D5C1D9E8  |SING COMP-4 SORT KEYUSING BINARY|    
+ 0003EC  (LIT+672)    40E2D6D9 E340D2C5 E8E4E2C9 D5C740C3 D6D4D740 E2D6D9E3 40D2C5E8 F14B40E9  | SORT KEYUSING COMP SORT KEY1. Z|    
+ 00040C  (LIT+704)    D6D5C560 C4C5C3C9 D4C1D3F6 4B40C3D6 D4D760F5 F54B40C3 D6D4D760 F4F44B40  |ONE-DECIMAL6. COMP-55. COMP-44. |    
+ 00042C  (LIT+736)    C3D6D4D7 4040F34B 40C2C9D5 C1D9E8F2 4B40C3D6 D4D760F3 C3D6D4D7 60F34040  |COMP  3. BINARY2. COMP-3COMP-3  |    
+ 00044C  (LIT+768)    C3D6D4D7 60F54040 C3D6D4D7 60F44040 C3D6D4D7 40404040 C2C9D5C1 D9E84040  |COMP-5  COMP-4  COMP    BINARY  |    
+ 00046C  (LIT+800)    E2E8E2D6 E4E34040 C9C7E9E2 D9E3C3C4 00000138 00000003 0000012C 00000001  |SYSOUT  IGZSRTCD................|    
+ 00048C  (LIT+832)    00000130 00000002 00000000 00000000 00000000 00000000 00000000 00000000  |................................|    
+ 0004AC  (LIT+864)    00000000 00000000 00000000 80000000 E2D6D9E3 40D9C5C3 D6D9C440 C2E8E3C5  |................SORT RECORD BYTE|    
+ 0004CC  (LIT+896)    E240E6C9 D3D340C2 C540C4C9 E2D7D3C1 E8C5C440 C1E240C6 D6D3D3D6 E6E2C9D5  |S WILL BE DISPLAYED AS FOLLOWSIN|    
+ 0004EC  (LIT+928)    E5C1D3C9 C440D6D9 40D4C9E2 E2C9D5C7 40D7C1D9 C1D4C5E3 C5D940D7 C1E2E2C5  |VALID OR MISSING PARAMETER PASSE|    
+ 00050C  (LIT+960)    C46B40E5 C1D3C9C4 40E5C1D3 E4C5E240 C1D9C57A 40C2C9D5 C1D9E86B 40C3D6D4  |D, VALID VALUES ARE: BINARY, COM|    
+ 00052C  (LIT+992)    D76B40C3 D6D4D760 F36B40C3 D6D4D760 F46B4040 E5C1D3C9 C440E5C1 D3E4C5E2  |P, COMP-3, COMP-4,  VALID VALUES|    
+ 00054C  (LIT+1024)   40C1D9C5 7A40C2C9 D5C1D9E8 6B40C3D6 D4D76B40 C3D6D4D7 60F36B40 C3D6D4D7  | ARE: BINARY, COMP, COMP-3, COMP|    
+ 00056C  (LIT+1056)   60F46B40 C3D6D4D7 60F56B40 E9D6D5C5 60C4C5C3 4B402160 20202020 20202020  |-4, COMP-5, ZONE-DEC. .-........|    
+ 00058C  (LIT+1088)   20202020 20202020 202040C9 D540C2C9 D5C1D9E8 40C6D6D9 D4D9C5E3 E4D9D5C5  |.......... IN BINARY FORMRETURNE|    
+ 0005AC  (LIT+1120)   C440D9C5 C37A4040 00000000 00000000 00000080 00000000 00000000 000000E5  |D REC:  .......................V|    
+ 0005CC  (LIT+1152)   C1D3E4C5 40C9E27A 40000000 9D000000 97000000 91000000 8B000000 85000000  |ALUE IS: .......p...j.......e...|    
+ 0005EC  (LIT+1184)   7F040000 00080000 00404F40 40000000 00000000 00000000 00000000 40000000  |"........ |  ............... ...|    
+ 00060C  (LIT+1216)   0025C000 01C00008 08000034 02500C80 00000000 00000000 00000000 00000040  |.............&................. |    
+ 00062C  (LIT+1248)   00018000 40000000 001AC000 01400008 08000034 02500290 00040800 00340499  |.... ........ .......&.........r|    
+ 00064C  (LIT+1280)   00860900 01380000 0000003B 08000034 002A0041 00000014 C0090001 28001009  |.f..............................|    
+ 00066C  (LIT+1312)   00012800 18FFFF40 00000000 1AC00001 40000808 00003402 50029000 04080000  |....... ........ .......&.......|    
+ 00068C  (LIT+1344)   34049D00 86090001 38000000 00003B08 00003400 6B004000 000010C0 09000128  |....f...............,. .........|    
+ 0006AC  (LIT+1376)   00100900 01280018 FFFF4000 0000001A C0000140 00080800 00340250 02900004  |.......... ........ .......&....|    
+ 0006CC  (LIT+1408)   08000034 04A10086 09000138 00000000 003B0800 003400AB 00400000 000CC009  |.......f................. ......|    
+ 0006EC  (LIT+1440)   00012800 10090001 280018FF FF400000 00001AC0 00014000 08080000 34025002  |............. ........ .......&.|    
+ 00070C  (LIT+1472)   90000408 00003404 A5008609 00013800 00000000 3B080000 3400EB00 40000000  |........v.f................. ...|    
+ 00072C  (LIT+1504)   08C00900 01280010 09000128 0018FFFF 40000000 001AC000 01400008 08000034  |................ ........ ......|    
+ 00074C  (LIT+1536)   02500290 00040800 003404A9 00860900 01380000 0000003B 08000034 012B0040  |.&.........z.f................. |    
+ 00076C  (LIT+1568)   00000004 C0090001 28001009 00012800 18FFFF40 00000000 1AC00001 40000808  |................... ........ ...|    
+ 00078C  (LIT+1600)   00003402 50029000 04080000 3404AD10 08400002 8000043D 00580000 01408000  |....&............ ........... ..|    
+ 0007AC  (LIT+1632)   02800000 86090001 38000000 00003B08 00003401 6B004000 000000C0 09000128  |....f...............,. .........|    
+ 0007CC  (LIT+1664)   00100900 01280018 FFFF0140 00001808 00003402 62400000 02090001 2C0090FF  |........... ......... ..........|    
+ 0007EC  (LIT+1696)   80000180 00400000 000040C0 00014000 08080000 34025002 C0000808 00003402  |..... .... ... .......&.........|    
+ 00080C  (LIT+1728)   50090001 40000009 00012C00 90090001 3C0000                               |&... ..............             |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page    18                
+0LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000107 000AD2 OPEN                          000108 000AF8 IF                            000109 000B12 DISPLAY                       
+ 000110 000B24 GOBACK                        000113 000B38 MOVE                          000114 000B50 WRITE                         
+ 000116 000B86 MOVE                          000117 000B98 WRITE                         000119 000BCE MOVE                          
+ 000121 000BDC PERFORM                       000124 000BFC EVALUATE                      000126 000C00 WHEN                          
+ 000127 000C1E SORT                          000132 000CFC WHEN                          000133 000D1A SORT                          
+ 000138 000DF8 WHEN                          000139 000E16 SORT                          000144 000EF4 WHEN                          
+ 000145 000F12 SORT                          000150 000FF0 WHEN                          000151 00100E SORT                          
+ 000156 0010EC WHEN                          000157 00110A SORT                          000162 0011E8 WHEN                          
+ 000163 0011EC MOVE                          000165 001204 WRITE                         000166 00123A MOVE                          
+ 000167 00124C WRITE                         000168 001282 MOVE                          000169 001290 GOBACK                        
+ 000173 0012A4 MOVE                          000174 0012B6 WRITE                         000175 0012EC MOVE                          
+ 000177 001304 WRITE                         000179 00133A CLOSE                         000181 001360 STOP                          
+ 000185 0013A6 IF                            000186 0013C2 MOVE                          000187 0013D4 STRING                        
+ 000193 0013EE WRITE                         000194 001424 MOVE                          000195 001436 WRITE                         
+ 000196 00146C MOVE                          000197 00147A GOBACK                        000200 00148E MOVE                          
+ 000201 0014A0 STRING                        000206 0014B4 WRITE                         000207 0014EA MOVE                          
+ 000209 001502 WRITE                         000210 001538 MOVE                          000211 001550 WRITE                         
+ 000212 001586 MOVE                          000213 00159E WRITE                         000214 0015D4 MOVE                          
+ 000215 0015EC WRITE                         000216 001622 MOVE                          000217 00163A WRITE                         
+ 000218 001670 MOVE                          000219 001688 WRITE                         000220 0016BE MOVE                          
+ 000221 0016D6 WRITE                         000222 00170C MOVE                          000223 001722 WRITE                         
+ 000225 001758 EVALUATE                      000227 00175C WHEN                          000228 00177A MOVE                          
+ 000230 001792 WRITE                         000231 0017C8 MOVE                          000233 0017DE WRITE                         
+ 000235 00181C WHEN                          000236 00183A MOVE                          000238 001852 WRITE                         
+ 000239 001888 MOVE                          000241 00189E WRITE                         000243 0018DC WHEN                          
+ 000244 0018FE MOVE                          000246 001916 WRITE                         000247 00194C MOVE                          
+ 000249 001962 WRITE                         000251 00199C WHEN                          000252 0019BA MOVE                          
+ 000254 0019D2 WRITE                         000255 001A08 MOVE                          000257 001A1E WRITE                         
+ 000259 001A58 WHEN                          000260 001A76 MOVE                          000262 001A8E WRITE                         
+ 000263 001AC4 MOVE                          000265 001ADA WRITE                         000267 001B14 WHEN                          
+ 000268 001B32 MOVE                          000270 001B4A WRITE                         000271 001B80 MOVE                          
+ 000273 001B96 WRITE                         000275 001BD0 WHEN                          000276 001BD4 MOVE                          
+ 000277 001BE6 STRING                        000283 001C00 WRITE                         000284 001C36 MOVE                          
+ 000286 001C4C WRITE                         000287 001C82 MOVE                          000288 001C90 GOBACK                        
+ 000294 001CA4 EXIT                          000299 001CB2 MOVE                          000301 001CC0 PERFORM                       
+ 000304 001CDA RETURN                        000306 001D0E MOVE                          000309 001D20 MOVE                          
+ 000310 001D6C MOVE                          000313 001D9E STRING                        000320 001DD4 WRITE                         
+ 000322 001E0A END-PERFORM                                                                                                           
+0                                                                                                                                    
+   DEBUGINF TABLE LOCATED AT 001EE0 FOR 000048 BYTES                                                                                 
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page    19                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000138  BASE LOCATORS FOR FILES                                                                                  
+                    000144  TEST INFORMATION AREA                                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page    20                
+0                   00016C  FCB CELLS                                                                                                
+                    000174  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  000000F0  VARIABLE-LENGTH CELLS                                                                                    
+                  00000108  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000118  PERFORM SAVE CELLS                                                                                       
+                  00000140  TEMPORARY STORAGE-2                                                                                      
+                  00000168  CALL STATEMENT PROGRAM NAME                                                                              
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000188 BYTES                                                                                       
+ DCB00001 WILL BE ALLOCATED FOR 00000060 BYTES                                                                                       
+ FCB00001 WILL BE ALLOCATED FOR 00000114 BYTES                                                                                       
+ DCB00002 WILL BE ALLOCATED FOR 00000060 BYTES                                                                                       
+ FCB00002 WILL BE ALLOCATED FOR 00000114 BYTES                                                                                       
+ GDT00001 WILL BE ALLOCATED FOR 000000A0 BYTES                                                                                       
+ RCD00001 WILL BE ALLOCATED FOR 0000003B BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 00000099 BYTES                                                                                       
+ SRT00001 WILL BE ALLOCATED FOR 00000018 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 00000208 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 001F7C                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 00246C FOR LENGTH 000168                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT09  Date 01/07/2021  Time 22:23:42   Page    21                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+                                                                                                                                     
+     46  IGYGR1216-I   A "RECORDING MODE" of "F" was assumed for file "DISPLAY-FILE".                                                
+                                                                                                                                     
+     50  IGYGR1216-I   A "RECORDING MODE" of "F" was assumed for file "TESTDATA-FILE".                                               
+                                                                                                                                     
+    127  IGYPG3134-I   File "TESTDATA-FILE" in the "USING" phrase of the "SORT" statement would have been eligible for the "FASTSRT" 
+                       compiler option.                                                                                              
+                                                                                                                                     
+                       Same message on line:    133    139    145    151    157                                                      
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:      11           9              2                                                                                         
+-* Statistics for COBOL program CFSORT09:                                                                                            
+ *    Source records = 323                                                                                                           
+ *    Data Division statements = 58                                                                                                  
+ *    Procedure Division statements = 97                                                                                             
+0End of compilation 1,  program CFSORT09,  highest severity 4.                                                                       
+0Return code 4                                                                                                                       
