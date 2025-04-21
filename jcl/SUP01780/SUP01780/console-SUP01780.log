@@ -1,0 +1,37 @@
+11:06:14.634 [main] INFO  o.s.boot.StartupInfoLogger.logStarting   50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1204644 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/SUP01780/SUP01780/target/SUP01780-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/SUP01780/SUP01780)
+11:06:14.639 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo  654 - No active profile set, falling back to 1 default profile: "default"
+11:06:16.407 [main] INFO  c.c.a.dao.CFDataSourceConfiguration.dataSourceStatus  165 - CFDataSourceConfiguration initialization status...
+11:06:16.408 [main] INFO  c.c.a.dao.CFDataSourceConfiguration.dataSourceStatus  172 - VSAM Datasource initialized. Databse Datasource initialized.
+11:06:16.593 [main] INFO  o.s.boot.StartupInfoLogger.logStarted   56 - Started CFApplication in 3.1 seconds (process running for 4.307)
+11:06:16.607 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo  107 - CFDataConnectIO version : 5.0.0.21
+11:06:16.660 [main] INFO  c.c.a.u.d.plus.CFDcioConfiguration.cfDataConnectIOPlusInfo   28 - CFDataConnectIOPlus version : 5.0.0.21
+11:06:16.698 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.initDatabase  189 - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+11:06:17.762 [main] INFO  o.s.b.a.b.JobLauncherApplicationRunner.run  168 - Running default command line with: []
+11:06:17.846 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  154 - Job: [SimpleJob: [name=SUP01780]] launched with the following parameters: [{}]
+11:06:17.913 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [step01]
+11:06:18.004 [main] INFO  com.cloudframe.app.process.Sup01780.process   70 - **********************************
+11:06:18.012 [main] INFO  c.c.app.vsam.VSAMClusterUtil.getClusterInfo   66 - Cluster for DD PANACCT1 in SUP01780 is UDEV47_PLAPP_SACCT1 
+11:06:18.049 [main] INFO  c.c.app.vsam.VSAMClusterUtil.getClusterInfo   66 - Cluster for DD PANACCTA in SUP01780 is UDEV47_PLAPP_SACCT10 
+11:06:18.165 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  109 - HikariPool-1 - Starting...
+11:06:18.253 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast  554 - HikariPool-1 - Added connection conn16: url=jdbc:h2:file:./cf-vsam-db user=SA
+11:06:18.256 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  122 - HikariPool-1 - Start completed.
+11:06:18.313 [main] INFO  com.cloudframe.app.process.Sup01780.process   85 - TM-PAN-FILE-1:FILE OPENED 
+11:06:18.314 [main] INFO  com.cloudframe.app.process.Sup01780.process   99 - TM-PAN-FILE-10     OPENED 
+11:06:18.330 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [step01] executed in 415ms
+11:06:18.340 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [printSummary]
+11:06:18.352 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  247 - JOB : SUP01780 ENDED -  0000
+11:06:18.353 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  251 - 
+
+Stepwise Execution Summary :
++---------------------------------------------------------------+
+| STEPNAME    | PROGRAM       | RC          | ELAPSED           |
+|             |               |             | HH:MM:SS:ss       |
++---------------------------------------------------------------+
+| STEP01      | SUP01780      | 00          | 00:00:00:415      |
++---------------------------------------------------------------+
+  
+11:06:18.361 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [printSummary] executed in 19ms
+11:06:18.391 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  161 - Job: [SimpleJob: [name=SUP01780]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 500ms
+11:06:18.399 [main] INFO  com.zaxxer.hikari.HikariDataSource.close  349 - HikariPool-1 - Shutdown initiated...
+11:06:18.438 [main] INFO  com.zaxxer.hikari.HikariDataSource.close  351 - HikariPool-1 - Shutdown completed.
+11:06:18.439 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.shutdownDatabase  220 - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'

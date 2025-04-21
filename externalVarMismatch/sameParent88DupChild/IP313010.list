@@ -1,0 +1,919 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 10/30/2021  Time 00:01:21   Page     1                
+0Invocation parameters:                                                                                                              
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(OPT),AWO,NUMPROC(NOPFD),TEST(ALL,SYM,SEPARATE)                                                      
+                                                                                                                                     
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"  
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no   
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".                                    
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler         
+                       invocation parameter took precedence.                                                                         
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(COMPAT)                                                                                                                    
+    AWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 10/30/2021  Time 00:01:21   Page     2                
+0 NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+    TEST(HOOK,SEPARATE,NOEJPD)                                                                                                       
+  NOTHREAD                                                                                                                           
+    TRUNC(OPT)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0/* IP313010                                                                                                                         
+   000001         000100* ELEMENT IP313010 AS OF 12/04/19 07:20:57                    ?VCÙ                                           
+   000002         000200*$SET NOAMODE                                                                                                
+   000003         000300 IDENTIFICATION DIVISION.                                                                                    
+   000004         000400 PROGRAM-ID.    IP313010.                                                                                    
+   000005         000500*----------------------------------------------------------------*                                           
+   000006         000600*          -- -- -- C O N F I D E N T I A L -- -- --                                                         
+   000007         000700*    THIS ITEM CONTAINS INFORMATION AND PROCEDURES WHICH ARE                                                 
+   000008         000800*    PROPRIETARY TO MASTERCARD INTERNATIONAL, INCORPORATED,                                                  
+   000009         000900*    AND WHICH ARE CONFIDENTIAL.  IT IS PROVIDED WITH THE                                                    
+   000010         001000*    EXPRESS UNDERSTANDING THAT IT IS TO BE USED ONLY FOR THE                                                
+   000011         001100*    BENEFIT OF INTERBANK CARD ASSOCIATION, AND IS NOT TO BE                                                 
+   000012         001200*    USED, COPIED, OR DISCLOSED FOR ANY OTHER PURPOSE.  ANY                                                  
+   000013         001300*    AUTHORIZED REPRODUCTION (IN WHOLE OR IN PART) OF THIS                                                   
+   000014         001400*    MATERIAL MUST BE MARKED WITH THIS LEGEND.                                                               
+   000015         001500*----------------------------------------------------------------*                                           
+   000016         001600*                                                                                                            
+   000017         001700*AUTHOR.        ROGER CANTRELL.                                                                              
+   000018         001800*DATE-WRITTEN.  NOVEMBER 13, 2003                                                                            
+   000019         001900*SECURITY.      PROPERTY OF MASTERCARD INTERNATIONAL, INC.                                                   
+   000020         002000*                                                                                                            
+   000021         002100*----------------------------------------------------------------*                                           
+   000022         002200*PROGRAM FUNCTIONALITY:THIS IS AN OPTIMIZATION PROGRAM.                                                      
+   000023         002300*----------------------------------------------------------------*                                           
+   000024         002400* THE PURPOSE OF THIS PROGRAM IS TO OPTIMIZE THE 1 DAY FILE, FOR *                                           
+   000025         002500* THE TABLE IP0021T1 RECORDS.                                    *                                           
+   000026         002600*----------------------------------------------------------------*                                           
+   000027         002700*REVISION HISTORY:                                                                                           
+   000028         002800*----------------------------------------------------------------*                                           
+   000029         002900* PROJECT       :GCMS RELEASE 4.1                                                                            
+   000030         003000* DATE          :2004/04/04                                                                                  
+   000031         003100* PROGRAMMER    :ROGER CANTRELL.                                                                             
+   000032         003200* MODIFICATION  :OPTIMIZE TABLE IP0021T1.                                                                    
+   000033         003300* MODIFICATION  :REPLACED SUBSCRIPTS WITH INDEXES.  (JSC)                                                    
+   000034         003400*----------------------------------------------------------------*                                           
+   000035         003500*----------------------------------------------------------------*C96992                                     
+   000036         003600*    PROJECT         :GCMS RELEASE 18.Q4                         *C96992                                     
+   000037         003700*                     LCMS AND MDS BATCH ON-SOIL MIGRATION       *C96992                                     
+   000038         003800*    DATE            :2018/06/06                                 *C96992                                     
+   000039         003900*    PROGRAMMER      :WIPRO                                      *C96992                                     
+   000040         004000*    MODIFICATION    :PROGRAM MODIFIED TO INCLUDE THE COMPILER   *C96992                                     
+   000041         004100*                     DIRECTIVES TO SUPPORT IN LINUX             *C96992                                     
+   000042         004200*----------------------------------------------------------------*C96992                                     
+   000043         004300                                                                                                             
+   000044         004400 DATA DIVISION.                                                                                              
+   000045         004500                                                                                                             
+   000046         004600 WORKING-STORAGE SECTION.                                                                                    
+   000047         004700                                                                                                             
+   000048         004800 01                                  PIC X(40)                             BLW=00000+000         40C         
+   000049         004900         VALUE 'WORKING STORAGE FOR IP313010 STARTS HERE'.                                                   
+   000050         005000 01  100-SAVE-TABLE-ID      PIC X(08).                                     BLW=00000+028         8C          
+   000051         005100 01  100-SAVE-EFF-DATE      PIC X(10).                                     BLW=00000+030         10C         
+   000052         005200                                                                                                             
+   000053         005300*----------------------------------------------------------------*                                           
+   000054         005400*  THIS IS THE INPUT LAYOUT FOR TABLE IP0021T1.                                                              
+   000055         005500*----------------------------------------------------------------*                                           
+   000056         005600                                                                                                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000057         005700* ELEMENT IP002103 AS OF 11/19/03 12:01:52                    ?VCÙ                                           
+   000058         005800*-----------------------------------------------------------------                                           
+   000059         005900* RECREATE CONVERSION TABLE.   THIS DEFINES CONVERSIONS OF                                                   
+   000060         006000* IPM DATA ELEMENTS, PDSES, AND SUBFIELDS REQUIRED IN ORDER TO                                               
+   000061         006100* CONVERT A "LEGACY" IPM FILE FROM RELEASE "N" FORMAT TO                                                     
+   000062         006200* CORRECT FORMAT FOR RELEASE "N+1".                                                                          
+   000063         006300* THIS SHOWS A ROW OF THE TABLE AS IT APPEARS ON THE MPE FILE                                                
+   000064         006400* BUT WITHOUT THE SORT KEY PREFIX.                                                                           
+   000065         006500*-----------------------------------------------------------------                                           
+   000066         006600 01  IP002103-CONVERSION-ROW.                                              BLW=00000+040         0CL15       
+   000067         006700     05  IP002103-TABLE-DATA.                                              BLW=00000+040,0000000 0CL15       
+   000068         006800       10  IP002103-OLD-ELEMENT-TYPE  PIC 9.                               BLW=00000+040,0000000 1C          
+   000069         006900       10  IP002103-OLD-ELEMENT-NO    PIC 9(4).                            BLW=00000+041,0000001 4C          
+   000070         007000       10  IP002103-OLD-SUBFLD-NO     PIC 9(2).                            BLW=00000+045,0000005 2C          
+   000071         007100       10  IP002103-NEW-ELEMENT-TYPE  PIC 9.                               BLW=00000+047,0000007 1C          
+   000072         007200       10  IP002103-NEW-ELEMENT-NO    PIC 9(4).                            BLW=00000+048,0000008 4C          
+   000073         007300       10  IP002103-NEW-SUBFLD-NO     PIC 9(2).                            BLW=00000+04C,000000C 2C          
+   000074         007400       10  IP002103-JUSTIFIED         PIC X.                               BLW=00000+04E,000000E 1C          
+   000075         007500                                                                                                             
+   000076         007600*----------------------------------------------------------------*                                           
+   000077         007700*  THIS IS THE OUTPUT LAYOUT FOR TABLE IP0021T1                                                              
+   000078         007800*----------------------------------------------------------------*                                           
+   000079         007900                                                                                                             
+   000080         008000* ELEMENT IP002102 AS OF 10/22/04 14:45:15                    ?VCÙ                                           
+   000081         008100*-----------------------------------------------------------------                                           
+   000082         008200* RECREATE CONVERSION TABLE.   THIS DEFINES CONVERSIONS OF                                                   
+   000083         008300* IPM DATA ELEMENTS, PDSES, AND SUBFIELDS REQUIRED IN ORDER TO                                               
+   000084         008400* CONVERT A "LEGACY" IPM FILE FROM RELEASE "N" FORMAT TO                                                     
+   000085         008500* CORRECT FORMAT FOR RELEASE "N+1".                                                                          
+   000086         008600* THIS SHOWS THE TABLE AS IT APPEARS WHEN LOADED INTO MAIN                                                   
+   000087         008700* STORAGE.                                                                                                   
+   000088         008800* USE "COPY IP002102 REPLACING ==:T:== BY IP002102."                                                         
+   000089         008900*-----------------------------------------------------------------IP655041                                   
+   000090         009000* MODIFICATIONS HISTORY                                           IP655041                                   
+   000091         009100* DATE      MODIFICATIONS                                         IP655041                                   
+   000092         009200* 06/04/04  CORRECTED '9999' TO '99' IN 88-LEVEL 'NO-OLD-SUBFLD'. IP655041                                   
+   000093         009300*-----------------------------------------------------------------                                           
+   000094         009400 01  IP002102-MAX-ROW-COUNT           PIC S9(5) BINARY VALUE 500.          BLW=00000+050         4C          
+   000095         009500*    THIS MUST BE KEPT IN SYNCH WITH THE VALUE IN THE "OCCURS"                                               
+   000096         009600*    CLAUSE IN :T:-ROW.                                                                                      
+   000097         009700 01  IP002102-RECREATE-CONV-TABLE EXTERNAL.                                BLX=00000+000         0CL10504    
+   000098         009800     05  IP002102-ROW-COUNT               PIC S9(5) BINARY.                BLX=00000+000,0000000 4C          
+   000099         009900*        THE NUMBER OF ACTIVE ROWS IN THE TABLE.  THIS IS SET                                                
+   000100         010000*        BY THE OPTIMIZER.                                                                                   
+   000101         010100     05  IP002102-TABLE-DATA OCCURS 1 TO 500 DEPENDING ON                  BLX=00000+004,0000004 0CL21       
+   000102         010200         IP002102-ROW-COUNT INDEXED BY IP002102-X                          IDX=00001+000                     
+                                                                                                   98                                
+   000103         010300                                  IP002102-IDX                             IDX=00002+000                     
+   000104         010400                                  IP002102-END.                            IDX=00003+000                     
+   000105         010500*        THE FOLLOWING IDENTIFIES THE ITEM                                                                   
+   000106         010600         10  IP002102-OLD-ELEMENT-ID BINARY.                               BLX=00000+004,0000004 0CL4        
+   000107         010700             15 IP002102-OLD-ELEMENT-TYPE  PIC S9(4).                      BLX=00000+004,0000004 2C          
+   000108         010800                 88 IP002102-IT-WAS-A-DE   VALUE 2.                                                          
+   000109         010900                 88 IP002102-IT-WAS-A-PDS  VALUE 3.                                                          
+   000110         011000             15 IP002102-OLD-ELEMENT-NO    PIC S9(4).                      BLX=00000+006,0000006 2C          
+   000111         011100         10  IP002102-OLD-SUBFLD-NO        PIC S9(4) BINARY.               BLX=00000+008,0000008 2C          
+   000112         011200             88 IP002102-ENTIRE-ELEMENT    VALUE ZERO.                     IMP                               
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000113         011300             88 IP002102-NO-OLD-SUBFLD     VALUE 99.                                                         
+   000114         011400*               THE OLD ITEM HAD NO SUBFIELDS                                                                
+   000115         011500         10  IP002102-NEW-ELEMENT-ID BINARY.                               BLX=00000+00A,000000A 0CL4        
+   000116         011600             15 IP002102-NEW-ELEMENT-TYPE  PIC S9(4).                      BLX=00000+00A,000000A 2C          
+   000117         011700                88 IP002102-IT-IS-A-DE     VALUE 2.                                                          
+   000118         011800                88 IP002102-IT-IS-A-PDS    VALUE 3.                                                          
+   000119         011900             15 IP002102-NEW-ELEMENT-NO    PIC S9(4).                      BLX=00000+00C,000000C 2C          
+   000120         012000         10  IP002102-NEW-SUBFLD-NO        PIC S9(4) BINARY.               BLX=00000+00E,000000E 2C          
+   000121         012100             88 IP002102-ENTIRE-ELEMENT    VALUE ZERO.                     IMP                               
+   000122         012200*               THE NEW ELEMENT HAS NO SUBFIELDS                                                             
+   000123         012300         10  IP002102-JUSTIFIED            PIC X.                          BLX=00000+010,0000010 1C          
+   000124         012400*            "L" OR "R" INDICATING HOW THE OLD VALUE IS TO                                                   
+   000125         012500*            BE JUSTIFIED (OR TRUNCATED) INTO THE NEW FIELD.                                                 
+   000126         012600         10  IP002102-FIRST-DEFAULT-PTR    INDEX.                          BLX=00000+011,0000011 4C          
+   000127         012700*            POINTS TO THE FIRST ENTRY (IF ANY) FOR THIS ITEM IN                                             
+   000128         012800*            IN THE DEFAULT VALUES TABLE.  THIS IS SET BY THE                                                
+   000129         012900*            TABLE LOAD API.                                                                                 
+   000130         013000         10  REDEFINES IP002102-FIRST-DEFAULT-PTR PIC X(4).                BLX=00000+011,0000011 4C          
+                                                                                                   126                               
+   000131         013100             88 IP002102-NO-DEFAULT-VALUE   VALUE HIGH-VALUES.             IMP                               
+   000132         013200         10 IP002102-LAST-DEFAULT-PTR     INDEX.                           BLX=00000+015,0000015 4C          
+   000133         013300*            POINTS TO THE LAST ENTRY (IF ANY) FOR THIS ITEM IN                                              
+   000134         013400*            IN THE DEFAULT VALUES TABLE.  THIS IS SET BY THE                                                
+   000135         013500*            TABLE LOAD API.                                                                                 
+   000136         013600                                                                                                             
+   000137         013700*----------------------------------------------------------------*                                           
+   000138         013800*  THIS IS THE INPUT LAYOUT OF THE PARAMETER MASTER FILE                                                     
+   000139         013900*----------------------------------------------------------------*                                           
+   000140         014000                                                                                                             
+   000141         014100* ELEMENT IP500004 AS OF 10/31/02 04:42:12                    ?VCÙ                                           
+   000142         014200******************************************************************00000103                                   
+   000143         014300*   DESCRIPTION:                                                 *00000203                                   
+   000144         014400******************************************************************00000303                                   
+   000145         014500*   MODIFICATIONS HISTORY                                        *00000403                                   
+   000146         014600*   DATE             PROJECT     MODIFICATIONS                   *00000503                                   
+   000147         014700*   08/19/99                     CREATED                         *00000703                                   
+   000148         014800*   MM/DD/YY         XXXXXXX   DESCRIPTION                       *00000703                                   
+   000149         014900******************************************************************00000803                                   
+   000150         015000*  LAYOUT DESCRIPTION:                                           *00000903                                   
+   000151         015100*  FILE ORGANIZATION: SEQUENTIAL                                 *00001103                                   
+   000152         015200*  TOTAL LENGTH: 27998 (VARIABLE LENGTH FILE)                    *00001203                                   
+   000153         015300****************************************************************                                             
+   000154         015400*    START COPYBOOK MEMBER IP500004                            *                                             
+   000155         015500*          THIS IS THE 'GENERIC' TABLE LAYOUT FOR THE          *                                             
+   000156         015600*          1-DAY FILE SORTED BY TABLE NUMBER/ACCEPTANCE BRAND  *                                             
+   000157         015700*          AND EFFECTIVE DATE. CONTAINS ALL PERMUTATIONS.      *                                             
+   000158         015800****************************************************************                                             
+   000159         015900                                                                                                             
+   000160         016000 01  IP50004I-ONE-DAY-REC-LTH PIC 9(8) COMP EXTERNAL.                      BLX=00003+000         4C          
+   000161         016100                                                                                                             
+   000162         016200 01  IP50004I-ONE-DAY-REC EXTERNAL.                                        BLX=00004+000         0CL27991    
+   000163         016300     03 IP50004I-TABLE-KEY.                                                BLX=00004+000,0000000 0CL18       
+   000164         016400       05 IP50004I-TABLE-ID.                                               BLX=00004+000,0000000 0CL8        
+   000165         016500           10 FILLER                   PIC X(02).                          BLX=00004+000,0000000 2C          
+   000166         016600           10 IP50004I-TABLE-NO             PIC X(04).                     BLX=00004+002,0000002 4C          
+   000167         016700           10 IP50004I-TABLE-VERSION        PIC X(02).                     BLX=00004+006,0000006 2C          
+   000168         016800       05 IP50004I-EFF-DATE                 PIC X(10).                     BLX=00004+008,0000008 10C         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000169         016900     03  IP50004I-TABLE-DATA                PIC X(27973).                  BLX=00004+012,0000012 27973C      
+   000170         017000                                                                                                             
+   000171         017100 01  IP50004I-READ-TABLE-ID  EXTERNAL        PIC X(8).                     BLX=00011+000         8C          
+   000172         017200    88 88-IP50004I-CLOSE-INDICATOR              VALUE '99999999'.                                            
+   000173         017300 01  REDEFINES IP50004I-READ-TABLE-ID.                                     BLX=00011+000         0CL8        
+                                                                                                   171                               
+   000174         017400    05                                 PIC X(02).                          BLX=00011+000,0000000 2C          
+   000175         017500    05  IP50004I-READ-TABLE-NUM             PIC 9(04).                     BLX=00011+002,0000002 4C          
+   000176         017600    05                                 PIC X(02).                          BLX=00011+006,0000006 2C          
+   000177         017700 01  IP50004I-ONE-DAY-READ-STATUS EXTERNAL   PIC X(02).                    BLX=00012+000         2C          
+   000178         017800    88  88-IP50004I-ONE-DAY-IO-GOOD             VALUE '00' '02'.                                             
+   000179         017900    88  88-IP50004I-TBL-LAST-REC-Y              VALUE '00'.                                                  
+   000180         018000    88  88-IP50004I-TBL-LAST-REC-N              VALUE '02'.                                                  
+   000181         018100    88  88-IP50004I-NO-REQ-TBL-RECS             VALUE '23'.                                                  
+   000182         018200                                                                                                             
+   000183         018300****************************************************************                                             
+   000184         018400*      END COPYBOOK MEMBER IP500003                            *                                             
+   000185         018500****************************************************************                                             
+   000186         018600                                                                                                             
+   000187         018700*----------------------------------------------------------------*                                           
+   000188         018800*  THIS IS THE ONEDAY FILE OUTPUT RECORD LAYOUT                                                              
+   000189         018900*----------------------------------------------------------------*                                           
+   000190         019000                                                                                                             
+   000191         019100* ELEMENT IP500005 AS OF 09/18/03 06:01:29                    ?VCÙ                                           
+   000192         019200*----------------------------------------------------------------*031GTJ                                     
+   000193         019300*   DESCRIPTION:THIS IS THE 'GENERIC' TABLE LAYOUT FOR THE       *00000203                                   
+   000194         019400*               1-DAY FILE IN ITS' OPTIMIZED FORMAT. THIS IS THE *                                           
+   000195         019500*               AS IT IS FORMATTED ON THE VSAM FILE.             *                                           
+   000196         019600*----------------------------------------------------------------*031GTJ                                     
+   000197         019700*   MODIFICATIONS HISTORY:                                       *00000403                                   
+   000198         019800*----------------------------------------------------------------*031GTJ                                     
+   000199         019900*    PROJECT         :GCMS 00.1 RELEASE                          *031GTJ                                     
+   000200         020000*    DATE            :1999/08/19                                 *031GTJ                                     
+   000201         020100*    VERSION         :001.00                                     *031GTJ                                     
+   000202         020200*    MODIFICATION    :INITIAL VERSION.                           *031GTJ                                     
+   000203         020300*----------------------------------------------------------------*031GTJ                                     
+   000204         020400*    PROJECT         :GCMS 03.2 RELEASE                          *031GTJ                                     
+   000205         020500*    DATE            :2003/01/23                                 *031GTJ                                     
+   000206         020600*    VERSION         :001.10                                     *031GTJ                                     
+   000207         020700*    PROGRAMMER      :GOPINATH JOSHI.                            *031GTJ                                     
+   000208         020800*    MODIFICATION    :GCMS 03.2 RELEASE CHANGES.                 *031GTJ                                     
+   000209         020900*                    :CHANGED :T:-TABLE-DATA LENGTH FROM 27965   *031GTJ                                     
+   000210         021000*                    :TO 32730 SINCE ONEDAY FILE RECORD LENGTH IS*031GTJ                                     
+   000211         021100*                    :32756.                                     *031GTJ                                     
+   000212         021200*----------------------------------------------------------------*031GTJ                                     
+   000213         021300*  LAYOUT DESCRIPTION:                                           *00000903                                   
+   000214         021400*  FILE ORGANIZATION: SEQUENTIAL                                 *00001103                                   
+   000215         021500*  TOTAL LENGTH: 32756 (VARIABLE LENGTH FILE)                    *00001203                                   
+   000216         021600*----------------------------------------------------------------*031GTJ                                     
+   000217         021700*    START COPYBOOK MEMBER IP500005                              *                                           
+   000218         021800*----------------------------------------------------------------*031GTJ                                     
+   000219         021900                                                                                                             
+   000220         022000 01  IP50005O-ONE-DAY-REC-LTH PIC 9(8) COMP EXTERNAL.                      BLX=00013+000         4C          
+   000221         022100 01  IP50005O-TABLE-DATA-LENGTH REDEFINES                                  BLX=00013+000         4C          
+   000222         022200     IP50005O-ONE-DAY-REC-LTH PIC 9(8) COMP.                               220                               
+   000223         022300                                                                                                             
+   000224         022400 01  IP50005O-ONE-DAY-REC EXTERNAL.                                        BLX=00014+000         0CL32752    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000225         022500     02 IP50005O-TABLE-KEY-ALL.                                            BLX=00014+000,0000000 0CL22       
+   000226         022600       03 IP50005O-TABLE-KEY.                                              BLX=00014+000,0000000 0CL18       
+   000227         022700         05 IP50005O-TABLE-ID.                                             BLX=00014+000,0000000 0CL8        
+   000228         022800           10                          PIC X(02).                          BLX=00014+000,0000000 2C          
+   000229         022900           10 IP50005O-TABLE-NO             PIC X(04).                     BLX=00014+002,0000002 4C          
+   000230         023000           10 IP50005O-TABLE-VERSION        PIC X(02).                     BLX=00014+006,0000006 2C          
+   000231         023100                                                                                                             
+   000232         023200         05 IP50005O-READ-TABLE-ID          REDEFINES                      BLX=00014+000,0000000 8C          
+   000233         023300            IP50005O-TABLE-ID               PIC X(8).                      227                               
+   000234         023400            88 88-IP50005O-CLOSE-INDICATOR  VALUE '99999999'.                                                
+   000235         023500                                                                                                             
+   000236         023600         05 IP50005O-EFF-DATE               PIC 9(10).                     BLX=00014+008,0000008 10C         
+   000237         023700       03  IP50005O-SEQ                     PIC 9(08) COMP.                BLX=00014+012,0000012 4C          
+   000238         023800     02  IP50005O-TABLE-DATA                PIC X(32730).                  BLX=00014+016,0000016 32730C      
+   000239         023900                                                                                                             
+   000240         024000 01  IP50005O-ONE-DAY-READ-STATUS EXTERNAL   PIC X(02).                    BLX=00022+000         2C          
+   000241         024100    88  88-IP50005O-ONE-DAY-IO-GOOD             VALUE '00' '02'.                                             
+   000242         024200    88  88-IP50005O-TBL-LAST-REC-Y              VALUE '00'.                                                  
+   000243         024300    88  88-IP50005O-TBL-LAST-REC-N              VALUE '02'.                                                  
+   000244         024400    88  88-IP50005O-NO-REQ-TBL-RECS             VALUE '23'.                                                  
+   000245         024500                                                                                                             
+   000246         024600 01  IP50005O-CLEARING-DT-TM      EXTERNAL.                                BLX=00023+000         0CL10       
+   000247         024700    05 IP50005O-CLEARING-DT                 PIC X(08).                     BLX=00023+000,0000000 8C          
+   000248         024800    05 IP50005O-CLEARING-TM                 PIC X(02).                     BLX=00023+008,0000008 2C          
+   000249         024900                                                                                                             
+   000250         025000*----------------------------------------------------------------*031GTJ                                     
+   000251         025100*      END COPYBOOK MEMBER IP500005                              *                                           
+   000252         025200*----------------------------------------------------------------*031GTJ                                     
+   000253         025300                                                                                                             
+   000254         025400*----------------------------------------------------------------*                                           
+   000255         025500*  THIS IS THE COPYBOOK FOR DISPLAY EXECUTION MESSAGES.                                                      
+   000256         025600*----------------------------------------------------------------*                                           
+   000257         025700                                                                                                             
+   000258         025800* ELEMENT IP996011 AS OF 10/31/02 15:43:36                    ?VCÙ                                           
+   000259         025900*----------------------------------------------------------------                                            
+   000260         026000* PROGRAMS' START-OF-EXECUTION MESSAGE, DISPLAYED BY IP996010                                                
+   000261         026100*----------------------------------------------------------------                                            
+   000262         026200 01  IP996011-PROGRAM-START-MESSAGE EXTERNAL.                              BLX=00024+000         0CL69       
+   000263         026300     05 IP996011-PGM-ID           PIC X(08).                               BLX=00024+000,0000000 8C          
+   000264         026400     05 IP996011-DASH             PIC X(01).                               BLX=00024+008,0000008 1C          
+   000265         026500     05 IP996011-PGM-VERSION      PIC X(7).                                BLX=00024+009,0000009 7C          
+   000266         026600     05 IP996011-STARTED-TEXT     PIC X(08).                               BLX=00024+010,0000010 8C          
+   000267         026700     05 IP996011-START-TIMESTAMP.                                          BLX=00024+018,0000018 0CL19       
+   000268         026800         10 IP996011-START-MONTH  PIC 99/.                                 BLX=00024+018,0000018 3C          
+   000269         026900         10 IP996011-START-DAY    PIC 99/.                                 BLX=00024+01B,000001B 3C          
+   000270         027000         10 IP996011-START-YEAR   PIC 99B.                                 BLX=00024+01E,000001E 3C          
+   000271         027100         10 IP996011-START-HOUR   PIC 99.                                  BLX=00024+021,0000021 2C          
+   000272         027200         10 IP996011-DOT-1        PIC X.                                   BLX=00024+023,0000023 1C          
+   000273         027300         10 IP996011-START-MINUTE PIC 99.                                  BLX=00024+024,0000024 2C          
+   000274         027400         10 IP996011-DOT-2        PIC X.                                   BLX=00024+026,0000026 1C          
+   000275         027500         10 IP996011-START-SECOND PIC 99BB.                                BLX=00024+027,0000027 4C          
+   000276         027600     05 IP996011-COMPILED-TEXT    PIC X(09).                               BLX=00024+02B,000002B 9C          
+   000277         027700     05 IP996011-WHEN-COMPILED    PIC X(08)BX(08).                         BLX=00024+034,0000034 17C         
+   000278         027800                                                                                                             
+   000279         027900*----------------------------------------------------------------*                                           
+   000280         028000*SWITCH USED IN THE PROGRAM.                                                                                 
+   000281         028100*----------------------------------------------------------------*                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page     8                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000282         028200                                                                                                             
+   000283         028300 01  100-IS-IT-THE-FIRST-TIME       PIC X(01) VALUE 'Y'.                   BLW=00000+058         1C          
+   000284         028400     88  88-100-IT-IS-FIRST-TIME              VALUE 'Y'.                                                     
+   000285         028500     88  88-100-IT-IS-NOT-FIRST-TIME          VALUE 'N'.                                                     
+   000286         028600                                                                                                             
+   000287         028700*----------------------------------------------------------------*                                           
+   000288         028800* CONSTANTS USED IN THE PROGRAM.                                                                             
+   000289         028900*----------------------------------------------------------------*                                           
+   000290         029000                                                                                                             
+   000291         029100 01.                                                                       BLW=00000+060         0CL31       
+   000292         029200     05  300-IP313010           PIC X(08)   VALUE 'IP313010'.              BLW=00000+060,0000000 8C          
+   000293         029300     05  300-PGM-IP996010       PIC X(08)   VALUE 'IP996010'.              BLW=00000+068,0000008 8C          
+   000294         029400     05  300-PGM-IP610010       PIC X(08)   VALUE 'IP610010'.              BLW=00000+070,0000010 8C          
+   000295         029500     05  300-PGM-VERSION        PIC X(07)                                  BLW=00000+078,0000018 7C          
+   000296         029600                                 VALUE X'01D66301197900'.                                                    
+   000297         029700 01.                                                                       BLW=00000+080         0CL60       
+   000298         029800     05  300-PARA-2200          PIC X(30) VALUE                            BLW=00000+080,0000000 30C         
+   000299         029900         '2200-CHECK-PREV-ENTRY'.                                                                            
+   000300         030000     05  300-PARA-2300          PIC X(30) VALUE                            BLW=00000+09E,000001E 30C         
+   000301         030100         '2300-SAVE-TABLE-ENTRY'.                                                                            
+   000302         030200                                                                                                             
+   000303         030300*----------------------------------------------------------------*                                           
+   000304         030400*WORKING STORAGE FOR PROCEDURE POINTERS.                                                                     
+   000305         030500*----------------------------------------------------------------*                                           
+   000306         030600                                                                                                             
+   000307         030700 01  800-PTR-IP996010                PROCEDURE-POINTER.                    BLW=00000+0C0         8C          
+   000308         030800                                                                                                             
+   000309         030900*----------------------------------------------------------------*                                           
+   000310         031000*WORKING STORAGE VARIABLES.                                                                                  
+   000311         031100*----------------------------------------------------------------*                                           
+   000312         031200                                                                                                             
+   000313         031300 01  800-VARIABLES.                                                        BLW=00000+0C8         0CL2        
+   000314         031400                                                                                                             
+   000315         031500     05 800-LENGTH              PIC 9(04) COMP VALUE 0.                    BLW=00000+0C8,0000000 2C          
+   000316         031600                                                                                                             
+   000317         031700                                                                                                             
+   000318         031800 01                             PIC X(40)                                  BLW=00000+0D0         40C         
+   000319         031900         VALUE 'WORKING STORAGE FOR IP313010 ENDS   HERE'.                                                   
+   000320         032000                                                                                                             
+   000321         032100*----------------------------------------------------------------*                                           
+   000322         032200*  MAIN PROCESS:  OPTIMIZE TABLE IP0021T1.                                                                   
+   000323         032300*----------------------------------------------------------------*                                           
+   000324         032400 PROCEDURE DIVISION.                                                                                         
+   000325         032500 0000-MAINLINE.                                                                                              
+   000326         032600     PERFORM 1000-DO-INITIALIZATION                                        336                               
+   000327         032700     PERFORM 2000-PROCESS-TBL0021.                                         353                               
+   000328         032800     GOBACK.                                                                                                 
+   000329         032900                                                                                                             
+   000330         033000*----------------------------------------------------------------*                                           
+   000331         033100*IF THE PROGRAM IS CALLED FOR THE FIRST TIME, THIS PARAGRAPH WILL*                                           
+   000332         033200*BE PERFORMED. IT BASICALLY DISPLAYS PROGRAM EXECUTION MESSAGES. *                                           
+   000333         033300*IT FILLS THE ENTRIES IN LOG DETAIL COPYBOOK - IP996011          *                                           
+   000334         033400*AND DISPLAYS THE DETAILS ACCORDINGLY.                           *                                           
+   000335         033500*----------------------------------------------------------------*                                           
+   000336         033600 1000-DO-INITIALIZATION.                                                                                     
+   000337         033700     IF  88-100-IT-IS-FIRST-TIME                                           284                               
+   000338      1  033800         SET 800-PTR-IP996010           TO ENTRY 300-PGM-IP996010          307 293                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page     9                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000339      1  033900         MOVE 300-IP313010              TO IP996011-PGM-ID                 292 263                           
+   000340      1  034000         MOVE 300-PGM-VERSION           TO IP996011-PGM-VERSION            295 265                           
+   000341      1  034100         MOVE WHEN-COMPILED             TO IP996011-WHEN-COMPILED          277                               
+   000342      1  034200         CALL 800-PTR-IP996010                                             307                               
+   000343         034300                                                                                                             
+   000344      1  034400         SET 88-100-IT-IS-NOT-FIRST-TIME TO TRUE                           285                               
+   000345      1  034500         MOVE IP50004I-EFF-DATE         TO 100-SAVE-EFF-DATE               168 51                            
+   000346      1  034600         MOVE IP50004I-TABLE-ID         TO 100-SAVE-TABLE-ID               164 50                            
+   000347      1  034700         MOVE HIGH-VALUES               TO                                 IMP                               
+   000348      1  034800              IP002102-RECREATE-CONV-TABLE                                 97                                
+   000349      1  034900         MOVE ZEROES                    TO IP002102-ROW-COUNT              IMP 98                            
+   000350      1  035000         SET IP002102-X                 TO 1                               102                               
+   000351         035100     END-IF.                                                                                                 
+   000352         035200                                                                                                             
+   000353         035300 2000-PROCESS-TBL0021.                                                                                       
+   000354         035400     IF  IP50004I-ONE-DAY-REC-LTH   > ZEROES                               160 IMP                           
+   000355      1  035500         MOVE IP50004I-TABLE-DATA   TO IP002103-TABLE-DATA                 169 67                            
+   000356      1  035600         PERFORM 2200-MOVE-TABLE-ENTRY                                     375                               
+   000357         035700     ELSE                                                                                                    
+   000358      1  035800         SET IP002102-ROW-COUNT TO IP002102-X                     041JSC   98 102                            
+   000359      1  035900         SUBTRACT 1 FROM IP002102-ROW-COUNT                       041JSC   98                                
+   000360      1  036000         COMPUTE 800-LENGTH =                                              315                               
+   000361      1  036100          (LENGTH OF IP002102-TABLE-DATA(1) * IP002102-ROW-COUNT)          IMP 101 98                        
+   000362      1  036200                  + LENGTH OF IP002102-ROW-COUNT                           IMP 98                            
+   000363      1  036300         MOVE 800-LENGTH             TO IP50005O-ONE-DAY-REC-LTH           315 220                           
+   000364      1  036400         ADD  18                     TO IP50005O-ONE-DAY-REC-LTH           220                               
+   000365      1  036500         MOVE IP002102-RECREATE-CONV-TABLE TO                              97                                
+   000366      1  036600              IP50005O-TABLE-DATA(1:800-LENGTH)                            238 315                           
+   000367      1  036700         MOVE 100-SAVE-EFF-DATE       TO IP50005O-EFF-DATE                 51 236                            
+   000368      1  036800         MOVE 100-SAVE-TABLE-ID       TO IP50005O-TABLE-ID                 50 227                            
+   000369         036900     END-IF.                                                                                                 
+   000370         037000                                                                                                             
+   000371         037100*----------------------------------------------------------------*                                           
+   000372         037200*  THIS PARA CHECKS THE PREV ENTRY STATUS.                                                                   
+   000373         037300*----------------------------------------------------------------*                                           
+   000374         037400                                                                                                             
+   000375         037500 2200-MOVE-TABLE-ENTRY.                                                                                      
+   000376         037600     MOVE IP002103-OLD-ELEMENT-TYPE   TO                                   68                                
+   000377         037700          IP002102-OLD-ELEMENT-TYPE (IP002102-X)                           107 102                           
+   000378         037800     MOVE IP002103-OLD-ELEMENT-NO     TO                                   69                                
+   000379         037900          IP002102-OLD-ELEMENT-NO   (IP002102-X)                           110 102                           
+   000380         038000     MOVE IP002103-OLD-SUBFLD-NO      TO                                   70                                
+   000381         038100          IP002102-OLD-SUBFLD-NO    (IP002102-X)                           111 102                           
+   000382         038200     MOVE IP002103-NEW-ELEMENT-TYPE   TO                                   71                                
+   000383         038300          IP002102-NEW-ELEMENT-TYPE (IP002102-X)                           116 102                           
+   000384         038400     MOVE IP002103-NEW-ELEMENT-NO     TO                                   72                                
+   000385         038500          IP002102-NEW-ELEMENT-NO   (IP002102-X)                           119 102                           
+   000386         038600     MOVE IP002103-NEW-SUBFLD-NO      TO                                   73                                
+   000387         038700          IP002102-NEW-SUBFLD-NO    (IP002102-X)                           120 102                           
+   000388         038800     MOVE IP002103-JUSTIFIED          TO                                   74                                
+   000389         038900          IP002102-JUSTIFIED        (IP002102-X)                           123 102                           
+   000390         039000     SET IP002102-X UP BY 1                                                102                               
+   000391         039100     .                                                                                                       
+   000392         039200*----------------------------------------------------------------*                                           
+   000393         039300*                 SOURCE CODE  FOR IP313010 ENDS  HERE.          *                                           
+   000394         039400*----------------------------------------------------------------*                                           
+   000395         039500 END PROGRAM IP313010.                                                     4                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page    10                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0*/ IP313010                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page    11                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+      104   IP002102-END                                                                                                             
+      112   IP002102-ENTIRE-ELEMENT                                                                                                  
+      121   IP002102-ENTIRE-ELEMENT                                                                                                  
+      126   IP002102-FIRST-DEFAULT-PTR . .  130                                                                                      
+      103   IP002102-IDX                                                                                                             
+      117   IP002102-IT-IS-A-DE                                                                                                      
+      118   IP002102-IT-IS-A-PDS                                                                                                     
+      108   IP002102-IT-WAS-A-DE                                                                                                     
+      109   IP002102-IT-WAS-A-PDS                                                                                                    
+      123   IP002102-JUSTIFIED . . . . . .  M389                                                                                     
+      132   IP002102-LAST-DEFAULT-PTR                                                                                                
+       94   IP002102-MAX-ROW-COUNT                                                                                                   
+      115   IP002102-NEW-ELEMENT-ID                                                                                                  
+      119   IP002102-NEW-ELEMENT-NO. . . .  M385                                                                                     
+      116   IP002102-NEW-ELEMENT-TYPE. . .  M383                                                                                     
+      120   IP002102-NEW-SUBFLD-NO . . . .  M387                                                                                     
+      131   IP002102-NO-DEFAULT-VALUE                                                                                                
+      113   IP002102-NO-OLD-SUBFLD                                                                                                   
+      106   IP002102-OLD-ELEMENT-ID                                                                                                  
+      110   IP002102-OLD-ELEMENT-NO. . . .  M379                                                                                     
+      107   IP002102-OLD-ELEMENT-TYPE. . .  M377                                                                                     
+      111   IP002102-OLD-SUBFLD-NO . . . .  M381                                                                                     
+       97   IP002102-RECREATE-CONV-TABLE .  M348 365                                                                                 
+       98   IP002102-ROW-COUNT . . . . . .  102 M349 M358 M359 361 362                                                               
+      101   IP002102-TABLE-DATA. . . . . .  361                                                                                      
+      102   IP002102-X . . . . . . . . . .  M350 358 377 379 381 383 385 387 389 M390                                                
+       66   IP002103-CONVERSION-ROW                                                                                                  
+       74   IP002103-JUSTIFIED . . . . . .  388                                                                                      
+       72   IP002103-NEW-ELEMENT-NO. . . .  384                                                                                      
+       71   IP002103-NEW-ELEMENT-TYPE. . .  382                                                                                      
+       73   IP002103-NEW-SUBFLD-NO . . . .  386                                                                                      
+       69   IP002103-OLD-ELEMENT-NO. . . .  378                                                                                      
+       68   IP002103-OLD-ELEMENT-TYPE. . .  376                                                                                      
+       70   IP002103-OLD-SUBFLD-NO . . . .  380                                                                                      
+       67   IP002103-TABLE-DATA. . . . . .  M355                                                                                     
+      168   IP50004I-EFF-DATE. . . . . . .  345                                                                                      
+      177   IP50004I-ONE-DAY-READ-STATUS                                                                                             
+      162   IP50004I-ONE-DAY-REC                                                                                                     
+      160   IP50004I-ONE-DAY-REC-LTH . . .  354                                                                                      
+      171   IP50004I-READ-TABLE-ID . . . .  173                                                                                      
+      175   IP50004I-READ-TABLE-NUM                                                                                                  
+      169   IP50004I-TABLE-DATA. . . . . .  355                                                                                      
+      164   IP50004I-TABLE-ID. . . . . . .  346                                                                                      
+      163   IP50004I-TABLE-KEY                                                                                                       
+      166   IP50004I-TABLE-NO                                                                                                        
+      167   IP50004I-TABLE-VERSION                                                                                                   
+      247   IP50005O-CLEARING-DT                                                                                                     
+      246   IP50005O-CLEARING-DT-TM                                                                                                  
+      248   IP50005O-CLEARING-TM                                                                                                     
+      236   IP50005O-EFF-DATE. . . . . . .  M367                                                                                     
+      240   IP50005O-ONE-DAY-READ-STATUS                                                                                             
+      224   IP50005O-ONE-DAY-REC                                                                                                     
+      220   IP50005O-ONE-DAY-REC-LTH . . .  222 M363 M364                                                                            
+      232   IP50005O-READ-TABLE-ID                                                                                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page    12                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0     237   IP50005O-SEQ                                                                                                             
+      238   IP50005O-TABLE-DATA. . . . . .  M366                                                                                     
+      221   IP50005O-TABLE-DATA-LENGTH                                                                                               
+      227   IP50005O-TABLE-ID. . . . . . .  233 M368                                                                                 
+      226   IP50005O-TABLE-KEY                                                                                                       
+      225   IP50005O-TABLE-KEY-ALL                                                                                                   
+      229   IP50005O-TABLE-NO                                                                                                        
+      230   IP50005O-TABLE-VERSION                                                                                                   
+      276   IP996011-COMPILED-TEXT                                                                                                   
+      264   IP996011-DASH                                                                                                            
+      272   IP996011-DOT-1                                                                                                           
+      274   IP996011-DOT-2                                                                                                           
+      263   IP996011-PGM-ID. . . . . . . .  M339                                                                                     
+      265   IP996011-PGM-VERSION . . . . .  M340                                                                                     
+      262   IP996011-PROGRAM-START-MESSAGE                                                                                           
+      269   IP996011-START-DAY                                                                                                       
+      271   IP996011-START-HOUR                                                                                                      
+      273   IP996011-START-MINUTE                                                                                                    
+      268   IP996011-START-MONTH                                                                                                     
+      275   IP996011-START-SECOND                                                                                                    
+      267   IP996011-START-TIMESTAMP                                                                                                 
+      270   IP996011-START-YEAR                                                                                                      
+      266   IP996011-STARTED-TEXT                                                                                                    
+      277   IP996011-WHEN-COMPILED . . . .  M341                                                                                     
+      283   100-IS-IT-THE-FIRST-TIME                                                                                                 
+       51   100-SAVE-EFF-DATE. . . . . . .  M345 367                                                                                 
+       50   100-SAVE-TABLE-ID. . . . . . .  M346 368                                                                                 
+      292   300-IP313010 . . . . . . . . .  339                                                                                      
+      298   300-PARA-2200                                                                                                            
+      300   300-PARA-2300                                                                                                            
+      294   300-PGM-IP610010                                                                                                         
+      293   300-PGM-IP996010 . . . . . . .  338                                                                                      
+      295   300-PGM-VERSION. . . . . . . .  340                                                                                      
+      315   800-LENGTH . . . . . . . . . .  M360 363 366                                                                             
+      307   800-PTR-IP996010 . . . . . . .  M338 342                                                                                 
+      313   800-VARIABLES                                                                                                            
+      172   88-IP50004I-CLOSE-INDICATOR                                                                                              
+      181   88-IP50004I-NO-REQ-TBL-RECS                                                                                              
+      178   88-IP50004I-ONE-DAY-IO-GOOD                                                                                              
+      180   88-IP50004I-TBL-LAST-REC-N                                                                                               
+      179   88-IP50004I-TBL-LAST-REC-Y                                                                                               
+      234   88-IP50005O-CLOSE-INDICATOR                                                                                              
+      244   88-IP50005O-NO-REQ-TBL-RECS                                                                                              
+      241   88-IP50005O-ONE-DAY-IO-GOOD                                                                                              
+      243   88-IP50005O-TBL-LAST-REC-N                                                                                               
+      242   88-IP50005O-TBL-LAST-REC-Y                                                                                               
+      284   88-100-IT-IS-FIRST-TIME. . . .  337                                                                                      
+      285   88-100-IT-IS-NOT-FIRST-TIME. .  M344                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page    13                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      325   0000-MAINLINE                                                                                                            
+      336   1000-DO-INITIALIZATION . . . .  P326                                                                                     
+      353   2000-PROCESS-TBL0021 . . . . .  P327                                                                                     
+      375   2200-MOVE-TABLE-ENTRY. . . . .  P356                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page    14                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        4   IP313010 . . . . . . . . . . .  395                                                                                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page    15                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      4  PROGRAM-ID IP313010----------------------------------------------------------------------------------------------------*    
+     48   1  FILLER. . . . . . . . . . . . . . . . . . . . BLW=00000  000               DS 40C          Display                      
+     50   1  100-SAVE-TABLE-ID . . . . . . . . . . . . . . BLW=00000  028               DS 8C           Display                      
+     51   1  100-SAVE-EFF-DATE . . . . . . . . . . . . . . BLW=00000  030               DS 10C          Display                      
+     66   1  IP002103-CONVERSION-ROW . . . . . . . . . . . BLW=00000  040               DS 0CL15        Group                        
+     67     2  IP002103-TABLE-DATA . . . . . . . . . . . . BLW=00000  040   0 000 000   DS 0CL15        Group                        
+     68       3  IP002103-OLD-ELEMENT-TYPE . . . . . . . . BLW=00000  040   0 000 000   DS 1C           Disp-Num                     
+     69       3  IP002103-OLD-ELEMENT-NO . . . . . . . . . BLW=00000  041   0 000 001   DS 4C           Disp-Num                     
+     70       3  IP002103-OLD-SUBFLD-NO. . . . . . . . . . BLW=00000  045   0 000 005   DS 2C           Disp-Num                     
+     71       3  IP002103-NEW-ELEMENT-TYPE . . . . . . . . BLW=00000  047   0 000 007   DS 1C           Disp-Num                     
+     72       3  IP002103-NEW-ELEMENT-NO . . . . . . . . . BLW=00000  048   0 000 008   DS 4C           Disp-Num                     
+     73       3  IP002103-NEW-SUBFLD-NO. . . . . . . . . . BLW=00000  04C   0 000 00C   DS 2C           Disp-Num                     
+     74       3  IP002103-JUSTIFIED. . . . . . . . . . . . BLW=00000  04E   0 000 00E   DS 1C           Display                      
+     94   1  IP002102-MAX-ROW-COUNT. . . . . . . . . . . . BLW=00000  050               DS 4C           Binary                       
+     97   1  IP002102-RECREATE-CONV-TABLE. . . . . . . . . BLX=00000  000               DS 0CL10504     Grp-VarLen     E,OG          
+     98     2  IP002102-ROW-COUNT. . . . . . . . . . . . . BLX=00000  000   0 000 000   DS 4C           Binary         E,D           
+    101     2  IP002102-TABLE-DATA . . . . . . . . . . . . BLX=00000  004   0 000 004   DS 0CL21        Group          E,O           
+    102        IP002102-X. . . . . . . . . . . . . . . . . IDX=00001  000                               Index-Name                   
+    103        IP002102-IDX. . . . . . . . . . . . . . . . IDX=00002  000                               Index-Name                   
+    104        IP002102-END. . . . . . . . . . . . . . . . IDX=00003  000                               Index-Name                   
+    106       3  IP002102-OLD-ELEMENT-ID . . . . . . . . . BLX=00000  004   0 000 004   DS 0CL4         Group          E             
+    107         4  IP002102-OLD-ELEMENT-TYPE . . . . . . . BLX=00000  004   0 000 004   DS 2C           Binary         E             
+    108         88 IP002102-IT-WAS-A-DE. . . . . . . . . .                                                             E             
+    109         88 IP002102-IT-WAS-A-PDS . . . . . . . . .                                                             E             
+    110         4  IP002102-OLD-ELEMENT-NO . . . . . . . . BLX=00000  006   0 000 006   DS 2C           Binary         E             
+    111       3  IP002102-OLD-SUBFLD-NO. . . . . . . . . . BLX=00000  008   0 000 008   DS 2C           Binary         E             
+    112       88 IP002102-ENTIRE-ELEMENT . . . . . . . . .                                                             E             
+    113       88 IP002102-NO-OLD-SUBFLD. . . . . . . . . .                                                             E             
+    115       3  IP002102-NEW-ELEMENT-ID . . . . . . . . . BLX=00000  00A   0 000 00A   DS 0CL4         Group          E             
+    116         4  IP002102-NEW-ELEMENT-TYPE . . . . . . . BLX=00000  00A   0 000 00A   DS 2C           Binary         E             
+    117         88 IP002102-IT-IS-A-DE . . . . . . . . . .                                                             E             
+    118         88 IP002102-IT-IS-A-PDS. . . . . . . . . .                                                             E             
+    119         4  IP002102-NEW-ELEMENT-NO . . . . . . . . BLX=00000  00C   0 000 00C   DS 2C           Binary         E             
+    120       3  IP002102-NEW-SUBFLD-NO. . . . . . . . . . BLX=00000  00E   0 000 00E   DS 2C           Binary         E             
+    121       88 IP002102-ENTIRE-ELEMENT . . . . . . . . .                                                             E             
+    123       3  IP002102-JUSTIFIED. . . . . . . . . . . . BLX=00000  010   0 000 010   DS 1C           Display        E             
+    126       3  IP002102-FIRST-DEFAULT-PTR. . . . . . . . BLX=00000  011   0 000 011   DS 4C           Index          E             
+    130       3  FILLER. . . . . . . . . . . . . . . . . . BLX=00000  011   0 000 011   DS 4C           Display        E,R           
+    131       88 IP002102-NO-DEFAULT-VALUE . . . . . . . .                                                             E             
+    132       3  IP002102-LAST-DEFAULT-PTR . . . . . . . . BLX=00000  015   0 000 015   DS 4C           Index          E             
+    160   1  IP50004I-ONE-DAY-REC-LTH. . . . . . . . . . . BLX=00003  000               DS 4C           Binary         E             
+    162   1  IP50004I-ONE-DAY-REC. . . . . . . . . . . . . BLX=00004  000               DS 0CL27991     Group          E             
+    163     2  IP50004I-TABLE-KEY. . . . . . . . . . . . . BLX=00004  000   0 000 000   DS 0CL18        Group          E             
+    164       3  IP50004I-TABLE-ID . . . . . . . . . . . . BLX=00004  000   0 000 000   DS 0CL8         Group          E             
+    165         4  FILLER. . . . . . . . . . . . . . . . . BLX=00004  000   0 000 000   DS 2C           Display        E             
+    166         4  IP50004I-TABLE-NO . . . . . . . . . . . BLX=00004  002   0 000 002   DS 4C           Display        E             
+    167         4  IP50004I-TABLE-VERSION. . . . . . . . . BLX=00004  006   0 000 006   DS 2C           Display        E             
+    168       3  IP50004I-EFF-DATE . . . . . . . . . . . . BLX=00004  008   0 000 008   DS 10C          Display        E             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page    16                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+    169     2  IP50004I-TABLE-DATA . . . . . . . . . . . . BLX=00004  012   0 000 012   DS 27973C       Display        E             
+    171   1  IP50004I-READ-TABLE-ID. . . . . . . . . . . . BLX=00011  000               DS 8C           Display        E             
+    172   88 88-IP50004I-CLOSE-INDICATOR . . . . . . . . .                                                             E             
+    173   1  FILLER. . . . . . . . . . . . . . . . . . . . BLX=00011  000               DS 0CL8         Group          E,R           
+    174     2  FILLER. . . . . . . . . . . . . . . . . . . BLX=00011  000   0 000 000   DS 2C           Display        E             
+    175     2  IP50004I-READ-TABLE-NUM . . . . . . . . . . BLX=00011  002   0 000 002   DS 4C           Disp-Num       E             
+    176     2  FILLER. . . . . . . . . . . . . . . . . . . BLX=00011  006   0 000 006   DS 2C           Display        E             
+    177   1  IP50004I-ONE-DAY-READ-STATUS. . . . . . . . . BLX=00012  000               DS 2C           Display        E             
+    178   88 88-IP50004I-ONE-DAY-IO-GOOD . . . . . . . . .                                                             E             
+    179   88 88-IP50004I-TBL-LAST-REC-Y. . . . . . . . . .                                                             E             
+    180   88 88-IP50004I-TBL-LAST-REC-N. . . . . . . . . .                                                             E             
+    181   88 88-IP50004I-NO-REQ-TBL-RECS . . . . . . . . .                                                             E             
+    220   1  IP50005O-ONE-DAY-REC-LTH. . . . . . . . . . . BLX=00013  000               DS 4C           Binary         E             
+    221   1  IP50005O-TABLE-DATA-LENGTH. . . . . . . . . . BLX=00013  000               DS 4C           Binary         E,R           
+    224   1  IP50005O-ONE-DAY-REC. . . . . . . . . . . . . BLX=00014  000               DS 0CL32752     Group          E             
+    225     2  IP50005O-TABLE-KEY-ALL. . . . . . . . . . . BLX=00014  000   0 000 000   DS 0CL22        Group          E             
+    226       3  IP50005O-TABLE-KEY. . . . . . . . . . . . BLX=00014  000   0 000 000   DS 0CL18        Group          E             
+    227         4  IP50005O-TABLE-ID . . . . . . . . . . . BLX=00014  000   0 000 000   DS 0CL8         Group          E             
+    228           5  FILLER. . . . . . . . . . . . . . . . BLX=00014  000   0 000 000   DS 2C           Display        E             
+    229           5  IP50005O-TABLE-NO . . . . . . . . . . BLX=00014  002   0 000 002   DS 4C           Display        E             
+    230           5  IP50005O-TABLE-VERSION. . . . . . . . BLX=00014  006   0 000 006   DS 2C           Display        E             
+    232         4  IP50005O-READ-TABLE-ID. . . . . . . . . BLX=00014  000   0 000 000   DS 8C           Display        E,R           
+    234         88 88-IP50005O-CLOSE-INDICATOR . . . . . .                                                             E             
+    236         4  IP50005O-EFF-DATE . . . . . . . . . . . BLX=00014  008   0 000 008   DS 10C          Disp-Num       E             
+    237       3  IP50005O-SEQ. . . . . . . . . . . . . . . BLX=00014  012   0 000 012   DS 4C           Binary         E             
+    238     2  IP50005O-TABLE-DATA . . . . . . . . . . . . BLX=00014  016   0 000 016   DS 32730C       Display        E             
+    240   1  IP50005O-ONE-DAY-READ-STATUS. . . . . . . . . BLX=00022  000               DS 2C           Display        E             
+    241   88 88-IP50005O-ONE-DAY-IO-GOOD . . . . . . . . .                                                             E             
+    242   88 88-IP50005O-TBL-LAST-REC-Y. . . . . . . . . .                                                             E             
+    243   88 88-IP50005O-TBL-LAST-REC-N. . . . . . . . . .                                                             E             
+    244   88 88-IP50005O-NO-REQ-TBL-RECS . . . . . . . . .                                                             E             
+    246   1  IP50005O-CLEARING-DT-TM . . . . . . . . . . . BLX=00023  000               DS 0CL10        Group          E             
+    247     2  IP50005O-CLEARING-DT. . . . . . . . . . . . BLX=00023  000   0 000 000   DS 8C           Display        E             
+    248     2  IP50005O-CLEARING-TM. . . . . . . . . . . . BLX=00023  008   0 000 008   DS 2C           Display        E             
+    262   1  IP996011-PROGRAM-START-MESSAGE. . . . . . . . BLX=00024  000               DS 0CL69        Group          E             
+    263     2  IP996011-PGM-ID . . . . . . . . . . . . . . BLX=00024  000   0 000 000   DS 8C           Display        E             
+    264     2  IP996011-DASH . . . . . . . . . . . . . . . BLX=00024  008   0 000 008   DS 1C           Display        E             
+    265     2  IP996011-PGM-VERSION. . . . . . . . . . . . BLX=00024  009   0 000 009   DS 7C           Display        E             
+    266     2  IP996011-STARTED-TEXT . . . . . . . . . . . BLX=00024  010   0 000 010   DS 8C           Display        E             
+    267     2  IP996011-START-TIMESTAMP. . . . . . . . . . BLX=00024  018   0 000 018   DS 0CL19        Group          E             
+    268       3  IP996011-START-MONTH. . . . . . . . . . . BLX=00024  018   0 000 018   DS 3C           Disp-Num-Edit  E             
+    269       3  IP996011-START-DAY. . . . . . . . . . . . BLX=00024  01B   0 000 01B   DS 3C           Disp-Num-Edit  E             
+    270       3  IP996011-START-YEAR . . . . . . . . . . . BLX=00024  01E   0 000 01E   DS 3C           Disp-Num-Edit  E             
+    271       3  IP996011-START-HOUR . . . . . . . . . . . BLX=00024  021   0 000 021   DS 2C           Disp-Num       E             
+    272       3  IP996011-DOT-1. . . . . . . . . . . . . . BLX=00024  023   0 000 023   DS 1C           Display        E             
+    273       3  IP996011-START-MINUTE . . . . . . . . . . BLX=00024  024   0 000 024   DS 2C           Disp-Num       E             
+    274       3  IP996011-DOT-2. . . . . . . . . . . . . . BLX=00024  026   0 000 026   DS 1C           Display        E             
+    275       3  IP996011-START-SECOND . . . . . . . . . . BLX=00024  027   0 000 027   DS 4C           Disp-Num-Edit  E             
+    276     2  IP996011-COMPILED-TEXT. . . . . . . . . . . BLX=00024  02B   0 000 02B   DS 9C           Display        E             
+    277     2  IP996011-WHEN-COMPILED. . . . . . . . . . . BLX=00024  034   0 000 034   DS 17C          AN-Edit        E             
+    283   1  100-IS-IT-THE-FIRST-TIME. . . . . . . . . . . BLW=00000  058               DS 1C           Display                      
+    284   88 88-100-IT-IS-FIRST-TIME . . . . . . . . . . .                                                                           
+    285   88 88-100-IT-IS-NOT-FIRST-TIME . . . . . . . . .                                                                           
+    291   1  FILLER. . . . . . . . . . . . . . . . . . . . BLW=00000  060               DS 0CL31        Group                        
+    292     2  300-IP313010. . . . . . . . . . . . . . . . BLW=00000  060   0 000 000   DS 8C           Display                      
+    293     2  300-PGM-IP996010. . . . . . . . . . . . . . BLW=00000  068   0 000 008   DS 8C           Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page    17                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+    294     2  300-PGM-IP610010. . . . . . . . . . . . . . BLW=00000  070   0 000 010   DS 8C           Display                      
+    295     2  300-PGM-VERSION . . . . . . . . . . . . . . BLW=00000  078   0 000 018   DS 7C           Display                      
+    297   1  FILLER. . . . . . . . . . . . . . . . . . . . BLW=00000  080               DS 0CL60        Group                        
+    298     2  300-PARA-2200 . . . . . . . . . . . . . . . BLW=00000  080   0 000 000   DS 30C          Display                      
+    300     2  300-PARA-2300 . . . . . . . . . . . . . . . BLW=00000  09E   0 000 01E   DS 30C          Display                      
+    307   1  800-PTR-IP996010. . . . . . . . . . . . . . . BLW=00000  0C0               DS 8C           Procedure-Ptr                
+    313   1  800-VARIABLES . . . . . . . . . . . . . . . . BLW=00000  0C8               DS 0CL2         Group                        
+    315     2  800-LENGTH. . . . . . . . . . . . . . . . . BLW=00000  0C8   0 000 000   DS 2C           Binary                       
+    318   1  FILLER. . . . . . . . . . . . . . . . . . . . BLW=00000  0D0               DS 40C          Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page    18                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000030 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000580 FOR LINE 4                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000000 00000001 40404040 40404040 40404040 40404040 40404040 40404040  |........                        |    
+ 00011C  (LIT+32)     40404040 40400000                                                        |      ..                        |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page    19                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 00012C FOR 000454 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000144  (LIT+0)      FFFFFFFC 00001000 40000000 00000015 FF000000 00000001 FFFFFFFF 00000004  |........ .......................|    
+ 000164  (LIT+32)     000001F4 00000000 00122908 E6D6D9D2 C9D5C740 E2E3D6D9 C1C7C540 C6D6D940  |...4........WORKING STORAGE FOR |    
+ 000184  (LIT+64)     C9D7F3F1 F3F0F1F0 40C5D5C4 E2404040 C8C5D9C5 E6D6D9D2 C9D5C740 E2E3D6D9  |IP313010 ENDS   HEREWORKING STOR|    
+ 0001A4  (LIT+96)     C1C7C540 C6D6D940 C9D7F3F1 F3F0F1F0 40E2E3C1 D9E3E240 C8C5D9C5 F2F3F0F0  |AGE FOR IP313010 STARTS HERE2300|    
+ 0001C4  (LIT+128)    60E2C1E5 C560E3C1 C2D3C560 C5D5E3D9 E8F2F2F0 F060C3C8 C5C3D260 D7D9C5E5  |-SAVE-TABLE-ENTRY2200-CHECK-PREV|    
+ 0001E4  (LIT+160)    60C5D5E3 D9E8F1F0 61F3F061 F2F1F0F0 4BF0F14B F2F1C9D7 F6F1F0F0 F1F0C9D7  |-ENTRY10/30/2100.01.21IP610010IP|    
+ 000204  (LIT+192)    F9F9F6F0 F1F0E2E8 E2D6E4E3 4040C9C7 E9E2D9E3 C3C401D6 63011979 00000102  |996010SYSOUT  IGZSRTCD.O........|    
+ 000224  (LIT+224)    03040506 0708090A 0B0C0D0E 0F101112 13141516 1718191A 1B1C1D1E 1F202122  |................................|    
+ 000244  (LIT+256)    23242526 2728292A 2B2C2D2E 2F303132 33343536 3738393A 3B3C3D3E 3F404142  |............................. ..|    
+ 000264  (LIT+288)    43444546 4748494A 4B4C4D4E 4F505152 53545556 5758595A 5B5C5D5E 5F606162  |.......½.<(+|&.........!$*).^-/.|    
+ 000284  (LIT+320)    63646566 6768696A 6B6C6D6E 6F707172 73747576 7778797A 7B7C7D7E 7F80C1C2  |........,%_>?..........:#@'=".AB|    
+ 0002A4  (LIT+352)    C3C4C5C6 C7C8C98A 8B8C8D8E 8F90D1D2 D3D4D5D6 D7D8D99A 9B9C9D9E 9FA0A1E2  |CDEFGHI.......JKLMNOPQR........S|    
+ 0002C4  (LIT+384)    E3E4E5E6 E7E8E9AA ABACADAE AFB0B1B2 B3B4B5B6 B7B8B9BA BBBCBDBE BFC0C1C2  |TUVWXYZ.......................AB|    
+ 0002E4  (LIT+416)    C3C4C5C6 C7C8C9CA CBCCCDCE CFD0D1D2 D3D4D5D6 D7D8D9DA DBDCDDDE DFE0E1E2  |CDEFGHI.......JKLMNOPQR........S|    
+ 000304  (LIT+448)    E3E4E5E6 E7E8E9EA EBECEDEE EFF0F1F2 F3F4F5F6 F7F8F9FA FBFCFDFE FF000000  |TUVWXYZ......0123456789.........|    
+ 000324  (LIT+480)    00000001 2C000000 01000001 30000000 01000001 C0000000 03000000 00000001  |................................|    
+ 000344  (LIT+512)    34000000 19000000 00000000 00000000 00000000 00000000 00000000 00800000  |................................|    
+ 000364  (LIT+544)    00400000 00000000 00000000 00E70008 400001E7 00084000 00000000 00000000  |. ...........X.. ..X.. .........|    
+ 000384  (LIT+576)    00000000 00004000 00000025 C00001C0 00080800 00280058 08000000 00000010  |...... .........................|    
+ 0003A4  (LIT+608)    08000028 00BE0200 00000000 00110900 01940034 09080000 28024520 0800003D  |.................m..............|    
+ 0003C4  (LIT+640)    00580000 01380900 012C00C0 3D005800 00014800 00000008 80000000 000A1900  |................................|    
+ 0003E4  (LIT+672)    01340000 2908C9D7 F0F0F2F1 F0F260D9 C5C3D9C5 C1E3C560 C3D6D5E5 60E3C1C2  |......IP002102-RECREATE-CONV-TAB|    
+ 000404  (LIT+704)    D3C54040 00000000 00000004 C9D7F5F0 F0F0F4C9 60D6D5C5 60C4C1E8 60D9C5C3  |LE  ........IP50004I-ONE-DAY-REC|    
+ 000424  (LIT+736)    60D3E3C8 40404040 40400000 00030000 6D57C9D7 F5F0F0F0 F4C960D6 D5C560C4  |-LTH      ......_.IP50004I-ONE-D|    
+ 000444  (LIT+768)    C1E860D9 C5C34040 40404040 40404040 00000004 00000008 C9D7F5F0 F0F0F4C9  |AY-REC          ........IP50004I|    
+ 000464  (LIT+800)    60D9C5C1 C460E3C1 C2D3C560 C9C44040 40404040 40400000 000B0000 0002C9D7  |-READ-TABLE-ID        ........IP|    
+ 000484  (LIT+832)    F5F0F0F0 F4C960D6 D5C560C4 C1E860D9 C5C1C460 E2E3C1E3 E4E24040 0000000C  |50004I-ONE-DAY-READ-STATUS  ....|    
+ 0004A4  (LIT+864)    00000004 C9D7F5F0 F0F0F5D6 60D6D5C5 60C4C1E8 60D9C5C3 60D3E3C8 40404040  |....IP50005O-ONE-DAY-REC-LTH    |    
+ 0004C4  (LIT+896)    40400000 000D0000 7FF0C9D7 F5F0F0F0 F5D660D6 D5C560C4 C1E860D9 C5C34040  |  ......"0IP50005O-ONE-DAY-REC  |    
+ 0004E4  (LIT+928)    40404040 40404040 0000000E 00000002 C9D7F5F0 F0F0F5D6 60D6D5C5 60C4C1E8  |        ........IP50005O-ONE-DAY|    
+ 000504  (LIT+960)    60D9C5C1 C460E2E3 C1E3E4E2 40400000 00160000 000AC9D7 F5F0F0F0 F5D660C3  |-READ-STATUS  ........IP50005O-C|    
+ 000524  (LIT+992)    D3C5C1D9 C9D5C760 C4E360E3 D4404040 40404040 00000017 00000045 C9D7F9F9  |LEARING-DT-TM       ........IP99|    
+ 000544  (LIT+1024)   F6F0F1F1 60D7D9D6 C7D9C1D4 60E2E3C1 D9E360D4 C5E2E2C1 C7C50000 0018FF40  |6011-PROGRAM-START-MESSAGE..... |    
+ 000564  (LIT+1056)   00000000 40C00001 40000808 00002800 5802C000 08080000 280058FF           |.... ... ...................    |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000326 000760 PERFORM                       000327 000780 PERFORM                       000328 0007A0 GOBACK                        
+ 000337 0007B4 IF                            000338 0007C8 SET                           000339 0007EE MOVE                          
+ 000340 0007FC MOVE                          000341 00080A MOVE                          000342 00081C CALL                          
+ 000344 000858 SET                           000345 000860 MOVE                          000346 00086E MOVE                          
+ 000347 00087C MOVE                          000349 000892 MOVE                          000350 0008A0 SET                           
+ 000354 0008B4 IF                            000355 0008D0 MOVE                          000356 0008DE PERFORM                       
+ 000358 00090A SET                           000359 000928 SUBTRACT                      000360 00093C COMPUTE                       
+ 000363 00096A MOVE                          000364 00097E ADD                           000365 000992 MOVE                          
+ 000367 0009DA MOVE                          000368 0009EC MOVE                          000376 000A04 MOVE                          
+ 000378 000A22 MOVE                          000380 000A40 MOVE                          000382 000A5E MOVE                          
+ 000384 000A7C MOVE                          000386 000A9A MOVE                          000388 000AB8 MOVE                          
+ 000390 000ACA SET                                                                                                                   
+0                                                                                                                                    
+   DEBUGINF TABLE LOCATED AT 000B60 FOR 00003E BYTES                                                                                 
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page    20                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  BASE LOCATORS FOR EXTERNAL DATA                                                                          
+                    000198  TEST INFORMATION AREA                                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page    21                
+0                   0001C0  INDEX CELLS                                                                                              
+                    0001CC  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  000000E8  VARIABLE-LENGTH CELLS                                                                                    
+                  00000104  ODO SAVE CELLS                                                                                           
+                  00000108  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000120  PERFORM SAVE CELLS                                                                                       
+                  00000138  TEMPORARY STORAGE-2                                                                                      
+                  00000148  TEMPORARY STORAGE-3                                                                                      
+                  00000150  CALL STATEMENT PROGRAM NAME                                                                              
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 000001E0 BYTES                                                                                       
+ CLG00001 WILL BE ALLOCATED FOR 0000000B BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 000000F8 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 000001F0 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 000BD8                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 000DA8 FOR LENGTH 0000B8                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               IP313010  Date 10/30/2021  Time 00:01:21   Page    22                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program IP313010:                                                                                            
+ *    Source records = 395                                                                                                           
+ *    Data Division statements = 99                                                                                                  
+ *    Procedure Division statements = 34                                                                                             
+0End of compilation 1,  program IP313010,  highest severity 4.                                                                       
+0Return code 4                                                                                                                       

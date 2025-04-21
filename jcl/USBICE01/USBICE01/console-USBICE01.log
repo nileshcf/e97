@@ -1,0 +1,43 @@
+10:58:30.208 [main] INFO  o.s.boot.StartupInfoLogger.logStarting   50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1169988 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/USBICE01/USBICE01/target/USBICE01-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/USBICE01/USBICE01)
+10:58:30.213 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo  654 - No active profile set, falling back to 1 default profile: "default"
+10:58:32.580 [main] INFO  o.s.boot.StartupInfoLogger.logStarted   56 - Started CFApplication in 3.367 seconds (process running for 4.273)
+10:58:32.614 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo  107 - CFDataConnectIO version : 5.0.0.21
+10:58:32.681 [main] INFO  c.c.a.u.d.plus.CFDcioConfiguration.cfDataConnectIOPlusInfo   28 - CFDataConnectIOPlus version : 5.0.0.21
+10:58:32.723 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.initDatabase  189 - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+10:58:33.767 [main] INFO  o.s.b.a.b.JobLauncherApplicationRunner.run  168 - Running default command line with: []
+10:58:33.843 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  154 - Job: [FlowJob: [name=USBICE01]] launched with the following parameters: [{}]
+10:58:33.912 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [p010]
+10:58:33.945 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [p010] executed in 31ms
+10:58:33.963 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [p020]
+10:58:34.004 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [p020] executed in 40ms
+10:58:34.026 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [p030_01Decider]
+10:58:34.065 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [p030_01Decider] executed in 38ms
+10:58:34.090 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [Usbice01P030_01Sort]
+10:58:34.159 [main] INFO  c.c.app.tasks.Usbice01P030_01Sort.afterStep  143 - STEPNAME: USBICE01P030_01 Execution completed, number of RECORDS - IN: 0,  OUT: 6
+10:58:34.164 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [Usbice01P030_01Sort] executed in 72ms
+10:58:34.186 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [p030_02Decider]
+10:58:34.222 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [p030_02Decider] executed in 35ms
+10:58:34.246 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [Usbice01P030_02Sort]
+10:58:34.318 [main] INFO  c.c.app.tasks.Usbice01P030_02Sort.afterStep  139 - STEPNAME: USBICE01P030_02 Execution completed, number of RECORDS - IN: 6,  OUT: 6
+10:58:34.323 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [Usbice01P030_02Sort] executed in 75ms
+10:58:34.352 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [printSummary]
+10:58:34.377 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  272 - JOB : USBICE01 ENDED -  0000
+10:58:34.378 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  276 - 
+
+Stepwise Execution Summary :
++---------------------------------------------------------------+
+| STEPNAME     | PROGRAM      | RC          | ELAPSED           |
+|              |              |             | HH:MM:SS:ss       |
++---------------------------------------------------------------+
+| P010         | IEFBR14      | 00          | 00:00:00:031      |
++---------------------------------------------------------------+
+| P020         | IDCAMS       | 00          | 00:00:00:040      |
++---------------------------------------------------------------+
+| P030_01      | ICETOOL      | 00          | 00:00:00:126      |
++---------------------------------------------------------------+
+| P030_02      | ICETOOL      | 00          | 00:00:00:124      |
++---------------------------------------------------------------+
+  
+10:58:34.389 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [printSummary] executed in 35ms
+10:58:34.413 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  161 - Job: [FlowJob: [name=USBICE01]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 533ms
+10:58:34.429 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.shutdownDatabase  220 - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'

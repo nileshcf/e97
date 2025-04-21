@@ -1,0 +1,69 @@
+[ {
+  "stepName" : "DELCLUSR",
+  "progName" : "IDCAMS",
+  "dataSetInfos" : [ {
+    "ddName" : "SYSPRINT",
+    "fileNames" : [ "SYSOUT" ]
+  }, {
+    "ddName" : "SYSIN",
+    "fileNames" : [ "CLOUDFRM.IDCAMS.CARDS/DELCL" ]
+  } ]
+}, {
+  "stepName" : "DEFCLUSR",
+  "progName" : "IDCAMS",
+  "dataSetInfos" : [ {
+    "ddName" : "SYSPRINT",
+    "fileNames" : [ "SYSOUT" ]
+  }, {
+    "ddName" : "SYSIN",
+    "fileNames" : [ "CLOUDFRM.IDCAMS.CARDS/DEFCL" ]
+  } ]
+}, {
+  "stepName" : "QSAM2VSAM",
+  "progName" : "SORT",
+  "dataSetInfos" : [ {
+    "ddName" : "SORTOUT",
+    "fileNames" : [ "CLOUDFRM.IDCAMS.MONITOR" ]
+  }, {
+    "ddName" : "SORTIN",
+    "fileNames" : [ "CLOUDFRM.IDCAMS.MONITOR.INPUT" ]
+  }, {
+    "ddName" : "SYSIN",
+    "fileNames" : [ ]
+  }, {
+    "ddName" : "SYSOUT",
+    "fileNames" : [ "SYSOUT" ]
+  } ]
+}, {
+  "stepName" : "VSAM2QSAM",
+  "progName" : "SORT",
+  "dataSetInfos" : [ {
+    "ddName" : "SORTIN",
+    "fileNames" : [ "CLOUDFRM.IDCAMS.MONITOR" ]
+  }, {
+    "ddName" : "SORTOUT",
+    "fileNames" : [ "CLOUDFRM.SORT.MONITOR.OUTPUT" ]
+  }, {
+    "ddName" : "SYSIN",
+    "fileNames" : [ ]
+  }, {
+    "ddName" : "SYSOUT",
+    "fileNames" : [ "SYSOUT" ]
+  } ]
+}, {
+  "stepName" : "IDCAMSOUT",
+  "progName" : "IDCAMS",
+  "dataSetInfos" : [ {
+    "ddName" : "OUTDD",
+    "fileNames" : [ "CLOUDFRM.IDCAMS.MONITOR.OUTPUT" ]
+  }, {
+    "ddName" : "INDD",
+    "fileNames" : [ "CLOUDFRM.IDCAMS.MONITOR" ]
+  }, {
+    "ddName" : "SYSIN",
+    "fileNames" : [ "CLOUDFRM.IDCAMS.CARDS/REPRO" ]
+  }, {
+    "ddName" : "SYSPRINT",
+    "fileNames" : [ "SYSOUT" ]
+  } ]
+} ]

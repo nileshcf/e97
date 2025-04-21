@@ -1,0 +1,712 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 09/28/2020  Time 23:23:04   Page     1                
+0Invocation parameters:                                                                                                              
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(BIN),AWO,NUMPROC(PFD),TEST(ALL,SYM,SEPARATE)                                                        
+                                                                                                                                     
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"  
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no   
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".                                    
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler         
+                       invocation parameter took precedence.                                                                         
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(COMPAT)                                                                                                                    
+    AWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(PFD)                                                                                                                     
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 09/28/2020  Time 23:23:04   Page     2                
+0 NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+    TEST(HOOK,SEPARATE,NOEJPD)                                                                                                       
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CRAZY88   Date 09/28/2020  Time 23:23:04   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0/* CRAZY88                                                                                                                          
+   000001         000100 IDENTIFICATION DIVISION.                                         00010000                                   
+   000002         000200 PROGRAM-ID. CRAZY88.                                             00020001                                   
+   000003         000300 ENVIRONMENT DIVISION.                                            00030000                                   
+   000004         000400 INPUT-OUTPUT SECTION.                                            00040000                                   
+   000005         000500 FILE-CONTROL.                                                    00050000                                   
+   000006         000800 DATA DIVISION.                                                   00080000                                   
+   000007         000900 WORKING-STORAGE SECTION.                                         00090001                                   
+   000008         000910*                                                                 00091001                                   
+   000009         001000 01 W-CHAR-G.                                                     00100001 BLW=00000+000         0CL2        
+   000010         001100    05 FILLER                    PIC X(01).                       00110001 BLW=00000+000,0000000 1C          
+   000011         001110    05 W-CHAR-TEST-DATA          PIC X(01).                       00111001 BLW=00000+001,0000001 1C          
+   000012         001181*                                                                 00118101                                   
+   000013         001183 01 COUNTERS.                                                     00118301 BLW=00000+008         0CL2        
+   000014         001184    05 W-I.                                                       00118401 BLW=00000+008,0000000 0CL2        
+   000015         001185      10 I                       PIC S9(04) COMP VALUE +0.        00118503 BLW=00000+008,0000000 2C          
+   000016         001188*                                                                 00118801                                   
+   000017         001189 01 W-300-EVAL-CHAR              PIC X(01) VALUE SPACE.           00118902 BLW=00000+010         1C          
+                                                                                                   IMP                               
+   000018         001190    88 300-EVAL-CHAR             VALUE 'A', 'B', 'C', 'D', 'E',   00119002                                   
+   000019         001191                                       'F', 'G', 'H', 'I', 'J',   00119101                                   
+   000020         001192                                       'K', 'L', 'M', 'N', 'O',   00119201                                   
+   000021         001193                                       'P', 'Q', 'R', 'S', 'T',   00119301                                   
+   000022         001194                                       'U', 'V', 'W', 'X', 'Y',   00119401                                   
+   000023         001195                                       'Z', '0', '1', '2', '3',   00119501                                   
+   000024         001196                                       '4', '5', '6', '7', '8',   00119601                                   
+   000025         001197                                       '9', '-', '.', ',', '/',   00119701                                   
+   000026         001198                                       '\'.                       00119801   
+   000027         001199    88 300-EVAL-CHAR-LETTER      VALUE 'A' THRU'Z'.               00119901                                 
+   000027         001199    88 300-EVAL-CHAR-A           VALUE 'A'.                       00119901                                   
+   000028         001200    88 300-EVAL-CHAR-B           VALUE 'B'.                       00120001                                   
+   000029         001201    88 300-EVAL-CHAR-C           VALUE 'C'.                       00120101                                   
+   000030         001202    88 300-EVAL-CHAR-D           VALUE 'D'.                       00120201                                   
+   000031         001203    88 300-EVAL-CHAR-E           VALUE 'E'.                       00120301                                   
+   000032         001204    88 300-EVAL-CHAR-F           VALUE 'F'.                       00120401                                   
+   000033         001205    88 300-EVAL-CHAR-G           VALUE 'G'.                       00120501                                   
+   000034         001206    88 300-EVAL-CHAR-H           VALUE 'H'.                       00120601                                   
+   000035         001207    88 300-EVAL-CHAR-I           VALUE 'I'.                       00120701                                   
+   000036         001208    88 300-EVAL-CHAR-J           VALUE 'J'.                       00120801                                   
+   000037         001209    88 300-EVAL-CHAR-K           VALUE 'K'.                       00120901                                   
+   000038         001210    88 300-EVAL-CHAR-L           VALUE 'L'.                       00121001                                   
+   000039         001220    88 300-EVAL-CHAR-M           VALUE 'M'.                       00122001                                   
+   000040         001230    88 300-EVAL-CHAR-N           VALUE 'N'.                       00123001                                   
+   000041         001240    88 300-EVAL-CHAR-O           VALUE 'O'.                       00124001                                   
+   000042         001250    88 300-EVAL-CHAR-P           VALUE 'P'.                       00125001                                   
+   000043         001260    88 300-EVAL-CHAR-Q           VALUE 'Q'.                       00126001                                   
+   000044         001270    88 300-EVAL-CHAR-R           VALUE 'R'.                       00127001                                   
+   000045         001280    88 300-EVAL-CHAR-S           VALUE 'S'.                       00128001                                   
+   000046         001290    88 300-EVAL-CHAR-T           VALUE 'T'.                       00129001                                   
+   000047         001291    88 300-EVAL-CHAR-U           VALUE 'U'.                       00129101                                   
+   000048         001292    88 300-EVAL-CHAR-V           VALUE 'V'.                       00129201                                   
+   000049         001293    88 300-EVAL-CHAR-W           VALUE 'W'.                       00129301                                   
+   000050         001294    88 300-EVAL-CHAR-X           VALUE 'X'.                       00129401                                   
+   000051         001295    88 300-EVAL-CHAR-Y           VALUE 'Y'.                       00129501                                   
+   000052         001296    88 300-EVAL-CHAR-Z           VALUE 'Z'.                       00129601                                   
+   000053         001297    88 300-EVAL-CHAR-0           VALUE '0'.                       00129701                                   
+   000054         001298    88 300-EVAL-CHAR-1           VALUE '1'.                       00129801                                   
+   000055         001299    88 300-EVAL-CHAR-2           VALUE '3'.                       00129901                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CRAZY88   Date 09/28/2020  Time 23:23:04   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000056         001300    88 300-EVAL-CHAR-3           VALUE '3'.                       00130001                                   
+   000057         001310    88 300-EVAL-CHAR-4           VALUE '4'.                       00131001                                   
+   000058         001320    88 300-EVAL-CHAR-5           VALUE '5'.                       00132001                                   
+   000059         001330    88 300-EVAL-CHAR-6           VALUE '6'.                       00133001                                   
+   000060         001340    88 300-EVAL-CHAR-7           VALUE '7'.                       00134001                                   
+   000061         001350    88 300-EVAL-CHAR-8           VALUE '8'.                       00135001                                   
+   000062         001351    88 300-EVAL-CHAR-9           VALUE '9'.                       00135101                                   
+   000063         001360    88 300-EVAL-CHAR-PERIOD      VALUE '.'.                       00136001                                   
+   000064         001370    88 300-EVAL-CHAR-COMMA       VALUE ','.                       00137001                                   
+   000065         001380    88 300-EVAL-CHAR-HYPHEN      VALUE '-'.                       00138001                                   
+   000066         001390    88 300-EVAL-CHAR-SLASH-F     VALUE '/'.                       00139001                                   
+   000067         001391    88 300-EVAL-CHAR-SLASH-B     VALUE '\'.                       00139101                                   
+   000068         001400*                                                                 00140001                                   
+   000069         001900 PROCEDURE DIVISION.                                              00190000                                   
+   000070         002000 0000-MAIN.                                                       00200001                                   
+   000071         002001      DISPLAY ' '                                                 00200101                                   
+   000072         002002      DISPLAY 'BEGIN CRAZY88'                                     00200201                                   
+   000073         002003      DISPLAY ' '                                                 00200301                                   
+   000074         002004                                                                  00200401                                   
+   000075         002005      PERFORM VARYING I FROM ZERO BY +1                           00200501 15 IMP                            
+   000076         002006        UNTIL I > 255                                             00200601 15                                
+   000077      1  002008              MOVE W-I                TO W-CHAR-G                 00200801 14 9                              
+   000078      1  002011              MOVE W-CHAR-TEST-DATA   TO W-300-EVAL-CHAR          00201102 11 17                             
+   000079      1  002020              IF 300-EVAL-CHAR                                    00202001 18                                
+   000080      2  002021                 DISPLAY '300-EVAL-CHAR IS TRUE FOR I VALUE: '    00202103                                   
+   000081      2  002022                         I ' AND W-300-EVAL-CHAR VALUE: '         00202203 15                                
+   000082      2  002023                         W-300-EVAL-CHAR                          00202303 17                                
+   000083      2  002024                 EVALUATE TRUE                                    00202401      
+   000083      2  002024                     WHEN 300-EVAL-CHAR-LETTER              
+   000085      3  002026                        DISPLAY '300-EVAL-CHAR-LETTER IS TRUE'    00202601                                   
+   000086      3  002027                          CONTINUE                                00202701                              
+   000084      2  002025                     WHEN 300-EVAL-CHAR-A                         00202501 27                                
+   000085      3  002026                          DISPLAY '300-EVAL-CHAR-A IS TRUE'       00202601                                   
+   000086      3  002027                          CONTINUE                                00202701                                   
+   000087         002028                                                                  00202801                                   
+   000088      2  002029                     WHEN 300-EVAL-CHAR-B                         00202901 28                                
+   000089      3  002030                          DISPLAY '300-EVAL-CHAR-B IS TRUE'       00203001                                   
+   000090      3  002031                          CONTINUE                                00203101                                   
+   000091         002032                                                                  00203201                                   
+   000092      2  002033                     WHEN 300-EVAL-CHAR-C                         00203301 29                                
+   000093      3  002034                          DISPLAY '300-EVAL-CHAR-C IS TRUE'       00203401                                   
+   000094      3  002035                          CONTINUE                                00203501                                   
+   000095         002036                                                                  00203601                                   
+   000096      2  002037                     WHEN 300-EVAL-CHAR-D                         00203701 30                                
+   000097      3  002038                          DISPLAY '300-EVAL-CHAR-D IS TRUE'       00203801                                   
+   000098      3  002039                          CONTINUE                                00203901                                   
+   000099         002040                                                                  00204001                                   
+   000100      2  002041                     WHEN 300-EVAL-CHAR-E                         00204101 31                                
+   000101      3  002042                          DISPLAY '300-EVAL-CHAR-E IS TRUE'       00204201                                   
+   000102      3  002043                          CONTINUE                                00204301                                   
+   000103         002044                                                                  00204401                                   
+   000104      2  002045                     WHEN 300-EVAL-CHAR-F                         00204501 32                                
+   000105      3  002046                          DISPLAY '300-EVAL-CHAR-F IS TRUE'       00204601                                   
+   000106      3  002047                          CONTINUE                                00204701                                   
+   000107         002048                                                                  00204801                                   
+   000108      2  002049                     WHEN 300-EVAL-CHAR-G                         00204901 33                                
+   000109      3  002050                          DISPLAY '300-EVAL-CHAR-G IS TRUE'       00205001                                   
+   000110      3  002051                          CONTINUE                                00205101                                   
+   000111         002052                                                                  00205201                                   
+   000112      2  002053                     WHEN 300-EVAL-CHAR-H                         00205301 34                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CRAZY88   Date 09/28/2020  Time 23:23:04   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000113      3  002054                          DISPLAY '300-EVAL-CHAR-H IS TRUE'       00205401                                   
+   000114      3  002055                          CONTINUE                                00205501                                   
+   000115         002056                                                                  00205601                                   
+   000116      2  002057                     WHEN 300-EVAL-CHAR-I                         00205701 35                                
+   000117      3  002058                          DISPLAY '300-EVAL-CHAR-I IS TRUE'       00205801                                   
+   000118      3  002059                          CONTINUE                                00205901                                   
+   000119         002060                                                                  00206001                                   
+   000120      2  002061                     WHEN 300-EVAL-CHAR-J                         00206101 36                                
+   000121      3  002062                          DISPLAY '300-EVAL-CHAR-J IS TRUE'       00206201                                   
+   000122      3  002063                          CONTINUE                                00206301                                   
+   000123         002064                                                                  00206401                                   
+   000124      2  002065                     WHEN 300-EVAL-CHAR-K                         00206501 37                                
+   000125      3  002066                          DISPLAY '300-EVAL-CHAR-K IS TRUE'       00206601                                   
+   000126      3  002067                          CONTINUE                                00206701                                   
+   000127         002068                                                                  00206801                                   
+   000128      2  002069                     WHEN 300-EVAL-CHAR-L                         00206901 38                                
+   000129      3  002070                          DISPLAY '300-EVAL-CHAR-L IS TRUE'       00207001                                   
+   000130      3  002071                          CONTINUE                                00207101                                   
+   000131         002072                                                                  00207201                                   
+   000132      2  002073                     WHEN 300-EVAL-CHAR-M                         00207301 39                                
+   000133      3  002074                          DISPLAY '300-EVAL-CHAR-M IS TRUE'       00207401                                   
+   000134      3  002075                          CONTINUE                                00207501                                   
+   000135         002076                                                                  00207601                                   
+   000136      2  002077                     WHEN 300-EVAL-CHAR-N                         00207701 40                                
+   000137      3  002078                          DISPLAY '300-EVAL-CHAR-N IS TRUE'       00207801                                   
+   000138      3  002079                          CONTINUE                                00207901                                   
+   000139         002080                                                                  00208001                                   
+   000140      2  002081                     WHEN 300-EVAL-CHAR-O                         00208101 41                                
+   000141      3  002082                          DISPLAY '300-EVAL-CHAR-O IS TRUE'       00208201                                   
+   000142      3  002083                          CONTINUE                                00208301                                   
+   000143         002084                                                                  00208401                                   
+   000144      2  002085                     WHEN 300-EVAL-CHAR-P                         00208501 42                                
+   000145      3  002086                          DISPLAY '300-EVAL-CHAR-P IS TRUE'       00208601                                   
+   000146      3  002087                          CONTINUE                                00208701                                   
+   000147         002088                                                                  00208801                                   
+   000148      2  002089                     WHEN 300-EVAL-CHAR-Q                         00208901 43                                
+   000149      3  002090                          DISPLAY '300-EVAL-CHAR-Q IS TRUE'       00209001                                   
+   000150      3  002091                          CONTINUE                                00209101                                   
+   000151         002092                                                                  00209201                                   
+   000152      2  002093                     WHEN 300-EVAL-CHAR-R                         00209301 44                                
+   000153      3  002094                          DISPLAY '300-EVAL-CHAR-R IS TRUE'       00209401                                   
+   000154      3  002095                          CONTINUE                                00209501                                   
+   000155         002096                                                                  00209601                                   
+   000156      2  002097                     WHEN 300-EVAL-CHAR-S                         00209701 45                                
+   000157      3  002098                          DISPLAY '300-EVAL-CHAR-S IS TRUE'       00209801                                   
+   000158      3  002099                          CONTINUE                                00209901                                   
+   000159         002100                                                                  00210001                                   
+   000160      2  002101                     WHEN 300-EVAL-CHAR-T                         00210101 46                                
+   000161      3  002102                          DISPLAY '300-EVAL-CHAR-T IS TRUE'       00210201                                   
+   000162      3  002103                          CONTINUE                                00210301                                   
+   000163         002104                                                                  00210401                                   
+   000164      2  002105                     WHEN 300-EVAL-CHAR-U                         00210501 47                                
+   000165      3  002106                          DISPLAY '300-EVAL-CHAR-U IS TRUE'       00210601                                   
+   000166      3  002107                          CONTINUE                                00210701                                   
+   000167         002108                                                                  00210801                                   
+   000168      2  002109                     WHEN 300-EVAL-CHAR-V                         00210901 48                                
+   000169      3  002110                          DISPLAY '300-EVAL-CHAR-V IS TRUE'       00211001                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CRAZY88   Date 09/28/2020  Time 23:23:04   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000170      3  002111                          CONTINUE                                00211101                                   
+   000171         002112                                                                  00211201                                   
+   000172      2  002113                     WHEN 300-EVAL-CHAR-W                         00211301 49                                
+   000173      3  002114                          DISPLAY '300-EVAL-CHAR-W IS TRUE'       00211401                                   
+   000174      3  002115                          CONTINUE                                00211501                                   
+   000175         002116                                                                  00211601                                   
+   000176      2  002117                     WHEN 300-EVAL-CHAR-X                         00211701 50                                
+   000177      3  002118                          DISPLAY '300-EVAL-CHAR-X IS TRUE'       00211801                                   
+   000178      3  002119                          CONTINUE                                00211901                                   
+   000179         002120                                                                  00212001                                   
+   000180      2  002121                     WHEN 300-EVAL-CHAR-Y                         00212101 51                                
+   000181      3  002122                          DISPLAY '300-EVAL-CHAR-Y IS TRUE'       00212201                                   
+   000182      3  002123                          CONTINUE                                00212301                                   
+   000183         002124                                                                  00212401                                   
+   000184      2  002125                     WHEN 300-EVAL-CHAR-Z                         00212501 52                                
+   000185      3  002126                          DISPLAY '300-EVAL-CHAR-Z IS TRUE'       00212601                                   
+   000186      3  002127                          CONTINUE                                00212701                                   
+   000187         002128                                                                  00212801                                   
+   000188      2  002129                     WHEN 300-EVAL-CHAR-0                         00212901 53                                
+   000189      3  002130                          DISPLAY '300-EVAL-CHAR-0 IS TRUE'       00213001                                   
+   000190      3  002131                          CONTINUE                                00213101                                   
+   000191         002132                                                                  00213201                                   
+   000192      2  002133                     WHEN 300-EVAL-CHAR-1                         00213301 54                                
+   000193      3  002134                          DISPLAY '300-EVAL-CHAR-1 IS TRUE'       00213401                                   
+   000194      3  002135                          CONTINUE                                00213501                                   
+   000195         002136                                                                  00213601                                   
+   000196      2  002137                     WHEN 300-EVAL-CHAR-2                         00213701 55                                
+   000197      3  002138                          DISPLAY '300-EVAL-CHAR-2 IS TRUE'       00213801                                   
+   000198      3  002139                          CONTINUE                                00213901                                   
+   000199         002140                                                                  00214001                                   
+   000200      2  002141                     WHEN 300-EVAL-CHAR-3                         00214101 56                                
+   000201      3  002142                          DISPLAY '300-EVAL-CHAR-3 IS TRUE'       00214201                                   
+   000202      3  002143                          CONTINUE                                00214301                                   
+   000203         002144                                                                  00214401                                   
+   000204      2  002145                     WHEN 300-EVAL-CHAR-4                         00214501 57                                
+   000205      3  002146                          DISPLAY '300-EVAL-CHAR-4 IS TRUE'       00214601                                   
+   000206      3  002147                          CONTINUE                                00214701                                   
+   000207         002148                                                                  00214801                                   
+   000208      2  002149                     WHEN 300-EVAL-CHAR-5                         00214901 58                                
+   000209      3  002150                          DISPLAY '300-EVAL-CHAR-5 IS TRUE'       00215001                                   
+   000210      3  002151                          CONTINUE                                00215101                                   
+   000211         002152                                                                  00215201                                   
+   000212      2  002153                     WHEN 300-EVAL-CHAR-6                         00215301 59                                
+   000213      3  002154                          DISPLAY '300-EVAL-CHAR-6 IS TRUE'       00215401                                   
+   000214      3  002155                          CONTINUE                                00215501                                   
+   000215         002156                                                                  00215601                                   
+   000216      2  002157                     WHEN 300-EVAL-CHAR-7                         00215701 60                                
+   000217      3  002158                          DISPLAY '300-EVAL-CHAR-7 IS TRUE'       00215801                                   
+   000218      3  002159                          CONTINUE                                00215901                                   
+   000219         002160                                                                  00216001                                   
+   000220      2  002161                     WHEN 300-EVAL-CHAR-8                         00216101 61                                
+   000221      3  002162                          DISPLAY '300-EVAL-CHAR-8 IS TRUE'       00216201                                   
+   000222      3  002163                          CONTINUE                                00216301                                   
+   000223         002164                                                                  00216401                                   
+   000224      2  002165                     WHEN 300-EVAL-CHAR-9                         00216501 62                                
+   000225      3  002166                          DISPLAY '300-EVAL-CHAR-9 IS TRUE'       00216601                                   
+   000226      3  002167                          CONTINUE                                00216701                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CRAZY88   Date 09/28/2020  Time 23:23:04   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000227         002168                                                                  00216801                                   
+   000228      2  002169                     WHEN 300-EVAL-CHAR-PERIOD                    00216901 63                                
+   000229      3  002170                          DISPLAY '300-EVAL-CHAR-PERIOD IS TRUE'  00217001                                   
+   000230      3  002171                          CONTINUE                                00217101                                   
+   000231         002172                                                                  00217201                                   
+   000232      2  002173                     WHEN 300-EVAL-CHAR-COMMA                     00217301 64                                
+   000233      3  002174                          DISPLAY '300-EVAL-CHAR-COMMA IS TRUE'   00217401                                   
+   000234      3  002175                          CONTINUE                                00217501                                   
+   000235         002176                                                                  00217601                                   
+   000236      2  002177                     WHEN 300-EVAL-CHAR-HYPHEN                    00217701 65                                
+   000237      3  002178                          DISPLAY '300-EVAL-CHAR-HYPEN IS TRUE'   00217801                                   
+   000238      3  002179                          CONTINUE                                00217901                                   
+   000239         002180                                                                  00218001                                   
+   000240      2  002181                     WHEN 300-EVAL-CHAR-SLASH-F                   00218101 66                                
+   000241      3  002182                          DISPLAY '300-EVAL-CHAR-SLASH-F IS TRUE' 00218201                                   
+   000242      3  002183                          CONTINUE                                00218301                                   
+   000243         002184                                                                  00218401                                   
+   000244      2  002185                     WHEN 300-EVAL-CHAR-SLASH-B                   00218501 67                                
+   000245      3  002186                          DISPLAY '300-EVAL-CHAR-SLASH-B IS TRUE' 00218601                                   
+   000246      3  002187                          CONTINUE                                00218701                                   
+   000247      2  002188                 END-EVALUATE                                     00218801                                   
+   000248      1  002189              ELSE                                                00218901                                   
+   000249      2  002190                 DISPLAY '300-EVAL-CHAR IS FALSE FOR I VALUE: '   00219001                                   
+   000250      2  002191                         I ' AND W-300-EVAL-CHAR VALUE: '         00219103 15                                
+   000251      2  002192                         W-300-EVAL-CHAR                          00219203 17                                
+   000252      1  002194              END-IF                                              00219401                                   
+   000253         002195      END-PERFORM                                                 00219501                                   
+   000254         002196      .                                                           00219602                                   
+   000255         002197*                                                                 00219701                                   
+   000256         002198 9999-END.                                                        00219801                                   
+   000257         002199      MOVE +0 TO RETURN-CODE                                      00219901 IMP                               
+   000258         002200      DISPLAY ' '                                                 00220001                                   
+   000259         002300      DISPLAY 'BEGIN CRAZY88'                                     00230001                                   
+   000260         002400      DISPLAY ' '                                                 00240001                                   
+   000261         002600      GOBACK.                                                     00260001                                   
+ */ CRAZY88                                                                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CRAZY88   Date 09/28/2020  Time 23:23:04   Page     8                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       13   COUNTERS                                                                                                                 
+       15   I. . . . . . . . . . . . . . .  M75 76 81 250                                                                            
+        0   RETURN-CODE. . . . . . . . . .  M257                                                                                     
+        9   W-CHAR-G . . . . . . . . . . .  M77                                                                                      
+       11   W-CHAR-TEST-DATA . . . . . . .  78                                                                                       
+       14   W-I. . . . . . . . . . . . . .  77                                                                                       
+       17   W-300-EVAL-CHAR. . . . . . . .  M78 82 251                                                                               
+       18   300-EVAL-CHAR. . . . . . . . .  79                                                                                       
+       27   300-EVAL-CHAR-A. . . . . . . .  84                                                                                       
+       28   300-EVAL-CHAR-B. . . . . . . .  88                                                                                       
+       29   300-EVAL-CHAR-C. . . . . . . .  92                                                                                       
+       64   300-EVAL-CHAR-COMMA. . . . . .  232                                                                                      
+       30   300-EVAL-CHAR-D. . . . . . . .  96                                                                                       
+       31   300-EVAL-CHAR-E. . . . . . . .  100                                                                                      
+       32   300-EVAL-CHAR-F. . . . . . . .  104                                                                                      
+       33   300-EVAL-CHAR-G. . . . . . . .  108                                                                                      
+       34   300-EVAL-CHAR-H. . . . . . . .  112                                                                                      
+       65   300-EVAL-CHAR-HYPHEN . . . . .  236                                                                                      
+       35   300-EVAL-CHAR-I. . . . . . . .  116                                                                                      
+       36   300-EVAL-CHAR-J. . . . . . . .  120                                                                                      
+       37   300-EVAL-CHAR-K. . . . . . . .  124                                                                                      
+       38   300-EVAL-CHAR-L. . . . . . . .  128                                                                                      
+       39   300-EVAL-CHAR-M. . . . . . . .  132                                                                                      
+       40   300-EVAL-CHAR-N. . . . . . . .  136                                                                                      
+       41   300-EVAL-CHAR-O. . . . . . . .  140                                                                                      
+       42   300-EVAL-CHAR-P. . . . . . . .  144                                                                                      
+       63   300-EVAL-CHAR-PERIOD . . . . .  228                                                                                      
+       43   300-EVAL-CHAR-Q. . . . . . . .  148                                                                                      
+       44   300-EVAL-CHAR-R. . . . . . . .  152                                                                                      
+       45   300-EVAL-CHAR-S. . . . . . . .  156                                                                                      
+       67   300-EVAL-CHAR-SLASH-B. . . . .  244                                                                                      
+       66   300-EVAL-CHAR-SLASH-F. . . . .  240                                                                                      
+       46   300-EVAL-CHAR-T. . . . . . . .  160                                                                                      
+       47   300-EVAL-CHAR-U. . . . . . . .  164                                                                                      
+       48   300-EVAL-CHAR-V. . . . . . . .  168                                                                                      
+       49   300-EVAL-CHAR-W. . . . . . . .  172                                                                                      
+       50   300-EVAL-CHAR-X. . . . . . . .  176                                                                                      
+       51   300-EVAL-CHAR-Y. . . . . . . .  180                                                                                      
+       52   300-EVAL-CHAR-Z. . . . . . . .  184                                                                                      
+       53   300-EVAL-CHAR-0. . . . . . . .  188                                                                                      
+       54   300-EVAL-CHAR-1. . . . . . . .  192                                                                                      
+       55   300-EVAL-CHAR-2. . . . . . . .  196                                                                                      
+       56   300-EVAL-CHAR-3. . . . . . . .  200                                                                                      
+       57   300-EVAL-CHAR-4. . . . . . . .  204                                                                                      
+       58   300-EVAL-CHAR-5. . . . . . . .  208                                                                                      
+       59   300-EVAL-CHAR-6. . . . . . . .  212                                                                                      
+       60   300-EVAL-CHAR-7. . . . . . . .  216                                                                                      
+       61   300-EVAL-CHAR-8. . . . . . . .  220                                                                                      
+       62   300-EVAL-CHAR-9. . . . . . . .  224                                                                                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CRAZY88   Date 09/28/2020  Time 23:23:04   Page     9                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+       70   0000-MAIN                                                                                                                
+      256   9999-END                                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CRAZY88   Date 09/28/2020  Time 23:23:04   Page    10                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   CRAZY88                                                                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CRAZY88   Date 09/28/2020  Time 23:23:04   Page    11                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID CRAZY88-----------------------------------------------------------------------------------------------------*    
+      9   1  W-CHAR-G. . . . . . . . . . . . . . . . . . . BLW=00000  000               DS 0CL2         Group                        
+     10     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  000   0 000 000   DS 1C           Display                      
+     11     2  W-CHAR-TEST-DATA. . . . . . . . . . . . . . BLW=00000  001   0 000 001   DS 1C           Display                      
+     13   1  COUNTERS. . . . . . . . . . . . . . . . . . . BLW=00000  008               DS 0CL2         Group                        
+     14     2  W-I . . . . . . . . . . . . . . . . . . . . BLW=00000  008   0 000 000   DS 0CL2         Group                        
+     15       3  I . . . . . . . . . . . . . . . . . . . . BLW=00000  008   0 000 000   DS 2C           Binary                       
+     17   1  W-300-EVAL-CHAR . . . . . . . . . . . . . . . BLW=00000  010               DS 1C           Display                      
+     18   88 300-EVAL-CHAR . . . . . . . . . . . . . . . .                                                                           
+     27   88 300-EVAL-CHAR-A . . . . . . . . . . . . . . .                                                                           
+     28   88 300-EVAL-CHAR-B . . . . . . . . . . . . . . .                                                                           
+     29   88 300-EVAL-CHAR-C . . . . . . . . . . . . . . .                                                                           
+     30   88 300-EVAL-CHAR-D . . . . . . . . . . . . . . .                                                                           
+     31   88 300-EVAL-CHAR-E . . . . . . . . . . . . . . .                                                                           
+     32   88 300-EVAL-CHAR-F . . . . . . . . . . . . . . .                                                                           
+     33   88 300-EVAL-CHAR-G . . . . . . . . . . . . . . .                                                                           
+     34   88 300-EVAL-CHAR-H . . . . . . . . . . . . . . .                                                                           
+     35   88 300-EVAL-CHAR-I . . . . . . . . . . . . . . .                                                                           
+     36   88 300-EVAL-CHAR-J . . . . . . . . . . . . . . .                                                                           
+     37   88 300-EVAL-CHAR-K . . . . . . . . . . . . . . .                                                                           
+     38   88 300-EVAL-CHAR-L . . . . . . . . . . . . . . .                                                                           
+     39   88 300-EVAL-CHAR-M . . . . . . . . . . . . . . .                                                                           
+     40   88 300-EVAL-CHAR-N . . . . . . . . . . . . . . .                                                                           
+     41   88 300-EVAL-CHAR-O . . . . . . . . . . . . . . .                                                                           
+     42   88 300-EVAL-CHAR-P . . . . . . . . . . . . . . .                                                                           
+     43   88 300-EVAL-CHAR-Q . . . . . . . . . . . . . . .                                                                           
+     44   88 300-EVAL-CHAR-R . . . . . . . . . . . . . . .                                                                           
+     45   88 300-EVAL-CHAR-S . . . . . . . . . . . . . . .                                                                           
+     46   88 300-EVAL-CHAR-T . . . . . . . . . . . . . . .                                                                           
+     47   88 300-EVAL-CHAR-U . . . . . . . . . . . . . . .                                                                           
+     48   88 300-EVAL-CHAR-V . . . . . . . . . . . . . . .                                                                           
+     49   88 300-EVAL-CHAR-W . . . . . . . . . . . . . . .                                                                           
+     50   88 300-EVAL-CHAR-X . . . . . . . . . . . . . . .                                                                           
+     51   88 300-EVAL-CHAR-Y . . . . . . . . . . . . . . .                                                                           
+     52   88 300-EVAL-CHAR-Z . . . . . . . . . . . . . . .                                                                           
+     53   88 300-EVAL-CHAR-0 . . . . . . . . . . . . . . .                                                                           
+     54   88 300-EVAL-CHAR-1 . . . . . . . . . . . . . . .                                                                           
+     55   88 300-EVAL-CHAR-2 . . . . . . . . . . . . . . .                                                                           
+     56   88 300-EVAL-CHAR-3 . . . . . . . . . . . . . . .                                                                           
+     57   88 300-EVAL-CHAR-4 . . . . . . . . . . . . . . .                                                                           
+     58   88 300-EVAL-CHAR-5 . . . . . . . . . . . . . . .                                                                           
+     59   88 300-EVAL-CHAR-6 . . . . . . . . . . . . . . .                                                                           
+     60   88 300-EVAL-CHAR-7 . . . . . . . . . . . . . . .                                                                           
+     61   88 300-EVAL-CHAR-8 . . . . . . . . . . . . . . .                                                                           
+     62   88 300-EVAL-CHAR-9 . . . . . . . . . . . . . . .                                                                           
+     63   88 300-EVAL-CHAR-PERIOD. . . . . . . . . . . . .                                                                           
+     64   88 300-EVAL-CHAR-COMMA . . . . . . . . . . . . .                                                                           
+     65   88 300-EVAL-CHAR-HYPHEN. . . . . . . . . . . . .                                                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CRAZY88   Date 09/28/2020  Time 23:23:04   Page    12                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+     66   88 300-EVAL-CHAR-SLASH-F . . . . . . . . . . . .                                                                           
+     67   88 300-EVAL-CHAR-SLASH-B . . . . . . . . . . . .                                                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CRAZY88   Date 09/28/2020  Time 23:23:04   Page    13                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 00002C BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000868 FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |    
+ 00011C  (LIT+32)     4040                                                                     |                                |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CRAZY88   Date 09/28/2020  Time 23:23:04   Page    14                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000128 FOR 000740 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000130  (LIT+0)      FFFFFFFC 00001000 00000001 00000000 00FFF3F0 F060C5E5 C1D360C3 C8C1D940  |..................300-EVAL-CHAR |    
+ 000150  (LIT+32)     C9E240C6 C1D3E2C5 40C6D6D9 40C940E5 C1D3E4C5 7A40F3F0 F060C5E5 C1D360C3  |IS FALSE FOR I VALUE: 300-EVAL-C|    
+ 000170  (LIT+64)     C8C1D940 C9E240E3 D9E4C540 C6D6D940 C940E5C1 D3E4C57A 40F3F0F0 60C5E5C1  |HAR IS TRUE FOR I VALUE: 300-EVA|    
+ 000190  (LIT+96)     D360C3C8 C1D960E2 D3C1E2C8 60C240C9 E240E3D9 E4C5F3F0 F060C5E5 C1D360C3  |L-CHAR-SLASH-B IS TRUE300-EVAL-C|    
+ 0001B0  (LIT+128)    C8C1D960 E2D3C1E2 C860C640 C9E240E3 D9E4C5F3 F0F060C5 E5C1D360 C3C8C1D9  |HAR-SLASH-F IS TRUE300-EVAL-CHAR|    
+ 0001D0  (LIT+160)    60D7C5D9 C9D6C440 C9E240E3 D9E4C540 C1D5C440 E660F3F0 F060C5E5 C1D360C3  |-PERIOD IS TRUE AND W-300-EVAL-C|    
+ 0001F0  (LIT+192)    C8C1D940 E5C1D3E4 C57A40F3 F0F060C5 E5C1D360 C3C8C1D9 60C8E8D7 C5D540C9  |HAR VALUE: 300-EVAL-CHAR-HYPEN I|    
+ 000210  (LIT+224)    E240E3D9 E4C5F3F0 F060C5E5 C1D360C3 C8C1D960 C3D6D4D4 C140C9E2 40E3D9E4  |S TRUE300-EVAL-CHAR-COMMA IS TRU|    
+ 000230  (LIT+256)    C5F3F0F0 60C5E5C1 D360C3C8 C1D960F9 40C9E240 E3D9E4C5 F3F0F060 C5E5C1D3  |E300-EVAL-CHAR-9 IS TRUE300-EVAL|    
+ 000250  (LIT+288)    60C3C8C1 D960F840 C9E240E3 D9E4C5F3 F0F060C5 E5C1D360 C3C8C1D9 60F740C9  |-CHAR-8 IS TRUE300-EVAL-CHAR-7 I|    
+ 000270  (LIT+320)    E240E3D9 E4C5F3F0 F060C5E5 C1D360C3 C8C1D960 F640C9E2 40E3D9E4 C5F3F0F0  |S TRUE300-EVAL-CHAR-6 IS TRUE300|    
+ 000290  (LIT+352)    60C5E5C1 D360C3C8 C1D960F5 40C9E240 E3D9E4C5 F3F0F060 C5E5C1D3 60C3C8C1  |-EVAL-CHAR-5 IS TRUE300-EVAL-CHA|    
+ 0002B0  (LIT+384)    D960F440 C9E240E3 D9E4C5F3 F0F060C5 E5C1D360 C3C8C1D9 60F340C9 E240E3D9  |R-4 IS TRUE300-EVAL-CHAR-3 IS TR|    
+ 0002D0  (LIT+416)    E4C5F3F0 F060C5E5 C1D360C3 C8C1D960 F240C9E2 40E3D9E4 C5F3F0F0 60C5E5C1  |UE300-EVAL-CHAR-2 IS TRUE300-EVA|    
+ 0002F0  (LIT+448)    D360C3C8 C1D960F1 40C9E240 E3D9E4C5 F3F0F060 C5E5C1D3 60C3C8C1 D960F040  |L-CHAR-1 IS TRUE300-EVAL-CHAR-0 |    
+ 000310  (LIT+480)    C9E240E3 D9E4C5F3 F0F060C5 E5C1D360 C3C8C1D9 60E940C9 E240E3D9 E4C5F3F0  |IS TRUE300-EVAL-CHAR-Z IS TRUE30|    
+ 000330  (LIT+512)    F060C5E5 C1D360C3 C8C1D960 E840C9E2 40E3D9E4 C5F3F0F0 60C5E5C1 D360C3C8  |0-EVAL-CHAR-Y IS TRUE300-EVAL-CH|    
+ 000350  (LIT+544)    C1D960E7 40C9E240 E3D9E4C5 F3F0F060 C5E5C1D3 60C3C8C1 D960E640 C9E240E3  |AR-X IS TRUE300-EVAL-CHAR-W IS T|    
+ 000370  (LIT+576)    D9E4C5F3 F0F060C5 E5C1D360 C3C8C1D9 60E540C9 E240E3D9 E4C5F3F0 F060C5E5  |RUE300-EVAL-CHAR-V IS TRUE300-EV|    
+ 000390  (LIT+608)    C1D360C3 C8C1D960 E440C9E2 40E3D9E4 C5F3F0F0 60C5E5C1 D360C3C8 C1D960E3  |AL-CHAR-U IS TRUE300-EVAL-CHAR-T|    
+ 0003B0  (LIT+640)    40C9E240 E3D9E4C5 F3F0F060 C5E5C1D3 60C3C8C1 D960E240 C9E240E3 D9E4C5F3  | IS TRUE300-EVAL-CHAR-S IS TRUE3|    
+ 0003D0  (LIT+672)    F0F060C5 E5C1D360 C3C8C1D9 60D940C9 E240E3D9 E4C5F3F0 F060C5E5 C1D360C3  |00-EVAL-CHAR-R IS TRUE300-EVAL-C|    
+ 0003F0  (LIT+704)    C8C1D960 D840C9E2 40E3D9E4 C5F3F0F0 60C5E5C1 D360C3C8 C1D960D7 40C9E240  |HAR-Q IS TRUE300-EVAL-CHAR-P IS |    
+ 000410  (LIT+736)    E3D9E4C5 F3F0F060 C5E5C1D3 60C3C8C1 D960D640 C9E240E3 D9E4C5F3 F0F060C5  |TRUE300-EVAL-CHAR-O IS TRUE300-E|    
+ 000430  (LIT+768)    E5C1D360 C3C8C1D9 60D540C9 E240E3D9 E4C5F3F0 F060C5E5 C1D360C3 C8C1D960  |VAL-CHAR-N IS TRUE300-EVAL-CHAR-|    
+ 000450  (LIT+800)    D440C9E2 40E3D9E4 C5F3F0F0 60C5E5C1 D360C3C8 C1D960D3 40C9E240 E3D9E4C5  |M IS TRUE300-EVAL-CHAR-L IS TRUE|    
+ 000470  (LIT+832)    F3F0F060 C5E5C1D3 60C3C8C1 D960D240 C9E240E3 D9E4C5F3 F0F060C5 E5C1D360  |300-EVAL-CHAR-K IS TRUE300-EVAL-|    
+ 000490  (LIT+864)    C3C8C1D9 60D140C9 E240E3D9 E4C5F3F0 F060C5E5 C1D360C3 C8C1D960 C940C9E2  |CHAR-J IS TRUE300-EVAL-CHAR-I IS|    
+ 0004B0  (LIT+896)    40E3D9E4 C5F3F0F0 60C5E5C1 D360C3C8 C1D960C8 40C9E240 E3D9E4C5 F3F0F060  | TRUE300-EVAL-CHAR-H IS TRUE300-|    
+ 0004D0  (LIT+928)    C5E5C1D3 60C3C8C1 D960C740 C9E240E3 D9E4C5F3 F0F060C5 E5C1D360 C3C8C1D9  |EVAL-CHAR-G IS TRUE300-EVAL-CHAR|    
+ 0004F0  (LIT+960)    60C640C9 E240E3D9 E4C5F3F0 F060C5E5 C1D360C3 C8C1D960 C540C9E2 40E3D9E4  |-F IS TRUE300-EVAL-CHAR-E IS TRU|    
+ 000510  (LIT+992)    C5F3F0F0 60C5E5C1 D360C3C8 C1D960C4 40C9E240 E3D9E4C5 F3F0F060 C5E5C1D3  |E300-EVAL-CHAR-D IS TRUE300-EVAL|    
+ 000530  (LIT+1024)   60C3C8C1 D960C340 C9E240E3 D9E4C5F3 F0F060C5 E5C1D360 C3C8C1D9 60C240C9  |-CHAR-C IS TRUE300-EVAL-CHAR-B I|    
+ 000550  (LIT+1056)   E240E3D9 E4C5F3F0 F060C5E5 C1D360C3 C8C1D960 C140C9E2 40E3D9E4 C5C2C5C7  |S TRUE300-EVAL-CHAR-A IS TRUEBEG|    
+ 000570  (LIT+1088)   C9D540C3 D9C1E9E8 F8F8E2E8 E2D6E4E3 4040C9C7 E9E2D9E3 C3C40000 00000000  |IN CRAZY88SYSOUT  IGZSRTCD......|    
+ 000590  (LIT+1120)   012C0000 00010000 01300000 00010000 00000000 00000000 00000000 00000000  |................................|    
+ 0005B0  (LIT+1152)   00000000 00000000 00000000 00000000 00008000 00004000 00000000 00000000  |...................... .........|    
+ 0005D0  (LIT+1184)   00004000 00000000 00000000 00000000 00004000 00000025 C00001C0 00070800  |.. ............... .............|    
+ 0005F0  (LIT+1216)   0024044B 01400000 24080000 24001A00 02000509 00012C00 08400000 1C080000  |..... ................... ......|    
+ 000610  (LIT+1248)   2400B740 00000109 00012C00 10FF0140 00001D08 00002400 61FF0140 00001D08  |... ........... ......../.. ....|    
+ 000630  (LIT+1280)   00002400 7EFF0140 00001B08 00002400 D3FF0140 00001B08 00002400 EEFF0140  |....=.. ........L.. ........... |    
+ 000650  (LIT+1312)   00001C08 00002400 9BFF0140 00001708 00002401 09FF0140 00001708 00002401  |........... ........... ........|    
+ 000670  (LIT+1344)   20FF0140 00001708 00002401 37FF0140 00001708 00002401 4EFF0140 00001708  |... ........... ........+.. ....|    
+ 000690  (LIT+1376)   00002401 65FF0140 00001708 00002401 7CFF0140 00001708 00002401 93FF0140  |....... ........@.. ........l.. |    
+ 0006B0  (LIT+1408)   00001708 00002401 AAFF0140 00001708 00002401 C1FF0140 00001708 00002401  |........... ........A.. ........|    
+ 0006D0  (LIT+1440)   D8FF0140 00001708 00002401 EFFF0140 00001708 00002402 06FF0140 00001708  |Q.. ........... ........... ....|    
+ 0006F0  (LIT+1472)   00002402 1DFF0140 00001708 00002402 34FF0140 00001708 00002402 4BFF0140  |....... ........... ........... |    
+ 000710  (LIT+1504)   00001708 00002402 62FF0140 00001708 00002402 79FF0140 00001708 00002402  |........... ........... ........|    
+ 000730  (LIT+1536)   90FF0140 00001708 00002402 A7FF0140 00001708 00002402 BEFF0140 00001708  |... ........x.. ........... ....|    
+ 000750  (LIT+1568)   00002402 D5FF0140 00001708 00002402 ECFF0140 00001708 00002403 03FF0140  |....N.. ........... ........... |    
+ 000770  (LIT+1600)   00001708 00002403 1AFF0140 00001708 00002403 31FF0140 00001708 00002403  |........... ........... ........|    
+ 000790  (LIT+1632)   48FF0140 00001708 00002403 5FFF0140 00001708 00002403 76FF0140 00001708  |... ........^.. ........... ....|    
+ 0007B0  (LIT+1664)   00002403 8DFF0140 00001708 00002403 A4FF0140 00001708 00002403 BBFF0140  |....... ........u.. ........... |    
+ 0007D0  (LIT+1696)   00001708 00002403 D2FF0140 00001708 00002403 E9FF0140 00001708 00002404  |........K.. ........Z.. ........|    
+ 0007F0  (LIT+1728)   00FF0140 00001708 00002404 17FF0140 00001708 00002404 2EFF0140 00002308  |... ........... ........... ....|    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CRAZY88   Date 09/28/2020  Time 23:23:04   Page    15                
+0000810  (LIT+1760)   00002400 3E000200 05090001 2C000840 00001C08 00002400 B7400000 01090001  |............... ......... ......|    
+ 000830  (LIT+1792)   2C0010FF 01400000 0D080000 240445FF 01400000 01080000 240458FF 40000000  |..... ........... .......... ...|    
+ 000850  (LIT+1824)   0040C000 01400007 08000024 044B02C0 00070800 0024044B                    |. ... ..................        |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000071 0009B2 DISPLAY                       000072 0009C4 DISPLAY                       000073 0009D6 DISPLAY                       
+ 000075 0009E8 PERFORM                       000077 0009FE MOVE                          000078 000A08 MOVE                          
+ 000079 000A12 IF                            000080 000B66 DISPLAY                       000083 000B78 EVALUATE                      
+ 000084 000B7C WHEN                          000085 000B94 DISPLAY                       000086 000BA6 CONTINUE                      
+ 000088 000BB2 WHEN                          000089 000BCA DISPLAY                       000090 000BDC CONTINUE                      
+ 000092 000BE8 WHEN                          000093 000C00 DISPLAY                       000094 000C12 CONTINUE                      
+ 000096 000C1E WHEN                          000097 000C36 DISPLAY                       000098 000C48 CONTINUE                      
+ 000100 000C54 WHEN                          000101 000C6C DISPLAY                       000102 000C7E CONTINUE                      
+ 000104 000C8A WHEN                          000105 000CA2 DISPLAY                       000106 000CB4 CONTINUE                      
+ 000108 000CC0 WHEN                          000109 000CD8 DISPLAY                       000110 000CEA CONTINUE                      
+ 000112 000CF6 WHEN                          000113 000D0E DISPLAY                       000114 000D20 CONTINUE                      
+ 000116 000D2C WHEN                          000117 000D44 DISPLAY                       000118 000D56 CONTINUE                      
+ 000120 000D62 WHEN                          000121 000D7A DISPLAY                       000122 000D8C CONTINUE                      
+ 000124 000D98 WHEN                          000125 000DB0 DISPLAY                       000126 000DC2 CONTINUE                      
+ 000128 000DCE WHEN                          000129 000DE6 DISPLAY                       000130 000DF8 CONTINUE                      
+ 000132 000E04 WHEN                          000133 000E1C DISPLAY                       000134 000E2E CONTINUE                      
+ 000136 000E3A WHEN                          000137 000E52 DISPLAY                       000138 000E64 CONTINUE                      
+ 000140 000E70 WHEN                          000141 000E88 DISPLAY                       000142 000E9A CONTINUE                      
+ 000144 000EA6 WHEN                          000145 000EBE DISPLAY                       000146 000ED0 CONTINUE                      
+ 000148 000EDC WHEN                          000149 000EF4 DISPLAY                       000150 000F06 CONTINUE                      
+ 000152 000F12 WHEN                          000153 000F2A DISPLAY                       000154 000F3C CONTINUE                      
+ 000156 000F48 WHEN                          000157 000F60 DISPLAY                       000158 000F72 CONTINUE                      
+ 000160 000F7E WHEN                          000161 000F96 DISPLAY                       000162 000FA8 CONTINUE                      
+ 000164 000FB4 WHEN                          000165 000FCC DISPLAY                       000166 000FDE CONTINUE                      
+ 000168 000FEA WHEN                          000169 001002 DISPLAY                       000170 001014 CONTINUE                      
+ 000172 001020 WHEN                          000173 001038 DISPLAY                       000174 00104A CONTINUE                      
+ 000176 001056 WHEN                          000177 00106E DISPLAY                       000178 001080 CONTINUE                      
+ 000180 00108C WHEN                          000181 0010A4 DISPLAY                       000182 0010B6 CONTINUE                      
+ 000184 0010C2 WHEN                          000185 0010DA DISPLAY                       000186 0010EC CONTINUE                      
+ 000188 0010F8 WHEN                          000189 001110 DISPLAY                       000190 001122 CONTINUE                      
+ 000192 00112E WHEN                          000193 001146 DISPLAY                       000194 001158 CONTINUE                      
+ 000196 001164 WHEN                          000197 00117C DISPLAY                       000198 00118E CONTINUE                      
+ 000200 00119A WHEN                          000201 0011B2 DISPLAY                       000202 0011C4 CONTINUE                      
+ 000204 0011D0 WHEN                          000205 0011E8 DISPLAY                       000206 0011FA CONTINUE                      
+ 000208 001206 WHEN                          000209 00121E DISPLAY                       000210 001230 CONTINUE                      
+ 000212 00123C WHEN                          000213 001254 DISPLAY                       000214 001266 CONTINUE                      
+ 000216 001272 WHEN                          000217 00128A DISPLAY                       000218 00129C CONTINUE                      
+ 000220 0012A8 WHEN                          000221 0012C0 DISPLAY                       000222 0012D2 CONTINUE                      
+ 000224 0012DE WHEN                          000225 0012F6 DISPLAY                       000226 001308 CONTINUE                      
+ 000228 001314 WHEN                          000229 00132C DISPLAY                       000230 00133E CONTINUE                      
+ 000232 00134A WHEN                          000233 001362 DISPLAY                       000234 001374 CONTINUE                      
+ 000236 001380 WHEN                          000237 001398 DISPLAY                       000238 0013AA CONTINUE                      
+ 000240 0013B6 WHEN                          000241 0013CE DISPLAY                       000242 0013E0 CONTINUE                      
+ 000244 0013EC WHEN                          000245 001404 DISPLAY                       000246 001416 CONTINUE                      
+ 000249 001426 DISPLAY                       000253 001438 END-PERFORM                   000257 001458 MOVE                          
+ 000258 001466 DISPLAY                       000259 001478 DISPLAY                       000260 00148A DISPLAY                       
+ 000261 00149C GOBACK                                                                                                                
+0                                                                                                                                    
+   DEBUGINF TABLE LOCATED AT 001528 FOR 000046 BYTES                                                                                 
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CRAZY88   Date 09/28/2020  Time 23:23:04   Page    16                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  TEST INFORMATION AREA                                                                                    
+                    00015C  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CRAZY88   Date 09/28/2020  Time 23:23:04   Page    17                
+0                                                                                                                                    
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  000000E0  VARIABLE-LENGTH CELLS                                                                                    
+                  000000F8  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000100  PERFORM SAVE CELLS                                                                                       
+                  00000108  TEMPORARY STORAGE-2                                                                                      
+                  00000118  CALL STATEMENT PROGRAM NAME                                                                              
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000170 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 00000011 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 000001B8 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 0015A0                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 0016FC FOR LENGTH 00009A                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CRAZY88   Date 09/28/2020  Time 23:23:04   Page    18                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program CRAZY88:                                                                                             
+ *    Source records = 261                                                                                                           
+ *    Data Division statements = 48                                                                                                  
+ *    Procedure Division statements = 97                                                                                             
+0End of compilation 1,  program CRAZY88,  highest severity 4.                                                                        
+0Return code 4                                                                                                                       

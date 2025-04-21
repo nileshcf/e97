@@ -1,0 +1,188 @@
+package com.cloudframe.app.tasks;
+import java.util.List;
+import com.cloudframe.app.utility.SpringContextHandler;
+import org.springframework.beans.factory.InitializingBean;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.RandomAccessFile;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.batch.core.StepExecutionListener;
+import org.springframework.batch.core.step.tasklet.Tasklet;
+import org.springframework.batch.core.ExitStatus;
+import org.springframework.batch.core.StepContribution;
+import org.springframework.batch.core.StepExecution;
+import org.springframework.batch.core.scope.context.ChunkContext;
+import org.springframework.batch.repeat.RepeatStatus;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import com.cloudframe.app.utility.CFUtil;
+import com.cloudframe.app.sort.file.TranSort007SortIn;
+import com.cloudframe.app.sort.file.TranSort007SortOut;
+import com.cloudframe.app.CFStepHandler;
+import com.cloudframe.app.process.BaseProcess;
+import com.cloudframe.app.sort.TranSort007Detail;
+import com.cloudframe.app.data.Field;
+import java.util.ArrayList;
+
+import org.springframework.batch.core.StepExecutionListener;
+import org.springframework.batch.core.scope.context.ChunkContext;
+import org.springframework.batch.core.step.tasklet.Tasklet;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Value;
+import com.cloudframe.app.sort.file.TranSort007SortIn;
+import java.util.List;
+import java.util.Comparator;
+import java.util.stream.Collectors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.batch.core.StepExecutionListener;
+import org.springframework.batch.core.step.tasklet.Tasklet;
+import org.springframework.batch.core.ExitStatus;
+import org.springframework.batch.core.StepContribution;
+import org.springframework.batch.core.StepExecution;
+
+import org.springframework.batch.core.scope.context.ChunkContext;
+import org.springframework.batch.repeat.RepeatStatus;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import com.cloudframe.app.process.BaseProcess;
+import com.cloudframe.app.sort.TranSort007Detail;
+import org.springframework.beans.factory.annotation.Value;
+public class TranSort007Sort extends BaseProcess implements Tasklet, StepExecutionListener, InitializingBean {
+
+	private final Logger logger = LoggerFactory.getLogger(TranSort007Sort.class);
+
+/**
+ * Executor Service Initialize is used for SORT statements
+ * Creates an Executor that uses a single worker thread operating off an unbounded queue.
+ */
+@Override
+public void afterPropertiesSet() throws Exception {
+	startExecutorServ();
+}
+
+    @Value("${cf.sort.useTempFile:yes}")
+    private String useTempFile;    
+
+    int recCounter = 0;
+	@Autowired
+	CFStepHandler cfStepHandler;
+
+	@Autowired
+	@Qualifier("batch_transort007")
+	TranSort007Detail sortDetail;
+	
+	@Autowired
+	@Qualifier("TranSort007SortOut")
+	TranSort007SortOut sortOut;
+	
+
+
+	
+	@Autowired
+	@Qualifier("TranSort007SortIn")
+	TranSort007SortIn sortIn;
+	
+	
+    int recordCount = 0;
+
+
+
+	final byte[] outrecwhenBytes00 = convertHexChar2Bytes("C1");
+	final byte[] outrecFillBuildBytes = convertChar2EbcdicBytes(CFUtil.fillSpaces(BUILD_OUTREC_SIZE));
+	final byte[] outrecBuildLtrl02 = convertChar2EbcdicBytes("***************".toCharArray());
+	final byte[] outrecfillBytes12 = convertChar2EbcdicBytes(CFUtil.fillSpaces(15));
+	static final int BUILD_OUTREC_SIZE = 50;
+    private String filePath = "";
+
+	@Override
+	public void beforeStep(StepExecution stepExecution) {
+		sortIn.open("r", sortIn.getFileName(), sortIn.getRecordLen(), sortIn.isFBRec());
+	    useSortTempFile(sortDetail.getTempFileVal());
+		sortOut.open("w", filePath + sortOut.getFileName(), sortOut.getRecordLen(), sortOut.isFBRec());  
+		if (isWriteInTempFile()) {
+            this.setRaFile(sortDetail.getRaFile());
+            this.setTmpFile(sortDetail.getTempFile());
+            this.setExecutorService(sortDetail.getExecutorService());
+		} else {
+		    createRandomAccessFile();
+		}
+		logger.debug("Sort Writer initialized.");
+	}
+
+	@Override
+	public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
+		// FileOut write process begin, Extract sorted record and write it to the output file
+          byte[] record = sortIn.readRecord();
+          while (!sortIn.hasEnded() && record != null) {
+			byte[] outRecBytes = getOutrecRecord(record);
+
+
+		  
+		    		    
+		    //write into sortOut file
+			sortOut.setRecord(outRecBytes, sortOut.getRecordLen());
+			sortOut.write(); 			
+			recordCount++;
+			//ended
+		record = sortIn.readRecord();
+        }
+
+
+		cfStepHandler.updateSortStepExecution("sort007");
+		return RepeatStatus.FINISHED;
+	}
+
+@Override
+	public ExitStatus afterStep(StepExecution stepExecution) {
+		sortIn.close();
+		logger.debug("Sort input Reader ended.");
+logger.info("STEPNAME: TRANSORT007 Execution completed, number of RECORDS - IN: {},  OUT: {}", sortDetail.getRecInCounter(), recordCount);
+		sortOut.close();
+
+		if(isWriteInTempFile()) {
+			stopExecutorServ();
+		}
+		removeTempFile();
+		logger.debug("Sort Writer ended.");
+		SpringContextHandler.handleDispPostionAtStepEnd(true);
+		return ExitStatus.COMPLETED;
+	}
+
+
+
+    private void createRandomAccessFile() {          
+		try {
+			this.setRaFile(new RandomAccessFile(new File(filePath + sortIn.getFileName()), "rw"));
+		} catch (FileNotFoundException e) {
+			logger.error("Error access on file - Exception: {} ", e.getMessage());
+		}
+    }
+    private byte[] getOutrecRecord(byte[] record) {  
+      byte[] buildRec = new byte[BUILD_OUTREC_SIZE]; 
+      copyRecordBytes(outrecFillBuildBytes, buildRec, 0, 0,BUILD_OUTREC_SIZE);
+        if (Field.compareBytes(record, outrecwhenBytes00, 0, 0, 1, 1)  != 0) { 
+copyRecordBytes(record, buildRec, 0,0,20);
+copyTranslateEbcdic2Ascii(record, buildRec, 20,20,15); 
+copyRecordBytes(outrecBuildLtrl02, buildRec, 0,35,15); 
+ }else  { 
+copyRecordBytes(record, buildRec, 0,0,20);
+copyTranslateEbcdic2Ascii(record, buildRec, 20,20,15); 
+copyRecordBytes(outrecfillBytes12,buildRec,0,35,15);
+ }
+      return buildRec;
+    }
+	  
+	  
+	  
+	  
+
+
+
+
+
+
+
+}

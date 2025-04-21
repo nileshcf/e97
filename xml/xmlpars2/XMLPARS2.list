@@ -1,0 +1,568 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 09/17/2019  Time 08:06:31   Page     1                
+0Invocation parameters:                                                                                                              
+  LIB,OBJECT,RENT,RES,APOST,TRUNC(BIN),,ARITH(EXTEND),OFFSET,NOFDUMP,SOURCE,MAP                                                      
+                                                                                                                                     
+         IGYOS4046-I   The "RESIDENT" option specification is no longer required.  The resident runtime library support is always    
+                       used.                                                                                                         
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4008-W   The "NOFDUMP" compiler option was specified, but is not supported.  The option was discarded.                 
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    APOST                                                                                                                            
+    ARITH(EXTEND)                                                                                                                    
+  NOAWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+  NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 09/17/2019  Time 08:06:31   Page     2                
+0 NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+  NOTEST                                                                                                                             
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               XMLPARS2  Date 09/17/2019  Time 08:06:31   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000001         000100 IDENTIFICATION DIVISION.                                         00010099                                   
+   000002         000200 PROGRAM-ID. XMLPARS2.                                            00020099                                   
+   000003         000300 ENVIRONMENT DIVISION.                                            00030099                                   
+   000004         000310 INPUT-OUTPUT SECTION.                                                                                       
+   000005         000320 FILE-CONTROL.                                                                                               
+   000006         000360                                                                                                             
+   000007         000370 DATA DIVISION.                                                                                              
+   000008         000380 FILE SECTION.                                                                                               
+   000009         000390                                                                                                             
+   000010         000500*----------------------------------------------------------------*00050099                                   
+   000011         000600 WORKING-STORAGE SECTION.                                         00050499                                   
+   000012         000700 01  PTF-ID   PIC  X(16) VALUE 'PTF-SFX6121'.                              BLW=00000+000         16C         
+   000013         000800*----------------------------------------------------------------*00050699                                   
+   000014         000900                                                                  00050799                                   
+   000015         000910 01  WS-WAIT-FOR          PIC 9(9) COMP.                                   BLW=00000+010         4C          
+   000016         000920                                                                  00050799                                   
+   000017         001000 01  FILLER                       PIC  X(45)                      00050899 BLW=00000+018         45C         
+   000018         001100     VALUE 'WORKING STORAGE  BEGINS HERE ----->>>'.               00050999                                   
+   000019         001200                                                                  00051099                                   
+   000020         001300 01  WS-MISC-DISPLAY-DATA.                                        00052199 BLW=00000+048         0CL75       
+   000021         001400     05  WS-ELEM-NM               PIC  X(20) VALUE SPACES.        00053099 BLW=00000+048,0000000 20C         
+                                                                                                   IMP                               
+   000022         001500     05  WS-ATTR-NM               PIC  X(20) VALUE SPACES.        00053099 BLW=00000+05C,0000014 20C         
+                                                                                                   IMP                               
+   000023         001501     05  WS-XML-RESP              PIC  X(20) VALUE SPACES.        00053099 BLW=00000+070,0000028 20C         
+                                                                                                   IMP                               
+   000024         001510     05  WS-PREV                  PIC  X(01) VALUE SPACES.        00053099 BLW=00000+084,000003C 1C          
+                                                                                                   IMP                               
+   000025         001511     05  WS-REC-LEN-OUT           PIC  9(08) COMP.                      99 BLW=00000+085,000003D 4C          
+   000026         001520     05  WS-SQLCODE               PIC ----9.                      00180099 BLW=00000+089,0000041 5C          
+   000027         001521     05  WS-EDIT                  PIC --9.                        00180099 BLW=00000+08E,0000046 3C          
+   000028         001522     05  XML-STAT                 PIC 99  VALUE 00.                        BLW=00000+091,0000049 2C          
+   000029         001530                                                                  00050799                                   
+   000030         001700 01  WS-MISC-BINARY-DATA.                                         00052199 BLW=00000+098         0CL20       
+   000031         001800     05  WS-ELEM-LEN              PIC S9(04) VALUE +0 BINARY.     00059099 BLW=00000+098,0000000 2C          
+   000032         001900     05  WS-ATTR-LEN              PIC S9(04) VALUE +0 BINARY.     00059099 BLW=00000+09A,0000002 2C          
+   000033         002100     05  i                        PIC S9(09) VALUE +0 BINARY.     00090099 BLW=00000+09C,0000004 4C          
+   000034         002101     05  l                        PIC S9(09) VALUE +0 BINARY.     00090099 BLW=00000+0A0,0000008 4C          
+   000035         002102     05  s                        PIC S9(09) VALUE +0 BINARY.     00090099 BLW=00000+0A4,000000C 4C          
+   000036         002103     05  WS-INDENT                PIC S9(09) VALUE +0 BINARY.     00090099 BLW=00000+0A8,0000010 4C          
+   000037         002300                                                                                                             
+   000038         004200 01  WS-STATUS            PIC  X(500) VALUE SPACES.               00170099 BLW=00000+0B0         500C        
+                                                                                                   IMP                               
+   000039         004300 01  OrderException.                                              00170099 BLW=00000+2A8         0CL24       
+   000040         004400     05  OrderId          PIC  X(12) VALUE 'ORD100B40123'.        00180099 BLW=00000+2A8,0000000 12C         
+   000041         004500     05  OrderStatus      PIC  X(12) VALUE 'Out of Stock'.        00180099 BLW=00000+2B4,000000C 12C         
+   000042         004600                                                                  00190199                                   
+   000043         004601 01  FILLER.                                                               BLW=00000+2C0         0CL3802     
+   000044         004602     05  WS-XML-DOC.                                              00170099 BLW=00000+2C0,0000000 0CL3802     
+   000045         004603         49  WS-XML-DOC-LEN   PIC S9(4) COMP.                              BLW=00000+2C0,0000000 2C          
+   000046         004604         49  WS-XML-DOC-TEXT  PIC  X(3800).                                BLW=00000+2C2,0000002 3800C       
+   000047         004605                                                                                                             
+   000048         004606 01 WS-V-XML.                                                              BLW=00001+1A0         0CL478      
+   000049         004607    05 FILLER  PIC X(40) VALUE                                             BLW=00001+1A0,0000000 40C         
+   000050         004608             '<?xml version="1.0" encoding="UTF-8"?><E'.                                                     
+   000051         004609    05 FILLER  PIC X(40) VALUE                                             BLW=00001+1C8,0000028 40C         
+   000052         004610             'DR_CPF><CLIENT_ID>VISION</CLIENT_ID><TR_'.                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               XMLPARS2  Date 09/17/2019  Time 08:06:31   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000053         004611    05 FILLER  PIC X(40) VALUE                                             BLW=00001+1F0,0000050 40C         
+   000054         004612             'COUNT>1</TR_COUNT><BILLING_SYSTEM_ID>2</'.                                                     
+   000055         004613    05 FILLER  PIC X(40) VALUE                                             BLW=00001+218,0000078 40C         
+   000056         004614             'BILLING_SYSTEM_ID><TRAN_ID>2018013005242'.                                                     
+   000057         004615    05 FILLER  PIC X(40) VALUE                                             BLW=00001+240,00000A0 40C         
+   000058         004616             '3461412</TRAN_ID><REFRESH><TR_POPKEY><TR'.                                                     
+   000059         004617    05 FILLER  PIC X(40) VALUE                                             BLW=00001+268,00000C8 40C         
+   000060         004618             '_TYPE>REFRESH</TR_TYPE><TR_TIME>2018-01-'.                                                     
+   000061         004619    05 FILLER  PIC X(40) VALUE                                             BLW=00001+290,00000F0 40C         
+   000062         004620             '30-05.24.15.503368</TR_TIME><TR_FULFILLM'.                                                     
+   000063         004621    05 FILLER  PIC X(40) VALUE                                             BLW=00001+2B8,0000118 40C         
+   000064         004622             'ENT_TIME>2018-01-30-05.24.15.503368</TR_'.                                                     
+   000065         004623    05 FILLER  PIC X(40) VALUE                                             BLW=00001+2E0,0000140 40C         
+   000066         004624             'FULFILLMENT_TIME><TR_MDN>7024193433</TR_'.                                                     
+   000067         004625    05 FILLER  PIC X(40) VALUE                                             BLW=00001+308,0000168 40C         
+   000068         004626             'MDN><TR_ACCOUNT_NUMBER>0</TR_ACCOUNT_NUM'.                                                     
+   000069         004627    05 FILLER  PIC X(40) VALUE                                             BLW=00001+330,0000190 40C         
+   000070         004628             'BER><TR_CUSTOMER_ID>203082888</TR_CUSTOM'.                                                     
+   000071         004629    05 FILLER  PIC X(38) VALUE                                             BLW=00001+358,00001B8 38C         
+   000072         004630             'ER_ID></TR_POPKEY></REFRESH></EDR_CPF>'.                                                       
+   000073         004631 77 WS-V-XML-LEN     PIC S9(4) COMP.                                       BLW=00001+380         2C          
+   000074         004635                                                                                                             
+   000075         004636*---------------------------------------------------------------* 03110000                                   
+   000076         004637 LINKAGE SECTION.                                                 03120000                                   
+   000077         004640*---------------------------------------------------------------* 03130000                                   
+   000078         004650 01  LK-PARM.                                                              BLL=00001+000         0CL10       
+   000079         004660     05 LK-PARM-LEN        PIC S9(4) COMP.                                 BLL=00001+000,0000000 2C          
+   000080         004670     05 LK-PARM-WAIT       PIC 9(04).                                      BLL=00001+002,0000002 4C          
+   000081         004671     05 LK-PARM-ITER       PIC 9(04).                                      BLL=00001+006,0000006 4C          
+   000082         004680*----------------------------------------------------------------*03190000                                   
+   000083         004681 PROCEDURE DIVISION.                                              07243 99                                   
+   000084         004700*----------------------------------------------------------------*03240000                                   
+   000085         004800     CONTINUE.                                                    03250000                                   
+   000086         004900*----------------------------------------------------------------*03260000                                   
+   000087         005000 0000-MAINLINE.                                                   03270000                                   
+   000088         005100*----------------------------------------------------------------*03280000                                   
+   000089         005200                                                                  03290000                                   
+   000090         005201     DISPLAY '*----------------------------------*'                                                          
+   000091         005210     XML PARSE WS-V-XML                                           04381003 48                                
+   000092         005220         PROCESSING PROCEDURE                                     04381003                                   
+   000093         005230         IS   0200-PARSE-XML                                      04381003 113                               
+   000094         005240         THRU 0200-EXIT                                           04382003 168                               
+   000095         005250     ON EXCEPTION                                                                                            
+   000096      1  005260          DISPLAY 'XML PROCESS ERROR    ' XML-CODE                         IMP                               
+   000097         005270     END-XML                                                                                                 
+   000098         005300                                                                                                             
+   000099         007430                                                                                                             
+   000100         007431     DISPLAY ' '                                                                                             
+   000101         007440     DISPLAY 'XML Response:'                                                                                 
+   000102         007450     DISPLAY ' '                                                                                             
+   000103         007460                                                                                                             
+   000104         007700     GO TO 9999-RETURN                                            00840099 172                               
+   000105         007800                                                                  00850099                                   
+   000106         007900     CONTINUE.                                                    00860099                                   
+   000107         008000                                                                  00870099                                   
+   000108         008100 0000-EXIT.                                                       00880099                                   
+   000109         008200     EXIT.                                                        00890099                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               XMLPARS2  Date 09/17/2019  Time 08:06:31   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000110         008300                                                                  00900099                                   
+   000111         009700                                                                  01092099                                   
+   000112         009800*---------------------------------------------------------------* 01093099                                   
+   000113         009900 0200-PARSE-XML.                                                  01094099                                   
+   000114         010000*---------------------------------------------------------------* 01095099                                   
+   000115         010100                                                                  01096099                                   
+   000116         010200     EVALUATE XML-event                                                    IMP                               
+   000117         010300                                                                                                             
+   000118         010400        WHEN 'START-OF-ELEMENT'                                                                              
+   000119      1  010500           MOVE XML-TEXT           TO WS-ELEM-NM                           IMP 21                            
+   000120      1  010600           MOVE LENGTH OF XML-TEXT TO WS-ELEM-LEN                          IMP IMP 31                        
+   000121      1  010610           DISPLAY 'Element Name.....: ' WS-ELEM-NM(1:WS-ELEM-LEN)         21 31                             
+   000122         010700                                                                                                             
+   000123         010750                                                                                                             
+   000124         010800        WHEN 'CONTENT-CHARACTER'                                                                             
+   000125         010900        WHEN 'CONTENT-CHARACTERS'                                                                            
+   000126      1  011000           MOVE LENGTH OF XML-TEXT TO i                                    IMP IMP 33                        
+   000127      1  011100           DISPLAY 'Element Content..: ' XML-TEXT(1:i)                     IMP 33                            
+   000128         011210*          DISPLAY WS-ELEM-NM(1:WS-ELEM-LEN) ': '                                                            
+   000129         011220*                  XML-TEXT(1:i)                                                                             
+   000130         011300                                                                  04381003                                   
+   000131         011400        WHEN 'END-OF-ELEMENT'                                                                                
+   000132      1  011401           MOVE XML-TEXT           TO WS-ELEM-NM                           IMP 21                            
+   000133      1  011402           MOVE LENGTH OF XML-TEXT TO WS-ELEM-LEN                          IMP IMP 31                        
+   000134      1  011403           DISPLAY 'End of Element...: ' WS-ELEM-NM(1:WS-ELEM-LEN)         21 31                             
+   000135      1  011410           DISPLAY '*----------------------------------*'                                                    
+   000136      1  011500           MOVE SPACES TO WS-ELEM-NM                                       IMP 21                            
+   000137      1  011600           MOVE +0     TO WS-ELEM-LEN                                      31                                
+   000138         011700                                                                                                             
+   000139         011800        WHEN 'ATTRIBUTE-NAME'                                                                                
+   000140      1  011900           MOVE LENGTH OF XML-TEXT TO WS-ATTR-LEN                          IMP IMP 32                        
+   000141      1  012000           MOVE XML-TEXT           TO WS-ATTR-NM                  04381003 IMP 22                            
+   000142      1  012010           DISPLAY 'Attribute Name...: ' WS-ATTR-NM(1:WS-ATTR-LEN)         22 32                             
+   000143         012100                                                                                                             
+   000144         012200        WHEN 'ATTRIBUTE-CHARACTER'                                                                           
+   000145         012300        WHEN 'ATTRIBUTE-CHARACTERS'                                                                          
+   000146         012400        WHEN 'ATTRIBUTE-NATIONAL-CHARACTER'                                                                  
+   000147      1  012500           MOVE LENGTH OF XML-TEXT TO i                                    IMP IMP 33                        
+   000148      1  012510           DISPLAY 'Attribute Content: ' XML-TEXT(1:i)                     IMP 33                            
+   000149      1  012520           DISPLAY '*----------------------------------*'                                                    
+   000150         012600*          DISPLAY WS-ATTR-NM(1:WS-ATTR-LEN) ': '                                                            
+   000151         012700*                  XML-TEXT(1:i)                                                                             
+   000152         012800                                                                                                             
+   000153         012900        WHEN 'NAMESPACE-DECLARATION'                                                                         
+   000154      1  013100           MOVE LENGTH OF XML-TEXT TO i                                    IMP IMP 33                        
+   000155         013200*          MOVE XML-NAMESPACE      TO LK-XML-DOC(d:i)             04381003                                   
+   000156      1  013210           DISPLAY 'NameSpace Content: ' XML-TEXT(1:i)                     IMP 33                            
+   000157      1  013220           DISPLAY '*----------------------------------*'                                                    
+   000158         013300                                                                                                             
+   000159         013400        WHEN 'EXCEPTION'                                                                                     
+   000160      1  013500           MOVE LENGTH OF XML-TEXT TO i                                    IMP IMP 33                        
+   000161      1  013600           DISPLAY 'Error: ' XML-TEXT(1:i)                        00460699 IMP 33                            
+   000162      1  013700           GO TO 9999-RETURN                                      00840099 172                               
+   000163         013800                                                                                                             
+   000164         013900     END-EVALUATE                                                                                            
+   000165         014000                                                                  01097099                                   
+   000166         014100     CONTINUE.                                                    01070099                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               XMLPARS2  Date 09/17/2019  Time 08:06:31   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000167         014200                                                                  01080099                                   
+   000168         014300 0200-EXIT.                                                       01090099                                   
+   000169         014400     EXIT.                                                        01091099                                   
+   000170         014500                                                                  01092099                                   
+   000171         014690*----------------------------------------------------------------*13740002                                   
+   000172         014700 9999-RETURN.                                                     13750002                                   
+   000173         014800*----------------------------------------------------------------*13760002                                   
+   000174         014900                                                                  13770002                                   
+   000175         015000     GOBACK.                                                      13780002                                   
+   000176         015100*       WHEN 'START-OF-DOCUMENT'                                                                             
+   000177         015200*       WHEN 'END-OF-DOCUMENT'                                                                               
+   000178         015300*       WHEN 'COMMENT'                                                                                       
+   000179         015400*       WHEN 'DOCUMENT-TYPE-DECLARATION'                                                                     
+   000180         015500*       WHEN 'ENCODING-DECLARATION'                                                                          
+   000181         015600*       WHEN 'CONTENT-NATIONAL-CHARACTER'                                                                    
+   000182         015700*       WHEN 'PROCESSING-INSTRUCTION-DATA'                                                                   
+   000183         015800*       WHEN 'PROCESSING-INSTRUCTION-TARGET'                                                                 
+   000184         015900*       WHEN 'STANDALONE-DECLARATION'                                                                        
+   000185         016000*       WHEN 'UNKNOWN-REFERENCE-IN-CONTENT'                                                                  
+   000186         016100*       WHEN 'UNKNOWN-REFERENCE-IN-ATTRIBUTE'                                                                
+   000187         016200*       WHEN 'VERSION-INFORMATION'                                                                           
+   000188         016300*          MOVE XML-event TO WS-XML-EVENT                                                                    
+   000189         016500*       WHEN OTHER                                                                                           
+   000190         016600*          MOVE XML-event TO WS-XML-EVENT                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               XMLPARS2  Date 09/17/2019  Time 08:06:31   Page     7                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       33   I. . . . . . . . . . . . . . .  M126 127 M147 148 M154 156 M160 161                                                      
+       34   L                                                                                                                        
+       78   LK-PARM                                                                                                                  
+       81   LK-PARM-ITER                                                                                                             
+       79   LK-PARM-LEN                                                                                                              
+       80   LK-PARM-WAIT                                                                                                             
+       39   ORDEREXCEPTION                                                                                                           
+       40   ORDERID                                                                                                                  
+       41   ORDERSTATUS                                                                                                              
+       12   PTF-ID                                                                                                                   
+       35   S                                                                                                                        
+       32   WS-ATTR-LEN. . . . . . . . . .  M140 142                                                                                 
+       22   WS-ATTR-NM . . . . . . . . . .  M141 142                                                                                 
+       27   WS-EDIT                                                                                                                  
+       31   WS-ELEM-LEN. . . . . . . . . .  M120 121 M133 134 M137                                                                   
+       21   WS-ELEM-NM . . . . . . . . . .  M119 121 M132 134 M136                                                                   
+       36   WS-INDENT                                                                                                                
+       30   WS-MISC-BINARY-DATA                                                                                                      
+       20   WS-MISC-DISPLAY-DATA                                                                                                     
+       24   WS-PREV                                                                                                                  
+       25   WS-REC-LEN-OUT                                                                                                           
+       26   WS-SQLCODE                                                                                                               
+       38   WS-STATUS                                                                                                                
+       48   WS-V-XML . . . . . . . . . . .  91                                                                                       
+       73   WS-V-XML-LEN                                                                                                             
+       15   WS-WAIT-FOR                                                                                                              
+       44   WS-XML-DOC                                                                                                               
+       45   WS-XML-DOC-LEN                                                                                                           
+       46   WS-XML-DOC-TEXT                                                                                                          
+       23   WS-XML-RESP                                                                                                              
+        0   XML-CODE . . . . . . . . . . .  96                                                                                       
+        0   XML-EVENT. . . . . . . . . . .  116                                                                                      
+       28   XML-STAT                                                                                                                 
+        0   XML-TEXT . . . . . . . . . . .  119 120 126 127 132 133 140 141 147 148 154 156 160 161                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               XMLPARS2  Date 09/17/2019  Time 08:06:31   Page     8                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      108   0000-EXIT                                                                                                                
+       87   0000-MAINLINE                                                                                                            
+      168   0200-EXIT. . . . . . . . . . .  E94                                                                                      
+      113   0200-PARSE-XML . . . . . . . .  P93                                                                                      
+      172   9999-RETURN. . . . . . . . . .  G104 G162                                                                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               XMLPARS2  Date 09/17/2019  Time 08:06:31   Page     9                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   XMLPARS2                                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               XMLPARS2  Date 09/17/2019  Time 08:06:31   Page    10                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID XMLPARS2----------------------------------------------------------------------------------------------------*    
+     12   1  PTF-ID. . . . . . . . . . . . . . . . . . . . BLW=00000  000               DS 16C          Display                      
+     15   1  WS-WAIT-FOR . . . . . . . . . . . . . . . . . BLW=00000  010               DS 4C           Binary                       
+     17   1  FILLER. . . . . . . . . . . . . . . . . . . . BLW=00000  018               DS 45C          Display                      
+     20   1  WS-MISC-DISPLAY-DATA. . . . . . . . . . . . . BLW=00000  048               DS 0CL75        Group                        
+     21     2  WS-ELEM-NM. . . . . . . . . . . . . . . . . BLW=00000  048   0 000 000   DS 20C          Display                      
+     22     2  WS-ATTR-NM. . . . . . . . . . . . . . . . . BLW=00000  05C   0 000 014   DS 20C          Display                      
+     23     2  WS-XML-RESP . . . . . . . . . . . . . . . . BLW=00000  070   0 000 028   DS 20C          Display                      
+     24     2  WS-PREV . . . . . . . . . . . . . . . . . . BLW=00000  084   0 000 03C   DS 1C           Display                      
+     25     2  WS-REC-LEN-OUT. . . . . . . . . . . . . . . BLW=00000  085   0 000 03D   DS 4C           Binary                       
+     26     2  WS-SQLCODE. . . . . . . . . . . . . . . . . BLW=00000  089   0 000 041   DS 5C           Disp-Num-Edit                
+     27     2  WS-EDIT . . . . . . . . . . . . . . . . . . BLW=00000  08E   0 000 046   DS 3C           Disp-Num-Edit                
+     28     2  XML-STAT. . . . . . . . . . . . . . . . . . BLW=00000  091   0 000 049   DS 2C           Disp-Num                     
+     30   1  WS-MISC-BINARY-DATA . . . . . . . . . . . . . BLW=00000  098               DS 0CL20        Group                        
+     31     2  WS-ELEM-LEN . . . . . . . . . . . . . . . . BLW=00000  098   0 000 000   DS 2C           Binary                       
+     32     2  WS-ATTR-LEN . . . . . . . . . . . . . . . . BLW=00000  09A   0 000 002   DS 2C           Binary                       
+     33     2  I . . . . . . . . . . . . . . . . . . . . . BLW=00000  09C   0 000 004   DS 4C           Binary                       
+     34     2  L . . . . . . . . . . . . . . . . . . . . . BLW=00000  0A0   0 000 008   DS 4C           Binary                       
+     35     2  S . . . . . . . . . . . . . . . . . . . . . BLW=00000  0A4   0 000 00C   DS 4C           Binary                       
+     36     2  WS-INDENT . . . . . . . . . . . . . . . . . BLW=00000  0A8   0 000 010   DS 4C           Binary                       
+     38   1  WS-STATUS . . . . . . . . . . . . . . . . . . BLW=00000  0B0               DS 500C         Display                      
+     39   1  ORDEREXCEPTION. . . . . . . . . . . . . . . . BLW=00000  2A8               DS 0CL24        Group                        
+     40     2  ORDERID . . . . . . . . . . . . . . . . . . BLW=00000  2A8   0 000 000   DS 12C          Display                      
+     41     2  ORDERSTATUS . . . . . . . . . . . . . . . . BLW=00000  2B4   0 000 00C   DS 12C          Display                      
+     43   1  FILLER. . . . . . . . . . . . . . . . . . . . BLW=00000  2C0               DS 0CL3802      Group                        
+     44     2  WS-XML-DOC. . . . . . . . . . . . . . . . . BLW=00000  2C0   0 000 000   DS 0CL3802      Group                        
+     45       3  WS-XML-DOC-LEN. . . . . . . . . . . . . . BLW=00000  2C0   0 000 000   DS 2C           Binary                       
+     46       3  WS-XML-DOC-TEXT . . . . . . . . . . . . . BLW=00000  2C2   0 000 002   DS 3800C        Display                      
+     48   1  WS-V-XML. . . . . . . . . . . . . . . . . . . BLW=00001  1A0               DS 0CL478       Group                        
+     49     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00001  1A0   0 000 000   DS 40C          Display                      
+     51     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00001  1C8   0 000 028   DS 40C          Display                      
+     53     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00001  1F0   0 000 050   DS 40C          Display                      
+     55     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00001  218   0 000 078   DS 40C          Display                      
+     57     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00001  240   0 000 0A0   DS 40C          Display                      
+     59     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00001  268   0 000 0C8   DS 40C          Display                      
+     61     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00001  290   0 000 0F0   DS 40C          Display                      
+     63     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00001  2B8   0 000 118   DS 40C          Display                      
+     65     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00001  2E0   0 000 140   DS 40C          Display                      
+     67     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00001  308   0 000 168   DS 40C          Display                      
+     69     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00001  330   0 000 190   DS 40C          Display                      
+     71     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00001  358   0 000 1B8   DS 38C          Display                      
+     73   77 WS-V-XML-LEN. . . . . . . . . . . . . . . . . BLW=00001  380               DS 2C           Binary                       
+     78   1  LK-PARM . . . . . . . . . . . . . . . . . . . BLL=00001  000               DS 0CL10        Group                        
+     79     2  LK-PARM-LEN . . . . . . . . . . . . . . . . BLL=00001  000   0 000 000   DS 2C           Binary                       
+     80     2  LK-PARM-WAIT. . . . . . . . . . . . . . . . BLL=00001  002   0 000 002   DS 4C           Disp-Num                     
+     81     2  LK-PARM-ITER. . . . . . . . . . . . . . . . BLL=00001  006   0 000 006   DS 4C           Disp-Num                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               XMLPARS2  Date 09/17/2019  Time 08:06:31   Page    11                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000030 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000684 FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 00000000 40404040 40404040 40404040 40404040 40404040 40404040  |........                        |    
+ 00011C  (LIT+32)     40404040 4040F0F0                                                        |      00                        |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               XMLPARS2  Date 09/17/2019  Time 08:06:31   Page    12                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 00012C FOR 000557 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000138  (LIT+0)      FFFFFFFC 00001000 00000474 00000001 40000000 00000000 C2C5D96E 4CE3D96D  |................ .......BER><TR_|    
+ 000158  (LIT+32)     C3E4E2E3 D6D4C5D9 6DC9C46E F2F0F3F0 F8F2F8F8 F84C61E3 D96DC3E4 E2E3D6D4  |CUSTOMER_ID>203082888</TR_CUSTOM|    
+ 000178  (LIT+64)     D4C4D56E 4CE3D96D C1C3C3D6 E4D5E36D D5E4D4C2 C5D96EF0 4C61E3D9 6DC1C3C3  |MDN><TR_ACCOUNT_NUMBER>0</TR_ACC|    
+ 000198  (LIT+96)     D6E4D5E3 6DD5E4D4 C6E4D3C6 C9D3D3D4 C5D5E36D E3C9D4C5 6E4CE3D9 6DD4C4D5  |OUNT_NUMFULFILLMENT_TIME><TR_MDN|    
+ 0001B8  (LIT+128)    6EF7F0F2 F4F1F9F3 F4F3F34C 61E3D96D C5D5E36D E3C9D4C5 6EF2F0F1 F860F0F1  |>7024193433</TR_ENT_TIME>2018-01|    
+ 0001D8  (LIT+160)    60F3F060 F0F54BF2 F44BF1F5 4BF5F0F3 F3F6F84C 61E3D96D F3F060F0 F54BF2F4  |-30-05.24.15.503368</TR_30-05.24|    
+ 0001F8  (LIT+192)    4BF1F54B F5F0F3F3 F6F84C61 E3D96DE3 C9D4C56E 4CE3D96D C6E4D3C6 C9D3D3D4  |.15.503368</TR_TIME><TR_FULFILLM|    
+ 000218  (LIT+224)    6DE3E8D7 C56ED9C5 C6D9C5E2 C84C61E3 D96DE3E8 D7C56E4C E3D96DE3 C9D4C56E  |_TYPE>REFRESH</TR_TYPE><TR_TIME>|    
+ 000238  (LIT+256)    F2F0F1F8 60F0F160 F3F4F6F1 F4F1F24C 61E3D9C1 D56DC9C4 6E4CD9C5 C6D9C5E2  |2018-01-3461412</TRAN_ID><REFRES|    
+ 000258  (LIT+288)    C86E4CE3 D96DD7D6 D7D2C5E8 6E4CE3D9 C2C9D3D3 C9D5C76D E2E8E2E3 C5D46DC9  |H><TR_POPKEY><TRBILLING_SYSTEM_I|    
+ 000278  (LIT+320)    C46E4CE3 D9C1D56D C9C46EF2 F0F1F8F0 F1F3F0F0 F5F2F4F2 C3D6E4D5 E36EF14C  |D><TRAN_ID>2018013005242COUNT>1<|    
+ 000298  (LIT+352)    61E3D96D C3D6E4D5 E36E4CC2 C9D3D3C9 D5C76DE2 E8E2E3C5 D46DC9C4 6EF24C61  |/TR_COUNT><BILLING_SYSTEM_ID>2</|    
+ 0002B8  (LIT+384)    C4D96DC3 D7C66E4C C3D3C9C5 D5E36DC9 C46EE5C9 E2C9D6D5 4C61C3D3 C9C5D5E3  |DR_CPF><CLIENT_ID>VISION</CLIENT|    
+ 0002D8  (LIT+416)    6DC9C46E 4CE3D96D 4C6FA794 9340A585 99A28996 957E7FF1 4BF07F40 85958396  |_ID><TR_<?xml version="1.0" enco|    
+ 0002F8  (LIT+448)    84899587 7E7FE4E3 C660F87F 6F6E4CC5 C5D96DC9 C46E4C61 E3D96DD7 D6D7D2C5  |ding="UTF-8"?><EER_ID></TR_POPKE|    
+ 000318  (LIT+480)    E86E4C61 D9C5C6D9 C5E2C86E 4C61C5C4 D96DC3D7 C66EE6D6 D9D2C9D5 C740E2E3  |Y></REFRESH></EDR_CPF>WORKING ST|    
+ 000338  (LIT+512)    D6D9C1C7 C54040C2 C5C7C9D5 E240C8C5 D9C54060 60606060 6E6E6E5C 60606060  |ORAGE  BEGINS HERE ----->>>*----|    
+ 000358  (LIT+544)    60606060 60606060 60606060 60606060 60606060 60606060 60606060 60605CC1  |------------------------------*A|    
+ 000378  (LIT+576)    E3E3D9C9 C2E4E3C5 60D5C1E3 C9D6D5C1 D360C3C8 C1D9C1C3 E3C5D9D5 C1D4C5E2  |TTRIBUTE-NATIONAL-CHARACTERNAMES|    
+ 000398  (LIT+608)    D7C1C3C5 60C4C5C3 D3C1D9C1 E3C9D6D5 E7D4D340 D7D9D6C3 C5E2E240 C5D9D9D6  |PACE-DECLARATIONXML PROCESS ERRO|    
+ 0003B8  (LIT+640)    D9404040 40C1E3E3 D9C9C2E4 E3C560C3 C8C1D9C1 C3E3C5D9 E2D58194 85E29781  |R    ATTRIBUTE-CHARACTERSNameSpa|    
+ 0003D8  (LIT+672)    838540C3 9695A385 95A37A40 C1A3A399 8982A4A3 8540C396 95A38595 A37A40C1  |ce Content: Attribute Content: A|    
+ 0003F8  (LIT+704)    A3A39989 82A4A385 40D58194 854B4B4B 7A40C595 84409686 40C59385 948595A3  |ttribute Name...: End of Element|    
+ 000418  (LIT+736)    4B4B4B7A 40C59385 948595A3 40C39695 A38595A3 4B4B7A40 C5938594 8595A340  |...: Element Content..: Element |    
+ 000438  (LIT+768)    D5819485 4B4B4B4B 4B7A40C3 D6D5E3C5 D5E360C3 C8C1D9C1 C3E3C5D9 E2E2E3C1  |Name.....: CONTENT-CHARACTERSSTA|    
+ 000458  (LIT+800)    D9E360D6 C660C5D3 C5D4C5D5 E3C1E3E3 D9C9C2E4 E3C560D5 C1D4C5C5 D5C460D6  |RT-OF-ELEMENTATTRIBUTE-NAMEEND-O|    
+ 000478  (LIT+832)    C660C5D3 C5D4C5D5 E3E7D4D3 40D985A2 979695A2 857AD6A4 A3409686 40E2A396  |F-ELEMENTXML Response:Out of Sto|    
+ 000498  (LIT+864)    8392D6D9 C4F1F0F0 C2F4F0F1 F2F3D7E3 C660E2C6 E7F6F1F2 F1C5E7C3 C5D7E3C9  |ckORD100B40123PTF-SFX6121EXCEPTI|    
+ 0004B8  (LIT+896)    D6D5E7D4 D3D7C1D9 E2F2E2E8 E2D6E4E3 4040C9C7 E9E2D9E3 C3C4C599 9996997A  |ONXMLPARS2SYSOUT  IGZSRTCDError:|    
+ 0004D8  (LIT+928)    40000000 00000001 2C000000 02000001 34000000 02000000 00000000 00000000  | ...............................|    
+ 0004F8  (LIT+960)    00000000 00000000 00000000 00000000 00000000 00000000 00000001 80800000  |................................|    
+ 000518  (LIT+992)    03020100 00000000 00000000 00000000 00000000 00000000 00000000 00000000  |................................|    
+ 000538  (LIT+1024)   00400000 00000000 00000000 00010100 00400000 00000000 00000000 00000000  |. ............... ..............|    
+ 000558  (LIT+1056)   00400000 000025C0 0001C000 08080000 28038E01 40000007 08000028 03A6503D  |. .................. ........w&.|    
+ 000578  (LIT+1088)   00580000 01E02D00 58000001 800000FF 01400000 13080000 2802A550 3D005800  |................. ........v&....|    
+ 000598  (LIT+1120)   0001E02D 00580000 01800000 FF014000 00130800 002802B8 503D0058 000001E0  |.............. .........&.......|    
+ 0005B8  (LIT+1152)   2D005800 00018000 00FF0140 00001308 00002802 CB503D00 58000001 E0090001  |........... .........&..........|    
+ 0005D8  (LIT+1184)   2C005CFF 01400000 13080000 2802DE50 3D005800 0001E009 00012C00 48FF0140  |..*.. .........&............... |    
+ 0005F8  (LIT+1216)   00001308 00002802 F1503D00 58000001 E02D0058 00000180 0000FF01 40000013  |........1&.................. ...|    
+ 000618  (LIT+1248)   08000028 0304503D 00580000 01E00900 012C0048 FF014000 000D0800 00280355  |......&............... .........|    
+ 000638  (LIT+1280)   FF014000 00010800 002803AC FF014000 00150800 0028027C 0004000A 09000128  |.. ........... ........@........|    
+ 000658  (LIT+1312)   0058FF01 40000024 08000028 0227FF40 00000000 40C00001 40000808 00002803  |.... .......... .... ... .......|    
+ 000678  (LIT+1344)   8E02C000 08080000 28038E                                                 |...........                     |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000085 000898 CONTINUE                      000090 000898 DISPLAY                       000091 0008A6 XML                           
+ 000096 00098E DISPLAY                       000100 000998 DISPLAY                       000101 0009A2 DISPLAY                       
+ 000102 0009AC DISPLAY                       000104 0009B6 GO                            000106 0009BA CONTINUE                      
+ 000109 0009BA EXIT                          000116 0009BA EVALUATE                      000118 0009BA WHEN                          
+ 000119 0009D2 MOVE                          000120 0009F0 MOVE                          000121 0009F6 DISPLAY                       
+ 000124 000A10 WHEN                          000125 000A28 WHEN                          000126 000A3C MOVE                          
+ 000127 000A46 DISPLAY                       000131 000A60 WHEN                          000132 000A74 MOVE                          
+ 000133 000A92 MOVE                          000134 000A98 DISPLAY                       000135 000AAE DISPLAY                       
+ 000136 000AB8 MOVE                          000137 000ABE MOVE                          000139 000AC8 WHEN                          
+ 000140 000ADC MOVE                          000141 000AE6 MOVE                          000142 000B00 DISPLAY                       
+ 000144 000B1A WHEN                          000145 000B32 WHEN                          000146 000B4A WHEN                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               XMLPARS2  Date 09/17/2019  Time 08:06:31   Page    13                
+0000147 000B5E MOVE                          000148 000B68 DISPLAY                       000149 000B7E DISPLAY                       
+ 000153 000B8C WHEN                          000154 000BA0 MOVE                          000156 000BAA DISPLAY                       
+ 000157 000BC0 DISPLAY                       000159 000BCE WHEN                          000160 000BE2 MOVE                          
+ 000161 000BEC DISPLAY                       000162 000C02 GO                            000166 000C06 CONTINUE                      
+ 000169 000C06 EXIT                          000175 000C0C GOBACK                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               XMLPARS2  Date 09/17/2019  Time 08:06:31   Page    14                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000134  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    00013C  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               XMLPARS2  Date 09/17/2019  Time 08:06:31   Page    15                
+0                   *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  SAVE AREA FOR FLOAT REGISTERS 8-15                                                                       
+                  00000110  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  00000180  BASE LOCATORS FOR XML-TEXT AND XML-NTEXT                                                                 
+                  0000018C  VARIABLE-LENGTH CELLS                                                                                    
+                  000001A4  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  000001B0  PERFORM SAVE CELLS                                                                                       
+                  000001C0  TEMPORARY STORAGE-2                                                                                      
+                  000001E0  TEMPORARY STORAGE-3                                                                                      
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000150 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 00001382 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 000001E8 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 000CC0                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 000DFC FOR LENGTH 00009E                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               XMLPARS2  Date 09/17/2019  Time 08:06:31   Page    16                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program XMLPARS2:                                                                                            
+ *    Source records = 190                                                                                                           
+ *    Data Division statements = 31                                                                                                  
+ *    Procedure Division statements = 37                                                                                             
+0End of compilation 1,  program XMLPARS2,  highest severity 4.                                                                       
+0Return code 4                                                                                                                       

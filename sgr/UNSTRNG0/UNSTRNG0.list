@@ -1,0 +1,768 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 09/17/2019  Time 08:03:16   Page     1                
+0Invocation parameters:                                                                                                              
+  LIB,OBJECT,RENT,RES,APOST,TRUNC(BIN),,ARITH(EXTEND),OFFSET,NOFDUMP,SOURCE,MAP                                                      
+                                                                                                                                     
+         IGYOS4046-I   The "RESIDENT" option specification is no longer required.  The resident runtime library support is always    
+                       used.                                                                                                         
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4008-W   The "NOFDUMP" compiler option was specified, but is not supported.  The option was discarded.                 
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    APOST                                                                                                                            
+    ARITH(EXTEND)                                                                                                                    
+  NOAWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+  NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 09/17/2019  Time 08:03:16   Page     2                
+0 NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+  NOTEST                                                                                                                             
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               UNSTRNG0  Date 09/17/2019  Time 08:03:16   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000001         000100 IDENTIFICATION DIVISION.                                         00010000                                   
+   000002         000200 PROGRAM-ID.    UNSTRNG0.                                         00020000                                   
+   000003         000201*---------------------------------------------                    00020100                                   
+   000004         000208 DATE-WRITTEN. MAY 2017.                                          00020800                                   
+   000005         000209 ENVIRONMENT DIVISION.                                            00020900                                   
+   000006         000210 INPUT-OUTPUT SECTION.                                            00021000                                   
+   000007         000220 FILE-CONTROL.                                                    00022000                                   
+   000008         000230 DATA DIVISION.                                                   00023000                                   
+   000009         000240 FILE SECTION.                                                    00024000                                   
+   000010         000250 WORKING-STORAGE SECTION.                                         00025000                                   
+   000011         000251 01 WS-DATA0-LEN         PIC S9(04) COMP VALUE 48.                00025116 BLW=00000+000         2C          
+   000012         000260 01 WS-DATA0.                                                     00026016 BLW=00000+008         0CL98       
+   000013         000261    05 FILLER  PIC X(20) VALUE  'Q1234567891234567890'.           00026116 BLW=00000+008,0000000 20C         
+   000014         000262    05 FILLER  PIC X VALUE ','.                                   00026216 BLW=00000+01C,0000014 1C          
+   000015         000263    05 FILLER  PIC X(20) VALUE  'Q8888888888888888889'.           00026316 BLW=00000+01D,0000015 20C         
+   000016         000264    05 FILLER  PIC X VALUE ','.                                   00026416 BLW=00000+031,0000029 1C          
+   000017         000265    05 FILLER  PIC X(06) VALUE  '123456'.                         00026516 BLW=00000+032,000002A 6C          
+   000018         000266    05 FILLER  PIC X(50) VALUE SPACE.                             00026616 BLW=00000+038,0000030 50C         
+                                                                                                   IMP                               
+   000019         000268 01 WS-DATA.                                                      00026816 BLW=00000+070         0CL150      
+   000020         000270    05 FILLER  PIC X(50) VALUE                                    00027000 BLW=00000+070,0000000 50C         
+   000021         000280     '***THIS SHOULD GO TO FIELD 1%THIS GOES TO FIELD 2%'.        00028013                                   
+   000022         000281    05 FILLER  PIC X(50) VALUE                                    00028109 BLW=00000+0A2,0000032 50C         
+   000023         000282     'THIS SHOULD GO TO FIELD 3$$$THIS GOES TO FIELD 4 %'.        00028209                                   
+   000024         000290    05 FILLER  PIC X(50) VALUE                                    00029000 BLW=00000+0D4,0000064 50C         
+   000025         000300     'THIS GOES TO FIELD 5 AND THIS WILL BE THE END ALL '.        00030009                                   
+   000026         000400 01 WS-MISC.                                                      00040001 BLW=00000+108         0CL257      
+   000027         000500    05 WS-DELIM1  PIC X(4).                                       00050014 BLW=00000+108,0000000 4C          
+   000028         000501    05 WS-DELIM3  PIC X(4).                                       00050114 BLW=00000+10C,0000004 4C          
+   000029         000502    05 WS-DELIM4  PIC X(4).                                       00050214 BLW=00000+110,0000008 4C          
+   000030         000510    05 WS-COUNT   PIC S9(9) COMP.                                 00051017 BLW=00000+114,000000C 4C          
+   000031         000511    05 WS-COUNT1  PIC S9(9) COMP.                                 00051117 BLW=00000+118,0000010 4C          
+   000032         000512    05 WS-COUNT2  PIC  9(9).                                      00051217 BLW=00000+11C,0000014 9C          
+   000033         000513    05 WS-COUNT3  PIC S9(5)      COMP-3.                          00051317 BLW=00000+125,000001D 3P          
+   000034         000514    05 WS-COUNT4  PIC  9(9).                                      00051417 BLW=00000+128,0000020 9C          
+   000035         000515    05 WS-COUNT5  PIC S9(5)      COMP-3.                          00051517 BLW=00000+131,0000029 3P          
+   000036         000516    05 WS-TALLY   PIC  9(9).                                      00051617 BLW=00000+134,000002C 9C          
+   000037         000517    05 WS-POINTER PIC  9(9).                                      00051717 BLW=00000+13D,0000035 9C          
+   000038         000518    05 WS-FIELD1  PIC X(35).                                      00051817 BLW=00000+146,000003E 35C         
+   000039         000519    05 WS-FIELD2  PIC X(30).                                      00051917 BLW=00000+169,0000061 30C         
+   000040         000520    05 WS-FIELD3  PIC X(35).                                      00052009 BLW=00000+187,000007F 35C         
+   000041         000521    05 WS-FIELD4  PIC X(35).                                      00052109 BLW=00000+1AA,00000A2 35C         
+   000042         000522    05 WS-FIELD5  PIC X(60).                                      00052209 BLW=00000+1CD,00000C5 60C         
+   000043         000523 01 INPUT-REC.                                                    00052317 BLW=00000+210         0CL100      
+   000044         000524    05 FILLER          PIC X(50) VALUE                            00052417 BLW=00000+210,0000000 50C         
+   000045         000525    '0000000002|15|2|1||||          |029045003180|4321|'.         00052517                                   
+                                                                                                                                     
+ ==000045==> IGYDS0118-W An alphanumeric literal should not begin in area "A".  It was processed                                     
+                         as if found in area "B".                                                                                    
+                                                                                                                                     
+   000046         000526    05 FILLER          PIC X(50) VALUE                            00052617 BLW=00000+242,0000032 50C         
+   000047         000527    '2121- SPLAN DESC|                                 '.         00052717                                   
+                                                                                                                                     
+ ==000047==> IGYDS0118-W An alphanumeric literal should not begin in area "A".  It was processed                                     
+                         as if found in area "B".                                                                                    
+                                                                                                                                     
+   000048         000528 01 INPUT-REC-OVERFLW1.                                           00052817 BLW=00000+278         0CL100      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               UNSTRNG0  Date 09/17/2019  Time 08:03:16   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000049         000529    05 FILLER          PIC X(50) VALUE                            00052917 BLW=00000+278,0000000 50C         
+   000050         000530    '0000000002|15|2|1||||          |029045003180|4321|'.         00053017                                   
+                                                                                                                                     
+ ==000050==> IGYDS0118-W An alphanumeric literal should not begin in area "A".  It was processed                                     
+                         as if found in area "B".                                                                                    
+                                                                                                                                     
+   000051         000531    05 FILLER          PIC X(50) VALUE                            00053117 BLW=00000+2AA,0000032 50C         
+   000052         000532    '2121- SPLAN DESC                               || '.         00053217                                   
+                                                                                                                                     
+ ==000052==> IGYDS0118-W An alphanumeric literal should not begin in area "A".  It was processed                                     
+                         as if found in area "B".                                                                                    
+                                                                                                                                     
+   000053         000533 01 INPUT-REC-OVERFLW2.                                           00053317 BLW=00000+2E0         0CL100      
+   000054         000534    05 FILLER          PIC X(50) VALUE                            00053417 BLW=00000+2E0,0000000 50C         
+   000055         000535    '0000000002|15|2|1||||          |029045003180|4321|'.         00053517                                   
+                                                                                                                                     
+ ==000055==> IGYDS0118-W An alphanumeric literal should not begin in area "A".  It was processed                                     
+                         as if found in area "B".                                                                                    
+                                                                                                                                     
+   000056         000536    05 FILLER          PIC X(50) VALUE                            00053617 BLW=00000+312,0000032 50C         
+   000057         000537    '2121- SPLAN DESC                               |  '.         00053717                                   
+                                                                                                                                     
+ ==000057==> IGYDS0118-W An alphanumeric literal should not begin in area "A".  It was processed                                     
+                         as if found in area "B".                                                                                    
+                                                                                                                                     
+   000058         000538 01 INPUT-REC-OVERFLW3.                                           00053817 BLW=00000+348         0CL100      
+   000059         000539    05 FILLER          PIC X(50) VALUE                            00053917 BLW=00000+348,0000000 50C         
+   000060         000540    '0000000002|15|2|1||||          |029045003180|4321|'.         00054017                                   
+                                                                                                                                     
+ ==000060==> IGYDS0118-W An alphanumeric literal should not begin in area "A".  It was processed                                     
+                         as if found in area "B".                                                                                    
+                                                                                                                                     
+   000061         000541    05 FILLER          PIC X(50) VALUE                            00054117 BLW=00000+37A,0000032 50C         
+   000062         000542    '2121- SPLAN DESC                                  '.         00054217                                   
+                                                                                                                                     
+ ==000062==> IGYDS0118-W An alphanumeric literal should not begin in area "A".  It was processed                                     
+                         as if found in area "B".                                                                                    
+                                                                                                                                     
+   000063         000543 01 WS-VALS.                                                      00054317 BLW=00000+3B0         0CL450      
+   000064         000544    05 WS-VAL1         PIC X(30).                                 00054417 BLW=00000+3B0,0000000 30C         
+   000065         000545    05 WS-VAL2         PIC X(30).                                 00054517 BLW=00000+3CE,000001E 30C         
+   000066         000546    05 WS-VAL3         PIC X(30).                                 00054617 BLW=00000+3EC,000003C 30C         
+   000067         000547    05 WS-VAL4         PIC X(30).                                 00054717 BLW=00000+40A,000005A 30C         
+   000068         000548    05 WS-VAL5         PIC X(30).                                 00054817 BLW=00000+428,0000078 30C         
+   000069         000549    05 WS-VAL6         PIC X(30).                                 00054917 BLW=00000+446,0000096 30C         
+   000070         000550    05 WS-VAL7         PIC X(30).                                 00055017 BLW=00000+464,00000B4 30C         
+   000071         000551    05 WS-VAL8         PIC X(30).                                 00055117 BLW=00000+482,00000D2 30C         
+   000072         000552    05 WS-VAL9         PIC X(30).                                 00055217 BLW=00000+4A0,00000F0 30C         
+   000073         000553    05 WS-VALA         PIC X(30).                                 00055317 BLW=00000+4BE,000010E 30C         
+   000074         000554    05 WS-VALB         PIC X(30).                                 00055417 BLW=00000+4DC,000012C 30C         
+   000075         000555    05 WS-VALC         PIC X(30).                                 00055517 BLW=00000+4FA,000014A 30C         
+   000076         000556    05 WS-VALD         PIC X(30).                                 00055617 BLW=00000+518,0000168 30C         
+   000077         000557    05 WS-VALE         PIC X(30).                                 00055717 BLW=00000+536,0000186 30C         
+   000078         000558    05 WS-VALF         PIC X(30).                                 00055817 BLW=00000+554,00001A4 30C         
+   000079         000559 01 WS-RETAIN          PIC X(100).                                00055919 BLW=00000+578         100C        
+   000080         000560 01 STRING-WORK.                                                  00056017 BLW=00000+5E0         0CL120      
+   000081         000561    05 STRING-WORK-BYTE     PIC X(01) OCCURS 120 TIMES.           00056117 BLW=00000+5E0,0000000 1C          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               UNSTRNG0  Date 09/17/2019  Time 08:03:16   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000082         000562 01 STRING-WORK-SHORT.                                            00056217 BLW=00000+658         0CL100      
+   000083         000563    05 STRING-WORK-BYTE-S   PIC X(01) OCCURS 100 TIMES.           00056317 BLW=00000+658,0000000 1C          
+   000084         000564                                                                  00056417                                   
+   000085         000565 LINKAGE SECTION.                                                 00056517                                   
+   000086         000566 PROCEDURE DIVISION.                                              00056617                                   
+   000087         000567        MOVE ALL 'Z' TO WS-RETAIN                                 00056719 79                                
+   000088         000568         UNSTRING INPUT-REC                                       00056817 43                                
+   000089         000569            DELIMITED BY '|' INTO                                 00056917                                   
+   000090         000570             WS-VAL1,WS-VAL2,WS-VAL3,WS-VAL4,WS-VAL5,WS-VAL6,     00057017 64 65 66 67 68 69                 
+                                                                                                                                     
+ ==000090==> IGYPS0001-W A blank was missing before character "W" in column 28.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000090==> IGYPS0001-W A blank was missing before character "W" in column 36.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000090==> IGYPS0001-W A blank was missing before character "W" in column 44.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000090==> IGYPS0001-W A blank was missing before character "W" in column 52.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000090==> IGYPS0001-W A blank was missing before character "W" in column 60.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000091         000571             WS-VAL7,WS-VAL8,WS-VAL9,WS-VALA                      00057117 70 71 72 73                       
+                                                                                                                                     
+ ==000091==> IGYPS0001-W A blank was missing before character "W" in column 28.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000091==> IGYPS0001-W A blank was missing before character "W" in column 36.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000091==> IGYPS0001-W A blank was missing before character "W" in column 44.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000092         000578             WS-VALB COUNT IN WS-COUNT                            00057817 74 30                             
+   000093         000579          END-UNSTRING                                            00057917                                   
+   000094         000580        DISPLAY '1. WS-COUNT ' WS-COUNT                           00058017 30                                
+   000095         000581        DISPLAY '2. WS-VALB  ' WS-VALB                            00058117 74                                
+   000096         000582        DISPLAY '3. WS-VALC  ' WS-VALC                            00058218 75                                
+   000097         000583        DISPLAY '3A. RETAIN ' WS-RETAIN(1:50)                     00058319 79                                
+   000098         000584*                                                                 00058418                                   
+   000099         000585        MOVE ALL 'Z' TO WS-RETAIN                                 00058519 79                                
+   000100         000586         UNSTRING INPUT-REC-OVERFLW1                              00058618 48                                
+   000101         000587            DELIMITED BY '|' INTO                                 00058718                                   
+   000102         000588             WS-VAL1,WS-VAL2,WS-VAL3,WS-VAL4,WS-VAL5,WS-VAL6,     00058818 64 65 66 67 68 69                 
+                                                                                                                                     
+ ==000102==> IGYPS0001-W A blank was missing before character "W" in column 28.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000102==> IGYPS0001-W A blank was missing before character "W" in column 36.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000102==> IGYPS0001-W A blank was missing before character "W" in column 44.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               UNSTRNG0  Date 09/17/2019  Time 08:03:16   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0==000102==> IGYPS0001-W A blank was missing before character "W" in column 52.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000102==> IGYPS0001-W A blank was missing before character "W" in column 60.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000103         000589             WS-VAL7,WS-VAL8,WS-VAL9,WS-VALA                      00058918 70 71 72 73                       
+                                                                                                                                     
+ ==000103==> IGYPS0001-W A blank was missing before character "W" in column 28.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000103==> IGYPS0001-W A blank was missing before character "W" in column 36.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000103==> IGYPS0001-W A blank was missing before character "W" in column 44.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000104         000590             WS-VALB COUNT IN WS-COUNT                            00059018 74 30                             
+   000105         000591          END-UNSTRING                                            00059118                                   
+   000106         000592        DISPLAY '4. WS-COUNT ' WS-COUNT                           00059218 30                                
+   000107         000593        DISPLAY '5. WS-VALB  ' WS-VALB                            00059318 74                                
+   000108         000594        DISPLAY '6. WS-VALC  ' WS-VALC                            00059418 75                                
+   000109         000595        DISPLAY '6A. RETAIN ' WS-RETAIN(1:50)                     00059519 79                                
+   000110         000596*                                                                 00059618                                   
+   000111         000597        MOVE ALL 'Z' TO WS-RETAIN                                 00059719 79                                
+   000112         000598         UNSTRING INPUT-REC-OVERFLW2                              00059818 53                                
+   000113         000599            DELIMITED BY '|' INTO                                 00059918                                   
+   000114         000600             WS-VAL1,WS-VAL2,WS-VAL3,WS-VAL4,WS-VAL5,WS-VAL6,     00060018 64 65 66 67 68 69                 
+                                                                                                                                     
+ ==000114==> IGYPS0001-W A blank was missing before character "W" in column 28.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000114==> IGYPS0001-W A blank was missing before character "W" in column 36.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000114==> IGYPS0001-W A blank was missing before character "W" in column 44.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000114==> IGYPS0001-W A blank was missing before character "W" in column 52.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000114==> IGYPS0001-W A blank was missing before character "W" in column 60.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000115         000601             WS-VAL7,WS-VAL8,WS-VAL9,WS-VALA                      00060118 70 71 72 73                       
+                                                                                                                                     
+ ==000115==> IGYPS0001-W A blank was missing before character "W" in column 28.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000115==> IGYPS0001-W A blank was missing before character "W" in column 36.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000115==> IGYPS0001-W A blank was missing before character "W" in column 44.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000116         000602             WS-VALB COUNT IN WS-COUNT                            00060218 74 30                             
+   000117         000603          END-UNSTRING                                            00060318                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               UNSTRNG0  Date 09/17/2019  Time 08:03:16   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000118         000604        DISPLAY '7. WS-COUNT ' WS-COUNT                           00060418 30                                
+   000119         000605        DISPLAY '8. WS-VALB  ' WS-VALB                            00060518 74                                
+   000120         000606        DISPLAY '9. WS-VALC  ' WS-VALC                            00060618 75                                
+   000121         000607        DISPLAY '9A. RETAIN ' WS-RETAIN(1:50)                     00060719 79                                
+   000122         000608*                                                                 00060818                                   
+   000123         000609        MOVE ALL 'Z' TO WS-RETAIN                                 00060919 79                                
+   000124         000610         UNSTRING INPUT-REC-OVERFLW3                              00061018 58                                
+   000125         000611            DELIMITED BY '|' INTO                                 00061118                                   
+   000126         000612             WS-VAL1,WS-VAL2,WS-VAL3,WS-VAL4,WS-VAL5,WS-VAL6,     00061218 64 65 66 67 68 69                 
+                                                                                                                                     
+ ==000126==> IGYPS0001-W A blank was missing before character "W" in column 28.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000126==> IGYPS0001-W A blank was missing before character "W" in column 36.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000126==> IGYPS0001-W A blank was missing before character "W" in column 44.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000126==> IGYPS0001-W A blank was missing before character "W" in column 52.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000126==> IGYPS0001-W A blank was missing before character "W" in column 60.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000127         000613             WS-VAL7,WS-VAL8,WS-VAL9,WS-VALA                      00061318 70 71 72 73                       
+                                                                                                                                     
+ ==000127==> IGYPS0001-W A blank was missing before character "W" in column 28.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000127==> IGYPS0001-W A blank was missing before character "W" in column 36.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000127==> IGYPS0001-W A blank was missing before character "W" in column 44.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000128         000614             WS-VALB COUNT IN WS-COUNT                            00061418 74 30                             
+   000129         000615          END-UNSTRING                                            00061518                                   
+   000130         000616        DISPLAY '10. WS-COUNT ' WS-COUNT                          00061618 30                                
+   000131         000617        DISPLAY '11. WS-VALB  ' WS-VALB                           00061718 74                                
+   000132         000618        DISPLAY '12. WS-VALC  ' WS-VALC                           00061818 75                                
+   000133         000619        DISPLAY '12A. RETAIN ' WS-RETAIN(1:50)                    00061919 79                                
+   000134         000620*                                                                 00062018                                   
+   000135         000621     MOVE 4 TO WS-POINTER                                         00062118 37                                
+   000136         000622     UNSTRING WS-DATA0(1:WS-DATA0-LEN)                            00062218 12 11                             
+   000137         000623       DELIMITED BY ','                                           00062318                                   
+   000138         000624       INTO                                                       00062418                                   
+   000139         000625          WS-FIELD1                                               00062518 38                                
+   000140         000626          WS-FIELD2                                               00062618 39                                
+   000141         000627          WS-FIELD3                                               00062718 40                                
+   000142         000628          WS-FIELD4                                               00062818 41                                
+   000143         000629          WS-FIELD5                                               00062918 42                                
+   000144         000630     DISPLAY ' ---------------------------------  '               00063018                                   
+   000145         000631     DISPLAY ' FIELD 1 ' WS-FIELD1                                00063118 38                                
+   000146         000632     DISPLAY ' FIELD 2 ' WS-FIELD2                                00063218 39                                
+   000147         000633     DISPLAY ' FIELD 3 ' WS-FIELD3                                00063318 40                                
+   000148         000634     DISPLAY ' FIELD 4 ' WS-FIELD4                                00063418 41                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               UNSTRNG0  Date 09/17/2019  Time 08:03:16   Page     8                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000149         000635     DISPLAY ' FIELD 5 ' WS-FIELD5                                00063518 42                                
+   000150         000636     DISPLAY ' ---------------------------------  '               00063618                                   
+   000151         000637     UNSTRING WS-DATA                                             00063718 19                                
+   000152         000638       DELIMITED BY '%' OR ALL '$'                                00063818                                   
+   000153         000639       INTO                                                       00063918                                   
+   000154         000640          WS-FIELD1 DELIMITER IN WS-DELIM1 COUNT IN WS-COUNT1     00064018 38 27 31                          
+   000155         000641          WS-FIELD2 COUNT IN WS-COUNT2                            00064118 39 32                             
+   000156         000642          WS-FIELD3 DELIMITER IN WS-DELIM3 COUNT IN WS-COUNT3     00064218 40 28 33                          
+   000157         000643          WS-FIELD4 DELIMITER IN WS-DELIM4 COUNT IN WS-COUNT4     00064318 41 29 34                          
+   000158         000644          WS-FIELD5 COUNT IN WS-COUNT5                            00064418 42 35                             
+   000159         000645       POINTER WS-POINTER                                         00064518 37                                
+   000160         000646       TALLYING WS-TALLY                                          00064618 36                                
+   000161         000647     END-UNSTRING                                                 00064718                                   
+   000162         000648     DISPLAY ' FIELD 1 ' WS-FIELD1 ' DELIM ' WS-DELIM1 ' COUNT '  00064818 38 27                             
+   000163         000649        WS-COUNT1                                                 00064918 31                                
+   000164         000650     DISPLAY ' FIELD 2 ' WS-FIELD2 ' COUNT ' WS-COUNT2            00065018 39 32                             
+   000165         000651     DISPLAY ' FIELD 3 ' WS-FIELD3 ' DELIM ' WS-DELIM3 ' COUNT '  00065118 40 28                             
+   000166         000652        WS-COUNT3                                                 00065218 33                                
+   000167         000653     DISPLAY ' FIELD 4 ' WS-FIELD4 ' DELIM ' WS-DELIM4 ' COUNT '  00065318 41 29                             
+   000168         000654        WS-COUNT4                                                 00065418 34                                
+   000169         000655     DISPLAY ' FIELD 5 ' WS-FIELD5 ' COUNT ' WS-COUNT5            00065518 42 35                             
+   000170         000660     DISPLAY ' TALLY ' WS-TALLY                                   00066017 36                                
+   000171         000700     GOBACK.                                                      00070016                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               UNSTRNG0  Date 09/17/2019  Time 08:03:16   Page     9                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       43   INPUT-REC. . . . . . . . . . .  88                                                                                       
+       48   INPUT-REC-OVERFLW1 . . . . . .  100                                                                                      
+       53   INPUT-REC-OVERFLW2 . . . . . .  112                                                                                      
+       58   INPUT-REC-OVERFLW3 . . . . . .  124                                                                                      
+       80   STRING-WORK                                                                                                              
+       81   STRING-WORK-BYTE                                                                                                         
+       83   STRING-WORK-BYTE-S                                                                                                       
+       82   STRING-WORK-SHORT                                                                                                        
+       30   WS-COUNT . . . . . . . . . . .  M92 94 M104 106 M116 118 M128 130                                                        
+       31   WS-COUNT1. . . . . . . . . . .  M154 163                                                                                 
+       32   WS-COUNT2. . . . . . . . . . .  M155 164                                                                                 
+       33   WS-COUNT3. . . . . . . . . . .  M156 166                                                                                 
+       34   WS-COUNT4. . . . . . . . . . .  M157 168                                                                                 
+       35   WS-COUNT5. . . . . . . . . . .  M158 169                                                                                 
+       19   WS-DATA. . . . . . . . . . . .  151                                                                                      
+       12   WS-DATA0 . . . . . . . . . . .  136                                                                                      
+       11   WS-DATA0-LEN . . . . . . . . .  136                                                                                      
+       27   WS-DELIM1. . . . . . . . . . .  M154 162                                                                                 
+       28   WS-DELIM3. . . . . . . . . . .  M156 165                                                                                 
+       29   WS-DELIM4. . . . . . . . . . .  M157 167                                                                                 
+       38   WS-FIELD1. . . . . . . . . . .  M139 145 M154 162                                                                        
+       39   WS-FIELD2. . . . . . . . . . .  M140 146 M155 164                                                                        
+       40   WS-FIELD3. . . . . . . . . . .  M141 147 M156 165                                                                        
+       41   WS-FIELD4. . . . . . . . . . .  M142 148 M157 167                                                                        
+       42   WS-FIELD5. . . . . . . . . . .  M143 149 M158 169                                                                        
+       26   WS-MISC                                                                                                                  
+       37   WS-POINTER . . . . . . . . . .  M135 M159                                                                                
+       79   WS-RETAIN. . . . . . . . . . .  M87 97 M99 109 M111 121 M123 133                                                         
+       36   WS-TALLY . . . . . . . . . . .  M160 170                                                                                 
+       73   WS-VALA. . . . . . . . . . . .  M91 M103 M115 M127                                                                       
+       74   WS-VALB. . . . . . . . . . . .  M92 95 M104 107 M116 119 M128 131                                                        
+       75   WS-VALC. . . . . . . . . . . .  96 108 120 132                                                                           
+       76   WS-VALD                                                                                                                  
+       77   WS-VALE                                                                                                                  
+       78   WS-VALF                                                                                                                  
+       63   WS-VALS                                                                                                                  
+       64   WS-VAL1. . . . . . . . . . . .  M90 M102 M114 M126                                                                       
+       65   WS-VAL2. . . . . . . . . . . .  M90 M102 M114 M126                                                                       
+       66   WS-VAL3. . . . . . . . . . . .  M90 M102 M114 M126                                                                       
+       67   WS-VAL4. . . . . . . . . . . .  M90 M102 M114 M126                                                                       
+       68   WS-VAL5. . . . . . . . . . . .  M90 M102 M114 M126                                                                       
+       69   WS-VAL6. . . . . . . . . . . .  M90 M102 M114 M126                                                                       
+       70   WS-VAL7. . . . . . . . . . . .  M91 M103 M115 M127                                                                       
+       71   WS-VAL8. . . . . . . . . . . .  M91 M103 M115 M127                                                                       
+       72   WS-VAL9. . . . . . . . . . . .  M91 M103 M115 M127                                                                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               UNSTRNG0  Date 09/17/2019  Time 08:03:16   Page    10                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   UNSTRNG0                                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               UNSTRNG0  Date 09/17/2019  Time 08:03:16   Page    11                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID UNSTRNG0----------------------------------------------------------------------------------------------------*    
+     11   1  WS-DATA0-LEN. . . . . . . . . . . . . . . . . BLW=00000  000               DS 2C           Binary                       
+     12   1  WS-DATA0. . . . . . . . . . . . . . . . . . . BLW=00000  008               DS 0CL98        Group                        
+     13     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  008   0 000 000   DS 20C          Display                      
+     14     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  01C   0 000 014   DS 1C           Display                      
+     15     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  01D   0 000 015   DS 20C          Display                      
+     16     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  031   0 000 029   DS 1C           Display                      
+     17     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  032   0 000 02A   DS 6C           Display                      
+     18     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  038   0 000 030   DS 50C          Display                      
+     19   1  WS-DATA . . . . . . . . . . . . . . . . . . . BLW=00000  070               DS 0CL150       Group                        
+     20     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  070   0 000 000   DS 50C          Display                      
+     22     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  0A2   0 000 032   DS 50C          Display                      
+     24     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  0D4   0 000 064   DS 50C          Display                      
+     26   1  WS-MISC . . . . . . . . . . . . . . . . . . . BLW=00000  108               DS 0CL257       Group                        
+     27     2  WS-DELIM1 . . . . . . . . . . . . . . . . . BLW=00000  108   0 000 000   DS 4C           Display                      
+     28     2  WS-DELIM3 . . . . . . . . . . . . . . . . . BLW=00000  10C   0 000 004   DS 4C           Display                      
+     29     2  WS-DELIM4 . . . . . . . . . . . . . . . . . BLW=00000  110   0 000 008   DS 4C           Display                      
+     30     2  WS-COUNT. . . . . . . . . . . . . . . . . . BLW=00000  114   0 000 00C   DS 4C           Binary                       
+     31     2  WS-COUNT1 . . . . . . . . . . . . . . . . . BLW=00000  118   0 000 010   DS 4C           Binary                       
+     32     2  WS-COUNT2 . . . . . . . . . . . . . . . . . BLW=00000  11C   0 000 014   DS 9C           Disp-Num                     
+     33     2  WS-COUNT3 . . . . . . . . . . . . . . . . . BLW=00000  125   0 000 01D   DS 3P           Packed-Dec                   
+     34     2  WS-COUNT4 . . . . . . . . . . . . . . . . . BLW=00000  128   0 000 020   DS 9C           Disp-Num                     
+     35     2  WS-COUNT5 . . . . . . . . . . . . . . . . . BLW=00000  131   0 000 029   DS 3P           Packed-Dec                   
+     36     2  WS-TALLY. . . . . . . . . . . . . . . . . . BLW=00000  134   0 000 02C   DS 9C           Disp-Num                     
+     37     2  WS-POINTER. . . . . . . . . . . . . . . . . BLW=00000  13D   0 000 035   DS 9C           Disp-Num                     
+     38     2  WS-FIELD1 . . . . . . . . . . . . . . . . . BLW=00000  146   0 000 03E   DS 35C          Display                      
+     39     2  WS-FIELD2 . . . . . . . . . . . . . . . . . BLW=00000  169   0 000 061   DS 30C          Display                      
+     40     2  WS-FIELD3 . . . . . . . . . . . . . . . . . BLW=00000  187   0 000 07F   DS 35C          Display                      
+     41     2  WS-FIELD4 . . . . . . . . . . . . . . . . . BLW=00000  1AA   0 000 0A2   DS 35C          Display                      
+     42     2  WS-FIELD5 . . . . . . . . . . . . . . . . . BLW=00000  1CD   0 000 0C5   DS 60C          Display                      
+     43   1  INPUT-REC . . . . . . . . . . . . . . . . . . BLW=00000  210               DS 0CL100       Group                        
+     44     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  210   0 000 000   DS 50C          Display                      
+     46     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  242   0 000 032   DS 50C          Display                      
+     48   1  INPUT-REC-OVERFLW1. . . . . . . . . . . . . . BLW=00000  278               DS 0CL100       Group                        
+     49     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  278   0 000 000   DS 50C          Display                      
+     51     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  2AA   0 000 032   DS 50C          Display                      
+     53   1  INPUT-REC-OVERFLW2. . . . . . . . . . . . . . BLW=00000  2E0               DS 0CL100       Group                        
+     54     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  2E0   0 000 000   DS 50C          Display                      
+     56     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  312   0 000 032   DS 50C          Display                      
+     58   1  INPUT-REC-OVERFLW3. . . . . . . . . . . . . . BLW=00000  348               DS 0CL100       Group                        
+     59     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  348   0 000 000   DS 50C          Display                      
+     61     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  37A   0 000 032   DS 50C          Display                      
+     63   1  WS-VALS . . . . . . . . . . . . . . . . . . . BLW=00000  3B0               DS 0CL450       Group                        
+     64     2  WS-VAL1 . . . . . . . . . . . . . . . . . . BLW=00000  3B0   0 000 000   DS 30C          Display                      
+     65     2  WS-VAL2 . . . . . . . . . . . . . . . . . . BLW=00000  3CE   0 000 01E   DS 30C          Display                      
+     66     2  WS-VAL3 . . . . . . . . . . . . . . . . . . BLW=00000  3EC   0 000 03C   DS 30C          Display                      
+     67     2  WS-VAL4 . . . . . . . . . . . . . . . . . . BLW=00000  40A   0 000 05A   DS 30C          Display                      
+     68     2  WS-VAL5 . . . . . . . . . . . . . . . . . . BLW=00000  428   0 000 078   DS 30C          Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               UNSTRNG0  Date 09/17/2019  Time 08:03:16   Page    12                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+     69     2  WS-VAL6 . . . . . . . . . . . . . . . . . . BLW=00000  446   0 000 096   DS 30C          Display                      
+     70     2  WS-VAL7 . . . . . . . . . . . . . . . . . . BLW=00000  464   0 000 0B4   DS 30C          Display                      
+     71     2  WS-VAL8 . . . . . . . . . . . . . . . . . . BLW=00000  482   0 000 0D2   DS 30C          Display                      
+     72     2  WS-VAL9 . . . . . . . . . . . . . . . . . . BLW=00000  4A0   0 000 0F0   DS 30C          Display                      
+     73     2  WS-VALA . . . . . . . . . . . . . . . . . . BLW=00000  4BE   0 000 10E   DS 30C          Display                      
+     74     2  WS-VALB . . . . . . . . . . . . . . . . . . BLW=00000  4DC   0 000 12C   DS 30C          Display                      
+     75     2  WS-VALC . . . . . . . . . . . . . . . . . . BLW=00000  4FA   0 000 14A   DS 30C          Display                      
+     76     2  WS-VALD . . . . . . . . . . . . . . . . . . BLW=00000  518   0 000 168   DS 30C          Display                      
+     77     2  WS-VALE . . . . . . . . . . . . . . . . . . BLW=00000  536   0 000 186   DS 30C          Display                      
+     78     2  WS-VALF . . . . . . . . . . . . . . . . . . BLW=00000  554   0 000 1A4   DS 30C          Display                      
+     79   1  WS-RETAIN . . . . . . . . . . . . . . . . . . BLW=00000  578               DS 100C         Display                      
+     80   1  STRING-WORK . . . . . . . . . . . . . . . . . BLW=00000  5E0               DS 0CL120       Group                        
+     81     2  STRING-WORK-BYTE. . . . . . . . . . . . . . BLW=00000  5E0   0 000 000   DS 1C           Display        O             
+     82   1  STRING-WORK-SHORT . . . . . . . . . . . . . . BLW=00000  658               DS 0CL100       Group                        
+     83     2  STRING-WORK-BYTE-S. . . . . . . . . . . . . BLW=00000  658   0 000 000   DS 1C           Display        O             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               UNSTRNG0  Date 09/17/2019  Time 08:03:16   Page    13                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 00002C BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000CAC FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |    
+ 00011C  (LIT+32)     4040                                                                     |                                |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               UNSTRNG0  Date 09/17/2019  Time 08:03:16   Page    14                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000128 FOR 000B84 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000130  (LIT+0)      FFFFFFFC 00001000 00000096 00000001 00000000 0030F2F1 F2F16040 E2D7D3C1  |...........o..........2121- SPLA|    
+ 000150  (LIT+32)     D540C4C5 E2C34040 40404040 40404040 40404040 40404040 40404040 40404040  |N DESC                          |    
+ 000170  (LIT+64)     40404040 40404040 F2F1F2F1 6040E2D7 D3C1D540 C4C5E2C3 40404040 40404040  |        2121- SPLAN DESC        |    
+ 000190  (LIT+96)     40404040 40404040 40404040 40404040 40404040 4040404F 4040F2F1 F2F16040  |                       |  2121- |    
+ 0001B0  (LIT+128)    E2D7D3C1 D540C4C5 E2C34040 40404040 40404040 40404040 40404040 40404040  |SPLAN DESC                      |    
+ 0001D0  (LIT+160)    40404040 40404040 404F4F40 F2F1F2F1 6040E2D7 D3C1D540 C4C5E2C3 4F404040  |         || 2121- SPLAN DESC|   |    
+ 0001F0  (LIT+192)    40404040 40404040 40404040 40404040 40404040 40404040 40404040 4040F0F0  |                              00|    
+ 000210  (LIT+224)    F0F0F0F0 F0F0F0F2 4FF1F54F F24FF14F 4F4F4F40 40404040 40404040 404FF0F2  |00000002|15|2|1||||          |02|    
+ 000230  (LIT+256)    F9F0F4F5 F0F0F3F1 F8F04FF4 F3F2F14F E3C8C9E2 40C7D6C5 E240E3D6 40C6C9C5  |9045003180|4321|THIS GOES TO FIE|    
+ 000250  (LIT+288)    D3C440F5 40C1D5C4 40E3C8C9 E240E6C9 D3D340C2 C540E3C8 C540C5D5 C440C1D3  |LD 5 AND THIS WILL BE THE END AL|    
+ 000270  (LIT+320)    D340E3C8 C9E240E2 C8D6E4D3 C440C7D6 40E3D640 C6C9C5D3 C440F35B 5B5BE3C8  |L THIS SHOULD GO TO FIELD 3$$$TH|    
+ 000290  (LIT+352)    C9E240C7 D6C5E240 E3D640C6 C9C5D3C4 40F4406C 5C5C5CE3 C8C9E240 E2C8D6E4  |IS GOES TO FIELD 4 %***THIS SHOU|    
+ 0002B0  (LIT+384)    D3C440C7 D640E3D6 40C6C9C5 D3C440F1 6CE3C8C9 E240C7D6 C5E240E3 D640C6C9  |LD GO TO FIELD 1%THIS GOES TO FI|    
+ 0002D0  (LIT+416)    C5D3C440 F26C4060 60606060 60606060 60606060 60606060 60606060 60606060  |ELD 2% -------------------------|    
+ 0002F0  (LIT+448)    60606060 60606060 4040D8F8 F8F8F8F8 F8F8F8F8 F8F8F8F8 F8F8F8F8 F8F9D8F1  |--------  Q8888888888888888889Q1|    
+ 000310  (LIT+480)    F2F3F4F5 F6F7F8F9 F1F2F3F4 F5F6F7F8 F9F0F1F2 4B40E6E2 60E5C1D3 C34040F1  |23456789123456789012. WS-VALC  1|    
+ 000330  (LIT+512)    F14B40E6 E260E5C1 D3C24040 F1F04B40 E6E260C3 D6E4D5E3 40F1F2C1 4B40D9C5  |1. WS-VALB  10. WS-COUNT 12A. RE|    
+ 000350  (LIT+544)    E3C1C9D5 40F94B40 E6E260E5 C1D3C340 40F84B40 E6E260E5 C1D3C240 40F74B40  |TAIN 9. WS-VALC  8. WS-VALB  7. |    
+ 000370  (LIT+576)    E6E260C3 D6E4D5E3 40F64B40 E6E260E5 C1D3C340 40F54B40 E6E260E5 C1D3C240  |WS-COUNT 6. WS-VALC  5. WS-VALB |    
+ 000390  (LIT+608)    40F44B40 E6E260C3 D6E4D5E3 40F34B40 E6E260E5 C1D3C340 40F24B40 E6E260E5  | 4. WS-COUNT 3. WS-VALC  2. WS-V|    
+ 0003B0  (LIT+640)    C1D3C240 40F14B40 E6E260C3 D6E4D5E3 40F9C14B 40D9C5E3 C1C9D540 F6C14B40  |ALB  1. WS-COUNT 9A. RETAIN 6A. |    
+ 0003D0  (LIT+672)    D9C5E3C1 C9D540F3 C14B40D9 C5E3C1C9 D54040C6 C9C5D3C4 40F54040 C6C9C5D3  |RETAIN 3A. RETAIN  FIELD 5  FIEL|    
+ 0003F0  (LIT+704)    C440F440 40C6C9C5 D3C440F3 4040C6C9 C5D3C440 F24040C6 C9C5D3C4 40F140E4  |D 4  FIELD 3  FIELD 2  FIELD 1 U|    
+ 000410  (LIT+736)    D5E2E3D9 D5C7F0E2 E8E2D6E4 E34040C9 C7E9E2D9 E3C3C440 E3C1D3D3 E84040C3  |NSTRNG0SYSOUT  IGZSRTCD TALLY  C|    
+ 000430  (LIT+768)    D6E4D5E3 4040C4C5 D3C9D440 6B000000 00000001 2C000000 01000001 30000000  |OUNT  DELIM ,...................|    
+ 000450  (LIT+800)    01000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000  |................................|    
+ 000470  (LIT+832)    00000000 00800000 00400000 00000000 00000000 00F0F0F0 F0F0F0F0 F0F44000  |......... ...........000000004 .|    
+ 000490  (LIT+864)    00000000 00000000 00000000 00004000 00000025 C00001C0 00080800 002402E7  |.............. ................X|    
+ 0004B0  (LIT+896)    01400000 07080000 2402FF40 00000909 00012C01 34FF0140 00000908 00002402  |. ......... ........... ........|    
+ 0004D0  (LIT+928)    BA400000 3C090001 2C01CD40 00000708 00002403 06200300 05090001 2C0131FF  |. ......... ....................|    
+ 0004F0  (LIT+960)    01400000 09080000 2402C340 00002309 00012C01 AA400000 07080000 24030D40  |. ........C ......... ......... |    
+ 000510  (LIT+992)    00000409 00012C01 10400000 07080000 24030640 00000909 00012C01 28FF0140  |......... ......... ........... |    
+ 000530  (LIT+1024)   00000908 00002402 CC400000 23090001 2C018740 00000708 00002403 0D400000  |......... ........g ......... ..|    
+ 000550  (LIT+1056)   04090001 2C010C40 00000708 00002403 06200300 05090001 2C0125FF 01400000  |....... ..................... ..|    
+ 000570  (LIT+1088)   09080000 2402D540 00001E09 00012C01 69400000 07080000 24030640 00000909  |......N ......... ......... ....|    
+ 000590  (LIT+1120)   00012C01 1CFF0140 00000908 00002402 DE400000 23090001 2C014640 00000708  |....... ......... ......... ....|    
+ 0005B0  (LIT+1152)   00002403 0D400000 04090001 2C010840 00000708 00002403 06000400 0A090001  |..... ......... ................|    
+ 0005D0  (LIT+1184)   2C0118FF 3F020800 00000000 00960900 012C0070 20400900 00000004 3D005800  |.............o....... ..........|    
+ 0005F0  (LIT+1216)   00017820 40090000 0000043D 00580000 01800100 01080000 00000000 01080000  |.... ...........................|    
+ 000610  (LIT+1248)   24017B01 01020800 00000000 00010800 00240163 08080000 00000000 23090001  |..#.............................|    
+ 000630  (LIT+1280)   2C014602 08000000 00000004 0900012C 01080420 40090000 00000409 00012C01  |.................... ...........|    
+ 000650  (LIT+1312)   18080800 00000000 001E0900 012C0169 04800009 00000000 09090001 2C011C08  |................................|    
+ 000670  (LIT+1344)   08000000 00000023 0900012C 01870208 00000000 00000409 00012C01 0C044040  |.............g................  |    
+ 000690  (LIT+1376)   05000000 00030900 012C0125 08080000 00000000 23090001 2C01AA02 08000000  |................................|    
+ 0006B0  (LIT+1408)   00000004 0900012C 01100480 00090000 00000909 00012C01 28080800 00000000  |................................|    
+ 0006D0  (LIT+1440)   003C0900 012C01CD 04404005 00000000 03090001 2C0131FF FF014000 00090800  |.........  ............... .....|    
+ 0006F0  (LIT+1472)   002402BA 4000003C 0900012C 01CDFF01 40000009 08000024 02C34000 00230900  |.... ........... ........C .....|    
+ 000710  (LIT+1504)   012C01AA FF014000 00090800 002402CC 40000023 0900012C 0187FF01 40000009  |...... ......... ........g.. ...|    
+ 000730  (LIT+1536)   08000024 02D54000 001E0900 012C0169 FF014000 00090800 002402DE 40000023  |.....N ........... ......... ...|    
+ 000750  (LIT+1568)   0900012C 0146FF01 40000024 08000024 01AEFF1C 01088000 003D0058 00000198  |........ ......................q|    
+ 000770  (LIT+1600)   0900012C 00080100 01080000 00000000 01080000 24031408 08000000 00000023  |................................|    
+ 000790  (LIT+1632)   0900012C 01460808 00000000 00001E09 00012C01 69080800 00000000 00230900  |................................|    
+ 0007B0  (LIT+1664)   012C0187 08080000 00000000 23090001 2C01AA08 08000000 0000003C 0900012C  |...g............................|    
+ 0007D0  (LIT+1696)   01CDFFFF 01400000 0C080000 24022140 00003209 00012C05 78FF0140 00000D08  |..... ......... ........... ....|    
+ 0007F0  (LIT+1728)   00002401 FA400000 1E090001 2C04FAFF 01400000 0D080000 24020740 00001E09  |..... ........... ......... ....|    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               UNSTRNG0  Date 09/17/2019  Time 08:03:16   Page    15                
+0000810  (LIT+1760)   00012C04 DCFF0140 00000D08 00002402 14000400 0A090001 2C0114FF 1C010800  |....... ........................|    
+ 000830  (LIT+1792)   00000000 00640900 012C0348 01000108 00000000 00000108 00002400 7F080800  |............................"...|    
+ 000850  (LIT+1824)   00000000 001E0900 012C03B0 08080000 00000000 1E090001 2C03CE08 08000000  |................................|    
+ 000870  (LIT+1856)   0000001E 0900012C 03EC0808 00000000 00001E09 00012C04 0A080800 00000000  |................................|    
+ 000890  (LIT+1888)   001E0900 012C0428 08080000 00000000 1E090001 2C044608 08000000 0000001E  |................................|    
+ 0008B0  (LIT+1920)   0900012C 04640808 00000000 00001E09 00012C04 82080800 00000000 001E0900  |....................b...........|    
+ 0008D0  (LIT+1952)   012C04A0 08080000 00000000 1E090001 2C04BE08 08000000 0000001E 0900012C  |................................|    
+ 0008F0  (LIT+1984)   04DC0420 40090000 00000409 00012C01 14FFFF01 4000000B 08000024 02994000  |.... ............... ........r .|    
+ 000910  (LIT+2016)   00320900 012C0578 FF014000 000C0800 0024022D 4000001E 0900012C 04FAFF01  |.......... ......... ...........|    
+ 000930  (LIT+2048)   4000000C 08000024 02394000 001E0900 012C04DC FF014000 000C0800 00240245  | ......... ........... .........|    
+ 000950  (LIT+2080)   0004000A 0900012C 0114FF1C 01080000 00000000 64090001 2C02E001 00010800  |................................|    
+ 000970  (LIT+2112)   00000000 00010800 0024007F 08080000 00000000 1E090001 2C03B008 08000000  |..........."....................|    
+ 000990  (LIT+2144)   0000001E 0900012C 03CE0808 00000000 00001E09 00012C03 EC080800 00000000  |................................|    
+ 0009B0  (LIT+2176)   001E0900 012C040A 08080000 00000000 1E090001 2C042808 08000000 0000001E  |................................|    
+ 0009D0  (LIT+2208)   0900012C 04460808 00000000 00001E09 00012C04 64080800 00000000 001E0900  |................................|    
+ 0009F0  (LIT+2240)   012C0482 08080000 00000000 1E090001 2C04A008 08000000 0000001E 0900012C  |...b............................|    
+ 000A10  (LIT+2272)   04BE0808 00000000 00001E09 00012C04 DC042040 09000000 00040900 012C0114  |................... ............|    
+ 000A30  (LIT+2304)   FFFF0140 00000B08 00002402 A4400000 32090001 2C0578FF 01400000 0C080000  |... ........u ........... ......|    
+ 000A50  (LIT+2336)   24025140 00001E09 00012C04 FAFF0140 00000C08 00002402 5D400000 1E090001  |... ........... ........) ......|    
+ 000A70  (LIT+2368)   2C04DCFF 01400000 0C080000 24026900 04000A09 00012C01 14FF1C01 08000000  |..... ..........................|    
+ 000A90  (LIT+2400)   00000064 0900012C 02780100 01080000 00000000 01080000 24007F08 08000000  |..........................".....|    
+ 000AB0  (LIT+2432)   0000001E 0900012C 03B00808 00000000 00001E09 00012C03 CE080800 00000000  |................................|    
+ 000AD0  (LIT+2464)   001E0900 012C03EC 08080000 00000000 1E090001 2C040A08 08000000 0000001E  |................................|    
+ 000AF0  (LIT+2496)   0900012C 04280808 00000000 00001E09 00012C04 46080800 00000000 001E0900  |................................|    
+ 000B10  (LIT+2528)   012C0464 08080000 00000000 1E090001 2C048208 08000000 0000001E 0900012C  |..................b.............|    
+ 000B30  (LIT+2560)   04A00808 00000000 00001E09 00012C04 BE080800 00000000 001E0900 012C04DC  |................................|    
+ 000B50  (LIT+2592)   04204009 00000000 04090001 2C0114FF FF014000 000B0800 002402AF 40000032  |.. ............... ......... ...|    
+ 000B70  (LIT+2624)   0900012C 0578FF01 4000000C 08000024 02754000 001E0900 012C04FA FF014000  |........ ......... ........... .|    
+ 000B90  (LIT+2656)   000C0800 00240281 4000001E 0900012C 04DCFF01 4000000C 08000024 028D0004  |.......a ........... ...........|    
+ 000BB0  (LIT+2688)   000A0900 012C0114 FF1C0108 00000000 00006409 00012C02 10010001 08000000  |................................|    
+ 000BD0  (LIT+2720)   00000001 08000024 007F0808 00000000 00001E09 00012C03 B0080800 00000000  |........."......................|    
+ 000BF0  (LIT+2752)   001E0900 012C03CE 08080000 00000000 1E090001 2C03EC08 08000000 0000001E  |................................|    
+ 000C10  (LIT+2784)   0900012C 040A0808 00000000 00001E09 00012C04 28080800 00000000 001E0900  |................................|    
+ 000C30  (LIT+2816)   012C0446 08080000 00000000 1E090001 2C046408 08000000 0000001E 0900012C  |................................|    
+ 000C50  (LIT+2848)   04820808 00000000 00001E09 00012C04 A0080800 00000000 001E0900 012C04BE  |.b..............................|    
+ 000C70  (LIT+2880)   08080000 00000000 1E090001 2C04DC04 20400900 00000004 0900012C 0114FFFF  |................. ..............|    
+ 000C90  (LIT+2912)   40000000 0040C000 01400008 08000024 02E702C0 00080800 002402E7           | .... ... .......X.........X    |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000087 000E64 MOVE                          000088 000E6E UNSTRING                      000094 000E7C DISPLAY                       
+ 000095 000E86 DISPLAY                       000096 000E90 DISPLAY                       000097 000E9A DISPLAY                       
+ 000099 000EA4 MOVE                          000100 000EAE UNSTRING                      000106 000EB8 DISPLAY                       
+ 000107 000EC2 DISPLAY                       000108 000ECC DISPLAY                       000109 000ED6 DISPLAY                       
+ 000111 000EE0 MOVE                          000112 000EEA UNSTRING                      000118 000EF4 DISPLAY                       
+ 000119 000EFE DISPLAY                       000120 000F08 DISPLAY                       000121 000F12 DISPLAY                       
+ 000123 000F1C MOVE                          000124 000F26 UNSTRING                      000130 000F30 DISPLAY                       
+ 000131 000F3A DISPLAY                       000132 000F44 DISPLAY                       000133 000F4E DISPLAY                       
+ 000135 000F58 MOVE                          000136 000F5E UNSTRING                      000144 000F70 DISPLAY                       
+ 000145 000F7A DISPLAY                       000146 000F84 DISPLAY                       000147 000F8E DISPLAY                       
+ 000148 000F98 DISPLAY                       000149 000FA2 DISPLAY                       000150 000FAC DISPLAY                       
+ 000151 000FB6 UNSTRING                      000162 001018 DISPLAY                       000164 001022 DISPLAY                       
+ 000165 00102C DISPLAY                       000167 001036 DISPLAY                       000169 001040 DISPLAY                       
+ 000170 00104A DISPLAY                       000171 001054 GOBACK                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               UNSTRNG0  Date 09/17/2019  Time 08:03:16   Page    16                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               UNSTRNG0  Date 09/17/2019  Time 08:03:16   Page    17                
+0                   *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  SAVE AREA FOR FLOAT REGISTERS 8-15                                                                       
+                  00000110  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  00000150  VARIABLE-LENGTH CELLS                                                                                    
+                  00000168  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000170  PERFORM SAVE CELLS                                                                                       
+                  00000178  TEMPORARY STORAGE-2                                                                                      
+                  00000198  TEMPORARY STORAGE-3                                                                                      
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000148 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 000006BC BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 000001A0 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 001100                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 001238 FOR LENGTH 000088                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               UNSTRNG0  Date 09/17/2019  Time 08:03:16   Page    18                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+                                                                                                                                     
+     45  IGYDS0118-W   An alphanumeric literal should not begin in area "A".  It was processed as if found in area "B".              
+                                                                                                                                     
+                       Same message on line:     47     50     52     55     57     60     62                                        
+                                                                                                                                     
+     90  IGYPS0001-W   A blank was missing before character "W" in column 28.  A blank was assumed.                                  
+                                                                                                                                     
+                       Same message on line:     91    102    103    114    115    126    127                                        
+                                                                                                                                     
+     90  IGYPS0001-W   A blank was missing before character "W" in column 36.  A blank was assumed.                                  
+                                                                                                                                     
+                       Same message on line:     91    102    103    114    115    126    127                                        
+                                                                                                                                     
+     90  IGYPS0001-W   A blank was missing before character "W" in column 44.  A blank was assumed.                                  
+                                                                                                                                     
+                       Same message on line:     91    102    103    114    115    126    127                                        
+                                                                                                                                     
+     90  IGYPS0001-W   A blank was missing before character "W" in column 52.  A blank was assumed.                                  
+                                                                                                                                     
+                       Same message on line:    102    114    126                                                                    
+                                                                                                                                     
+     90  IGYPS0001-W   A blank was missing before character "W" in column 60.  A blank was assumed.                                  
+                                                                                                                                     
+                       Same message on line:    102    114    126                                                                    
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:      43           1             42                                                                                         
+-* Statistics for COBOL program UNSTRNG0:                                                                                            
+ *    Source records = 171                                                                                                           
+ *    Data Division statements = 45                                                                                                  
+ *    Procedure Division statements = 41                                                                                             
+0End of compilation 1,  program UNSTRNG0,  highest severity 4.                                                                       
+0Return code 4                                                                                                                       

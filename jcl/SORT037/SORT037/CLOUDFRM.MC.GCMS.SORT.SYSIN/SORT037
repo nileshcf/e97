@@ -1,0 +1,9 @@
+  OPTION COPY                                                                   
+  JOINKEYS FILE=F1,FIELDS=(1,58,A)                                              
+  JOINKEYS FILE=F2,FIELDS=(1,58,A)                                              
+  JOIN UNPAIRED                                                                 
+  REFORMAT FIELDS=(F1:1,58,F2:1,58,?)                                           
+  OUTFIL FNAMES=UNMATCH,INCLUDE=(117,1,CH,EQ,C'1'),                             
+    BUILD=(1,5,6:C' - DOES NOT HAVE AN MATCH IN THE T002/9Z FILE')              
+  OUTFIL FNAMES=MATCH,INCLUDE=(117,1,CH,EQ,C'B'),                               
+    BUILD=(1,5,6:C' - BASE FILE ENTRY MATCHES THE T002/9Z ENTRY ')              
