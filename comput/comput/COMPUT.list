@@ -1,0 +1,949 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 06/06/2022  Time 01:04:33   Page     1                
+0Invocation parameters:                                                                                                              
+  LIB,OBJECT,RENT,RES,APOST,TRUNC(BIN),,ARITH(EXTEND),OFFSET,NOFDUMP,SOURCE,MAP                                                      
+                                                                                                                                     
+         IGYOS4046-I   The "RESIDENT" option specification is no longer required.  The resident runtime library support is always    
+                       used.                                                                                                         
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4008-W   The "NOFDUMP" compiler option was specified, but is not supported.  The option was discarded.                 
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    APOST                                                                                                                            
+    ARITH(EXTEND)                                                                                                                    
+  NOAWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+  NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 06/06/2022  Time 01:04:33   Page     2                
+0 NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+  NOTEST                                                                                                                             
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000001         000100 IDENTIFICATION DIVISION.                                         00010000                                   
+   000002         000200 PROGRAM-ID.    COMPUT.                                           00020001                                   
+   000003         000207*---------------------------------------------                    00020700                                   
+   000004         000208*---------------------------------------------                    00020801                                   
+   000005         000209 DATE-WRITTEN. MAY 2017.                                          00020901                                   
+   000006         000210 ENVIRONMENT DIVISION.                                            00021001                                   
+   000007         000211 INPUT-OUTPUT SECTION.                                            00021101                                   
+   000008         000220 FILE-CONTROL.                                                    00022000                                   
+   000009         000230 DATA DIVISION.                                                   00023000                                   
+   000010         000240 FILE SECTION.                                                    00024000                                   
+   000011         000250 WORKING-STORAGE SECTION.                                         00025000                                   
+   000012         000280     COPY CFMW03A.                                                00028000                                   
+   000013C               01  W03A-1-AREA-COMPUTE.                                         00010002 BLW=00000+000         0CL86       
+   000014C                                                                                00011002                                   
+   000015C                   05  W03A-1-DI-COMP3           PIC S9(15)V USAGE COMP-3.      00020002 BLW=00000+000,0000000 8P          
+   000016C                   05  W03A-1-DI-COMP            PIC S9(9) USAGE COMP.          00021002 BLW=00000+008,0000008 4C          
+   000017C                   05  W03A-1-DI-DECIMAL         PIC S9(7)V9(2) USAGE COMP-3.   00022002 BLW=00000+00C,000000C 5P          
+   000018C                   05  W03A-1-DI-SMALLINT        PIC S9(4) USAGE COMP.          00027002 BLW=00000+011,0000011 2C          
+   000019C                   05  W03A-1-DI-INT             PIC S9(9) USAGE COMP.          00028002 BLW=00000+013,0000013 4C          
+   000020C                   05  W03A-1-DI-BIGINT          PIC S9(18) USAGE COMP.         00029002 BLW=00000+017,0000017 8C          
+   000021C                   05  W03A-1-DI-REAL            USAGE COMP-1.                  00029102 BLW=00000+01F,000001F 4C          
+   000022C                   05  W03A-1-DI-DOUBLE          USAGE COMP-2.                  00029202 BLW=00000+023,0000023 8C          
+   000023C                                                                                00029302                                   
+   000024C                   05  W03A-1-DO-COMP3           PIC S9(15)V USAGE COMP-3.      00029402 BLW=00000+02B,000002B 8P          
+   000025C                   05  W03A-1-DO-COMP            PIC S9(9) USAGE COMP.          00029502 BLW=00000+033,0000033 4C          
+   000026C                   05  W03A-1-DO-DECIMAL         PIC S9(7)V9(2) USAGE COMP-3.   00029602 BLW=00000+037,0000037 5P          
+   000027C                   05  W03A-1-DO-SMALLINT        PIC S9(4) USAGE COMP.          00029702 BLW=00000+03C,000003C 2C          
+   000028C                   05  W03A-1-DO-INT             PIC S9(9) USAGE COMP.          00029802 BLW=00000+03E,000003E 4C          
+   000029C                   05  W03A-1-DO-BIGINT          PIC S9(18) USAGE COMP.         00029902 BLW=00000+042,0000042 8C          
+   000030C                   05  W03A-1-DO-REAL            USAGE COMP-1.                  00030002 BLW=00000+04A,000004A 4C          
+   000031C                   05  W03A-1-DO-DOUBLE          USAGE COMP-2.                  00040002 BLW=00000+04E,000004E 8C          
+   000032C                                                                                00050002                                   
+   000033         000282 01  HV-START-DT8-1D             PIC 9(08).                       00028210 BLW=00000+058         8C          
+   000034         000283 01  WS-INT-OF-DT-1              PIC S9(09) COMP-3 VALUE +0.      00028310 BLW=00000+060         5P          
+   000035         000284 01  WS-MISC.                                                     00028405 BLW=00000+068         0CL113      
+   000036         000285     05 TB11148-ADMIN-AMT     PIC S9(7)V9(2) COMP-3.              00028505 BLW=00000+068,0000000 5P          
+   000037         000286     05 WS-TOT-AMT                PIC S9(09)V99    COMP   VALUE   00028606 BLW=00000+06D,0000005 8C          
+   000038         000287       +0.                                                        00028706                                   
+   000039         000288     05 RLU3A-MTN-AC-ACCT-CHGS-CREDITS   PIC S9(9)V99 COMP-3.     00028807 BLW=00000+075,000000D 6P          
+   000040         000289     05  WS-CHRG-CREDIT-TOT-NOTAX      PIC S9(9)V99 COMP-3 VALUE  00028908 BLW=00000+07B,0000013 6P          
+   000041         000290       0.                                                         00029008                                   
+   000042         000291   05  W-5V5-A                  PIC 9(05)V9(05).                  00029111 BLW=00000+081,0000019 10C         
+   000043         000292   05  W-5V5                    PIC 9(05)V9(05).                  00029211 BLW=00000+08B,0000023 10C         
+   000044         000293   05  W-3V2-A                  PIC 9(03)V9(02).                  00029311 BLW=00000+095,000002D 5C          
+   000045         000294   05  W-3V2                    PIC 9(03)V9(02).                  00029411 BLW=00000+09A,0000032 5C          
+   000046         000295   05  W-3V2-RESULT             PIC 9(03)V9(02).                  00029511 BLW=00000+09F,0000037 5C          
+   000047         000296   05  PMSLK402-LIST-PRICE         PIC S9(07)V9(04) COMP-3.       00029611 BLW=00000+0A4,000003C 6P          
+   000048         000297   05  W-FEE-PROMOX-AMT          PIC S9(05)V99 COMP-3.            00029711 BLW=00000+0AA,0000042 4P          
+   000049         000298   05  W-CHG-AMT-DEC5          PIC S9(07)V99999 COMP-3.           00029811 BLW=00000+0AE,0000046 7P          
+   000050         000299   05 WCDLO-LEAP-YEAR              PIC 9(04)V99 VALUE ZEROES.     00029911 BLW=00000+0B5,000004D 6C          
+                                                                                                   IMP                               
+   000051         000300   05 WCDLI-CUR-YYYY               PIC 9(04)    VALUE ZEROES.     00030011 BLW=00000+0BB,0000053 4C          
+                                                                                                   IMP                               
+   000052         000301   05  W1                          PIC S9(07)V9(04) COMP.         00030111 BLW=00000+0BF,0000057 8C          
+   000053         000302   05  W2                        PIC S9(05)V99 COMP.              00030211 BLW=00000+0C7,000005F 4C          
+   000054         000303   05  W3                      PIC S9(07)V99999 COMP.             00030311 BLW=00000+0CB,0000063 8C          
+   000055         000304   05 W4                           PIC 9(04)V99 COMP.             00030411 BLW=00000+0D3,000006B 4C          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000056         000305   05 W5                           PIC 9(04)    COMP.             00030511 BLW=00000+0D7,000006F 2C          
+   000057         000310                                                                  00031011                                   
+   000058         000320 01  CONCAT-NAME-FIELDS.                                          00032002 BLW=00000+0E0         0CL4        
+   000059         000400     05  CCAT-TITLE-SIZE          PIC  9(04)  USAGE COMP.         00040002 BLW=00000+0E0,0000000 2C          
+   000060         000513     05  CCAT-COMBINED-SIZE       PIC  9(04)  USAGE COMP.         00051302 BLW=00000+0E2,0000002 2C          
+   000061         000514 01 WS-PRICES.                                                    00051413 BLW=00000+0E8         0CL26       
+   000062         000515     05  WS-PCT-WO-PRICE         PIC ZZZZZZZ9.99.                 00051513 BLW=00000+0E8,0000000 11C         
+   000063         000516     05  WS-PCT-WITH-NO-PRICE     PIC S9(3)V9(2) COMP-3 VALUE +0. 00051613 BLW=00000+0F3,000000B 3P          
+   000064         000517     05  WS-RECS-WITHOUT-PRICE    PIC S9(11) COMP-3 VALUE +0.     00051713 BLW=00000+0F6,000000E 6P          
+   000065         000518     05  WS-DETAIL-RECS           PIC S9(11) COMP-3 VALUE +0.     00051813 BLW=00000+0FC,0000014 6P          
+   000066         000519 01 ABCDEF.                                                       00051909 BLW=00000+108         0CL52       
+   000067         000520    05  F              PIC S9(09)V99.                             00052009 BLW=00000+108,0000000 11C         
+   000068         000521    05  A              PIC S9(7)V99.                              00052109 BLW=00000+113,000000B 9C          
+   000069         000522    05  B              PIC S9(8)V9(3) COMP-3.                     00052209 BLW=00000+11C,0000014 6P          
+   000070         000523    05  C              PIC S9(8)V9(3) COMP-3.                     00052309 BLW=00000+122,000001A 6P          
+   000071         000524    05  D              PIC S9(7)V99.                              00052409 BLW=00000+128,0000020 9C          
+   000072         000525    05  E              PIC S9(09)V99.                             00052509 BLW=00000+131,0000029 11C         
+   000073         000526 01  WS-GENERATIONS.                                              00052614 BLW=00000+140         0CL18       
+   000074         000527     05  WS-COORDINATED-GENERATION          PIC 9(03).            00052714 BLW=00000+140,0000000 3C          
+   000075         000528     05  WS-REPORT-GEN                      PIC 9(03).            00052814 BLW=00000+143,0000003 3C          
+   000076         000529     05  WS-CBSUM-GEN                       PIC 9(03).            00052914 BLW=00000+146,0000006 3C          
+   000077         000530     05  WS-OMSUMPV-GEN                     PIC 9(03).            00053014 BLW=00000+149,0000009 3C          
+   000078         000531     05  WS-OMAUDIT-GEN                     PIC 9(03).            00053114 BLW=00000+14C,000000C 3C          
+   000079         000532     05  WS-OMENCF-GEN                      PIC 9(03).            00053214 BLW=00000+14F,000000F 3C          
+   000080         000533 01  WS-VAR1.                                                     00053316 BLW=00000+158         0CL22       
+   000081         000534    05 300-MSP-3PPRCS-ICA-NUM PIC 9(11) VALUE ZEROS.              00053416 BLW=00000+158,0000000 11C         
+                                                                                                   IMP                               
+   000082         000536    05 FILLER REDEFINES 300-MSP-3PPRCS-ICA-NUM.                   00053616 BLW=00000+158,0000000 0CL11       
+                                                                                                   81                                
+   000083         000537      10 FILLER PIC X(3).                                         00053716 BLW=00000+158,0000000 3C          
+   000084         000538      10 300-BYTE-7 PIC 9.                                        00053816 BLW=00000+15B,0000003 1C          
+   000085         000539      10 300-BYTE-6 PIC 9.                                        00053916 BLW=00000+15C,0000004 1C          
+   000086         000540      10 300-BYTE-5 PIC 9.                                        00054016 BLW=00000+15D,0000005 1C          
+   000087         000541      10 300-BYTE-4 PIC 9.                                        00054116 BLW=00000+15E,0000006 1C          
+   000088         000542      10 300-BYTE-3 PIC 9.                                        00054216 BLW=00000+15F,0000007 1C          
+   000089         000543      10 300-BYTE-2 PIC 9.                                        00054316 BLW=00000+160,0000008 1C          
+   000090         000544      10 300-BYTE-1 PIC 9.                                        00054416 BLW=00000+161,0000009 1C          
+   000091         000545      10 300-BYTE-0 PIC 9.                                        00054516 BLW=00000+162,000000A 1C          
+   000092         000546    05 300-DECIMAL-NO PIC 9(11) VALUE ZEROS.                      00054616 BLW=00000+163,000000B 11C         
+                                                                                                   IMP                               
+   000093         000547 LINKAGE SECTION.                                                 00054709                                   
+   000094         000548 PROCEDURE DIVISION.                                              00054809                                   
+   000095         000549*          -------              -----------                       00054914                                   
+   000096         000550      MOVE 0          TO WS-COORDINATED-GENERATION                00055014 74                                
+   000097         000551      MOVE 559        TO WS-REPORT-GEN                            00055115 75                                
+   000098         000552      MOVE 535        TO WS-CBSUM-GEN                             00055214 76                                
+   000099         000553      MOVE 584        TO WS-OMSUMPV-GEN                           00055315 77                                
+   000100         000554      MOVE 543        TO WS-OMAUDIT-GEN                           00055414 78                                
+   000101         000555      MOVE 551        TO WS-OMENCF-GEN                            00055514 79                                
+   000102         000556      COMPUTE WS-COORDINATED-GENERATION =                         00055614 74                                
+   000103         000557           FUNCTION MIN(WS-REPORT-GEN, WS-CBSUM-GEN,              00055714 IFN 75 76                         
+   000104         000558                        WS-OMSUMPV-GEN, WS-OMAUDIT-GEN,           00055814 77 78                             
+   000105         000559                        WS-OMENCF-GEN) - 1                        00055914 79                                
+   000106         000560     DISPLAY ' 36. WS-COORDINATED-GENERATION = '                  00056014                                   
+   000107         000561                   WS-COORDINATED-GENERATION                      00056114 74                                
+   000108         000562*          -------              -----------                       00056214                                   
+   000109         000563     MOVE 48007741   TO   WS-RECS-WITHOUT-PRICE                   00056314 64                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000110         000564     MOVE 53039640   TO   WS-DETAIL-RECS                          00056414 65                                
+   000111         000565     COMPUTE WS-PCT-WITH-NO-PRICE  ROUNDED =                      00056514 63                                
+   000112         000566       WS-RECS-WITHOUT-PRICE * 100 / (WS-DETAIL-RECS - 1)         00056614 64 65                             
+   000113         000567     END-COMPUTE                                                  00056714                                   
+   000114         000568     MOVE WS-PCT-WITH-NO-PRICE  TO WS-PCT-WO-PRICE                00056814 63 62                             
+   000115         000569     DISPLAY ' 35. WITHOUT PRICE ' WS-PCT-WO-PRICE                00056914 62                                
+   000116         000570*          -------              -----------                       00057014                                   
+   000117         000571          MOVE 2000 TO WS-INT-OF-DT-1                             00057114 34                                
+   000118         000572          COMPUTE HV-START-DT8-1D =                               00057214 33                                
+   000119         000573          FUNCTION DATE-OF-INTEGER(WS-INT-OF-DT-1)                00057314 IFN 34                            
+   000120         000574     DISPLAY ' 34. DATE-OF-INTEGER ' HV-START-DT8-1D              00057414 33                                
+   000121         000575                                                                  00057514                                   
+   000122         000576           MOVE 0.22 TO A                                         00057614 68                                
+   000123         000577           MOVE 0.222 TO B                                        00057714 69                                
+   000124         000578           MOVE 0.22 TO C                                         00057814 70                                
+   000125         000579           MOVE 0.222 TO D                                        00057914 71                                
+   000126         000580           MOVE 0.22 TO E                                         00058014 72                                
+   000127         000581           COMPUTE F = A - B + C - D + E                          00058114 67 68 69 70 71 72                 
+   000128         000582     DISPLAY ' 33. F - A - B + C - D + E    ' F                   00058214 67                                
+   000129         000583*          -------SETUP VARIABLE-----------                       00058314                                   
+   000130         000584           MOVE 0.22 TO TB11148-ADMIN-AMT                         00058414 36                                
+   000131         000585           MOVE 0.22 TO WS-TOT-AMT                                00058514 37                                
+   000132         000586           MOVE 0.22 TO RLU3A-MTN-AC-ACCT-CHGS-CREDITS            00058614 39                                
+   000133         000587           MOVE 0.22 TO WS-CHRG-CREDIT-TOT-NOTAX                  00058714 40                                
+   000134         000588*          --------END SET UP VARIABLE ---------                  00058814                                   
+   000135         000589          ADD TB11148-ADMIN-AMT TO WS-TOT-AMT                     00058914 36 37                             
+   000136         000590           RLU3A-MTN-AC-ACCT-CHGS-CREDITS                         00059014 39                                
+   000137         000591           WS-CHRG-CREDIT-TOT-NOTAX                               00059114 40                                
+   000138         000592*          --------END -------------------------                  00059214                                   
+   000139         000593     DISPLAY ' 32. WS-CHRG-CREDIT-TOT-NOTAX '                     00059314                                   
+   000140         000594                        WS-CHRG-CREDIT-TOT-NOTAX                  00059414 40                                
+   000141         000595     DISPLAY ' 31. RLU3A-MTN-AC-ACCT-CHGS-CREDITS  '              00059514                                   
+   000142         000596                  RLU3A-MTN-AC-ACCT-CHGS-CREDITS                  00059614 39                                
+   000143         000597     DISPLAY ' 30. WS-TOT-AMT ' WS-TOT-AMT                        00059714 37                                
+   000144         000598*                                                                 00059814                                   
+   000145         000599     MOVE 9 TO CCAT-COMBINED-SIZE                                 00059914 60                                
+   000146         000600     MOVE 2 TO CCAT-TITLE-SIZE                                    00060014 59                                
+   000147         000601     SUBTRACT 1, CCAT-TITLE-SIZE FROM CCAT-COMBINED-SIZE          00060114 59 60                             
+   000148         000602     DISPLAY ' 29. CCAT-COMBINED-SIZE ' CCAT-COMBINED-SIZE        00060214 60                                
+   000149         000603*                                                                 00060314                                   
+   000150         000604*                                                                 00060414                                   
+   000151         000605      MOVE 1.24   TO W-3V2-A                                      00060514 44                                
+   000152         000606      MOVE 1.22   TO W-3V2                                        00060614 45                                
+   000153         000607      COMPUTE W-3V2-RESULT  = W-3V2-A + W-3V2                     00060714 46 44 45                          
+   000154         000608      DISPLAY '28. 1.24   + 1.22  = 2.46           '              00060814                                   
+   000155         000609        W-3V2-RESULT                                              00060914 46                                
+   000156         000610*                                                                 00061014                                   
+   000157         000611      MOVE 1.22   TO W-3V2-A                                      00061114 44                                
+   000158         000612      MOVE 1.22   TO W-3V2                                        00061214 45                                
+   000159         000613      COMPUTE W-3V2-RESULT  = W-3V2-A + W-3V2                     00061314 46 44 45                          
+   000160         000614      DISPLAY '27. 1.22   + 1.22  = 2.44           '              00061414                                   
+   000161         000615        W-3V2-RESULT                                              00061514 46                                
+   000162         000616*                                                                 00061614                                   
+   000163         000617      MOVE 0.0009 TO W-5V5-A                                      00061714 42                                
+   000164         000618      MOVE 1.2243 TO W-5V5                                        00061814 43                                
+   000165         000619      MOVE 1.22   TO W-3V2                                        00061914 45                                
+   000166         000620      COMPUTE W-3V2-RESULT  = W-5V5 + W-3V2 + W-5V5-A             00062014 46 43 45 42                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000167         000621      DISPLAY '26. 1.2243 + 1.23 + 0.0009 = 2.4452 '              00062114                                   
+   000168         000622        W-3V2-RESULT                                              00062214 46                                
+   000169         000623*                                                                 00062314                                   
+   000170         000624      MOVE 1.2268 TO W-5V5                                        00062414 43                                
+   000171         000625      MOVE 1.22   TO W-3V2                                        00062514 45                                
+   000172         000626      COMPUTE W-3V2-RESULT  = W-5V5 + W-3V2                       00062614 46 43 45                          
+   000173         000627      DISPLAY '25. 1.2268 + 1.23 = 2.4468 ' W-3V2-RESULT          00062714 46                                
+   000174         000628*                                                                 00062814                                   
+   000175         000629      MOVE 1.2261 TO W-5V5                                        00062914 43                                
+   000176         000630      MOVE 1.22   TO W-3V2                                        00063014 45                                
+   000177         000631      COMPUTE W-3V2-RESULT  = W-5V5 + W-3V2                       00063114 46 43 45                          
+   000178         000632      DISPLAY '24. 1.2261 + 1.23 = 2.4461 ' W-3V2-RESULT          00063214 46                                
+   000179         000633*                                                                 00063314                                   
+   000180         000634      MOVE 1.2259 TO W-5V5                                        00063414 43                                
+   000181         000635      MOVE 1.22   TO W-3V2                                        00063514 45                                
+   000182         000636      COMPUTE W-3V2-RESULT  = W-5V5 + W-3V2                       00063614 46 43 45                          
+   000183         000637      DISPLAY '23. 1.2259 + 1.23 = 2.4459 ' W-3V2-RESULT          00063714 46                                
+   000184         000638*                                                                 00063814                                   
+   000185         000639      MOVE 1.2251 TO W-5V5                                        00063914 43                                
+   000186         000640      MOVE 1.22   TO W-3V2                                        00064014 45                                
+   000187         000641      COMPUTE W-3V2-RESULT  = W-5V5 + W-3V2                       00064114 46 43 45                          
+   000188         000642      DISPLAY '22. 1.2251 + 1.23 = 2.4451 ' W-3V2-RESULT          00064214 46                                
+   000189         000643*                                                                 00064314                                   
+   000190         000644      MOVE 1.2249 TO W-5V5                                        00064414 43                                
+   000191         000645      MOVE 1.22   TO W-3V2                                        00064514 45                                
+   000192         000646      COMPUTE W-3V2-RESULT  = W-5V5 + W-3V2                       00064614 46 43 45                          
+   000193         000647      DISPLAY '21. 1.2249 + 1.23 = 2.4449 ' W-3V2-RESULT          00064714 46                                
+   000194         000648*                                                                 00064814                                   
+   000195         000649      MOVE 1.2243 TO W-5V5                                        00064914 43                                
+   000196         000650      MOVE 1.22   TO W-3V2                                        00065014 45                                
+   000197         000651      COMPUTE W-3V2-RESULT  = W-5V5 + W-3V2                       00065114 46 43 45                          
+   000198         000652      DISPLAY '20. 1.2243 + 1.23 = 2.4443 ' W-3V2-RESULT          00065214 46                                
+   000199         000653*                                                                 00065314                                   
+   000200         000654      MOVE 1.2233 TO W-5V5                                        00065414 43                                
+   000201         000655      MOVE 1.22   TO W-3V2                                        00065514 45                                
+   000202         000656      COMPUTE W-3V2-RESULT  = W-5V5 + W-3V2                       00065614 46 43 45                          
+   000203         000657      DISPLAY '19. 1.2233 + 1.23 = 2.4433 ' W-3V2-RESULT          00065714 46                                
+   000204         000658*                                                                 00065814                                   
+   000205         000659      MOVE 1.2223 TO W-5V5                                        00065914 43                                
+   000206         000660      MOVE 1.22   TO W-3V2                                        00066014 45                                
+   000207         000661      COMPUTE W-3V2-RESULT  = W-5V5 + W-3V2                       00066114 46 43 45                          
+   000208         000662      DISPLAY '18. 1.2223 + 1.22 = 2.4423 ' W-3V2-RESULT          00066214 46                                
+   000209         000663*                                                                 00066314                                   
+   000210         000664      MOVE 1.2213 TO W-5V5                                        00066414 43                                
+   000211         000665      MOVE 1.22   TO W-3V2                                        00066514 45                                
+   000212         000666      COMPUTE W-3V2-RESULT  = W-5V5 + W-3V2                       00066614 46 43 45                          
+   000213         000667      DISPLAY '17. 1.2213 + 1.22 = 2.4413 ' W-3V2-RESULT          00066714 46                                
+   000214         000668*   ROUNDED STARTS BELOW                                          00066814                                   
+   000215         000669      MOVE 1.24   TO W-3V2-A                                      00066914 44                                
+   000216         000670      MOVE 1.22   TO W-3V2                                        00067014 45                                
+   000217         000671      COMPUTE W-3V2-RESULT ROUNDED = W-3V2-A + W-3V2              00067114 46 44 45                          
+   000218         000672      DISPLAY '16. 1.24   + 1.22  = 2.46           '              00067214                                   
+   000219         000673        W-3V2-RESULT                                              00067314 46                                
+   000220         000674*                                                                 00067414                                   
+   000221         000675      MOVE 1.22   TO W-3V2-A                                      00067514 44                                
+   000222         000676      MOVE 1.22   TO W-3V2                                        00067614 45                                
+   000223         000677      COMPUTE W-3V2-RESULT ROUNDED = W-3V2-A + W-3V2              00067714 46 44 45                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000224         000678      DISPLAY '15. 1.22   + 1.22  = 2.44           '              00067814                                   
+   000225         000679        W-3V2-RESULT                                              00067914 46                                
+   000226         000680*                                                                 00068014                                   
+   000227         000681      MOVE 0.0009 TO W-5V5-A                                      00068114 42                                
+   000228         000682      MOVE 1.2243 TO W-5V5                                        00068214 43                                
+   000229         000683      MOVE 1.22   TO W-3V2                                        00068314 45                                
+   000230         000684      COMPUTE W-3V2-RESULT ROUNDED = W-5V5 + W-3V2 + W-5V5-A      00068414 46 43 45 42                       
+   000231         000685      DISPLAY '14. 1.2243 + 1.23 + 0.0009 = 2.4452 '              00068514                                   
+   000232         000686        W-3V2-RESULT                                              00068614 46                                
+   000233         000687*                                                                 00068714                                   
+   000234         000688      MOVE 1.2268 TO W-5V5                                        00068814 43                                
+   000235         000689      MOVE 1.22   TO W-3V2                                        00068914 45                                
+   000236         000690      COMPUTE W-3V2-RESULT ROUNDED = W-5V5 + W-3V2                00069014 46 43 45                          
+   000237         000691      DISPLAY '13. 1.2268 + 1.23 = 2.4468 ' W-3V2-RESULT          00069114 46                                
+   000238         000692*                                                                 00069214                                   
+   000239         000693      MOVE 1.2261 TO W-5V5                                        00069314 43                                
+   000240         000694      MOVE 1.22   TO W-3V2                                        00069414 45                                
+   000241         000695      COMPUTE W-3V2-RESULT ROUNDED = W-5V5 + W-3V2                00069514 46 43 45                          
+   000242         000696      DISPLAY '12. 1.2261 + 1.23 = 2.4461 ' W-3V2-RESULT          00069614 46                                
+   000243         000697*                                                                 00069714                                   
+   000244         000698      MOVE 1.2259 TO W-5V5                                        00069814 43                                
+   000245         000699      MOVE 1.22   TO W-3V2                                        00069914 45                                
+   000246         000700      COMPUTE W-3V2-RESULT ROUNDED = W-5V5 + W-3V2                00070014 46 43 45                          
+   000247         000701      DISPLAY '11. 1.2259 + 1.23 = 2.4459 ' W-3V2-RESULT          00070114 46                                
+   000248         000702*                                                                 00070214                                   
+   000249         000703      MOVE 1.2251 TO W-5V5                                        00070314 43                                
+   000250         000704      MOVE 1.22   TO W-3V2                                        00070414 45                                
+   000251         000705      COMPUTE W-3V2-RESULT ROUNDED = W-5V5 + W-3V2                00070514 46 43 45                          
+   000252         000706      DISPLAY '10. 1.2251 + 1.23 = 2.4451 ' W-3V2-RESULT          00070614 46                                
+   000253         000707*                                                                 00070714                                   
+   000254         000708      MOVE 1.2249 TO W-5V5                                        00070814 43                                
+   000255         000709      MOVE 1.22   TO W-3V2                                        00070914 45                                
+   000256         000710      COMPUTE W-3V2-RESULT ROUNDED = W-5V5 + W-3V2                00071014 46 43 45                          
+   000257         000711      DISPLAY '9. 1.2249 + 1.23 = 2.4449 ' W-3V2-RESULT           00071114 46                                
+   000258         000712*                                                                 00071214                                   
+   000259         000713      MOVE 1.2243 TO W-5V5                                        00071314 43                                
+   000260         000714      MOVE 1.22   TO W-3V2                                        00071414 45                                
+   000261         000715      COMPUTE W-3V2-RESULT ROUNDED = W-5V5 + W-3V2                00071514 46 43 45                          
+   000262         000716      DISPLAY '8. 1.2243 + 1.23 = 2.4443 ' W-3V2-RESULT           00071614 46                                
+   000263         000717*                                                                 00071714                                   
+   000264         000718      MOVE 1.2233 TO W-5V5                                        00071814 43                                
+   000265         000719      MOVE 1.22   TO W-3V2                                        00071914 45                                
+   000266         000720      COMPUTE W-3V2-RESULT ROUNDED = W-5V5 + W-3V2                00072014 46 43 45                          
+   000267         000721      DISPLAY '7. 1.2233 + 1.23 = 2.4433 ' W-3V2-RESULT           00072114 46                                
+   000268         000722*                                                                 00072214                                   
+   000269         000723      MOVE 1.2223 TO W-5V5                                        00072314 43                                
+   000270         000724      MOVE 1.22   TO W-3V2                                        00072414 45                                
+   000271         000725      COMPUTE W-3V2-RESULT ROUNDED = W-5V5 + W-3V2                00072514 46 43 45                          
+   000272         000726      DISPLAY '6. 1.2223 + 1.22 = 2.4423 ' W-3V2-RESULT           00072614 46                                
+   000273         000727*                                                                 00072714                                   
+   000274         000728      MOVE 1.2213 TO W-5V5                                        00072814 43                                
+   000275         000729      MOVE 1.22   TO W-3V2                                        00072914 45                                
+   000276         000730      COMPUTE W-3V2-RESULT ROUNDED = W-5V5 + W-3V2                00073014 46 43 45                          
+   000277         000731      DISPLAY '5. 1.2213 + 1.22 = 2.4413 ' W-3V2-RESULT           00073114 46                                
+   000278         000732*                                                                 00073214                                   
+   000279         000733      MOVE 2019 TO W5                                             00073314 56                                
+   000280         000734      COMPUTE W4              = (W5 / 4)                          00073414 55 56                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page     8                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000281         000735      DISPLAY '4. W4              '  W4                           00073514 55                                
+   000282         000736*                                                                 00073614                                   
+   000283         000737       MOVE 123.22 TO W2                                          00073714 53                                
+   000284         000738       MOVE -1230.2222 TO W1                                      00073814 52                                
+   000285         000739       COMPUTE W3             ROUNDED = (                         00073914 54                                
+   000286         000740              W2               / W1                  )            00074014 53 52                             
+   000287         000741       DISPLAY  '3. W3             ' W3                           00074114 54                                
+   000288         000742*                                                                 00074214                                   
+   000289         000743      MOVE 2019 TO WCDLI-CUR-YYYY                                 00074314 51                                
+   000290         000744      COMPUTE WCDLO-LEAP-YEAR = (WCDLI-CUR-YYYY / 4)              00074414 50 51                             
+   000291         000745      DISPLAY '2. WCDLO-LEAP-YEAR '                               00074514                                   
+   000292         000746              WCDLO-LEAP-YEAR                                     00074614 50                                
+   000293         000747*                                                                 00074714                                   
+   000294         000748       MOVE 123.22 TO W-FEE-PROMOX-AMT                            00074814 48                                
+   000295         000749       MOVE -1230.2222 TO PMSLK402-LIST-PRICE                     00074914 47                                
+   000296         000750       COMPUTE W-CHG-AMT-DEC5 ROUNDED = (                         00075014 49                                
+   000297         000751              W-FEE-PROMOX-AMT / PMSLK402-LIST-PRICE )            00075114 48 47                             
+   000298         000752       DISPLAY  '1. W-CHG-AMT-DEC5 ' W-CHG-AMT-DEC5               00075214 49                                
+   000299         000753*                                                                 00075314                                   
+   000300         000754     COPY CFMP03A.                                                00075414                                   
+   000301C              *    W03A-1-AREA-COMPUTE.                                         00030001                                   
+   000302C                   DISPLAY '03 COMPUTE VERB VALIDATION'                         00031006                                   
+   000303C                                                                                00040001                                   
+   000304C                   MOVE  -9999  TO   W03A-1-DI-COMP3                            00041002 15                                
+   000305C                                     W03A-1-DI-COMP                             00042002 16                                
+   000306C                                     W03A-1-DI-DECIMAL                          00043002 17                                
+   000307C                                     W03A-1-DI-SMALLINT                         00044002 18                                
+   000308C                                     W03A-1-DI-INT                              00045002 19                                
+   000309C                                     W03A-1-DI-BIGINT                           00046002 20                                
+   000310C                                     W03A-1-DI-REAL                             00047002 21                                
+   000311C                                     W03A-1-DI-DOUBLE                           00048002 22                                
+   000312C                                                                                00049003                                   
+   000313C                   COMPUTE  W03A-1-DO-COMP3    = - W03A-1-DI-COMP3              00050002 24 15                             
+   000314C                   COMPUTE  W03A-1-DO-COMP     = - W03A-1-DI-COMP               00060002 25 16                             
+   000315C                   COMPUTE  W03A-1-DO-DECIMAL  = - W03A-1-DI-DECIMAL            00070002 26 17                             
+   000316C                   COMPUTE  W03A-1-DO-SMALLINT = - W03A-1-DI-SMALLINT           00080002 27 18                             
+   000317C                   COMPUTE  W03A-1-DO-INT      = - W03A-1-DI-INT                00090002 28 19                             
+   000318C                   COMPUTE  W03A-1-DO-BIGINT   = - W03A-1-DI-BIGINT             00100002 29 20                             
+   000319C                   COMPUTE  W03A-1-DO-REAL     = - W03A-1-DI-REAL               00110002 30 21                             
+   000320C                   COMPUTE  W03A-1-DO-DOUBLE   = - W03A-1-DI-DOUBLE             00120002 31 22                             
+   000321C                                                                                00130002                                   
+   000322C                   DISPLAY ' W03A-1-DO-XXXX     ? 9999'                         00140005                                   
+   000323C                   DISPLAY ' W03A-1-DO-COMP3    = ' W03A-1-DO-COMP3             00141005 24                                
+   000324C                   DISPLAY ' W03A-1-DO-COMP     = ' W03A-1-DO-COMP              00150002 25                                
+   000325C                   DISPLAY ' W03A-1-DO-SMALLINT = ' W03A-1-DO-SMALLINT          00170002 27                                
+   000326C                   DISPLAY ' W03A-1-DO-INT      = ' W03A-1-DO-INT               00180002 28                                
+   000327C                   DISPLAY ' W03A-1-DO-BIGINT   = ' W03A-1-DO-BIGINT            00190002 29                                
+   000328C                   DISPLAY ' W03A-1-DO-REAL     = ' W03A-1-DO-REAL              00200002 30                                
+   000329C                   DISPLAY ' W03A-1-DO-DOUBLE   = ' W03A-1-DO-DOUBLE            00220002 31                                
+   000330C                                                                                00230003                                   
+   000331C                   DISPLAY '?W03A-1-DO-DECIMAL NOT ON SIZE ERROR'               00230105                                   
+   000332C                   COMPUTE  W03A-1-DO-DECIMAL ROUNDED                           00230203 26                                
+   000333C                         =  - W03A-1-DI-DECIMAL + 1234.12345                    00230303 17                                
+   000334C                        ON  SIZE ERROR                                          00230403                                   
+   000335C     1                      DISPLAY ' W03A-1-DO-DECIMAL ON SIZE ERROR'          00230503                                   
+   000336C                    NOT ON  SIZE ERROR                                          00230603                                   
+   000337C     1                      PERFORM 1 TIMES                                     00230704                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page     9                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000338C     2                          DISPLAY ' W03A-1-DO-DECIMAL NOT ON SIZE ERROR'  00230804                                   
+   000339C     1                      END-PERFORM                                         00230904                                   
+   000340C                   END-COMPUTE                                                  00231003                                   
+   000341C                                                                                00240003                                   
+   000342C                   DISPLAY '?W03A-1-DO-DECIMAL ON SIZE ERROR'                   00241005                                   
+   000343C                   COMPUTE  W03A-1-DO-DECIMAL ROUNDED                           00250003 26                                
+   000344C                         =  - W03A-1-DI-DECIMAL + 9999234.12345                 00260003 17                                
+   000345C                        ON  SIZE ERROR                                          00270003                                   
+   000346C     1                      PERFORM 2 TIMES                                     00271004                                   
+   000347C     2                          DISPLAY ' W03A-1-DO-DECIMAL ON SIZE ERROR'      00280004                                   
+   000348C     1                      END-PERFORM                                         00281004                                   
+   000349C                    NOT ON  SIZE ERROR                                          00290003                                   
+   000350C     1                      DISPLAY ' W03A-1-DO-DECIMAL NOT ON SIZE ERROR'      00300003                                   
+   000351C                   END-COMPUTE                                                  00310003                                   
+   000352C                                                                                00320003                                   
+   000353         000755                                                                  00075514                                   
+   000354         000756     DISPLAY 'PROGRAM CFM004A ENDED SUCCESSFULLY'                 00075614                                   
+   000355         000765     COMPUTE 300-DECIMAL-NO =                                     00076516 92                                
+   000356         000774     (300-BYTE-7 * (16 * 7)) +                                    00077416 84                                
+   000357         000775     (300-BYTE-6 * (16 * 6)) +                                    00077516 85                                
+   000358         000776     (300-BYTE-5 * (16 * 5)) +                                    00077616 86                                
+   000359         000777     (300-BYTE-4 * (16 * 4)) +                                    00077716 87                                
+   000360         000778     (300-BYTE-3 * (16 * 3)) +                                    00077816 88                                
+   000361         000779     (300-BYTE-2 * (16 * 2)) +                                    00077916 89                                
+   000362         000780     (300-BYTE-1 * (16 * 1)) +                                    00078016 90                                
+   000363         000781     (300-BYTE-0 * (16 * 0))                                      00078116 91                                
+   000364         000782     DISPLAY '*37* 300-DECIMAL-NO *' 300-DECIMAL-NO               00078216 92                                
+   000365         000783                                                                  00078316                                   
+   000366         000784     GOBACK.                                                      00078416                                   
+   000367         000785                                                                  00078516                                   
+   000368         000790                                                                  00079016                                   
+   000369         000800 9100-ABEND.                                                      00080000                                   
+   000370         000900                                                                  00090000                                   
+   000371         001000     DISPLAY 'PROGRAM CFM004A ENDED UNSUCCESSFULLY'               00100000                                   
+   000372         001100     MOVE  12 TO RETURN-CODE                                      00110000 IMP                               
+   000373         001200     .                                                            00120000                                   
+   000374         001300 9100-ABEND-EXIT.                                                 00130000                                   
+   000375         001400     EXIT.                                                        00140000                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page    10                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       68   A. . . . . . . . . . . . . . .  M122 127                                                                                 
+       66   ABCDEF                                                                                                                   
+       69   B. . . . . . . . . . . . . . .  M123 127                                                                                 
+       70   C. . . . . . . . . . . . . . .  M124 127                                                                                 
+       60   CCAT-COMBINED-SIZE . . . . . .  M145 M147 148                                                                            
+       59   CCAT-TITLE-SIZE. . . . . . . .  M146 147                                                                                 
+       58   CONCAT-NAME-FIELDS                                                                                                       
+       71   D. . . . . . . . . . . . . . .  M125 127                                                                                 
+       72   E. . . . . . . . . . . . . . .  M126 127                                                                                 
+       67   F. . . . . . . . . . . . . . .  M127 128                                                                                 
+       33   HV-START-DT8-1D. . . . . . . .  M118 120                                                                                 
+       47   PMSLK402-LIST-PRICE. . . . . .  M295 297                                                                                 
+        0   RETURN-CODE. . . . . . . . . .  M372                                                                                     
+       39   RLU3A-MTN-AC-ACCT-CHGS-CREDITS  M132 M136 142                                                                            
+       36   TB11148-ADMIN-AMT. . . . . . .  M130 135                                                                                 
+       49   W-CHG-AMT-DEC5 . . . . . . . .  M296 298                                                                                 
+       48   W-FEE-PROMOX-AMT . . . . . . .  M294 297                                                                                 
+       45   W-3V2. . . . . . . . . . . . .  M152 153 M158 159 M165 166 M171 172 M176 177 M181 182 M186 187 M191 192 M196             
+                                            197 M201 202 M206 207 M211 212 M216 217 M222 223 M229 230 M235 236 M240 241 M245         
+                                            246 M250 251 M255 256 M260 261 M265 266 M270 271 M275 276                                
+       44   W-3V2-A. . . . . . . . . . . .  M151 153 M157 159 M215 217 M221 223                                                      
+       46   W-3V2-RESULT . . . . . . . . .  M153 155 M159 161 M166 168 M172 173 M177 178 M182 183 M187 188 M192 193 M197             
+                                            198 M202 203 M207 208 M212 213 M217 219 M223 225 M230 232 M236 237 M241 242 M246         
+                                            247 M251 252 M256 257 M261 262 M266 267 M271 272 M276 277                                
+       43   W-5V5. . . . . . . . . . . . .  M164 166 M170 172 M175 177 M180 182 M185 187 M190 192 M195 197 M200 202 M205             
+                                            207 M210 212 M228 230 M234 236 M239 241 M244 246 M249 251 M254 256 M259 261 M264         
+                                            266 M269 271 M274 276                                                                    
+       42   W-5V5-A. . . . . . . . . . . .  M163 166 M227 230                                                                        
+       51   WCDLI-CUR-YYYY . . . . . . . .  M289 290                                                                                 
+       50   WCDLO-LEAP-YEAR. . . . . . . .  M290 292                                                                                 
+       76   WS-CBSUM-GEN . . . . . . . . .  M98 103                                                                                  
+       40   WS-CHRG-CREDIT-TOT-NOTAX . . .  M133 M137 140                                                                            
+       74   WS-COORDINATED-GENERATION. . .  M96 M102 107                                                                             
+       65   WS-DETAIL-RECS . . . . . . . .  M110 112                                                                                 
+       73   WS-GENERATIONS                                                                                                           
+       34   WS-INT-OF-DT-1 . . . . . . . .  M117 119                                                                                 
+       35   WS-MISC                                                                                                                  
+       78   WS-OMAUDIT-GEN . . . . . . . .  M100 104                                                                                 
+       79   WS-OMENCF-GEN. . . . . . . . .  M101 105                                                                                 
+       77   WS-OMSUMPV-GEN . . . . . . . .  M99 104                                                                                  
+       63   WS-PCT-WITH-NO-PRICE . . . . .  M111 114                                                                                 
+       62   WS-PCT-WO-PRICE. . . . . . . .  M114 115                                                                                 
+       61   WS-PRICES                                                                                                                
+       64   WS-RECS-WITHOUT-PRICE. . . . .  M109 112                                                                                 
+       75   WS-REPORT-GEN. . . . . . . . .  M97 103                                                                                  
+       37   WS-TOT-AMT . . . . . . . . . .  M131 M135 143                                                                            
+       80   WS-VAR1                                                                                                                  
+       13   W03A-1-AREA-COMPUTE                                                                                                      
+       20   W03A-1-DI-BIGINT . . . . . . .  M309 318                                                                                 
+       16   W03A-1-DI-COMP . . . . . . . .  M305 314                                                                                 
+       15   W03A-1-DI-COMP3. . . . . . . .  M304 313                                                                                 
+       17   W03A-1-DI-DECIMAL. . . . . . .  M306 315 333 344                                                                         
+       22   W03A-1-DI-DOUBLE . . . . . . .  M311 320                                                                                 
+       19   W03A-1-DI-INT. . . . . . . . .  M308 317                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page    11                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0      21   W03A-1-DI-REAL . . . . . . . .  M310 319                                                                                 
+       18   W03A-1-DI-SMALLINT . . . . . .  M307 316                                                                                 
+       29   W03A-1-DO-BIGINT . . . . . . .  M318 327                                                                                 
+       25   W03A-1-DO-COMP . . . . . . . .  M314 324                                                                                 
+       24   W03A-1-DO-COMP3. . . . . . . .  M313 323                                                                                 
+       26   W03A-1-DO-DECIMAL. . . . . . .  M315 M332 M343                                                                           
+       31   W03A-1-DO-DOUBLE . . . . . . .  M320 329                                                                                 
+       28   W03A-1-DO-INT. . . . . . . . .  M317 326                                                                                 
+       30   W03A-1-DO-REAL . . . . . . . .  M319 328                                                                                 
+       27   W03A-1-DO-SMALLINT . . . . . .  M316 325                                                                                 
+       52   W1 . . . . . . . . . . . . . .  M284 286                                                                                 
+       53   W2 . . . . . . . . . . . . . .  M283 286                                                                                 
+       54   W3 . . . . . . . . . . . . . .  M285 287                                                                                 
+       55   W4 . . . . . . . . . . . . . .  M280 281                                                                                 
+       56   W5 . . . . . . . . . . . . . .  M279 280                                                                                 
+       91   300-BYTE-0 . . . . . . . . . .  363                                                                                      
+       90   300-BYTE-1 . . . . . . . . . .  362                                                                                      
+       89   300-BYTE-2 . . . . . . . . . .  361                                                                                      
+       88   300-BYTE-3 . . . . . . . . . .  360                                                                                      
+       87   300-BYTE-4 . . . . . . . . . .  359                                                                                      
+       86   300-BYTE-5 . . . . . . . . . .  358                                                                                      
+       85   300-BYTE-6 . . . . . . . . . .  357                                                                                      
+       84   300-BYTE-7 . . . . . . . . . .  356                                                                                      
+       92   300-DECIMAL-NO . . . . . . . .  M355 364                                                                                 
+       81   300-MSP-3PPRCS-ICA-NUM . . . .  82                                                                                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page    12                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      369   9100-ABEND                                                                                                               
+      374   9100-ABEND-EXIT                                                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page    13                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   COMPUT                                                                                                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page    14                
+0                                                                                                                                    
+          COPY/BASIS cross-reference of text-names, library names and dataset information                                            
+                                                                                                                                     
+  Text-name Library   File name                                    Concat   ISPF statistics                                          
+  (Member)  (DDNAME)  (Dataset name)                               Level    Created         Changed                                  
+                                                                                                                                     
+  CFMP03A   SYSLIB    CLFQA.BASELINE.COBCOPY#                        0     2017/05/01   2017/05/05 08:29:19                          
+  CFMW03A   SYSLIB    CLFQA.BASELINE.COBCOPY#                        0     2017/05/01   2017/05/02 12:55:50                          
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page    15                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID COMPUT------------------------------------------------------------------------------------------------------*    
+     13   1  W03A-1-AREA-COMPUTE . . . . . . . . . . . . . BLW=00000  000               DS 0CL86        Group                        
+     15     2  W03A-1-DI-COMP3 . . . . . . . . . . . . . . BLW=00000  000   0 000 000   DS 8P           Packed-Dec                   
+     16     2  W03A-1-DI-COMP. . . . . . . . . . . . . . . BLW=00000  008   0 000 008   DS 4C           Binary                       
+     17     2  W03A-1-DI-DECIMAL . . . . . . . . . . . . . BLW=00000  00C   0 000 00C   DS 5P           Packed-Dec                   
+     18     2  W03A-1-DI-SMALLINT. . . . . . . . . . . . . BLW=00000  011   0 000 011   DS 2C           Binary                       
+     19     2  W03A-1-DI-INT . . . . . . . . . . . . . . . BLW=00000  013   0 000 013   DS 4C           Binary                       
+     20     2  W03A-1-DI-BIGINT. . . . . . . . . . . . . . BLW=00000  017   0 000 017   DS 8C           Binary                       
+     21     2  W03A-1-DI-REAL. . . . . . . . . . . . . . . BLW=00000  01F   0 000 01F   DS 4C           Comp-1                       
+     22     2  W03A-1-DI-DOUBLE. . . . . . . . . . . . . . BLW=00000  023   0 000 023   DS 8C           Comp-2                       
+     24     2  W03A-1-DO-COMP3 . . . . . . . . . . . . . . BLW=00000  02B   0 000 02B   DS 8P           Packed-Dec                   
+     25     2  W03A-1-DO-COMP. . . . . . . . . . . . . . . BLW=00000  033   0 000 033   DS 4C           Binary                       
+     26     2  W03A-1-DO-DECIMAL . . . . . . . . . . . . . BLW=00000  037   0 000 037   DS 5P           Packed-Dec                   
+     27     2  W03A-1-DO-SMALLINT. . . . . . . . . . . . . BLW=00000  03C   0 000 03C   DS 2C           Binary                       
+     28     2  W03A-1-DO-INT . . . . . . . . . . . . . . . BLW=00000  03E   0 000 03E   DS 4C           Binary                       
+     29     2  W03A-1-DO-BIGINT. . . . . . . . . . . . . . BLW=00000  042   0 000 042   DS 8C           Binary                       
+     30     2  W03A-1-DO-REAL. . . . . . . . . . . . . . . BLW=00000  04A   0 000 04A   DS 4C           Comp-1                       
+     31     2  W03A-1-DO-DOUBLE. . . . . . . . . . . . . . BLW=00000  04E   0 000 04E   DS 8C           Comp-2                       
+     33   1  HV-START-DT8-1D . . . . . . . . . . . . . . . BLW=00000  058               DS 8C           Disp-Num                     
+     34   1  WS-INT-OF-DT-1. . . . . . . . . . . . . . . . BLW=00000  060               DS 5P           Packed-Dec                   
+     35   1  WS-MISC . . . . . . . . . . . . . . . . . . . BLW=00000  068               DS 0CL113       Group                        
+     36     2  TB11148-ADMIN-AMT . . . . . . . . . . . . . BLW=00000  068   0 000 000   DS 5P           Packed-Dec                   
+     37     2  WS-TOT-AMT. . . . . . . . . . . . . . . . . BLW=00000  06D   0 000 005   DS 8C           Binary                       
+     39     2  RLU3A-MTN-AC-ACCT-CHGS-CREDITS. . . . . . . BLW=00000  075   0 000 00D   DS 6P           Packed-Dec                   
+     40     2  WS-CHRG-CREDIT-TOT-NOTAX. . . . . . . . . . BLW=00000  07B   0 000 013   DS 6P           Packed-Dec                   
+     42     2  W-5V5-A . . . . . . . . . . . . . . . . . . BLW=00000  081   0 000 019   DS 10C          Disp-Num                     
+     43     2  W-5V5 . . . . . . . . . . . . . . . . . . . BLW=00000  08B   0 000 023   DS 10C          Disp-Num                     
+     44     2  W-3V2-A . . . . . . . . . . . . . . . . . . BLW=00000  095   0 000 02D   DS 5C           Disp-Num                     
+     45     2  W-3V2 . . . . . . . . . . . . . . . . . . . BLW=00000  09A   0 000 032   DS 5C           Disp-Num                     
+     46     2  W-3V2-RESULT. . . . . . . . . . . . . . . . BLW=00000  09F   0 000 037   DS 5C           Disp-Num                     
+     47     2  PMSLK402-LIST-PRICE . . . . . . . . . . . . BLW=00000  0A4   0 000 03C   DS 6P           Packed-Dec                   
+     48     2  W-FEE-PROMOX-AMT. . . . . . . . . . . . . . BLW=00000  0AA   0 000 042   DS 4P           Packed-Dec                   
+     49     2  W-CHG-AMT-DEC5. . . . . . . . . . . . . . . BLW=00000  0AE   0 000 046   DS 7P           Packed-Dec                   
+     50     2  WCDLO-LEAP-YEAR . . . . . . . . . . . . . . BLW=00000  0B5   0 000 04D   DS 6C           Disp-Num                     
+     51     2  WCDLI-CUR-YYYY. . . . . . . . . . . . . . . BLW=00000  0BB   0 000 053   DS 4C           Disp-Num                     
+     52     2  W1. . . . . . . . . . . . . . . . . . . . . BLW=00000  0BF   0 000 057   DS 8C           Binary                       
+     53     2  W2. . . . . . . . . . . . . . . . . . . . . BLW=00000  0C7   0 000 05F   DS 4C           Binary                       
+     54     2  W3. . . . . . . . . . . . . . . . . . . . . BLW=00000  0CB   0 000 063   DS 8C           Binary                       
+     55     2  W4. . . . . . . . . . . . . . . . . . . . . BLW=00000  0D3   0 000 06B   DS 4C           Binary                       
+     56     2  W5. . . . . . . . . . . . . . . . . . . . . BLW=00000  0D7   0 000 06F   DS 2C           Binary                       
+     58   1  CONCAT-NAME-FIELDS. . . . . . . . . . . . . . BLW=00000  0E0               DS 0CL4         Group                        
+     59     2  CCAT-TITLE-SIZE . . . . . . . . . . . . . . BLW=00000  0E0   0 000 000   DS 2C           Binary                       
+     60     2  CCAT-COMBINED-SIZE. . . . . . . . . . . . . BLW=00000  0E2   0 000 002   DS 2C           Binary                       
+     61   1  WS-PRICES . . . . . . . . . . . . . . . . . . BLW=00000  0E8               DS 0CL26        Group                        
+     62     2  WS-PCT-WO-PRICE . . . . . . . . . . . . . . BLW=00000  0E8   0 000 000   DS 11C          Disp-Num-Edit                
+     63     2  WS-PCT-WITH-NO-PRICE. . . . . . . . . . . . BLW=00000  0F3   0 000 00B   DS 3P           Packed-Dec                   
+     64     2  WS-RECS-WITHOUT-PRICE . . . . . . . . . . . BLW=00000  0F6   0 000 00E   DS 6P           Packed-Dec                   
+     65     2  WS-DETAIL-RECS. . . . . . . . . . . . . . . BLW=00000  0FC   0 000 014   DS 6P           Packed-Dec                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page    16                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+     66   1  ABCDEF. . . . . . . . . . . . . . . . . . . . BLW=00000  108               DS 0CL52        Group                        
+     67     2  F . . . . . . . . . . . . . . . . . . . . . BLW=00000  108   0 000 000   DS 11C          Disp-Num                     
+     68     2  A . . . . . . . . . . . . . . . . . . . . . BLW=00000  113   0 000 00B   DS 9C           Disp-Num                     
+     69     2  B . . . . . . . . . . . . . . . . . . . . . BLW=00000  11C   0 000 014   DS 6P           Packed-Dec                   
+     70     2  C . . . . . . . . . . . . . . . . . . . . . BLW=00000  122   0 000 01A   DS 6P           Packed-Dec                   
+     71     2  D . . . . . . . . . . . . . . . . . . . . . BLW=00000  128   0 000 020   DS 9C           Disp-Num                     
+     72     2  E . . . . . . . . . . . . . . . . . . . . . BLW=00000  131   0 000 029   DS 11C          Disp-Num                     
+     73   1  WS-GENERATIONS. . . . . . . . . . . . . . . . BLW=00000  140               DS 0CL18        Group                        
+     74     2  WS-COORDINATED-GENERATION . . . . . . . . . BLW=00000  140   0 000 000   DS 3C           Disp-Num                     
+     75     2  WS-REPORT-GEN . . . . . . . . . . . . . . . BLW=00000  143   0 000 003   DS 3C           Disp-Num                     
+     76     2  WS-CBSUM-GEN. . . . . . . . . . . . . . . . BLW=00000  146   0 000 006   DS 3C           Disp-Num                     
+     77     2  WS-OMSUMPV-GEN. . . . . . . . . . . . . . . BLW=00000  149   0 000 009   DS 3C           Disp-Num                     
+     78     2  WS-OMAUDIT-GEN. . . . . . . . . . . . . . . BLW=00000  14C   0 000 00C   DS 3C           Disp-Num                     
+     79     2  WS-OMENCF-GEN . . . . . . . . . . . . . . . BLW=00000  14F   0 000 00F   DS 3C           Disp-Num                     
+     80   1  WS-VAR1 . . . . . . . . . . . . . . . . . . . BLW=00000  158               DS 0CL22        Group                        
+     81     2  300-MSP-3PPRCS-ICA-NUM. . . . . . . . . . . BLW=00000  158   0 000 000   DS 11C          Disp-Num                     
+     82     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  158   0 000 000   DS 0CL11        Group          R             
+     83       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00000  158   0 000 000   DS 3C           Display                      
+     84       3  300-BYTE-7. . . . . . . . . . . . . . . . BLW=00000  15B   0 000 003   DS 1C           Disp-Num                     
+     85       3  300-BYTE-6. . . . . . . . . . . . . . . . BLW=00000  15C   0 000 004   DS 1C           Disp-Num                     
+     86       3  300-BYTE-5. . . . . . . . . . . . . . . . BLW=00000  15D   0 000 005   DS 1C           Disp-Num                     
+     87       3  300-BYTE-4. . . . . . . . . . . . . . . . BLW=00000  15E   0 000 006   DS 1C           Disp-Num                     
+     88       3  300-BYTE-3. . . . . . . . . . . . . . . . BLW=00000  15F   0 000 007   DS 1C           Disp-Num                     
+     89       3  300-BYTE-2. . . . . . . . . . . . . . . . BLW=00000  160   0 000 008   DS 1C           Disp-Num                     
+     90       3  300-BYTE-1. . . . . . . . . . . . . . . . BLW=00000  161   0 000 009   DS 1C           Disp-Num                     
+     91       3  300-BYTE-0. . . . . . . . . . . . . . . . BLW=00000  162   0 000 00A   DS 1C           Disp-Num                     
+     92     2  300-DECIMAL-NO. . . . . . . . . . . . . . . BLW=00000  163   0 000 00B   DS 11C          Disp-Num                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page    17                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000050 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000D5C FOR LINE 2                                                                                               
+ PBL2    AT LOCATION 001DBE FOR LINE 369                                                                                             
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000000 00000000 3B9ACA00 00000064 00000001 40404040 40404040 40404040  |....................            |    
+ 00011C  (LIT+32)     40404040 40404040 40404040 40404040 4040F0F0 F0F0F0F0 F0F0F0F0 F0000000  |                  00000000000...|    
+ 00013C  (LIT+64)     00000C                                                                   |...                             |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page    18                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 00014C FOR 000C0E BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000158  (LIT+0)      FFFFFFFF FFFFD8F1 FFFFFFFF FF444872 00000000 00000016 FFFFFFFC 00001000  |......Q1........................|    
+ 000178  (LIT+32)     00000002 00003022 000019FD 00000076 002ECF17 00000001 000C0004 07E30009  |.............................T..|    
+ 000198  (LIT+64)     40F3F14B 40D9D3E4 F3C160D4 E3D560C1 C360C1C3 C3E360C3 C8C7E260 C3D9C5C4  | 31. RLU3A-MTN-AC-ACCT-CHGS-CRED|    
+ 0001B8  (LIT+96)     C9E3E240 40D7D9D6 C7D9C1D4 40C3C6D4 F0F0F4C1 40C5D5C4 C5C440E4 D5E2E4C3  |ITS  PROGRAM CFM004A ENDED UNSUC|    
+ 0001D8  (LIT+128)    C3C5E2E2 C6E4D3D3 E840E6F0 F3C160F1 60C4D660 C4C5C3C9 D4C1D340 D5D6E340  |CESSFULLY W03A-1-DO-DECIMAL NOT |    
+ 0001F8  (LIT+160)    D6D540E2 C9E9C540 C5D9D9D6 D96FE6F0 F3C160F1 60C4D660 C4C5C3C9 D4C1D340  |ON SIZE ERROR?W03A-1-DO-DECIMAL |    
+ 000218  (LIT+192)    D5D6E340 D6D540E2 C9E9C540 C5D9D9D6 D9F1F44B 40F14BF2 F2F4F340 4E40F14B  |NOT ON SIZE ERROR14. 1.2243 + 1.|    
+ 000238  (LIT+224)    F2F3404E 40F04BF0 F0F0F940 7E40F24B F4F4F5F2 40F1F54B 40F14BF2 F2404040  |23 + 0.0009 = 2.4452 15. 1.22   |    
+ 000258  (LIT+256)    4E40F14B F2F24040 7E40F24B F4F44040 40404040 40404040 40F1F64B 40F14BF2  |+ 1.22  = 2.44           16. 1.2|    
+ 000278  (LIT+288)    F4404040 4E40F14B F2F24040 7E40F24B F4F64040 40404040 40404040 40F2F64B  |4   + 1.22  = 2.46           26.|    
+ 000298  (LIT+320)    40F14BF2 F2F4F340 4E40F14B F2F3404E 40F04BF0 F0F0F940 7E40F24B F4F4F5F2  | 1.2243 + 1.23 + 0.0009 = 2.4452|    
+ 0002B8  (LIT+352)    40F2F74B 40F14BF2 F2404040 4E40F14B F2F24040 7E40F24B F4F44040 40404040  | 27. 1.22   + 1.22  = 2.44      |    
+ 0002D8  (LIT+384)    40404040 40F2F84B 40F14BF2 F4404040 4E40F14B F2F24040 7E40F24B F4F64040  |     28. 1.24   + 1.22  = 2.46  |    
+ 0002F8  (LIT+416)    40404040 40404040 40D7D9D6 C7D9C1D4 40C3C6D4 F0F0F4C1 40C5D5C4 C5C440E2  |         PROGRAM CFM004A ENDED S|    
+ 000318  (LIT+448)    E4C3C3C5 E2E2C6E4 D3D3E840 F3F64B40 E6E260C3 D6D6D9C4 C9D5C1E3 C5C460C7  |UCCESSFULLY 36. WS-COORDINATED-G|    
+ 000338  (LIT+480)    C5D5C5D9 C1E3C9D6 D5407E40 6FE6F0F3 C160F160 C4D660C4 C5C3C9D4 C1D340D6  |ENERATION = ?W03A-1-DO-DECIMAL O|    
+ 000358  (LIT+512)    D540E2C9 E9C540C5 D9D9D6D9 40E6F0F3 C160F160 C4D660C4 C5C3C9D4 C1D340D6  |N SIZE ERROR W03A-1-DO-DECIMAL O|    
+ 000378  (LIT+544)    D540E2C9 E9C540C5 D9D9D6D9 40F3F24B 40E6E260 C3C8D9C7 60C3D9C5 C4C9E360  |N SIZE ERROR 32. WS-CHRG-CREDIT-|    
+ 000398  (LIT+576)    E3D6E360 D5D6E3C1 E74040F3 F34B40C6 406040C1 406040C2 404E40C3 406040C4  |TOT-NOTAX  33. F - A - B + C - D|    
+ 0003B8  (LIT+608)    404E40C5 40404040 F1F04B40 F14BF2F2 F5F1404E 40F14BF2 F3407E40 F24BF4F4  | + E    10. 1.2251 + 1.23 = 2.44|    
+ 0003D8  (LIT+640)    F5F140F1 F14B40F1 4BF2F2F5 F9404E40 F14BF2F3 407E40F2 4BF4F4F5 F940F1F2  |51 11. 1.2259 + 1.23 = 2.4459 12|    
+ 0003F8  (LIT+672)    4B40F14B F2F2F6F1 404E40F1 4BF2F340 7E40F24B F4F4F6F1 40F1F34B 40F14BF2  |. 1.2261 + 1.23 = 2.4461 13. 1.2|    
+ 000418  (LIT+704)    F2F6F840 4E40F14B F2F3407E 40F24BF4 F4F6F840 F1F74B40 F14BF2F2 F1F3404E  |268 + 1.23 = 2.4468 17. 1.2213 +|    
+ 000438  (LIT+736)    40F14BF2 F2407E40 F24BF4F4 F1F340F1 F84B40F1 4BF2F2F2 F3404E40 F14BF2F2  | 1.22 = 2.4413 18. 1.2223 + 1.22|    
+ 000458  (LIT+768)    407E40F2 4BF4F4F2 F340F1F9 4B40F14B F2F2F3F3 404E40F1 4BF2F340 7E40F24B  | = 2.4423 19. 1.2233 + 1.23 = 2.|    
+ 000478  (LIT+800)    F4F4F3F3 40F2F04B 40F14BF2 F2F4F340 4E40F14B F2F3407E 40F24BF4 F4F4F340  |4433 20. 1.2243 + 1.23 = 2.4443 |    
+ 000498  (LIT+832)    F2F14B40 F14BF2F2 F4F9404E 40F14BF2 F3407E40 F24BF4F4 F4F940F2 F24B40F1  |21. 1.2249 + 1.23 = 2.4449 22. 1|    
+ 0004B8  (LIT+864)    4BF2F2F5 F1404E40 F14BF2F3 407E40F2 4BF4F4F5 F140F2F3 4B40F14B F2F2F5F9  |.2251 + 1.23 = 2.4451 23. 1.2259|    
+ 0004D8  (LIT+896)    404E40F1 4BF2F340 7E40F24B F4F4F5F9 40F2F44B 40F14BF2 F2F6F140 4E40F14B  | + 1.23 = 2.4459 24. 1.2261 + 1.|    
+ 0004F8  (LIT+928)    F2F3407E 40F24BF4 F4F6F140 F2F54B40 F14BF2F2 F6F8404E 40F14BF2 F3407E40  |23 = 2.4461 25. 1.2268 + 1.23 = |    
+ 000518  (LIT+960)    F24BF4F4 F6F84040 E6F0F3C1 60F160C4 D660E7E7 E7E74040 4040406F 40F9F9F9  |2.4468  W03A-1-DO-XXXX     ? 999|    
+ 000538  (LIT+992)    F9F0F340 C3D6D4D7 E4E3C540 E5C5D9C2 40E5C1D3 C9C4C1E3 C9D6D5F5 4B40F14B  |903 COMPUTE VERB VALIDATION5. 1.|    
+ 000558  (LIT+1024)   F2F2F1F3 404E40F1 4BF2F240 7E40F24B F4F4F1F3 40F64B40 F14BF2F2 F2F3404E  |2213 + 1.22 = 2.4413 6. 1.2223 +|    
+ 000578  (LIT+1056)   40F14BF2 F2407E40 F24BF4F4 F2F340F7 4B40F14B F2F2F3F3 404E40F1 4BF2F340  | 1.22 = 2.4423 7. 1.2233 + 1.23 |    
+ 000598  (LIT+1088)   7E40F24B F4F4F3F3 40F84B40 F14BF2F2 F4F3404E 40F14BF2 F3407E40 F24BF4F4  |= 2.4433 8. 1.2243 + 1.23 = 2.44|    
+ 0005B8  (LIT+1120)   F4F340F9 4B40F14B F2F2F4F9 404E40F1 4BF2F340 7E40F24B F4F4F4F9 4040F2F9  |43 9. 1.2249 + 1.23 = 2.4449  29|    
+ 0005D8  (LIT+1152)   4B40C3C3 C1E360C3 D6D4C2C9 D5C5C460 E2C9E9C5 4040E6F0 F3C160F1 60C4D660  |. CCAT-COMBINED-SIZE  W03A-1-DO-|    
+ 0005F8  (LIT+1184)   C4D6E4C2 D3C54040 407E4040 E6F0F3C1 60F160C4 D660D9C5 C1D34040 4040407E  |DOUBLE   =  W03A-1-DO-REAL     =|    
+ 000618  (LIT+1216)   4040E6F0 F3C160F1 60C4D660 C2C9C7C9 D5E34040 407E4040 E6F0F3C1 60F160C4  |  W03A-1-DO-BIGINT   =  W03A-1-D|    
+ 000638  (LIT+1248)   D660C9D5 E3404040 4040407E 4040E6F0 F3C160F1 60C4D660 E2D4C1D3 D3C9D5E3  |O-INT      =  W03A-1-DO-SMALLINT|    
+ 000658  (LIT+1280)   407E4040 E6F0F3C1 60F160C4 D660C3D6 D4D74040 4040407E 4040E6F0 F3C160F1  | =  W03A-1-DO-COMP     =  W03A-1|    
+ 000678  (LIT+1312)   60C4D660 C3D6D4D7 F3404040 407E405C F3F75C40 F3F0F060 C4C5C3C9 D4C1D360  |-DO-COMP3    = *37* 300-DECIMAL-|    
+ 000698  (LIT+1344)   D5D6405C 40F3F44B 40C4C1E3 C560D6C6 60C9D5E3 C5C7C5D9 40F24B40 E6C3C4D3  |NO * 34. DATE-OF-INTEGER 2. WCDL|    
+ 0006B8  (LIT+1376)   D660D3C5 C1D760E8 C5C1D940 F44B40E6 F4404040 40404040 40404040 40404040  |O-LEAP-YEAR 4. W4               |    
+ 0006D8  (LIT+1408)   F3F54B40 E6C9E3C8 D6E4E340 D7D9C9C3 C540F14B 40E660C3 C8C760C1 D4E360C4  |35. WITHOUT PRICE 1. W-CHG-AMT-D|    
+ 0006F8  (LIT+1440)   C5C3F540 F34B40E6 F3404040 40404040 40404040 404040F3 F04B40E6 E260E3D6  |EC5 3. W3              30. WS-TO|    
+ 000718  (LIT+1472)   E360C1D4 E3400008 E8E8E8E8 D4D4C4C4 E2E8E2D6 E4E34040 C9C7E9E2 D9E3C3C4  |T-AMT ..YYYYMMDDSYSOUT  IGZSRTCD|    
+ 000738  (LIT+1504)   00000000 0009999D 09999234 12345F00 01230222 2D000000 00022C00 00000022  |......r..rk...^.................|    
+ 000758  (LIT+1536)   0C000000 00222C00 05303964 0C000480 07741C12 3412345F 00099990 0D000002  |.......................^..r.....|    
+ 000778  (LIT+1568)   000C0012 322C016C 032C048C 064C080C 096C112C 100F4F1F 00000000 00000000  |.......%.....<...%....|.........|    
+ 000798  (LIT+1600)   00000000 00000000 C4270F00 00000000 00000000 0000012C 00000001 00000130  |........D.......................|    
+ 0007B8  (LIT+1632)   00000001 00000000 00000000 00000000 00000000 00000000 00000000 00000000  |................................|    
+ 0007D8  (LIT+1664)   00000000 00000000 80000000 40202020 20202020 21204B20 20400000 00000000  |............ ............ ......|    
+ 0007F8  (LIT+1696)   00000000 00F0F0F0 F0F0F0F0 F0F0F2C2 F0F0F0F0 F1F2F2F1 F3F0F0F0 F0F0F1F2  |.....0000000002B0000122130000012|    
+ 000818  (LIT+1728)   F2F2F3F0 F0F0F0F0 F1F2F2F3 F3F0F0F0 F0F0F1F2 F2F4F9F0 F0F0F0F0 F1F2F2F5  |22300000122330000012249000001225|    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page    19                
+0000838  (LIT+1760)   F1F0F0F0 F0F0F1F2 F2F5F9F0 F0F0F0F0 F1F2F2F6 F1F0F0F0 F0F0F1F2 F2F6F8F0  |10000012259000001226100000122680|    
+ 000858  (LIT+1792)   F0F0F0F0 F1F2F2F4 F3F0F0F0 F0F0F0F0 F0F0F9F0 04294967 296C0214 7483648C  |00001224300000000090.....%...c..|    
+ 000878  (LIT+1824)   F0F0F1F2 F4F2F0F1 F9F5F5F1 F5F4F3F5 F8F4F5F3 F5F5F5F9 0C400000 00000000  |001242019551543584535559. ......|    
+ 000898  (LIT+1856)   00000000 00000000 00400000 000025C0 0001C000 06080000 4403F001 40000024  |......... ................0. ...|    
+ 0008B8  (LIT+1888)   08000044 0071FF01 40000015 08000044 053B4000 000B0900 012C0163 FF014000  |........ ......... ........... .|    
+ 0008D8  (LIT+1920)   00220800 004401B5 FF014000 00200800 004401F8 FF014000 00240800 00440095  |.......... ........8.. ........n|    
+ 0008F8  (LIT+1952)   FF014000 00200800 00440218 FF014000 00240800 004400B9 FF014000 00160800  |.. ........... ........... .....|    
+ 000918  (LIT+1984)   004404A1 80080000 0900012C 004EFF01 40000016 08000044 04B78004 00000900  |.............+.. ...............|    
+ 000938  (LIT+2016)   012C004A FF014000 00160800 004404CD 00080013 0900012C 0042FF01 40000016  |...½.. ..................... ...|    
+ 000958  (LIT+2048)   08000044 04E30004 000A0900 012C003E FF014000 00160800 004404F9 00020005  |.....T............ ........9....|    
+ 000978  (LIT+2080)   0900012C 003CFF01 40000016 08000044 050F0004 000A0900 012C0033 FF014000  |........ ..................... .|    
+ 000998  (LIT+2112)   00160800 00440525 2008000F 0900012C 002BFF01 4000001A 08000044 03D3FF00  |.................... ........L..|    
+ 0009B8  (LIT+2144)   0000003D 00580000 02003D00 58000001 F0014000 001A0800 004403ED FF014000  |................0. ........... .|    
+ 0009D8  (LIT+2176)   00120800 0044059E 2007000C 0900012C 00AEFF01 40000013 08000044 05654000  |.................... ......... .|    
+ 0009F8  (LIT+2208)   00060900 012C00B5 FF014000 00120800 004405B0 00080013 0900012C 00CBFF00  |.......... .....................|    
+ 000A18  (LIT+2240)   0000003D 00580000 02083D00 58000001 E83D0058 000001D0 01400000 13080000  |................Y........ ......|    
+ 000A38  (LIT+2272)   44057802 04000A09 00012C00 D3FF0140 00001A08 00004404 07400000 05090001  |............L.. ......... ......|    
+ 000A58  (LIT+2304)   2C009FFF 01400000 1A080000 44042140 00000509 00012C00 9FFF0140 00001A08  |..... ......... ........... ....|    
+ 000A78  (LIT+2336)   00004404 3B400000 05090001 2C009FFF 01400000 1A080000 44045540 00000509  |..... ........... ......... ....|    
+ 000A98  (LIT+2368)   00012C00 9FFF0140 00001A08 00004404 6F400000 05090001 2C009FFF 01400000  |....... ........? ........... ..|    
+ 000AB8  (LIT+2400)   1B080000 44027440 00000509 00012C00 9FFF0140 00001B08 00004402 8F400000  |....... ........... ......... ..|    
+ 000AD8  (LIT+2432)   05090001 2C009FFF 01400000 1B080000 4402AA40 00000509 00012C00 9FFF0140  |......... ......... ........... |    
+ 000AF8  (LIT+2464)   00001B08 00004402 C5400000 05090001 2C009FFF 01400000 24080000 4400DD40  |........E ........... ......... |    
+ 000B18  (LIT+2496)   00000509 00012C00 9FFF0140 00002408 00004401 01400000 05090001 2C009FFF  |........... ......... ..........|    
+ 000B38  (LIT+2528)   01400000 24080000 44012540 00000509 00012C00 9FFF0140 00001B08 00004402  |. ......... ........... ........|    
+ 000B58  (LIT+2560)   E0400000 05090001 2C009FFF 01400000 1B080000 4402FB40 00000509 00012C00  |. ........... ......... ........|    
+ 000B78  (LIT+2592)   9FFF0140 00001B08 00004403 16400000 05090001 2C009FFF 01400000 1B080000  |... ......... ........... ......|    
+ 000B98  (LIT+2624)   44033140 00000509 00012C00 9FFF0140 00001B08 00004403 4C400000 05090001  |... ........... ........< ......|    
+ 000BB8  (LIT+2656)   2C009FFF 01400000 1B080000 44036740 00000509 00012C00 9FFF0140 00001B08  |..... ......... ........... ....|    
+ 000BD8  (LIT+2688)   00004403 82400000 05090001 2C009FFF 01400000 1B080000 44039D40 00000509  |....b ........... ......... ....|    
+ 000BF8  (LIT+2720)   00012C00 9FFF0140 00001B08 00004403 B8400000 05090001 2C009FFF 01400000  |....... ......... ........... ..|    
+ 000C18  (LIT+2752)   24080000 44014940 00000509 00012C00 9FFF0140 00002408 00004401 6D400000  |....... ........... ........_ ..|    
+ 000C38  (LIT+2784)   05090001 2C009FFF 01400000 24080000 44019140 00000509 00012C00 9FFF0140  |......... ........j ........... |    
+ 000C58  (LIT+2816)   00001808 00004404 89020200 05090001 2C00E2FF 01400000 10080000 4405C200  |........i.........S.. ........B.|    
+ 000C78  (LIT+2848)   08001309 00012C00 6DFF0140 00002508 00004400 4C200600 0B090001 2C0075FF  |........_.. ........<...........|    
+ 000C98  (LIT+2880)   01400000 1E080000 44023820 06000B09 00012C00 7BFF0000 00003D00 58000001  |. ..................#...........|    
+ 000CB8  (LIT+2912)   F03D0058 000001E0 01400000 1E080000 44025640 00000B09 00012C01 08FF0140  |0........ ......... ........... |    
+ 000CD8  (LIT+2944)   00001508 00004405 50400000 08090001 2C0058FF 40000000 009FC000 0140000F  |........& .......... ........ ..|    
+ 000CF8  (LIT+2976)   08000044 05550240 00060800 004403F0 03900004 08000044 00380140 00001308  |....... .......0........... ....|    
+ 000D18  (LIT+3008)   00004405 8B400000 0B090001 2C00E8FF 01400000 21080000 4401D740 00000309  |..... ........Y.. ........P ....|    
+ 000D38  (LIT+3040)   00012C01 40FF4000 00000040 C0000140 00060800 004403F0 02C00006 08000044  |.... . .... ... .......0........|    
+ 000D58  (LIT+3072)   03F0                                                                     |.0                              |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000096 000EE4 MOVE                          000097 000EEA MOVE                          000098 000EF0 MOVE                          
+ 000099 000EF6 MOVE                          000100 000EFC MOVE                          000101 000F02 MOVE                          
+ 000102 000F08 COMPUTE                       000106 000F94 DISPLAY                       000109 000FA2 MOVE                          
+ 000110 000FA8 MOVE                          000111 000FAE COMPUTE                       000114 000FE2 MOVE                          
+ 000115 000FFA DISPLAY                       000117 001004 MOVE                          000118 00100A COMPUTE                       
+ 000120 00107C DISPLAY                       000122 001086 MOVE                          000123 00108C MOVE                          
+ 000124 001092 MOVE                          000125 001098 MOVE                          000126 00109E MOVE                          
+ 000127 0010A4 COMPUTE                       000128 0010F2 DISPLAY                       000130 0010FC MOVE                          
+ 000131 001102 MOVE                          000132 001108 MOVE                          000133 00110E MOVE                          
+ 000135 001114 ADD                           000139 0011B8 DISPLAY                       000141 0011C2 DISPLAY                       
+ 000143 0011CC DISPLAY                       000145 0011D6 MOVE                          000146 0011DC MOVE                          
+ 000147 0011E2 SUBTRACT                      000148 0011FA DISPLAY                       000151 001204 MOVE                          
+ 000152 00120A MOVE                          000153 001210 COMPUTE                       000154 001234 DISPLAY                       
+ 000157 00123E MOVE                          000158 001244 MOVE                          000159 00124A COMPUTE                       
+ 000160 00126E DISPLAY                       000163 001278 MOVE                          000164 00127E MOVE                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page    20                
+0000165 001284 MOVE                          000166 00128A COMPUTE                       000167 0012CA DISPLAY                       
+ 000170 0012D4 MOVE                          000171 0012DA MOVE                          000172 0012E0 COMPUTE                       
+ 000173 001310 DISPLAY                       000175 00131A MOVE                          000176 001320 MOVE                          
+ 000177 001326 COMPUTE                       000178 001356 DISPLAY                       000180 001360 MOVE                          
+ 000181 001366 MOVE                          000182 00136C COMPUTE                       000183 00139C DISPLAY                       
+ 000185 0013A6 MOVE                          000186 0013AC MOVE                          000187 0013B2 COMPUTE                       
+ 000188 0013E2 DISPLAY                       000190 0013EC MOVE                          000191 0013F2 MOVE                          
+ 000192 0013F8 COMPUTE                       000193 001428 DISPLAY                       000195 001432 MOVE                          
+ 000196 001438 MOVE                          000197 00143E COMPUTE                       000198 00146E DISPLAY                       
+ 000200 001478 MOVE                          000201 00147E MOVE                          000202 001484 COMPUTE                       
+ 000203 0014B4 DISPLAY                       000205 0014BE MOVE                          000206 0014C4 MOVE                          
+ 000207 0014CA COMPUTE                       000208 0014FA DISPLAY                       000210 001504 MOVE                          
+ 000211 00150A MOVE                          000212 001510 COMPUTE                       000213 001540 DISPLAY                       
+ 000215 00154A MOVE                          000216 001550 MOVE                          000217 001556 COMPUTE                       
+ 000218 00157A DISPLAY                       000221 001584 MOVE                          000222 00158A MOVE                          
+ 000223 001590 COMPUTE                       000224 0015B4 DISPLAY                       000227 0015BE MOVE                          
+ 000228 0015C4 MOVE                          000229 0015CA MOVE                          000230 0015D0 COMPUTE                       
+ 000231 001610 DISPLAY                       000234 00161A MOVE                          000235 001620 MOVE                          
+ 000236 001626 COMPUTE                       000237 001656 DISPLAY                       000239 001660 MOVE                          
+ 000240 001666 MOVE                          000241 00166C COMPUTE                       000242 00169C DISPLAY                       
+ 000244 0016A6 MOVE                          000245 0016AC MOVE                          000246 0016B2 COMPUTE                       
+ 000247 0016E2 DISPLAY                       000249 0016EC MOVE                          000250 0016F2 MOVE                          
+ 000251 0016F8 COMPUTE                       000252 001728 DISPLAY                       000254 001732 MOVE                          
+ 000255 001738 MOVE                          000256 00173E COMPUTE                       000257 00176E DISPLAY                       
+ 000259 001778 MOVE                          000260 00177E MOVE                          000261 001784 COMPUTE                       
+ 000262 0017B4 DISPLAY                       000264 0017BE MOVE                          000265 0017C4 MOVE                          
+ 000266 0017CA COMPUTE                       000267 0017FA DISPLAY                       000269 001804 MOVE                          
+ 000270 00180A MOVE                          000271 001810 COMPUTE                       000272 001840 DISPLAY                       
+ 000274 00184A MOVE                          000275 001850 MOVE                          000276 001856 COMPUTE                       
+ 000277 001886 DISPLAY                       000279 001890 MOVE                          000280 001896 COMPUTE                       
+ 000281 0018AC DISPLAY                       000283 0018B6 MOVE                          000284 0018BC MOVE                          
+ 000285 0018C2 COMPUTE                       000287 0019BE DISPLAY                       000289 0019C8 MOVE                          
+ 000290 0019CE COMPUTE                       000291 0019EE DISPLAY                       000294 0019F8 MOVE                          
+ 000295 0019FE MOVE                          000296 001A04 COMPUTE                       000298 001A26 DISPLAY                       
+ 000302 001A30 DISPLAY                       000304 001A3A MOVE                          000313 001A6A COMPUTE                       
+ 000314 001A7C COMPUTE                       000315 001A9C COMPUTE                       000316 001AAE COMPUTE                       
+ 000317 001ABC COMPUTE                       000318 001ADC COMPUTE                       000319 001B68 COMPUTE                       
+ 000320 001B80 COMPUTE                       000322 001B96 DISPLAY                       000323 001BA0 DISPLAY                       
+ 000324 001BAA DISPLAY                       000325 001BB4 DISPLAY                       000326 001BBE DISPLAY                       
+ 000327 001BC8 DISPLAY                       000328 001BD2 DISPLAY                       000329 001BDC DISPLAY                       
+ 000331 001BE6 DISPLAY                       000332 001BF0 COMPUTE                       000335 001C26 DISPLAY                       
+ 000337 001C34 PERFORM                       000338 001C3C DISPLAY                       000342 001C52 DISPLAY                       
+ 000343 001C5C COMPUTE                       000346 001C92 PERFORM                       000347 001C9A DISPLAY                       
+ 000350 001CB4 DISPLAY                       000354 001CBE DISPLAY                       000355 001CC8 COMPUTE                       
+ 000364 001DAC DISPLAY                       000366 001DB6 GOBACK                        000371 001DBE DISPLAY                       
+ 000372 001DC8 MOVE                          000375 001DD2 EXIT                                                                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page    21                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  CLLE ADDR. CELLS FOR CALL LIT. SUB-PGMS.                                                                 
+                    000138  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page    22                
+0                                                                                                                                    
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  SAVE AREA FOR FLOAT REGISTERS 8-15                                                                       
+                  00000110  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  00000150  VARIABLE-LENGTH CELLS                                                                                    
+                  00000168  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000170  PERFORM SAVE CELLS                                                                                       
+                  00000178  PERFORM COUNTER CELLS                                                                                    
+                  00000180  TEMPORARY STORAGE-1                                                                                      
+                  000001D0  TEMPORARY STORAGE-2                                                                                      
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 0000014C BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 0000016E BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 00000230 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 001E80                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 001FBC FOR LENGTH 000088                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT    Date 06/06/2022  Time 01:04:33   Page    23                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program COMPUT:                                                                                              
+ *    Source records = 375                                                                                                           
+ *    Data Division statements = 72                                                                                                  
+ *    Procedure Division statements = 182                                                                                            
+0End of compilation 1,  program COMPUT,  highest severity 4.                                                                         
+0Return code 4                                                                                                                       

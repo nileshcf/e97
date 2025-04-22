@@ -1,0 +1,32 @@
+07:14:37.706 [main] INFO  o.s.boot.StartupInfoLogger.logStarting   50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1349277 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/LFIX531/LFIX531/target/LFIX531-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/LFIX531/LFIX531)
+07:14:37.715 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo  654 - No active profile set, falling back to 1 default profile: "default"
+07:14:40.849 [main] INFO  o.s.boot.StartupInfoLogger.logStarted   56 - Started CFApplication in 4.518 seconds (process running for 5.426)
+07:14:40.881 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo  107 - CFDataConnectIO version : 5.0.0.21
+07:14:40.958 [main] INFO  c.c.a.u.d.plus.CFDcioConfiguration.cfDataConnectIOPlusInfo   28 - CFDataConnectIOPlus version : 5.0.0.21
+07:14:40.996 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.initDatabase  189 - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+07:14:42.059 [main] INFO  o.s.b.a.b.JobLauncherApplicationRunner.run  168 - Running default command line with: []
+07:14:42.135 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  154 - Job: [FlowJob: [name=LFIX531]] launched with the following parameters: [{}]
+07:14:42.206 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [s010_p0309Decider]
+07:14:42.310 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [s010_p0309Decider] executed in 102ms
+07:14:42.337 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [readLfix531S010_p0309SortInput]
+07:14:42.975 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [readLfix531S010_p0309SortInput] executed in 636ms
+07:14:42.998 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sortLfix531S010_p0309Process]
+07:14:43.041 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sortLfix531S010_p0309Process] executed in 41ms
+07:14:43.060 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [writeLfix531S010_p0309SortOutput]
+07:14:43.679 [main] INFO  c.c.a.t.Lfix531S010_p0309OutputWriter.afterStep  148 - STEPNAME: LFIX531S010_P0309 Execution completed, number of RECORDS - IN: 32115,  OUT: 32115
+07:14:43.684 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [writeLfix531S010_p0309SortOutput] executed in 623ms
+07:14:43.703 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [printSummary]
+07:14:43.718 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  261 - JOB : LFIX531 ENDED -  0000
+07:14:43.719 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  265 - 
+
+Stepwise Execution Summary :
++---------------------------------------------------------------+
+| STEPNAME        | PROGRAM   | RC          | ELAPSED           |
+|                 |           |             | HH:MM:SS:ss       |
++---------------------------------------------------------------+
+| S010_P0309      | SORT      | 00          | 00:00:01:467      |
++---------------------------------------------------------------+
+  
+07:14:43.730 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [printSummary] executed in 26ms
+07:14:43.749 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  161 - Job: [FlowJob: [name=LFIX531]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 1s578ms
+07:14:43.758 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.shutdownDatabase  220 - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'

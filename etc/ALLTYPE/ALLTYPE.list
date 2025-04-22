@@ -1,0 +1,908 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 04/13/2022  Time 10:24:22   Page     1                
+0Invocation parameters:                                                                                                              
+  DYNAM,OFFSET,MAP,XREF(FULL),ARITH(EXTEND),TRUNC(BIN),LIB                                                                           
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(EXTEND)                                                                                                                    
+  NOAWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+    DYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+  NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+  NOTEST                                                                                                                             
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 04/13/2022  Time 10:24:22   Page     2                
+0   XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 04/13/2022  Time 10:24:22   Page     3                
+0LineID  Message code  Library phase message text                                                                                    
+                                                                                                                                     
+         IGYLI0090-W   1 sequence errors were found in this program.                                                                 
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       1                          1                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000001         000100 IDENTIFICATION DIVISION.                                                                                    
+   000002         000200 PROGRAM-ID. TEST1.                                                                                          
+   000003         000300 ENVIRONMENT DIVISION.                                                                                       
+   000004         000400 INPUT-OUTPUT SECTION.                                                                                       
+   000005         000420 FILE-CONTROL.                                                                                               
+   000006         00600  DATA DIVISION.                                                                                              
+   000007**       000620 FILE SECTION.                                                                                               
+   000008         000720 WORKING-STORAGE SECTION.                                                                                    
+   000009                01 WS-GROUP.                                                              BLW=00000+000         0CL948      
+   000010                  05 WS-GROUP-WITHOUT-VALUE.                                              BLW=00000+000,0000000 0CL209      
+   000011                     10 WS-BINARY-SIGN1  PIC S9(04) COMP.                                 BLW=00000+000,0000000 2C          
+   000012                     10 WS-BINARY-SIGN2  PIC S9(08) COMP.                                 BLW=00000+002,0000002 4C          
+   000013                     10 WS-BINARY-SIGN3  PIC S9(10) COMP.                                 BLW=00000+006,0000006 8C          
+   000014                     10 WS-BINARY-UNSIGN1 PIC 9(04) COMP.                                 BLW=00000+00E,000000E 2C          
+   000015                     10 WS-BINARY-UNSIGN2 PIC 9(08) COMP.                                 BLW=00000+010,0000010 4C          
+   000016                     10 WS-BINARY-UNSIGN3 PIC 9(10) COMP.                                 BLW=00000+014,0000014 8C          
+   000017                     10 WS-DISPLAY-SIGN1 PIC S9(04).                                      BLW=00000+01C,000001C 4C          
+   000018                     10 WS-DISPLAY-SIGN2 PIC S9(08).                                      BLW=00000+020,0000020 8C          
+   000019                     10 WS-DISPLAY-SIGN3 PIC S9(10).                                      BLW=00000+028,0000028 10C         
+   000020                     10 WS-DISPLAY-UNSIGN1 PIC 9(04).                                     BLW=00000+032,0000032 4C          
+   000021                     10 WS-DISPLAY-UNSIGN2 PIC 9(08).                                     BLW=00000+036,0000036 8C          
+   000022                     10 WS-DISPLAY-UNSIGN3 PIC 9(10).                                     BLW=00000+03E,000003E 10C         
+   000023                     10 WS-PACKED-SIGN1 PIC S9(04) COMP-3.                                BLW=00000+048,0000048 3P          
+   000024                     10 WS-PACKED-SIGN2 PIC S9(08) COMP-3.                                BLW=00000+04B,000004B 5P          
+   000025                     10 WS-PACKED-SIGN3 PIC S9(10) COMP-3.                                BLW=00000+050,0000050 6P          
+   000026                     10 WS-PACKED-UNSIGN1 PIC 9(04) COMP-3.                               BLW=00000+056,0000056 3P          
+   000027                     10 WS-PACKED-UNSIGN2 PIC 9(08) COMP-3.                               BLW=00000+059,0000059 5P          
+   000028                     10 WS-PACKED-UNSIGN3 PIC 9(10) COMP-3.                               BLW=00000+05E,000005E 6P          
+   000029                     10 WS-DEC-BINARY-SIGN1 PIC S9(01)V9(02) COMP.                        BLW=00000+064,0000064 2C          
+   000030                     10 WS-DEC-BINARY-SIGN2 PIC S9(01)V9(07) COMP.                        BLW=00000+066,0000066 4C          
+   000031                     10 WS-DEC-BINARY-SIGN3 PIC S9(01)V9(09) COMP.                        BLW=00000+06A,000006A 8C          
+   000032                     10 WS-DEC-BINARY-UNSIGN1 PIC 9(01)V9(02) COMP.                       BLW=00000+072,0000072 2C          
+   000033                     10 WS-DEC-BINARY-UNSIGN2 PIC 9(01)V9(06) COMP.                       BLW=00000+074,0000074 4C          
+   000034                     10 WS-DEC-BINARY-UNSIGN3 PIC 9(01)V9(09) COMP.                       BLW=00000+078,0000078 8C          
+   000035                     10 WS-DEC-DISPLAY-SIGN1 PIC S9(01)V9(02).                            BLW=00000+080,0000080 3C          
+   000036                     10 WS-DEC-DISPLAY-SIGN2 PIC S9(01)V9(07).                            BLW=00000+083,0000083 8C          
+   000037                     10 WS-DEC-DISPLAY-SIGN3 PIC S9(01)V9(09).                            BLW=00000+08B,000008B 10C         
+   000038                     10 WS-DEC-DISPLAY-UNSIGN1 PIC 9(01)V9(02).                           BLW=00000+095,0000095 3C          
+   000039                     10 WS-DEC-DISPLAY-UNSIGN2 PIC 9(01)V9(06).                           BLW=00000+098,0000098 7C          
+   000040                     10 WS-DEC-DISPLAY-UNSIGN3 PIC 9(01)V9(09).                           BLW=00000+09F,000009F 10C         
+   000041                     10 WS-DEC-PACKED-SIGN1 PIC S9(01)V9(02) COMP-3.                      BLW=00000+0A9,00000A9 2P          
+   000042                     10 WS-DEC-PACKED-SIGN2 PIC S9(01)V9(07) COMP-3.                      BLW=00000+0AB,00000AB 5P          
+   000043                     10 WS-DEC-PACKED-SIGN3 PIC S9(01)V9(09) COMP-3.                      BLW=00000+0B0,00000B0 6P          
+   000044                     10 WS-DEC-PACKED-UNSIGN1 PIC 9(01)V9(02) COMP-3.                     BLW=00000+0B6,00000B6 2P          
+   000045                     10 WS-DEC-PACKED-UNSIGN2 PIC 9(01)V9(06) COMP-3.                     BLW=00000+0B8,00000B8 4P          
+   000046                     10 WS-DEC-PACKED-UNSIGN3 PIC 9(01)V9(09) COMP-3.                     BLW=00000+0BC,00000BC 6P          
+   000047                     10 WS-CHAR               PIC X(05).                                  BLW=00000+0C2,00000C2 5C          
+   000048                     10 WS-CHAR-JUST-RIGHT    PIC X(05) JUST RIGHT.                       BLW=00000+0C7,00000C7 5C          
+   000049                     10 WS-CHAR-ZERO          PIC 9(05) BLANK WHEN ZERO.                  BLW=00000+0CC,00000CC 5C          
+   000050                  05 WS-A-GROUP-WITH-ARRAY.                                               BLW=00000+0D1,00000D1 0CL418      
+   000051                     10 WS-A-BINARY-SIGN1 PIC S9(04) COMP OCCURS 2 TIMES.                 BLW=00000+0D1,00000D1 2C          
+   000052                     10 WS-A-BINARY-SIGN2 PIC S9(08) COMP OCCURS 2 TIMES.                 BLW=00000+0D5,00000D5 4C          
+   000053                     10 WS-A-BINARY-SIGN3 PIC S9(10) COMP OCCURS 2 TIMES.                 BLW=00000+0DD,00000DD 8C          
+   000054                     10 WS-A-BINARY-UNSIGN1 PIC 9(04) COMP OCCURS 2 TIMES.                BLW=00000+0ED,00000ED 2C          
+   000055                     10 WS-A-BINARY-UNSIGN2 PIC 9(08) COMP OCCURS 2 TIMES.                BLW=00000+0F1,00000F1 4C          
+   000056                     10 WS-A-BINARY-UNSIGN3 PIC 9(10) COMP OCCURS 2 TIMES.                BLW=00000+0F9,00000F9 8C          
+   000057                     10 WS-A-DISPLAY-SIGN1 PIC S9(04) OCCURS 2 TIMES.                     BLW=00000+109,0000109 4C          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000058                     10 WS-A-DISPLAY-SIGN2 PIC S9(08) OCCURS 2 TIMES.                     BLW=00000+111,0000111 8C          
+   000059                     10 WS-A-DISPLAY-SIGN3 PIC S9(10) OCCURS 2 TIMES.                     BLW=00000+121,0000121 10C         
+   000060                     10 WS-A-DISPLAY-UNSIGN1 PIC 9(04) OCCURS 2 TIMES.                    BLW=00000+135,0000135 4C          
+   000061                     10 WS-A-DISPLAY-UNSIGN2 PIC 9(08) OCCURS 2 TIMES.                    BLW=00000+13D,000013D 8C          
+   000062                     10 WS-A-DISPLAY-UNSIGN3 PIC 9(10) OCCURS 2 TIMES.                    BLW=00000+14D,000014D 10C         
+   000063                     10 WS-A-PACKED-SIGN1 PIC S9(04) COMP-3 OCCURS 2 TIMES.               BLW=00000+161,0000161 3P          
+   000064                     10 WS-A-PACKED-SIGN2 PIC S9(08) COMP-3 OCCURS 2 TIMES.               BLW=00000+167,0000167 5P          
+   000065                     10 WS-A-PACKED-SIGN3 PIC S9(10) COMP-3 OCCURS 2 TIMES.               BLW=00000+171,0000171 6P          
+   000066                     10 WS-A-PACKED-UNSIGN1 PIC 9(04) COMP-3 OCCURS 2 TIMES.              BLW=00000+17D,000017D 3P          
+   000067                     10 WS-A-PACKED-UNSIGN2 PIC 9(08) COMP-3 OCCURS 2 TIMES.              BLW=00000+183,0000183 5P          
+   000068                     10 WS-A-PACKED-UNSIGN3 PIC 9(10) COMP-3 OCCURS 2 TIMES.              BLW=00000+18D,000018D 6P          
+   000069                     10 WS-A-DEC-BINARY-SIGN1 PIC S9(01)V9(02) COMP                       BLW=00000+199,0000199 2C          
+   000070                     OCCURS 2 TIMES.                                                                                        
+   000071                     10 WS-A-DEC-BINARY-SIGN2 PIC S9(01)V9(07) COMP                       BLW=00000+19D,000019D 4C          
+   000072                     OCCURS 2 TIMES.                                                                                        
+   000073                     10 WS-A-DEC-BINARY-SIGN3 PIC S9(01)V9(09) COMP                       BLW=00000+1A5,00001A5 8C          
+   000074                     OCCURS 2 TIMES.                                                                                        
+   000075                     10 WS-A-DEC-BINARY-UNSIGN1 PIC 9(01)V9(02) COMP                      BLW=00000+1B5,00001B5 2C          
+   000076                     OCCURS 2 TIMES.                                                                                        
+   000077                     10 WS-A-DEC-BINARY-UNSIGN2 PIC 9(01)V9(06) COMP                      BLW=00000+1B9,00001B9 4C          
+   000078                     OCCURS 2 TIMES.                                                                                        
+   000079                     10 WS-A-DEC-BINARY-UNSIGN3 PIC 9(01)V9(09) COMP                      BLW=00000+1C1,00001C1 8C          
+   000080                     OCCURS 2 TIMES.                                                                                        
+   000081                     10 WS-A-DEC-DISPLAY-SIGN1 PIC S9(01)V9(02) OCCURS 2 TIMES.           BLW=00000+1D1,00001D1 3C          
+   000082                     10 WS-A-DEC-DISPLAY-SIGN2 PIC S9(01)V9(07) OCCURS 2 TIMES.           BLW=00000+1D7,00001D7 8C          
+   000083                     10 WS-A-DEC-DISPLAY-SIGN3 PIC S9(01)V9(09) OCCURS 2 TIMES.           BLW=00000+1E7,00001E7 10C         
+   000084                     10 WS-A-DEC-DISPLAY-UNSIGN1 PIC 9(01)V9(02) OCCURS 2 TIMES.          BLW=00000+1FB,00001FB 3C          
+   000085                     10 WS-A-DEC-DISPLAY-UNSIGN2 PIC 9(01)V9(06) OCCURS 2 TIMES.          BLW=00000+201,0000201 7C          
+   000086                     10 WS-A-DEC-DISPLAY-UNSIGN3 PIC 9(01)V9(09) OCCURS 2 TIMES.          BLW=00000+20F,000020F 10C         
+   000087                     10 WS-A-DEC-PACKED-SIGN1 PIC S9(01)V9(02) COMP-3                     BLW=00000+223,0000223 2P          
+   000088                     OCCURS 2 TIMES.                                                                                        
+   000089                     10 WS-A-DEC-PACKED-SIGN2 PIC S9(01)V9(07) COMP-3                     BLW=00000+227,0000227 5P          
+   000090                     OCCURS 2 TIMES.                                                                                        
+   000091                     10 WS-A-DEC-PACKED-SIGN3 PIC S9(01)V9(09) COMP-3                     BLW=00000+231,0000231 6P          
+   000092                     OCCURS 2 TIMES.                                                                                        
+   000093                     10 WS-A-DEC-PACKED-UNSIGN1 PIC 9(01)V9(02) COMP-3                    BLW=00000+23D,000023D 2P          
+   000094                     OCCURS 2 TIMES.                                                                                        
+   000095                     10 WS-A-DEC-PACKED-UNSIGN2 PIC 9(01)V9(06) COMP-3                    BLW=00000+241,0000241 4P          
+   000096                     OCCURS 2 TIMES.                                                                                        
+   000097                     10 WS-A-DEC-PACKED-UNSIGN3 PIC 9(01)V9(09) COMP-3                    BLW=00000+249,0000249 6P          
+   000098                     OCCURS 2 TIMES.                                                                                        
+   000099                     10 WS-A-CHAR             PIC X(05) OCCURS 2 TIMES.                   BLW=00000+255,0000255 5C          
+   000100                     10 WS-A-CHAR-JUST-RIGHT  PIC X(05) JUST RIGHT                        BLW=00000+25F,000025F 5C          
+   000101                     OCCURS 2 TIMES.                                                                                        
+   000102                     10 WS-A-CHAR-ZERO        PIC 9(05) BLANK WHEN ZERO                   BLW=00000+269,0000269 5C          
+   000103                     OCCURS 2 TIMES.                                                                                        
+   000104                  05 WS-GROUP-WITH-VALUE.                                                 BLW=00000+273,0000273 0CL209      
+   000105                     10 WS-B-BINARY-SIGN1 PIC S9(04) COMP VALUE 1.                        BLW=00000+273,0000273 2C          
+   000106                     10 WS-B-BINARY-SIGN2 PIC S9(08) COMP VALUE 1.                        BLW=00000+275,0000275 4C          
+   000107                     10 WS-B-BINARY-SIGN3 PIC S9(10) COMP VALUE 1.                        BLW=00000+279,0000279 8C          
+   000108                     10 WS-B-BINARY-UNSIGN1 PIC 9(04) COMP VALUE 1.                       BLW=00000+281,0000281 2C          
+   000109                     10 WS-B-BINARY-UNSIGN2 PIC 9(08) COMP VALUE 1.                       BLW=00000+283,0000283 4C          
+   000110                     10 WS-B-BINARY-UNSIGN3 PIC 9(10) COMP VALUE 1.                       BLW=00000+287,0000287 8C          
+   000111                     10 WS-B-DISPLAY-SIGN1 PIC S9(04) VALUE 1.                            BLW=00000+28F,000028F 4C          
+   000112                     10 WS-B-DISPLAY-SIGN2 PIC S9(08) VALUE 1.                            BLW=00000+293,0000293 8C          
+   000113                     10 WS-B-DISPLAY-SIGN3 PIC S9(10) VALUE 1.                            BLW=00000+29B,000029B 10C         
+   000114                     10 WS-B-DISPLAY-UNSIGN1 PIC 9(04) VALUE 1.                           BLW=00000+2A5,00002A5 4C          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000115                     10 WS-B-DISPLAY-UNSIGN2 PIC 9(08) VALUE 1.                           BLW=00000+2A9,00002A9 8C          
+   000116                     10 WS-B-DISPLAY-UNSIGN3 PIC 9(10) VALUE 1.                           BLW=00000+2B1,00002B1 10C         
+   000117                     10 WS-B-PACKED-SIGN1 PIC S9(04) COMP-3 VALUE 1.                      BLW=00000+2BB,00002BB 3P          
+   000118                     10 WS-B-PACKED-SIGN2 PIC S9(08) COMP-3 VALUE 1.                      BLW=00000+2BE,00002BE 5P          
+   000119                     10 WS-B-PACKED-SIGN3 PIC S9(10) COMP-3 VALUE 1.                      BLW=00000+2C3,00002C3 6P          
+   000120                     10 WS-B-PACKED-UNSIGN1 PIC 9(04) COMP-3 VALUE 1.                     BLW=00000+2C9,00002C9 3P          
+   000121                     10 WS-B-PACKED-UNSIGN2 PIC 9(08) COMP-3 VALUE 1.                     BLW=00000+2CC,00002CC 5P          
+   000122                     10 WS-B-PACKED-UNSIGN3 PIC 9(10) COMP-3 VALUE 1.                     BLW=00000+2D1,00002D1 6P          
+   000123                     10 WS-B-DEC-BINARY-SIGN1 PIC S9(01)V9(02) COMP VALUE 1.              BLW=00000+2D7,00002D7 2C          
+   000124                     10 WS-B-DEC-BINARY-SIGN2 PIC S9(01)V9(07) COMP VALUE 1.              BLW=00000+2D9,00002D9 4C          
+   000125                     10 WS-B-DEC-BINARY-SIGN3 PIC S9(01)V9(09) COMP VALUE 1.              BLW=00000+2DD,00002DD 8C          
+   000126                     10 WS-B-DEC-BINARY-UNSIGN1 PIC 9(01)V9(02) COMP VALUE 1.             BLW=00000+2E5,00002E5 2C          
+   000127                     10 WS-B-DEC-BINARY-UNSIGN2 PIC 9(01)V9(06) COMP VALUE 1.             BLW=00000+2E7,00002E7 4C          
+   000128                     10 WS-B-DEC-BINARY-UNSIGN3 PIC 9(01)V9(09) COMP VALUE 1.             BLW=00000+2EB,00002EB 8C          
+   000129                     10 WS-B-DEC-DISPLAY-SIGN1 PIC S9(01)V9(02) VALUE 1.                  BLW=00000+2F3,00002F3 3C          
+   000130                     10 WS-B-DEC-DISPLAY-SIGN2 PIC S9(01)V9(07) VALUE 1.                  BLW=00000+2F6,00002F6 8C          
+   000131                     10 WS-B-DEC-DISPLAY-SIGN3 PIC S9(01)V9(09) VALUE 1.                  BLW=00000+2FE,00002FE 10C         
+   000132                     10 WS-B-DEC-DISPLAY-UNSIGN1 PIC 9(01)V9(02) VALUE 1.                 BLW=00000+308,0000308 3C          
+   000133                     10 WS-B-DEC-DISPLAY-UNSIGN2 PIC 9(01)V9(06) VALUE 1.                 BLW=00000+30B,000030B 7C          
+   000134                     10 WS-B-DEC-DISPLAY-UNSIGN3 PIC 9(01)V9(09) VALUE 1.                 BLW=00000+312,0000312 10C         
+   000135                     10 WS-B-DEC-PACKED-SIGN1 PIC S9(01)V9(02) COMP-3 VALUE 1.            BLW=00000+31C,000031C 2P          
+   000136                     10 WS-B-DEC-PACKED-SIGN2 PIC S9(01)V9(07) COMP-3 VALUE 1.            BLW=00000+31E,000031E 5P          
+   000137                     10 WS-B-DEC-PACKED-SIGN3 PIC S9(01)V9(09) COMP-3 VALUE 1.            BLW=00000+323,0000323 6P          
+   000138                     10 WS-B-DEC-PACKED-UNSIGN1 PIC 9(01)V9(02) COMP-3 VALUE 1.           BLW=00000+329,0000329 2P          
+   000139                     10 WS-B-DEC-PACKED-UNSIGN2 PIC 9(01)V9(06) COMP-3 VALUE 1.           BLW=00000+32B,000032B 4P          
+   000140                     10 WS-B-DEC-PACKED-UNSIGN3 PIC 9(01)V9(09) COMP-3 VALUE 1.           BLW=00000+32F,000032F 6P          
+   000141                     10 WS-B-CHAR             PIC X(05) VALUE '1'.                        BLW=00000+335,0000335 5C          
+   000142                     10 WS-B-CHAR-JUST-RIGHT  PIC X(05) JUST RIGHT VALUE '1'.             BLW=00000+33A,000033A 5C          
+   000143                     10 WS-B-CHAR-ZERO        PIC 9(05)                                   BLW=00000+33F,000033F 5C          
+   000144                       BLANK WHEN ZERO VALUE '1'.                                                                           
+   000145                  05 WS-GROUP-WITH-88.                                                    BLW=00000+344,0000344 0CL112      
+   000146                     10 WS-C-BINARY-SIGN1 PIC S9(04) COMP VALUE 1.                        BLW=00000+344,0000344 2C          
+   000147                       88 88-C-BINARY-SIGN11 VALUE 1.                                                                       
+   000148                       88 88-C-BINARY-SIGN12 VALUE ZERO 2 3 4.                            IMP                               
+   000149                     10 WS-C-BINARY-SIGN2 PIC S9(08) COMP VALUE 1.                        BLW=00000+346,0000346 4C          
+   000150                       88 88-C-BINARY-SIGN21 VALUE 1.                                                                       
+   000151                       88 88-C-BINARY-SIGN22 VALUE ZERO 2 3 4.                            IMP                               
+   000152                     10 WS-C-BINARY-SIGN3 PIC S9(10) COMP VALUE 1.                        BLW=00000+34A,000034A 8C          
+   000153                       88 88-C-BINARY-SIGN31 VALUE 1.                                                                       
+   000154                       88 88-C-BINARY-SIGN32 VALUE ZERO 2 3 4.                            IMP                               
+   000155                     10 WS-C-BINARY-UNSIGN1 PIC 9(04) COMP VALUE 1.                       BLW=00000+352,0000352 2C          
+   000156                       88 88-C-BINARY-UNSIGN11 VALUE IS 1.                                                                  
+   000157                       88 88-C-BINARY-UNSIGN12 VALUES ARE ZERO 2 3 , 4.                   IMP                               
+   000158                     10 WS-C-BINARY-UNSIGN2 PIC 9(08) COMP VALUE 1.                       BLW=00000+354,0000354 4C          
+   000159                       88 88-C-BINARY-UNSIGN21 VALUE IS 1.                                                                  
+   000160                       88 88-C-BINARY-UNSIGN22 VALUES ARE ZERO 2 3 , 4.                   IMP                               
+   000161                     10 WS-C-BINARY-UNSIGN3 PIC 9(10) COMP VALUE 1.                       BLW=00000+358,0000358 8C          
+   000162                       88 88-C-BINARY-UNSIGN31 VALUE IS 1.                                                                  
+   000163                       88 88-C-BINARY-UNSIGN32 VALUES ARE ZERO 2 3 , 4.                   IMP                               
+   000164                     10 WS-C-DISPLAY-SIGN1 PIC S9(04) VALUE 1.                            BLW=00000+360,0000360 4C          
+   000165                       88 88-C-DISPLAY-SIGN11 VALUES 1.                                                                     
+   000166                       88 88-C-DISPLAY-SIGN12 VALUE IS 3, 4 ZERO.                         IMP                               
+   000167                     10 WS-C-DISPLAY-SIGN2 PIC S9(08) VALUE 1.                            BLW=00000+364,0000364 8C          
+   000168                       88 88-C-DISPLAY-SIGN21 VALUES 1.                                                                     
+   000169                       88 88-C-DISPLAY-SIGN22 VALUE IS 3, 4 ZERO.                         IMP                               
+   000170                     10 WS-C-DISPLAY-SIGN3 PIC S9(10) VALUE 1.                            BLW=00000+36C,000036C 10C         
+   000171                       88 88-C-DISPLAY-SIGN31 VALUES IS 1.                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000172                       88 88-C-DISPLAY-SIGN32 VALUES IS 3,4 ZERO.                         IMP                               
+                                                                                                                                     
+ ==000172==> IGYDS0001-W A blank was missing before character "4" in column 50.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000173                     10 WS-C-DISPLAY-UNSIGN1 PIC 9(04) VALUE 1.                           BLW=00000+376,0000376 4C          
+   000174                       88 88-C-DISPLAY-UNSIGN11 VALUES ARE 1.                                                               
+   000175                       88 88-C-DISPLAY-UNSIGN12 VALUE  IS 3,4 ZERO.                       IMP                               
+                                                                                                                                     
+ ==000175==> IGYDS0001-W A blank was missing before character "4" in column 52.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000176                     10 WS-C-DISPLAY-UNSIGN2 PIC 9(08) VALUE 1.                           BLW=00000+37A,000037A 8C          
+   000177                       88 88-C-DISPLAY-UNSIGN21 VALUES ARE 1.                                                               
+   000178                       88 88-C-DISPLAY-UNSIGN22 VALUE  IS 3,ZERO,4.                       IMP                               
+                                                                                                                                     
+ ==000178==> IGYDS0001-W A blank was missing before character "Z" in column 52.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000178==> IGYDS0001-W A blank was missing before character "4" in column 57.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000179                     10 WS-C-DISPLAY-UNSIGN3 PIC 9(10) VALUE 1.                           BLW=00000+382,0000382 10C         
+   000180                       88 88-C-DISPLAY-UNSIGN31 VALUES ARE 1.                                                               
+   000181                       88 88-C-DISPLAY-UNSIGN32 VALUE  IS 3,ZERO,4.                       IMP                               
+                                                                                                                                     
+ ==000181==> IGYDS0001-W A blank was missing before character "Z" in column 52.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+ ==000181==> IGYDS0001-W A blank was missing before character "4" in column 57.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000182                     10 WS-C-PACKED-SIGN1 PIC S9(04) COMP-3 VALUE 1.                      BLW=00000+38C,000038C 3P          
+   000183                       88 88-C-PACKED-SIGN11      VALUE      ZERO.                        IMP                               
+   000184                       88 88-C-PACKED-SIGN21   VALUES    3   4   5.                                                         
+   000185                       88 88-C-PACKED-SIGN31   VALUES  10 THRU 100,                                                         
+   000186                                               200 THRU 210                                                                 
+   000187                                               300 THRU 310 5,6.                                                            
+                                                                                                                                     
+ ==000187==> IGYDS0001-W A blank was missing before character "6" in column 54.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000188                     10 WS-C-PACKED-UNSIGN1 PIC 9(04) COMP-3 VALUE 1.                     BLW=00000+38F,000038F 3P          
+   000189                       88 88-C-PACKED-UNSIGN11      VALUE      ZERO.                      IMP                               
+   000190                       88 88-C-PACKED-UNSIGN21   VALUES    3   4   5.                                                       
+   000191                     10 WS-C-DEC-BINARY-SIGN1 PIC S9(01)V9(02) COMP VALUE 1.              BLW=00000+392,0000392 2C          
+   000192                       88 88-C-DEC-BINARY-SIGN11 VALUES ARE 1,2 ZERO 3.                   IMP                               
+                                                                                                                                     
+ ==000192==> IGYDS0001-W A blank was missing before character "2" in column 54.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000193                     10 WS-C-DEC-BINARY-UNSIGN1 PIC 9(01)V9(02) COMP VALUE 1.             BLW=00000+394,0000394 2C          
+   000194                       88 88-C-DEC-BINARY-UNSIGN11 VALUES ARE 1,2 ZERO 3.                 IMP                               
+                                                                                                                                     
+ ==000194==> IGYDS0001-W A blank was missing before character "2" in column 56.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page     8                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000195                     10 WS-C-DEC-DISPLAY-SIGN1 PIC S9(01)V9(02) VALUE 1.                  BLW=00000+396,0000396 3C          
+   000196                       88 88-C-DEC-DISPLAY-SIGN11 VALUE ZERO.                             IMP                               
+   000197                     10 WS-C-DEC-DISPLAY-UNSIGN1 PIC 9(01)V9(02) VALUE 1.                 BLW=00000+399,0000399 3C          
+   000198                       88 88-C-DEC-DISPLAY-UNSIGN11 VALUE ZERO.                           IMP                               
+   000199                     10 WS-C-DEC-PACKED-SIGN1 PIC S9(01)V9(02) COMP-3 VALUE 1.            BLW=00000+39C,000039C 2P          
+   000200                       88 88-C-DEC-PACKED-SIGN11 VALUE IS 0.                                                                
+   000201                     10 WS-C-DEC-PACKED-UNSIGN1 PIC 9(01)V9(02) COMP-3 VALUE 1.           BLW=00000+39E,000039E 2P          
+   000202                       88 88-C-DEC-PACKED-UNSIGN11 VALUE IS ZERO 1 2 3 4.                 IMP                               
+   000203                     10 WS-C-CHAR             PIC X(05) VALUE '1'.                        BLW=00000+3A0,00003A0 5C          
+   000204                       88 88-C-CHAR1   VALUE LOW-VALUES HIGH-VALUES                       IMP IMP                           
+   000205                       SPACES '2'.                                                        IMP                               
+   000206                       88 88-C-CHAR2   VALUES ARE ';' '~' ',' '''' '"'.                                                     
+   000207                       88 88-C-CHAR3   VALUES ARE ';'     .                                                                 
+   000208                       88 88-C-CHAR4   VALUES ARE 'A' THRU 'D'.                                                             
+   000209                     10 WS-C-CHAR-JUST-RIGHT  PIC X(05) JUST RIGHT VALUE '1'.             BLW=00000+3A5,00003A5 5C          
+   000210                       88 88-C-CHAR-JUST-RIGHT1 VALUE LOW-VALUES HIGH-VALUES              IMP IMP                           
+   000211                       SPACES '2'.                                                        IMP                               
+   000212                       88 88-C-CHAR-JUST-RIGHT2 VALUES ARE ';' '~' ',' '''' '"'.                                            
+   000213                       88 88-C-CHAR-JUST-RIGHT3 VALUES ARE ';' .                                                            
+   000214                     10 WS-C-CHAR-ZERO-9      PIC X(05).                                  BLW=00000+3AA,00003AA 5C          
+   000215                     10 WS-C-CHAR-ZERO0 REDEFINES WS-C-CHAR-ZERO-9                        BLW=00000+3AA,00003AA 5C          
+                                                                                                   214                               
+   000216                            PIC 9(05)  BLANK WHEN ZERO.                                                                     
+   000217                     10 WS-C-CHAR-ZERO                                                    BLW=00000+3AF,00003AF 5C          
+   000218                            PIC 9(05)  BLANK WHEN ZERO VALUE '00011'.                                                       
+   000219                       88 88-C-CHAR-ZERO1 VALUE '00111' '12345'.                                                            
+   000220                       88 88-C-CHAR-ZERO2 VALUE '00111'  .                                                                  
+   000221                       88 88-C-CHAR-ZERO1 VALUE  '12345'.                                                                   
+   000222         000820 LOCAL-STORAGE SECTION.                                                                                      
+   000223         000920 LINKAGE SECTION.                                                                                            
+   000224         001020 PROCEDURE DIVISION.                                                                                         
+   000225                     INITIALIZE WS-GROUP.                                                 9                                 
+   000226         001120        GOBACK.                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page     9                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       51   WS-A-BINARY-SIGN1                                                                                                        
+       52   WS-A-BINARY-SIGN2                                                                                                        
+       53   WS-A-BINARY-SIGN3                                                                                                        
+       54   WS-A-BINARY-UNSIGN1                                                                                                      
+       55   WS-A-BINARY-UNSIGN2                                                                                                      
+       56   WS-A-BINARY-UNSIGN3                                                                                                      
+       99   WS-A-CHAR                                                                                                                
+      100   WS-A-CHAR-JUST-RIGHT                                                                                                     
+      102   WS-A-CHAR-ZERO                                                                                                           
+       69   WS-A-DEC-BINARY-SIGN1                                                                                                    
+       71   WS-A-DEC-BINARY-SIGN2                                                                                                    
+       73   WS-A-DEC-BINARY-SIGN3                                                                                                    
+       75   WS-A-DEC-BINARY-UNSIGN1                                                                                                  
+       77   WS-A-DEC-BINARY-UNSIGN2                                                                                                  
+       79   WS-A-DEC-BINARY-UNSIGN3                                                                                                  
+       81   WS-A-DEC-DISPLAY-SIGN1                                                                                                   
+       82   WS-A-DEC-DISPLAY-SIGN2                                                                                                   
+       83   WS-A-DEC-DISPLAY-SIGN3                                                                                                   
+       84   WS-A-DEC-DISPLAY-UNSIGN1                                                                                                 
+       85   WS-A-DEC-DISPLAY-UNSIGN2                                                                                                 
+       86   WS-A-DEC-DISPLAY-UNSIGN3                                                                                                 
+       87   WS-A-DEC-PACKED-SIGN1                                                                                                    
+       89   WS-A-DEC-PACKED-SIGN2                                                                                                    
+       91   WS-A-DEC-PACKED-SIGN3                                                                                                    
+       93   WS-A-DEC-PACKED-UNSIGN1                                                                                                  
+       95   WS-A-DEC-PACKED-UNSIGN2                                                                                                  
+       97   WS-A-DEC-PACKED-UNSIGN3                                                                                                  
+       57   WS-A-DISPLAY-SIGN1                                                                                                       
+       58   WS-A-DISPLAY-SIGN2                                                                                                       
+       59   WS-A-DISPLAY-SIGN3                                                                                                       
+       60   WS-A-DISPLAY-UNSIGN1                                                                                                     
+       61   WS-A-DISPLAY-UNSIGN2                                                                                                     
+       62   WS-A-DISPLAY-UNSIGN3                                                                                                     
+       50   WS-A-GROUP-WITH-ARRAY                                                                                                    
+       63   WS-A-PACKED-SIGN1                                                                                                        
+       64   WS-A-PACKED-SIGN2                                                                                                        
+       65   WS-A-PACKED-SIGN3                                                                                                        
+       66   WS-A-PACKED-UNSIGN1                                                                                                      
+       67   WS-A-PACKED-UNSIGN2                                                                                                      
+       68   WS-A-PACKED-UNSIGN3                                                                                                      
+      105   WS-B-BINARY-SIGN1                                                                                                        
+      106   WS-B-BINARY-SIGN2                                                                                                        
+      107   WS-B-BINARY-SIGN3                                                                                                        
+      108   WS-B-BINARY-UNSIGN1                                                                                                      
+      109   WS-B-BINARY-UNSIGN2                                                                                                      
+      110   WS-B-BINARY-UNSIGN3                                                                                                      
+      141   WS-B-CHAR                                                                                                                
+      142   WS-B-CHAR-JUST-RIGHT                                                                                                     
+      143   WS-B-CHAR-ZERO                                                                                                           
+      123   WS-B-DEC-BINARY-SIGN1                                                                                                    
+      124   WS-B-DEC-BINARY-SIGN2                                                                                                    
+      125   WS-B-DEC-BINARY-SIGN3                                                                                                    
+      126   WS-B-DEC-BINARY-UNSIGN1                                                                                                  
+      127   WS-B-DEC-BINARY-UNSIGN2                                                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page    10                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0     128   WS-B-DEC-BINARY-UNSIGN3                                                                                                  
+      129   WS-B-DEC-DISPLAY-SIGN1                                                                                                   
+      130   WS-B-DEC-DISPLAY-SIGN2                                                                                                   
+      131   WS-B-DEC-DISPLAY-SIGN3                                                                                                   
+      132   WS-B-DEC-DISPLAY-UNSIGN1                                                                                                 
+      133   WS-B-DEC-DISPLAY-UNSIGN2                                                                                                 
+      134   WS-B-DEC-DISPLAY-UNSIGN3                                                                                                 
+      135   WS-B-DEC-PACKED-SIGN1                                                                                                    
+      136   WS-B-DEC-PACKED-SIGN2                                                                                                    
+      137   WS-B-DEC-PACKED-SIGN3                                                                                                    
+      138   WS-B-DEC-PACKED-UNSIGN1                                                                                                  
+      139   WS-B-DEC-PACKED-UNSIGN2                                                                                                  
+      140   WS-B-DEC-PACKED-UNSIGN3                                                                                                  
+      111   WS-B-DISPLAY-SIGN1                                                                                                       
+      112   WS-B-DISPLAY-SIGN2                                                                                                       
+      113   WS-B-DISPLAY-SIGN3                                                                                                       
+      114   WS-B-DISPLAY-UNSIGN1                                                                                                     
+      115   WS-B-DISPLAY-UNSIGN2                                                                                                     
+      116   WS-B-DISPLAY-UNSIGN3                                                                                                     
+      117   WS-B-PACKED-SIGN1                                                                                                        
+      118   WS-B-PACKED-SIGN2                                                                                                        
+      119   WS-B-PACKED-SIGN3                                                                                                        
+      120   WS-B-PACKED-UNSIGN1                                                                                                      
+      121   WS-B-PACKED-UNSIGN2                                                                                                      
+      122   WS-B-PACKED-UNSIGN3                                                                                                      
+       11   WS-BINARY-SIGN1                                                                                                          
+       12   WS-BINARY-SIGN2                                                                                                          
+       13   WS-BINARY-SIGN3                                                                                                          
+       14   WS-BINARY-UNSIGN1                                                                                                        
+       15   WS-BINARY-UNSIGN2                                                                                                        
+       16   WS-BINARY-UNSIGN3                                                                                                        
+      146   WS-C-BINARY-SIGN1                                                                                                        
+      149   WS-C-BINARY-SIGN2                                                                                                        
+      152   WS-C-BINARY-SIGN3                                                                                                        
+      155   WS-C-BINARY-UNSIGN1                                                                                                      
+      158   WS-C-BINARY-UNSIGN2                                                                                                      
+      161   WS-C-BINARY-UNSIGN3                                                                                                      
+      203   WS-C-CHAR                                                                                                                
+      209   WS-C-CHAR-JUST-RIGHT                                                                                                     
+      217   WS-C-CHAR-ZERO                                                                                                           
+      214   WS-C-CHAR-ZERO-9 . . . . . . .  215                                                                                      
+      215   WS-C-CHAR-ZERO0                                                                                                          
+      191   WS-C-DEC-BINARY-SIGN1                                                                                                    
+      193   WS-C-DEC-BINARY-UNSIGN1                                                                                                  
+      195   WS-C-DEC-DISPLAY-SIGN1                                                                                                   
+      197   WS-C-DEC-DISPLAY-UNSIGN1                                                                                                 
+      199   WS-C-DEC-PACKED-SIGN1                                                                                                    
+      201   WS-C-DEC-PACKED-UNSIGN1                                                                                                  
+      164   WS-C-DISPLAY-SIGN1                                                                                                       
+      167   WS-C-DISPLAY-SIGN2                                                                                                       
+      170   WS-C-DISPLAY-SIGN3                                                                                                       
+      173   WS-C-DISPLAY-UNSIGN1                                                                                                     
+      176   WS-C-DISPLAY-UNSIGN2                                                                                                     
+      179   WS-C-DISPLAY-UNSIGN3                                                                                                     
+      182   WS-C-PACKED-SIGN1                                                                                                        
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page    11                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0     188   WS-C-PACKED-UNSIGN1                                                                                                      
+       47   WS-CHAR                                                                                                                  
+       48   WS-CHAR-JUST-RIGHT                                                                                                       
+       49   WS-CHAR-ZERO                                                                                                             
+       29   WS-DEC-BINARY-SIGN1                                                                                                      
+       30   WS-DEC-BINARY-SIGN2                                                                                                      
+       31   WS-DEC-BINARY-SIGN3                                                                                                      
+       32   WS-DEC-BINARY-UNSIGN1                                                                                                    
+       33   WS-DEC-BINARY-UNSIGN2                                                                                                    
+       34   WS-DEC-BINARY-UNSIGN3                                                                                                    
+       35   WS-DEC-DISPLAY-SIGN1                                                                                                     
+       36   WS-DEC-DISPLAY-SIGN2                                                                                                     
+       37   WS-DEC-DISPLAY-SIGN3                                                                                                     
+       38   WS-DEC-DISPLAY-UNSIGN1                                                                                                   
+       39   WS-DEC-DISPLAY-UNSIGN2                                                                                                   
+       40   WS-DEC-DISPLAY-UNSIGN3                                                                                                   
+       41   WS-DEC-PACKED-SIGN1                                                                                                      
+       42   WS-DEC-PACKED-SIGN2                                                                                                      
+       43   WS-DEC-PACKED-SIGN3                                                                                                      
+       44   WS-DEC-PACKED-UNSIGN1                                                                                                    
+       45   WS-DEC-PACKED-UNSIGN2                                                                                                    
+       46   WS-DEC-PACKED-UNSIGN3                                                                                                    
+       17   WS-DISPLAY-SIGN1                                                                                                         
+       18   WS-DISPLAY-SIGN2                                                                                                         
+       19   WS-DISPLAY-SIGN3                                                                                                         
+       20   WS-DISPLAY-UNSIGN1                                                                                                       
+       21   WS-DISPLAY-UNSIGN2                                                                                                       
+       22   WS-DISPLAY-UNSIGN3                                                                                                       
+        9   WS-GROUP . . . . . . . . . . .  M225                                                                                     
+      104   WS-GROUP-WITH-VALUE                                                                                                      
+      145   WS-GROUP-WITH-88                                                                                                         
+       10   WS-GROUP-WITHOUT-VALUE                                                                                                   
+       23   WS-PACKED-SIGN1                                                                                                          
+       24   WS-PACKED-SIGN2                                                                                                          
+       25   WS-PACKED-SIGN3                                                                                                          
+       26   WS-PACKED-UNSIGN1                                                                                                        
+       27   WS-PACKED-UNSIGN2                                                                                                        
+       28   WS-PACKED-UNSIGN3                                                                                                        
+      147   88-C-BINARY-SIGN11                                                                                                       
+      148   88-C-BINARY-SIGN12                                                                                                       
+      150   88-C-BINARY-SIGN21                                                                                                       
+      151   88-C-BINARY-SIGN22                                                                                                       
+      153   88-C-BINARY-SIGN31                                                                                                       
+      154   88-C-BINARY-SIGN32                                                                                                       
+      156   88-C-BINARY-UNSIGN11                                                                                                     
+      157   88-C-BINARY-UNSIGN12                                                                                                     
+      159   88-C-BINARY-UNSIGN21                                                                                                     
+      160   88-C-BINARY-UNSIGN22                                                                                                     
+      162   88-C-BINARY-UNSIGN31                                                                                                     
+      163   88-C-BINARY-UNSIGN32                                                                                                     
+      210   88-C-CHAR-JUST-RIGHT1                                                                                                    
+      212   88-C-CHAR-JUST-RIGHT2                                                                                                    
+      213   88-C-CHAR-JUST-RIGHT3                                                                                                    
+      219   88-C-CHAR-ZERO1                                                                                                          
+      221   88-C-CHAR-ZERO1                                                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page    12                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0     220   88-C-CHAR-ZERO2                                                                                                          
+      204   88-C-CHAR1                                                                                                               
+      206   88-C-CHAR2                                                                                                               
+      207   88-C-CHAR3                                                                                                               
+      208   88-C-CHAR4                                                                                                               
+      192   88-C-DEC-BINARY-SIGN11                                                                                                   
+      194   88-C-DEC-BINARY-UNSIGN11                                                                                                 
+      196   88-C-DEC-DISPLAY-SIGN11                                                                                                  
+      198   88-C-DEC-DISPLAY-UNSIGN11                                                                                                
+      200   88-C-DEC-PACKED-SIGN11                                                                                                   
+      202   88-C-DEC-PACKED-UNSIGN11                                                                                                 
+      165   88-C-DISPLAY-SIGN11                                                                                                      
+      166   88-C-DISPLAY-SIGN12                                                                                                      
+      168   88-C-DISPLAY-SIGN21                                                                                                      
+      169   88-C-DISPLAY-SIGN22                                                                                                      
+      171   88-C-DISPLAY-SIGN31                                                                                                      
+      172   88-C-DISPLAY-SIGN32                                                                                                      
+      174   88-C-DISPLAY-UNSIGN11                                                                                                    
+      175   88-C-DISPLAY-UNSIGN12                                                                                                    
+      177   88-C-DISPLAY-UNSIGN21                                                                                                    
+      178   88-C-DISPLAY-UNSIGN22                                                                                                    
+      180   88-C-DISPLAY-UNSIGN31                                                                                                    
+      181   88-C-DISPLAY-UNSIGN32                                                                                                    
+      183   88-C-PACKED-SIGN11                                                                                                       
+      184   88-C-PACKED-SIGN21                                                                                                       
+      185   88-C-PACKED-SIGN31                                                                                                       
+      189   88-C-PACKED-UNSIGN11                                                                                                     
+      190   88-C-PACKED-UNSIGN21                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page    13                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   TEST1                                                                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page    14                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID TEST1-------------------------------------------------------------------------------------------------------*    
+      9   1  WS-GROUP. . . . . . . . . . . . . . . . . . . BLW=00000  000               DS 0CL948       Group                        
+     10     2  WS-GROUP-WITHOUT-VALUE. . . . . . . . . . . BLW=00000  000   0 000 000   DS 0CL209       Group                        
+     11       3  WS-BINARY-SIGN1 . . . . . . . . . . . . . BLW=00000  000   0 000 000   DS 2C           Binary                       
+     12       3  WS-BINARY-SIGN2 . . . . . . . . . . . . . BLW=00000  002   0 000 002   DS 4C           Binary                       
+     13       3  WS-BINARY-SIGN3 . . . . . . . . . . . . . BLW=00000  006   0 000 006   DS 8C           Binary                       
+     14       3  WS-BINARY-UNSIGN1 . . . . . . . . . . . . BLW=00000  00E   0 000 00E   DS 2C           Binary                       
+     15       3  WS-BINARY-UNSIGN2 . . . . . . . . . . . . BLW=00000  010   0 000 010   DS 4C           Binary                       
+     16       3  WS-BINARY-UNSIGN3 . . . . . . . . . . . . BLW=00000  014   0 000 014   DS 8C           Binary                       
+     17       3  WS-DISPLAY-SIGN1. . . . . . . . . . . . . BLW=00000  01C   0 000 01C   DS 4C           Disp-Num                     
+     18       3  WS-DISPLAY-SIGN2. . . . . . . . . . . . . BLW=00000  020   0 000 020   DS 8C           Disp-Num                     
+     19       3  WS-DISPLAY-SIGN3. . . . . . . . . . . . . BLW=00000  028   0 000 028   DS 10C          Disp-Num                     
+     20       3  WS-DISPLAY-UNSIGN1. . . . . . . . . . . . BLW=00000  032   0 000 032   DS 4C           Disp-Num                     
+     21       3  WS-DISPLAY-UNSIGN2. . . . . . . . . . . . BLW=00000  036   0 000 036   DS 8C           Disp-Num                     
+     22       3  WS-DISPLAY-UNSIGN3. . . . . . . . . . . . BLW=00000  03E   0 000 03E   DS 10C          Disp-Num                     
+     23       3  WS-PACKED-SIGN1 . . . . . . . . . . . . . BLW=00000  048   0 000 048   DS 3P           Packed-Dec                   
+     24       3  WS-PACKED-SIGN2 . . . . . . . . . . . . . BLW=00000  04B   0 000 04B   DS 5P           Packed-Dec                   
+     25       3  WS-PACKED-SIGN3 . . . . . . . . . . . . . BLW=00000  050   0 000 050   DS 6P           Packed-Dec                   
+     26       3  WS-PACKED-UNSIGN1 . . . . . . . . . . . . BLW=00000  056   0 000 056   DS 3P           Packed-Dec                   
+     27       3  WS-PACKED-UNSIGN2 . . . . . . . . . . . . BLW=00000  059   0 000 059   DS 5P           Packed-Dec                   
+     28       3  WS-PACKED-UNSIGN3 . . . . . . . . . . . . BLW=00000  05E   0 000 05E   DS 6P           Packed-Dec                   
+     29       3  WS-DEC-BINARY-SIGN1 . . . . . . . . . . . BLW=00000  064   0 000 064   DS 2C           Binary                       
+     30       3  WS-DEC-BINARY-SIGN2 . . . . . . . . . . . BLW=00000  066   0 000 066   DS 4C           Binary                       
+     31       3  WS-DEC-BINARY-SIGN3 . . . . . . . . . . . BLW=00000  06A   0 000 06A   DS 8C           Binary                       
+     32       3  WS-DEC-BINARY-UNSIGN1 . . . . . . . . . . BLW=00000  072   0 000 072   DS 2C           Binary                       
+     33       3  WS-DEC-BINARY-UNSIGN2 . . . . . . . . . . BLW=00000  074   0 000 074   DS 4C           Binary                       
+     34       3  WS-DEC-BINARY-UNSIGN3 . . . . . . . . . . BLW=00000  078   0 000 078   DS 8C           Binary                       
+     35       3  WS-DEC-DISPLAY-SIGN1. . . . . . . . . . . BLW=00000  080   0 000 080   DS 3C           Disp-Num                     
+     36       3  WS-DEC-DISPLAY-SIGN2. . . . . . . . . . . BLW=00000  083   0 000 083   DS 8C           Disp-Num                     
+     37       3  WS-DEC-DISPLAY-SIGN3. . . . . . . . . . . BLW=00000  08B   0 000 08B   DS 10C          Disp-Num                     
+     38       3  WS-DEC-DISPLAY-UNSIGN1. . . . . . . . . . BLW=00000  095   0 000 095   DS 3C           Disp-Num                     
+     39       3  WS-DEC-DISPLAY-UNSIGN2. . . . . . . . . . BLW=00000  098   0 000 098   DS 7C           Disp-Num                     
+     40       3  WS-DEC-DISPLAY-UNSIGN3. . . . . . . . . . BLW=00000  09F   0 000 09F   DS 10C          Disp-Num                     
+     41       3  WS-DEC-PACKED-SIGN1 . . . . . . . . . . . BLW=00000  0A9   0 000 0A9   DS 2P           Packed-Dec                   
+     42       3  WS-DEC-PACKED-SIGN2 . . . . . . . . . . . BLW=00000  0AB   0 000 0AB   DS 5P           Packed-Dec                   
+     43       3  WS-DEC-PACKED-SIGN3 . . . . . . . . . . . BLW=00000  0B0   0 000 0B0   DS 6P           Packed-Dec                   
+     44       3  WS-DEC-PACKED-UNSIGN1 . . . . . . . . . . BLW=00000  0B6   0 000 0B6   DS 2P           Packed-Dec                   
+     45       3  WS-DEC-PACKED-UNSIGN2 . . . . . . . . . . BLW=00000  0B8   0 000 0B8   DS 4P           Packed-Dec                   
+     46       3  WS-DEC-PACKED-UNSIGN3 . . . . . . . . . . BLW=00000  0BC   0 000 0BC   DS 6P           Packed-Dec                   
+     47       3  WS-CHAR . . . . . . . . . . . . . . . . . BLW=00000  0C2   0 000 0C2   DS 5C           Display                      
+     48       3  WS-CHAR-JUST-RIGHT. . . . . . . . . . . . BLW=00000  0C7   0 000 0C7   DS 5C           Display                      
+     49       3  WS-CHAR-ZERO. . . . . . . . . . . . . . . BLW=00000  0CC   0 000 0CC   DS 5C           Disp-Num-Edit                
+     50     2  WS-A-GROUP-WITH-ARRAY . . . . . . . . . . . BLW=00000  0D1   0 000 0D1   DS 0CL418       Group                        
+     51       3  WS-A-BINARY-SIGN1 . . . . . . . . . . . . BLW=00000  0D1   0 000 0D1   DS 2C           Binary         O             
+     52       3  WS-A-BINARY-SIGN2 . . . . . . . . . . . . BLW=00000  0D5   0 000 0D5   DS 4C           Binary         O             
+     53       3  WS-A-BINARY-SIGN3 . . . . . . . . . . . . BLW=00000  0DD   0 000 0DD   DS 8C           Binary         O             
+     54       3  WS-A-BINARY-UNSIGN1 . . . . . . . . . . . BLW=00000  0ED   0 000 0ED   DS 2C           Binary         O             
+     55       3  WS-A-BINARY-UNSIGN2 . . . . . . . . . . . BLW=00000  0F1   0 000 0F1   DS 4C           Binary         O             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page    15                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+     56       3  WS-A-BINARY-UNSIGN3 . . . . . . . . . . . BLW=00000  0F9   0 000 0F9   DS 8C           Binary         O             
+     57       3  WS-A-DISPLAY-SIGN1. . . . . . . . . . . . BLW=00000  109   0 000 109   DS 4C           Disp-Num       O             
+     58       3  WS-A-DISPLAY-SIGN2. . . . . . . . . . . . BLW=00000  111   0 000 111   DS 8C           Disp-Num       O             
+     59       3  WS-A-DISPLAY-SIGN3. . . . . . . . . . . . BLW=00000  121   0 000 121   DS 10C          Disp-Num       O             
+     60       3  WS-A-DISPLAY-UNSIGN1. . . . . . . . . . . BLW=00000  135   0 000 135   DS 4C           Disp-Num       O             
+     61       3  WS-A-DISPLAY-UNSIGN2. . . . . . . . . . . BLW=00000  13D   0 000 13D   DS 8C           Disp-Num       O             
+     62       3  WS-A-DISPLAY-UNSIGN3. . . . . . . . . . . BLW=00000  14D   0 000 14D   DS 10C          Disp-Num       O             
+     63       3  WS-A-PACKED-SIGN1 . . . . . . . . . . . . BLW=00000  161   0 000 161   DS 3P           Packed-Dec     O             
+     64       3  WS-A-PACKED-SIGN2 . . . . . . . . . . . . BLW=00000  167   0 000 167   DS 5P           Packed-Dec     O             
+     65       3  WS-A-PACKED-SIGN3 . . . . . . . . . . . . BLW=00000  171   0 000 171   DS 6P           Packed-Dec     O             
+     66       3  WS-A-PACKED-UNSIGN1 . . . . . . . . . . . BLW=00000  17D   0 000 17D   DS 3P           Packed-Dec     O             
+     67       3  WS-A-PACKED-UNSIGN2 . . . . . . . . . . . BLW=00000  183   0 000 183   DS 5P           Packed-Dec     O             
+     68       3  WS-A-PACKED-UNSIGN3 . . . . . . . . . . . BLW=00000  18D   0 000 18D   DS 6P           Packed-Dec     O             
+     69       3  WS-A-DEC-BINARY-SIGN1 . . . . . . . . . . BLW=00000  199   0 000 199   DS 2C           Binary         O             
+     71       3  WS-A-DEC-BINARY-SIGN2 . . . . . . . . . . BLW=00000  19D   0 000 19D   DS 4C           Binary         O             
+     73       3  WS-A-DEC-BINARY-SIGN3 . . . . . . . . . . BLW=00000  1A5   0 000 1A5   DS 8C           Binary         O             
+     75       3  WS-A-DEC-BINARY-UNSIGN1 . . . . . . . . . BLW=00000  1B5   0 000 1B5   DS 2C           Binary         O             
+     77       3  WS-A-DEC-BINARY-UNSIGN2 . . . . . . . . . BLW=00000  1B9   0 000 1B9   DS 4C           Binary         O             
+     79       3  WS-A-DEC-BINARY-UNSIGN3 . . . . . . . . . BLW=00000  1C1   0 000 1C1   DS 8C           Binary         O             
+     81       3  WS-A-DEC-DISPLAY-SIGN1. . . . . . . . . . BLW=00000  1D1   0 000 1D1   DS 3C           Disp-Num       O             
+     82       3  WS-A-DEC-DISPLAY-SIGN2. . . . . . . . . . BLW=00000  1D7   0 000 1D7   DS 8C           Disp-Num       O             
+     83       3  WS-A-DEC-DISPLAY-SIGN3. . . . . . . . . . BLW=00000  1E7   0 000 1E7   DS 10C          Disp-Num       O             
+     84       3  WS-A-DEC-DISPLAY-UNSIGN1. . . . . . . . . BLW=00000  1FB   0 000 1FB   DS 3C           Disp-Num       O             
+     85       3  WS-A-DEC-DISPLAY-UNSIGN2. . . . . . . . . BLW=00000  201   0 000 201   DS 7C           Disp-Num       O             
+     86       3  WS-A-DEC-DISPLAY-UNSIGN3. . . . . . . . . BLW=00000  20F   0 000 20F   DS 10C          Disp-Num       O             
+     87       3  WS-A-DEC-PACKED-SIGN1 . . . . . . . . . . BLW=00000  223   0 000 223   DS 2P           Packed-Dec     O             
+     89       3  WS-A-DEC-PACKED-SIGN2 . . . . . . . . . . BLW=00000  227   0 000 227   DS 5P           Packed-Dec     O             
+     91       3  WS-A-DEC-PACKED-SIGN3 . . . . . . . . . . BLW=00000  231   0 000 231   DS 6P           Packed-Dec     O             
+     93       3  WS-A-DEC-PACKED-UNSIGN1 . . . . . . . . . BLW=00000  23D   0 000 23D   DS 2P           Packed-Dec     O             
+     95       3  WS-A-DEC-PACKED-UNSIGN2 . . . . . . . . . BLW=00000  241   0 000 241   DS 4P           Packed-Dec     O             
+     97       3  WS-A-DEC-PACKED-UNSIGN3 . . . . . . . . . BLW=00000  249   0 000 249   DS 6P           Packed-Dec     O             
+     99       3  WS-A-CHAR . . . . . . . . . . . . . . . . BLW=00000  255   0 000 255   DS 5C           Display        O             
+    100       3  WS-A-CHAR-JUST-RIGHT. . . . . . . . . . . BLW=00000  25F   0 000 25F   DS 5C           Display        O             
+    102       3  WS-A-CHAR-ZERO. . . . . . . . . . . . . . BLW=00000  269   0 000 269   DS 5C           Disp-Num-Edit  O             
+    104     2  WS-GROUP-WITH-VALUE . . . . . . . . . . . . BLW=00000  273   0 000 273   DS 0CL209       Group                        
+    105       3  WS-B-BINARY-SIGN1 . . . . . . . . . . . . BLW=00000  273   0 000 273   DS 2C           Binary                       
+    106       3  WS-B-BINARY-SIGN2 . . . . . . . . . . . . BLW=00000  275   0 000 275   DS 4C           Binary                       
+    107       3  WS-B-BINARY-SIGN3 . . . . . . . . . . . . BLW=00000  279   0 000 279   DS 8C           Binary                       
+    108       3  WS-B-BINARY-UNSIGN1 . . . . . . . . . . . BLW=00000  281   0 000 281   DS 2C           Binary                       
+    109       3  WS-B-BINARY-UNSIGN2 . . . . . . . . . . . BLW=00000  283   0 000 283   DS 4C           Binary                       
+    110       3  WS-B-BINARY-UNSIGN3 . . . . . . . . . . . BLW=00000  287   0 000 287   DS 8C           Binary                       
+    111       3  WS-B-DISPLAY-SIGN1. . . . . . . . . . . . BLW=00000  28F   0 000 28F   DS 4C           Disp-Num                     
+    112       3  WS-B-DISPLAY-SIGN2. . . . . . . . . . . . BLW=00000  293   0 000 293   DS 8C           Disp-Num                     
+    113       3  WS-B-DISPLAY-SIGN3. . . . . . . . . . . . BLW=00000  29B   0 000 29B   DS 10C          Disp-Num                     
+    114       3  WS-B-DISPLAY-UNSIGN1. . . . . . . . . . . BLW=00000  2A5   0 000 2A5   DS 4C           Disp-Num                     
+    115       3  WS-B-DISPLAY-UNSIGN2. . . . . . . . . . . BLW=00000  2A9   0 000 2A9   DS 8C           Disp-Num                     
+    116       3  WS-B-DISPLAY-UNSIGN3. . . . . . . . . . . BLW=00000  2B1   0 000 2B1   DS 10C          Disp-Num                     
+    117       3  WS-B-PACKED-SIGN1 . . . . . . . . . . . . BLW=00000  2BB   0 000 2BB   DS 3P           Packed-Dec                   
+    118       3  WS-B-PACKED-SIGN2 . . . . . . . . . . . . BLW=00000  2BE   0 000 2BE   DS 5P           Packed-Dec                   
+    119       3  WS-B-PACKED-SIGN3 . . . . . . . . . . . . BLW=00000  2C3   0 000 2C3   DS 6P           Packed-Dec                   
+    120       3  WS-B-PACKED-UNSIGN1 . . . . . . . . . . . BLW=00000  2C9   0 000 2C9   DS 3P           Packed-Dec                   
+    121       3  WS-B-PACKED-UNSIGN2 . . . . . . . . . . . BLW=00000  2CC   0 000 2CC   DS 5P           Packed-Dec                   
+    122       3  WS-B-PACKED-UNSIGN3 . . . . . . . . . . . BLW=00000  2D1   0 000 2D1   DS 6P           Packed-Dec                   
+    123       3  WS-B-DEC-BINARY-SIGN1 . . . . . . . . . . BLW=00000  2D7   0 000 2D7   DS 2C           Binary                       
+    124       3  WS-B-DEC-BINARY-SIGN2 . . . . . . . . . . BLW=00000  2D9   0 000 2D9   DS 4C           Binary                       
+    125       3  WS-B-DEC-BINARY-SIGN3 . . . . . . . . . . BLW=00000  2DD   0 000 2DD   DS 8C           Binary                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page    16                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+    126       3  WS-B-DEC-BINARY-UNSIGN1 . . . . . . . . . BLW=00000  2E5   0 000 2E5   DS 2C           Binary                       
+    127       3  WS-B-DEC-BINARY-UNSIGN2 . . . . . . . . . BLW=00000  2E7   0 000 2E7   DS 4C           Binary                       
+    128       3  WS-B-DEC-BINARY-UNSIGN3 . . . . . . . . . BLW=00000  2EB   0 000 2EB   DS 8C           Binary                       
+    129       3  WS-B-DEC-DISPLAY-SIGN1. . . . . . . . . . BLW=00000  2F3   0 000 2F3   DS 3C           Disp-Num                     
+    130       3  WS-B-DEC-DISPLAY-SIGN2. . . . . . . . . . BLW=00000  2F6   0 000 2F6   DS 8C           Disp-Num                     
+    131       3  WS-B-DEC-DISPLAY-SIGN3. . . . . . . . . . BLW=00000  2FE   0 000 2FE   DS 10C          Disp-Num                     
+    132       3  WS-B-DEC-DISPLAY-UNSIGN1. . . . . . . . . BLW=00000  308   0 000 308   DS 3C           Disp-Num                     
+    133       3  WS-B-DEC-DISPLAY-UNSIGN2. . . . . . . . . BLW=00000  30B   0 000 30B   DS 7C           Disp-Num                     
+    134       3  WS-B-DEC-DISPLAY-UNSIGN3. . . . . . . . . BLW=00000  312   0 000 312   DS 10C          Disp-Num                     
+    135       3  WS-B-DEC-PACKED-SIGN1 . . . . . . . . . . BLW=00000  31C   0 000 31C   DS 2P           Packed-Dec                   
+    136       3  WS-B-DEC-PACKED-SIGN2 . . . . . . . . . . BLW=00000  31E   0 000 31E   DS 5P           Packed-Dec                   
+    137       3  WS-B-DEC-PACKED-SIGN3 . . . . . . . . . . BLW=00000  323   0 000 323   DS 6P           Packed-Dec                   
+    138       3  WS-B-DEC-PACKED-UNSIGN1 . . . . . . . . . BLW=00000  329   0 000 329   DS 2P           Packed-Dec                   
+    139       3  WS-B-DEC-PACKED-UNSIGN2 . . . . . . . . . BLW=00000  32B   0 000 32B   DS 4P           Packed-Dec                   
+    140       3  WS-B-DEC-PACKED-UNSIGN3 . . . . . . . . . BLW=00000  32F   0 000 32F   DS 6P           Packed-Dec                   
+    141       3  WS-B-CHAR . . . . . . . . . . . . . . . . BLW=00000  335   0 000 335   DS 5C           Display                      
+    142       3  WS-B-CHAR-JUST-RIGHT. . . . . . . . . . . BLW=00000  33A   0 000 33A   DS 5C           Display                      
+    143       3  WS-B-CHAR-ZERO. . . . . . . . . . . . . . BLW=00000  33F   0 000 33F   DS 5C           Disp-Num-Edit                
+    145     2  WS-GROUP-WITH-88. . . . . . . . . . . . . . BLW=00000  344   0 000 344   DS 0CL112       Group                        
+    146       3  WS-C-BINARY-SIGN1 . . . . . . . . . . . . BLW=00000  344   0 000 344   DS 2C           Binary                       
+    147       88 88-C-BINARY-SIGN11. . . . . . . . . . . .                                                                           
+    148       88 88-C-BINARY-SIGN12. . . . . . . . . . . .                                                                           
+    149       3  WS-C-BINARY-SIGN2 . . . . . . . . . . . . BLW=00000  346   0 000 346   DS 4C           Binary                       
+    150       88 88-C-BINARY-SIGN21. . . . . . . . . . . .                                                                           
+    151       88 88-C-BINARY-SIGN22. . . . . . . . . . . .                                                                           
+    152       3  WS-C-BINARY-SIGN3 . . . . . . . . . . . . BLW=00000  34A   0 000 34A   DS 8C           Binary                       
+    153       88 88-C-BINARY-SIGN31. . . . . . . . . . . .                                                                           
+    154       88 88-C-BINARY-SIGN32. . . . . . . . . . . .                                                                           
+    155       3  WS-C-BINARY-UNSIGN1 . . . . . . . . . . . BLW=00000  352   0 000 352   DS 2C           Binary                       
+    156       88 88-C-BINARY-UNSIGN11. . . . . . . . . . .                                                                           
+    157       88 88-C-BINARY-UNSIGN12. . . . . . . . . . .                                                                           
+    158       3  WS-C-BINARY-UNSIGN2 . . . . . . . . . . . BLW=00000  354   0 000 354   DS 4C           Binary                       
+    159       88 88-C-BINARY-UNSIGN21. . . . . . . . . . .                                                                           
+    160       88 88-C-BINARY-UNSIGN22. . . . . . . . . . .                                                                           
+    161       3  WS-C-BINARY-UNSIGN3 . . . . . . . . . . . BLW=00000  358   0 000 358   DS 8C           Binary                       
+    162       88 88-C-BINARY-UNSIGN31. . . . . . . . . . .                                                                           
+    163       88 88-C-BINARY-UNSIGN32. . . . . . . . . . .                                                                           
+    164       3  WS-C-DISPLAY-SIGN1. . . . . . . . . . . . BLW=00000  360   0 000 360   DS 4C           Disp-Num                     
+    165       88 88-C-DISPLAY-SIGN11 . . . . . . . . . . .                                                                           
+    166       88 88-C-DISPLAY-SIGN12 . . . . . . . . . . .                                                                           
+    167       3  WS-C-DISPLAY-SIGN2. . . . . . . . . . . . BLW=00000  364   0 000 364   DS 8C           Disp-Num                     
+    168       88 88-C-DISPLAY-SIGN21 . . . . . . . . . . .                                                                           
+    169       88 88-C-DISPLAY-SIGN22 . . . . . . . . . . .                                                                           
+    170       3  WS-C-DISPLAY-SIGN3. . . . . . . . . . . . BLW=00000  36C   0 000 36C   DS 10C          Disp-Num                     
+    171       88 88-C-DISPLAY-SIGN31 . . . . . . . . . . .                                                                           
+    172       88 88-C-DISPLAY-SIGN32 . . . . . . . . . . .                                                                           
+    173       3  WS-C-DISPLAY-UNSIGN1. . . . . . . . . . . BLW=00000  376   0 000 376   DS 4C           Disp-Num                     
+    174       88 88-C-DISPLAY-UNSIGN11 . . . . . . . . . .                                                                           
+    175       88 88-C-DISPLAY-UNSIGN12 . . . . . . . . . .                                                                           
+    176       3  WS-C-DISPLAY-UNSIGN2. . . . . . . . . . . BLW=00000  37A   0 000 37A   DS 8C           Disp-Num                     
+    177       88 88-C-DISPLAY-UNSIGN21 . . . . . . . . . .                                                                           
+    178       88 88-C-DISPLAY-UNSIGN22 . . . . . . . . . .                                                                           
+    179       3  WS-C-DISPLAY-UNSIGN3. . . . . . . . . . . BLW=00000  382   0 000 382   DS 10C          Disp-Num                     
+    180       88 88-C-DISPLAY-UNSIGN31 . . . . . . . . . .                                                                           
+    181       88 88-C-DISPLAY-UNSIGN32 . . . . . . . . . .                                                                           
+    182       3  WS-C-PACKED-SIGN1 . . . . . . . . . . . . BLW=00000  38C   0 000 38C   DS 3P           Packed-Dec                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page    17                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+    183       88 88-C-PACKED-SIGN11. . . . . . . . . . . .                                                                           
+    184       88 88-C-PACKED-SIGN21. . . . . . . . . . . .                                                                           
+    185       88 88-C-PACKED-SIGN31. . . . . . . . . . . .                                                                           
+    188       3  WS-C-PACKED-UNSIGN1 . . . . . . . . . . . BLW=00000  38F   0 000 38F   DS 3P           Packed-Dec                   
+    189       88 88-C-PACKED-UNSIGN11. . . . . . . . . . .                                                                           
+    190       88 88-C-PACKED-UNSIGN21. . . . . . . . . . .                                                                           
+    191       3  WS-C-DEC-BINARY-SIGN1 . . . . . . . . . . BLW=00000  392   0 000 392   DS 2C           Binary                       
+    192       88 88-C-DEC-BINARY-SIGN11. . . . . . . . . .                                                                           
+    193       3  WS-C-DEC-BINARY-UNSIGN1 . . . . . . . . . BLW=00000  394   0 000 394   DS 2C           Binary                       
+    194       88 88-C-DEC-BINARY-UNSIGN11. . . . . . . . .                                                                           
+    195       3  WS-C-DEC-DISPLAY-SIGN1. . . . . . . . . . BLW=00000  396   0 000 396   DS 3C           Disp-Num                     
+    196       88 88-C-DEC-DISPLAY-SIGN11 . . . . . . . . .                                                                           
+    197       3  WS-C-DEC-DISPLAY-UNSIGN1. . . . . . . . . BLW=00000  399   0 000 399   DS 3C           Disp-Num                     
+    198       88 88-C-DEC-DISPLAY-UNSIGN11 . . . . . . . .                                                                           
+    199       3  WS-C-DEC-PACKED-SIGN1 . . . . . . . . . . BLW=00000  39C   0 000 39C   DS 2P           Packed-Dec                   
+    200       88 88-C-DEC-PACKED-SIGN11. . . . . . . . . .                                                                           
+    201       3  WS-C-DEC-PACKED-UNSIGN1 . . . . . . . . . BLW=00000  39E   0 000 39E   DS 2P           Packed-Dec                   
+    202       88 88-C-DEC-PACKED-UNSIGN11. . . . . . . . .                                                                           
+    203       3  WS-C-CHAR . . . . . . . . . . . . . . . . BLW=00000  3A0   0 000 3A0   DS 5C           Display                      
+    204       88 88-C-CHAR1. . . . . . . . . . . . . . . .                                                                           
+    206       88 88-C-CHAR2. . . . . . . . . . . . . . . .                                                                           
+    207       88 88-C-CHAR3. . . . . . . . . . . . . . . .                                                                           
+    208       88 88-C-CHAR4. . . . . . . . . . . . . . . .                                                                           
+    209       3  WS-C-CHAR-JUST-RIGHT. . . . . . . . . . . BLW=00000  3A5   0 000 3A5   DS 5C           Display                      
+    210       88 88-C-CHAR-JUST-RIGHT1 . . . . . . . . . .                                                                           
+    212       88 88-C-CHAR-JUST-RIGHT2 . . . . . . . . . .                                                                           
+    213       88 88-C-CHAR-JUST-RIGHT3 . . . . . . . . . .                                                                           
+    214       3  WS-C-CHAR-ZERO-9. . . . . . . . . . . . . BLW=00000  3AA   0 000 3AA   DS 5C           Display                      
+    215       3  WS-C-CHAR-ZERO0 . . . . . . . . . . . . . BLW=00000  3AA   0 000 3AA   DS 5C           Disp-Num-Edit  R             
+    217       3  WS-C-CHAR-ZERO. . . . . . . . . . . . . . BLW=00000  3AF   0 000 3AF   DS 5C           Disp-Num-Edit                
+    219       88 88-C-CHAR-ZERO1 . . . . . . . . . . . . .                                                                           
+    220       88 88-C-CHAR-ZERO2 . . . . . . . . . . . . .                                                                           
+    221       88 88-C-CHAR-ZERO1 . . . . . . . . . . . . .                                                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page    18                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 00002C BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 00029C FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |    
+ 00011C  (LIT+32)     4040                                                                     |                                |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page    19                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000128 FOR 000174 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000130  (LIT+0)      00000000 00000000 00000000 3B9ACA00 00000000 00000001 FFFFFFFC 00001000  |................................|    
+ 000150  (LIT+32)     000F4240 00989680 0064E2E8 E2D6E4E3 4040C9C7 E9E2D9E3 C3C44040 404040E3  |... .qo...SYSOUT  IGZSRTCD     T|    
+ 000170  (LIT+64)     C5E2E3F1 F0F0F0F1 F1F14040 40400000 0000000F 00000000 000C0100 0000000F  |EST1000111    ..................|    
+ 000190  (LIT+96)     01000000 000C0000 0000001F 00000000 001C0100 00000C10 00000F10 0F100C00  |................................|    
+ 0001B0  (LIT+128)    00000000 00012C00 00000100 00013000 00000100 00000000 00000000 00000000  |................................|    
+ 0001D0  (LIT+160)    00000000 00000000 00000000 00000000 00000000 00000080 00000040 00000000  |........................... ....|    
+ 0001F0  (LIT+192)    00000000 000000F0 F0F0F0F0 F0F0F0F0 F0F0F0F0 F0F0F0F0 F0F0C0F1 F0F0F0F0  |.......0000000000000000000.10000|    
+ 000210  (LIT+224)    F0F0F0F0 F0F1F0F0 F0F0F0F0 F0F0C0F0 F0F0F0F0 F0F0F0F0 F1F0F0F0 F0F0F0F0  |00000100000000.00000000010000000|    
+ 000230  (LIT+256)    F0F0C1F0 F0F0F0F0 F0F0C0F1 F0F0F0F0 F0F0C0F0 F0F0F0F0 F0F0F1F0 F0F0F0F0  |00A0000000.1000000.0000000100000|    
+ 000250  (LIT+288)    F0F0C1F0 F0F0F1F0 F0F0C1F1 F0C04000 00000000 00000000 00000000 00004000  |00A0001000A10. ............... .|    
+ 000270  (LIT+320)    00000025 C00001C0 00050800 00240047 40000000 0040C000 01400005 08000024  |................ .... ... ......|    
+ 000290  (LIT+352)    004702C0 00050800 00240047                                               |............                    |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000225 00055C INITIALIZE                    000226 000CA0 GOBACK                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page    20                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page    21                
+0                   *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  SAVE AREA FOR FLOAT REGISTERS 8-15                                                                       
+                  00000110  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  00000120  VARIABLE-LENGTH CELLS                                                                                    
+                  00000138  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000140  PERFORM SAVE CELLS                                                                                       
+                  00000148  TEMPORARY STORAGE-2                                                                                      
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000148 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 000003B4 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 00000158 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 000D58                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 000E90 FOR LENGTH 000088                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               TEST1     Date 04/13/2022  Time 10:24:22   Page    22                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYSC0205-W   Warning message(s) were issued during library phase processing.  Refer to the beginning of the listing.       
+                                                                                                                                     
+    172  IGYDS0001-W   A blank was missing before character "4" in column 50.  A blank was assumed.                                  
+                                                                                                                                     
+    175  IGYDS0001-W   A blank was missing before character "4" in column 52.  A blank was assumed.                                  
+                                                                                                                                     
+    178  IGYDS0001-W   A blank was missing before character "Z" in column 52.  A blank was assumed.                                  
+                                                                                                                                     
+                       Same message on line:    181                                                                                  
+                                                                                                                                     
+    178  IGYDS0001-W   A blank was missing before character "4" in column 57.  A blank was assumed.                                  
+                                                                                                                                     
+                       Same message on line:    181                                                                                  
+                                                                                                                                     
+    187  IGYDS0001-W   A blank was missing before character "6" in column 54.  A blank was assumed.                                  
+                                                                                                                                     
+    192  IGYDS0001-W   A blank was missing before character "2" in column 54.  A blank was assumed.                                  
+                                                                                                                                     
+    194  IGYDS0001-W   A blank was missing before character "2" in column 56.  A blank was assumed.                                  
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:      10                         10                                                                                         
+-* Statistics for COBOL program TEST1:                                                                                               
+ *    Source records = 226                                                                                                           
+ *    Data Division statements = 192                                                                                                 
+ *    Procedure Division statements = 2                                                                                              
+0End of compilation 1,  program TEST1,  highest severity 4.                                                                          
+0Return code 4                                                                                                                       

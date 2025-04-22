@@ -1,0 +1,7 @@
+* MOVE OVERRIDDEN (99) RECORDS TO THE BOTTOM WITH THE ACCEPTED (00)             
+* RECORDS                                                                       
+ INREC  IFTHEN=(WHEN=(451,2,CH,EQ,C'99'),                                       
+                OVERLAY=(451:X'0000'))                                          
+ OUTREC IFTHEN=(WHEN=(451,2,BI,EQ,X'0000'),                                     
+                OVERLAY=(451:C'99'))                                            
+ SORT FIELDS=(451,2,BI,D,2,12,BI,A)                                             

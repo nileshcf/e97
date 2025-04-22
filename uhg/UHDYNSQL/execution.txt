@@ -1,0 +1,866 @@
+   _____   _                       _   ______                                       
+  / ____| | |                     | | |  ____|                                     
+ | |      | |   ___    _   _    __| | | |__     _ __    __ _   _ __ ___     ___    
+ | |      | |  / _ \  | | | |  / _` | |  __|   | '__|  / _` | | '_ ` _ \   / _ \
+ | |____  | | | (_) | | |_| | | (_| | | |      | |    | (_| | | | | | | | |  __/
+  \_____| |_|  \___/   \__,_|  \__,_| |_|      |_|     \__,_| |_| |_| |_|  \___|
+
+07:07:27.648 [main] INFO  o.s.boot.StartupInfoLogger.logStarting   50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1319207 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/uhg/UHDYNSQL/UHDYNSQL/target/UHDYNSQL-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/uhg/UHDYNSQL/UHDYNSQL)
+07:07:27.659 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo  654 - No active profile set, falling back to 1 default profile: "default"
+07:07:29.793 [main] INFO  c.c.a.dao.CFDataSourceConfiguration.dataSourceStatus  165 - CFDataSourceConfiguration initialization status...
+07:07:29.794 [main] INFO  c.c.a.dao.CFDataSourceConfiguration.dataSourceStatus  172 - Databse Datasource initialized.
+07:07:30.082 [main] INFO  o.s.boot.StartupInfoLogger.logStarted   56 - Started CFApplication in 4.043 seconds (process running for 5.292)
+07:07:30.097 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo  107 - CFDataConnectIO version : 5.0.0.21
+07:07:30.472 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  109 - HikariPool-1 - Starting...
+07:07:30.867 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast  554 - HikariPool-1 - Added connection com.ibm.db2.jcc.t4.b@19a64eae
+07:07:30.872 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  122 - HikariPool-1 - Start completed.
+07:07:30.983 [main] INFO  com.cloudframe.app.process.Uhdynsql.buildSql  313 - SQL : 
+07:07:30.984 [main] INFO  com.cloudframe.app.process.Uhdynsql.buildSql  315 -       SELECT WIDGET_NUM, WIDGET_COLOR, WIDGET_SIZE, WIDGET_PRICE, WIDGET_SUPPLIER, WIDGET_DESC, WIDGET_MAN
+07:07:30.984 [main] INFO  com.cloudframe.app.process.Uhdynsql.buildSql  317 -       U_PLANT, WIDGET_MANU_COST, WIDGET_LEAD_TIME FROM TBWIDGET    WHERE WIDGET_COLOR IN (?,?)      AND WI
+07:07:30.984 [main] INFO  com.cloudframe.app.process.Uhdynsql.buildSql  319 -       DGET_SUPPLIER NOT LIKE ?    ORDER BY WIDGET_NUM ASC                                                 
+07:07:30.985 [main] INFO  com.cloudframe.app.process.Uhdynsql.buildSql  321 -                                                                                                           
+07:07:30.985 [main] INFO  com.cloudframe.app.process.Uhdynsql.buildSql  323 -                                                                                                           
+07:07:31.023 [main] INFO  com.cloudframe.app.process.Uhdynsql.prepareAndOpen  486 - MARKER VALUES : BLUE   YELLOW B%      
+07:07:31.024 [main] INFO  com.cloudframe.app.process.Uhdynsql.prepareAndOpen  489 -  
+07:07:31.078 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.079 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000002
+07:07:31.079 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.080 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.080 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.081 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.081 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.081 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.082 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.082 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.083 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.083 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000004
+07:07:31.083 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.083 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.084 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 2050
+07:07:31.084 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ARROW   
+07:07:31.084 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.085 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.085 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.085 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.086 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.086 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000005
+07:07:31.087 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.087 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.087 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 2050
+07:07:31.087 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ARROW   
+07:07:31.088 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.088 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.088 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.089 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.090 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.090 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000006
+07:07:31.090 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.091 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.092 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 12345
+07:07:31.092 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = Balaji2 
+07:07:31.092 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.092 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.093 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.093 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.094 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.094 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000007
+07:07:31.094 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.095 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.095 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.095 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.096 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.096 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.096 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.097 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.098 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.098 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000008
+07:07:31.098 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.099 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.099 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.099 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.100 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.101 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.101 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.101 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.102 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.103 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000009
+07:07:31.103 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.104 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.104 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 54321
+07:07:31.104 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = Balaji2 
+07:07:31.105 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.105 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.105 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.106 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.107 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.107 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000010
+07:07:31.108 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.108 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.109 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.109 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.109 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.110 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.110 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.110 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.111 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.112 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000011
+07:07:31.112 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.112 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.112 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.113 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = INTERNAL
+07:07:31.113 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.113 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.114 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.114 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.115 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.115 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000012
+07:07:31.115 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.116 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.116 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.117 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.117 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.118 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.118 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.118 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.119 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.120 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000013
+07:07:31.120 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.120 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.121 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.121 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.122 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.122 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.123 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.123 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.124 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.125 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000014
+07:07:31.125 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.126 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.126 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.126 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.127 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.127 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.127 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.128 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.129 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.129 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000015
+07:07:31.129 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.129 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.130 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.130 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = INTERNAL
+07:07:31.130 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.130 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.131 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.131 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.132 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.132 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000016
+07:07:31.132 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.132 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.133 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.133 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.133 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.133 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.134 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.134 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.135 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.135 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000017
+07:07:31.135 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.136 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.136 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.136 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.136 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.137 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.137 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.137 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.138 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.139 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000018
+07:07:31.139 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.139 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.140 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.140 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.140 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.140 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.141 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.141 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.142 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.142 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000019
+07:07:31.142 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.143 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.143 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3325
+07:07:31.143 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.143 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.144 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.144 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.144 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.145 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.145 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000020
+07:07:31.145 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.146 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.146 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.146 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.147 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.147 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.147 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.148 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.148 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.149 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000021
+07:07:31.149 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.149 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.150 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.150 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = INTERNAL
+07:07:31.150 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.150 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.151 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.151 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.152 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.152 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000022
+07:07:31.152 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.152 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.152 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.153 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.153 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.153 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.153 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.153 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.154 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.154 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000023
+07:07:31.155 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.155 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.155 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.155 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.156 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.156 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.156 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.156 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.157 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.157 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000024
+07:07:31.157 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.158 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.158 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.158 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.158 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.159 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.159 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.159 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.160 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.160 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000025
+07:07:31.160 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.160 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.161 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.161 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = INTERNAL
+07:07:31.161 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.161 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.162 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.162 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.163 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.163 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000026
+07:07:31.163 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.163 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.164 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.164 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.164 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.164 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.165 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.165 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.166 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.167 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000027
+07:07:31.167 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.167 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.167 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.168 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.168 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.168 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.169 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.169 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.170 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.170 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000028
+07:07:31.170 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.171 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.171 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.171 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.171 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.171 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.171 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.171 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.172 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.172 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000029
+07:07:31.173 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.173 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.173 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.173 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = INTERNAL
+07:07:31.173 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.173 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.174 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.174 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.174 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.174 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000030
+07:07:31.174 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.175 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.175 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.175 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.175 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.175 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.176 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.176 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.177 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.177 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000031
+07:07:31.178 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.178 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.178 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.179 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = INTERNAL
+07:07:31.179 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.179 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.179 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.180 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.181 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.181 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000032
+07:07:31.181 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.181 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.181 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.181 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.181 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.182 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.182 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.182 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.183 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.183 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000033
+07:07:31.183 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.183 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.184 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.184 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.184 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.185 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.185 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.185 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.186 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.187 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000034
+07:07:31.187 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.187 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.187 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.188 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.188 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.188 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.188 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.188 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.189 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.189 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000035
+07:07:31.189 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.190 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.190 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.190 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = INTERNAL
+07:07:31.190 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.190 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.190 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.190 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.191 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.191 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000036
+07:07:31.191 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.191 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.192 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.192 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.192 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.192 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.193 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.193 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.194 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.195 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000037
+07:07:31.195 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.195 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.195 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.196 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.196 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.196 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.196 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.196 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.197 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.197 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000038
+07:07:31.197 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.198 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.198 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.198 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.198 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.198 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.199 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.199 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.199 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.199 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000039
+07:07:31.199 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.200 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.200 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.200 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = INTERNAL
+07:07:31.200 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.201 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.201 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.201 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.202 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.202 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000040
+07:07:31.202 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.203 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.203 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.203 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.203 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.204 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.204 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.204 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.205 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.205 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000041
+07:07:31.205 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.205 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.205 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 20
+07:07:31.206 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = 1       
+07:07:31.206 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.206 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.206 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.206 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.207 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.207 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000042
+07:07:31.207 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.207 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.208 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.208 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.208 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.208 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.208 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.208 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.209 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.209 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000043
+07:07:31.209 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.210 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.210 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.210 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.210 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.210 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.210 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.210 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.211 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.211 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000044
+07:07:31.211 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.211 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.211 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.211 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.212 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.212 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.212 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.212 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.213 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.213 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000045
+07:07:31.213 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.213 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.213 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.213 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = INTERNAL
+07:07:31.214 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.214 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.214 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.214 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.215 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.215 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000046
+07:07:31.215 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.215 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.215 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.215 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.215 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.215 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.215 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.215 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.216 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.216 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000047
+07:07:31.216 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.216 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.216 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.216 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.216 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.217 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.217 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.217 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.217 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.217 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000048
+07:07:31.217 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.217 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.217 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.218 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.218 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.218 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.218 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.218 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.218 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.218 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000049
+07:07:31.219 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.219 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.219 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.219 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = INTERNAL
+07:07:31.219 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.219 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.219 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.220 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.220 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.220 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000050
+07:07:31.220 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.221 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.221 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 1500
+07:07:31.221 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = ACME    
+07:07:31.221 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLARGE WIDGET       
+07:07:31.221 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.221 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.221 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.222 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.222 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000051
+07:07:31.222 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = YELLOW
+07:07:31.222 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = S
+07:07:31.223 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3645
+07:07:31.223 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      = RALPH   
+07:07:31.223 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = SMALL Y WIDGET      
+07:07:31.223 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.223 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.223 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.224 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.224 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000058
+07:07:31.224 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = YELLOW
+07:07:31.224 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.224 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.224 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.225 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+07:07:31.225 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.225 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.225 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.226 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.226 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000059
+07:07:31.226 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.226 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = P
+07:07:31.226 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.226 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.226 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.226 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.227 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.227 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.227 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.227 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000061
+07:07:31.228 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.228 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = M
+07:07:31.228 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.228 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.228 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.228 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.228 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.229 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.229 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.229 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000064
+07:07:31.229 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = YELLOW
+07:07:31.229 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = P
+07:07:31.230 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.230 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.230 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+07:07:31.230 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.230 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.230 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.231 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.231 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000066
+07:07:31.231 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.231 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = M
+07:07:31.231 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.231 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.232 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.232 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.232 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.232 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.232 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.232 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000067
+07:07:31.232 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = YELLOW
+07:07:31.232 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = L
+07:07:31.233 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.233 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.233 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+07:07:31.233 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.233 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.233 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.233 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.234 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000072
+07:07:31.234 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = YELLOW
+07:07:31.234 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = S
+07:07:31.234 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.234 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.234 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+07:07:31.234 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.234 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.234 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.235 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.235 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000073
+07:07:31.235 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.235 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = M
+07:07:31.235 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.235 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.235 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.236 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.236 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.236 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.236 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.236 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000076
+07:07:31.236 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = YELLOW
+07:07:31.236 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = P
+07:07:31.236 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.236 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.237 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+07:07:31.237 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.237 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.237 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.237 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.237 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000077
+07:07:31.237 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.238 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = S
+07:07:31.238 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.238 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.238 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.238 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.238 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.238 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.238 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.239 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000080
+07:07:31.239 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = YELLOW
+07:07:31.239 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = S
+07:07:31.239 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.239 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.239 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+07:07:31.239 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.239 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.239 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.240 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.240 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000081
+07:07:31.240 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.240 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.240 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.240 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.240 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.240 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.241 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.241 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.241 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.241 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000085
+07:07:31.241 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.241 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.241 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.241 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.242 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.242 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.242 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.242 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.242 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.242 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000087
+07:07:31.242 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.243 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = S
+07:07:31.243 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.243 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.243 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.243 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.243 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.243 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.244 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.244 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000090
+07:07:31.244 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.244 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.244 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.244 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.245 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.245 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.245 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.245 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.245 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.246 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000093
+07:07:31.246 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = YELLOW
+07:07:31.246 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = M
+07:07:31.246 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.246 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.246 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+07:07:31.246 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.246 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.246 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.247 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.247 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000094
+07:07:31.247 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.247 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = L
+07:07:31.247 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.248 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.248 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.248 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.248 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.248 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.248 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.248 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000155
+07:07:31.248 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = YELLOW
+07:07:31.249 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = S
+07:07:31.249 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.249 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.249 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+07:07:31.249 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.249 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.249 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.250 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.250 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000158
+07:07:31.250 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = YELLOW
+07:07:31.250 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.250 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.250 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.250 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+07:07:31.250 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.251 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.251 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.251 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.251 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000159
+07:07:31.251 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.251 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = P
+07:07:31.251 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.252 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.252 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.252 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.252 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.252 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.252 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.252 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000161
+07:07:31.252 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.253 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = M
+07:07:31.253 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.253 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.253 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.253 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.253 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.253 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.253 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.254 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000164
+07:07:31.254 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = YELLOW
+07:07:31.254 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = P
+07:07:31.254 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.254 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.254 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+07:07:31.254 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.254 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.254 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.255 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.255 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000166
+07:07:31.255 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.255 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = M
+07:07:31.255 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.255 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.255 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.255 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.255 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.256 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.256 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.256 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000167
+07:07:31.256 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = YELLOW
+07:07:31.256 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = L
+07:07:31.256 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.256 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.257 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+07:07:31.257 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.257 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.257 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.257 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.257 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000172
+07:07:31.257 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = YELLOW
+07:07:31.258 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = S
+07:07:31.258 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.258 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.258 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+07:07:31.258 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.258 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.258 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.259 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.259 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000173
+07:07:31.259 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.259 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = M
+07:07:31.259 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.259 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.259 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.260 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.260 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.260 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.260 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.260 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000176
+07:07:31.260 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = YELLOW
+07:07:31.260 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = P
+07:07:31.261 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.261 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.261 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+07:07:31.261 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.261 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.261 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.262 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.262 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000177
+07:07:31.262 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.262 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = S
+07:07:31.262 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.262 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.262 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.262 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.263 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.263 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.263 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.263 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000180
+07:07:31.264 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = YELLOW
+07:07:31.264 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = S
+07:07:31.264 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.264 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.264 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+07:07:31.265 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.265 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.266 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.267 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.267 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000181
+07:07:31.267 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.267 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.267 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.267 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.267 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.267 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.267 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.268 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.268 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.268 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000185
+07:07:31.268 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.268 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.268 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.268 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.268 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.268 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.269 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.269 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.269 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.269 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000187
+07:07:31.269 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.269 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = S
+07:07:31.269 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.269 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.269 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.270 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.270 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.270 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.270 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.270 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000190
+07:07:31.270 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.271 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = X
+07:07:31.271 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.271 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.271 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.271 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.271 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.271 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.272 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.272 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000193
+07:07:31.272 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = YELLOW
+07:07:31.272 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = M
+07:07:31.272 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.272 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.272 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+07:07:31.272 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.273 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.273 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.273 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  541 - -----------------------------------------
+07:07:31.273 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  543 - WIDGET-NUM           = 00000194
+07:07:31.273 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  545 - WIDGET-COLOR         = BLUE  
+07:07:31.273 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  547 - WIDGET-SIZE          = L
+07:07:31.273 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  549 - WIDGET-PRICE         = 3400
+07:07:31.273 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  551 - WIDGET-SUPPLIER      =  ACME   
+07:07:31.274 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  553 - WIDGET-DESC          = XLRG BLUE WIDGET    
+07:07:31.274 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  555 - WIDGET-MANU-PLANT    =         
+07:07:31.274 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  557 - WIDGET-MANU-COST     = 0
+07:07:31.274 [main] INFO  com.cloudframe.app.process.Uhdynsql.fetchAndPrintWidgets  559 - WIDGET-LEAD-TIME     = 0
+07:07:31.305 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close  349 - HikariPool-1 - Shutdown initiated...
+07:07:31.310 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close  351 - HikariPool-1 - Shutdown completed.

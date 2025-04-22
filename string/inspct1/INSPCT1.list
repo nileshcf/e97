@@ -1,0 +1,1062 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 01/24/2021  Time 08:08:58   Page     1                
+0Invocation parameters:                                                                                                              
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(OPT),AWO,NUMPROC(PFD),TEST(ALL,SYM,SEPARATE)                                                        
+                                                                                                                                     
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"  
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no   
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".                                    
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler         
+                       invocation parameter took precedence.                                                                         
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(COMPAT)                                                                                                                    
+    AWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(PFD)                                                                                                                     
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 01/24/2021  Time 08:08:58   Page     2                
+0 NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+    TEST(HOOK,SEPARATE,NOEJPD)                                                                                                       
+  NOTHREAD                                                                                                                           
+    TRUNC(OPT)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0/* INSPCT1                                                                                                                          
+   000001         000100 IDENTIFICATION DIVISION.                                         00010000                                   
+   000002         000200 PROGRAM-ID. INSPCT1.                                             00020000                                   
+   000003         000300 DATA DIVISION.                                                   00030000                                   
+   000004         000400 WORKING-STORAGE SECTION.                                         00040000                                   
+   000005         000500 01 WS-MISC-BINARY-DATA.                                          00050000 BLW=00000+000         0CL17       
+   000006         000600     05  WS-SUB1 PIC S9(04) VALUE +0 BINARY.                      00060007 BLW=00000+000,0000000 2C          
+   000007         000601     05  WS-SUB2 PIC S9(04) VALUE +0 BINARY.                      00060107 BLW=00000+002,0000002 2C          
+   000008         000602     05  WS-SUB3 PIC S9(09) VALUE +0 BINARY.                      00060207 BLW=00000+004,0000004 4C          
+   000009         000610     05  WS-SUB-EDT PIC Z(8)9.                                    00061008 BLW=00000+008,0000008 9C          
+   000010         000700 01 WS-SEARCH-PREDICATE.                                          00070000 BLW=00000+018         0CL300      
+   000011         000800    05 FILLER PIC X(50) VALUE                                     00080000 BLW=00000+018,0000000 50C         
+   000012         000900          '12346789%123456789%123456789%123456789%1234567890'.    00090000                                   
+   000013         001000    05 FILLER PIC X(50) VALUE                                     00100000 BLW=00000+04A,0000032 50C         
+   000014         001100          '                    23456789%12                  '.    00110000                                   
+   000015         001200    05 FILLER PIC X(200) VALUE SPACES.                            00120000 BLW=00000+07C,0000064 200C        
+                                                                                                   IMP                               
+   000016         001210 01 WS-SEARCH-PREDICATE2.                                         00121014 BLW=00000+148         0CL300      
+   000017         001220    05 FILLER PIC X(50) VALUE                                     00122014 BLW=00000+148,0000000 50C         
+   000018         001230          '12%46%89%123456789%123456789%123456789%1234567890'.    00123014                                   
+   000019         001240    05 FILLER PIC X(50) VALUE                                     00124014 BLW=00000+17A,0000032 50C         
+   000020         001250          '                    23456789%12                  '.    00125014                                   
+   000021         001260    05 FILLER PIC X(200) VALUE SPACES.                            00126014 BLW=00000+1AC,0000064 200C        
+                                                                                                   IMP                               
+   000022         001300 01 WS-CONVRT-PREDICATE.                                          00130000 BLW=00000+278         0CL300      
+   000023         001400    05 FILLER PIC X(50) VALUE                                     00140000 BLW=00000+278,0000000 50C         
+   000024         001500          '12346789%123456789%123456789%123456789%1234567890'.    00150000                                   
+   000025         001600    05 FILLER PIC X(50) VALUE                                     00160000 BLW=00000+2AA,0000032 50C         
+   000026         001700          '                    23456789%12                  '.    00170000                                   
+   000027         001800    05 FILLER PIC X(200) VALUE SPACES.                            00180000 BLW=00000+2DC,0000064 200C        
+                                                                                                   IMP                               
+   000028         001900 01 WS-REPLAC-PREDICATE.                                          00190000 BLW=00000+3A8         0CL300      
+   000029         002000    05 FILLER PIC X(50) VALUE                                     00200000 BLW=00000+3A8,0000000 50C         
+   000030         002100          '12346789%123456789%123456789%123456789%1234567890'.    00210000                                   
+   000031         002200    05 FILLER PIC X(50) VALUE                                     00220000 BLW=00000+3DA,0000032 50C         
+   000032         002300          '                    23456789%12                  '.    00230000                                   
+   000033         002400    05 FILLER PIC X(200) VALUE SPACES.                            00240000 BLW=00000+40C,0000064 200C        
+                                                                                                   IMP                               
+   000034         002500 01 WS-PARM.                                                      00250000 BLW=00000+4D8         0CL30       
+   000035         002600    10  WS-PARM-CHAR  OCCURS  30 INDEXED BY PIDX                  00260000 BLW=00000+4D8,0000000 1C          
+                                                                                                   IDX=00001+000                     
+   000036         002700                      PIC  X(01).                                 00270000                                   
+   000037         002710 01 COUNTER-LINE      PIC  X(80).                                 00271001 BLW=00000+4F8         80C         
+   000038         002720 01 XML-SEGMENT              PIC  X(80).                          00272001 BLW=00000+548         80C         
+   000039         002730 01 XML-SEGMENT-LENGTH       PIC  S9(4) COMP.                     00273001 BLW=00000+598         2C          
+   000040         002731 01 XML-SEGMENT-LENGTH       PIC  S9(4) COMP.                     00273101 BLW=00000+5A0         2C          
+   000041         002732 01 WS-LT-COUNT              PIC  S9(4) COMP.                     00273201 BLW=00000+5A8         2C          
+   000042         002733 01 FLOAT-PLUS-COUNT         PIC  S9(4) COMP.                     00273302 BLW=00000+5B0         2C          
+   000043         002734 01 FLOAT-MINUS-COUNT        PIC  S9(4) COMP.                     00273402 BLW=00000+5B8         2C          
+   000044         002735 01 FLOAT-DOLLAR-COUNT       PIC  S9(4) COMP.                     00273502 BLW=00000+5C0         2C          
+   000045         002737 01 WS-HTML-M-LENGTH         PIC  S9(4) COMP.                     00273702 BLW=00000+5C8         2C          
+   000046         002740*                                                                 00274001                                   
+   000047         002741 01  WS-VALUES.                                                   00274107 BLW=00000+5D0         0CL25       
+   000048         002742     05  LESSSLASH                   PIC  X(02) VALUE "</".       00274207 BLW=00000+5D0,0000000 2C          
+   000049         002743     05  SLASHGREATER                PIC  X(02) VALUE "/>".       00274307 BLW=00000+5D2,0000002 2C          
+   000050         002744     05  LESSTHAN                    PIC  X(01) VALUE "<".        00274407 BLW=00000+5D4,0000004 1C          
+   000051         002745     05  GREATERTHAN                 PIC  X(01) VALUE ">".        00274507 BLW=00000+5D5,0000005 1C          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000052         002746     05  AMPERSAND                   PIC  X(01) VALUE "&".        00274607 BLW=00000+5D6,0000006 1C          
+   000053         002747     05  APOSTROPHE                  PIC  X(01) VALUE "'".        00274707 BLW=00000+5D7,0000007 1C          
+   000054         002748     05  DOUBLQUOTE                  PIC  X(02) VALUE """".       00274807 BLW=00000+5D8,0000008 2C          
+   000055         002749     05  VEQUAL                      PIC  X(03) VALUE " v=".      00274907 BLW=00000+5DA,000000A 3C          
+   000056         002750     05  SEQUAL                      PIC  X(03) VALUE " s=".      00275007 BLW=00000+5DD,000000D 3C          
+   000057         002751     05  TEQUAL                      PIC  X(03) VALUE " t=".      00275107 BLW=00000+5E0,0000010 3C          
+   000058         002752     05  DEQUAL                      PIC  X(03) VALUE " d=".      00275207 BLW=00000+5E3,0000013 3C          
+   000059         002753     05  SPLUS                       PIC  X(01) VALUE "+".        00275307 BLW=00000+5E6,0000016 1C          
+   000060         002754     05  SMINUS                      PIC  X(01) VALUE "-".        00275407 BLW=00000+5E7,0000017 1C          
+   000061         002755     05  COMA                        PIC  X(01) VALUE ",".        00275507 BLW=00000+5E8,0000018 1C          
+   000062         002760*                                                                 00276007                                   
+   000063         002800 PROCEDURE DIVISION.                                              00280000                                   
+   000064         002900     DISPLAY 'WS-REPLAC-PREDICATE ' WS-REPLAC-PREDICATE.          00290000 28                                
+   000065         003000     DISPLAY 'WS-SEARCH-PREDICATE ' WS-SEARCH-PREDICATE.          00300000 10                                
+   000066         003100     DISPLAY 'WS-CONVRT-PREDICATE ' WS-CONVRT-PREDICATE.          00310000 22                                
+   000067         003200     INSPECT WS-SEARCH-PREDICATE                                  00320000 10                                
+   000068         003300        TALLYING WS-SUB3                                          00330000 8                                 
+   000069         003400        FOR CHARACTERS                                            00340000                                   
+   000070         003410     MOVE WS-SUB3 TO WS-SUB-EDT                                   00341007 8 9                               
+   000071         003500     DISPLAY 'CFM008A 1- CHARACTERS ' WS-SUB-EDT                  00350007 9                                 
+   000072         003600     INSPECT WS-CONVRT-PREDICATE                                  00360000 22                                
+   000073         003700        CONVERTING  '1346' TO 'ABCD'                              00370000                                   
+   000074         003800        BEFORE INITIAL '8'                                        00380000                                   
+   000075         003900     DISPLAY 'INSPCT1 (2) - ' WS-CONVRT-PREDICATE(1:121)          00390000 22                                
+   000076         004000     INSPECT WS-CONVRT-PREDICATE                                  00400000 22                                
+   000077         004100         CONVERTING  '1346' TO 'ABCD'                             00410000                                   
+   000078         004200        AFTER  INITIAL '9'                                        00420000                                   
+   000079         004300     DISPLAY 'INSPCT1 (3) - ' WS-CONVRT-PREDICATE(1:121)          00430000 22                                
+   000080         004400     INSPECT WS-CONVRT-PREDICATE                                  00440000 22                                
+   000081         004500        CONVERTING  'ABCD' TO '1346'                              00450000                                   
+   000082         004600        BEFORE INITIAL '8'                                        00460000                                   
+   000083         004700        AFTER  INITIAL '9'                                        00470000                                   
+   000084         004800     DISPLAY 'INSPCT1 (4) - ' WS-CONVRT-PREDICATE(1:121)          00480000 22                                
+   000085         004900     INSPECT WS-CONVRT-PREDICATE                                  00490000 22                                
+   000086         005000        CONVERTING  '1346'  TO 'ABCD'                             00500000                                   
+   000087         005100     DISPLAY 'INSPCT1 (5) - ' WS-CONVRT-PREDICATE(1:121)          00510000 22                                
+   000088         005200     INSPECT WS-CONVRT-PREDICATE                                  00520000 22                                
+   000089         005300        CONVERTING 'ABCD'  TO '1346'                              00530000                                   
+   000090         005400     DISPLAY 'INSPCT1 (6) - ' WS-CONVRT-PREDICATE(1:121)          00540000 22                                
+   000091         005500     INSPECT WS-REPLAC-PREDICATE                                  00550000 28                                
+   000092         005600        REPLACING FIRST '%' BY '@'                                00560000                                   
+   000093         005700        AFTER  INITIAL '9'                                        00570000                                   
+   000094         005800     DISPLAY 'INSPCT1 (7) - ' WS-REPLAC-PREDICATE(1:121)          00580000 28                                
+   000095         005900     INSPECT WS-REPLAC-PREDICATE                                  00590000 28                                
+   000096         006000        REPLACING LEADING '%' BY '@'                              00600000                                   
+   000097         006100        AFTER  INITIAL '9'                                        00610000                                   
+   000098         006200     DISPLAY 'INSPCT1 (8) - ' WS-REPLAC-PREDICATE(1:121)          00620000 28                                
+   000099         006300     INSPECT WS-REPLAC-PREDICATE                                  00630000 28                                
+   000100         006400        REPLACING ALL '%' BY '@'                                  00640000                                   
+   000101         006500        AFTER  INITIAL '9'                                        00650000                                   
+   000102         006600     DISPLAY 'INSPCT1 (9) -' WS-REPLAC-PREDICATE(1:130)           00660000 28                                
+   000103         006700     INSPECT WS-REPLAC-PREDICATE                                  00670000 28                                
+   000104         006800        REPLACING FIRST '@' BY '%'                                00680000                                   
+   000105         006900     DISPLAY 'INSPCT1 (10) - ' WS-REPLAC-PREDICATE(1:121)         00690000 28                                
+   000106         007000     INSPECT WS-REPLAC-PREDICATE                                  00700000 28                                
+   000107         007100        REPLACING FIRST '@' BY '%'                                00710000                                   
+   000108         007200        BEFORE INITIAL '8'                                        00720000                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000109         007300     DISPLAY 'INSPCT1 (11) -' WS-REPLAC-PREDICATE(1:121)          00730000 28                                
+   000110         007400     INSPECT WS-REPLAC-PREDICATE                                  00740000 28                                
+   000111         007500        REPLACING FIRST '%' BY '@'                                00750000                                   
+   000112         007600        BEFORE INITIAL '8'                                        00760000                                   
+   000113         007700        AFTER  INITIAL '9'                                        00770000                                   
+   000114         007800     DISPLAY 'INSPCT1 (12) - '  WS-REPLAC-PREDICATE(1:121)        00780000 28                                
+   000115         007900     INSPECT WS-REPLAC-PREDICATE                                  00790000 28                                
+   000116         008000        REPLACING ALL '%' BY '@'                                  00800000                                   
+   000117         008100     DISPLAY 'INSPCT1 (13)- ' WS-REPLAC-PREDICATE(1:121)          00810000 28                                
+   000118         008200     INSPECT WS-REPLAC-PREDICATE                                  00820000 28                                
+   000119         008300        REPLACING ALL '@' BY '%'                                  00830000                                   
+   000120         008400        BEFORE INITIAL '8'                                        00840000                                   
+   000121         008500     DISPLAY 'INSPCT1 (14)- ' WS-REPLAC-PREDICATE(1:121)          00850000 28                                
+   000122         008600     INSPECT WS-REPLAC-PREDICATE                                  00860000 28                                
+   000123         008700        REPLACING ALL '%' BY '@'                                  00870000                                   
+   000124         008800        BEFORE INITIAL '8'                                        00880000                                   
+   000125         008900        AFTER  INITIAL '9'                                        00890000                                   
+   000126         009000     DISPLAY 'INSPCT1 (15)- ' WS-REPLAC-PREDICATE(1:130)          00900000 28                                
+   000127         009100     INSPECT WS-REPLAC-PREDICATE                                  00910000 28                                
+   000128         009200        REPLACING LEADING '%' BY '@'                              00920000                                   
+   000129         009300     DISPLAY 'INSPCT1 (16)- ' WS-REPLAC-PREDICATE(1:121)          00930000 28                                
+   000130         009400     INSPECT WS-REPLAC-PREDICATE                                  00940000 28                                
+   000131         009500        REPLACING LEADING '%' BY '@'                              00950000                                   
+   000132         009600        BEFORE INITIAL '8'                                        00960000                                   
+   000133         009700     DISPLAY 'INSPCT1 (17) -' WS-REPLAC-PREDICATE(1:121)          00970000 28                                
+   000134         009800     INSPECT WS-REPLAC-PREDICATE                                  00980000 28                                
+   000135         009900        REPLACING LEADING '%' BY '@'                              00990000                                   
+   000136         010000        BEFORE INITIAL '8'                                        01000000                                   
+   000137         010100        AFTER  INITIAL '9'                                        01010000                                   
+   000138         010200     DISPLAY 'INSPCT1 (18)- ' WS-REPLAC-PREDICATE(1:121)          01020000 28                                
+   000139         010300     INSPECT WS-SEARCH-PREDICATE                                  01030000 10                                
+   000140         010400        TALLYING WS-SUB3                                          01040000 8                                 
+   000141         010500        FOR ALL        '%'                                        01050000                                   
+   000142         010600     MOVE WS-SUB3               TO WS-SUB-EDT                     01060007 8 9                               
+   000143         010610     DISPLAY 'INSPCT1 (19) ALL     ' WS-SUB-EDT                   01061007 9                                 
+   000144         010700     INSPECT WS-SEARCH-PREDICATE                                  01070000 10                                
+   000145         010800        TALLYING WS-SUB3                                          01080000 8                                 
+   000146         010900        FOR ALL        '%'                                        01090000                                   
+   000147         011000            BEFORE INITIAL '8'                                    01100000                                   
+   000148         011010     MOVE WS-SUB3               TO WS-SUB-EDT                     01101007 8 9                               
+   000149         011100     DISPLAY 'INSPCT1 (20) - ALL BFORE INITIAL ' WS-SUB-EDT       01110007 9                                 
+   000150         011200     INSPECT WS-SEARCH-PREDICATE                                  01120000 10                                
+   000151         011300        TALLYING WS-SUB3                                          01130000 8                                 
+   000152         011400        FOR ALL        '%'                                        01140000                                   
+   000153         011500           AFTER  INITIAL '9'                                     01150000                                   
+   000154         011510     MOVE WS-SUB3               TO WS-SUB-EDT                     01151007 8 9                               
+   000155         011600     DISPLAY 'INSPCT1 (21)- ALL AFTR  INITIAL ' WS-SUB-EDT        01160007 9                                 
+   000156         011700     INSPECT WS-SEARCH-PREDICATE                                  01170000 10                                
+   000157         011800        TALLYING WS-SUB3                                          01180000 8                                 
+   000158         011900        FOR ALL        '%'                                        01190000                                   
+   000159         012000            BEFORE INITIAL '8'                                    01200000                                   
+   000160         012100                       AFTER  INITIAL '9'                         01210000                                   
+   000161         012110     MOVE WS-SUB3               TO WS-SUB-EDT                     01211007 8 9                               
+   000162         012200     DISPLAY 'INSPCT1 (22) - ALL BFORE AFTER  ' WS-SUB-EDT        01220007 9                                 
+   000163         012300     INSPECT WS-SEARCH-PREDICATE                                  01230000 10                                
+   000164         012400        TALLYING WS-SUB3                                          01240000 8                                 
+   000165         012500        FOR LEADING    '%'                                        01250000                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000166         012510     MOVE WS-SUB3               TO WS-SUB-EDT                     01251007 8 9                               
+   000167         012600     DISPLAY 'INSPCT1 (23) LEADING             ' WS-SUB-EDT       01260007 9                                 
+   000168         012700     INSPECT WS-SEARCH-PREDICATE                                  01270000 10                                
+   000169         012800        TALLYING WS-SUB3                                          01280000 8                                 
+   000170         012900        FOR LEADING    '%'                                        01290000                                   
+   000171         013000            BEFORE INITIAL '8'                                    01300000                                   
+   000172         013010     MOVE WS-SUB3               TO WS-SUB-EDT                     01301007 8 9                               
+   000173         013100     DISPLAY 'INSPCT1 (24)- LEADING BFORE INITIAL ' WS-SUB-EDT    01310007 9                                 
+   000174         013200     INSPECT WS-SEARCH-PREDICATE                                  01320000 10                                
+   000175         013300        TALLYING WS-SUB3                                          01330000 8                                 
+   000176         013400        FOR LEADING    '%'                                        01340000                                   
+   000177         013500           AFTER  INITIAL '9'                                     01350000                                   
+   000178         013510     MOVE WS-SUB3               TO WS-SUB-EDT                     01351007 8 9                               
+   000179         013600     DISPLAY 'INSPCT1 (25) - LEADING AFTR  INITIAL ' WS-SUB-EDT   01360007 9                                 
+   000180         013700     INSPECT WS-SEARCH-PREDICATE                                  01370000 10                                
+   000181         013800        TALLYING WS-SUB3                                          01380000 8                                 
+   000182         013900        FOR LEADING    '%'                                        01390000                                   
+   000183         014000            BEFORE INITIAL '8'                                    01400000                                   
+   000184         014100                       AFTER  INITIAL '9'                         01410000                                   
+   000185         014110     MOVE WS-SUB3               TO WS-SUB-EDT                     01411007 8 9                               
+   000186         014200     DISPLAY 'INSPCT1 (25)- LEADING BFORE AFTER  ' WS-SUB-EDT     01420007 9                                 
+   000187         014300     INSPECT WS-SEARCH-PREDICATE                                  01430000 10                                
+   000188         014400        TALLYING WS-SUB3                                          01440000 8                                 
+   000189         014500        FOR ALL '%'                                               01450000                                   
+   000190         014510     MOVE WS-SUB3               TO WS-SUB-EDT                     01451007 8 9                               
+   000191         014600     DISPLAY 'INSPCT1 (26)- ALL   ' WS-SUB-EDT                    01460007 9                                 
+   000192         014700     MOVE ZERO TO WS-SUB3                                         01470000 IMP 8                             
+   000193         014800     INSPECT WS-SEARCH-PREDICATE                                  01480000 10                                
+   000194         014900        TALLYING WS-SUB3                                          01490000 8                                 
+   000195         015000        FOR LEADING    '%'                                        01500000                                   
+   000196         015010     MOVE WS-SUB3               TO WS-SUB-EDT                     01501007 8 9                               
+   000197         015100     DISPLAY 'INSPCT1 (27) ' WS-SUB-EDT                           01510007 9                                 
+   000198         015200     INSPECT WS-SEARCH-PREDICATE                                  01520000 10                                
+   000199         015300        TALLYING WS-SUB3                                          01530000 8                                 
+   000200         015400        FOR CHARACTERS BEFORE INITIAL '8'                         01540000                                   
+   000201         015410     MOVE WS-SUB3               TO WS-SUB-EDT                     01541007 8 9                               
+   000202         015500     DISPLAY 'INSPCT1 (28)- LEAD  ' WS-SUB-EDT                    01550007 9                                 
+   000203         015600     INSPECT WS-SEARCH-PREDICATE                                  01560000 10                                
+   000204         015700        TALLYING WS-SUB3                                          01570000 8                                 
+   000205         015800        FOR CHARACTERS AFTER  INITIAL '9'                         01580000                                   
+   000206         015810     MOVE WS-SUB3               TO WS-SUB-EDT                     01581007 8 9                               
+   000207         015900     DISPLAY 'INSPCT1 (29)- AFTER INITIAL ' WS-SUB-EDT            01590007 9                                 
+   000208         016000     INSPECT WS-SEARCH-PREDICATE                                  01600000 10                                
+   000209         016100        TALLYING WS-SUB3                                          01610000 8                                 
+   000210         016200        FOR LEADING    '%'                                        01620000                                   
+   000211         016300            CHARACTERS BEFORE INITIAL '8'                         01630000                                   
+   000212         016310     MOVE WS-SUB3               TO WS-SUB-EDT                     01631007 8 9                               
+   000213         016400     DISPLAY 'INSPCT1 (30)- LEAD BEFORE INTIAL ' WS-SUB-EDT       01640007 9                                 
+   000214         016500     INSPECT WS-SEARCH-PREDICATE                                  01650000 10                                
+   000215         016600        TALLYING WS-SUB3                                          01660000 8                                 
+   000216         016700        FOR LEADING    '%'                                        01670000                                   
+   000217         016800            CHARACTERS AFTER  INITIAL '9'                         01680000                                   
+   000218         016810     MOVE WS-SUB3               TO WS-SUB-EDT                     01681007 8 9                               
+   000219         016900     DISPLAY 'INSPCT1 (31)- LEAD AFTER INTIAL ' WS-SUB-EDT        01690007 9                                 
+   000220         017000     DISPLAY 'WS-SEARCH-PREDICATE (1) ' WS-SEARCH-PREDICATE       01700000 10                                
+   000221         017100     INSPECT WS-SEARCH-PREDICATE                                  01710000 10                                
+   000222         017200        TALLYING WS-SUB3                                          01720000 8                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000223         017300        FOR ALL        '%'                                        01730000                                   
+   000224         017400            CHARACTERS BEFORE INITIAL '8'                         01740000                                   
+   000225         017410     MOVE WS-SUB3               TO WS-SUB-EDT                     01741007 8 9                               
+   000226         017500     DISPLAY 'INSPCT1 (32)- ALL BEFORE INITIAL ' WS-SUB-EDT       01750007 9                                 
+   000227         017600     INSPECT WS-SEARCH-PREDICATE                                  01760000 10                                
+   000228         017700        TALLYING WS-SUB3                                          01770000 8                                 
+   000229         017800        FOR ALL        '%'                                        01780000                                   
+   000230         017900            CHARACTERS AFTER  INITIAL '9'                         01790000                                   
+   000231         017910     MOVE WS-SUB3               TO WS-SUB-EDT                     01791007 8 9                               
+   000232         018000     DISPLAY 'INSPCT1 (33) - ALL AFTER  INITIAL ' WS-SUB-EDT      01800007 9                                 
+   000233         018100     INSPECT WS-SEARCH-PREDICATE                                  01810000 10                                
+   000234         018200        TALLYING WS-SUB3                                          01820000 8                                 
+   000235         018300        FOR ALL        '%'                                        01830000                                   
+   000236         018400            CHARACTERS BEFORE INITIAL '8'                         01840000                                   
+   000237         018500                       AFTER  INITIAL '9'                         01850000                                   
+   000238         018510     MOVE WS-SUB3               TO WS-SUB-EDT                     01851007 8 9                               
+   000239         018600     DISPLAY 'INSPCT1 (34) - ALL BEFORE AFTER  ' WS-SUB-EDT       01860007 9                                 
+   000240         018601*                                                                 01860114                                   
+   000241         018602     MOVE 0 TO WS-SUB3                                            01860214 8                                 
+   000242         018603     INSPECT WS-SEARCH-PREDICATE2                                 01860314 16                                
+   000243         018604        TALLYING WS-SUB3                                          01860414 8                                 
+   000244         018605        FOR ALL        '%'                                        01860514                                   
+   000245         018606            CHARACTERS AFTER  INITIAL '9'                         01860614                                   
+   000246         018670     MOVE WS-SUB3               TO WS-SUB-EDT                     01867014 8 9                               
+   000247         018680     DISPLAY 'INSPCT1 (35) - ALL AFTER  INITIAL ' WS-SUB-EDT      01868015 9                                 
+   000248         018700     MOVE LOW-VALUES TO WS-PARM                                   01870002 IMP 34                            
+   000249         018710*                                                                 01871014                                   
+   000250         018800     DISPLAY 'WS-PARM ' WS-PARM                                   01880000 34                                
+   000251         018900     MOVE '0000000000 NAT CA VER ' TO WS-PARM(1:22)               01890000 34                                
+   000252         019000     DISPLAY 'WS-PARM (1) ' WS-PARM                               01900000 34                                
+   000253         019100     INSPECT WS-PARM TALLYING WS-SUB3 FOR CHARACTERS BEFORE '  '  01910000 34 8                              
+   000254         019110     MOVE WS-SUB3               TO WS-SUB-EDT                     01911007 8 9                               
+   000255         019200     DISPLAY 'CFM008A- CHAR BEFORE SPACES  ' WS-SUB-EDT           01920007 9                                 
+   000256         019210*                                                                 01921001                                   
+   000257         019220* ML INSPECTS                                                     01922001                                   
+   000258         019230*                                                                 01923001                                   
+   000259         019231     MOVE SPACES TO COUNTER-LINE                                  01923101 IMP 37                            
+   000260         019232     STRING 'ABCD1234'                                            01923201                                   
+   000261         019233            X'00010203'                                           01923301                                   
+   000262         019234            '@#$%'                                                01923401                                   
+   000263         019235            DELIMITED BY SIZE                                     01923501                                   
+   000264         019236        INTO COUNTER-LINE                                         01923601 37                                
+   000265         019237     END-STRING                                                   01923701                                   
+   000266         019238     DISPLAY '* ML 1 * COUNTER-LINE = ' COUNTER-LINE              01923801 37                                
+   000267         019240     INSPECT COUNTER-LINE REPLACING CHARACTERS BY '.'.            01924001 37                                
+   000268         019241     DISPLAY '* ML 2 * COUNTER-LINE = ' COUNTER-LINE              01924101 37                                
+   000269         019242*                                                                 01924201                                   
+   000270         019243     MOVE ZERO TO WS-SUB3                                         01924301 IMP 8                             
+   000271         019244     INSPECT COUNTER-LINE                                         01924401 37                                
+   000272         019245             TALLYING WS-SUB3               FOR CHARACTERS.       01924501 8                                 
+   000273         019246     MOVE WS-SUB3               TO WS-SUB-EDT                     01924607 8 9                               
+   000274         019247     DISPLAY '* ML 3 * # OF CHARS   = ' WS-SUB-EDT                01924707 9                                 
+   000275         019248*                                                                 01924801                                   
+   000276         019249     MOVE ZERO TO WS-SUB3                                         01924901 IMP 8                             
+   000277         019250     MOVE '<htag>Header</htag>' TO XML-SEGMENT                    01925002 38                                
+   000278         019251     INSPECT XML-SEGMENT(7:)                                      01925101 38                                
+   000279         019252         TALLYING WS-SUB3     FOR CHARACTERS                      01925201 8                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page     8                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000280         019253         BEFORE INITIAL '</ht'                                    01925301                                   
+   000281         019254     DISPLAY '* ML 4 * XML-SEGMENT  = ' XML-SEGMENT               01925404 38                                
+   000282         019255     MOVE WS-SUB3               TO WS-SUB-EDT                     01925507 8 9                               
+   000283         019256     DISPLAY '* ML 4 * # OF CHARS   = ' WS-SUB-EDT                01925607 9                                 
+   000284         019260*                                                                 01926001                                   
+   000285         019261     MOVE ZERO TO WS-SUB3                                         01926101 IMP 8                             
+   000286         019262     MOVE 7  TO WS-LT-COUNT                                       01926201 41                                
+   000287         019263     MOVE 80 TO WS-HTML-M-LENGTH                                  01926301 45                                
+   000288         019270     INSPECT XML-SEGMENT                                          01927001 38                                
+   000289         019271             (WS-LT-COUNT:WS-HTML-M-LENGTH - WS-LT-COUNT)         01927101 41 45 41                          
+   000290         019280         TALLYING WS-SUB3     FOR CHARACTERS                      01928001 8                                 
+   000291         019290         BEFORE INITIAL '</ht'                                    01929001                                   
+   000292         019291     MOVE WS-SUB3               TO WS-SUB-EDT                     01929107 8 9                               
+   000293         019292     DISPLAY '* ML 5 * # OF CHARS   = ' WS-SUB-EDT                01929207 9                                 
+   000294         019293*                                                                 01929301                                   
+   000295         019294     MOVE ZERO TO WS-SUB3                                         01929401 IMP 8                             
+   000296         019295     MOVE 7  TO WS-LT-COUNT                                       01929501 41                                
+   000297         019296     MOVE 80 TO WS-HTML-M-LENGTH                                  01929601 45                                
+   000298         019297     INSPECT XML-SEGMENT                                          01929701 38                                
+   000299         019298             (WS-LT-COUNT:WS-HTML-M-LENGTH - WS-LT-COUNT)         01929801 41 45 41                          
+   000300         019299         TALLYING WS-SUB3     FOR CHARACTERS                      01929901 8                                 
+   000301         019300         BEFORE INITIAL '</HT'                                    01930001                                   
+   000302         019301     MOVE WS-SUB3               TO WS-SUB-EDT                     01930107 8 9                               
+   000303         019302     DISPLAY '* ML 6 * # OF CHARS   = ' WS-SUB-EDT                01930207 9                                 
+   000304         019310*                                                                 01931001                                   
+   000305         019311     MOVE ZERO TO WS-SUB3                                         01931101 IMP 8                             
+   000306         019320     MOVE SPACES TO COUNTER-LINE                                  01932001 IMP 37                            
+   000307         019321     MOVE ALL '*' TO COUNTER-LINE                                 01932102 37                                
+   000308         019322     MOVE ALL ' ' TO COUNTER-LINE(1:7)                            01932201 37                                
+   000309         019390     DISPLAY '* ML 7 * COUNTER-LINE = ' COUNTER-LINE              01939001 37                                
+   000310         019391     INSPECT COUNTER-LINE TALLYING WS-SUB3 FOR LEADING SPACES     01939101 37 8 IMP                          
+   000311         019392     MOVE WS-SUB3               TO WS-SUB-EDT                     01939207 8 9                               
+   000312         019393     DISPLAY '* ML 8 * WS-SUB3      = ' WS-SUB-EDT                01939307 9                                 
+   000313         019394     INSPECT COUNTER-LINE REPLACING CHARACTERS BY '*'             01939401 37                                
+   000314         019395     DISPLAY '* ML 9 * COUNTER-LINE = ' COUNTER-LINE              01939501 37                                
+   000315         019396     MOVE 0 TO WS-SUB3                                            01939607 8                                 
+   000316         019397     INSPECT COUNTER-LINE TALLYING WS-SUB3 FOR ALL '*'            01939707 37 8                              
+   000317         019398     MOVE WS-SUB3 TO WS-SUB-EDT                                   01939807 8 9                               
+   000318         019399     DISPLAY '* ML10 * WS-SUB3      = ' WS-SUB-EDT                01939907 9                                 
+   000319         019400     INSPECT COUNTER-LINE REPLACING  ALL '*' BY SPACE.            01940007 37 IMP                            
+   000320         019401     DISPLAY '* ML11 * COUNTER-LINE = ' COUNTER-LINE              01940107 37                                
+   000321         019440*                                                                 01944001                                   
+   000322         019441     MOVE '$+9-9$+-123+$$' TO COUNTER-LINE                        01944101 37                                
+   000323         019442     MOVE ZEROS             TO FLOAT-PLUS-COUNT                   01944202 IMP 42                            
+   000324         019443                               FLOAT-MINUS-COUNT                  01944302 43                                
+   000325         019444                               FLOAT-DOLLAR-COUNT                 01944402 44                                
+   000326         019445                               WS-SUB1                            01944507 6                                 
+   000327         019446                               WS-SUB2                            01944607 7                                 
+   000328         019447                               WS-SUB3                            01944707 8                                 
+   000329         019448     INSPECT COUNTER-LINE                                         01944807 37                                
+   000330         019449                     TALLYING FLOAT-PLUS-COUNT   FOR ALL '+'      01944907 42                                
+   000331         019450                              FLOAT-MINUS-COUNT  FOR ALL '-'      01945007 43                                
+   000332         019451                              FLOAT-DOLLAR-COUNT FOR ALL '$'      01945107 44                                
+   000333         019458     DISPLAY '* ML12 * FLOAT-PLUS-COUNT  = ' FLOAT-PLUS-COUNT     01945807 42                                
+   000334         019459                     ' FLOAT-MINUS-COUNT = '  FLOAT-MINUS-COUNT   01945907 43                                
+   000335         019460                     ' FLOAT-DOLLAR-COUNT = '  FLOAT-DOLLAR-COUNT 01946007 44                                
+   000336         019461     INSPECT COUNTER-LINE(1:14)                                   01946110 37                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page     9                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000337         019463                     TALLYING WS-SUB1                             01946309 6                                 
+   000338         019464                               FOR CHARACTERS BEFORE INITIAL '-'  01946408                                   
+   000339         019465                              WS-SUB2                             01946508 7                                 
+   000340         019466                               FOR CHARACTERS AFTER  INITIAL '+'  01946608                                   
+   000341         019469     MOVE WS-SUB1 TO WS-SUB-EDT                                   01946907 6 9                               
+   000342         019470     DISPLAY '* ML13 * CHARS BEFORE INITIAL ''-'' = ' WS-SUB-EDT  01947007 9                                 
+   000343         019471     MOVE WS-SUB2 TO WS-SUB-EDT                                   01947107 7 9                               
+   000344         019472     DISPLAY '* ML14 * CHARS AFTER  INITIAL  +   = ' WS-SUB-EDT   01947217 9                                 
+   000345         019474     INSPECT COUNTER-LINE(1:14)                                   01947410 37                                
+   000346         019475                     TALLYING WS-SUB3 FOR CHARACTERS BEFORE '1'   01947510 8                                 
+   000347         019476     MOVE WS-SUB3 TO WS-SUB-EDT                                   01947610 8 9                               
+   000348         019477     DISPLAY '* ML15 * CHARS BEFORE ''1'' = ' WS-SUB-EDT          01947707 9                                 
+   000349         019478*                                                                 01947810                                   
+   000350         019479     MOVE 0 TO WS-SUB1 WS-SUB2                                    01947910 6 7                               
+   000351         019480     INSPECT COUNTER-LINE(1:20)                                   01948011 37                                
+   000352         019481                     TALLYING WS-SUB1                             01948110 6                                 
+   000353         019482                               FOR CHARACTERS BEFORE INITIAL '-'  01948210                                   
+   000354         019483                              WS-SUB2                             01948310 7                                 
+   000355         019484                               FOR CHARACTERS AFTER  INITIAL '-'  01948410                                   
+   000356         019485     MOVE WS-SUB1 TO WS-SUB-EDT                                   01948510 6 9                               
+   000357         019486     DISPLAY '* ML16 * CHARS BEFORE INITIAL ''-'' = ' WS-SUB-EDT  01948610 9                                 
+   000358         019487     MOVE WS-SUB2 TO WS-SUB-EDT                                   01948710 7 9                               
+   000359         019488     DISPLAY '* ML17 * CHARS AFTER  INITIAL ''-'' = ' WS-SUB-EDT  01948811 9                                 
+   000360         019489*                                                                 01948910                                   
+   000361         019490     MOVE LOW-VALUES TO COUNTER-LINE                              01949007 IMP 37                            
+   000362         019491     DISPLAY '* ML18 * COUNTER-LINE (Before Inspect) '            01949110                                   
+   000363         019492                       COUNTER-LINE                               01949207 37                                
+   000364         019493     INSPECT COUNTER-LINE REPLACING ALL LOW-VALUE BY SPACE        01949307 37 IMP IMP                        
+   000365         019494     DISPLAY '* ML19 * COUNTER-LINE (After  Inspect) '            01949410                                   
+   000366         019495                       COUNTER-LINE                               01949507 37                                
+   000367         019496     MOVE HIGH-VALUES TO COUNTER-LINE                             01949607 IMP 37                            
+   000368         019497     DISPLAY '* ML20 * COUNTER-LINE (Before Inspect) '            01949710                                   
+   000369         019498                       COUNTER-LINE                               01949807 37                                
+   000370         019499     INSPECT COUNTER-LINE REPLACING ALL HIGH-VALUE BY '$'         01949907 37 IMP                            
+   000371         019500     DISPLAY '* ML21 * COUNTER-LINE (After  Inspect) '            01950010                                   
+   000372         019501                       COUNTER-LINE                               01950107 37                                
+   000373         019502*                                                                 01950207                                   
+   000374         019503     MOVE '&<''"">123&<''"">&<&<''"">''>''>""'                    01950307                                   
+   000375         019504       TO COUNTER-LINE                                            01950407 37                                
+   000376         019505     MOVE 50 TO WS-HTML-M-LENGTH                                  01950507 45                                
+   000377         019506     MOVE 0 TO WS-SUB3                                            01950607 8                                 
+   000378         019507     INSPECT COUNTER-LINE(1:WS-HTML-M-LENGTH) TALLYING            01950707 37 45                             
+   000379         019508             WS-SUB3 FOR ALL "&" "<" ">" "'" """"                 01950807 8                                 
+   000380         019509     MOVE WS-SUB3 TO WS-SUB-EDT                                   01950907 8 9                               
+   000381         019510     DISPLAY '* ML22 * SPECIAL CHAR COUNT = ' WS-SUB-EDT          01951010 9                                 
+   000382         019511                                                                  01951107                                   
+   000383         019512     MOVE 0 TO WS-SUB3                                            01951207 8                                 
+   000384         019513     INSPECT COUNTER-LINE(1:WS-HTML-M-LENGTH) TALLYING            01951307 37 45                             
+   000385         019514             WS-SUB3 FOR ALL AMPERSAND LESSTHAN GREATERTHAN       01951407 8 52 50 51                        
+   000386         019515                               APOSTROPHE DOUBLQUOTE              01951507 53 54                             
+   000387         019516     MOVE WS-SUB3 TO WS-SUB-EDT                                   01951607 8 9                               
+   000388         019517     DISPLAY '* ML23 * SPECIAL CHAR COUNT = ' WS-SUB-EDT          01951710 9                                 
+   000389         019518                                                                  01951812                                   
+   000390         019519     MOVE '$+9-9$+-123+$$' TO COUNTER-LINE                        01951912 37                                
+   000391         019520     MOVE 0 TO WS-SUB1                                            01952012 6                                 
+   000392         019521     INSPECT COUNTER-LINE(1:14)                                   01952112 37                                
+   000393         019522                     TALLYING WS-SUB1                             01952212 6                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page    10                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000394         019524                               FOR CHARACTERS AFTER  INITIAL '+'  01952412                                   
+   000395         019525     MOVE WS-SUB1 TO WS-SUB-EDT                                   01952512 6 9                               
+   000396         019528     DISPLAY '* ML24 * CHARS AFTER  INITIAL ''+'' = ' WS-SUB-EDT  01952813 9                                 
+   000397         019529*                                                                 01952907                                   
+   000398         019530*    MOVE                                                         01953007                                   
+   000399         019540*                                                                 01954007                                   
+   000400         019600     STOP RUN.                                                    01960001                                   
+ */ INSPCT1                                                                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page    11                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       52   AMPERSAND. . . . . . . . . . .  385                                                                                      
+       53   APOSTROPHE . . . . . . . . . .  M386                                                                                     
+       61   COMA                                                                                                                     
+       37   COUNTER-LINE . . . . . . . . .  M259 M264 266 M267 268 271 M306 M307 M308 309 310 M313 314 316 M319 320 M322             
+                                            M329 336 345 351 M361 363 M364 366 M367 369 M370 372 M375 378 M384 M390 M392             
+       58   DEQUAL                                                                                                                   
+       54   DOUBLQUOTE . . . . . . . . . .  M386                                                                                     
+       44   FLOAT-DOLLAR-COUNT . . . . . .  M325 332 335                                                                             
+       43   FLOAT-MINUS-COUNT. . . . . . .  M324 M331 334                                                                            
+       42   FLOAT-PLUS-COUNT . . . . . . .  M323 M330 333                                                                            
+       51   GREATERTHAN. . . . . . . . . .  M385                                                                                     
+       48   LESSSLASH                                                                                                                
+       50   LESSTHAN . . . . . . . . . . .  M385                                                                                     
+       35   PIDX                                                                                                                     
+       56   SEQUAL                                                                                                                   
+       49   SLASHGREATER                                                                                                             
+       60   SMINUS                                                                                                                   
+       59   SPLUS                                                                                                                    
+       57   TEQUAL                                                                                                                   
+       55   VEQUAL                                                                                                                   
+       22   WS-CONVRT-PREDICATE. . . . . .  66 M72 75 M76 79 M80 84 M85 87 M88 90                                                    
+       45   WS-HTML-M-LENGTH . . . . . . .  M287 289 M297 299 M376 378 384                                                           
+       41   WS-LT-COUNT. . . . . . . . . .  M286 289 289 M296 299 299                                                                
+        5   WS-MISC-BINARY-DATA                                                                                                      
+       34   WS-PARM. . . . . . . . . . . .  M248 250 M251 252 253                                                                    
+       35   WS-PARM-CHAR                                                                                                             
+       28   WS-REPLAC-PREDICATE. . . . . .  64 M91 94 M95 98 M99 102 M103 105 M106 109 M110 114 M115 117 M118 121 M122 126           
+                                            M127 129 M130 133 M134 138                                                               
+       10   WS-SEARCH-PREDICATE. . . . . .  65 67 139 144 150 156 163 168 174 180 187 193 198 203 208 214 220 221 227 233            
+       16   WS-SEARCH-PREDICATE2 . . . . .  242                                                                                      
+        9   WS-SUB-EDT . . . . . . . . . .  M70 71 M142 143 M148 149 M154 155 M161 162 M166 167 M172 173 M178 179 M185 186           
+                                            M190 191 M196 197 M201 202 M206 207 M212 213 M218 219 M225 226 M231 232 M238             
+                                            239 M246 247 M254 255 M273 274 M282 283 M292 293 M302 303 M311 312 M317 318 M341         
+                                            342 M343 344 M347 348 M356 357 M358 359 M380 381 M387 388 M395 396                       
+        6   WS-SUB1. . . . . . . . . . . .  M326 M337 341 M350 M352 356 M391 M393 395                                                
+        7   WS-SUB2. . . . . . . . . . . .  M327 M339 343 M350 M354 358                                                              
+        8   WS-SUB3. . . . . . . . . . . .  M68 70 M140 142 M145 148 M151 154 M157 161 M164 166 M169 172 M175 178 M181 185           
+                                            M188 190 M192 M194 196 M199 201 M204 206 M209 212 M215 218 M222 225 M228 231             
+                                            M234 238 M241 M243 246 M253 254 M270 M272 273 M276 M279 282 M285 M290 292 M295           
+                                            M300 302 M305 M310 311 M315 M316 317 M328 M346 347 M377 M379 380 M383 M385 387           
+       47   WS-VALUES                                                                                                                
+       38   XML-SEGMENT. . . . . . . . . .  M277 278 281 288 298                                                                     
+       39   XML-SEGMENT-LENGTH                                                                                                       
+       40   XML-SEGMENT-LENGTH                                                                                                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page    12                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   INSPCT1                                                                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page    13                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID INSPCT1-----------------------------------------------------------------------------------------------------*    
+      5   1  WS-MISC-BINARY-DATA . . . . . . . . . . . . . BLW=00000  000               DS 0CL17        Group                        
+      6     2  WS-SUB1 . . . . . . . . . . . . . . . . . . BLW=00000  000   0 000 000   DS 2C           Binary                       
+      7     2  WS-SUB2 . . . . . . . . . . . . . . . . . . BLW=00000  002   0 000 002   DS 2C           Binary                       
+      8     2  WS-SUB3 . . . . . . . . . . . . . . . . . . BLW=00000  004   0 000 004   DS 4C           Binary                       
+      9     2  WS-SUB-EDT. . . . . . . . . . . . . . . . . BLW=00000  008   0 000 008   DS 9C           Disp-Num-Edit                
+     10   1  WS-SEARCH-PREDICATE . . . . . . . . . . . . . BLW=00000  018               DS 0CL300       Group                        
+     11     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  018   0 000 000   DS 50C          Display                      
+     13     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  04A   0 000 032   DS 50C          Display                      
+     15     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  07C   0 000 064   DS 200C         Display                      
+     16   1  WS-SEARCH-PREDICATE2. . . . . . . . . . . . . BLW=00000  148               DS 0CL300       Group                        
+     17     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  148   0 000 000   DS 50C          Display                      
+     19     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  17A   0 000 032   DS 50C          Display                      
+     21     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  1AC   0 000 064   DS 200C         Display                      
+     22   1  WS-CONVRT-PREDICATE . . . . . . . . . . . . . BLW=00000  278               DS 0CL300       Group                        
+     23     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  278   0 000 000   DS 50C          Display                      
+     25     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  2AA   0 000 032   DS 50C          Display                      
+     27     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  2DC   0 000 064   DS 200C         Display                      
+     28   1  WS-REPLAC-PREDICATE . . . . . . . . . . . . . BLW=00000  3A8               DS 0CL300       Group                        
+     29     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  3A8   0 000 000   DS 50C          Display                      
+     31     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  3DA   0 000 032   DS 50C          Display                      
+     33     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  40C   0 000 064   DS 200C         Display                      
+     34   1  WS-PARM . . . . . . . . . . . . . . . . . . . BLW=00000  4D8               DS 0CL30        Group                        
+     35     2  WS-PARM-CHAR. . . . . . . . . . . . . . . . BLW=00000  4D8   0 000 000   DS 1C           Display        O             
+     35        PIDX. . . . . . . . . . . . . . . . . . . . IDX=00001  000                               Index-Name                   
+     37   1  COUNTER-LINE. . . . . . . . . . . . . . . . . BLW=00000  4F8               DS 80C          Display                      
+     38   1  XML-SEGMENT . . . . . . . . . . . . . . . . . BLW=00000  548               DS 80C          Display                      
+     39   1  XML-SEGMENT-LENGTH. . . . . . . . . . . . . . BLW=00000  598               DS 2C           Binary                       
+     40   1  XML-SEGMENT-LENGTH. . . . . . . . . . . . . . BLW=00000  5A0               DS 2C           Binary                       
+     41   1  WS-LT-COUNT . . . . . . . . . . . . . . . . . BLW=00000  5A8               DS 2C           Binary                       
+     42   1  FLOAT-PLUS-COUNT. . . . . . . . . . . . . . . BLW=00000  5B0               DS 2C           Binary                       
+     43   1  FLOAT-MINUS-COUNT . . . . . . . . . . . . . . BLW=00000  5B8               DS 2C           Binary                       
+     44   1  FLOAT-DOLLAR-COUNT. . . . . . . . . . . . . . BLW=00000  5C0               DS 2C           Binary                       
+     45   1  WS-HTML-M-LENGTH. . . . . . . . . . . . . . . BLW=00000  5C8               DS 2C           Binary                       
+     47   1  WS-VALUES . . . . . . . . . . . . . . . . . . BLW=00000  5D0               DS 0CL25        Group                        
+     48     2  LESSSLASH . . . . . . . . . . . . . . . . . BLW=00000  5D0   0 000 000   DS 2C           Display                      
+     49     2  SLASHGREATER. . . . . . . . . . . . . . . . BLW=00000  5D2   0 000 002   DS 2C           Display                      
+     50     2  LESSTHAN. . . . . . . . . . . . . . . . . . BLW=00000  5D4   0 000 004   DS 1C           Display                      
+     51     2  GREATERTHAN . . . . . . . . . . . . . . . . BLW=00000  5D5   0 000 005   DS 1C           Display                      
+     52     2  AMPERSAND . . . . . . . . . . . . . . . . . BLW=00000  5D6   0 000 006   DS 1C           Display                      
+     53     2  APOSTROPHE. . . . . . . . . . . . . . . . . BLW=00000  5D7   0 000 007   DS 1C           Display                      
+     54     2  DOUBLQUOTE. . . . . . . . . . . . . . . . . BLW=00000  5D8   0 000 008   DS 2C           Display                      
+     55     2  VEQUAL. . . . . . . . . . . . . . . . . . . BLW=00000  5DA   0 000 00A   DS 3C           Display                      
+     56     2  SEQUAL. . . . . . . . . . . . . . . . . . . BLW=00000  5DD   0 000 00D   DS 3C           Display                      
+     57     2  TEQUAL. . . . . . . . . . . . . . . . . . . BLW=00000  5E0   0 000 010   DS 3C           Display                      
+     58     2  DEQUAL. . . . . . . . . . . . . . . . . . . BLW=00000  5E3   0 000 013   DS 3C           Display                      
+     59     2  SPLUS . . . . . . . . . . . . . . . . . . . BLW=00000  5E6   0 000 016   DS 1C           Display                      
+     60     2  SMINUS. . . . . . . . . . . . . . . . . . . BLW=00000  5E7   0 000 017   DS 1C           Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page    14                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+     61     2  COMA. . . . . . . . . . . . . . . . . . . . BLW=00000  5E8   0 000 018   DS 1C           Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page    15                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 00003C BYTES                                                                     
+ THE PGT CONTAINS 000003 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 0021B4 FOR LINE 2                                                                                               
+ PBL2    AT LOCATION 0031B8 FOR LINE 271                                                                                             
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 00000000 40404040 40404040 40404040 40404040 40404040 40404040  |........                        |    
+ 00011C  (LIT+32)     40404040 4040                                                            |                                |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page    16                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000138 FOR 00207A BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000140  (LIT+0)      FFFFFFFC 00001000 00000050 0000012C 00000001 00000000 00320007 F1F26CF4  |...........&................12%4|    
+ 000160  (LIT+32)     F66CF8F9 6CF1F2F3 F4F5F6F7 F8F96CF1 F2F3F4F5 F6F7F8F9 6CF1F2F3 F4F5F6F7  |6%89%123456789%123456789%1234567|    
+ 000180  (LIT+64)     F8F96CF1 F2F3F4F5 F6F7F8F9 F0404040 40404040 40404040 40404040 40404040  |89%1234567890                   |    
+ 0001A0  (LIT+96)     40F2F3F4 F5F6F7F8 F96CF1F2 40404040 40404040 40404040 40404040 4040F1F2  | 23456789%12                  12|    
+ 0001C0  (LIT+128)    F3F4F6F7 F8F96CF1 F2F3F4F5 F6F7F8F9 6CF1F2F3 F4F5F6F7 F8F96CF1 F2F3F4F5  |346789%123456789%123456789%12345|    
+ 0001E0  (LIT+160)    F6F7F8F9 6CF1F2F3 F4F5F6F7 F8F9F05C 40D4D3F2 F1405C40 C3D6E4D5 E3C5D960  |6789%1234567890* ML21 * COUNTER-|    
+ 000200  (LIT+192)    D3C9D5C5 404DC186 A3859940 40C995A2 978583A3 5D405C40 D4D3F2F0 405C40C3  |LINE (After  Inspect) * ML20 * C|    
+ 000220  (LIT+224)    D6E4D5E3 C5D960D3 C9D5C540 4DC28586 96998540 C995A297 8583A35D 405C40D4  |OUNTER-LINE (Before Inspect) * M|    
+ 000240  (LIT+256)    D3F1F940 5C40C3D6 E4D5E3C5 D960D3C9 D5C5404D C186A385 994040C9 95A29785  |L19 * COUNTER-LINE (After  Inspe|    
+ 000260  (LIT+288)    83A35D40 5C40D4D3 F1F8405C 40C3D6E4 D5E3C5D9 60D3C9D5 C5404DC2 85869699  |ct) * ML18 * COUNTER-LINE (Befor|    
+ 000280  (LIT+320)    8540C995 A2978583 A35D405C 40D4D3F1 F4405C40 C3C8C1D9 E240C1C6 E3C5D940  |e Inspect) * ML14 * CHARS AFTER |    
+ 0002A0  (LIT+352)    40C9D5C9 E3C9C1D3 40404E40 40407E40 C9D5E2D7 C3E3F140 4DF2F55D 406040D3  | INITIAL  +   = INSPCT1 (25) - L|    
+ 0002C0  (LIT+384)    C5C1C4C9 D5C740C1 C6E3D940 40C9D5C9 E3C9C1D3 405C40D4 D3F2F440 5C40C3C8  |EADING AFTR  INITIAL * ML24 * CH|    
+ 0002E0  (LIT+416)    C1D9E240 C1C6E3C5 D94040C9 D5C9E3C9 C1D3407D 4E7D407E 405C40D4 D3F1F740  |ARS AFTER  INITIAL '+' = * ML17 |    
+ 000300  (LIT+448)    5C40C3C8 C1D9E240 C1C6E3C5 D94040C9 D5C9E3C9 C1D3407D 607D407E 405C40D4  |* CHARS AFTER  INITIAL '-' = * M|    
+ 000320  (LIT+480)    D3F1F640 5C40C3C8 C1D9E240 C2C5C6D6 D9C540C9 D5C9E3C9 C1D3407D 607D407E  |L16 * CHARS BEFORE INITIAL '-' =|    
+ 000340  (LIT+512)    405C40D4 D3F1F340 5C40C3C8 C1D9E240 C2C5C6D6 D9C540C9 D5C9E3C9 C1D3407D  | * ML13 * CHARS BEFORE INITIAL '|    
+ 000360  (LIT+544)    607D407E 40C9D5E2 D7C3E3F1 404DF2F4 5D6040D3 C5C1C4C9 D5C740C2 C6D6D9C5  |-' = INSPCT1 (24)- LEADING BFORE|    
+ 000380  (LIT+576)    40C9D5C9 E3C9C1D3 40C9D5E2 D7C3E3F1 404DF2F5 5D6040D3 C5C1C4C9 D5C740C2  | INITIAL INSPCT1 (25)- LEADING B|    
+ 0003A0  (LIT+608)    C6D6D9C5 40C1C6E3 C5D94040 C9D5E2D7 C3E3F140 4DF3F55D 406040C1 D3D340C1  |FORE AFTER  INSPCT1 (35) - ALL A|    
+ 0003C0  (LIT+640)    C6E3C5D9 4040C9D5 C9E3C9C1 D340C9D5 E2D7C3E3 F1404DF3 F35D4060 40C1D3D3  |FTER  INITIAL INSPCT1 (33) - ALL|    
+ 0003E0  (LIT+672)    40C1C6E3 C5D94040 C9D5C9E3 C9C1D340 C9D5E2D7 C3E3F140 4DF3F45D 406040C1  | AFTER  INITIAL INSPCT1 (34) - A|    
+ 000400  (LIT+704)    D3D340C2 C5C6D6D9 C540C1C6 E3C5D940 40C9D5E2 D7C3E3F1 404DF3F2 5D6040C1  |LL BEFORE AFTER  INSPCT1 (32)- A|    
+ 000420  (LIT+736)    D3D340C2 C5C6D6D9 C540C9D5 C9E3C9C1 D340C9D5 E2D7C3E3 F1404DF3 F05D6040  |LL BEFORE INITIAL INSPCT1 (30)- |    
+ 000440  (LIT+768)    D3C5C1C4 40C2C5C6 D6D9C540 C9D5E3C9 C1D340C9 D5E2D7C3 E3F1404D F2F35D40  |LEAD BEFORE INTIAL INSPCT1 (23) |    
+ 000460  (LIT+800)    D3C5C1C4 C9D5C740 40404040 40404040 40404040 C9D5E2D7 C3E3F140 4DF2F05D  |LEADING             INSPCT1 (20)|    
+ 000480  (LIT+832)    406040C1 D3D340C2 C6D6D9C5 40C9D5C9 E3C9C1D3 40C9D5E2 D7C3E3F1 404DF3F1  | - ALL BFORE INITIAL INSPCT1 (31|    
+ 0004A0  (LIT+864)    5D6040D3 C5C1C440 C1C6E3C5 D940C9D5 E3C9C1D3 40C9D5E2 D7C3E3F1 404DF2F2  |)- LEAD AFTER INTIAL INSPCT1 (22|    
+ 0004C0  (LIT+896)    5D406040 C1D3D340 C2C6D6D9 C540C1C6 E3C5D940 40C9D5E2 D7C3E3F1 404DF2F1  |) - ALL BFORE AFTER  INSPCT1 (21|    
+ 0004E0  (LIT+928)    5D6040C1 D3D340C1 C6E3D940 40C9D5C9 E3C9C1D3 405C40D4 D3F2F340 5C40E2D7  |)- ALL AFTR  INITIAL * ML23 * SP|    
+ 000500  (LIT+960)    C5C3C9C1 D340C3C8 C1D940C3 D6E4D5E3 407E405C 40D4D3F2 F2405C40 E2D7C5C3  |ECIAL CHAR COUNT = * ML22 * SPEC|    
+ 000520  (LIT+992)    C9C1D340 C3C8C1D9 40C3D6E4 D5E3407E 40504C7D 7F7F6EF1 F2F3504C 7D7F7F6E  |IAL CHAR COUNT = &<'"">123&<'"">|    
+ 000540  (LIT+1024)   504C504C 7D7F7F6E 7D6E7D6E 7F7F5C40 D4D3F1F2 405C40C6 D3D6C1E3 60D7D3E4  |&<&<'"">'>'>""* ML12 * FLOAT-PLU|    
+ 000560  (LIT+1056)   E260C3D6 E4D5E340 407E40C3 C6D4F0F0 F8C16040 C3C8C1D9 40C2C5C6 D6D9C540  |S-COUNT  = CFM008A- CHAR BEFORE |    
+ 000580  (LIT+1088)   E2D7C1C3 C5E24040 5C40D4D3 F1F5405C 40C3C8C1 D9E240C2 C5C6D6D9 C5407DF1  |SPACES  * ML15 * CHARS BEFORE '1|    
+ 0005A0  (LIT+1120)   7D407E40 C9D5E2D7 C3E3F140 4DF2F95D 6040C1C6 E3C5D940 C9D5C9E3 C9C1D340  |' = INSPCT1 (29)- AFTER INITIAL |    
+ 0005C0  (LIT+1152)   5C40D4D3 F1F1405C 40C3D6E4 D5E3C5D9 60D3C9D5 C5407E40 5C40D4D3 F1F0405C  |* ML11 * COUNTER-LINE = * ML10 *|    
+ 0005E0  (LIT+1184)   40E6E260 E2E4C2F3 40404040 40407E40 5C40D4D3 40F9405C 40C3D6E4 D5E3C5D9  | WS-SUB3      = * ML 9 * COUNTER|    
+ 000600  (LIT+1216)   60D3C9D5 C5407E40 5C40D4D3 40F8405C 40E6E260 E2E4C2F3 40404040 40407E40  |-LINE = * ML 8 * WS-SUB3      = |    
+ 000620  (LIT+1248)   5C40D4D3 40F7405C 40C3D6E4 D5E3C5D9 60D3C9D5 C5407E40 5C40D4D3 40F6405C  |* ML 7 * COUNTER-LINE = * ML 6 *|    
+ 000640  (LIT+1280)   407B40D6 C640C3C8 C1D9E240 40407E40 5C40D4D3 40F5405C 407B40D6 C640C3C8  | # OF CHARS   = * ML 5 * # OF CH|    
+ 000660  (LIT+1312)   C1D9E240 40407E40 5C40D4D3 40F4405C 407B40D6 C640C3C8 C1D9E240 40407E40  |ARS   = * ML 4 * # OF CHARS   = |    
+ 000680  (LIT+1344)   5C40D4D3 40F4405C 40E7D4D3 60E2C5C7 D4C5D5E3 40407E40 5C40D4D3 40F3405C  |* ML 4 * XML-SEGMENT  = * ML 3 *|    
+ 0006A0  (LIT+1376)   407B40D6 C640C3C8 C1D9E240 40407E40 5C40D4D3 40F2405C 40C3D6E4 D5E3C5D9  | # OF CHARS   = * ML 2 * COUNTER|    
+ 0006C0  (LIT+1408)   60D3C9D5 C5407E40 5C40D4D3 40F1405C 40C3D6E4 D5E3C5D9 60D3C9D5 C5407E40  |-LINE = * ML 1 * COUNTER-LINE = |    
+ 0006E0  (LIT+1440)   E6E260E2 C5C1D9C3 C860D7D9 C5C4C9C3 C1E3C540 4DF15D40 40C6D3D6 C1E360C4  |WS-SEARCH-PREDICATE (1)  FLOAT-D|    
+ 000700  (LIT+1472)   D6D3D3C1 D960C3D6 E4D5E340 7E40F0F0 F0F0F0F0 F0F0F0F0 40D5C1E3 40C3C140  |OLLAR-COUNT = 0000000000 NAT CA |    
+ 000720  (LIT+1504)   E5C5D940 C3C6D4F0 F0F8C140 F16040C3 C8C1D9C1 C3E3C5D9 E24040C6 D3D6C1E3  |VER CFM008A 1- CHARACTERS  FLOAT|    
+ 000740  (LIT+1536)   60D4C9D5 E4E260C3 D6E4D5E3 407E40C9 D5E2D7C3 E3F1404D F1F95D40 C1D3D340  |-MINUS-COUNT = INSPCT1 (19) ALL |    
+ 000760  (LIT+1568)   40404040 C9D5E2D7 C3E3F140 4DF2F85D 6040D3C5 C1C44040 C9D5E2D7 C3E3F140  |    INSPCT1 (28)- LEAD  INSPCT1 |    
+ 000780  (LIT+1600)   4DF2F65D 6040C1D3 D3404040 E6E260C3 D6D5E5D9 E360D7D9 C5C4C9C3 C1E3C540  |(26)- ALL   WS-CONVRT-PREDICATE |    
+ 0007A0  (LIT+1632)   E6E260D9 C5D7D3C1 C360D7D9 C5C4C9C3 C1E3C540 4C88A381 876EC885 81848599  |WS-REPLAC-PREDICATE <htag>Header|    
+ 0007C0  (LIT+1664)   4C6188A3 81876EC9 D5E2D7C3 E3F1404D F1F25D40 6040C9D5 E2D7C3E3 F1404DF1  |</htag>INSPCT1 (12) - INSPCT1 (1|    
+ 0007E0  (LIT+1696)   F05D4060 405B4EF9 60F95B4E 60F1F2F3 4E5B5BC9 D5E2D7C3 E3F1404D F1F85D60  |0) - $+9-9$+-123+$$INSPCT1 (18)-|    
+ 000800  (LIT+1728)   40C9D5E2 D7C3E3F1 404DF1F7 5D4060C9 D5E2D7C3 E3F1404D F1F65D60 40C9D5E2  | INSPCT1 (17) -INSPCT1 (16)- INS|    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page    17                
+0000820  (LIT+1760)   D7C3E3F1 404DF1F5 5D6040C9 D5E2D7C3 E3F1404D F1F45D60 40C9D5E2 D7C3E3F1  |PCT1 (15)- INSPCT1 (14)- INSPCT1|    
+ 000840  (LIT+1792)   404DF1F3 5D6040C9 D5E2D7C3 E3F1404D F1F15D40 60C9D5E2 D7C3E3F1 404DF85D  | (13)- INSPCT1 (11) -INSPCT1 (8)|    
+ 000860  (LIT+1824)   406040C9 D5E2D7C3 E3F1404D F75D4060 40C9D5E2 D7C3E3F1 404DF65D 406040C9  | - INSPCT1 (7) - INSPCT1 (6) - I|    
+ 000880  (LIT+1856)   D5E2D7C3 E3F1404D F55D4060 40C9D5E2 D7C3E3F1 404DF45D 406040C9 D5E2D7C3  |NSPCT1 (5) - INSPCT1 (4) - INSPC|    
+ 0008A0  (LIT+1888)   E3F1404D F35D4060 40C9D5E2 D7C3E3F1 404DF25D 406040C9 D5E2D7C3 E3F1404D  |T1 (3) - INSPCT1 (2) - INSPCT1 (|    
+ 0008C0  (LIT+1920)   F2F75D40 C9D5E2D7 C3E3F140 4DF95D40 60E6E260 D7C1D9D4 404DF15D 40E2E8E2  |27) INSPCT1 (9) -WS-PARM (1) SYS|    
+ 0008E0  (LIT+1952)   D6E4E340 40C9C7E9 E2D9E3C3 C44C61C8 E3F1F3F4 F6C1C2C3 C440847E 40A37E40  |OUT  IGZSRTCD</HT1346ABCD d= t= |    
+ 000900  (LIT+1984)   A27E40A5 7E7F4061 6E7C0001 02030405 06070809 0A0B0C0D 0E0F1011 12131415  |s= v=" />@......................|    
+ 000920  (LIT+2016)   16171819 1A1B1C1D 1E1F2021 22232425 26272829 2A2B2C2D 2E2F3031 32333435  |................................|    
+ 000940  (LIT+2048)   36373839 3A3B3C3D 3E3F4041 42434445 46474849 4A4B4C4D 4E4F5051 52535455  |.......... .........J.<(+|&.....|    
+ 000960  (LIT+2080)   56575859 5A5B5C5D 5E5F6061 62636465 66676869 6A6B6C6D 6E6F7071 72737475  |....!$*).^-/.........,%_>?......|    
+ 000980  (LIT+2112)   76777879 7A7B7C7D 7E7F8081 82838485 86878889 8A8B8C8D 8E8F9091 92939495  |....:#@'=".abcdefghi.......jklmn|    
+ 0009A0  (LIT+2144)   96979899 9A9B9C9D 9E9FA0A1 A2A3A4A5 A6A7A8A9 AAABACAD AEAFB0B1 B2B3B4B5  |opqr........stuvwxyz............|    
+ 0009C0  (LIT+2176)   B6B7B8B9 BABBBCBD BEBFC0C1 C2C3C4C5 C6C7C8C9 CACBCCCD CECFD0D1 D2D3D4D5  |...........ABCDEFGHI.......JKLMN|    
+ 0009E0  (LIT+2208)   D6D7D8D9 DADBDCDD DEDFE0E1 E2E3E4E5 E6E7E8E9 EAEBECED EEEFF0F1 F2F3F4F5  |OPQR........STUVWXYZ......012345|    
+ 000A00  (LIT+2240)   F6F7F8F9 FAFBFCFD FE5B4001 02030405 06070809 0A0B0C0D 0E0F1011 12131415  |6789.....$ .....................|    
+ 000A20  (LIT+2272)   16171819 1A1B1C1D 1E1F2021 22232425 26272829 2A2B2C2D 2E2F3031 32333435  |................................|    
+ 000A40  (LIT+2304)   36373839 3A3B3C3D 3E3F4041 42434445 46474849 4A4B4C4D 4E4F5051 52535455  |.......... .........J.<(+|&.....|    
+ 000A60  (LIT+2336)   56575859 5A5B5C5D 5E5F6061 62636465 66676869 6A6B6C6D 6E6F7071 72737475  |....!$*).^-/.........,%_>?......|    
+ 000A80  (LIT+2368)   76777879 7A7B7C7D 7E7F8081 82838485 86878889 8A8B8C8D 8E8F9091 92939495  |....:#@'=".abcdefghi.......jklmn|    
+ 000AA0  (LIT+2400)   96979899 9A9B9C9D 9E9FA0A1 A2A3A4A5 A6A7A8A9 AAABACAD AEAFB0B1 B2B3B4B5  |opqr........stuvwxyz............|    
+ 000AC0  (LIT+2432)   B6B7B8B9 BABBBCBD BEBFC0C1 C2C3C4C5 C6C7C8C9 CACBCCCD CECFD0D1 D2D3D4D5  |...........ABCDEFGHI.......JKLMN|    
+ 000AE0  (LIT+2464)   D6D7D8D9 DADBDCDD DEDFE0E1 E2E3E4E5 E6E7E8E9 EAEBECED EEEFF0F1 F2F3F4F5  |OPQR........STUVWXYZ......012345|    
+ 000B00  (LIT+2496)   F6F7F8F9 FAFBFCFD FEFF0001 02030405 06070809 0A0B0C0D 0E0F1011 12131415  |6789............................|    
+ 000B20  (LIT+2528)   16171819 1A1B1C1D 1E1F2021 22232425 26272829 2A2B2C2D 2E2F3031 32333435  |................................|    
+ 000B40  (LIT+2560)   36373839 3A3B3C3D 3E3F4041 42434445 46474849 4A4B4C4D 4E4F5051 52535455  |.......... .........J.<(+|&.....|    
+ 000B60  (LIT+2592)   56575859 5A5B405D 5E5F6061 62636465 66676869 6A6B6C6D 6E6F7071 72737475  |....!$ ).^-/.........,%_>?......|    
+ 000B80  (LIT+2624)   76777879 7A7B7C7D 7E7F8081 82838485 86878889 8A8B8C8D 8E8F9091 92939495  |....:#@'=".abcdefghi.......jklmn|    
+ 000BA0  (LIT+2656)   96979899 9A9B9C9D 9E9FA0A1 A2A3A4A5 A6A7A8A9 AAABACAD AEAFB0B1 B2B3B4B5  |opqr........stuvwxyz............|    
+ 000BC0  (LIT+2688)   B6B7B8B9 BABBBCBD BEBFC0C1 C2C3C4C5 C6C7C8C9 CACBCCCD CECFD0D1 D2D3D4D5  |...........ABCDEFGHI.......JKLMN|    
+ 000BE0  (LIT+2720)   D6D7D8D9 DADBDCDD DEDFE0E1 E2E3E4E5 E6E7E8E9 EAEBECED EEEFF0F1 F2F3F4F5  |OPQR........STUVWXYZ......012345|    
+ 000C00  (LIT+2752)   F6F7F8F9 FAFBFCFD FEFF0001 02030405 06070809 0A0B0C0D 0E0F1011 12131415  |6789............................|    
+ 000C20  (LIT+2784)   16171819 1A1B1C1D 1E1F2021 22232425 26272829 2A2B2C2D 2E2F3031 32333435  |................................|    
+ 000C40  (LIT+2816)   36373839 3A3B3C3D 3E3F4041 42434445 46474849 4A4B4C4D 4E4F5051 52535455  |.......... .........J.<(+|&.....|    
+ 000C60  (LIT+2848)   56575859 5A5B5C5D 5E5F6061 62636465 66676869 6A6B7C6D 6E6F7071 72737475  |....!$*).^-/.........,@_>?......|    
+ 000C80  (LIT+2880)   76777879 7A7B7C7D 7E7F8081 82838485 86878889 8A8B8C8D 8E8F9091 92939495  |....:#@'=".abcdefghi.......jklmn|    
+ 000CA0  (LIT+2912)   96979899 9A9B9C9D 9E9FA0A1 A2A3A4A5 A6A7A8A9 AAABACAD AEAFB0B1 B2B3B4B5  |opqr........stuvwxyz............|    
+ 000CC0  (LIT+2944)   B6B7B8B9 BABBBCBD BEBFC0C1 C2C3C4C5 C6C7C8C9 CACBCCCD CECFD0D1 D2D3D4D5  |...........ABCDEFGHI.......JKLMN|    
+ 000CE0  (LIT+2976)   D6D7D8D9 DADBDCDD DEDFE0E1 E2E3E4E5 E6E7E8E9 EAEBECED EEEFF0F1 F2F3F4F5  |OPQR........STUVWXYZ......012345|    
+ 000D00  (LIT+3008)   F6F7F8F9 FAFBFCFD FEFF0001 02030405 06070809 0A0B0C0D 0E0F1011 12131415  |6789............................|    
+ 000D20  (LIT+3040)   16171819 1A1B1C1D 1E1F2021 22232425 26272829 2A2B2C2D 2E2F3031 32333435  |................................|    
+ 000D40  (LIT+3072)   36373839 3A3B3C3D 3E3F4041 42434445 46474849 4A4B4C4D 4E4F5051 52535455  |.......... .........J.<(+|&.....|    
+ 000D60  (LIT+3104)   56575859 5A5B5C5D 5E5F6061 62636465 66676869 6A6B6C6D 6E6F7071 72737475  |....!$*).^-/.........,%_>?......|    
+ 000D80  (LIT+3136)   76777879 7A7B7C7D 7E7F8081 82838485 86878889 8A8B8C8D 8E8F9091 92939495  |....:#@'=".abcdefghi.......jklmn|    
+ 000DA0  (LIT+3168)   96979899 9A9B9C9D 9E9FA0A1 A2A3A4A5 A6A7A8A9 AAABACAD AEAFB0B1 B2B3B4B5  |opqr........stuvwxyz............|    
+ 000DC0  (LIT+3200)   B6B7B8B9 BABBBCBD BEBFC0F1 F3F4F6C5 C6C7C8C9 CACBCCCD CECFD0D1 D2D3D4D5  |...........1346EFGHI.......JKLMN|    
+ 000DE0  (LIT+3232)   D6D7D8D9 DADBDCDD DEDFE0E1 E2E3E4E5 E6E7E8E9 EAEBECED EEEFF0F1 F2F3F4F5  |OPQR........STUVWXYZ......012345|    
+ 000E00  (LIT+3264)   F6F7F8F9 FAFBFCFD FEFF0001 02030405 06070809 0A0B0C0D 0E0F1011 12131415  |6789............................|    
+ 000E20  (LIT+3296)   16171819 1A1B1C1D 1E1F2021 22232425 26272829 2A2B2C2D 2E2F3031 32333435  |................................|    
+ 000E40  (LIT+3328)   36373839 3A3B3C3D 3E3F4041 42434445 46474849 4A4B4C4D 4E4F5051 52535455  |.......... .........J.<(+|&.....|    
+ 000E60  (LIT+3360)   56575859 5A5B5C5D 5E5F6061 62636465 66676869 6A6B6C6D 6E6F7071 72737475  |....!$*).^-/.........,%_>?......|    
+ 000E80  (LIT+3392)   76777879 7A7B7C7D 7E7F8081 82838485 86878889 8A8B8C8D 8E8F9091 92939495  |....:#@'=".abcdefghi.......jklmn|    
+ 000EA0  (LIT+3424)   96979899 9A9B9C9D 9E9FA0A1 A2A3A4A5 A6A7A8A9 AAABACAD AEAFB0B1 B2B3B4B5  |opqr........stuvwxyz............|    
+ 000EC0  (LIT+3456)   B6B7B8B9 BABBBCBD BEBFC0C1 C2C3C4C5 C6C7C8C9 CACBCCCD CECFD0D1 D2D3D4D5  |...........ABCDEFGHI.......JKLMN|    
+ 000EE0  (LIT+3488)   D6D7D8D9 DADBDCDD DEDFE0E1 E2E3E4E5 E6E7E8E9 EAEBECED EEEFF0C1 F2C2C3F5  |OPQR........STUVWXYZ......0A2BC5|    
+ 000F00  (LIT+3520)   C4F7F8F9 FAFBFCFD FEFF0000 00000000 012C0000 00010000 01300000 00010000  |D789............................|    
+ 000F20  (LIT+3552)   015C0000 00010000 00000000 00000000 00000000 00000000 00000000 00000000  |.*..............................|    
+ 000F40  (LIT+3584)   00000000 00008000 00004000 00000000 00000000 00008000 00000000 00000000  |.......... .....................|    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page    18                
+0000F60  (LIT+3616)   00004020 20202020 20202120 C1C2C3C4 F1F2F3F4 7C7B5B6C 00010203 40000000  |.. .........ABCD1234@#$%.... ...|    
+ 000F80  (LIT+3648)   00000000 00000000 00000000 40000000 0025C000 01C00007 08000028 077F8000  |............ ................"..|    
+ 000FA0  (LIT+3680)   00000000 00000000 00000000 00000140 00002408 00002801 9D400000 09090001  |............... ......... ......|    
+ 000FC0  (LIT+3712)   2C0008FF 00000000 00000001 08000000 0000000E 0900012C 04F84340 20400900  |.........................8. . ..|    
+ 000FE0  (LIT+3744)   00000004 3D005800 00015008 00000000 00000108 00002806 AEFFFF01 4000001E  |..........&................. ...|    
+ 001000  (LIT+3776)   08000028 03BD4000 00090900 012C0008 FF000000 00000000 05088000 003D0058  |...... .........................|    
+ 001020  (LIT+3808)   00000178 0900012C 04F82140 20400900 00000004 3D005800 00015008 00000000  |.........8. . ............&.....|    
+ 001040  (LIT+3840)   00000109 00012C05 D6214020 40090000 0000043D 00580000 01580800 00000000  |........O. . ...................|    
+ 001060  (LIT+3872)   00010900 012C05D4 21402040 09000000 00043D00 58000001 60080000 00000000  |.......M. . ............-.......|    
+ 001080  (LIT+3904)   01090001 2C05D521 40204009 00000000 043D0058 00000168 08000000 00000001  |......N. . .....................|    
+ 0010A0  (LIT+3936)   0900012C 05D72140 20400900 00000004 3D005800 00017008 00000000 00000209  |.....P. . ......................|    
+ 0010C0  (LIT+3968)   00012C05 D8FFFF01 4000001E 08000028 03DB4000 00090900 012C0008 FF000000  |....Q... ......... .............|    
+ 0010E0  (LIT+4000)   00000000 05088000 003D0058 00000178 0900012C 04F82140 20400900 00000004  |.....................8. . ......|    
+ 001100  (LIT+4032)   3D005800 00015008 00000000 00000108 00002803 F9214020 40090000 0000043D  |......&.............9. . .......|    
+ 001120  (LIT+4064)   00580000 01580800 00000000 00010800 002807B5 21402040 09000000 00043D00  |..................... . ........|    
+ 001140  (LIT+4096)   58000001 60080000 00000000 01080000 2807D021 40204009 00000000 043D0058  |....-............... . .........|    
+ 001160  (LIT+4128)   00000168 08000000 00000001 08000028 04662140 20400900 00000004 3D005800  |................... . ..........|    
+ 001180  (LIT+4160)   00017008 00000000 00000108 00002807 CDFFFF01 40000027 08000028 00B74000  |.................... ......... .|    
+ 0011A0  (LIT+4192)   00500900 012C04F8 FF014000 00270800 002800DE 40000050 0900012C 04F8FF01  |.&.....8.. ......... ..&.....8..|    
+ 0011C0  (LIT+4224)   40000027 08000028 01054000 00500900 012C04F8 FF014000 00270800 0028012C  | ......... ..&.....8.. .........|    
+ 0011E0  (LIT+4256)   40000050 0900012C 04F8FF01 40000024 08000028 01C14000 00090900 012C0008  | ..&.....8.. ........A .........|    
+ 001200  (LIT+4288)   FF014000 00240800 002801E5 40000009 0900012C 0008FF00 00000000 00000208  |.. ........V ...................|    
+ 001220  (LIT+4320)   00000000 00001409 00012C04 F8454020 40090000 0000043D 00580000 01500800  |............8. . ............&..|    
+ 001240  (LIT+4352)   00000000 00010800 0028079B 43402040 09000000 00043D00 58000001 58080000  |............. . ................|    
+ 001260  (LIT+4384)   00000000 01080000 28079BFF FF014000 001C0800 00280450 40000009 0900012C  |.............. ........& .......|    
+ 001280  (LIT+4416)   0008FF00 00000000 00000108 00000000 00000E09 00012C04 F8454020 40090000  |........................8. . ...|    
+ 0012A0  (LIT+4448)   0000043D 00580000 01500800 00000000 00010800 002807B9 FFFF0140 00002508  |.........&................. ....|    
+ 0012C0  (LIT+4480)   00002801 53400000 09090001 2C0008FF 01400000 24080000 28020940 00000909  |..... ........... ......... ....|    
+ 0012E0  (LIT+4512)   00012C00 08FF0000 00000000 00020800 00000000 000E0900 012C04F8 45402040  |...........................8. . |    
+ 001300  (LIT+4544)   09000000 00043D00 58000001 50080000 00000000 01080000 28079B43 40204009  |............&............... . .|    
+ 001320  (LIT+4576)   00000000 043D0058 00000158 08000000 00000001 08000028 06AEFFFF 01400000  |............................. ..|    
+ 001340  (LIT+4608)   1D080000 28041600 02000409 00012C05 B0400000 15080000 28060200 02000409  |................. ..............|    
+ 001360  (LIT+4640)   00012C05 B8400000 16080000 2805C000 02000409 00012C05 C0FF0000 00000000  |..... ..........................|    
+ 001380  (LIT+4672)   00030800 00000000 00500900 012C04F8 21402040 09000000 00043D00 58000001  |.........&.....8. . ............|    
+ 0013A0  (LIT+4704)   50080000 00000000 01080000 2806AE21 40204009 00000000 043D0058 00000158  |&............... . .............|    
+ 0013C0  (LIT+4736)   08000000 00000001 08000028 079B2140 20400900 00000004 3D005800 00016008  |............... . ............-.|    
+ 0013E0  (LIT+4768)   00000000 00000108 00002806 ADFFFF01 40000018 08000028 04884000 00500900  |................ ........h ..&..|    
+ 001400  (LIT+4800)   012C04F8 FF014000 00180800 002804A0 40000009 0900012C 0008FF01 40000018  |...8.. ......... ........... ...|    
+ 001420  (LIT+4832)   08000028 04B84000 00500900 012C04F8 FF014000 00180800 002804D0 40000009  |...... ..&.....8.. ......... ...|    
+ 001440  (LIT+4864)   0900012C 0008FF01 40000018 08000028 04E84000 00500900 012C04F8 FF014000  |........ ........Y ..&.....8.. .|    
+ 001460  (LIT+4896)   00180800 00280500 40000009 0900012C 0008FF00 00000000 00000108 8000003D  |........ .......................|    
+ 001480  (LIT+4928)   00580000 01782D00 58000001 80054745 40204009 00000000 043D0058 00000150  |................ . ............&|    
+ 0014A0  (LIT+4960)   08000000 00000004 08000028 07B5FFFF 01400000 18080000 28051840 00000909  |................. ......... ....|    
+ 0014C0  (LIT+4992)   00012C00 08FF0000 00000000 00010880 00003D00 58000001 782D0058 00000180  |................................|    
+ 0014E0  (LIT+5024)   05474540 20400900 00000004 3D005800 00015008 00000000 00000408 00002806  |... . ............&.............|    
+ 001500  (LIT+5056)   88FFFF01 40000018 08000028 05304000 00090900 012C0008 FF014000 00180800  |h... ......... ........... .....|    
+ 001520  (LIT+5088)   00280548 40000050 0900012C 0548FF00 00000000 00000108 00000000 00004A09  |.... ..&......................J.|    
+ 001540  (LIT+5120)   00012C05 4E454020 40090000 0000043D 00580000 01500800 00000000 00040800  |....+. . ............&..........|    
+ 001560  (LIT+5152)   00280688 FFFF0140 00001808 00002805 60400000 09090001 2C0008FF 01400000  |...h... ........- ........... ..|    
+ 001580  (LIT+5184)   18080000 28057840 00005009 00012C04 F8FF0140 00001808 00002805 90400000  |....... ..&.....8.. ......... ..|    
+ 0015A0  (LIT+5216)   50090001 2C04F8FF 01400000 1D080000 28043340 00000909 00012C00 08FF0000  |&.....8.. ......... ............|    
+ 0015C0  (LIT+5248)   00000000 00010800 00000000 001E0900 012C04D8 45402040 09000000 00043D00  |...................Q. . ........|    
+ 0015E0  (LIT+5280)   58000001 50080000 00000000 02080000 2807ABFF FF014000 000C0800 00280799  |....&................. ........r|    
+ 001600  (LIT+5312)   4000001E 0900012C 04D8FF01 40000008 08000028 07994000 001E0900 012C04D8  | ........Q.. ........r ........Q|    
+ 001620  (LIT+5344)   FF014000 00220800 00280274 40000009 0900012C 0008FF00 00000000 00000208  |.. ......... ...................|    
+ 001640  (LIT+5376)   00000000 00012C09 00012C01 48214020 40090000 0000043D 00580000 01500800  |.............. . ............&..|    
+ 001660  (LIT+5408)   00000000 00010800 00280026 43402040 09000000 00043D00 58000001 58080000  |............. . ................|    
+ 001680  (LIT+5440)   00000000 01080000 280795FF FF014000 00210800 002802B8 40000009 0900012C  |..........n... ......... .......|    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page    19                
+00016A0  (LIT+5472)   0008FF00 00000000 00000208 00000000 00012C09 00012C00 18214020 40090000  |.......................... . ...|    
+ 0016C0  (LIT+5504)   0000043D 00580000 01500800 00000000 00010800 00280026 47402040 09000000  |.........&............... . ....|    
+ 0016E0  (LIT+5536)   00043D00 58000001 58080000 00000000 01080000 2806C508 00000000 00000108  |......................E.........|    
+ 001700  (LIT+5568)   00002807 95FFFF01 40000022 08000028 02964000 00090900 012C0008 FF000000  |....n... ........o .............|    
+ 001720  (LIT+5600)   00000000 02080000 00000001 2C090001 2C001821 40204009 00000000 043D0058  |.................... . .........|    
+ 001740  (LIT+5632)   00000150 08000000 00000001 08000028 00264340 20400900 00000004 3D005800  |...&............... . ..........|    
+ 001760  (LIT+5664)   00015808 00000000 00000108 00002807 95FFFF01 40000021 08000028 02D94000  |................n... ........R .|    
+ 001780  (LIT+5696)   00090900 012C0008 FF000000 00000000 02080000 00000001 2C090001 2C001821  |................................|    
+ 0017A0  (LIT+5728)   40204009 00000000 043D0058 00000150 08000000 00000001 08000028 00264540  | . ............&............... |    
+ 0017C0  (LIT+5760)   20400900 00000004 3D005800 00015808 00000000 00000108 00002806 C5FFFF01  |. ..........................E...|    
+ 0017E0  (LIT+5792)   40000018 08000028 05A84000 012C0900 012C0018 FF014000 00200800 0028035D  | ........y ........... ........)|    
+ 001800  (LIT+5824)   40000009 0900012C 0008FF00 00000000 00000208 00000000 00012C09 00012C00  | ...............................|    
+ 001820  (LIT+5856)   18114020 40090000 0000043D 00580000 01500800 00000000 00010800 00280026  |.. . ............&..............|    
+ 001840  (LIT+5888)   43402040 09000000 00043D00 58000001 58080000 00000000 01080000 280795FF  |. . ..........................n.|    
+ 001860  (LIT+5920)   FF014000 00210800 002802FA 40000009 0900012C 0008FF00 00000000 00000208  |.. ......... ...................|    
+ 001880  (LIT+5952)   00000000 00012C09 00012C00 18114020 40090000 0000043D 00580000 01500800  |.............. . ............&..|    
+ 0018A0  (LIT+5984)   00000000 00010800 00280026 45402040 09000000 00043D00 58000001 58080000  |............. . ................|    
+ 0018C0  (LIT+6016)   00000000 01080000 2806C5FF FF014000 001C0800 0028046C 40000009 0900012C  |..........E... ........% .......|    
+ 0018E0  (LIT+6048)   0008FF00 00000000 00000108 00000000 00012C09 00012C00 18434020 40090000  |.......................... . ...|    
+ 001900  (LIT+6080)   0000043D 00580000 01500800 00000000 00010800 00280795 FFFF0140 00001408  |.........&.............n... ....|    
+ 001920  (LIT+6112)   00002806 2C400000 09090001 2C0008FF 00000000 00000001 08000000 0000012C  |..... ..........................|    
+ 001940  (LIT+6144)   0900012C 00184540 20400900 00000004 3D005800 00015008 00000000 00000108  |....... . ............&.........|    
+ 001960  (LIT+6176)   00002806 C5FFFF01 4000000D 08000028 077F4000 00090900 012C0008 FF014000  |....E... ........" ........... .|    
+ 001980  (LIT+6208)   00140800 00280640 40000009 0900012C 0008FF01 40000023 08000028 02514000  |.......  ........... ......... .|    
+ 0019A0  (LIT+6240)   00090900 012C0008 FF000000 00000000 01080000 00000001 2C090001 2C001817  |................................|    
+ 0019C0  (LIT+6272)   40204009 00000000 043D0058 00000150 08000000 00000001 08000028 00260800  | . ............&................|    
+ 0019E0  (LIT+6304)   00000000 00010800 002806C5 08000000 00000001 08000028 0795FFFF 01400000  |...........E.............n... ..|    
+ 001A00  (LIT+6336)   25080000 28017840 00000909 00012C00 08FF0000 00000000 00010800 00000000  |....... ........................|    
+ 001A20  (LIT+6368)   012C0900 012C0018 13402040 09000000 00043D00 58000001 50080000 00000000  |......... . ............&.......|    
+ 001A40  (LIT+6400)   01080000 28002608 00000000 00000108 00002807 95FFFF01 40000024 08000028  |....................n... .......|    
+ 001A60  (LIT+6432)   022D4000 00090900 012C0008 FF000000 00000000 01080000 00000001 2C090001  |.. .............................|    
+ 001A80  (LIT+6464)   2C001815 40204009 00000000 043D0058 00000150 08000000 00000001 08000028  |.... . ............&............|    
+ 001AA0  (LIT+6496)   00260800 00000000 00010800 002806C5 FFFF0140 00002108 00002803 1B400000  |...............E... ......... ..|    
+ 001AC0  (LIT+6528)   09090001 2C0008FF 01400000 20080000 28037D40 00000909 00012C00 08FF0000  |......... ........' ............|    
+ 001AE0  (LIT+6560)   00000000 00010800 00000000 012C0900 012C0018 27402040 09000000 00043D00  |..................... . ........|    
+ 001B00  (LIT+6592)   58000001 50080000 00000000 01080000 28002608 00000000 00000108 00002806  |....&...........................|    
+ 001B20  (LIT+6624)   C5080000 00000000 01080000 280795FF FF014000 00200800 0028039D 40000009  |E.............n... ......... ...|    
+ 001B40  (LIT+6656)   0900012C 0008FF00 00000000 00000108 00000000 00012C09 00012C00 18234020  |.............................. .|    
+ 001B60  (LIT+6688)   40090000 0000043D 00580000 01500800 00000000 00010800 00280026 08000000  | ............&..................|    
+ 001B80  (LIT+6720)   00000001 08000028 0795FFFF 01400000 21080000 28033C40 00000909 00012C00  |.........n... ......... ........|    
+ 001BA0  (LIT+6752)   08FF0000 00000000 00010800 00000000 012C0900 012C0018 25402040 09000000  |......................... . ....|    
+ 001BC0  (LIT+6784)   00043D00 58000001 50080000 00000000 01080000 28002608 00000000 00000108  |........&.......................|    
+ 001BE0  (LIT+6816)   00002806 C5FFFF01 40000015 08000028 06174000 00090900 012C0008 FF000000  |....E... ......... .............|    
+ 001C00  (LIT+6848)   00000000 01080000 00000001 2C090001 2C001821 40204009 00000000 043D0058  |.................... . .........|    
+ 001C20  (LIT+6880)   00000150 08000000 00000001 08000028 0026FFFF 01400000 0E080000 2806BB40  |...&................. ......... |    
+ 001C40  (LIT+6912)   00007909 00012C03 A8FF0000 00000000 00010800 00000000 012C0900 012C03A8  |........y......................y|    
+ 001C60  (LIT+6944)   96080000 00000000 01080000 2807D108 00000000 00000108 00002800 26080000  |o.............J.................|    
+ 001C80  (LIT+6976)   00000000 01080000 2806C508 00000000 00000108 00002807 95FFFF01 4000000E  |..........E.............n... ...|    
+ 001CA0  (LIT+7008)   08000028 06C94000 00790900 012C03A8 FF000000 00000000 01080000 00000001  |.....I ........y................|    
+ 001CC0  (LIT+7040)   2C090001 2C03A894 08000000 00000001 08000028 07D10800 00000000 00010800  |......ym.............J..........|    
+ 001CE0  (LIT+7072)   00280026 08000000 00000001 08000028 06C5FFFF 01400000 0E080000 2806D740  |.................E... ........P |    
+ 001D00  (LIT+7104)   00007909 00012C03 A8FF0140 00000E08 00002806 E5400000 82090001 2C03A8FF  |........y.. ........V ..b.....y.|    
+ 001D20  (LIT+7136)   00000000 00000001 08000000 0000012C 0900012C 03A8A608 00000000 00000108  |.....................yw.........|    
+ 001D40  (LIT+7168)   00002807 D1080000 00000000 01080000 28002608 00000000 00000108 00002806  |....J...........................|    
+ 001D60  (LIT+7200)   C5080000 00000000 01080000 280795FF FF014000 000E0800 002806F3 40000079  |E.............n... ........3 ...|    
+ 001D80  (LIT+7232)   0900012C 03A8FF00 00000000 00000108 00000000 00012C09 00012C03 A8A40800  |.....y......................yu..|    
+ 001DA0  (LIT+7264)   00000000 00010800 00280026 08000000 00000001 08000028 07D10800 00000000  |.........................J......|    
+ 001DC0  (LIT+7296)   00010800 002806C5 FFFF0140 00000E08 00002807 01400000 79090001 2C03A8FF  |.......E... ......... ........y.|    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page    20                
+0001DE0  (LIT+7328)   01400000 0F080000 28068F40 00007909 00012C03 A8FF0000 00000000 00010800  |. ......... ........y...........|    
+ 001E00  (LIT+7360)   00000000 012C0900 012C03A8 8E080000 00000000 01080000 2807D108 00000000  |...........y..............J.....|    
+ 001E20  (LIT+7392)   00000108 00002800 26080000 00000000 01080000 2806C508 00000000 00000108  |......................E.........|    
+ 001E40  (LIT+7424)   00002807 95FFFF01 4000000E 08000028 070F4000 00790900 012C03A8 FF000000  |....n... ......... ........y....|    
+ 001E60  (LIT+7456)   00000000 01080000 00000001 2C090001 2C03A88C 08000000 00000001 08000028  |..................y.............|    
+ 001E80  (LIT+7488)   00260800 00000000 00010800 002807D1 08000000 00000001 08000028 06C5FFFF  |...............J.............E..|    
+ 001EA0  (LIT+7520)   01400000 0F080000 28069E40 00007909 00012C03 A8FF0000 00000000 00010800  |. ......... ........y...........|    
+ 001EC0  (LIT+7552)   00000000 012C0900 012C03A8 88080000 00000000 01080000 28002608 00000000  |...........yh...................|    
+ 001EE0  (LIT+7584)   00000108 00002807 D1FFFF01 4000000D 08000028 078C4000 00820900 012C03A8  |........J... ......... ..b.....y|    
+ 001F00  (LIT+7616)   FF000000 00000000 01080000 00000001 2C090001 2C03A8A2 08000000 00000001  |......................ys........|    
+ 001F20  (LIT+7648)   08000028 07D10800 00000000 00010800 00280026 08000000 00000001 08000028  |.....J..........................|    
+ 001F40  (LIT+7680)   0795FFFF 01400000 0E080000 28071D40 00007909 00012C03 A8FF0000 00000000  |.n... ......... ........y.......|    
+ 001F60  (LIT+7712)   00010800 00000000 012C0900 012C03A8 92080000 00000000 01080000 2807D108  |...............yk.............J.|    
+ 001F80  (LIT+7744)   00000000 00000108 00002800 26080000 00000000 01080000 280795FF FF014000  |..........................n... .|    
+ 001FA0  (LIT+7776)   000E0800 0028072B 40000079 0900012C 03A8FF00 00000000 00000108 00000000  |........ ........y..............|    
+ 001FC0  (LIT+7808)   00012C09 00012C03 A88A0800 00000000 00010800 002807D1 08000000 00000001  |........y..............J........|    
+ 001FE0  (LIT+7840)   08000028 00260800 00000000 00010800 00280795 FFFF0140 00000E08 00002807  |...................n... ........|    
+ 002000  (LIT+7872)   39400000 79090001 2C0278FF 01400000 0E080000 28074740 00007909 00012C02  |. ........... ......... ........|    
+ 002020  (LIT+7904)   78FF0140 00000E08 00002807 55400000 79090001 2C0278FF 00000000 00000001  |... ......... ..................|    
+ 002040  (LIT+7936)   08000000 0000012C 0900012C 02780780 08000000 00000004 08000028 07B90800  |................................|    
+ 002060  (LIT+7968)   00000000 00040800 002807BD 08000000 00000001 08000028 06C50800 00000000  |.........................E......|    
+ 002080  (LIT+8000)   00010800 00280795 FFFF0140 00000E08 00002807 63400000 79090001 2C0278FF  |.......n... ......... ..........|    
+ 0020A0  (LIT+8032)   00000000 00000001 08000000 0000012C 0900012C 02780380 08000000 00000004  |................................|    
+ 0020C0  (LIT+8064)   08000028 07BD0800 00000000 00040800 002807B9 08000000 00000001 08000028  |................................|    
+ 0020E0  (LIT+8096)   0795FFFF 01400000 0E080000 28077140 00007909 00012C02 78FF0000 00000000  |.n... ......... ................|    
+ 002100  (LIT+8128)   00010800 00000000 012C0900 012C0278 05800800 00000000 00040800 002807BD  |................................|    
+ 002120  (LIT+8160)   08000000 00000004 08000028 07B90800 00000000 00010800 002806C5 FFFF0140  |...........................E... |    
+ 002140  (LIT+8192)   00001608 00002805 EC400000 09090001 2C0008FF 01400000 14080000 28065440  |......... ........... ......... |    
+ 002160  (LIT+8224)   00012C09 00012C02 78FF0140 00001408 00002805 A8400001 2C090001 2C0018FF  |........... ........y ..........|    
+ 002180  (LIT+8256)   01400000 14080000 28066840 00012C09 00012C03 A8FF4000 00000040 C0000140  |. ......... ........y. .... ... |    
+ 0021A0  (LIT+8288)   00070800 0028077F 02C00007 08000028 077F                                 |......."........."              |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000064 0023C4 DISPLAY                       000065 0023DA DISPLAY                       000066 0023F0 DISPLAY                       
+ 000067 002406 INSPECT                       000070 00242E MOVE                          000071 002452 DISPLAY                       
+ 000072 002468 INSPECT                       000075 00247E DISPLAY                       000076 002494 INSPECT                       
+ 000079 0024AA DISPLAY                       000080 0024C0 INSPECT                       000084 0024D6 DISPLAY                       
+ 000085 0024EC INSPECT                       000087 0024FC DISPLAY                       000088 002512 INSPECT                       
+ 000090 002522 DISPLAY                       000091 002538 INSPECT                       000094 00254E DISPLAY                       
+ 000095 002564 INSPECT                       000098 00257A DISPLAY                       000099 002590 INSPECT                       
+ 000102 0025A6 DISPLAY                       000103 0025BC INSPECT                       000105 0025D2 DISPLAY                       
+ 000106 0025E8 INSPECT                       000109 0025FE DISPLAY                       000110 002614 INSPECT                       
+ 000114 00262A DISPLAY                       000115 002640 INSPECT                       000117 002650 DISPLAY                       
+ 000118 002666 INSPECT                       000121 00267C DISPLAY                       000122 002692 INSPECT                       
+ 000126 0026A8 DISPLAY                       000127 0026BE INSPECT                       000129 0026E8 DISPLAY                       
+ 000130 0026FE INSPECT                       000133 002714 DISPLAY                       000134 00272A INSPECT                       
+ 000138 002740 DISPLAY                       000139 002756 INSPECT                       000142 002790 MOVE                          
+ 000143 0027B4 DISPLAY                       000144 0027CA INSPECT                       000148 002804 MOVE                          
+ 000149 002828 DISPLAY                       000150 00283E INSPECT                       000154 002878 MOVE                          
+ 000155 00289C DISPLAY                       000156 0028B2 INSPECT                       000161 0028EC MOVE                          
+ 000162 002910 DISPLAY                       000163 002926 INSPECT                       000166 002976 MOVE                          
+ 000167 00299A DISPLAY                       000168 0029B0 INSPECT                       000172 0029EA MOVE                          
+ 000173 002A0E DISPLAY                       000174 002A24 INSPECT                       000178 002A5E MOVE                          
+ 000179 002A82 DISPLAY                       000180 002A98 INSPECT                       000185 002AD2 MOVE                          
+ 000186 002AF6 DISPLAY                       000187 002B0C INSPECT                       000190 002B46 MOVE                          
+ 000191 002B6A DISPLAY                       000192 002B80 MOVE                          000193 002B8A INSPECT                       
+ 000196 002BDA MOVE                          000197 002BFE DISPLAY                       000198 002C14 INSPECT                       
+ 000201 002C4E MOVE                          000202 002C72 DISPLAY                       000203 002C88 INSPECT                       
+ 000206 002CC2 MOVE                          000207 002CE6 DISPLAY                       000208 002CFC INSPECT                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page    21                
+0000212 002D56 MOVE                          000213 002D7A DISPLAY                       000214 002D90 INSPECT                       
+ 000218 002DEA MOVE                          000219 002E0E DISPLAY                       000220 002E24 DISPLAY                       
+ 000221 002E3A INSPECT                       000225 002E94 MOVE                          000226 002EB8 DISPLAY                       
+ 000227 002ECE INSPECT                       000231 002F28 MOVE                          000232 002F4C DISPLAY                       
+ 000233 002F62 INSPECT                       000238 002FBC MOVE                          000239 002FE0 DISPLAY                       
+ 000241 002FF6 MOVE                          000242 003000 INSPECT                       000246 00305A MOVE                          
+ 000247 00307E DISPLAY                       000248 003094 MOVE                          000250 0030A2 DISPLAY                       
+ 000251 0030B8 MOVE                          000252 0030C2 DISPLAY                       000253 0030D8 INSPECT                       
+ 000254 003112 MOVE                          000255 003136 DISPLAY                       000259 00314C MOVE                          
+ 000260 00315A STRING                        000266 003170 DISPLAY                       000267 003186 INSPECT                       
+ 000268 003194 DISPLAY                       000270 0031AA MOVE                          000271 0031B4 INSPECT                       
+ 000273 0031DC MOVE                          000274 003200 DISPLAY                       000276 003216 MOVE                          
+ 000277 003220 MOVE                          000278 003234 INSPECT                       000281 00326E DISPLAY                       
+ 000282 003284 MOVE                          000283 0032A8 DISPLAY                       000285 0032BE MOVE                          
+ 000286 0032C8 MOVE                          000287 0032D2 MOVE                          000288 0032DC INSPECT                       
+ 000292 003332 MOVE                          000293 003356 DISPLAY                       000295 00336C MOVE                          
+ 000296 003376 MOVE                          000297 003380 MOVE                          000298 00338A INSPECT                       
+ 000302 0033E0 MOVE                          000303 003404 DISPLAY                       000305 00341A MOVE                          
+ 000306 003424 MOVE                          000307 003432 MOVE                          000308 003440 MOVE                          
+ 000309 00344A DISPLAY                       000310 003460 INSPECT                       000311 0034B0 MOVE                          
+ 000312 0034D4 DISPLAY                       000313 0034EA INSPECT                       000314 0034F8 DISPLAY                       
+ 000315 00350E MOVE                          000316 003518 INSPECT                       000317 003570 MOVE                          
+ 000318 003594 DISPLAY                       000319 0035AA INSPECT                       000320 0035B4 DISPLAY                       
+ 000322 0035CA MOVE                          000323 0035DE MOVE                          000329 003606 INSPECT                       
+ 000333 003680 DISPLAY                       000336 003696 INSPECT                       000341 0036F0 MOVE                          
+ 000342 003714 DISPLAY                       000343 00372A MOVE                          000344 00374E DISPLAY                       
+ 000345 003764 INSPECT                       000347 00379E MOVE                          000348 0037C2 DISPLAY                       
+ 000350 0037D8 MOVE                          000351 0037E8 INSPECT                       000356 003842 MOVE                          
+ 000357 003866 DISPLAY                       000358 00387C MOVE                          000359 0038A0 DISPLAY                       
+ 000361 0038B6 MOVE                          000362 0038C4 DISPLAY                       000364 0038DA INSPECT                       
+ 000365 0038E4 DISPLAY                       000367 0038FA MOVE                          000368 003908 DISPLAY                       
+ 000370 00391E INSPECT                       000371 003928 DISPLAY                       000374 00393E MOVE                          
+ 000376 003952 MOVE                          000377 00395C MOVE                          000378 003966 INSPECT                       
+ 000380 003A42 MOVE                          000381 003A66 DISPLAY                       000383 003A78 MOVE                          
+ 000384 003A82 INSPECT                       000387 003B5E MOVE                          000388 003B82 DISPLAY                       
+ 000390 003B94 MOVE                          000391 003BA8 MOVE                          000392 003BB2 INSPECT                       
+ 000395 003BE8 MOVE                          000396 003C0C DISPLAY                       000400 003C1E STOP                          
+                                                                                                                                     
+0                                                                                                                                    
+   DEBUGINF TABLE LOCATED AT 003CC8 FOR 000046 BYTES                                                                                 
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page    22                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  TEST INFORMATION AREA                                                                                    
+                    00015C  INDEX CELLS                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page    23                
+0                   000160  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  00000128  VARIABLE-LENGTH CELLS                                                                                    
+                  00000140  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000148  PERFORM SAVE CELLS                                                                                       
+                  00000150  TEMPORARY STORAGE-2                                                                                      
+                  00000178  TEMPORARY STORAGE-3                                                                                      
+                  00000188  CALL STATEMENT PROGRAM NAME                                                                              
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000174 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 000005E9 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 00000228 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 003D40                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 003EA0 FOR LENGTH 00009A                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INSPCT1   Date 01/24/2021  Time 08:08:58   Page    24                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program INSPCT1:                                                                                             
+ *    Source records = 400                                                                                                           
+ *    Data Division statements = 35                                                                                                  
+ *    Procedure Division statements = 189                                                                                            
+0End of compilation 1,  program INSPCT1,  highest severity 4.                                                                        
+0Return code 4                                                                                                                       

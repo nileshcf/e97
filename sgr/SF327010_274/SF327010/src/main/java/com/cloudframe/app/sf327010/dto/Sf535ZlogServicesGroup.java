@@ -1,0 +1,183 @@
+package com.cloudframe.app.sf327010.dto;
+
+/**
+*  The class Sf535ZlogServicesGroup is used to handle fields declared in it
+*  @author CloudFrame Inc.
+*  created on 2025-04-22 at 07:11. using version 5.0.0.254
+**/
+
+
+import com.cloudframe.app.sf327010.dto.serialize.*;
+import com.cloudframe.app.exception.CFException;
+import com.cloudframe.app.data.Field;
+
+
+public class Sf535ZlogServicesGroup extends Sf535ZlogServicesGroupSerialized {
+   
+
+						private char[] sf535ZlogServices = new char[11456];
+					private Sf535ZlogServiceTable sf535ZlogServiceTable = new Sf535ZlogServiceTable();
+	
+	/**
+	* Constructor for Sf535ZlogServicesGroup
+	**/
+    public Sf535ZlogServicesGroup() {
+		super();
+		/*  set the parent of each child as this which are a group variable */
+	       			sf535ZlogServiceTable.setParent(this,getStartOffset() + 0);
+	   	/*  end of offset */
+								setSf535ZlogServices("0000MDS SSP Probe Service                                       0021Express Checkout (eWallet)                                  0027MRS Pay with Points                                         0031ChipCVC/CVC1 Conv Svc-CVC1 Key/Dec Matrix Only              0032ChipCVC/CVC1 Conv Svc-Separate Keys/Dec Matrixes            0033MoneySend InControl Blocking Service                        0050MDES PAN Mapping Service                                    0051MDES CHIP Pre-Validation Service                            0052MDES dCVC3 Pre-Validation Service                           0053MasterCard Card-on-File Token Mapping Service               0054MasterCard Card-on-File TRID Validation Service             0056Card on File Token Request Service                          0057Card on File Token Mapping Service                          0061MDES MCBP CHIP ARQC Validation Service                      0062MDES MCBP CVC3 Dynamic Pre-Validation Service               0070FSA Healthcare                                              0080PIN Translation (Local)                                     0081PIN Validation (Central)                                    0098EMS Merchant Scoring Screening Service                      0099Static UCAF (aka 1-click Maestro)                           0100PAN Mapping Service                                         0101PAN Mapping Service                                         0102CHIP ARQC Validation/ARPC Generation                        0103CHIP ARQC Validation/ARPC Generation (Stand-in)             0104CHIP ARPC Generation                                        0105CHIP ARPC Generation (Stand-in)                             0106AAV Validation                                              0107AAV Validation (Stand-in)                                   0108CVC3 Paypass Static Pre-Validation                          0109CVC3 Paypass Static Validation (Stand-in)                   0110CVC3 Paypass Dynamic Pre-Validation                         0111CVC3 Paypass Dynamic Validation (Stand-in)                  0120Product Graduation Service                                  0121Private Label Merchant Screening Service                    0127MRS Pay with Points Advices                                 0130InControl - ASA                                             0131InControl - ASA - Auth Advices to InControl                 0132MoneySend InControl Blocking Service - Advice               0133InControl ALS - ASA - 0120/0400/0420 to InControl           0134InControl FLex - ASA/CLIENT                                 0135InControl ERC - ASA/CLIENT                                  0136MC Labs Notification - AMS Lookup                           0137MC Labs Fulfillment Service                                 0138InControl Second Attempt Advice                             0140India UID On-Soil ASA                                       0141Fraud Notification Lookup Service                           0142InControl IPC Advice - ASA                                  0143InControl ALS Advice Fulfill - ASA                          0144InControl ALS Steel Advice Lookup - ASA                     0145InControl ALS Steel Advice Fulfill - ASA                    0151POS Enabled Installments                                    0180PIN Translation (Central)                                   0182MDS PIN Translation Service                                 0183PAN Mapping PIN Translation                                 0184MDS PIN Translation Service to Network Key                  0185MDS PIN Translation Service to MDS Issuer Key               0186MDS PIN Translation/validation for Stand-in                 0187MDS PIN-Based Authorization Performed Service               0192Transaction Integrity Classification                        0200PAN Mapping Logging Insert Service                          0207MDES/AMS Administrative Service                             0221EWallet - ASA - Auth Advices                                0310CVC1 Validation                                             0390EMS ADC Event Service                                       0400EMS Realtime Scoring Service - Consolidated #1              0401EMS Realtime Auth Request - GKA CitiBank                    0402EMS Realtime Auth Request - Cluster #3                      0403EMS Realtime Auth Request - Cluster #4                      0404EMS Realtime Auth Request - Cluster #5                      0405EMS Realtime Auth Request - Cluster #6                      0408EMS ATM Transaction Blocking                                0409EMS Risk Scoring for eCommerce Merchants                    0410EMS Realtime Auth Advice - Consolidated #1                  0411EMS Realtime Auth Advice - GKA CitiBank                     0412EMS Realtime Auth Advice - Cluster #3                       0413EMS Realtime Auth Advice - Cluster #4                       0414EMS Realtime Auth Advice - Cluster #5                       0415EMS Realtime Auth Advice - Cluster #6                       0418EMS ATM Transaction Blocking Advice                         0419EMS Merchant Advice Service                                 0596Dummy EarlyStar to Standard Route Fallback Service          0597Dummy EarlyStar Route Service                               0598Dummy Triangle Route Service                                0599Dummy Star Route Service                                    0601CEM Advice Message Service                                  0602Token PAR Service call - ASA                                0603PAR Service call - ASA                                      0650MDES Device/Card-On-File Mapping                            0890Coupon in a Cloud - MRS Lookup Standard Routing             0891Coupon in a Cloud - MRS Lookup Triangle Routing             0892Coupon in a Cloud - MRS Fulfillment Service                 0898Account Level Interchange Standard Routing                  0899RPCS Recurring Payments blocking                            0983InControl Fulfillment Service - ASB                         0984InControl ALS Lookup Steel Traffic - ASA                    0989InControl ALS Fulfillment- ASB                              0990InControl Fraud Control                                     0991Global Transit Dynamic CVC2 Pre-val ATC                     0992Global Transit ATC Offline Variance Service                 0993MobileTopup - ASA                                           0994InControl ALS - ASA                                         0995IIAS Merchant Validation                                    0996MRS POS Reward - ASA                                        0998Account Level Interchange Triangle Routing                  1031CHIP CVC Svc Using CVC 1 Keys (SSP)                         1032CHIP CVC Svc Using Unique Keys (SSP)                        1033MDS MoneySend InControl Blocking Service                    1050MDES Service - for MDS                                      1051MDES CHIP ARQC Vald/ARPC Gen - External                     1052MDES CVC3 PayPass Dynamic Pre-Validation - for MDS          1054Card-on-File TRID Validation Service - MDS                  1055SSP Visa Token Service                                      1057Card on File Token Mapping Service - For MDS                1058SSP Visa Token History Advice Service                       1061MDES MCBP CHIP ARQC Validation Svc - for MDS                1062MDES MCBP CVC3 Dynamic Pre-Validation Svc - for MDS.        1100PayPass PAN mapping for MDS                                 1102CHIP ARQC Validation/ARPC Generation - SSP                  1103CHIP ARQC Validation/ARPC Generation - Stand-in             1104CHIP ARPC Generation - SSP                                  1105CHIP ARPC Generation - Stand-in - SSP                       1132MDS MoneySend InControl Blocking Service - Advice           1133InControl ALS - ASA-0120/0400/0420 to MDS                   1143InControl ALS Advice Fulfill - ASA                          1152MDES Declined Advice Service - SSP                          1183PAN Mapping PIN Translation - for MDS                       1400EMS RT Issuer Scoring MDS - Cluster #2 (SSP)                1401EMS RT Issuer Scoring MDS - Cluster #1 (SSP)                1402EMS RT Issuer Scoring MDS - Cluster #3 (SSP)                1408EMS ATM Transaction Blocking - SSP                          1410EMS RT Issuer Scoring Advice - Cluster #2 (SSP)             1411EMS RT Issuer Scoring Advice - Cluster #1 (SSP)             1412EMS RT Issuer Scoring Advice - Cluster #3 (SSP)             1418EMS ATM Transaction Blocking Advice - SSP                   1601EMS Merchant Scoring Advices (SSP)                          1602MDS Mapping -ASA                                            1603Token Service Provider-ASA                                  1650MDES Device/Card-On-File Mapping - MDS                      1989InControl Fulfillment Service - ASB                         1994InControl ALS - for MDS (SSP)                               2033Moneysend blocking for External networks                    2050MDES Service PAN Mapping - External                         2051MDES CHIP ARQC Vald/ARPC Gen - External                     2052MDES CVC3 PayPass Dynamic Pre-Valid - External              2053Card-on-File Token Mapping Service - OE Ext Cust            2054MasterCard Card-on-File TRID Validation Service             2061MDES MCBP CHIP ARQC Validation Svc - External               2062MDES MCBP CVC3 Dynamic Pre-Validation Svc - External        2102CHIP ARQC Validation/ARPC Generation - OE Ext Cust          2104CHIP ARPC Generation - OE external customer                 2106AVV Validation - OE external customer                       2110CVC3 Paypass Dynamic Pre-Validation - OE Ext Cust           2130InControl - OE External Customer                            2131InControl - ASA - OE Advices SSP to InControl               2133InControl ALS - OE 0120/0400/0420                           2143InControl ALS Advice Fulfill - ASA                          2183MDES Serv PIN Block Trxl to Iss FPAN - External             2400EMS RT Iss Scoring - OE External Customer                   2401EMS RT Iss Scoring - External                               2402EMS RT Iss Scoring - OE External Customer                   2409EMS Risk for eCommerce Merchant - OE Customer               2410EMS Real-Time Authorization ADVICE - OE Customer            2411EMS Real-Time Authorization ADVICE - OE Customer            2412EMS Real-Time Authorization ADVICE - OE Customer            2419EMS Risk Advice for eComm Merch - OE Customer               2601CEM Advice Service - OE External Customer                   2602 Mastercard Shared Service Platform                         2650MDES Device/Card-On-File Mapping-External Customer          2989InControl Fulfillment Service - ASB                         2994InControl ALS - External Customers using OE Format          3102MNGS CHIP Pre Validation - ARQC Validation                  3104MNGS CHIP Post Generation - ARPC Generation                 3400MNGS EMS Issuer Risk Scoring - Consolidated #1              3401MNGS EMS Issuer Risk Scoring - GKA / Citib                  3402MNGS EMS Issuer Risk Scoring - Cluster #3                   3410MNGS Iss Scoring Last Decline notification - Consolidated #13411MNGS Issuer Scoring Last Decline notification - GKA / Citib 3412MNGS Issuer Scoring Last Decline notification - Cluster #3  9140India UID On-Soil ASA - MTF TESTING                         ".toCharArray());
+    }
+
+
+ 
+
+	/**
+	 *	Returns the value of sf535ZlogServices
+	 *	@return sf535ZlogServices
+	 */
+   public char[] getSf535ZlogServices() throws CFException{
+     if (isSf535ZlogServicesModified()) { 
+        sf535ZlogServices = refreshSf535ZlogServices();
+     }
+   		return sf535ZlogServices;
+   }
+
+  
+	/**
+	*  set variable sf535ZlogServices
+	*  Corresponding COBOL Variable is SF535-ZLOG-SERVICES
+	*  @param value
+	**/
+   public void setSf535ZlogServices(char[] value) {
+      sf535ZlogServices = checkSf535ZlogServicesConstraints(value);
+      serializeSf535ZlogServices(sf535ZlogServices);
+   } 
+
+     /**
+	 * 	Update Sf535ZlogServices 
+	 *     with a char[] from an offset and length             
+	 *	@param value
+	 */
+   public void setSf535ZlogServices(char[] source, int sourceIndex) {
+       replace(source,sourceIndex,source.length,beginSf535ZlogServices,sf535ZlogServices.length);
+   	
+   }
+   
+   public void setSf535ZlogServices(char[] source, int sourceIndex , int sourceLen) {
+       replace(source,sourceIndex,sourceLen,beginSf535ZlogServices,sf535ZlogServices.length);
+   	
+   }
+   
+     /**
+	 * 	Update Sf535ZlogServices 
+	 *     with a char[] from an offset and length  
+	 *                     to  an offset and length         
+	 *	@param value
+	 */
+   public void setSf535ZlogServices(char[] source, int sourceIndex,int sourceLen, int targetIndex,int targetLen) {
+       replace(source,sourceIndex,sourceLen,beginSf535ZlogServices+targetIndex,targetLen);
+   
+   }
+   
+    /**
+	 * 	Update Sf535ZlogServices with another Field
+	 *	@param value
+	 */
+   public void setSf535ZlogServices(Field source) {
+       replace(source,0,source.length(),beginSf535ZlogServices,SF_535_ZLOG_SERVICES_LEN);
+   	
+   }  
+   
+     /**
+	 * 	Update Sf535ZlogServices 
+	 *     with another Field from an offset and length          
+	 *	@param value
+	 */
+   public void setSf535ZlogServices(Field source, int sourceIndex,int sourceLen) {
+        replace(source,sourceIndex,sourceLen,beginSf535ZlogServices,SF_535_ZLOG_SERVICES_LEN);
+   	
+   }
+   
+     /**
+	 * 	Update Sf535ZlogServices 
+	 *     with another Field from an offset and length  
+	 *                         to  an offset and length         
+	 *	@param value
+	 */
+   public void setSf535ZlogServices(Field source, int sourceIndex,int sourceLen, int targetIndex,int targetLen) {
+       replace(source,sourceIndex,sourceLen,beginSf535ZlogServices+targetIndex,targetLen);
+    
+   }
+	/**
+	 *	Returns the value of sf535ZlogServiceTable
+	 *	@return sf535ZlogServiceTable
+	 */   
+	 public Sf535ZlogServiceTable getSf535ZlogServiceTable() {
+   	return sf535ZlogServiceTable;
+   }
+   /**
+	* 	Update Sf535ZlogServiceTable with the passed value
+	*   Corresponding COBOL Variable is SF535-ZLOG-SERVICE-TABLE
+	*	@param value
+	*/
+   public void setSf535ZlogServiceTable(char[] value) {
+      sf535ZlogServiceTable.setString(value); 
+   }   
+    
+     /**
+	 * 	Update Sf535ZlogServiceTable 
+	 *     with a String from an offset and length             
+	 *	@param value
+	 */
+   public void setSf535ZlogServiceTable(char[] source, int sourceIndex,int sourceLen) {
+   	replace(source,sourceIndex,sourceLen,sf535ZlogServiceTable.begin,sf535ZlogServiceTable.length());
+   }
+   
+     /**
+	 * 	Update Sf535ZlogServiceTable 
+	 *     with a String from an offset and length  
+	 *                     to  an offset and length         
+	 *	@param value
+	 */
+   public void setSf535ZlogServiceTable(char[] source, int sourceIndex,int sourceLen, int targetIndex,int targetLen) {
+   	replace(source,sourceIndex,sourceLen,sf535ZlogServiceTable.begin+targetIndex,targetLen);
+   }
+   
+    /**
+	 * 	Update Sf535ZlogServiceTable with another Field
+	 *	@param value
+	 */
+   public void setSf535ZlogServiceTable(Field source) {
+   	replace(source,0,source.length(),sf535ZlogServiceTable.begin,sf535ZlogServiceTable.length());
+   }  
+   
+     /**
+	 * 	Update Sf535ZlogServiceTable 
+	 *     with another Field from an offset and length             
+	 *	@param value
+	 */
+   public void setSf535ZlogServiceTable(Field source, int sourceIndex,int sourceLen) {
+   	replace(source,sourceIndex,sourceLen,sf535ZlogServiceTable.begin,sf535ZlogServiceTable.length());
+   }
+   
+     /**
+	 * 	Update Sf535ZlogServiceTable 
+	 *     with another Field from an offset and length  
+	 *                         to  an offset and length         
+	 *	@param value
+	 */
+   public void setSf535ZlogServiceTable(Field source, int sourceIndex,int sourceLen, int targetIndex,int targetLen) {
+   	replace(source,sourceIndex,sourceLen,sf535ZlogServiceTable.begin+targetIndex,targetLen);
+   }
+
+	
+	
+	
+
+		public static int getSf535ZlogServicesGroupFieldLength() {
+			return SF_535_ZLOG_SERVICES_GROUP_LENGTH;
+		}
+
+}
+  

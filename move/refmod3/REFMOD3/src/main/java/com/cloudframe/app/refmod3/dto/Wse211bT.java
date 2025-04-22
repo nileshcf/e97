@@ -1,0 +1,296 @@
+package com.cloudframe.app.refmod3.dto;
+
+/**
+*  The class Wse211bT is used to handle fields declared in it
+*  @author CloudFrame Inc.
+*  created on 2025-04-22 at 07:10. using version 5.0.0.254
+**/
+
+
+import com.cloudframe.app.refmod3.dto.serialize.*;
+import com.cloudframe.app.exception.CFException;
+import com.cloudframe.app.data.Field;
+import com.cloudframe.app.common.CONSTANTS;
+
+
+public class Wse211bT extends Wse211bTSerialized { 
+   
+
+						private char[] wse211bTFld1 = Field.fillLowValue(10);
+
+						private char[] wse211bTFld2 = Field.fillLowValue(20);
+
+						private char[] wse211bTFld3 = Field.fillLowValue(30);
+	
+	/**
+	* Constructor for Wse211bT
+	**/
+    public Wse211bT() {
+	// TO-DO auto generated code
+    }
+
+
+ 
+	/**
+	* Constructor for Wse211bT. sets the parent value to the parent
+	* @param parent
+	* @param begin
+	**/
+    public Wse211bT(Field parent,int begin) {
+    	   setParent(parent,begin);
+    }
+    
+
+	/**
+	 *	Returns the value of wse211bTFld1
+	 *	@return wse211bTFld1
+	 */
+   public char[] getWse211bTFld1() throws CFException{
+     if (isWse211bTFld1Modified()) { 
+        wse211bTFld1 = refreshWse211bTFld1();
+     }
+   		return wse211bTFld1;
+   }
+
+  
+	/**
+	*  set variable wse211bTFld1
+	*  Corresponding COBOL Variable is WSE-2-11B-T-FLD1
+	*  @param value
+	**/
+   public void setWse211bTFld1(char[] value) {
+      wse211bTFld1 = checkWse211bTFld1Constraints(value);
+      serializeWse211bTFld1(wse211bTFld1);
+   } 
+
+     /**
+	 * 	Update Wse211bTFld1 
+	 *     with a char[] from an offset and length             
+	 *	@param value
+	 */
+   public void setWse211bTFld1(char[] source, int sourceIndex) {
+       replace(source,sourceIndex,source.length,beginWse211bTFld1,wse211bTFld1.length);
+   	
+   }
+   
+   public void setWse211bTFld1(char[] source, int sourceIndex , int sourceLen) {
+       replace(source,sourceIndex,sourceLen,beginWse211bTFld1,wse211bTFld1.length);
+   	
+   }
+   
+     /**
+	 * 	Update Wse211bTFld1 
+	 *     with a char[] from an offset and length  
+	 *                     to  an offset and length         
+	 *	@param value
+	 */
+   public void setWse211bTFld1(char[] source, int sourceIndex,int sourceLen, int targetIndex,int targetLen) {
+       replace(source,sourceIndex,sourceLen,beginWse211bTFld1+targetIndex,targetLen);
+   
+   }
+   
+    /**
+	 * 	Update Wse211bTFld1 with another Field
+	 *	@param value
+	 */
+   public void setWse211bTFld1(Field source) {
+       replace(source,0,source.length(),beginWse211bTFld1,WSE_211B_TFLD_1_LEN);
+   	
+   }  
+   
+     /**
+	 * 	Update Wse211bTFld1 
+	 *     with another Field from an offset and length          
+	 *	@param value
+	 */
+   public void setWse211bTFld1(Field source, int sourceIndex,int sourceLen) {
+        replace(source,sourceIndex,sourceLen,beginWse211bTFld1,WSE_211B_TFLD_1_LEN);
+   	
+   }
+   
+     /**
+	 * 	Update Wse211bTFld1 
+	 *     with another Field from an offset and length  
+	 *                         to  an offset and length         
+	 *	@param value
+	 */
+   public void setWse211bTFld1(Field source, int sourceIndex,int sourceLen, int targetIndex,int targetLen) {
+       replace(source,sourceIndex,sourceLen,beginWse211bTFld1+targetIndex,targetLen);
+    
+   }
+	/**
+	 *	Returns the value of wse211bTFld2
+	 *	@return wse211bTFld2
+	 */
+   public char[] getWse211bTFld2() throws CFException{
+     if (isWse211bTFld2Modified()) { 
+        wse211bTFld2 = refreshWse211bTFld2();
+     }
+   		return wse211bTFld2;
+   }
+
+  
+	/**
+	*  set variable wse211bTFld2
+	*  Corresponding COBOL Variable is WSE-2-11B-T-FLD2
+	*  @param value
+	**/
+   public void setWse211bTFld2(char[] value) {
+      wse211bTFld2 = checkWse211bTFld2Constraints(value);
+      serializeWse211bTFld2(wse211bTFld2);
+   } 
+
+     /**
+	 * 	Update Wse211bTFld2 
+	 *     with a char[] from an offset and length             
+	 *	@param value
+	 */
+   public void setWse211bTFld2(char[] source, int sourceIndex) {
+       replace(source,sourceIndex,source.length,beginWse211bTFld2,wse211bTFld2.length);
+   	
+   }
+   
+   public void setWse211bTFld2(char[] source, int sourceIndex , int sourceLen) {
+       replace(source,sourceIndex,sourceLen,beginWse211bTFld2,wse211bTFld2.length);
+   	
+   }
+   
+     /**
+	 * 	Update Wse211bTFld2 
+	 *     with a char[] from an offset and length  
+	 *                     to  an offset and length         
+	 *	@param value
+	 */
+   public void setWse211bTFld2(char[] source, int sourceIndex,int sourceLen, int targetIndex,int targetLen) {
+       replace(source,sourceIndex,sourceLen,beginWse211bTFld2+targetIndex,targetLen);
+   
+   }
+   
+    /**
+	 * 	Update Wse211bTFld2 with another Field
+	 *	@param value
+	 */
+   public void setWse211bTFld2(Field source) {
+       replace(source,0,source.length(),beginWse211bTFld2,WSE_211B_TFLD_2_LEN);
+   	
+   }  
+   
+     /**
+	 * 	Update Wse211bTFld2 
+	 *     with another Field from an offset and length          
+	 *	@param value
+	 */
+   public void setWse211bTFld2(Field source, int sourceIndex,int sourceLen) {
+        replace(source,sourceIndex,sourceLen,beginWse211bTFld2,WSE_211B_TFLD_2_LEN);
+   	
+   }
+   
+     /**
+	 * 	Update Wse211bTFld2 
+	 *     with another Field from an offset and length  
+	 *                         to  an offset and length         
+	 *	@param value
+	 */
+   public void setWse211bTFld2(Field source, int sourceIndex,int sourceLen, int targetIndex,int targetLen) {
+       replace(source,sourceIndex,sourceLen,beginWse211bTFld2+targetIndex,targetLen);
+    
+   }
+	/**
+	 *	Returns the value of wse211bTFld3
+	 *	@return wse211bTFld3
+	 */
+   public char[] getWse211bTFld3() throws CFException{
+     if (isWse211bTFld3Modified()) { 
+        wse211bTFld3 = refreshWse211bTFld3();
+     }
+   		return wse211bTFld3;
+   }
+
+  
+	/**
+	*  set variable wse211bTFld3
+	*  Corresponding COBOL Variable is WSE-2-11B-T-FLD3
+	*  @param value
+	**/
+   public void setWse211bTFld3(char[] value) {
+      wse211bTFld3 = checkWse211bTFld3Constraints(value);
+      serializeWse211bTFld3(wse211bTFld3);
+   } 
+
+     /**
+	 * 	Update Wse211bTFld3 
+	 *     with a char[] from an offset and length             
+	 *	@param value
+	 */
+   public void setWse211bTFld3(char[] source, int sourceIndex) {
+       replace(source,sourceIndex,source.length,beginWse211bTFld3,wse211bTFld3.length);
+   	
+   }
+   
+   public void setWse211bTFld3(char[] source, int sourceIndex , int sourceLen) {
+       replace(source,sourceIndex,sourceLen,beginWse211bTFld3,wse211bTFld3.length);
+   	
+   }
+   
+     /**
+	 * 	Update Wse211bTFld3 
+	 *     with a char[] from an offset and length  
+	 *                     to  an offset and length         
+	 *	@param value
+	 */
+   public void setWse211bTFld3(char[] source, int sourceIndex,int sourceLen, int targetIndex,int targetLen) {
+       replace(source,sourceIndex,sourceLen,beginWse211bTFld3+targetIndex,targetLen);
+   
+   }
+   
+    /**
+	 * 	Update Wse211bTFld3 with another Field
+	 *	@param value
+	 */
+   public void setWse211bTFld3(Field source) {
+       replace(source,0,source.length(),beginWse211bTFld3,WSE_211B_TFLD_3_LEN);
+   	
+   }  
+   
+     /**
+	 * 	Update Wse211bTFld3 
+	 *     with another Field from an offset and length          
+	 *	@param value
+	 */
+   public void setWse211bTFld3(Field source, int sourceIndex,int sourceLen) {
+        replace(source,sourceIndex,sourceLen,beginWse211bTFld3,WSE_211B_TFLD_3_LEN);
+   	
+   }
+   
+     /**
+	 * 	Update Wse211bTFld3 
+	 *     with another Field from an offset and length  
+	 *                         to  an offset and length         
+	 *	@param value
+	 */
+   public void setWse211bTFld3(Field source, int sourceIndex,int sourceLen, int targetIndex,int targetLen) {
+       replace(source,sourceIndex,sourceLen,beginWse211bTFld3+targetIndex,targetLen);
+    
+   }
+
+	
+	
+	
+	/**
+	 * 	initializes Wse211bT
+	 *  String fields defaults to Spaces
+	 *  short/int/long defaults to zero
+	 *  BigDecimal defaults to BigDecimal.ZERO
+	 */
+   public void initialize() {
+         setWse211bTFld1(CONSTANTS.SPACE_10);
+         setWse211bTFld2(CONSTANTS.SPACE_20);
+         setWse211bTFld3(CONSTANTS.SPACE_30);
+   }
+
+		public static int getWse211bTFieldLength() {
+			return WSE_211B_T_LENGTH;
+		}
+
+}
+  

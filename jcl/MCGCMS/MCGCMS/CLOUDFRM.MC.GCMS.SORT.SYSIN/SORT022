@@ -1,0 +1,13 @@
+*-----------------------------------------------------------------------        
+* SPLIT SINGLE NET/DUAL NET RECORDS OF BAU SIF FILE IN IP981302                 
+* AND IP981303 LAYOUT.                                                          
+*-----------------------------------------------------------------------        
+  SORT FIELDS=COPY                                                              
+  OUTFIL FNAMES=SORTOF1,INCLUDE=(005,01,CH,EQ,C'D',AND,                         
+                                  058,02,CH,NE,C'11',AND,                       
+                                  152,20,ZD,GT,0),                              
+          OUTREC=(005,260),CONVERT                                              
+  OUTFIL FNAMES=SORTOF2,INCLUDE=(005,01,CH,EQ,C'P',AND,                         
+                                  058,02,CH,NE,C'11',AND,                       
+                                  310,20,ZD,GT,0),                              
+          OUTREC=(005,394),CONVERT                                              

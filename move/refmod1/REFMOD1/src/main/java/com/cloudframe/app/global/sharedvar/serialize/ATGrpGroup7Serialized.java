@@ -1,0 +1,74 @@
+package com.cloudframe.app.global.sharedvar.serialize;
+
+/**
+*  The class ATGrpGroup7Serialized is used to define offsets in order to serialize
+*  in a fixed String
+*  @author CloudFrame Inc.
+*  created on 2025-04-22 at 07:13. using version 5.0.0.254
+**/
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import com.cloudframe.app.data.Field;
+import com.cloudframe.app.exception.CFException;
+
+public class ATGrpGroup7Serialized  extends Field { 
+
+    protected Logger logger = LoggerFactory.getLogger(ATGrpGroup7Serialized.class);
+	/*  Length of the field, if serialized as a String */
+	protected static final int A_TGRP_GROUP_7_LENGTH = 65;
+   /*  offset of each of Child Fields when serialized as a String */
+            protected  int beginATGrpR7;
+	
+	/**
+	* Constructor for ATGrpGroup7Serialized
+	**/
+    public ATGrpGroup7Serialized() {
+	// TO-DO auto generated code
+    }
+ 
+	/**
+	* initializes the field in ATGrpGroup7Serialized
+	**/
+	@Override
+	protected void init(int begin) {
+	   setStartOffset(begin);
+	   setLength(A_TGRP_GROUP_7_LENGTH);
+	   /*  set the offset/position of each field when this object is serialized as String */
+  
+             beginATGrpR7 = getStartOffset() + 0;	// set offset for serialization
+  
+	   /*  end of offset */
+	}
+     int localATGrpR7Counter = -1;
+     public boolean isATGrpR7Modified() {
+         int sharedCounter = shareString.getSerializedField().getModifiedCounter(); 
+         boolean hasModified = localATGrpR7Counter != sharedCounter;
+         localATGrpR7Counter = sharedCounter; return hasModified;
+     }
+	protected static final int A_TGRP_R_7_LEN = 60;
+	/**
+	 * 	serialize this ATGrpR7
+	 */
+   protected void serializeATGrpR7(char[] aTGrpR7) {
+        shareString.getSerializedField().incrementCounter();
+        arraycopy(aTGrpR7,0,getStringValue(),beginATGrpR7,A_TGRP_R_7_LEN);
+       localATGrpR7Counter = shareString.getSerializedField().getModifiedCounter();  	
+   }
+
+   protected char[] checkATGrpR7Constraints(char[] value) {
+   			return super.checkConstraints(value , 60 ,false, false);
+   }
+    /**
+	 *	refreshATGrpR7 is used to refresh the latest value of a variable from the Serialized String
+	 *  the most common reason to serialize an Object as a string in to write to a file. There can be several other reasons for serialization as well
+	 */ 
+   	public char[] refreshATGrpR7() {	 
+   		return (substring(getStringValue(),beginATGrpR7,beginATGrpR7 + A_TGRP_R_7_LEN));
+   	}
+
+
+
+
+}
+  

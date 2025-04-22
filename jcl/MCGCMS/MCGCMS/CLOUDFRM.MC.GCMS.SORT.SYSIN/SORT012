@@ -1,0 +1,7 @@
+  SORT FIELDS=COPY                                                              
+  JOINKEYS FILE=F1,FIELDS=(145,10,A)                                            
+  JOINKEYS FILE=F2,FIELDS=(01,10,A)                                             
+  JOIN UNPAIRED,F1,F2                                                           
+  REFORMAT FIELDS=(F1:001,154,F2:001,010,F1:165,16)                             
+  OUTFIL FNAMES=SORTOF1                                                         
+  OUTFIL FNAMES=SORTOF2,OMIT=(154,10,CH,EQ,154,10,CH)                           
