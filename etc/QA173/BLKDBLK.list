@@ -1,0 +1,1351 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 08/05/2021  Time 00:49:34   Page     1                
+0Invocation parameters:                                                                                                              
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(BIN),AWO,NUMPROC(PFD),TEST(ALL,SYM,SEPARATE)                                                        
+                                                                                                                                     
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"  
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no   
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".                                    
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler         
+                       invocation parameter took precedence.                                                                         
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(COMPAT)                                                                                                                    
+    AWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(PFD)                                                                                                                     
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 08/05/2021  Time 00:49:34   Page     2                
+0 NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+    TEST(HOOK,SEPARATE,NOEJPD)                                                                                                       
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0/* FILENUM                                                                                                                          
+   000001         000010 IDENTIFICATION DIVISION.                                         00001000                                   
+   000002         000020 PROGRAM-ID.    FILENUM                                           00002000                                   
+   000003         000030 ENVIRONMENT DIVISION.                                            00003000                                   
+   000004         000040 INPUT-OUTPUT SECTION.                                            00004000                                   
+   000005         000050 FILE-CONTROL.                                                    00005000                                   
+   000006         000060     SELECT UMODE-FILE                                            00006000 17                                
+   000007         000070            ASSIGN UMODEASC                                       00007000                                   
+   000008         000080            FILE STATUS IS WS-UMODE-FILE-STATUS                   00008000 51                                
+   000009         000081            ORGANIZATION IS SEQUENTIAL.                           00008100                                   
+   000010         000090                                                                  00009000                                   
+   000011         000091     SELECT VBS-FILE                                              00009100 27                                
+   000012         000092            ASSIGN VBSEBC                                         00009200                                   
+   000013         000093            STATUS WS-VBS-FILE-STATUS.                            00009300 52                                
+   000014         000094                                                                  00009400                                   
+   000015         000095 DATA DIVISION.                                                   00009500                                   
+   000016         000096 FILE SECTION.                                                    00009600                                   
+   000017         000097 FD  UMODE-FILE                                                   00009700                                   
+   000018         000101     RECORDING MODE IS U                                          00010100                                   
+   000019         000102     RECORD IS VARYING DEPENDING ON UMODE-MESSAGE-LEN             00010200 44                                
+   000020         000103     LABEL RECORDS ARE STANDARD                                   00010300                                   
+   000021         000104     DATA RECORD IS SYS051-U-IN-REC.                              00010400 *                                 
+   000022         000105                                                                  00010500                                   
+   000023         000106 01  UMODE-MESSAGE.                                               00010600 BLF=00000+000         0CL1014     
+   000024         000107     05  PIC X(01) OCCURS 1 TO 1014  TIMES                        00010700 BLF=00000+000,0000000 1C          
+   000025         000108         DEPENDING ON UMODE-MESSAGE-LEN.                          00010800 *                                 
+   000026         000109                                                                  00010900                                   
+   000027         000110 FD  VBS-FILE                                                     00011000                                   
+   000028         000111     RECORD IS VARYING DEPENDING ON IP66102-IPM-MSG-LNGTH         00011100 *                                 
+   000029         000112     BLOCK CONTAINS 0 RECORDS                                     00011200                                   
+   000030         000113     RECORDING MODE IS S.                                         00011300                                   
+   000031         000114                                                                  00011400                                   
+   000032         000115 01  IPM-EBCDIC-MESSAGE.                                          00011500 BLF=00001+000         0CL32752    
+   000033         000116     05  PIC X(01) OCCURS 1 TO 32752 TIMES                        00011600 BLF=00001+000,0000000 1C          
+   000034         000117         DEPENDING ON IP66102-IPM-MSG-LNGTH.                      00011700 *                                 
+   000035         000118                                                                  00011800                                   
+   000036         000119*                                                                 00011900                                   
+   000037         000120 WORKING-STORAGE SECTION.                                         00012000                                   
+   000038         000121 01 UMODE-BUFFER                           PIC X(40000).          00012100 BLW=00000+000         40000C      
+   000039         000122 01 UMODE-TEMP                             PIC X(40000).          00012200 BLW=00009+C40         40000C      
+   000040         000123 01 UMODE-POS                              PIC 9(9) COMP.         00012300 BLW=00019+880         4C          
+   000041         000124 01 UMODE-LEN                              PIC 9(9) COMP.         00012400 BLW=00019+888         4C          
+   000042         000125 01 UMODE-CNT                              PIC 9(9) COMP.         00012500 BLW=00019+890         4C          
+   000043         000126 01 VBS-CNT                                PIC 9(9) COMP.         00012600 BLW=00019+898         4C          
+   000044         000127 01 UMODE-MESSAGE-LEN                      PIC 9(8) COMP.         00012700 BLW=00019+8A0         4C          
+   000045         000128 01 WS-SYSIN.                                                     00012800 BLW=00019+8A8         0CL80       
+   000046         000129    05  WS-DIRECTION-FLAG                  PIC X(5).              00012900 BLW=00019+8A8,0000000 5C          
+   000047         000130        88 A-2-E                           VALUE 'A-2-E'.         00013000                                   
+   000048         000131        88 E-2-A                           VALUE 'E-2-A'.         00013100                                   
+   000049         000132    05  FILLER                             PIC X(75).             00013200 BLW=00019+8AD,0000005 75C         
+   000050         000133 01 WS-VARS.                                                      00013300 BLW=00019+8F8         0CL14       
+   000051         000134    05 WS-UMODE-FILE-STATUS                PIC X(02).             00013400 BLW=00019+8F8,0000000 2C          
+   000052         000135    05 WS-VBS-FILE-STATUS                  PIC X(02).             00013500 BLW=00019+8FA,0000002 2C          
+   000053         000136    05 IP66102-IPM-MSG-LNGTH               PIC 9(8) COMP.         00013600 BLW=00019+8FC,0000004 4C          
+   000054         000137    05 I                                   PIC 9(4) COMP VALUE 0. 00013700 BLW=00019+900,0000008 2C          
+   000055         000138    05 LLLL-X                              PIC X(4).              00013800 BLW=00019+902,000000A 4C          
+   000056         000139    05 LLLL REDEFINES LLLL-X               PIC 9(9) COMP.         00013900 BLW=00019+902,000000A 4C          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0                                                                                                  55                                
+   000057         000140*                                                                 00014000                                   
+   000058         000141 01 ASCII-TABLE.                                                  00014100 BLW=00019+908         0CL512      
+   000059         000142    05 MAP-ASCII-TBL.                                             00014200 BLW=00019+908,0000000 0CL256      
+   000060         000143       10 MAP-ASCII OCCURS 256 TIMES        PIC X.                00014300 BLW=00019+908,0000000 1C          
+   000061         000144    05 ASCII-TO-EBCDIC OCCURS 256 TIMES     PIC X.                00014400 BLW=00019+A08,0000100 1C          
+   000062         000145*                                                                 00014500                                   
+   000063         000146 01 ASCII-LOOKUP.                                                 00014600 BLW=00019+B08         0CL2        
+   000064         000147    05 ASCII-INDEX                          PIC S9(4) COMP.       00014700 BLW=00019+B08,0000000 2C          
+   000065         000148    05 ASCII-BYTES REDEFINES ASCII-INDEX.                         00014800 BLW=00019+B08,0000000 0CL2        
+                                                                                                   64                                
+   000066         000149       10 NULL-BYTE                         PIC X.                00014900 BLW=00019+B08,0000000 1C          
+   000067         000150       10 ASCII-CHAR                        PIC X.                00015000 BLW=00019+B09,0000001 1C          
+   000068         000151*                                                                 00015100                                   
+   000069         000152 01 EBCDIC-TABLE.                                                 00015200 BLW=00019+B10         0CL512      
+   000070         000153    05 MAP-EBCDIC-TBL.                                            00015300 BLW=00019+B10,0000000 0CL256      
+   000071         000160       10 MAP-EBCDIC OCCURS 256 TIMES       PIC X.                00016000 BLW=00019+B10,0000000 1C          
+   000072         000170    05 EBCDIC-TO-ASCII  OCCURS 256 TIMES    PIC X.                00017000 BLW=00019+C10,0000100 1C          
+   000073         000180*                                                                 00018000                                   
+   000074         000190 01 EBCDIC-LOOKUP.                                                00019000 BLW=00019+D10         0CL2        
+   000075         000200    05 EBCDIC-INDEX                         PIC S9(4) COMP.       00020000 BLW=00019+D10,0000000 2C          
+   000076         000210    05 EBCDIC-BYTES REDEFINES EBCDIC-INDEX.                       00021000 BLW=00019+D10,0000000 0CL2        
+                                                                                                   75                                
+   000077         000220       10 NULL-BYTE                         PIC X.                00022000 BLW=00019+D10,0000000 1C          
+   000078         000230       10 EBCDIC-CHAR                       PIC X.                00023000 BLW=00019+D11,0000001 1C          
+   000079         000231                                                                  00023100                                   
+   000080         000232 PROCEDURE DIVISION.                                              00023200                                   
+   000081         000233                                                                  00023300                                   
+   000082         000234     ACCEPT WS-SYSIN.                                             00023400 45                                
+   000083         000235     IF E-2-A OR A-2-E THEN                                       00023500 48 47                             
+   000084      1  000236        CONTINUE                                                  00023600                                   
+   000085         000237     ELSE                                                         00023700                                   
+   000086      1  000238        DISPLAY 'INVALID SYSIN ' WS-SYSIN                         00023800 45                                
+   000087      1  000240        PERFORM 9100-ABEND                                        00024000 169                               
+   000088      1  000241           THRU 9100-ABEND-EXIT                                   00024100 175                               
+   000089         000242     END-IF                                                       00024200                                   
+   000090         000243*                                                                 00024300                                   
+   000091         000244     PERFORM LOAD-E-2-A-TABLE                                     00024400 178                               
+   000092         000245        THRU LOAD-E-2-A-TABLE-EXIT                                00024500 374                               
+   000093         000246*                                                                 00024600                                   
+   000094         000247     PERFORM LOAD-A-2-E-TABLE                                     00024700 377                               
+   000095         000248        THRU LOAD-A-2-E-TABLE-EXIT                                00024800 573                               
+   000096         000249*                                                                 00024900                                   
+   000097         000250     MOVE ZEROES TO UMODE-CNT VBS-CNT                             00025000 IMP 42 43                         
+   000098         000251*                                                                 00025100                                   
+   000099         000252     IF E-2-A                                                     00025200 48                                
+   000100      1  000253       DISPLAY 'BLOCK  : VBS EBCDIC --> UMODE ASCII/BINARY CONV'  00025300                                   
+   000101      1  000254       DISPLAY '-----------------------------------------------'  00025400                                   
+   000102      1  000255       OPEN INPUT  VBS-FILE                                       00025500 27                                
+   000103      1  000256       IF NOT (WS-VBS-FILE-STATUS = ZEROES)                       00025612 52 IMP                            
+   000104      2  000257          DISPLAY 'OPEN VBS-BCDIC-FILE ERROR '                    00025700                                   
+   000105      2  000258             WS-VBS-FILE-STATUS                                   00025800 52                                
+   000106      2  000259          PERFORM 9100-ABEND                                      00025900 169                               
+   000107      2  000260             THRU 9100-ABEND-EXIT                                 00026000 175                               
+   000108      1  000261       END-IF                                                     00026100                                   
+   000109         000262                                                                  00026200                                   
+   000110      1  000263       OPEN OUTPUT UMODE-FILE                                     00026300 17                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000111      1  000264       IF NOT (WS-UMODE-FILE-STATUS = ZEROES)                     00026412 51 IMP                            
+   000112      2  000265          DISPLAY 'OPEN UMODE-FILE ERROR '                        00026500                                   
+   000113      2  000266                  WS-UMODE-FILE-STATUS                            00026600 51                                
+   000114      2  000267          PERFORM 9100-ABEND                                      00026700 169                               
+   000115      2  000268             THRU 9100-ABEND-EXIT                                 00026800 175                               
+   000116      1  000269       END-IF                                                     00026900                                   
+   000117      1  000270       PERFORM CONVERT-VBS-2-U                                    00027000 654                               
+   000118      1  000271          THRU CONVERT-VBS-2-U-EXIT                               00027100 740                               
+   000119         000272     ELSE                                                         00027200                                   
+   000120      1  000273       DISPLAY 'DEBLOCK : UMODE ASCII/BINARY -> VBS EBCDIC CONV'  00027300                                   
+   000121      1  000274       DISPLAY '----------------------------------------------'   00027400                                   
+   000122      1  000275       OPEN OUTPUT VBS-FILE                                       00027500 27                                
+   000123      1  000276       IF NOT (WS-VBS-FILE-STATUS = ZEROES)                       00027612 52 IMP                            
+   000124      2  000277          DISPLAY 'OPEN VBS-BCDIC-FILE ERROR '                    00027700                                   
+   000125      2  000278             WS-VBS-FILE-STATUS                                   00027800 52                                
+   000126      2  000279          PERFORM 9100-ABEND                                      00027900 169                               
+   000127      2  000280             THRU 9100-ABEND-EXIT                                 00028000 175                               
+   000128      1  000281       END-IF                                                     00028100                                   
+   000129         000282                                                                  00028200                                   
+   000130      1  000283       OPEN INPUT  UMODE-FILE                                     00028300 17                                
+   000131      1  000284       IF NOT (WS-UMODE-FILE-STATUS = ZEROES)                     00028412 51 IMP                            
+   000132      2  000285          DISPLAY 'OPEN UMODE-FILE ERROR '                        00028500                                   
+   000133      2  000286                  WS-UMODE-FILE-STATUS                            00028600 51                                
+   000134      2  000287          PERFORM 9100-ABEND                                      00028700 169                               
+   000135      2  000288             THRU 9100-ABEND-EXIT                                 00028800 175                               
+   000136      1  000289       END-IF                                                     00028900                                   
+   000137      1  000290       PERFORM CONVERT-U-2-VBS                                    00029000 576                               
+   000138      1  000291          THRU CONVERT-U-2-VBS-EXIT                               00029100 651                               
+   000139         000292     END-IF                                                       00029200                                   
+   000140         000300                                                                  00030000                                   
+   000141         000371                                                                  00037100                                   
+   000142         000372     CLOSE UMODE-FILE                                             00037200 17                                
+   000143         000373     IF NOT (WS-UMODE-FILE-STATUS = ZEROES)                       00037312 51 IMP                            
+   000144      1  000374        DISPLAY 'CLOSE UMODE-FILE ERROR '                         00037400                                   
+   000145      1  000375                  WS-UMODE-FILE-STATUS                            00037500 51                                
+   000146      1  000376        PERFORM 9100-ABEND                                        00037600 169                               
+   000147      1  000377           THRU 9100-ABEND-EXIT                                   00037700 175                               
+   000148         000378     END-IF                                                       00037800                                   
+   000149         000379                                                                  00037900                                   
+   000150         000380     CLOSE VBS-FILE                                               00038000 27                                
+   000151         000381     IF NOT (WS-VBS-FILE-STATUS = ZEROES)                         00038112 52 IMP                            
+   000152      1  000382        DISPLAY 'CLOSE EBCDIC-FILE ERROR '                        00038200                                   
+   000153      1  000383                WS-VBS-FILE-STATUS                                00038300 52                                
+   000154      1  000384        PERFORM 9100-ABEND                                        00038400 169                               
+   000155      1  000385           THRU 9100-ABEND-EXIT                                   00038500 175                               
+   000156         000386     END-IF                                                       00038600                                   
+   000157         000387                                                                  00038700                                   
+   000158         000388     IF E-2-A THEN                                                00038800 48                                
+   000159      1  000391        DISPLAY 'VBS   RECORDS READ      = ' VBS-CNT              00039100 43                                
+   000160      1  000392        DISPLAY 'UMODE RECORDS WRITTEN   = ' UMODE-CNT            00039200 42                                
+   000161         000393     ELSE                                                         00039300                                   
+   000162      1  000397        DISPLAY 'UMODE RECORDS READ      = ' UMODE-CNT            00039700 42                                
+   000163      1  000398        DISPLAY 'VBS   RECORDS WRITTEN   = ' VBS-CNT              00039800 43                                
+   000164         000399     END-IF                                                       00039900                                   
+   000165         000400     DISPLAY ' '                                                  00040000                                   
+   000166         000401     DISPLAY 'BLKDBLK PROGRAM EXECUTED SUCCESSFULLY!!'            00040100                                   
+   000167         000402     GOBACK.                                                      00040200                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000168         000403                                                                  00040300                                   
+   000169         000404 9100-ABEND.                                                      00040400                                   
+   000170         000405                                                                  00040500                                   
+   000171         000406     DISPLAY 'PROGRAM BLKDBLK ENDED UNSUCCESSFULLY'               00040600                                   
+   000172         000407     MOVE  12 TO RETURN-CODE                                      00040700 IMP                               
+   000173         000408     GOBACK                                                       00040800                                   
+   000174         000409     .                                                            00040900                                   
+   000175         000410 9100-ABEND-EXIT.                                                 00041000                                   
+   000176         000411     EXIT.                                                        00041100                                   
+   000177         000412*                                                                 00041200                                   
+   000178         000413 LOAD-E-2-A-TABLE.                                                00041300                                   
+   000179         000414*                                                                 00041400                                   
+   000180         000415     MOVE  ALL 'N' TO MAP-EBCDIC-TBL                              00041500 70                                
+   000181         000416     MOVE  'Y'     TO MAP-EBCDIC(64)                              00041600 71                                
+   000182         000417     MOVE  X'20'   TO EBCDIC-TO-ASCII(64)                         00041700 72                                
+   000183         000418     MOVE  'Y'     TO MAP-EBCDIC(79)                              00041800 71                                
+   000184         000419     MOVE  X'21'   TO EBCDIC-TO-ASCII(79)                         00041900 72                                
+   000185         000420     MOVE  'Y'     TO MAP-EBCDIC(127)                             00042000 71                                
+   000186         000421     MOVE  X'22'   TO EBCDIC-TO-ASCII(127)                        00042100 72                                
+   000187         000422     MOVE  'Y'     TO MAP-EBCDIC(123)                             00042200 71                                
+   000188         000423     MOVE  X'23'   TO EBCDIC-TO-ASCII(123)                        00042300 72                                
+   000189         000424     MOVE  'Y'     TO MAP-EBCDIC(91)                              00042400 71                                
+   000190         000430     MOVE  X'24'   TO EBCDIC-TO-ASCII(91)                         00043000 72                                
+   000191         000440     MOVE  'Y'     TO MAP-EBCDIC(108)                             00044000 71                                
+   000192         000450     MOVE  X'25'   TO EBCDIC-TO-ASCII(108)                        00045000 72                                
+   000193         000460     MOVE  'Y'     TO MAP-EBCDIC(80)                              00046000 71                                
+   000194         000470     MOVE  X'26'   TO EBCDIC-TO-ASCII(80)                         00047000 72                                
+   000195         000480     MOVE  'Y'     TO MAP-EBCDIC(125)                             00048000 71                                
+   000196         000490     MOVE  X'27'   TO EBCDIC-TO-ASCII(125)                        00049000 72                                
+   000197         000500     MOVE  'Y'     TO MAP-EBCDIC(77)                              00050000 71                                
+   000198         000510     MOVE  X'28'   TO EBCDIC-TO-ASCII(77)                         00051000 72                                
+   000199         000520     MOVE  'Y'     TO MAP-EBCDIC(93)                              00052000 71                                
+   000200         000530     MOVE  X'29'   TO EBCDIC-TO-ASCII(93)                         00053000 72                                
+   000201         000540     MOVE  'Y'     TO MAP-EBCDIC(92)                              00054000 71                                
+   000202         000550     MOVE  X'2A'   TO EBCDIC-TO-ASCII(92)                         00055000 72                                
+   000203         000560     MOVE  'Y'     TO MAP-EBCDIC(78)                              00056000 71                                
+   000204         000570     MOVE  X'2B'   TO EBCDIC-TO-ASCII(78)                         00057000 72                                
+   000205         000580     MOVE  'Y'     TO MAP-EBCDIC(107)                             00058000 71                                
+   000206         000590     MOVE  X'2C'   TO EBCDIC-TO-ASCII(107)                        00059000 72                                
+   000207         000591     MOVE  'Y'     TO MAP-EBCDIC(96)                              00059100 71                                
+   000208         000592     MOVE  X'2D'   TO EBCDIC-TO-ASCII(96)                         00059200 72                                
+   000209         000593     MOVE  'Y'     TO MAP-EBCDIC(75)                              00059300 71                                
+   000210         000594     MOVE  X'2E'   TO EBCDIC-TO-ASCII(75)                         00059400 72                                
+   000211         000595     MOVE  'Y'     TO MAP-EBCDIC(97)                              00059500 71                                
+   000212         000596     MOVE  X'2F'   TO EBCDIC-TO-ASCII(97)                         00059600 72                                
+   000213         000597     MOVE  'Y'     TO MAP-EBCDIC(240)                             00059700 71                                
+   000214         000598     MOVE  X'30'   TO EBCDIC-TO-ASCII(240)                        00059800 72                                
+   000215         000599     MOVE  'Y'     TO MAP-EBCDIC(241)                             00059900 71                                
+   000216         000600     MOVE  X'31'   TO EBCDIC-TO-ASCII(241)                        00060000 72                                
+   000217         000601     MOVE  'Y'     TO MAP-EBCDIC(242)                             00060100 71                                
+   000218         000602     MOVE  X'32'   TO EBCDIC-TO-ASCII(242)                        00060200 72                                
+   000219         000603     MOVE  'Y'     TO MAP-EBCDIC(243)                             00060300 71                                
+   000220         000604     MOVE  X'33'   TO EBCDIC-TO-ASCII(243)                        00060400 72                                
+   000221         000605     MOVE  'Y'     TO MAP-EBCDIC(244)                             00060500 71                                
+   000222         000606     MOVE  X'34'   TO EBCDIC-TO-ASCII(244)                        00060600 72                                
+   000223         000607     MOVE  'Y'     TO MAP-EBCDIC(245)                             00060700 71                                
+   000224         000608     MOVE  X'35'   TO EBCDIC-TO-ASCII(245)                        00060800 72                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000225         000609     MOVE  'Y'     TO MAP-EBCDIC(246)                             00060900 71                                
+   000226         000610     MOVE  X'36'   TO EBCDIC-TO-ASCII(246)                        00061000 72                                
+   000227         000611     MOVE  'Y'     TO MAP-EBCDIC(247)                             00061100 71                                
+   000228         000612     MOVE  X'37'   TO EBCDIC-TO-ASCII(247)                        00061200 72                                
+   000229         000613     MOVE  'Y'     TO MAP-EBCDIC(248)                             00061300 71                                
+   000230         000614     MOVE  X'38'   TO EBCDIC-TO-ASCII(248)                        00061400 72                                
+   000231         000615     MOVE  'Y'     TO MAP-EBCDIC(249)                             00061500 71                                
+   000232         000616     MOVE  X'39'   TO EBCDIC-TO-ASCII(249)                        00061600 72                                
+   000233         000617     MOVE  'Y'     TO MAP-EBCDIC(122)                             00061700 71                                
+   000234         000618     MOVE  X'3A'   TO EBCDIC-TO-ASCII(122)                        00061800 72                                
+   000235         000619     MOVE  'Y'     TO MAP-EBCDIC(94)                              00061900 71                                
+   000236         000620     MOVE  X'3B'   TO EBCDIC-TO-ASCII(94)                         00062000 72                                
+   000237         000621     MOVE  'Y'     TO MAP-EBCDIC(76)                              00062100 71                                
+   000238         000622     MOVE  X'3C'   TO EBCDIC-TO-ASCII(76)                         00062200 72                                
+   000239         000623     MOVE  'Y'     TO MAP-EBCDIC(126)                             00062300 71                                
+   000240         000624     MOVE  X'3D'   TO EBCDIC-TO-ASCII(126)                        00062400 72                                
+   000241         000625     MOVE  'Y'     TO MAP-EBCDIC(110)                             00062500 71                                
+   000242         000626     MOVE  X'3E'   TO EBCDIC-TO-ASCII(110)                        00062600 72                                
+   000243         000627     MOVE  'Y'     TO MAP-EBCDIC(111)                             00062700 71                                
+   000244         000628     MOVE  X'3F'   TO EBCDIC-TO-ASCII(111)                        00062800 72                                
+   000245         000629     MOVE  'Y'     TO MAP-EBCDIC(124)                             00062900 71                                
+   000246         000630     MOVE  X'40'   TO EBCDIC-TO-ASCII(124)                        00063000 72                                
+   000247         000631     MOVE  'Y'     TO MAP-EBCDIC(193)                             00063100 71                                
+   000248         000632     MOVE  X'41'   TO EBCDIC-TO-ASCII(193)                        00063200 72                                
+   000249         000633     MOVE  'Y'     TO MAP-EBCDIC(194)                             00063300 71                                
+   000250         000634     MOVE  X'42'   TO EBCDIC-TO-ASCII(194)                        00063400 72                                
+   000251         000635     MOVE  'Y'     TO MAP-EBCDIC(195)                             00063500 71                                
+   000252         000636     MOVE  X'43'   TO EBCDIC-TO-ASCII(195)                        00063600 72                                
+   000253         000637     MOVE  'Y'     TO MAP-EBCDIC(196)                             00063700 71                                
+   000254         000638     MOVE  X'44'   TO EBCDIC-TO-ASCII(196)                        00063800 72                                
+   000255         000639     MOVE  'Y'     TO MAP-EBCDIC(197)                             00063900 71                                
+   000256         000640     MOVE  X'45'   TO EBCDIC-TO-ASCII(197)                        00064000 72                                
+   000257         000641     MOVE  'Y'     TO MAP-EBCDIC(198)                             00064100 71                                
+   000258         000642     MOVE  X'46'   TO EBCDIC-TO-ASCII(198)                        00064200 72                                
+   000259         000643     MOVE  'Y'     TO MAP-EBCDIC(199)                             00064300 71                                
+   000260         000644     MOVE  X'47'   TO EBCDIC-TO-ASCII(199)                        00064400 72                                
+   000261         000645     MOVE  'Y'     TO MAP-EBCDIC(200)                             00064500 71                                
+   000262         000646     MOVE  X'48'   TO EBCDIC-TO-ASCII(200)                        00064600 72                                
+   000263         000647     MOVE  'Y'     TO MAP-EBCDIC(201)                             00064700 71                                
+   000264         000648     MOVE  X'49'   TO EBCDIC-TO-ASCII(201)                        00064800 72                                
+   000265         000649     MOVE  'Y'     TO MAP-EBCDIC(209)                             00064900 71                                
+   000266         000650     MOVE  X'4A'   TO EBCDIC-TO-ASCII(209)                        00065000 72                                
+   000267         000651     MOVE  'Y'     TO MAP-EBCDIC(210)                             00065100 71                                
+   000268         000652     MOVE  X'4B'   TO EBCDIC-TO-ASCII(210)                        00065200 72                                
+   000269         000653     MOVE  'Y'     TO MAP-EBCDIC(211)                             00065300 71                                
+   000270         000654     MOVE  X'4C'   TO EBCDIC-TO-ASCII(211)                        00065400 72                                
+   000271         000655     MOVE  'Y'     TO MAP-EBCDIC(212)                             00065500 71                                
+   000272         000656     MOVE  X'4D'   TO EBCDIC-TO-ASCII(212)                        00065600 72                                
+   000273         000657     MOVE  'Y'     TO MAP-EBCDIC(213)                             00065700 71                                
+   000274         000658     MOVE  X'4E'   TO EBCDIC-TO-ASCII(213)                        00065800 72                                
+   000275         000659     MOVE  'Y'     TO MAP-EBCDIC(214)                             00065900 71                                
+   000276         000660     MOVE  X'4F'   TO EBCDIC-TO-ASCII(214)                        00066000 72                                
+   000277         000661     MOVE  'Y'     TO MAP-EBCDIC(215)                             00066100 71                                
+   000278         000662     MOVE  X'50'   TO EBCDIC-TO-ASCII(215)                        00066200 72                                
+   000279         000663     MOVE  'Y'     TO MAP-EBCDIC(216)                             00066300 71                                
+   000280         000664     MOVE  X'51'   TO EBCDIC-TO-ASCII(216)                        00066400 72                                
+   000281         000665     MOVE  'Y'     TO MAP-EBCDIC(217)                             00066500 71                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page     8                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000282         000666     MOVE  X'52'   TO EBCDIC-TO-ASCII(217)                        00066600 72                                
+   000283         000667     MOVE  'Y'     TO MAP-EBCDIC(226)                             00066700 71                                
+   000284         000668     MOVE  X'53'   TO EBCDIC-TO-ASCII(226)                        00066800 72                                
+   000285         000669     MOVE  'Y'     TO MAP-EBCDIC(227)                             00066900 71                                
+   000286         000670     MOVE  X'54'   TO EBCDIC-TO-ASCII(227)                        00067000 72                                
+   000287         000671     MOVE  'Y'     TO MAP-EBCDIC(228)                             00067100 71                                
+   000288         000672     MOVE  X'55'   TO EBCDIC-TO-ASCII(228)                        00067200 72                                
+   000289         000673     MOVE  'Y'     TO MAP-EBCDIC(229)                             00067300 71                                
+   000290         000674     MOVE  X'56'   TO EBCDIC-TO-ASCII(229)                        00067400 72                                
+   000291         000675     MOVE  'Y'     TO MAP-EBCDIC(230)                             00067500 71                                
+   000292         000676     MOVE  X'57'   TO EBCDIC-TO-ASCII(230)                        00067600 72                                
+   000293         000677     MOVE  'Y'     TO MAP-EBCDIC(231)                             00067700 71                                
+   000294         000678     MOVE  X'58'   TO EBCDIC-TO-ASCII(231)                        00067800 72                                
+   000295         000679     MOVE  'Y'     TO MAP-EBCDIC(232)                             00067900 71                                
+   000296         000680     MOVE  X'59'   TO EBCDIC-TO-ASCII(232)                        00068000 72                                
+   000297         000681     MOVE  'Y'     TO MAP-EBCDIC(233)                             00068100 71                                
+   000298         000682     MOVE  X'5A'   TO EBCDIC-TO-ASCII(233)                        00068200 72                                
+   000299         000683     MOVE  'Y'     TO MAP-EBCDIC(74)                              00068300 71                                
+   000300         000684     MOVE  X'5B'   TO EBCDIC-TO-ASCII(74)                         00068400 72                                
+   000301         000685     MOVE  'Y'     TO MAP-EBCDIC(224)                             00068500 71                                
+   000302         000686     MOVE  X'5C'   TO EBCDIC-TO-ASCII(224)                        00068600 72                                
+   000303         000687     MOVE  'Y'     TO MAP-EBCDIC(90)                              00068700 71                                
+   000304         000688     MOVE  X'5D'   TO EBCDIC-TO-ASCII(90)                         00068800 72                                
+   000305         000689     MOVE  'Y'     TO MAP-EBCDIC(95)                              00068900 71                                
+   000306         000690     MOVE  X'5E'   TO EBCDIC-TO-ASCII(95)                         00069000 72                                
+   000307         000691     MOVE  'Y'     TO MAP-EBCDIC(109)                             00069100 71                                
+   000308         000692     MOVE  X'5F'   TO EBCDIC-TO-ASCII(109)                        00069200 72                                
+   000309         000693     MOVE  'Y'     TO MAP-EBCDIC(121)                             00069300 71                                
+   000310         000694     MOVE  X'60'   TO EBCDIC-TO-ASCII(121)                        00069400 72                                
+   000311         000695     MOVE  'Y'     TO MAP-EBCDIC(129)                             00069500 71                                
+   000312         000696     MOVE  X'61'   TO EBCDIC-TO-ASCII(129)                        00069600 72                                
+   000313         000697     MOVE  'Y'     TO MAP-EBCDIC(130)                             00069700 71                                
+   000314         000698     MOVE  X'62'   TO EBCDIC-TO-ASCII(130)                        00069800 72                                
+   000315         000699     MOVE  'Y'     TO MAP-EBCDIC(131)                             00069900 71                                
+   000316         000700     MOVE  X'63'   TO EBCDIC-TO-ASCII(131)                        00070000 72                                
+   000317         000701     MOVE  'Y'     TO MAP-EBCDIC(132)                             00070100 71                                
+   000318         000702     MOVE  X'64'   TO EBCDIC-TO-ASCII(132)                        00070200 72                                
+   000319         000703     MOVE  'Y'     TO MAP-EBCDIC(133)                             00070300 71                                
+   000320         000704     MOVE  X'65'   TO EBCDIC-TO-ASCII(133)                        00070400 72                                
+   000321         000705     MOVE  'Y'     TO MAP-EBCDIC(134)                             00070500 71                                
+   000322         000706     MOVE  X'66'   TO EBCDIC-TO-ASCII(134)                        00070600 72                                
+   000323         000707     MOVE  'Y'     TO MAP-EBCDIC(135)                             00070700 71                                
+   000324         000708     MOVE  X'67'   TO EBCDIC-TO-ASCII(135)                        00070800 72                                
+   000325         000709     MOVE  'Y'     TO MAP-EBCDIC(136)                             00070900 71                                
+   000326         000710     MOVE  X'68'   TO EBCDIC-TO-ASCII(136)                        00071000 72                                
+   000327         000711     MOVE  'Y'     TO MAP-EBCDIC(137)                             00071100 71                                
+   000328         000712     MOVE  X'69'   TO EBCDIC-TO-ASCII(137)                        00071200 72                                
+   000329         000713     MOVE  'Y'     TO MAP-EBCDIC(145)                             00071300 71                                
+   000330         000714     MOVE  X'6A'   TO EBCDIC-TO-ASCII(145)                        00071400 72                                
+   000331         000715     MOVE  'Y'     TO MAP-EBCDIC(146)                             00071500 71                                
+   000332         000716     MOVE  X'6B'   TO EBCDIC-TO-ASCII(146)                        00071600 72                                
+   000333         000717     MOVE  'Y'     TO MAP-EBCDIC(147)                             00071700 71                                
+   000334         000718     MOVE  X'6C'   TO EBCDIC-TO-ASCII(147)                        00071800 72                                
+   000335         000719     MOVE  'Y'     TO MAP-EBCDIC(148)                             00071900 71                                
+   000336         000720     MOVE  X'6D'   TO EBCDIC-TO-ASCII(148)                        00072000 72                                
+   000337         000721     MOVE  'Y'     TO MAP-EBCDIC(149)                             00072100 71                                
+   000338         000722     MOVE  X'6E'   TO EBCDIC-TO-ASCII(149)                        00072200 72                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page     9                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000339         000723     MOVE  'Y'     TO MAP-EBCDIC(150)                             00072300 71                                
+   000340         000724     MOVE  X'6F'   TO EBCDIC-TO-ASCII(150)                        00072400 72                                
+   000341         000725     MOVE  'Y'     TO MAP-EBCDIC(151)                             00072500 71                                
+   000342         000726     MOVE  X'70'   TO EBCDIC-TO-ASCII(151)                        00072600 72                                
+   000343         000727     MOVE  'Y'     TO MAP-EBCDIC(152)                             00072700 71                                
+   000344         000728     MOVE  X'71'   TO EBCDIC-TO-ASCII(152)                        00072800 72                                
+   000345         000729     MOVE  'Y'     TO MAP-EBCDIC(153)                             00072900 71                                
+   000346         000730     MOVE  X'72'   TO EBCDIC-TO-ASCII(153)                        00073000 72                                
+   000347         000731     MOVE  'Y'     TO MAP-EBCDIC(162)                             00073100 71                                
+   000348         000732     MOVE  X'73'   TO EBCDIC-TO-ASCII(162)                        00073200 72                                
+   000349         000733     MOVE  'Y'     TO MAP-EBCDIC(163)                             00073300 71                                
+   000350         000734     MOVE  X'74'   TO EBCDIC-TO-ASCII(163)                        00073400 72                                
+   000351         000735     MOVE  'Y'     TO MAP-EBCDIC(164)                             00073500 71                                
+   000352         000736     MOVE  X'75'   TO EBCDIC-TO-ASCII(164)                        00073600 72                                
+   000353         000737     MOVE  'Y'     TO MAP-EBCDIC(165)                             00073700 71                                
+   000354         000738     MOVE  X'76'   TO EBCDIC-TO-ASCII(165)                        00073800 72                                
+   000355         000739     MOVE  'Y'     TO MAP-EBCDIC(166)                             00073900 71                                
+   000356         000740     MOVE  X'77'   TO EBCDIC-TO-ASCII(166)                        00074000 72                                
+   000357         000741     MOVE  'Y'     TO MAP-EBCDIC(167)                             00074100 71                                
+   000358         000742     MOVE  X'78'   TO EBCDIC-TO-ASCII(167)                        00074200 72                                
+   000359         000743     MOVE  'Y'     TO MAP-EBCDIC(168)                             00074300 71                                
+   000360         000744     MOVE  X'79'   TO EBCDIC-TO-ASCII(168)                        00074400 72                                
+   000361         000745     MOVE  'Y'     TO MAP-EBCDIC(169)                             00074500 71                                
+   000362         000746     MOVE  X'7A'   TO EBCDIC-TO-ASCII(169)                        00074600 72                                
+   000363         000747     MOVE  'Y'     TO MAP-EBCDIC(192)                             00074700 71                                
+   000364         000748     MOVE  X'7B'   TO EBCDIC-TO-ASCII(192)                        00074800 72                                
+   000365         000749     MOVE  'Y'     TO MAP-EBCDIC(106)                             00074900 71                                
+   000366         000750     MOVE  X'7C'   TO EBCDIC-TO-ASCII(106)                        00075000 72                                
+   000367         000751     MOVE  'Y'     TO MAP-EBCDIC(208)                             00075100 71                                
+   000368         000752     MOVE  X'7D'   TO EBCDIC-TO-ASCII(208)                        00075200 72                                
+   000369         000753     MOVE  'Y'     TO MAP-EBCDIC(161)                             00075300 71                                
+   000370         000754     MOVE  X'7E'   TO EBCDIC-TO-ASCII(161)                        00075400 72                                
+   000371         000755*                                                                 00075500                                   
+   000372         000756     CONTINUE.                                                    00075600                                   
+   000373         000757*                                                                 00075700                                   
+   000374         000760 LOAD-E-2-A-TABLE-EXIT.                                           00076000                                   
+   000375         000800     EXIT.                                                        00080000                                   
+   000376         000900*                                                                 00090000                                   
+   000377         001000 LOAD-A-2-E-TABLE.                                                00100000                                   
+   000378         001100*                                                                 00110000                                   
+   000379         001200     MOVE  ALL 'N' TO MAP-ASCII-TBL                               00120000 59                                
+   000380         001300     MOVE  'Y'     TO MAP-ASCII(32)                               00130000 60                                
+   000381         001400     MOVE  X'40'   TO ASCII-TO-EBCDIC(32)                         00140000 61                                
+   000382         001500     MOVE  'Y'     TO MAP-ASCII(33)                               00150000 60                                
+   000383         001600     MOVE  X'4F'   TO ASCII-TO-EBCDIC(33)                         00160000 61                                
+   000384         001700     MOVE  'Y'     TO MAP-ASCII(34)                               00170000 60                                
+   000385         001800     MOVE  X'7F'   TO ASCII-TO-EBCDIC(34)                         00180000 61                                
+   000386         001900     MOVE  'Y'     TO MAP-ASCII(35)                               00190000 60                                
+   000387         002000     MOVE  X'7B'   TO ASCII-TO-EBCDIC(35)                         00200000 61                                
+   000388         002100     MOVE  'Y'     TO MAP-ASCII(36)                               00210000 60                                
+   000389         002200     MOVE  X'5B'   TO ASCII-TO-EBCDIC(36)                         00220000 61                                
+   000390         002300     MOVE  'Y'     TO MAP-ASCII(37)                               00230000 60                                
+   000391         002400     MOVE  X'6C'   TO ASCII-TO-EBCDIC(37)                         00240000 61                                
+   000392         002500     MOVE  'Y'     TO MAP-ASCII(38)                               00250000 60                                
+   000393         002600     MOVE  X'50'   TO ASCII-TO-EBCDIC(38)                         00260000 61                                
+   000394         002700     MOVE  'Y'     TO MAP-ASCII(39)                               00270000 60                                
+   000395         002800     MOVE  X'7D'   TO ASCII-TO-EBCDIC(39)                         00280000 61                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    10                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000396         002900     MOVE  'Y'     TO MAP-ASCII(40)                               00290000 60                                
+   000397         003000     MOVE  X'4D'   TO ASCII-TO-EBCDIC(40)                         00300000 61                                
+   000398         003100     MOVE  'Y'     TO MAP-ASCII(41)                               00310000 60                                
+   000399         003200     MOVE  X'5D'   TO ASCII-TO-EBCDIC(41)                         00320000 61                                
+   000400         003300     MOVE  'Y'     TO MAP-ASCII(42)                               00330000 60                                
+   000401         003400     MOVE  X'5C'   TO ASCII-TO-EBCDIC(42)                         00340000 61                                
+   000402         003500     MOVE  'Y'     TO MAP-ASCII(43)                               00350000 60                                
+   000403         003600     MOVE  X'4E'   TO ASCII-TO-EBCDIC(43)                         00360000 61                                
+   000404         003700     MOVE  'Y'     TO MAP-ASCII(44)                               00370000 60                                
+   000405         003800     MOVE  X'6B'   TO ASCII-TO-EBCDIC(44)                         00380000 61                                
+   000406         003900     MOVE  'Y'     TO MAP-ASCII(45)                               00390000 60                                
+   000407         004000     MOVE  X'60'   TO ASCII-TO-EBCDIC(45)                         00400000 61                                
+   000408         004100     MOVE  'Y'     TO MAP-ASCII(46)                               00410000 60                                
+   000409         004200     MOVE  X'4B'   TO ASCII-TO-EBCDIC(46)                         00420000 61                                
+   000410         004300     MOVE  'Y'     TO MAP-ASCII(47)                               00430000 60                                
+   000411         004400     MOVE  X'61'   TO ASCII-TO-EBCDIC(47)                         00440000 61                                
+   000412         004500     MOVE  'Y'     TO MAP-ASCII(48)                               00450000 60                                
+   000413         004600     MOVE  X'F0'   TO ASCII-TO-EBCDIC(48)                         00460000 61                                
+   000414         004700     MOVE  'Y'     TO MAP-ASCII(49)                               00470000 60                                
+   000415         004800     MOVE  X'F1'   TO ASCII-TO-EBCDIC(49)                         00480000 61                                
+   000416         004900     MOVE  'Y'     TO MAP-ASCII(50)                               00490000 60                                
+   000417         005000     MOVE  X'F2'   TO ASCII-TO-EBCDIC(50)                         00500000 61                                
+   000418         005100     MOVE  'Y'     TO MAP-ASCII(51)                               00510000 60                                
+   000419         005200     MOVE  X'F3'   TO ASCII-TO-EBCDIC(51)                         00520000 61                                
+   000420         005300     MOVE  'Y'     TO MAP-ASCII(52)                               00530000 60                                
+   000421         005400     MOVE  X'F4'   TO ASCII-TO-EBCDIC(52)                         00540000 61                                
+   000422         005500     MOVE  'Y'     TO MAP-ASCII(53)                               00550000 60                                
+   000423         005600     MOVE  X'F5'   TO ASCII-TO-EBCDIC(53)                         00560000 61                                
+   000424         005700     MOVE  'Y'     TO MAP-ASCII(54)                               00570000 60                                
+   000425         005800     MOVE  X'F6'   TO ASCII-TO-EBCDIC(54)                         00580000 61                                
+   000426         005900     MOVE  'Y'     TO MAP-ASCII(55)                               00590000 60                                
+   000427         006000     MOVE  X'F7'   TO ASCII-TO-EBCDIC(55)                         00600000 61                                
+   000428         006100     MOVE  'Y'     TO MAP-ASCII(56)                               00610000 60                                
+   000429         006200     MOVE  X'F8'   TO ASCII-TO-EBCDIC(56)                         00620000 61                                
+   000430         006300     MOVE  'Y'     TO MAP-ASCII(57)                               00630000 60                                
+   000431         006400     MOVE  X'F9'   TO ASCII-TO-EBCDIC(57)                         00640000 61                                
+   000432         006500     MOVE  'Y'     TO MAP-ASCII(58)                               00650000 60                                
+   000433         006600     MOVE  X'7A'   TO ASCII-TO-EBCDIC(58)                         00660000 61                                
+   000434         006700     MOVE  'Y'     TO MAP-ASCII(59)                               00670000 60                                
+   000435         006800     MOVE  X'5E'   TO ASCII-TO-EBCDIC(59)                         00680000 61                                
+   000436         006900     MOVE  'Y'     TO MAP-ASCII(60)                               00690000 60                                
+   000437         007000     MOVE  X'4C'   TO ASCII-TO-EBCDIC(60)                         00700000 61                                
+   000438         007100     MOVE  'Y'     TO MAP-ASCII(61)                               00710000 60                                
+   000439         007200     MOVE  X'7E'   TO ASCII-TO-EBCDIC(61)                         00720000 61                                
+   000440         007300     MOVE  'Y'     TO MAP-ASCII(62)                               00730000 60                                
+   000441         007400     MOVE  X'6E'   TO ASCII-TO-EBCDIC(62)                         00740000 61                                
+   000442         007500     MOVE  'Y'     TO MAP-ASCII(63)                               00750000 60                                
+   000443         007600     MOVE  X'6F'   TO ASCII-TO-EBCDIC(63)                         00760000 61                                
+   000444         007700     MOVE  'Y'     TO MAP-ASCII(64)                               00770000 60                                
+   000445         007800     MOVE  X'7C'   TO ASCII-TO-EBCDIC(64)                         00780000 61                                
+   000446         007900     MOVE  'Y'     TO MAP-ASCII(65)                               00790000 60                                
+   000447         008000     MOVE  X'C1'   TO ASCII-TO-EBCDIC(65)                         00800000 61                                
+   000448         008100     MOVE  'Y'     TO MAP-ASCII(66)                               00810000 60                                
+   000449         008200     MOVE  X'C2'   TO ASCII-TO-EBCDIC(66)                         00820000 61                                
+   000450         008300     MOVE  'Y'     TO MAP-ASCII(67)                               00830000 60                                
+   000451         008400     MOVE  X'C3'   TO ASCII-TO-EBCDIC(67)                         00840000 61                                
+   000452         008500     MOVE  'Y'     TO MAP-ASCII(68)                               00850000 60                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    11                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000453         008600     MOVE  X'C4'   TO ASCII-TO-EBCDIC(68)                         00860000 61                                
+   000454         008700     MOVE  'Y'     TO MAP-ASCII(69)                               00870000 60                                
+   000455         008800     MOVE  X'C5'   TO ASCII-TO-EBCDIC(69)                         00880000 61                                
+   000456         008900     MOVE  'Y'     TO MAP-ASCII(70)                               00890000 60                                
+   000457         009000     MOVE  X'C6'   TO ASCII-TO-EBCDIC(70)                         00900000 61                                
+   000458         009100     MOVE  'Y'     TO MAP-ASCII(71)                               00910000 60                                
+   000459         009200     MOVE  X'C7'   TO ASCII-TO-EBCDIC(71)                         00920000 61                                
+   000460         009300     MOVE  'Y'     TO MAP-ASCII(72)                               00930000 60                                
+   000461         009400     MOVE  X'C8'   TO ASCII-TO-EBCDIC(72)                         00940000 61                                
+   000462         009500     MOVE  'Y'     TO MAP-ASCII(73)                               00950000 60                                
+   000463         009600     MOVE  X'C9'   TO ASCII-TO-EBCDIC(73)                         00960000 61                                
+   000464         009700     MOVE  'Y'     TO MAP-ASCII(74)                               00970000 60                                
+   000465         009800     MOVE  X'D1'   TO ASCII-TO-EBCDIC(74)                         00980000 61                                
+   000466         009900     MOVE  'Y'     TO MAP-ASCII(75)                               00990000 60                                
+   000467         010000     MOVE  X'D2'   TO ASCII-TO-EBCDIC(75)                         01000000 61                                
+   000468         010100     MOVE  'Y'     TO MAP-ASCII(76)                               01010000 60                                
+   000469         010200     MOVE  X'D3'   TO ASCII-TO-EBCDIC(76)                         01020000 61                                
+   000470         010300     MOVE  'Y'     TO MAP-ASCII(77)                               01030000 60                                
+   000471         010400     MOVE  X'D4'   TO ASCII-TO-EBCDIC(77)                         01040000 61                                
+   000472         010500     MOVE  'Y'     TO MAP-ASCII(78)                               01050000 60                                
+   000473         010600     MOVE  X'D5'   TO ASCII-TO-EBCDIC(78)                         01060000 61                                
+   000474         010700     MOVE  'Y'     TO MAP-ASCII(79)                               01070000 60                                
+   000475         010800     MOVE  X'D6'   TO ASCII-TO-EBCDIC(79)                         01080000 61                                
+   000476         010900     MOVE  'Y'     TO MAP-ASCII(80)                               01090000 60                                
+   000477         011000     MOVE  X'D7'   TO ASCII-TO-EBCDIC(80)                         01100000 61                                
+   000478         011100     MOVE  'Y'     TO MAP-ASCII(81)                               01110000 60                                
+   000479         011200     MOVE  X'D8'   TO ASCII-TO-EBCDIC(81)                         01120000 61                                
+   000480         011300     MOVE  'Y'     TO MAP-ASCII(82)                               01130000 60                                
+   000481         011400     MOVE  X'D9'   TO ASCII-TO-EBCDIC(82)                         01140000 61                                
+   000482         011500     MOVE  'Y'     TO MAP-ASCII(83)                               01150000 60                                
+   000483         011600     MOVE  X'E2'   TO ASCII-TO-EBCDIC(83)                         01160000 61                                
+   000484         011700     MOVE  'Y'     TO MAP-ASCII(84)                               01170000 60                                
+   000485         011800     MOVE  X'E3'   TO ASCII-TO-EBCDIC(84)                         01180000 61                                
+   000486         011900     MOVE  'Y'     TO MAP-ASCII(85)                               01190000 60                                
+   000487         012000     MOVE  X'E4'   TO ASCII-TO-EBCDIC(85)                         01200000 61                                
+   000488         012100     MOVE  'Y'     TO MAP-ASCII(86)                               01210000 60                                
+   000489         012200     MOVE  X'E5'   TO ASCII-TO-EBCDIC(86)                         01220000 61                                
+   000490         012300     MOVE  'Y'     TO MAP-ASCII(87)                               01230000 60                                
+   000491         012400     MOVE  X'E6'   TO ASCII-TO-EBCDIC(87)                         01240000 61                                
+   000492         012500     MOVE  'Y'     TO MAP-ASCII(88)                               01250000 60                                
+   000493         012600     MOVE  X'E7'   TO ASCII-TO-EBCDIC(88)                         01260000 61                                
+   000494         012700     MOVE  'Y'     TO MAP-ASCII(89)                               01270000 60                                
+   000495         012800     MOVE  X'E8'   TO ASCII-TO-EBCDIC(89)                         01280000 61                                
+   000496         012900     MOVE  'Y'     TO MAP-ASCII(90)                               01290000 60                                
+   000497         013000     MOVE  X'E9'   TO ASCII-TO-EBCDIC(90)                         01300000 61                                
+   000498         013100     MOVE  'Y'     TO MAP-ASCII(91)                               01310000 60                                
+   000499         013200     MOVE  X'4A'   TO ASCII-TO-EBCDIC(91)                         01320000 61                                
+   000500         013300     MOVE  'Y'     TO MAP-ASCII(92)                               01330000 60                                
+   000501         013400     MOVE  X'E0'   TO ASCII-TO-EBCDIC(92)                         01340000 61                                
+   000502         013500     MOVE  'Y'     TO MAP-ASCII(93)                               01350000 60                                
+   000503         013600     MOVE  X'5A'   TO ASCII-TO-EBCDIC(93)                         01360000 61                                
+   000504         013700     MOVE  'Y'     TO MAP-ASCII(94)                               01370000 60                                
+   000505         013800     MOVE  X'5F'   TO ASCII-TO-EBCDIC(94)                         01380000 61                                
+   000506         013900     MOVE  'Y'     TO MAP-ASCII(95)                               01390000 60                                
+   000507         014000     MOVE  X'6D'   TO ASCII-TO-EBCDIC(95)                         01400000 61                                
+   000508         014100     MOVE  'Y'     TO MAP-ASCII(96)                               01410000 60                                
+   000509         014200     MOVE  X'79'   TO ASCII-TO-EBCDIC(96)                         01420000 61                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    12                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000510         014300     MOVE  'Y'     TO MAP-ASCII(97)                               01430000 60                                
+   000511         014400     MOVE  X'81'   TO ASCII-TO-EBCDIC(97)                         01440000 61                                
+   000512         014500     MOVE  'Y'     TO MAP-ASCII(98)                               01450000 60                                
+   000513         014600     MOVE  X'82'   TO ASCII-TO-EBCDIC(98)                         01460000 61                                
+   000514         014700     MOVE  'Y'     TO MAP-ASCII(99)                               01470000 60                                
+   000515         014800     MOVE  X'83'   TO ASCII-TO-EBCDIC(99)                         01480000 61                                
+   000516         014900     MOVE  'Y'     TO MAP-ASCII(100)                              01490000 60                                
+   000517         015000     MOVE  X'84'   TO ASCII-TO-EBCDIC(100)                        01500000 61                                
+   000518         015100     MOVE  'Y'     TO MAP-ASCII(101)                              01510000 60                                
+   000519         015200     MOVE  X'85'   TO ASCII-TO-EBCDIC(101)                        01520000 61                                
+   000520         015300     MOVE  'Y'     TO MAP-ASCII(102)                              01530000 60                                
+   000521         015400     MOVE  X'86'   TO ASCII-TO-EBCDIC(102)                        01540000 61                                
+   000522         015500     MOVE  'Y'     TO MAP-ASCII(103)                              01550000 60                                
+   000523         015600     MOVE  X'87'   TO ASCII-TO-EBCDIC(103)                        01560000 61                                
+   000524         015700     MOVE  'Y'     TO MAP-ASCII(104)                              01570000 60                                
+   000525         015800     MOVE  X'88'   TO ASCII-TO-EBCDIC(104)                        01580000 61                                
+   000526         015900     MOVE  'Y'     TO MAP-ASCII(105)                              01590000 60                                
+   000527         016000     MOVE  X'89'   TO ASCII-TO-EBCDIC(105)                        01600000 61                                
+   000528         016100     MOVE  'Y'     TO MAP-ASCII(106)                              01610000 60                                
+   000529         016200     MOVE  X'91'   TO ASCII-TO-EBCDIC(106)                        01620000 61                                
+   000530         016300     MOVE  'Y'     TO MAP-ASCII(107)                              01630000 60                                
+   000531         016400     MOVE  X'92'   TO ASCII-TO-EBCDIC(107)                        01640000 61                                
+   000532         016500     MOVE  'Y'     TO MAP-ASCII(108)                              01650000 60                                
+   000533         016600     MOVE  X'93'   TO ASCII-TO-EBCDIC(108)                        01660000 61                                
+   000534         016700     MOVE  'Y'     TO MAP-ASCII(109)                              01670000 60                                
+   000535         016800     MOVE  X'94'   TO ASCII-TO-EBCDIC(109)                        01680000 61                                
+   000536         016900     MOVE  'Y'     TO MAP-ASCII(110)                              01690000 60                                
+   000537         017000     MOVE  X'95'   TO ASCII-TO-EBCDIC(110)                        01700000 61                                
+   000538         017100     MOVE  'Y'     TO MAP-ASCII(111)                              01710000 60                                
+   000539         017200     MOVE  X'96'   TO ASCII-TO-EBCDIC(111)                        01720000 61                                
+   000540         017300     MOVE  'Y'     TO MAP-ASCII(112)                              01730000 60                                
+   000541         017400     MOVE  X'97'   TO ASCII-TO-EBCDIC(112)                        01740000 61                                
+   000542         017500     MOVE  'Y'     TO MAP-ASCII(113)                              01750000 60                                
+   000543         017600     MOVE  X'98'   TO ASCII-TO-EBCDIC(113)                        01760000 61                                
+   000544         017700     MOVE  'Y'     TO MAP-ASCII(114)                              01770000 60                                
+   000545         017800     MOVE  X'99'   TO ASCII-TO-EBCDIC(114)                        01780000 61                                
+   000546         017900     MOVE  'Y'     TO MAP-ASCII(115)                              01790000 60                                
+   000547         018000     MOVE  X'A2'   TO ASCII-TO-EBCDIC(115)                        01800000 61                                
+   000548         018100     MOVE  'Y'     TO MAP-ASCII(116)                              01810000 60                                
+   000549         018200     MOVE  X'A3'   TO ASCII-TO-EBCDIC(116)                        01820000 61                                
+   000550         018300     MOVE  'Y'     TO MAP-ASCII(117)                              01830000 60                                
+   000551         018400     MOVE  X'A4'   TO ASCII-TO-EBCDIC(117)                        01840000 61                                
+   000552         018500     MOVE  'Y'     TO MAP-ASCII(118)                              01850000 60                                
+   000553         018600     MOVE  X'A5'   TO ASCII-TO-EBCDIC(118)                        01860000 61                                
+   000554         018700     MOVE  'Y'     TO MAP-ASCII(119)                              01870000 60                                
+   000555         018800     MOVE  X'A6'   TO ASCII-TO-EBCDIC(119)                        01880000 61                                
+   000556         018900     MOVE  'Y'     TO MAP-ASCII(120)                              01890000 60                                
+   000557         019000     MOVE  X'A7'   TO ASCII-TO-EBCDIC(120)                        01900000 61                                
+   000558         019100     MOVE  'Y'     TO MAP-ASCII(121)                              01910000 60                                
+   000559         019200     MOVE  X'A8'   TO ASCII-TO-EBCDIC(121)                        01920000 61                                
+   000560         019300     MOVE  'Y'     TO MAP-ASCII(122)                              01930000 60                                
+   000561         019400     MOVE  X'A9'   TO ASCII-TO-EBCDIC(122)                        01940000 61                                
+   000562         019500     MOVE  'Y'     TO MAP-ASCII(123)                              01950000 60                                
+   000563         019600     MOVE  X'C0'   TO ASCII-TO-EBCDIC(123)                        01960000 61                                
+   000564         019700     MOVE  'Y'     TO MAP-ASCII(124)                              01970000 60                                
+   000565         019800     MOVE  X'6A'   TO ASCII-TO-EBCDIC(124)                        01980000 61                                
+   000566         019900     MOVE  'Y'     TO MAP-ASCII(125)                              01990000 60                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    13                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000567         020000     MOVE  X'D0'   TO ASCII-TO-EBCDIC(125)                        02000000 61                                
+   000568         020100     MOVE  'Y'     TO MAP-ASCII(126)                              02010000 60                                
+   000569         020200     MOVE  X'A1'   TO ASCII-TO-EBCDIC(126)                        02020000 61                                
+   000570         020300*                                                                 02030000                                   
+   000571         020400     CONTINUE.                                                    02040000                                   
+   000572         020500*                                                                 02050000                                   
+   000573         020600 LOAD-A-2-E-TABLE-EXIT.                                           02060000                                   
+   000574         020700     EXIT.                                                        02070000                                   
+   000575         020710*                                                                 02071000                                   
+   000576         020800 CONVERT-U-2-VBS.                                                 02080000                                   
+   000577         020810*                                                                 02081000                                   
+   000578         020820*                                                                 02082000                                   
+   000579         020830     MOVE 1 TO  UMODE-POS                                         02083000 40                                
+   000580         020840     MOVE 0 TO  UMODE-LEN                                         02084000 41                                
+   000581         020850*                                                                 02085000                                   
+   000582         020851     PERFORM UNTIL (WS-UMODE-FILE-STATUS = '10')                  02085100 51                                
+   000583      1  020852        MOVE 0 TO UMODE-MESSAGE-LEN                               02085213 44                                
+   000584      1  020853        READ  UMODE-FILE                                          02085300 17                                
+   000585      1  020854        IF NOT (WS-UMODE-FILE-STATUS = ZEROES OR '10')            02085412 51 IMP                            
+   000586      2  020855           DISPLAY 'READ  INPUT-FILE ERROR '                      02085500                                   
+   000587      2  020856                  WS-UMODE-FILE-STATUS                            02085600 51                                
+   000588      2  020857           PERFORM 9100-ABEND                                     02085700 169                               
+   000589      2  020858              THRU 9100-ABEND-EXIT                                02085800 175                               
+   000590      1  020859        END-IF                                                    02085900                                   
+   000591         020860                                                                  02086000                                   
+   000592      1  020861        IF  WS-UMODE-FILE-STATUS = ZEROES                         02086112 51 IMP                            
+   000593      2  020862            ADD 1 TO UMODE-CNT                                    02086200 42                                
+   000594      2  020863            MOVE UMODE-MESSAGE(1: UMODE-MESSAGE-LEN)              02086300 23 44                             
+   000595      2  020864              TO UMODE-BUFFER(UMODE-POS:)                         02086400 38 40                             
+   000596      2  020865            ADD UMODE-MESSAGE-LEN TO UMODE-LEN UMODE-POS          02086500 44 41 40                          
+   000597      1  020866        END-IF                                                    02086600                                   
+   000598         020867     END-PERFORM                                                  02086700                                   
+   000599         020868*                                                                 02086800                                   
+   000600         020869     IF UMODE-LEN = 0 THEN                                        02086900 41                                
+   000601      1  020870        DISPLAY 'NO UMODE RECORDS TO PROCESS'                     02087000                                   
+   000602      1  020871        PERFORM 9100-ABEND                                        02087100 169                               
+   000603      1  020872           THRU 9100-ABEND-EXIT                                   02087200 175                               
+   000604         020873     END-IF                                                       02087300                                   
+   000605         020874*                                                                 02087400                                   
+   000606         020875     MOVE 1   TO UMODE-POS                                        02087500 40                                
+   000607         020876     MOVE UMODE-BUFFER(UMODE-POS:4) TO LLLL-X                     02087600 38 40 55                          
+   000608         020877     PERFORM UNTIL LLLL = 0 OR UMODE-POS > UMODE-LEN              02087700 56 40 41                          
+   000609      1  020878            ADD 4 TO UMODE-POS                                    02087800 40                                
+   000610      1  020879            MOVE LLLL TO IP66102-IPM-MSG-LNGTH                    02087900 56 53                             
+   000611      1  020880            MOVE UMODE-BUFFER(UMODE-POS:LLLL)                     02088000 38 40 56                          
+   000612      1  020881              TO IPM-EBCDIC-MESSAGE(1:IP66102-IPM-MSG-LNGTH)      02088100 32 53                             
+   000613      1  020882            ADD LLLL TO UMODE-POS                                 02088200 56 40                             
+   000614         020883*                                                                 02088300                                   
+   000615         020884* CONVERT 1-4 BYTES AND 21-END FROM ASCII --> EBCDIC              02088400                                   
+   000616         020885*                                                                 02088500                                   
+   000617      1  020886            MOVE LOW-VALUES TO NULL-BYTE OF ASCII-BYTES           02088600 IMP 66 65                         
+   000618         020887*                                                                 02088700                                   
+   000619      1  020888            PERFORM VARYING I                                     02088800 54                                
+   000620      1  020889               FROM 1 BY 1                                        02088900                                   
+   000621      1  020890               UNTIL I > 4                                        02089000 54                                
+   000622      2  020891               MOVE IPM-EBCDIC-MESSAGE(I:1) TO ASCII-CHAR         02089100 32 54 67                          
+   000623      2  020892               IF MAP-ASCII(ASCII-INDEX) = 'Y' THEN               02089200 60 64                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    14                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000624      3  020893                  MOVE ASCII-TO-EBCDIC(ASCII-INDEX)               02089300 61 64                             
+   000625      3  020894                    TO IPM-EBCDIC-MESSAGE(I:1)                    02089400 32 54                             
+   000626      2  020895               END-IF                                             02089500                                   
+   000627      1  020896            END-PERFORM                                           02089600                                   
+   000628      1  020897            PERFORM VARYING I                                     02089700 54                                
+   000629      1  020898               FROM 21 BY 1                                       02089800                                   
+   000630      1  020899               UNTIL I > IP66102-IPM-MSG-LNGTH                    02089900 54 53                             
+   000631      2  020900               MOVE IPM-EBCDIC-MESSAGE(I:1) TO ASCII-CHAR         02090000 32 54 67                          
+   000632      2  020901               IF MAP-ASCII(ASCII-INDEX) = 'Y' THEN               02090100 60 64                             
+   000633      3  020902                  MOVE ASCII-TO-EBCDIC(ASCII-INDEX)               02090200 61 64                             
+   000634      3  020903                    TO IPM-EBCDIC-MESSAGE(I:1)                    02090300 32 54                             
+   000635      2  020904               END-IF                                             02090400                                   
+   000636      1  020905            END-PERFORM                                           02090500                                   
+   000637         020906*                                                                 02090600                                   
+   000638      1  020907            WRITE IPM-EBCDIC-MESSAGE                              02090700 32                                
+   000639      1  020908            IF NOT (WS-VBS-FILE-STATUS = ZEROES OR '22')          02090812 52 IMP                            
+   000640      2  020909               DISPLAY 'WRITE VBS-FILE ERROR '                    02090900                                   
+   000641      2  020910                       WS-VBS-FILE-STATUS                         02091000 52                                
+   000642      2  020911               PERFORM 9100-ABEND                                 02091100 169                               
+   000643      2  020912                  THRU 9100-ABEND-EXIT                            02091200 175                               
+   000644      1  020913            END-IF                                                02091300                                   
+   000645      1  020914            ADD 1 TO VBS-CNT                                      02091400 43                                
+   000646      1  020915            MOVE UMODE-BUFFER(UMODE-POS:4) TO LLLL-X              02091500 38 40 55                          
+   000647         020916     END-PERFORM                                                  02091600                                   
+   000648         020917*                                                                 02091700                                   
+   000649         020918     CONTINUE.                                                    02091800                                   
+   000650         020919*                                                                 02091900                                   
+   000651         020920 CONVERT-U-2-VBS-EXIT.                                            02092000                                   
+   000652         020921     EXIT.                                                        02092100                                   
+   000653         020930*                                                                 02093000                                   
+   000654         021000 CONVERT-VBS-2-U.                                                 02100000                                   
+   000655         021100*                                                                 02110000                                   
+   000656         021110     MOVE 1 TO  UMODE-POS                                         02111000 40                                
+   000657         021111     MOVE 0 TO  UMODE-LEN                                         02111100 41                                
+   000658         021120*                                                                 02112000                                   
+   000659         021200     PERFORM UNTIL (WS-VBS-FILE-STATUS = '10')                    02120000 52                                
+   000660      1  021300        READ  VBS-FILE                                            02130000 27                                
+   000661      1  021400        IF NOT (WS-VBS-FILE-STATUS = ZEROES OR '10')              02140012 52 IMP                            
+   000662      2  021500           DISPLAY 'READ  INPUT-FILE ERROR '                      02150000                                   
+   000663      2  021600                  WS-VBS-FILE-STATUS                              02160000 52                                
+   000664      2  021700           PERFORM 9100-ABEND                                     02170000 169                               
+   000665      2  021800              THRU 9100-ABEND-EXIT                                02180000 175                               
+   000666      1  021900        END-IF                                                    02190000                                   
+   000667         022000                                                                  02200000                                   
+   000668      1  022100        IF  WS-VBS-FILE-STATUS = ZEROES                           02210012 52 IMP                            
+   000669      2  022101            ADD 1 TO  VBS-CNT                                     02210100 43                                
+   000670         022102*                                                                 02210200                                   
+   000671         022103* CONVERT 1-4 BYTES AND 21-END FROM ASCII --> EBCDIC              02210300                                   
+   000672         022104*                                                                 02210400                                   
+   000673      2  022105            MOVE LOW-VALUES TO NULL-BYTE OF EBCDIC-BYTES          02210500 IMP 77 76                         
+   000674         022106*                                                                 02210600                                   
+   000675      2  022107            PERFORM VARYING I                                     02210700 54                                
+   000676      2  022108               FROM 1 BY 1                                        02210800                                   
+   000677      2  022109               UNTIL I > 4                                        02210900 54                                
+   000678      3  022110               MOVE IPM-EBCDIC-MESSAGE(I:1) TO EBCDIC-CHAR        02211000 32 54 78                          
+   000679      3  022111               IF MAP-EBCDIC(EBCDIC-INDEX) = 'Y' THEN             02211100 71 75                             
+   000680      4  022112                  MOVE EBCDIC-TO-ASCII(EBCDIC-INDEX)              02211200 72 75                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    15                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000681      4  022113                    TO IPM-EBCDIC-MESSAGE(I:1)                    02211300 32 54                             
+   000682      3  022114               END-IF                                             02211400                                   
+   000683      2  022115            END-PERFORM                                           02211500                                   
+   000684      2  022116            PERFORM VARYING I                                     02211600 54                                
+   000685      2  022117               FROM 21 BY 1                                       02211700                                   
+   000686      2  022118               UNTIL I > IP66102-IPM-MSG-LNGTH                    02211800 54 53                             
+   000687      3  022119               MOVE IPM-EBCDIC-MESSAGE(I:1) TO EBCDIC-CHAR        02211900 32 54 78                          
+   000688      3  022120               IF MAP-EBCDIC(EBCDIC-INDEX) = 'Y' THEN             02212000 71 75                             
+   000689      4  022121                  MOVE EBCDIC-TO-ASCII(EBCDIC-INDEX)              02212100 72 75                             
+   000690      4  022122                    TO IPM-EBCDIC-MESSAGE(I:1)                    02212200 32 54                             
+   000691      3  022123               END-IF                                             02212300                                   
+   000692      2  022124            END-PERFORM                                           02212400                                   
+   000693         022125*                                                                 02212500                                   
+   000694      2  022126            MOVE IP66102-IPM-MSG-LNGTH TO LLLL                    02212600 53 56                             
+   000695      2  022127            MOVE LLLL-X  TO UMODE-BUFFER(UMODE-POS:               02212700 55 38 40                          
+   000696      2  022128                           UMODE-POS + 4)                         02212800 40                                
+   000697      2  022130            ADD 4 TO UMODE-LEN UMODE-POS                          02213000 41 40                             
+   000698      2  022200            MOVE IPM-EBCDIC-MESSAGE(1:LLLL)                       02220000 32 56                             
+   000699      2  022300              TO UMODE-BUFFER(UMODE-POS:LLLL)                     02230000 38 40 56                          
+   000700      2  022310            ADD LLLL TO UMODE-LEN UMODE-POS                       02231000 56 41 40                          
+   000701      1  022320        END-IF                                                    02232000                                   
+   000702         022330     END-PERFORM                                                  02233000                                   
+   000703         022331     MOVE X'00000000' TO UMODE-BUFFER(UMODE-POS:4)                02233100 38 40                             
+   000704         022332     ADD 4    TO UMODE-LEN UMODE-POS                              02233200 41 40                             
+   000705         022333*                                                                 02233300                                   
+   000706         022334     IF UMODE-LEN = 0 THEN                                        02233400 41                                
+   000707      1  022335        DISPLAY 'NO VBS RECORDS TO PROCESS'                       02233500                                   
+   000708      1  022336        PERFORM 9100-ABEND                                        02233600 169                               
+   000709      1  022337           THRU 9100-ABEND-EXIT                                   02233700 175                               
+   000710         022340     END-IF                                                       02234000                                   
+   000711         022350*                                                                 02235000                                   
+   000712         022351     MOVE 1   TO UMODE-POS                                        02235100 40                                
+   000713         022370     PERFORM UNTIL UMODE-POS > UMODE-LEN                          02237000 40 41                             
+   000714      1  022371            IF UMODE-POS + 1014 > UMODE-LEN THEN                  02237100 40 41                             
+   000715      2  022372               COMPUTE UMODE-MESSAGE-LEN =                        02237200 44                                
+   000716      2  022373                       UMODE-LEN - UMODE-POS + 1                  02237300 41 40                             
+   000717      2  022374               MOVE UMODE-BUFFER(UMODE-POS :                      02237400 38 40                             
+   000718      2  022376                                 UMODE-MESSAGE-LEN)               02237600 44                                
+   000719      2  022377                 TO UMODE-MESSAGE                                 02237700 23                                
+   000720      2  022378               COMPUTE UMODE-POS = UMODE-LEN + 1                  02237800 40 41                             
+   000721      1  022379            ELSE                                                  02237900                                   
+   000722      2  022380               MOVE 1014 TO UMODE-MESSAGE-LEN                     02238000 44                                
+   000723      2  022381               MOVE UMODE-BUFFER(UMODE-POS:UMODE-MESSAGE-LEN)     02238100 38 40 44                          
+   000724      2  022382                 TO UMODE-MESSAGE                                 02238200 23                                
+   000725      2  022383               ADD 1014 TO UMODE-POS                              02238300 40                                
+   000726      1  022390            END-IF                                                02239000                                   
+   000727         024700*                                                                 02470000                                   
+   000728      1  024800            WRITE UMODE-MESSAGE                                   02480000 23                                
+   000729      1  024900            IF NOT (WS-UMODE-FILE-STATUS = ZEROES OR '22')        02490012 51 IMP                            
+   000730      2  025000               DISPLAY 'WRITE UMODE-FILE ERROR '                  02500000                                   
+   000731      2  025100                       WS-UMODE-FILE-STATUS                       02510000 51                                
+   000732      2  025200               PERFORM 9100-ABEND                                 02520000 169                               
+   000733      2  025300                  THRU 9100-ABEND-EXIT                            02530000 175                               
+   000734      1  025400            END-IF                                                02540000                                   
+   000735      1  025500            ADD 1 TO UMODE-CNT                                    02550000 42                                
+   000736         025600     END-PERFORM                                                  02560000                                   
+   000737         025700*                                                                 02570000                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    16                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000738         025710     CONTINUE.                                                    02571000                                   
+   000739         025720*                                                                 02572000                                   
+   000740         025800 CONVERT-VBS-2-U-EXIT.                                            02580000                                   
+   000741         025900     EXIT.                                                        02590000                                   
+   000742         026000*                                                                 02600000                                   
+ */ FILENUM                                                                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    17                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       47   A-2-E. . . . . . . . . . . . .  83                                                                                       
+       65   ASCII-BYTES. . . . . . . . . .  617                                                                                      
+       67   ASCII-CHAR . . . . . . . . . .  M622 M631                                                                                
+       64   ASCII-INDEX. . . . . . . . . .  65 623 624 632 633                                                                       
+       63   ASCII-LOOKUP                                                                                                             
+       58   ASCII-TABLE                                                                                                              
+       61   ASCII-TO-EBCDIC. . . . . . . .  M381 M383 M385 M387 M389 M391 M393 M395 M397 M399 M401 M403 M405 M407 M409 M411          
+                                            M413 M415 M417 M419 M421 M423 M425 M427 M429 M431 M433 M435 M437 M439 M441 M443          
+                                            M445 M447 M449 M451 M453 M455 M457 M459 M461 M463 M465 M467 M469 M471 M473 M475          
+                                            M477 M479 M481 M483 M485 M487 M489 M491 M493 M495 M497 M499 M501 M503 M505 M507          
+                                            M509 M511 M513 M515 M517 M519 M521 M523 M525 M527 M529 M531 M533 M535 M537 M539          
+                                            M541 M543 M545 M547 M549 M551 M553 M555 M557 M559 M561 M563 M565 M567 M569 624           
+                                            633                                                                                      
+       48   E-2-A. . . . . . . . . . . . .  83 99 158                                                                                
+       76   EBCDIC-BYTES . . . . . . . . .  673                                                                                      
+       78   EBCDIC-CHAR. . . . . . . . . .  M678 M687                                                                                
+       75   EBCDIC-INDEX . . . . . . . . .  76 679 680 688 689                                                                       
+       74   EBCDIC-LOOKUP                                                                                                            
+       69   EBCDIC-TABLE                                                                                                             
+       72   EBCDIC-TO-ASCII. . . . . . . .  M182 M184 M186 M188 M190 M192 M194 M196 M198 M200 M202 M204 M206 M208 M210 M212          
+                                            M214 M216 M218 M220 M222 M224 M226 M228 M230 M232 M234 M236 M238 M240 M242 M244          
+                                            M246 M248 M250 M252 M254 M256 M258 M260 M262 M264 M266 M268 M270 M272 M274 M276          
+                                            M278 M280 M282 M284 M286 M288 M290 M292 M294 M296 M298 M300 M302 M304 M306 M308          
+                                            M310 M312 M314 M316 M318 M320 M322 M324 M326 M328 M330 M332 M334 M336 M338 M340          
+                                            M342 M344 M346 M348 M350 M352 M354 M356 M358 M360 M362 M364 M366 M368 M370 680           
+                                            689                                                                                      
+       54   I. . . . . . . . . . . . . . .  M619 621 622 625 M628 630 631 634 M675 677 678 681 M684 686 687 690                      
+       32   IPM-EBCDIC-MESSAGE . . . . . .  M612 622 M625 631 M634 638 678 M681 687 M690 698                                         
+       53   IP66102-IPM-MSG-LNGTH. . . . .  28 34 M610 612 630 686 694                                                               
+       56   LLLL . . . . . . . . . . . . .  608 610 611 613 M694 698 699 700                                                         
+       55   LLLL-X . . . . . . . . . . . .  56 M607 M646 695                                                                         
+       60   MAP-ASCII. . . . . . . . . . .  M380 M382 M384 M386 M388 M390 M392 M394 M396 M398 M400 M402 M404 M406 M408 M410          
+                                            M412 M414 M416 M418 M420 M422 M424 M426 M428 M430 M432 M434 M436 M438 M440 M442          
+                                            M444 M446 M448 M450 M452 M454 M456 M458 M460 M462 M464 M466 M468 M470 M472 M474          
+                                            M476 M478 M480 M482 M484 M486 M488 M490 M492 M494 M496 M498 M500 M502 M504 M506          
+                                            M508 M510 M512 M514 M516 M518 M520 M522 M524 M526 M528 M530 M532 M534 M536 M538          
+                                            M540 M542 M544 M546 M548 M550 M552 M554 M556 M558 M560 M562 M564 M566 M568 623           
+                                            632                                                                                      
+       59   MAP-ASCII-TBL. . . . . . . . .  M379                                                                                     
+       71   MAP-EBCDIC . . . . . . . . . .  M181 M183 M185 M187 M189 M191 M193 M195 M197 M199 M201 M203 M205 M207 M209 M211          
+                                            M213 M215 M217 M219 M221 M223 M225 M227 M229 M231 M233 M235 M237 M239 M241 M243          
+                                            M245 M247 M249 M251 M253 M255 M257 M259 M261 M263 M265 M267 M269 M271 M273 M275          
+                                            M277 M279 M281 M283 M285 M287 M289 M291 M293 M295 M297 M299 M301 M303 M305 M307          
+                                            M309 M311 M313 M315 M317 M319 M321 M323 M325 M327 M329 M331 M333 M335 M337 M339          
+                                            M341 M343 M345 M347 M349 M351 M353 M355 M357 M359 M361 M363 M365 M367 M369 679           
+                                            688                                                                                      
+       70   MAP-EBCDIC-TBL . . . . . . . .  M180                                                                                     
+       66   NULL-BYTE. . . . . . . . . . .  M617                                                                                     
+       77   NULL-BYTE. . . . . . . . . . .  M673                                                                                     
+        0   RETURN-CODE. . . . . . . . . .  M172                                                                                     
+       38   UMODE-BUFFER . . . . . . . . .  M595 607 611 646 M695 M699 M703 717 723                                                  
+       42   UMODE-CNT. . . . . . . . . . .  M97 160 162 M593 M735                                                                    
+       17   UMODE-FILE . . . . . . . . . .  6 110 130 142 584                                                                        
+       41   UMODE-LEN. . . . . . . . . . .  M580 M596 600 608 M657 M697 M700 M704 706 713 714 716 720                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    18                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0      23   UMODE-MESSAGE. . . . . . . . .  594 M719 M724 728                                                                        
+       44   UMODE-MESSAGE-LEN. . . . . . .  19 25 M583 594 596 M715 718 M722 723                                                     
+       40   UMODE-POS. . . . . . . . . . .  M579 595 M596 M606 607 608 M609 611 M613 646 M656 695 696 M697 699 M700 703 M704         
+                                            M712 713 714 716 717 M720 723 M725                                                       
+       39   UMODE-TEMP                                                                                                               
+       43   VBS-CNT. . . . . . . . . . . .  M97 159 163 M645 M669                                                                    
+       27   VBS-FILE . . . . . . . . . . .  11 102 122 150 660                                                                       
+       46   WS-DIRECTION-FLAG                                                                                                        
+       45   WS-SYSIN . . . . . . . . . . .  M82 86                                                                                   
+       51   WS-UMODE-FILE-STATUS . . . . .  8 111 113 131 133 143 145 582 585 587 592 729 731                                        
+       50   WS-VARS                                                                                                                  
+       52   WS-VBS-FILE-STATUS . . . . . .  13 103 105 123 125 151 153 639 641 659 661 663 668                                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    19                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      576   CONVERT-U-2-VBS. . . . . . . .  P137                                                                                     
+      651   CONVERT-U-2-VBS-EXIT . . . . .  E138                                                                                     
+      654   CONVERT-VBS-2-U. . . . . . . .  P117                                                                                     
+      740   CONVERT-VBS-2-U-EXIT . . . . .  E118                                                                                     
+      377   LOAD-A-2-E-TABLE . . . . . . .  P94                                                                                      
+      573   LOAD-A-2-E-TABLE-EXIT. . . . .  E95                                                                                      
+      178   LOAD-E-2-A-TABLE . . . . . . .  P91                                                                                      
+      374   LOAD-E-2-A-TABLE-EXIT. . . . .  E92                                                                                      
+      169   9100-ABEND . . . . . . . . . .  P87 P106 P114 P126 P134 P146 P154 P588 P602 P642 P664 P708 P732                          
+      175   9100-ABEND-EXIT. . . . . . . .  E88 E107 E115 E127 E135 E147 E155 E589 E603 E643 E665 E709 E733                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    20                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   FILENUM                                                                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    21                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID FILENUM-----------------------------------------------------------------------------------------------------*    
+     17   FD UMODE-FILE. . . . . . . . . . . . . . . . . .                                              QSAM           U             
+     23   1  UMODE-MESSAGE . . . . . . . . . . . . . . . . BLF=00000  000               DS 0CL1014      Grp-VarLen                   
+     24     2  FILLER. . . . . . . . . . . . . . . . . . . BLF=00000  000   0 000 000   DS 1C           Display        O             
+     27   FD VBS-FILE. . . . . . . . . . . . . . . . . . .                                              QSAM           S             
+     32   1  IPM-EBCDIC-MESSAGE. . . . . . . . . . . . . . BLF=00001  000               DS 0CL32752     Grp-VarLen                   
+     33     2  FILLER. . . . . . . . . . . . . . . . . . . BLF=00001  000   0 000 000   DS 1C           Display        O             
+     38   1  UMODE-BUFFER. . . . . . . . . . . . . . . . . BLW=00000  000               DS 40000C       Display                      
+     39   1  UMODE-TEMP. . . . . . . . . . . . . . . . . . BLW=00009  C40               DS 40000C       Display                      
+     40   1  UMODE-POS . . . . . . . . . . . . . . . . . . BLW=00019  880               DS 4C           Binary                       
+     41   1  UMODE-LEN . . . . . . . . . . . . . . . . . . BLW=00019  888               DS 4C           Binary                       
+     42   1  UMODE-CNT . . . . . . . . . . . . . . . . . . BLW=00019  890               DS 4C           Binary                       
+     43   1  VBS-CNT . . . . . . . . . . . . . . . . . . . BLW=00019  898               DS 4C           Binary                       
+     44   1  UMODE-MESSAGE-LEN . . . . . . . . . . . . . . BLW=00019  8A0               DS 4C           Binary         D             
+     45   1  WS-SYSIN. . . . . . . . . . . . . . . . . . . BLW=00019  8A8               DS 0CL80        Group                        
+     46     2  WS-DIRECTION-FLAG . . . . . . . . . . . . . BLW=00019  8A8   0 000 000   DS 5C           Display                      
+     47     88 A-2-E . . . . . . . . . . . . . . . . . . .                                                                           
+     48     88 E-2-A . . . . . . . . . . . . . . . . . . .                                                                           
+     49     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00019  8AD   0 000 005   DS 75C          Display                      
+     50   1  WS-VARS . . . . . . . . . . . . . . . . . . . BLW=00019  8F8               DS 0CL14        Group                        
+     51     2  WS-UMODE-FILE-STATUS. . . . . . . . . . . . BLW=00019  8F8   0 000 000   DS 2C           Display                      
+     52     2  WS-VBS-FILE-STATUS. . . . . . . . . . . . . BLW=00019  8FA   0 000 002   DS 2C           Display                      
+     53     2  IP66102-IPM-MSG-LNGTH . . . . . . . . . . . BLW=00019  8FC   0 000 004   DS 4C           Binary         D             
+     54     2  I . . . . . . . . . . . . . . . . . . . . . BLW=00019  900   0 000 008   DS 2C           Binary                       
+     55     2  LLLL-X. . . . . . . . . . . . . . . . . . . BLW=00019  902   0 000 00A   DS 4C           Display                      
+     56     2  LLLL. . . . . . . . . . . . . . . . . . . . BLW=00019  902   0 000 00A   DS 4C           Binary         R             
+     58   1  ASCII-TABLE . . . . . . . . . . . . . . . . . BLW=00019  908               DS 0CL512       Group                        
+     59     2  MAP-ASCII-TBL . . . . . . . . . . . . . . . BLW=00019  908   0 000 000   DS 0CL256       Group                        
+     60       3  MAP-ASCII . . . . . . . . . . . . . . . . BLW=00019  908   0 000 000   DS 1C           Display        O             
+     61     2  ASCII-TO-EBCDIC . . . . . . . . . . . . . . BLW=00019  A08   0 000 100   DS 1C           Display        O             
+     63   1  ASCII-LOOKUP. . . . . . . . . . . . . . . . . BLW=00019  B08               DS 0CL2         Group                        
+     64     2  ASCII-INDEX . . . . . . . . . . . . . . . . BLW=00019  B08   0 000 000   DS 2C           Binary                       
+     65     2  ASCII-BYTES . . . . . . . . . . . . . . . . BLW=00019  B08   0 000 000   DS 0CL2         Group          R             
+     66       3  NULL-BYTE . . . . . . . . . . . . . . . . BLW=00019  B08   0 000 000   DS 1C           Display                      
+     67       3  ASCII-CHAR. . . . . . . . . . . . . . . . BLW=00019  B09   0 000 001   DS 1C           Display                      
+     69   1  EBCDIC-TABLE. . . . . . . . . . . . . . . . . BLW=00019  B10               DS 0CL512       Group                        
+     70     2  MAP-EBCDIC-TBL. . . . . . . . . . . . . . . BLW=00019  B10   0 000 000   DS 0CL256       Group                        
+     71       3  MAP-EBCDIC. . . . . . . . . . . . . . . . BLW=00019  B10   0 000 000   DS 1C           Display        O             
+     72     2  EBCDIC-TO-ASCII . . . . . . . . . . . . . . BLW=00019  C10   0 000 100   DS 1C           Display        O             
+     74   1  EBCDIC-LOOKUP . . . . . . . . . . . . . . . . BLW=00019  D10               DS 0CL2         Group                        
+     75     2  EBCDIC-INDEX. . . . . . . . . . . . . . . . BLW=00019  D10   0 000 000   DS 2C           Binary                       
+     76     2  EBCDIC-BYTES. . . . . . . . . . . . . . . . BLW=00019  D10   0 000 000   DS 0CL2         Group          R             
+     77       3  NULL-BYTE . . . . . . . . . . . . . . . . BLW=00019  D10   0 000 000   DS 1C           Display                      
+     78       3  EBCDIC-CHAR . . . . . . . . . . . . . . . BLW=00019  D11   0 000 001   DS 1C           Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    22                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000044 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 00077C FOR LINE 2                                                                                               
+ PBL2    AT LOCATION 00177C FOR LINE 475                                                                                             
+ PBL3    AT LOCATION 002796 FOR LINE 720                                                                                             
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      3B9ACA00 00000000 00000001 40404040 40404040 40404040 40404040 40404040  |............                    |    
+ 00011C  (LIT+32)     40404040 40404040 40400000 00000000 F0F0                                 |          ......00              |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    23                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000140 FOR 0004FC BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000164  (LIT+0)      FFFFFFFC 40000004 00001000 00000007 00007FF0 40000000 00009C41 000003F6  |.... ............."0 ..........6|    
+ 000184  (LIT+32)     00000001 FFFFFFFF 00000000 0015000C C4C5C2D3 D6C3D240 7A40E4D4 D6C4C540  |................DEBLOCK : UMODE |    
+ 0001A4  (LIT+64)     C1E2C3C9 C961C2C9 D5C1D9E8 40606E40 E5C2E240 C5C2C3C4 C9C340C3 D6D5E560  |ASCII/BINARY -> VBS EBCDIC CONV-|    
+ 0001C4  (LIT+96)     60606060 60606060 60606060 60606060 60606060 60606060 60606060 60606060  |--------------------------------|    
+ 0001E4  (LIT+128)    60606060 60606060 60606060 6060C2D3 D6C3D240 407A40E5 C2E240C5 C2C3C4C9  |--------------BLOCK  : VBS EBCDI|    
+ 000204  (LIT+160)    C3406060 6E40E4D4 D6C4C540 C1E2C3C9 C961C2C9 D5C1D9E8 40C3D6D5 E5C2D3D2  |C --> UMODE ASCII/BINARY CONVBLK|    
+ 000224  (LIT+192)    C4C2D3D2 40D7D9D6 C7D9C1D4 40C5E7C5 C3E4E3C5 C440E2E4 C3C3C5E2 E2C6E4D3  |DBLK PROGRAM EXECUTED SUCCESSFUL|    
+ 000244  (LIT+224)    D3E85A5A D7D9D6C7 D9C1D440 C2D3D2C4 C2D3D240 C5D5C4C5 C440E4D5 E2E4C3C3  |LY!!PROGRAM BLKDBLK ENDED UNSUCC|    
+ 000264  (LIT+256)    C5E2E2C6 E4D3D3E8 D5D640E4 D4D6C4C5 40D9C5C3 D6D9C4E2 40E3D640 D7D9D6C3  |ESSFULLYNO UMODE RECORDS TO PROC|    
+ 000284  (LIT+288)    C5E2E2E5 C2E24040 40D9C5C3 D6D9C4E2 40E6D9C9 E3E3C5D5 4040407E 40E4D4D6  |ESSVBS   RECORDS WRITTEN   = UMO|    
+ 0002A4  (LIT+320)    C4C540D9 C5C3D6D9 C4E240D9 C5C1C440 40404040 407E40E4 D4D6C4C5 40D9C5C3  |DE RECORDS READ      = UMODE REC|    
+ 0002C4  (LIT+352)    D6D9C4E2 40E6D9C9 E3E3C5D5 4040407E 40E5C2E2 404040D9 C5C3D6D9 C4E240D9  |ORDS WRITTEN   = VBS   RECORDS R|    
+ 0002E4  (LIT+384)    C5C1C440 40404040 407E40D6 D7C5D540 E5C2E260 C2C3C4C9 C360C6C9 D3C540C5  |EAD      = OPEN VBS-BCDIC-FILE E|    
+ 000304  (LIT+416)    D9D9D6D9 40D5D640 E5C2E240 D9C5C3D6 D9C4E240 E3D640D7 D9D6C3C5 E2E2C3D3  |RROR NO VBS RECORDS TO PROCESSCL|    
+ 000324  (LIT+448)    D6E2C540 C5C2C3C4 C9C360C6 C9D3C540 C5D9D9D6 D940E6D9 C9E3C540 E4D4D6C4  |OSE EBCDIC-FILE ERROR WRITE UMOD|    
+ 000344  (LIT+480)    C560C6C9 D3C540C5 D9D9D6D9 40D9C5C1 C44040C9 D5D7E4E3 60C6C9D3 C540C5D9  |E-FILE ERROR READ  INPUT-FILE ER|    
+ 000364  (LIT+512)    D9D6D940 C3D3D6E2 C540E4D4 D6C4C560 C6C9D3C5 40C5D9D9 D6D940D6 D7C5D540  |ROR CLOSE UMODE-FILE ERROR OPEN |    
+ 000384  (LIT+544)    E4D4D6C4 C560C6C9 D3C540C5 D9D9D6D9 40E6D9C9 E3C540E5 C2E260C6 C9D3C540  |UMODE-FILE ERROR WRITE VBS-FILE |    
+ 0003A4  (LIT+576)    C5D9D9D6 D940C9D5 E5C1D3C9 C440E2E8 E2C9D540 E2E8E2D6 E4E34040 C9C7E9E2  |ERROR INVALID SYSIN SYSOUT  IGZS|    
+ 0003C4  (LIT+608)    D9E3C3C4 C6C9D3C5 D5E4D4C1 60F260C5 C560F260 C1000000 00F2F2F0 F4F1F0F0  |RTCDFILENUMA-2-EE-2-A....2204100|    
+ 0003E4  (LIT+640)    F0000001 80000000 09000001 2C000000 14000001 7C000000 01000000 00000000  |0...................@...........|    
+ 000404  (LIT+672)    00000000 00000000 00000000 00000000 00000000 00000000 00000000 00800000  |................................|    
+ 000424  (LIT+704)    00400000 00000000 00000000 00080000 00040000 00400000 00000000 00000000  |. ................... ..........|    
+ 000444  (LIT+736)    00000000 00400000 000025C0 0001C000 07080000 34028801 40000017 08000034  |..... ................h. .......|    
+ 000464  (LIT+768)    01FA4000 00020900 017808F8 FF014000 00190800 003401C9 FF014000 00170800  |.. ........8.. ........I.. .....|    
+ 000484  (LIT+800)    00340211 40000002 09000178 08FAFF01 40000015 08000034 02554000 00020900  |.... ........... ......... .....|    
+ 0004A4  (LIT+832)    017808FA FF014000 001B0800 0034012C FF014000 00170800 00340211 40000002  |...... ........... ......... ...|    
+ 0004C4  (LIT+864)    09000178 08F8FF01 40000024 08000034 0108FF01 40000027 08000034 00E1FF01  |.....8.. ........... ...........|    
+ 0004E4  (LIT+896)    40000001 08000034 027EFF01 4000001A 08000034 01470204 000A0900 01780898  | ........=.. ..................q|    
+ 000504  (LIT+928)    FF014000 001A0800 00340161 0204000A 09000178 0890FF01 4000001A 08000034  |.. ......../............ .......|    
+ 000524  (LIT+960)    017B0204 000A0900 01780890 FF014000 001A0800 00340195 0204000A 09000178  |.#............ ........n........|    
+ 000544  (LIT+992)    0898FF01 40000018 08000034 01E24000 00020900 017808FA FF400002 80000140  |.q.. ........S .......... ..... |    
+ 000564  (LIT+1024)   00001708 00003402 28400000 02090001 7808F8FF 40000180 00014000 002E0800  |......... ........8. ..... .....|    
+ 000584  (LIT+1056)   00340083 FF014000 002F0800 00340054 FF014000 00160800 0034023F 40000002  |...c.. ........... ......... ...|    
+ 0005A4  (LIT+1088)   09000178 08F8FF80 00018000 01400000 1A080000 3401AF40 00000209 00017808  |.....8....... ......... ........|    
+ 0005C4  (LIT+1120)   FAFF8000 02800001 4000002F 08000034 0083FF01 4000002F 08000034 00B2FF01  |........ ........c.. ...........|    
+ 0005E4  (LIT+1152)   4000000E 08000034 026A4000 00500900 017808A8 FF040800 00000000 00500900  | ......... ..&.....y.........&..|    
+ 000604  (LIT+1184)   017808A8 40000000 0040C000 01400007 08000034 028802C0 00070800 00340288  |...y .... ... .......h.........h|    
+ 000624  (LIT+1216)   09000178 08FA0900 01840000 09000178 08F80900 01800000                    |.........d.......8......        |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000082 00096C ACCEPT                        000083 00097E IF                            000084 00099E CONTINUE                      
+ 000086 0009AE DISPLAY                       000087 0009C0 PERFORM                       000091 0009E4 PERFORM                       
+ 000094 000A04 PERFORM                       000097 000A24 MOVE                          000099 000A34 IF                            
+ 000100 000A4A DISPLAY                       000101 000A5C DISPLAY                       000102 000A6E OPEN                          
+ 000103 000A90 IF                            000104 000AA6 DISPLAY                       000106 000AB8 PERFORM                       
+ 000110 000ADC OPEN                          000111 000AFE IF                            000112 000B14 DISPLAY                       
+ 000114 000B26 PERFORM                       000117 000B4A PERFORM                       000120 000B7A DISPLAY                       
+ 000121 000B8C DISPLAY                       000122 000B9E OPEN                          000123 000BC0 IF                            
+ 000124 000BD6 DISPLAY                       000126 000BE8 PERFORM                       000130 000C0C OPEN                          
+ 000131 000C2E IF                            000132 000C44 DISPLAY                       000134 000C56 PERFORM                       
+ 000137 000C7A PERFORM                       000142 000CA2 CLOSE                         000143 000CC4 IF                            
+ 000144 000CDA DISPLAY                       000146 000CEC PERFORM                       000150 000D10 CLOSE                         
+ 000151 000D32 IF                            000152 000D48 DISPLAY                       000154 000D5A PERFORM                       
+ 000158 000D7E IF                            000159 000D94 DISPLAY                       000160 000DA6 DISPLAY                       
+ 000162 000DC4 DISPLAY                       000163 000DD6 DISPLAY                       000165 000DEC DISPLAY                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    24                
+0000166 000DFE DISPLAY                       000167 000E10 GOBACK                        000171 000E24 DISPLAY                       
+ 000172 000E36 MOVE                          000173 000E44 GOBACK                        000176 000E58 EXIT                          
+ 000180 000E66 MOVE                          000181 000E74 MOVE                          000182 000E7C MOVE                          
+ 000183 000E84 MOVE                          000184 000E8C MOVE                          000185 000E94 MOVE                          
+ 000186 000E9C MOVE                          000187 000EA4 MOVE                          000188 000EAC MOVE                          
+ 000189 000EB4 MOVE                          000190 000EBC MOVE                          000191 000EC4 MOVE                          
+ 000192 000ECC MOVE                          000193 000ED4 MOVE                          000194 000EDC MOVE                          
+ 000195 000EE4 MOVE                          000196 000EEC MOVE                          000197 000EF4 MOVE                          
+ 000198 000EFC MOVE                          000199 000F04 MOVE                          000200 000F0C MOVE                          
+ 000201 000F14 MOVE                          000202 000F1C MOVE                          000203 000F24 MOVE                          
+ 000204 000F2C MOVE                          000205 000F34 MOVE                          000206 000F3C MOVE                          
+ 000207 000F44 MOVE                          000208 000F4C MOVE                          000209 000F54 MOVE                          
+ 000210 000F5C MOVE                          000211 000F64 MOVE                          000212 000F6C MOVE                          
+ 000213 000F74 MOVE                          000214 000F7C MOVE                          000215 000F84 MOVE                          
+ 000216 000F8C MOVE                          000217 000F94 MOVE                          000218 000F9C MOVE                          
+ 000219 000FA4 MOVE                          000220 000FAC MOVE                          000221 000FB4 MOVE                          
+ 000222 000FBC MOVE                          000223 000FC4 MOVE                          000224 000FCC MOVE                          
+ 000225 000FD4 MOVE                          000226 000FDC MOVE                          000227 000FE4 MOVE                          
+ 000228 000FEC MOVE                          000229 000FF4 MOVE                          000230 000FFC MOVE                          
+ 000231 001004 MOVE                          000232 00100C MOVE                          000233 001014 MOVE                          
+ 000234 00101C MOVE                          000235 001024 MOVE                          000236 00102C MOVE                          
+ 000237 001034 MOVE                          000238 00103C MOVE                          000239 001044 MOVE                          
+ 000240 00104C MOVE                          000241 001054 MOVE                          000242 00105C MOVE                          
+ 000243 001064 MOVE                          000244 00106C MOVE                          000245 001074 MOVE                          
+ 000246 00107C MOVE                          000247 001084 MOVE                          000248 00108C MOVE                          
+ 000249 001094 MOVE                          000250 00109C MOVE                          000251 0010A4 MOVE                          
+ 000252 0010AC MOVE                          000253 0010B4 MOVE                          000254 0010BC MOVE                          
+ 000255 0010C4 MOVE                          000256 0010CC MOVE                          000257 0010D4 MOVE                          
+ 000258 0010DC MOVE                          000259 0010E4 MOVE                          000260 0010EC MOVE                          
+ 000261 0010F4 MOVE                          000262 0010FC MOVE                          000263 001104 MOVE                          
+ 000264 00110C MOVE                          000265 001114 MOVE                          000266 00111C MOVE                          
+ 000267 001124 MOVE                          000268 00112C MOVE                          000269 001134 MOVE                          
+ 000270 00113C MOVE                          000271 001144 MOVE                          000272 00114C MOVE                          
+ 000273 001154 MOVE                          000274 00115C MOVE                          000275 001164 MOVE                          
+ 000276 00116C MOVE                          000277 001174 MOVE                          000278 00117C MOVE                          
+ 000279 001184 MOVE                          000280 00118C MOVE                          000281 001194 MOVE                          
+ 000282 00119C MOVE                          000283 0011A4 MOVE                          000284 0011AC MOVE                          
+ 000285 0011B4 MOVE                          000286 0011BC MOVE                          000287 0011C4 MOVE                          
+ 000288 0011CC MOVE                          000289 0011D4 MOVE                          000290 0011DC MOVE                          
+ 000291 0011E4 MOVE                          000292 0011EC MOVE                          000293 0011F4 MOVE                          
+ 000294 0011FC MOVE                          000295 001204 MOVE                          000296 00120C MOVE                          
+ 000297 001214 MOVE                          000298 00121C MOVE                          000299 001224 MOVE                          
+ 000300 00122C MOVE                          000301 001234 MOVE                          000302 00123C MOVE                          
+ 000303 001244 MOVE                          000304 00124C MOVE                          000305 001254 MOVE                          
+ 000306 00125C MOVE                          000307 001264 MOVE                          000308 00126C MOVE                          
+ 000309 001274 MOVE                          000310 00127C MOVE                          000311 001284 MOVE                          
+ 000312 00128C MOVE                          000313 001294 MOVE                          000314 00129C MOVE                          
+ 000315 0012A4 MOVE                          000316 0012AC MOVE                          000317 0012B4 MOVE                          
+ 000318 0012BC MOVE                          000319 0012C4 MOVE                          000320 0012CC MOVE                          
+ 000321 0012D4 MOVE                          000322 0012DC MOVE                          000323 0012E4 MOVE                          
+ 000324 0012EC MOVE                          000325 0012F4 MOVE                          000326 0012FC MOVE                          
+ 000327 001304 MOVE                          000328 00130C MOVE                          000329 001314 MOVE                          
+ 000330 00131C MOVE                          000331 001324 MOVE                          000332 00132C MOVE                          
+ 000333 001334 MOVE                          000334 00133C MOVE                          000335 001344 MOVE                          
+ 000336 00134C MOVE                          000337 001354 MOVE                          000338 00135C MOVE                          
+ 000339 001364 MOVE                          000340 00136C MOVE                          000341 001374 MOVE                          
+ 000342 00137C MOVE                          000343 001384 MOVE                          000344 00138C MOVE                          
+ 000345 001394 MOVE                          000346 00139C MOVE                          000347 0013A4 MOVE                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    25                
+0000348 0013AC MOVE                          000349 0013B4 MOVE                          000350 0013BC MOVE                          
+ 000351 0013C4 MOVE                          000352 0013CC MOVE                          000353 0013D4 MOVE                          
+ 000354 0013DC MOVE                          000355 0013E4 MOVE                          000356 0013EC MOVE                          
+ 000357 0013F4 MOVE                          000358 0013FC MOVE                          000359 001404 MOVE                          
+ 000360 00140C MOVE                          000361 001414 MOVE                          000362 00141C MOVE                          
+ 000363 001424 MOVE                          000364 00142C MOVE                          000365 001434 MOVE                          
+ 000366 00143C MOVE                          000367 001444 MOVE                          000368 00144C MOVE                          
+ 000369 001454 MOVE                          000370 00145C MOVE                          000372 001464 CONTINUE                      
+ 000375 00146C EXIT                          000379 00147A MOVE                          000380 001488 MOVE                          
+ 000381 001490 MOVE                          000382 001498 MOVE                          000383 0014A0 MOVE                          
+ 000384 0014A8 MOVE                          000385 0014B0 MOVE                          000386 0014B8 MOVE                          
+ 000387 0014C0 MOVE                          000388 0014C8 MOVE                          000389 0014D0 MOVE                          
+ 000390 0014D8 MOVE                          000391 0014E0 MOVE                          000392 0014E8 MOVE                          
+ 000393 0014F0 MOVE                          000394 0014F8 MOVE                          000395 001500 MOVE                          
+ 000396 001508 MOVE                          000397 001510 MOVE                          000398 001518 MOVE                          
+ 000399 001520 MOVE                          000400 001528 MOVE                          000401 001530 MOVE                          
+ 000402 001538 MOVE                          000403 001540 MOVE                          000404 001548 MOVE                          
+ 000405 001550 MOVE                          000406 001558 MOVE                          000407 001560 MOVE                          
+ 000408 001568 MOVE                          000409 001570 MOVE                          000410 001578 MOVE                          
+ 000411 001580 MOVE                          000412 001588 MOVE                          000413 001590 MOVE                          
+ 000414 001598 MOVE                          000415 0015A0 MOVE                          000416 0015A8 MOVE                          
+ 000417 0015B0 MOVE                          000418 0015B8 MOVE                          000419 0015C0 MOVE                          
+ 000420 0015C8 MOVE                          000421 0015D0 MOVE                          000422 0015D8 MOVE                          
+ 000423 0015E0 MOVE                          000424 0015E8 MOVE                          000425 0015F0 MOVE                          
+ 000426 0015F8 MOVE                          000427 001600 MOVE                          000428 001608 MOVE                          
+ 000429 001610 MOVE                          000430 001618 MOVE                          000431 001620 MOVE                          
+ 000432 001628 MOVE                          000433 001630 MOVE                          000434 001638 MOVE                          
+ 000435 001640 MOVE                          000436 001648 MOVE                          000437 001650 MOVE                          
+ 000438 001658 MOVE                          000439 001660 MOVE                          000440 001668 MOVE                          
+ 000441 001670 MOVE                          000442 001678 MOVE                          000443 001680 MOVE                          
+ 000444 001688 MOVE                          000445 001690 MOVE                          000446 001698 MOVE                          
+ 000447 0016A0 MOVE                          000448 0016A8 MOVE                          000449 0016B0 MOVE                          
+ 000450 0016B8 MOVE                          000451 0016C0 MOVE                          000452 0016C8 MOVE                          
+ 000453 0016D0 MOVE                          000454 0016D8 MOVE                          000455 0016E0 MOVE                          
+ 000456 0016E8 MOVE                          000457 0016F0 MOVE                          000458 0016F8 MOVE                          
+ 000459 001700 MOVE                          000460 001708 MOVE                          000461 001710 MOVE                          
+ 000462 001718 MOVE                          000463 001720 MOVE                          000464 001728 MOVE                          
+ 000465 001730 MOVE                          000466 001738 MOVE                          000467 001740 MOVE                          
+ 000468 001748 MOVE                          000469 001750 MOVE                          000470 001758 MOVE                          
+ 000471 001760 MOVE                          000472 001768 MOVE                          000473 001770 MOVE                          
+ 000474 001778 MOVE                          000475 001780 MOVE                          000476 001788 MOVE                          
+ 000477 001790 MOVE                          000478 001798 MOVE                          000479 0017A0 MOVE                          
+ 000480 0017A8 MOVE                          000481 0017B0 MOVE                          000482 0017B8 MOVE                          
+ 000483 0017C0 MOVE                          000484 0017C8 MOVE                          000485 0017D0 MOVE                          
+ 000486 0017D8 MOVE                          000487 0017E0 MOVE                          000488 0017E8 MOVE                          
+ 000489 0017F0 MOVE                          000490 0017F8 MOVE                          000491 001800 MOVE                          
+ 000492 001808 MOVE                          000493 001810 MOVE                          000494 001818 MOVE                          
+ 000495 001820 MOVE                          000496 001828 MOVE                          000497 001830 MOVE                          
+ 000498 001838 MOVE                          000499 001840 MOVE                          000500 001848 MOVE                          
+ 000501 001850 MOVE                          000502 001858 MOVE                          000503 001860 MOVE                          
+ 000504 001868 MOVE                          000505 001870 MOVE                          000506 001878 MOVE                          
+ 000507 001880 MOVE                          000508 001888 MOVE                          000509 001890 MOVE                          
+ 000510 001898 MOVE                          000511 0018A0 MOVE                          000512 0018A8 MOVE                          
+ 000513 0018B0 MOVE                          000514 0018B8 MOVE                          000515 0018C0 MOVE                          
+ 000516 0018C8 MOVE                          000517 0018D0 MOVE                          000518 0018D8 MOVE                          
+ 000519 0018E0 MOVE                          000520 0018E8 MOVE                          000521 0018F0 MOVE                          
+ 000522 0018F8 MOVE                          000523 001900 MOVE                          000524 001908 MOVE                          
+ 000525 001910 MOVE                          000526 001918 MOVE                          000527 001920 MOVE                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    26                
+0000528 001928 MOVE                          000529 001930 MOVE                          000530 001938 MOVE                          
+ 000531 001940 MOVE                          000532 001948 MOVE                          000533 001950 MOVE                          
+ 000534 001958 MOVE                          000535 001960 MOVE                          000536 001968 MOVE                          
+ 000537 001970 MOVE                          000538 001978 MOVE                          000539 001980 MOVE                          
+ 000540 001988 MOVE                          000541 001990 MOVE                          000542 001998 MOVE                          
+ 000543 0019A0 MOVE                          000544 0019A8 MOVE                          000545 0019B0 MOVE                          
+ 000546 0019B8 MOVE                          000547 0019C0 MOVE                          000548 0019C8 MOVE                          
+ 000549 0019D0 MOVE                          000550 0019D8 MOVE                          000551 0019E0 MOVE                          
+ 000552 0019E8 MOVE                          000553 0019F0 MOVE                          000554 0019F8 MOVE                          
+ 000555 001A00 MOVE                          000556 001A08 MOVE                          000557 001A10 MOVE                          
+ 000558 001A18 MOVE                          000559 001A20 MOVE                          000560 001A28 MOVE                          
+ 000561 001A30 MOVE                          000562 001A38 MOVE                          000563 001A40 MOVE                          
+ 000564 001A48 MOVE                          000565 001A50 MOVE                          000566 001A58 MOVE                          
+ 000567 001A60 MOVE                          000568 001A68 MOVE                          000569 001A70 MOVE                          
+ 000571 001A78 CONTINUE                      000574 001A80 EXIT                          000579 001A8E MOVE                          
+ 000580 001A98 MOVE                          000582 001AA2 PERFORM                       000583 001ABC MOVE                          
+ 000584 001AC6 READ                          000585 001B20 IF                            000586 001B40 DISPLAY                       
+ 000588 001B52 PERFORM                       000592 001B7A IF                            000593 001B90 ADD                           
+ 000594 001BB6 MOVE                          000596 001C0E ADD                           000600 001C5C IF                            
+ 000601 001C88 DISPLAY                       000602 001C9A PERFORM                       000606 001CC2 MOVE                          
+ 000607 001CCC MOVE                          000608 001CE2 PERFORM                       000609 001D30 ADD                           
+ 000610 001D56 MOVE                          000611 001D60 MOVE                          000613 001DB6 ADD                           
+ 000617 001DDA MOVE                          000619 001DE2 PERFORM                       000622 001DF8 MOVE                          
+ 000623 001E38 IF                            000624 001E52 MOVE                          000627 001E98 END-PERFORM                   
+ 000628 001EBC PERFORM                       000631 001ED2 MOVE                          000632 001F12 IF                            
+ 000633 001F2C MOVE                          000636 001F72 END-PERFORM                   000638 001FAC WRITE                         
+ 000639 002056 IF                            000640 002076 DISPLAY                       000642 002088 PERFORM                       
+ 000645 0020B0 ADD                           000646 0020D6 MOVE                          000649 0020F8 CONTINUE                      
+ 000652 002100 EXIT                          000656 00210E MOVE                          000657 002118 MOVE                          
+ 000659 002122 PERFORM                       000660 00213C READ                          000661 0021C0 IF                            
+ 000662 0021E0 DISPLAY                       000664 0021F2 PERFORM                       000668 00221A IF                            
+ 000669 002230 ADD                           000673 002256 MOVE                          000675 00225E PERFORM                       
+ 000678 002274 MOVE                          000679 0022B4 IF                            000680 0022CE MOVE                          
+ 000683 002314 END-PERFORM                   000684 002338 PERFORM                       000687 00234E MOVE                          
+ 000688 00238E IF                            000689 0023A8 MOVE                          000692 0023EE END-PERFORM                   
+ 000694 002428 MOVE                          000695 002432 MOVE                          000697 002470 ADD                           
+ 000698 0024B4 MOVE                          000700 00250A ADD                           000703 002558 MOVE                          
+ 000704 00256E ADD                           000706 0025B2 IF                            000707 0025DE DISPLAY                       
+ 000708 0025F0 PERFORM                       000712 002618 MOVE                          000713 002622 PERFORM                       
+ 000714 002654 IF                            000715 0026D6 COMPUTE                       000717 002720 MOVE                          
+ 000720 002774 COMPUTE                       000722 0027A6 MOVE                          000723 0027B0 MOVE                          
+ 000725 002804 ADD                           000728 00282E WRITE                         000729 0028AC IF                            
+ 000730 0028CC DISPLAY                       000732 0028DE PERFORM                       000735 002906 ADD                           
+ 000738 002938 CONTINUE                      000741 002940 EXIT                                                                      
+0                                                                                                                                    
+   DEBUGINF TABLE LOCATED AT 0029C8 FOR 000046 BYTES                                                                                 
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    27                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    00017C  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000180  BASE LOCATORS FOR FILES                                                                                  
+                    0001A4  TEST INFORMATION AREA                                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    28                
+0                   0001CC  FCB CELLS                                                                                                
+                    0001D4  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  00000100  VARIABLE-LENGTH CELLS                                                                                    
+                  00000120  ODO SAVE CELLS                                                                                           
+                  00000128  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  0000014C  PERFORM SAVE CELLS                                                                                       
+                  000001D8  TEMPORARY STORAGE-1                                                                                      
+                  000001E0  TEMPORARY STORAGE-2                                                                                      
+                  00000218  CALL STATEMENT PROGRAM NAME                                                                              
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 000001E8 BYTES                                                                                       
+ DCB00001 WILL BE ALLOCATED FOR 00000060 BYTES                                                                                       
+ FCB00001 WILL BE ALLOCATED FOR 00000114 BYTES                                                                                       
+ DCB00002 WILL BE ALLOCATED FOR 00000060 BYTES                                                                                       
+ FCB00002 WILL BE ALLOCATED FOR 00000114 BYTES                                                                                       
+ GDT00001 WILL BE ALLOCATED FOR 000000A0 BYTES                                                                                       
+ CLG00001 WILL BE ALLOCATED FOR 00000012 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 00013D12 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 000002B8 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 002A60                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 002F64 FOR LENGTH 000164                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               FILENUM   Date 08/05/2021  Time 00:49:34   Page    29                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program FILENUM:                                                                                             
+ *    Source records = 742                                                                                                           
+ *    Data Division statements = 38                                                                                                  
+ *    Procedure Division statements = 520                                                                                            
+0End of compilation 1,  program FILENUM,  highest severity 4.                                                                        
+0Return code 4                                                                                                                       

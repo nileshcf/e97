@@ -1,0 +1,58 @@
+   _____   _                       _   ______                                       
+  / ____| | |                     | | |  ____|                                     
+ | |      | |   ___    _   _    __| | | |__     _ __    __ _   _ __ ___     ___    
+ | |      | |  / _ \  | | | |  / _` | |  __|   | '__|  / _` | | '_ ` _ \   / _ \
+ | |____  | | | (_) | | |_| | | (_| | | |      | |    | (_| | | | | | | | |  __/
+  \_____| |_|  \___/   \__,_|  \__,_| |_|      |_|     \__,_| |_| |_| |_|  \___|
+
+23:28:31.971 [main] INFO  o.s.boot.StartupInfoLogger.logStarting   50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1870127 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/DSNUTILB/DSNUTILB/target/DSNUTILB-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/DSNUTILB/DSNUTILB)
+23:28:31.979 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo  654 - No active profile set, falling back to 1 default profile: "default"
+23:28:34.293 [main] INFO  c.c.a.dao.CFDataSourceConfiguration.dataSourceStatus  165 - CFDataSourceConfiguration initialization status...
+23:28:34.294 [main] INFO  c.c.a.dao.CFDataSourceConfiguration.dataSourceStatus  172 - Databse Datasource initialized.
+23:28:34.518 [main] INFO  o.s.boot.StartupInfoLogger.logStarted   56 - Started CFApplication in 4.767 seconds (process running for 6.325)
+23:28:34.548 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo  107 - CFDataConnectIO version : 5.0.0.21
+23:28:34.615 [main] INFO  c.c.a.u.d.plus.CFDcioConfiguration.cfDataConnectIOPlusInfo   28 - CFDataConnectIOPlus version : 5.0.0.21
+23:28:34.652 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.initDatabase  189 - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+23:28:35.762 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  109 - HikariPool-1 - Starting...
+23:28:36.186 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast  554 - HikariPool-1 - Added connection com.ibm.db2.jcc.t4.b@3ad8717d
+23:28:36.190 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  122 - HikariPool-1 - Start completed.
+23:28:36.261 [main] INFO  o.s.b.a.b.JobLauncherApplicationRunner.run  168 - Running default command line with: []
+23:28:36.327 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  154 - Job: [SimpleJob: [name=DSNUTILB]] launched with the following parameters: [{}]
+23:28:36.389 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [step010]
+23:28:36.418 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.executeQuery  339 -  ***INPUT STATEMENT: DROP TABLE CLOUDDEV.ALLDTYP
+23:28:36.476 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.processQuery  325 - DB2 SQL Error: SQLCODE=-204, SQLSTATE=42704, SQLERRMC=CLOUDDEV.ALLDTYP, DRIVER=4.21.29
+23:28:36.477 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.executeQuery  339 -  ***INPUT STATEMENT: COMMIT WORK
+23:28:36.483 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.executeQuery  345 -  SUCCESSFULLY COMMIT OF 0 ROW(S)
+23:28:36.484 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.executeQuery  339 -  ***INPUT STATEMENT: CREATE TABLE CLOUDDEV.ALLDTYP(DTYP_ID INTEGER not null, DTYP_SMALLINT SMALLINT,DTYP_INT INTEGER,DTYP_BIGINT BIGINT, DTYP_CHAR CHAR(8),DTYP_DATE DATE,DTYP_TIME TIME, DTYP_TMSTMP TIMESTAMP(6),DTYP_DECIMAL DECIMAL(10, 2), DTYP_VARCHAR VARCHAR(255)) IN DBCLOUD.TSCLDDEV
+23:28:36.962 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.executeQuery  345 -  SUCCESSFULLY CREATE OF 0 ROW(S)
+23:28:36.974 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [step010] executed in 583ms
+23:28:36.994 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [clp_dsnuproc]
+23:28:37.022 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.processLoadForASCIIData  789 - Batch operation started. Please wait for a while
+23:28:37.371 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.processLoadForASCIIData  797 - Total 134 rows impacted
+23:28:37.372 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.processLoadForASCIIData  804 - Batch operation completed.
+23:28:37.381 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [clp_dsnuproc] executed in 386ms
+23:28:37.396 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [step011]
+23:28:37.406 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.executeQuery  339 -  ***INPUT STATEMENT: DROP TABLE CLOUDDEV.ALLDTYP
+23:28:38.487 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.executeQuery  345 -  SUCCESSFULLY DROP OF 0 ROW(S)
+23:28:38.494 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [step011] executed in 1s97ms
+23:28:38.507 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [printSummary]
+23:28:38.531 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  253 - JOB : DSNUTILB ENDED -  0000
+23:28:38.532 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  257 - 
+
+Stepwise Execution Summary :
++---------------------------------------------------------------------+
+| STEPNAME          | PROGRAM       | RC          | ELAPSED           |
+|                   |               |             | HH:MM:SS:ss       |
++---------------------------------------------------------------------+
+| STEP010           | DSNTEP2       | 00          | 00:00:00:583      |
++---------------------------------------------------------------------+
+| CLP_DSNUPROC      | DSNUTILB      | 00          | 00:00:00:386      |
++---------------------------------------------------------------------+
+| STEP011           | DSNTEP2       | 00          | 00:00:01:097      |
++---------------------------------------------------------------------+
+  
+23:28:38.541 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [printSummary] executed in 32ms
+23:28:38.558 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  161 - Job: [SimpleJob: [name=DSNUTILB]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 2s201ms
+23:28:38.569 [main] INFO  com.zaxxer.hikari.HikariDataSource.close  349 - HikariPool-1 - Shutdown initiated...
+23:28:38.573 [main] INFO  com.zaxxer.hikari.HikariDataSource.close  351 - HikariPool-1 - Shutdown completed.
+23:28:38.574 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.shutdownDatabase  220 - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'

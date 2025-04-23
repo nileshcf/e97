@@ -1,0 +1,73 @@
+package com.cloudframe.app.global.sharedvar.serialize;
+
+/**
+*  The class Ip69901CafLinkGroupSerialized is used to define offsets in order to serialize
+*  in a fixed String
+*  @author CloudFrame Inc.
+*  created on 2025-04-23 at 23:29. using version 5.0.0.254
+**/
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import com.cloudframe.app.data.Field;
+import com.cloudframe.app.exception.CFException;
+
+public class Ip69901CafLinkGroupSerialized  extends Field { 
+
+    protected Logger logger = LoggerFactory.getLogger(Ip69901CafLinkGroupSerialized.class);
+	/*  Length of the field, if serialized as a String */
+	protected static final int IP_69901_CAF_LINK_GROUP_LENGTH = 1;
+   /*  offset of each of Child Fields when serialized as a String */
+            protected  int beginIp69901CafLink;
+	
+	/**
+	* Constructor for Ip69901CafLinkGroupSerialized
+	**/
+    public Ip69901CafLinkGroupSerialized() {
+	// TO-DO auto generated code
+    }
+ 
+	/**
+	* initializes the field in Ip69901CafLinkGroupSerialized
+	**/
+	@Override
+	protected void init(int begin) {
+	   setStartOffset(begin);
+	   setLength(IP_69901_CAF_LINK_GROUP_LENGTH);
+	   /*  set the offset/position of each field when this object is serialized as String */
+             beginIp69901CafLink = getStartOffset() + 0;	// set offset for serialization
+  
+	   /*  end of offset */
+	}
+     int localIp69901CafLinkCounter = -1;
+     public boolean isIp69901CafLinkModified() {
+         int sharedCounter = shareString.getSerializedField().getModifiedCounter(); 
+         boolean hasModified = localIp69901CafLinkCounter != sharedCounter;
+         localIp69901CafLinkCounter = sharedCounter; return hasModified;
+     }
+	protected static final int IP_69901_CAF_LINK_LEN = 1;
+	/**
+	 * 	serialize this Ip69901CafLink
+	 */
+   protected void serializeIp69901CafLink(char[] ip69901CafLink) {
+        shareString.getSerializedField().incrementCounter();
+        arraycopy(ip69901CafLink,0,getStringValue(),beginIp69901CafLink,IP_69901_CAF_LINK_LEN);
+       localIp69901CafLinkCounter = shareString.getSerializedField().getModifiedCounter();  	
+   }
+
+   protected char[] checkIp69901CafLinkConstraints(char[] value) {
+   			return super.checkConstraints(value , 1 ,false, false);
+   }
+    /**
+	 *	refreshIp69901CafLink is used to refresh the latest value of a variable from the Serialized String
+	 *  the most common reason to serialize an Object as a string in to write to a file. There can be several other reasons for serialization as well
+	 */ 
+   	public char[] refreshIp69901CafLink() {	 
+   		return (substring(getStringValue(),beginIp69901CafLink,beginIp69901CafLink + IP_69901_CAF_LINK_LEN));
+   	}
+
+
+
+
+}
+  

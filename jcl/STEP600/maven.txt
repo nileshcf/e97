@@ -1,0 +1,49 @@
+   _____   _                       _   ______                                       
+  / ____| | |                     | | |  ____|                                     
+ | |      | |   ___    _   _    __| | | |__     _ __    __ _   _ __ ___     ___    
+ | |      | |  / _ \  | | | |  / _` | |  __|   | '__|  / _` | | '_ ` _ \   / _ \
+ | |____  | | | (_) | | |_| | | (_| | | |      | |    | (_| | | | | | | | |  __/
+  \_____| |_|  \___/   \__,_|  \__,_| |_|      |_|     \__,_| |_| |_| |_|  \___|
+
+23:31:22.523 [main] INFO  o.s.boot.StartupInfoLogger.logStarting   50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1883232 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/STEP600/STEP600/target/STEP600-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/STEP600/STEP600)
+23:31:22.530 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo  654 - No active profile set, falling back to 1 default profile: "default"
+23:31:25.464 [main] INFO  o.s.boot.StartupInfoLogger.logStarted   56 - Started CFApplication in 3.878 seconds (process running for 4.583)
+23:31:25.487 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo  107 - CFDataConnectIO version : 5.0.0.21
+23:31:25.575 [main] INFO  c.c.a.u.d.plus.CFDcioConfiguration.cfDataConnectIOPlusInfo   28 - CFDataConnectIOPlus version : 5.0.0.21
+23:31:25.610 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.initDatabase  189 - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+23:31:26.569 [main] INFO  o.s.b.a.b.JobLauncherApplicationRunner.run  168 - Running default command line with: []
+23:31:26.645 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  154 - Job: [FlowJob: [name=STEP600]] launched with the following parameters: [{}]
+23:31:26.717 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [step0600Decider]
+23:31:26.787 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [step0600Decider] executed in 68ms
+23:31:26.811 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [readStep600Step0600SortInput]
+23:31:27.214 [main] INFO  c.c.app.sort.SpringAsyncConfig.threadPoolTaskExecutor   73 - Thread pool created based on usableMemory 19088213137 requiredByteForEachThread 40000000 with core pool size 20 max pool size 40
+23:31:27.340 [main] INFO  c.c.a.s.s.d.SortStrategyDeciderImpl.decideSortStrategy  117 - Calculated details for strategy decider fileSize 1200 noOfRecords 4 fileSizeWithOverHead 1236 keysSizeInBytes 68 fileSizeWithKeysAndRecords1236
+23:31:27.456 [main] INFO  c.c.a.s.s.d.SortStrategyDeciderImpl.getStrategy  221 - Strategy to be adopted is IN_MEMORY_KEY
+23:31:27.458 [main] INFO  c.c.a.s.s.d.SortStrategyDeciderImpl.decideSortStrategy  150 - APPLYING INMEMORY KEY SORT STRATEGY
+23:31:27.593 [main] INFO  c.c.a.s.s.d.SortStrategyDeciderImpl.decideSortStrategy  117 - Calculated details for strategy decider fileSize 600 noOfRecords 2 fileSizeWithOverHead 618 keysSizeInBytes 34 fileSizeWithKeysAndRecords618
+23:31:27.726 [main] INFO  c.c.a.s.s.d.SortStrategyDeciderImpl.getStrategy  221 - Strategy to be adopted is IN_MEMORY_KEY
+23:31:27.728 [main] INFO  c.c.a.s.s.d.SortStrategyDeciderImpl.decideSortStrategy  150 - APPLYING INMEMORY KEY SORT STRATEGY
+23:31:27.750 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [readStep600Step0600SortInput] executed in 938ms
+23:31:27.787 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [reformatStep600Step0600Joinkeys]
+23:31:27.855 [main] INFO  c.c.a.t.Step600Step0600JoinkeyFormatter.afterStep  134 - STEPNAME: STEP600STEP0600 Joinkey Formatter execution completed, number of RECORDS - IN: 4,  OUT: 4
+23:31:27.860 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [reformatStep600Step0600Joinkeys] executed in 71ms
+23:31:27.892 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sortStep600Step0600Process]
+23:31:27.933 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sortStep600Step0600Process] executed in 39ms
+23:31:27.970 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [writeStep600Step0600SortOutput]
+23:31:28.036 [main] INFO  c.c.a.t.Step600Step0600OutputWriter.afterStep  116 - STEPNAME: STEP600STEP0600 Execution completed, number of RECORDS - IN: 4,  OUT: 4
+23:31:28.043 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [writeStep600Step0600SortOutput] executed in 69ms
+23:31:28.067 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [printSummary]
+23:31:28.093 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  256 - JOB : STEP600 ENDED -  0000
+23:31:28.094 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  260 - 
+
+Stepwise Execution Summary :
++-------------------------------------------------------------+
+| STEPNAME      | PROGRAM   | RC          | ELAPSED           |
+|               |           |             | HH:MM:SS:ss       |
++-------------------------------------------------------------+
+| STEP0600      | SORT      | 00          | 00:00:01:311      |
++-------------------------------------------------------------+
+  
+23:31:28.105 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [printSummary] executed in 36ms
+23:31:28.130 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  161 - Job: [FlowJob: [name=STEP600]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 1s447ms
+23:31:28.144 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.shutdownDatabase  220 - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'

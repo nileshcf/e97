@@ -1,0 +1,88 @@
+   _____   _                       _   ______                                       
+  / ____| | |                     | | |  ____|                                     
+ | |      | |   ___    _   _    __| | | |__     _ __    __ _   _ __ ___     ___    
+ | |      | |  / _ \  | | | |  / _` | |  __|   | '__|  / _` | | '_ ` _ \   / _ \
+ | |____  | | | (_) | | |_| | | (_| | | |      | |    | (_| | | | | | | | |  __/
+  \_____| |_|  \___/   \__,_|  \__,_| |_|      |_|     \__,_| |_| |_| |_|  \___|
+
+23:27:24.259 [main] INFO  o.s.boot.StartupInfoLogger.logStarting 50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1864872 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/sortCobolVsamDb2/JCLSORTCOBOLVSAMDB2/target/JCLSORTCOBOLVSAMDB2-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/sortCobolVsamDb2/JCLSORTCOBOLVSAMDB2)
+23:27:24.265 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo 654 - No active profile set, falling back to 1 default profile: "default"
+23:27:26.526 [main] INFO  c.c.a.dao.CFDataSourceConfiguration.dataSourceStatus 165 - CFDataSourceConfiguration initialization status...
+23:27:26.527 [main] INFO  c.c.a.dao.CFDataSourceConfiguration.dataSourceStatus 172 - VSAM Datasource initialized. Databse Datasource initialized.
+23:27:26.780 [main] INFO  o.s.boot.StartupInfoLogger.logStarted 56 - Started CFApplication in 3.645 seconds (process running for 5.076)
+23:27:26.796 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo 107 - CFDataConnectIO version : 5.0.0.21
+23:27:26.871 [main] INFO  c.c.a.u.d.plus.CFDcioConfiguration.cfDataConnectIOPlusInfo 28 - CFDataConnectIOPlus version : 5.0.0.21
+23:27:26.909 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.initDatabase 189 - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+23:27:28.140 [main] INFO  o.s.b.a.b.JobLauncherApplicationRunner.run 168 - Running default command line with: []
+23:27:28.245 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run 154 - Job: [FlowJob: [name=JCLSORTCOBOLVSAMDB2]] launched with the following parameters: [{}]
+23:27:28.327 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep 150 - Executing step: [step01Decider]
+23:27:28.375 [main] INFO  o.s.batch.core.step.AbstractStep.execute 295 - Step: [step01Decider] executed in 45ms
+23:27:28.412 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep 150 - Executing step: [readJclsortcobolvsamdb2Step01SortInput]
+23:27:28.576 [main] INFO  o.s.batch.core.step.AbstractStep.execute 295 - Step: [readJclsortcobolvsamdb2Step01SortInput] executed in 163ms
+23:27:28.626 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep 150 - Executing step: [sortJclsortcobolvsamdb2Step01Process]
+23:27:28.679 [main] INFO  o.s.batch.core.step.AbstractStep.execute 295 - Step: [sortJclsortcobolvsamdb2Step01Process] executed in 51ms
+23:27:28.713 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep 150 - Executing step: [writeJclsortcobolvsamdb2Step01SortOutput]
+23:27:28.793 [main] INFO  c.c.a.t.Jclsortcobolvsamdb2Step01OutputWriter.afterStep 91 - STEPNAME: JCLSORTCOBOLVSAMDB2STEP01 Execution completed, number of RECORDS - IN: 43,  OUT: 43
+23:27:28.799 [main] INFO  o.s.batch.core.step.AbstractStep.execute 295 - Step: [writeJclsortcobolvsamdb2Step01SortOutput] executed in 84ms
+23:27:28.823 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep 150 - Executing step: [test]
+23:27:28.967 [main] INFO  com.cloudframe.app.process.Mcvsam1.doInitialization 108 - IN MCVSAM1
+23:27:28.968 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 161 -  
+23:27:28.969 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 163 - SEARCH KEY = CIR1040301124020501000006011CIR
+23:27:28.969 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 165 -  
+23:27:28.973 [main] INFO  c.c.app.vsam.VSAMClusterUtil.getClusterInfo 66 - Cluster for DD SYS001 in TEST.MCVSAM2 is IRDEXTR 
+23:27:29.094 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection 109 - HikariPool-1 - Starting...
+23:27:29.250 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast 554 - HikariPool-1 - Added connection conn57: url=jdbc:h2:file:./cf-vsam-db user=SA
+23:27:29.254 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection 122 - HikariPool-1 - Start completed.
+23:27:29.431 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 201 - NUMBER OF MATCHING RECORDS = 1
+23:27:29.432 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 205 - |--> 500-IRD  = CD
+23:27:29.432 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 210 -  
+23:27:29.433 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 212 - SEARCH KEY = CIR1050301124020501000006011CIR
+23:27:29.433 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 214 -  
+23:27:29.437 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 250 - NUMBER OF MATCHING RECORDS = 0
+23:27:29.438 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 259 -  
+23:27:29.442 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 261 - SEARCH KEY = PVL3040031124028228000009950PVJ
+23:27:29.442 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 263 -  
+23:27:29.451 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 299 - NUMBER OF MATCHING RECORDS = 2
+23:27:29.451 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 303 - |--> 500-IRD  = IJ
+23:27:29.451 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 303 - |--> 500-IRD  = KL
+23:27:29.452 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 308 -  
+23:27:29.452 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 310 - SEARCH KEY = PVL3040031124028228000009950PVL
+23:27:29.452 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit0 312 -  
+23:27:29.467 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit1 380 - NUMBER OF MATCHING RECORDS = 4
+23:27:29.467 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit1 384 - |--> 500-IRD  = MN
+23:27:29.468 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit1 384 - |--> 500-IRD  = OP
+23:27:29.468 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit1 384 - |--> 500-IRD  = QR
+23:27:29.468 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit1 384 - |--> 500-IRD  = ST
+23:27:29.468 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit1 389 -  
+23:27:29.469 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit1 391 - SEARCH KEY = ZZZ3040031124028228000000001ZZZ
+23:27:29.469 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit1 393 -  
+23:27:29.471 [main] INFO  com.cloudframe.app.process.Mcvsam1.processIrdExtrSplit1 429 - NUMBER OF MATCHING RECORDS = 0
+23:27:29.495 [main] INFO  o.s.batch.core.step.AbstractStep.execute 295 - Step: [test] executed in 670ms
+23:27:29.520 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep 150 - Executing step: [step02]
+23:27:29.623 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection 109 - HikariPool-2 - Starting...
+23:27:30.010 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast 554 - HikariPool-2 - Added connection com.ibm.db2.jcc.t4.b@52354202
+23:27:30.012 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection 122 - HikariPool-2 - Start completed.
+23:27:30.479 [main] INFO  o.s.batch.core.step.AbstractStep.execute 295 - Step: [step02] executed in 958ms
+23:27:30.494 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep 150 - Executing step: [printSummary]
+23:27:30.510 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary 270 - JOB : JCLSORTCOBOLVSAMDB2 ENDED -  0000
+23:27:30.511 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary 274 - 
+
+Stepwise Execution Summary :
++--------------------------------------------------------------+
+| STEPNAME    | PROGRAM      | RC          | ELAPSED           |
+|             |              |             | HH:MM:SS:ss       |
++--------------------------------------------------------------+
+| STEP01      | SORT         | 00          | 00:00:00:458      |
++--------------------------------------------------------------+
+| TEST        | MCVSAM1      | 00          | 00:00:00:670      |
++--------------------------------------------------------------+
+| STEP02      | CFBOOKS      | 00          | 00:00:00:958      |
++--------------------------------------------------------------+
+  
+23:27:30.516 [main] INFO  o.s.batch.core.step.AbstractStep.execute 295 - Step: [printSummary] executed in 22ms
+23:27:30.532 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run 161 - Job: [FlowJob: [name=JCLSORTCOBOLVSAMDB2]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 2s256ms
+23:27:30.542 [main] INFO  com.zaxxer.hikari.HikariDataSource.close 349 - HikariPool-2 - Shutdown initiated...
+23:27:30.547 [main] INFO  com.zaxxer.hikari.HikariDataSource.close 351 - HikariPool-2 - Shutdown completed.
+23:27:30.547 [main] INFO  com.zaxxer.hikari.HikariDataSource.close 349 - HikariPool-1 - Shutdown initiated...
+23:27:30.576 [main] INFO  com.zaxxer.hikari.HikariDataSource.close 351 - HikariPool-1 - Shutdown completed.
+23:27:30.577 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.shutdownDatabase 220 - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
