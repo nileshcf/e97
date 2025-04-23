@@ -1,0 +1,32 @@
+10:05:03.909 [main] INFO  o.s.boot.StartupInfoLogger.logStarting   50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1590986 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/Y91DEXT2/Y91DEXT2/target/Y91DEXT2-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/Y91DEXT2/Y91DEXT2)
+10:05:03.919 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo  654 - No active profile set, falling back to 1 default profile: "default"
+10:05:07.079 [main] INFO  o.s.boot.StartupInfoLogger.logStarted   56 - Started CFApplication in 5.063 seconds (process running for 6.765)
+10:05:07.107 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo  107 - CFDataConnectIO version : 5.0.0.21
+10:05:07.185 [main] INFO  c.c.a.u.d.plus.CFDcioConfiguration.cfDataConnectIOPlusInfo   28 - CFDataConnectIOPlus version : 5.0.0.21
+10:05:07.229 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.initDatabase  189 - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+10:05:08.203 [main] INFO  o.s.b.a.b.JobLauncherApplicationRunner.run  168 - Running default command line with: []
+10:05:08.264 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  154 - Job: [FlowJob: [name=Y91DEXT2]] launched with the following parameters: [{}]
+10:05:08.316 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [s030_p080Decider]
+10:05:08.370 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [s030_p080Decider] executed in 52ms
+10:05:08.394 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [readY91dext2S030_p080SortInput]
+10:05:08.473 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [readY91dext2S030_p080SortInput] executed in 78ms
+10:05:08.495 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sortY91dext2S030_p080Process]
+10:05:08.532 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sortY91dext2S030_p080Process] executed in 36ms
+10:05:08.556 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [writeY91dext2S030_p080SortOutput]
+10:05:08.598 [main] INFO  c.c.a.t.Y91dext2S030_p080OutputWriter.afterStep   99 - STEPNAME: Y91DEXT2S030_P080 Execution completed, number of RECORDS - IN: 1,  OUT: 1
+10:05:08.603 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [writeY91dext2S030_p080SortOutput] executed in 45ms
+10:05:08.622 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [printSummary]
+10:05:08.640 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  255 - JOB : Y91DEXT2 ENDED -  0000
+10:05:08.641 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  259 - 
+
+Stepwise Execution Summary :
++--------------------------------------------------------------+
+| STEPNAME       | PROGRAM   | RC          | ELAPSED           |
+|                |           |             | HH:MM:SS:ss       |
++--------------------------------------------------------------+
+| S030_P080      | SORT      | 00          | 00:00:00:276      |
++--------------------------------------------------------------+
+  
+10:05:08.649 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [printSummary] executed in 26ms
+10:05:08.670 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  161 - Job: [FlowJob: [name=Y91DEXT2]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 377ms
+10:05:08.684 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.shutdownDatabase  220 - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'

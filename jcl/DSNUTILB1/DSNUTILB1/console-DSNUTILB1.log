@@ -1,0 +1,51 @@
+10:06:03.315 [main] INFO  o.s.boot.StartupInfoLogger.logStarting   50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1595726 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/DSNUTILB1/DSNUTILB1/target/DSNUTILB1-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/DSNUTILB1/DSNUTILB1)
+10:06:03.324 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo  654 - No active profile set, falling back to 1 default profile: "default"
+10:06:05.648 [main] INFO  c.c.a.dao.CFDataSourceConfiguration.dataSourceStatus  165 - CFDataSourceConfiguration initialization status...
+10:06:05.649 [main] INFO  c.c.a.dao.CFDataSourceConfiguration.dataSourceStatus  172 - Databse Datasource initialized.
+10:06:05.782 [main] INFO  o.s.boot.StartupInfoLogger.logStarted   56 - Started CFApplication in 3.652 seconds (process running for 4.851)
+10:06:05.792 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo  107 - CFDataConnectIO version : 5.0.0.21
+10:06:05.844 [main] INFO  c.c.a.u.d.plus.CFDcioConfiguration.cfDataConnectIOPlusInfo   28 - CFDataConnectIOPlus version : 5.0.0.21
+10:06:05.865 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.initDatabase  189 - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+10:06:06.598 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  109 - HikariPool-1 - Starting...
+10:06:06.901 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast  554 - HikariPool-1 - Added connection com.ibm.db2.jcc.t4.b@3ad8717d
+10:06:06.905 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  122 - HikariPool-1 - Start completed.
+10:06:06.956 [main] INFO  o.s.b.a.b.JobLauncherApplicationRunner.run  168 - Running default command line with: []
+10:06:06.999 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  154 - Job: [SimpleJob: [name=DSNUTILB1]] launched with the following parameters: [{}]
+10:06:07.041 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [step010]
+10:06:07.060 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.executeQuery  339 -  ***INPUT STATEMENT: DROP TABLE CLOUDDEV.ALLDTYP1
+10:06:07.097 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.processQuery  325 - DB2 SQL Error: SQLCODE=-204, SQLSTATE=42704, SQLERRMC=CLOUDDEV.ALLDTYP1, DRIVER=4.21.29
+10:06:07.098 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.executeQuery  339 -  ***INPUT STATEMENT: COMMIT WORK
+10:06:07.103 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.executeQuery  345 -  SUCCESSFULLY COMMIT OF 0 ROW(S)
+10:06:07.104 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.executeQuery  339 -  ***INPUT STATEMENT: CREATE TABLE CLOUDDEV.ALLDTYP1(DTYP_ID INTEGER not null, DTYP_SMALLINT SMALLINT,DTYP_INT INTEGER,DTYP_BIGINT BIGINT, DTYP_CHAR CHAR(8),DTYP_DATE DATE,DTYP_TIME TIME, DTYP_TMSTMP TIMESTAMP(6),DTYP_DECIMAL DECIMAL(10, 2), DTYP_VARCHAR VARCHAR(255)) IN DBCLOUD.TSCLDDEV
+10:06:07.695 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.executeQuery  345 -  SUCCESSFULLY CREATE OF 0 ROW(S)
+10:06:07.706 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [step010] executed in 663ms
+10:06:07.721 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [clp_dsnuproc]
+10:06:07.774 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.processLoadForEBCDICData  891 - Batch operation started. Please wait for a while
+10:06:08.121 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.processLoadForEBCDICData  899 - Total 134 rows impacted
+10:06:08.122 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.processLoadForEBCDICData  901 - Batch operation completed.
+10:06:08.129 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [clp_dsnuproc] executed in 407ms
+10:06:08.142 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [step011]
+10:06:08.149 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.executeQuery  339 -  ***INPUT STATEMENT: DROP TABLE CLOUDDEV.ALLDTYP1
+10:06:09.394 [main] INFO  c.cloudframe.app.utility.Db2SqlUtil.executeQuery  345 -  SUCCESSFULLY DROP OF 0 ROW(S)
+10:06:09.401 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [step011] executed in 1s259ms
+10:06:09.422 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [printSummary]
+10:06:09.437 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  253 - JOB : DSNUTILB1 ENDED -  0000
+10:06:09.437 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  257 - 
+
+Stepwise Execution Summary :
++---------------------------------------------------------------------+
+| STEPNAME          | PROGRAM       | RC          | ELAPSED           |
+|                   |               |             | HH:MM:SS:ss       |
++---------------------------------------------------------------------+
+| STEP010           | DSNTEP2       | 00          | 00:00:00:663      |
++---------------------------------------------------------------------+
+| CLP_DSNUPROC      | DSNUTILB      | 00          | 00:00:00:407      |
++---------------------------------------------------------------------+
+| STEP011           | DSNTEP2       | 00          | 00:00:01:259      |
++---------------------------------------------------------------------+
+  
+10:06:09.443 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [printSummary] executed in 21ms
+10:06:09.454 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  161 - Job: [SimpleJob: [name=DSNUTILB1]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 2s435ms
+10:06:09.461 [main] INFO  com.zaxxer.hikari.HikariDataSource.close  349 - HikariPool-1 - Shutdown initiated...
+10:06:09.465 [main] INFO  com.zaxxer.hikari.HikariDataSource.close  351 - HikariPool-1 - Shutdown completed.
+10:06:09.465 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.shutdownDatabase  220 - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'

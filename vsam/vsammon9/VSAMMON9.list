@@ -1,0 +1,1149 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 11/10/2022  Time 00:21:01   Page     1                
+0Invocation parameters:                                                                                                              
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(OPT),AWO,NUMPROC(PFD),TEST(ALL,SYM,SEPARATE)                                                        
+                                                                                                                                     
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"  
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no   
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".                                    
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler         
+                       invocation parameter took precedence.                                                                         
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(COMPAT)                                                                                                                    
+    AWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(PFD)                                                                                                                     
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 11/10/2022  Time 00:21:01   Page     2                
+0 NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+    TEST(HOOK,SEPARATE,NOEJPD)                                                                                                       
+  NOTHREAD                                                                                                                           
+    TRUNC(OPT)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0/* VSAMMON9                                                                                                                         
+   000001         000100 IDENTIFICATION DIVISION.                                                                                    
+   000002         000200 PROGRAM-ID. VSAMMON9.                                                                                       
+   000003         000210*                                                                                                            
+   000004         000220*Usecase for testing INVALID KEY & NOT INVALID KEY on VSAM APIs                                              
+   000005         000230*                                                                                                            
+   000006         000300 ENVIRONMENT DIVISION.                                                                                       
+   000007         000400 INPUT-OUTPUT SECTION.                                                                                       
+   000008         000500 FILE-CONTROL.                                                                                               
+   000009         000510      SELECT REPOUT                                                        21                                
+   000010         000520             ASSIGN TO REPOUT.                                                                               
+   000011         000590      SELECT MONITOR                                                       27                                
+   000012         000600          ASSIGN       TO MONITOR                                                                            
+   000013         000700          ORGANIZATION IS indexed                                                                            
+   000014         000800          ACCESS MODE  IS DYNAMIC                                                                            
+   000015         000900          RECORD KEY   IS MON-PRI-KEY                                      29                                
+   000016         001210          FILE STATUS  IS MONITOR-FILE-STATUS.                             67                                
+   000017         001220                                                                                                             
+   000018         001300 DATA DIVISION.                                                                                              
+   000019         001400 FILE SECTION.                                                                                               
+   000020         001401                                                                                                             
+   000021         001410 FD  REPOUT                                                                                                  
+                                                                                                                                     
+ ==000021==> IGYGR1216-I A "RECORDING MODE" of "F" was assumed for file "REPOUT".                                                    
+                                                                                                                                     
+   000022         001420         RECORD CONTAINS 300 CHARACTERS                                                                      
+   000023         001430         LABEL RECORDS ARE OMITTED                                                                           
+   000024         001431         DATA RECORD IS REPREC.                                            *                                 
+   000025         001432 01  REPREC                     PIC X(300).                                BLF=00000+000         300C        
+   000026         001440                                                                                                             
+   000027         001920 FD  Monitor.                                                                                                
+   000028         001921 01 MONITOR-RECORD.                                                        BLF=00001+000         0CL281      
+   000029         001922    05 MON-PRI-KEY.                                                        BLF=00001+000,0000000 0CL65       
+   000030         001923       10 MON-XCDT-TSK-STRT-DT.                                            BLF=00001+000,0000000 0CL10       
+   000031         001924          15 MON-XCDT-TSK-STRT-DT-YYYY PIC X(4).                           BLF=00001+000,0000000 4C          
+   000032         001925          15 FILLER                    PIC X(1).                           BLF=00001+004,0000004 1C          
+   000033         001926          15 MON-XCDT-TSK-STRT-DT-MM   PIC X(2).                           BLF=00001+005,0000005 2C          
+   000034         001927          15 FILLER                    PIC X(1).                           BLF=00001+007,0000007 1C          
+   000035         001928          15 MON-XCDT-TSK-STRT-DT-DD   PIC X(2).                           BLF=00001+008,0000008 2C          
+   000036         001929       10 MON-XCDT-TSK-STRT-TM         PIC X(8).                           BLF=00001+00A,000000A 8C          
+   000037         001930       10 MON-XCDT-PROG-NM             PIC X(8).                           BLF=00001+012,0000012 8C          
+   000038         001931       10 MON-XCDT-MTHD-NM             PIC X(35).                          BLF=00001+01A,000001A 35C         
+   000039         001932       10 MON-XCTOR-TSK-NO             PIC S9(7) COMP-3.                   BLF=00001+03D,000003D 4P          
+   000040         001933    05 MON-XCTOR-SYS-ID                PIC X(4).                           BLF=00001+041,0000041 4C          
+   000041         001935    05 MON-XCTOR-TRAN-ID               PIC X(4).                           BLF=00001+045,0000045 4C          
+   000042         001936    05 MON-XCAOR-SYS-ID                PIC X(4).                           BLF=00001+049,0000049 4C          
+   000043         001937    05 MON-XCAOR-TSK-NO                PIC S9(7) COMP-3.                   BLF=00001+04D,000004D 4P          
+   000044         001938    05 MON-XCDT-PGM-TY-CD              PIC X(35).                          BLF=00001+051,0000051 35C         
+   000045         001939    05 MON-XCDT-REQR-IP-AD             PIC X(15).                          BLF=00001+074,0000074 15C         
+   000046         001940    05 MON-XCDT-TSK-AOR-TM             PIC S9(9) BINARY.                   BLF=00001+083,0000083 4C          
+   000047         001941    05 MON-XCDT-TSK-ELPS-TM            PIC S9(9) BINARY.                   BLF=00001+087,0000087 4C          
+   000048         001942    05 MON-XCDT-TSK-CMP-CD             PIC S9(4) BINARY.                   BLF=00001+08B,000008B 2C          
+   000049         001943    05 MON-XCDT-TSK-ABND-CD            PIC X(4).                           BLF=00001+08D,000008D 4C          
+   000050         001944    05 MON-XCDT-REQ-SZ                 PIC S9(9) BINARY.                   BLF=00001+091,0000091 4C          
+   000051         001945    05 MON-XCDT-RESP-SZ                PIC S9(9) BINARY.                   BLF=00001+095,0000095 4C          
+   000052         001950    05 MON-USERTOKEN                   PIC X(128).                         BLF=00001+099,0000099 128C        
+   000053         002927                                                                                                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000054         003100*---------------------------------------------------------------*                                            
+   000055         003200 WORKING-STORAGE SECTION.                                                                                    
+   000056         003300*---------------------------------------------------------------*                                            
+   000057         003400                                                                                                             
+   000058         003440 01  WS-I                       PIC 9(5) VALUE 0.                          BLW=00000+000         5C          
+   000059         003441 01  WS-J                       PIC S9(4) COMP.                            BLW=00000+008         2C          
+   000060         003442 01  q                          PIC s9(4) comp.                            BLW=00000+010         2C          
+   000061         003443 01  r                          PIC s9(4) comp.                            BLW=00000+018         2C          
+   000062         003444 01  WS-UPDATE.                                                            BLW=00000+020         0CL47       
+   000063         003445     05  UPDATE-STAT-ALT-KEY    PIC  X(32).                       00050000 BLW=00000+020,0000000 32C         
+   000064         003446     05  UPDATE-TOKN-SSMVSIPA   PIC  X(15).                       00270000 BLW=00000+040,0000020 15C         
+   000065         003447 01  WS-RN-CNT           PIC 9(4).                                         BLW=00000+050         4C          
+   000066         003450                                                                                                             
+   000067         003610 01  MONITOR-FILE-STATUS.                                                  BLW=00000+058         0CL2        
+   000068         003620     05  STA-IN-STAT1              PIC  X(01).                             BLW=00000+058,0000000 1C          
+   000069         003630     05  STA-IN-STAT2              PIC  X(01).                             BLW=00000+059,0000001 1C          
+   000070         003700                                                                                                             
+   000071         003710 01  UPDATES-STATUS.                                                       BLW=00000+060         0CL2        
+   000072         003720     05  UPD-OUT-STAT1             PIC  X(01).                             BLW=00000+060,0000000 1C          
+   000073         003730     05  UPD-OUT-STAT2             PIC  X(01).                             BLW=00000+061,0000001 1C          
+   000074         003740                                                                                                             
+   000075         003750 01  WS-IP-NODE                    PIC 9(3).                               BLW=00000+068         3C          
+   000076         003800 01  WS-SWITCHES.                                                          BLW=00000+070         0CL3        
+   000077         003900     05  WS-EOF-SW                 PIC  X(01) VALUE SPACES.                BLW=00000+070,0000000 1C          
+                                                                                                   IMP                               
+   000078         004000         88  END-OF-Monitor        VALUE 'Y'.                                                                
+   000079         004001     05  WS-UPDATES-SW             PIC  X(01) VALUE SPACES.                BLW=00000+071,0000001 1C          
+                                                                                                   IMP                               
+   000080         004002         88  NO-MORE-UPDATES       VALUE 'Y'.                                                                
+   000081         004003     05  WS-UPDATED-SW             PIC  X(01) VALUE SPACES.                BLW=00000+072,0000002 1C          
+                                                                                                   IMP                               
+   000082         004004         88  RECORD-UPDATED        VALUE 'Y'.                                                                
+   000083         004100                                                                                                             
+   000084         004200*----------------------------------------------------------------*                                           
+   000085         004300 PROCEDURE DIVISION.                                                                                         
+   000086         004400*----------------------------------------------------------------*                                           
+   000087         004500     CONTINUE.                                                                                               
+   000088         004600*----------------------------------------------------------------*                                           
+   000089         004700 0000-MAINLINE.                                                                                              
+   000090         004800*----------------------------------------------------------------*                                           
+   000091         004900                                                                                                             
+   000092         004901     PERFORM 1000-OPEN-FILES                                               109                               
+   000093         004902        THRU 1000-EXIT                                                     128                               
+   000094         004903                                                                                                             
+   000095         004904     PERFORM 2000-VSAM-OPERATIONS                                          131                               
+   000096         004905        THRU 2000-EXIT                                                     150                               
+   000097         005500                                                                                                             
+   000098         005510     PERFORM 3000-CLOSE-FILES                                              614                               
+   000099         005520        THRU 3000-EXIT                                                     623                               
+   000100         005530                                                                                                             
+   000101         005600     GO TO 9999-EXIT-PROGRAM                                               627                               
+   000102         005700                                                                                                             
+   000103         005800     CONTINUE.                                                                                               
+   000104         005900                                                                                                             
+   000105         006000 0000-EXIT.                                                                                                  
+   000106         006100     EXIT.                                                                                                   
+   000107         006200                                                                                                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000108         006300*----------------------------------------------------------------*                                           
+   000109         006400 1000-OPEN-FILES.                                                                                            
+   000110         006500*----------------------------------------------------------------*                                           
+   000111         008316                                                                                                             
+   000112         008317     OPEN OUTPUT REPOUT                                                    21                                
+   000113         008318                                                                                                             
+   000114         008319     OPEN I-O   MONITOR                                                    27                                
+   000115         008320                                                                                                             
+   000116         008330     IF  MONITOR-FILE-STATUS NOT = '00'                                    67                                
+   000117      1  008340         MOVE SPACES TO REPREC                                             IMP 25                            
+   000118      1  008341         STRING                                                                                              
+   000119      1  008342              'Error opening Monitor: ' MONITOR-FILE-STATUS                67                                
+   000120      1  008343              DELIMITED BY SIZE                                                                              
+   000121      1  008344          INTO REPREC                                                      25                                
+   000122      1  008345         END-STRING                                                                                          
+   000123      1  008346         WRITE REPREC END-WRITE                                            25                                
+   000124      1  008347         GO TO 9999-EXIT-PROGRAM                                           627                               
+   000125         008348     END-IF                                                                                                  
+   000126         008350     CONTINUE.                                                                                               
+   000127         008400                                                                                                             
+   000128         008500 1000-EXIT.                                                                                                  
+   000129         008600     EXIT.                                                                                                   
+   000130         008700                                                                                                             
+   000131         008701 2000-VSAM-OPERATIONS.                                                                                       
+   000132         008702                                                                                                             
+   000133         008703     PERFORM 2001-VSAM-START-API                                           153                               
+   000134         008704        THRU 2001-EXIT                                                     232                               
+   000135         008705                                                                                                             
+   000136         008706     PERFORM 2002-VSAM-READ-API                                            235                               
+   000137         008707        THRU 2002-EXIT                                                     313                               
+   000138         008708                                                                                                             
+   000139         008709     PERFORM 2003-VSAM-WRITE-API                                           316                               
+   000140         008710        THRU 2003-EXIT                                                     420                               
+   000141         008711                                                                                                             
+   000142         008712     PERFORM 2004-VSAM-REWRITE-API                                         423                               
+   000143         008713        THRU 2004-EXIT                                                     527                               
+   000144         008714                                                                                                             
+   000145         008715     PERFORM 2005-VSAM-DELETE-API                                          531                               
+   000146         008716        THRU 2005-EXIT                                                     610                               
+   000147         008717                                                                                                             
+   000148         008718     CONTINUE.                                                                                               
+   000149         008719                                                                                                             
+   000150         008720 2000-EXIT.                                                                                                  
+   000151         008721     EXIT.                                                                                                   
+   000152         008722                                                                                                             
+   000153         008723 2001-VSAM-START-API.                                                                                        
+   000154         008724*                                                                                                            
+   000155         008725* Valid Key START Scenario                                                                                   
+   000156         008726*                                                                                                            
+   000157         008727     MOVE '2012-09-24'           TO MON-XCDT-TSK-STRT-DT                   30                                
+   000158         008728     MOVE '10.30.04'             TO MON-XCDT-TSK-STRT-TM                   36                                
+   000159         008729     MOVE 'CASEIM02'             TO MON-XCDT-PROG-NM                       37                                
+   000160         008730     MOVE 'imsTestCase2'         TO MON-XCDT-MTHD-NM                       38                                
+   000161         008731     MOVE 0                      TO MON-XCTOR-TSK-NO                       39                                
+   000162         008738*                                                                                                            
+   000163         008739     MOVE    '**********'                                                                                    
+   000164         008740       TO REPREC                                                           25                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000165         008741     WRITE REPREC END-WRITE                                                25                                
+   000166         008742     MOVE SPACES TO REPREC                                                 IMP 25                            
+   000167         008743     STRING                                                                                                  
+   000168         008744             'START >  PRIMARY KEY :  '                                                                      
+   000169         008745             MON-PRI-KEY DELIMITED BY SIZE                                 29                                
+   000170         008746       INTO REPREC                                                         25                                
+   000171         008747     END-STRING                                                                                              
+   000172         008748     WRITE REPREC END-WRITE                                                25                                
+   000173         008749     MOVE '**********'                                                                                       
+   000174         008750       TO REPREC                                                           25                                
+   000175         008751     WRITE REPREC END-WRITE                                                25                                
+   000176         008752     MOVE SPACES TO WS-EOF-SW                                              IMP 77                            
+   000177         008754                                                                                                             
+   000178         008755     START Monitor KEY IS GREATER THAN  MON-PRI-KEY                        27 29                             
+   000179         008756       INVALID KEY                                                                                           
+   000180      1  008757          MOVE '*Failure* VSAM API Invalid Key'                                                              
+   000181      1  008758            TO REPREC                                                      25                                
+   000182      1  008759          WRITE REPREC END-WRITE                                           25                                
+   000183         008760       NOT INVALID KEY                                                                                       
+   000184      1  008761          READ Monitor NEXT                                                27                                
+   000185      1  008762          MOVE MONITOR-RECORD TO REPREC                                    28 25                             
+   000186      1  008764          WRITE REPREC END-WRITE.                                          25                                
+   000187         008765                                                                                                             
+   000188         008766     MOVE '**********'                                                                                       
+   000189         008767       TO REPREC                                                           25                                
+   000190         008768     WRITE REPREC END-WRITE                                                25                                
+   000191         008770*                                                                                                            
+   000192         008780* Invalid Key START Scenario                                                                                 
+   000193         008781*                                                                                                            
+   000194         008782     MOVE '9999-12-31'           TO MON-XCDT-TSK-STRT-DT                   30                                
+   000195         008783     MOVE '10.30.04'             TO MON-XCDT-TSK-STRT-TM                   36                                
+   000196         008784     MOVE 'CASEIM02'             TO MON-XCDT-PROG-NM                       37                                
+   000197         008785     MOVE 'imsTestCase2'         TO MON-XCDT-MTHD-NM                       38                                
+   000198         008786     MOVE 0                      TO MON-XCTOR-TSK-NO                       39                                
+   000199         008787*                                                                                                            
+   000200         008788     MOVE    '**********'                                                                                    
+   000201         008789       TO REPREC                                                           25                                
+   000202         008790     WRITE REPREC END-WRITE                                                25                                
+   000203         008791     MOVE SPACES TO REPREC                                                 IMP 25                            
+   000204         008792     STRING                                                                                                  
+   000205         008793             'START >  PRIMARY KEY :  '                                                                      
+   000206         008794             MON-PRI-KEY DELIMITED BY SIZE                                 29                                
+   000207         008795       INTO REPREC                                                         25                                
+   000208         008796     END-STRING                                                                                              
+   000209         008797     WRITE REPREC END-WRITE                                                25                                
+   000210         008798     MOVE '**********'                                                                                       
+   000211         008799       TO REPREC                                                           25                                
+   000212         008800     WRITE REPREC END-WRITE                                                25                                
+   000213         008801     MOVE SPACES TO WS-EOF-SW                                              IMP 77                            
+   000214         008802                                                                                                             
+   000215         008803     START Monitor KEY IS GREATER THAN  MON-PRI-KEY                        27 29                             
+   000216         008804       INVALID KEY                                                                                           
+   000217      1  008805          MOVE '*Success* VSAM API Invalid Key'                                                              
+   000218      1  008806            TO REPREC                                                      25                                
+   000219      1  008807          WRITE REPREC END-WRITE                                           25                                
+   000220         008808       NOT INVALID KEY                                                                                       
+   000221      1  008809          MOVE '*Failure* VSAM API NOT Invalid Key'                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000222      1  008810            TO REPREC                                                      25                                
+   000223      1  008813          WRITE REPREC END-WRITE.                                          25                                
+   000224         008814                                                                                                             
+   000225         008815     MOVE '**********'                                                                                       
+   000226         008816       TO REPREC                                                           25                                
+   000227         008817     WRITE REPREC                                                          25                                
+   000228         008818                                                                                                             
+   000229         008819*                                                                                                            
+   000230         008820     CONTINUE.                                                                                               
+   000231         008821                                                                                                             
+   000232         008822 2001-EXIT.                                                                                                  
+   000233         008823     EXIT.                                                                                                   
+   000234         008824                                                                                                             
+   000235         008825 2002-VSAM-READ-API.                                                                                         
+   000236         008827*                                                                                                            
+   000237         008828* Valid Key READ Scenario                                                                                    
+   000238         008829*                                                                                                            
+   000239         008830     MOVE '2012-09-24'           TO MON-XCDT-TSK-STRT-DT                   30                                
+   000240         008831     MOVE '10.30.04'             TO MON-XCDT-TSK-STRT-TM                   36                                
+   000241         008832     MOVE 'CASEIM02'             TO MON-XCDT-PROG-NM                       37                                
+   000242         008833     MOVE 'imsTestCase2'         TO MON-XCDT-MTHD-NM                       38                                
+   000243         008834     MOVE 220                    TO MON-XCTOR-TSK-NO                       39                                
+   000244         008835*                                                                                                            
+   000245         008836     MOVE    '**********'                                                                                    
+   000246         008837       TO REPREC                                                           25                                
+   000247         008838     WRITE REPREC END-WRITE                                                25                                
+   000248         008839     MOVE SPACES TO REPREC                                                 IMP 25                            
+   000249         008840     STRING                                                                                                  
+   000250         008841             'READ  PRIMARY KEY :  '                                                                         
+   000251         008842             MON-PRI-KEY DELIMITED BY SIZE                                 29                                
+   000252         008843       INTO REPREC                                                         25                                
+   000253         008844     END-STRING                                                                                              
+   000254         008845     WRITE REPREC END-WRITE                                                25                                
+   000255         008846     MOVE '**********'                                                                                       
+   000256         008847       TO REPREC                                                           25                                
+   000257         008848     WRITE REPREC END-WRITE                                                25                                
+   000258         008849     MOVE SPACES TO WS-EOF-SW                                              IMP 77                            
+   000259         008850                                                                                                             
+   000260         008851     READ Monitor                                                          27                                
+   000261         008852       INVALID KEY                                                                                           
+   000262      1  008853          MOVE '*Failure* VSAM API Invalid Key'                                                              
+   000263      1  008854            TO REPREC                                                      25                                
+   000264      1  008855          WRITE REPREC END-WRITE                                           25                                
+   000265         008856       NOT INVALID KEY                                                                                       
+   000266      1  008858          MOVE MONITOR-RECORD TO REPREC                                    28 25                             
+   000267      1  008859          WRITE REPREC END-WRITE.                                          25                                
+   000268         008860                                                                                                             
+   000269         008861     MOVE '**********'                                                                                       
+   000270         008862       TO REPREC                                                           25                                
+   000271         008863     WRITE REPREC END-WRITE                                                25                                
+   000272         008864*                                                                                                            
+   000273         008865* Invalid Key READ Scenario                                                                                  
+   000274         008866*                                                                                                            
+   000275         008867     MOVE '9999-12-31'           TO MON-XCDT-TSK-STRT-DT                   30                                
+   000276         008868     MOVE '10.30.04'             TO MON-XCDT-TSK-STRT-TM                   36                                
+   000277         008869     MOVE 'CASEIM02'             TO MON-XCDT-PROG-NM                       37                                
+   000278         008870     MOVE 'imsTestCase2'         TO MON-XCDT-MTHD-NM                       38                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page     8                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000279         008871     MOVE 0                      TO MON-XCTOR-TSK-NO                       39                                
+   000280         008872*                                                                                                            
+   000281         008873     MOVE    '**********'                                                                                    
+   000282         008874       TO REPREC                                                           25                                
+   000283         008875     WRITE REPREC END-WRITE                                                25                                
+   000284         008876     MOVE SPACES TO REPREC                                                 IMP 25                            
+   000285         008877     STRING                                                                                                  
+   000286         008878             'READ  PRIMARY KEY :  '                                                                         
+   000287         008879             MON-PRI-KEY DELIMITED BY SIZE                                 29                                
+   000288         008880       INTO REPREC                                                         25                                
+   000289         008881     END-STRING                                                                                              
+   000290         008882     WRITE REPREC END-WRITE                                                25                                
+   000291         008883     MOVE '**********'                                                                                       
+   000292         008884       TO REPREC                                                           25                                
+   000293         008885     WRITE REPREC END-WRITE                                                25                                
+   000294         008886     MOVE SPACES TO WS-EOF-SW                                              IMP 77                            
+   000295         008887                                                                                                             
+   000296         008888     READ Monitor                                                          27                                
+   000297         008889       INVALID KEY                                                                                           
+   000298      1  008890          MOVE '*Success* VSAM API Invalid Key'                                                              
+   000299      1  008891            TO REPREC                                                      25                                
+   000300      1  008892          WRITE REPREC END-WRITE                                           25                                
+   000301         008893       NOT INVALID KEY                                                                                       
+   000302      1  008894          MOVE '*Failure* VSAM API NOT Invalid Key'                                                          
+   000303      1  008895            TO REPREC                                                      25                                
+   000304      1  008896          WRITE REPREC END-WRITE.                                          25                                
+   000305         008897                                                                                                             
+   000306         008898     MOVE '**********'                                                                                       
+   000307         008899       TO REPREC                                                           25                                
+   000308         008900     WRITE REPREC                                                          25                                
+   000309         008901                                                                                                             
+   000310         008902*                                                                                                            
+   000311         008903     CONTINUE.                                                                                               
+   000312         008904                                                                                                             
+   000313         008905 2002-EXIT.                                                                                                  
+   000314         008906     EXIT.                                                                                                   
+   000315         008907                                                                                                             
+   000316         008908 2003-VSAM-WRITE-API.                                                                                        
+   000317         008909*                                                                                                            
+   000318         008910* Valid Key WRITE Scenario                                                                                   
+   000319         008911*                                                                                                            
+   000320         008912     MOVE '2050-09-24'           TO MON-XCDT-TSK-STRT-DT                   30                                
+   000321         008913     MOVE '10.30.04'             TO MON-XCDT-TSK-STRT-TM                   36                                
+   000322         008914     MOVE 'CASEIM02'             TO MON-XCDT-PROG-NM                       37                                
+   000323         008915     MOVE 'imsTestCase2'         TO MON-XCDT-MTHD-NM                       38                                
+   000324         008916     MOVE 220                    TO MON-XCTOR-TSK-NO                       39                                
+   000325         008917     MOVE 'T60P'                 TO MON-XCTOR-SYS-ID                       40                                
+   000326         008918     MOVE 'XML'                  TO MON-XCTOR-TRAN-ID                      41                                
+   000327         008919     MOVE 'A60P'                 TO MON-XCAOR-SYS-ID                       42                                
+   000328         008920     MOVE 221                    TO MON-XCAOR-TSK-NO                       43                                
+   000329         008921     MOVE 'CA'                   TO MON-XCDT-PGM-TY-CD                     44                                
+   000330         008922     MOVE '1.1.1.1'              TO MON-XCDT-REQR-IP-AD                    45                                
+   000331         008923     MOVE 12                     TO MON-XCDT-TSK-AOR-TM                    46                                
+   000332         008924     MOVE 14                     TO MON-XCDT-TSK-ELPS-TM                   47                                
+   000333         008925     MOVE 200                    TO MON-XCDT-TSK-CMP-CD                    48                                
+   000334         008926     MOVE 0                      TO MON-XCDT-TSK-ABND-CD                   49                                
+   000335         008927     MOVE 1234                   TO MON-XCDT-REQ-SZ                        50                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page     9                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000336         008928     MOVE 5678                   TO MON-XCDT-RESP-SZ                       51                                
+   000337         008929     MOVE 'CLOUDFRAME'           TO MON-USERTOKEN                          52                                
+   000338         008946*                                                                                                            
+   000339         008947     MOVE    '**********'                                                                                    
+   000340         008948       TO REPREC                                                           25                                
+   000341         008949     WRITE REPREC END-WRITE                                                25                                
+   000342         008950     MOVE SPACES TO REPREC                                                 IMP 25                            
+   000343         008951     STRING                                                                                                  
+   000344         008952             'WRITE  PRIMARY KEY :  '                                                                        
+   000345         008953             MON-PRI-KEY DELIMITED BY SIZE                                 29                                
+   000346         008954       INTO REPREC                                                         25                                
+   000347         008955     END-STRING                                                                                              
+   000348         008956     WRITE REPREC END-WRITE                                                25                                
+   000349         008957     MOVE '**********'                                                                                       
+   000350         008958       TO REPREC                                                           25                                
+   000351         008959     WRITE REPREC END-WRITE                                                25                                
+   000352         008960     MOVE SPACES TO WS-EOF-SW                                              IMP 77                            
+   000353         008961                                                                                                             
+   000354         008962     WRITE MONITOR-RECORD                                                  28                                
+   000355         008963       INVALID KEY                                                                                           
+   000356      1  008964          MOVE '*Failure* VSAM API Invalid Key'                                                              
+   000357      1  008965            TO REPREC                                                      25                                
+   000358      1  008966          WRITE REPREC END-WRITE                                           25                                
+   000359         008967       NOT INVALID KEY                                                                                       
+   000360      1  008968          MOVE MONITOR-RECORD TO REPREC                                    28 25                             
+   000361      1  008969          WRITE REPREC END-WRITE.                                          25                                
+   000362         008970                                                                                                             
+   000363         008971     MOVE '**********'                                                                                       
+   000364         008972       TO REPREC                                                           25                                
+   000365         008973     WRITE REPREC END-WRITE                                                25                                
+   000366         008974*                                                                                                            
+   000367         008975* Invalid Key WRITE Scenario                                                                                 
+   000368         008976*                                                                                                            
+   000369         008977     MOVE '2012-09-24'           TO MON-XCDT-TSK-STRT-DT                   30                                
+   000370         008978     MOVE '10.30.04'             TO MON-XCDT-TSK-STRT-TM                   36                                
+   000371         008979     MOVE 'CASEIM02'             TO MON-XCDT-PROG-NM                       37                                
+   000372         008980     MOVE 'imsTestCase2'         TO MON-XCDT-MTHD-NM                       38                                
+   000373         008981     MOVE 220                    TO MON-XCTOR-TSK-NO                       39                                
+   000374         008982     MOVE 'T60P'                 TO MON-XCTOR-SYS-ID                       40                                
+   000375         008983     MOVE 'XML'                  TO MON-XCTOR-TRAN-ID                      41                                
+   000376         008984     MOVE 'A60P'                 TO MON-XCAOR-SYS-ID                       42                                
+   000377         008985     MOVE 221                    TO MON-XCAOR-TSK-NO                       43                                
+   000378         008986     MOVE 'CA'                   TO MON-XCDT-PGM-TY-CD                     44                                
+   000379         008987     MOVE '1.1.1.1'              TO MON-XCDT-REQR-IP-AD                    45                                
+   000380         008988     MOVE 12                     TO MON-XCDT-TSK-AOR-TM                    46                                
+   000381         008989     MOVE 14                     TO MON-XCDT-TSK-ELPS-TM                   47                                
+   000382         008990     MOVE 200                    TO MON-XCDT-TSK-CMP-CD                    48                                
+   000383         008991     MOVE 0                      TO MON-XCDT-TSK-ABND-CD                   49                                
+   000384         008992     MOVE 1234                   TO MON-XCDT-REQ-SZ                        50                                
+   000385         008993     MOVE 5678                   TO MON-XCDT-RESP-SZ                       51                                
+   000386         008994     MOVE 'CLOUDFRAME'           TO MON-USERTOKEN                          52                                
+   000387         008995*                                                                                                            
+   000388         008996     MOVE    '**********'                                                                                    
+   000389         008997       TO REPREC                                                           25                                
+   000390         008998     WRITE REPREC END-WRITE                                                25                                
+   000391         008999     MOVE SPACES TO REPREC                                                 IMP 25                            
+   000392         009000     STRING                                                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    10                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000393         009001             'WRITE  PRIMARY KEY :  '                                                                        
+   000394         009002             MON-PRI-KEY DELIMITED BY SIZE                                 29                                
+   000395         009003       INTO REPREC                                                         25                                
+   000396         009004     END-STRING                                                                                              
+   000397         009005     WRITE REPREC END-WRITE                                                25                                
+   000398         009006     MOVE '**********'                                                                                       
+   000399         009007       TO REPREC                                                           25                                
+   000400         009008     WRITE REPREC END-WRITE                                                25                                
+   000401         009009     MOVE SPACES TO WS-EOF-SW                                              IMP 77                            
+   000402         009010                                                                                                             
+   000403         009011     WRITE MONITOR-RECORD                                                  28                                
+   000404         009012       INVALID KEY                                                                                           
+   000405      1  009013          MOVE '*Success* VSAM API Invalid Key'                                                              
+   000406      1  009014            TO REPREC                                                      25                                
+   000407      1  009015          WRITE REPREC END-WRITE                                           25                                
+   000408         009016       NOT INVALID KEY                                                                                       
+   000409      1  009017          MOVE '*Failure* VSAM API NOT Invalid Key'                                                          
+   000410      1  009018            TO REPREC                                                      25                                
+   000411      1  009019          WRITE REPREC END-WRITE.                                          25                                
+   000412         009020                                                                                                             
+   000413         009021     MOVE '**********'                                                                                       
+   000414         009022       TO REPREC                                                           25                                
+   000415         009023     WRITE REPREC                                                          25                                
+   000416         009024                                                                                                             
+   000417         009025*                                                                                                            
+   000418         009026     CONTINUE.                                                                                               
+   000419         009027                                                                                                             
+   000420         009028 2003-EXIT.                                                                                                  
+   000421         009029     EXIT.                                                                                                   
+   000422         009030                                                                                                             
+   000423         009031 2004-VSAM-REWRITE-API.                                                                                      
+   000424         009032                                                                                                             
+   000425         009033*                                                                                                            
+   000426         009034* Valid Key REWRITE Scenario                                                                                 
+   000427         009035*                                                                                                            
+   000428         009036     MOVE '2050-09-24'           TO MON-XCDT-TSK-STRT-DT                   30                                
+   000429         009037     MOVE '10.30.04'             TO MON-XCDT-TSK-STRT-TM                   36                                
+   000430         009038     MOVE 'CASEIM02'             TO MON-XCDT-PROG-NM                       37                                
+   000431         009039     MOVE 'imsTestCase2'         TO MON-XCDT-MTHD-NM                       38                                
+   000432         009040     MOVE 220                    TO MON-XCTOR-TSK-NO                       39                                
+   000433         009041     MOVE 'TORP'                 TO MON-XCTOR-SYS-ID                       40                                
+   000434         009042     MOVE 'XML'                  TO MON-XCTOR-TRAN-ID                      41                                
+   000435         009043     MOVE 'AORP'                 TO MON-XCAOR-SYS-ID                       42                                
+   000436         009044     MOVE 221                    TO MON-XCAOR-TSK-NO                       43                                
+   000437         009045     MOVE 'CA'                   TO MON-XCDT-PGM-TY-CD                     44                                
+   000438         009046     MOVE '2.2.2.2'              TO MON-XCDT-REQR-IP-AD                    45                                
+   000439         009047     MOVE 12                     TO MON-XCDT-TSK-AOR-TM                    46                                
+   000440         009048     MOVE 14                     TO MON-XCDT-TSK-ELPS-TM                   47                                
+   000441         009049     MOVE 200                    TO MON-XCDT-TSK-CMP-CD                    48                                
+   000442         009050     MOVE 0                      TO MON-XCDT-TSK-ABND-CD                   49                                
+   000443         009051     MOVE 1234                   TO MON-XCDT-REQ-SZ                        50                                
+   000444         009052     MOVE 5678                   TO MON-XCDT-RESP-SZ                       51                                
+   000445         009053     MOVE 'CLOUDFRAME'           TO MON-USERTOKEN                          52                                
+   000446         009054*                                                                                                            
+   000447         009055     MOVE    '**********'                                                                                    
+   000448         009056       TO REPREC                                                           25                                
+   000449         009057     WRITE REPREC END-WRITE                                                25                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    11                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000450         009058     MOVE SPACES TO REPREC                                                 IMP 25                            
+   000451         009059     STRING                                                                                                  
+   000452         009060             'REWRITE  PRIMARY KEY :  '                                                                      
+   000453         009061             MON-PRI-KEY DELIMITED BY SIZE                                 29                                
+   000454         009062       INTO REPREC                                                         25                                
+   000455         009063     END-STRING                                                                                              
+   000456         009064     WRITE REPREC END-WRITE                                                25                                
+   000457         009065     MOVE '**********'                                                                                       
+   000458         009066       TO REPREC                                                           25                                
+   000459         009067     WRITE REPREC END-WRITE                                                25                                
+   000460         009068     MOVE SPACES TO WS-EOF-SW                                              IMP 77                            
+   000461         009069                                                                                                             
+   000462         009070     REWRITE MONITOR-RECORD                                                28                                
+   000463         009071       INVALID KEY                                                                                           
+   000464      1  009072          MOVE '*Failure* VSAM API Invalid Key'                                                              
+   000465      1  009073            TO REPREC                                                      25                                
+   000466      1  009074          WRITE REPREC END-WRITE                                           25                                
+   000467         009075       NOT INVALID KEY                                                                                       
+   000468      1  009076          MOVE MONITOR-RECORD TO REPREC                                    28 25                             
+   000469      1  009077          WRITE REPREC END-WRITE.                                          25                                
+   000470         009078                                                                                                             
+   000471         009079     MOVE '**********'                                                                                       
+   000472         009080       TO REPREC                                                           25                                
+   000473         009081     WRITE REPREC END-WRITE                                                25                                
+   000474         009082*                                                                                                            
+   000475         009083* Invalid Key WRITE Scenario                                                                                 
+   000476         009084*                                                                                                            
+   000477         009085     MOVE '2012-09-24'           TO MON-XCDT-TSK-STRT-DT                   30                                
+   000478         009086     MOVE '11.30.04'             TO MON-XCDT-TSK-STRT-TM                   36                                
+   000479         009087     MOVE 'CASEIM02'             TO MON-XCDT-PROG-NM                       37                                
+   000480         009088     MOVE 'imsTestCase2'         TO MON-XCDT-MTHD-NM                       38                                
+   000481         009089     MOVE 220                    TO MON-XCTOR-TSK-NO                       39                                
+   000482         009090     MOVE 'T60P'                 TO MON-XCTOR-SYS-ID                       40                                
+   000483         009091     MOVE 'XML'                  TO MON-XCTOR-TRAN-ID                      41                                
+   000484         009092     MOVE 'A60P'                 TO MON-XCAOR-SYS-ID                       42                                
+   000485         009093     MOVE 221                    TO MON-XCAOR-TSK-NO                       43                                
+   000486         009094     MOVE 'CA'                   TO MON-XCDT-PGM-TY-CD                     44                                
+   000487         009095     MOVE '1.1.1.1'              TO MON-XCDT-REQR-IP-AD                    45                                
+   000488         009096     MOVE 12                     TO MON-XCDT-TSK-AOR-TM                    46                                
+   000489         009097     MOVE 14                     TO MON-XCDT-TSK-ELPS-TM                   47                                
+   000490         009098     MOVE 200                    TO MON-XCDT-TSK-CMP-CD                    48                                
+   000491         009099     MOVE 0                      TO MON-XCDT-TSK-ABND-CD                   49                                
+   000492         009100     MOVE 1234                   TO MON-XCDT-REQ-SZ                        50                                
+   000493         009101     MOVE 5678                   TO MON-XCDT-RESP-SZ                       51                                
+   000494         009102     MOVE 'CLOUDFRAME'           TO MON-USERTOKEN                          52                                
+   000495         009103*                                                                                                            
+   000496         009104     MOVE    '**********'                                                                                    
+   000497         009105       TO REPREC                                                           25                                
+   000498         009106     WRITE REPREC END-WRITE                                                25                                
+   000499         009107     MOVE SPACES TO REPREC                                                 IMP 25                            
+   000500         009108     STRING                                                                                                  
+   000501         009109             'REWRITE  PRIMARY KEY :  '                                                                      
+   000502         009110             MON-PRI-KEY DELIMITED BY SIZE                                 29                                
+   000503         009111       INTO REPREC                                                         25                                
+   000504         009112     END-STRING                                                                                              
+   000505         009113     WRITE REPREC END-WRITE                                                25                                
+   000506         009114     MOVE '**********'                                                                                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    12                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000507         009115       TO REPREC                                                           25                                
+   000508         009116     WRITE REPREC END-WRITE                                                25                                
+   000509         009117     MOVE SPACES TO WS-EOF-SW                                              IMP 77                            
+   000510         009118                                                                                                             
+   000511         009119     REWRITE MONITOR-RECORD                                                28                                
+   000512         009120       INVALID KEY                                                                                           
+   000513      1  009121          MOVE '*Success* VSAM API Invalid Key'                                                              
+   000514      1  009122            TO REPREC                                                      25                                
+   000515      1  009123          WRITE REPREC END-WRITE                                           25                                
+   000516         009124       NOT INVALID KEY                                                                                       
+   000517      1  009125          MOVE '*Failure* VSAM API NOT Invalid Key'                                                          
+   000518      1  009126            TO REPREC                                                      25                                
+   000519      1  009127          WRITE REPREC END-WRITE.                                          25                                
+   000520         009128                                                                                                             
+   000521         009129     MOVE '**********'                                                                                       
+   000522         009130       TO REPREC                                                           25                                
+   000523         009131     WRITE REPREC                                                          25                                
+   000524         009132*                                                                                                            
+   000525         009133     CONTINUE.                                                                                               
+   000526         009134                                                                                                             
+   000527         009135 2004-EXIT.                                                                                                  
+   000528         009136     EXIT.                                                                                                   
+   000529         009137                                                                                                             
+   000530         009138                                                                                                             
+   000531         009139 2005-VSAM-DELETE-API.                                                                                       
+   000532         009141*                                                                                                            
+   000533         009142* Valid Key DELETE Scenario                                                                                  
+   000534         009143*                                                                                                            
+   000535         009144     MOVE '2050-09-24'           TO MON-XCDT-TSK-STRT-DT                   30                                
+   000536         009145     MOVE '10.30.04'             TO MON-XCDT-TSK-STRT-TM                   36                                
+   000537         009146     MOVE 'CASEIM02'             TO MON-XCDT-PROG-NM                       37                                
+   000538         009147     MOVE 'imsTestCase2'         TO MON-XCDT-MTHD-NM                       38                                
+   000539         009148     MOVE 220                    TO MON-XCTOR-TSK-NO                       39                                
+   000540         009149*                                                                                                            
+   000541         009150     MOVE    '**********'                                                                                    
+   000542         009151       TO REPREC                                                           25                                
+   000543         009152     WRITE REPREC END-WRITE                                                25                                
+   000544         009153     MOVE SPACES TO REPREC                                                 IMP 25                            
+   000545         009154     STRING                                                                                                  
+   000546         009155             'DELETE  PRIMARY KEY :  '                                                                       
+   000547         009156             MON-PRI-KEY DELIMITED BY SIZE                                 29                                
+   000548         009157       INTO REPREC                                                         25                                
+   000549         009158     END-STRING                                                                                              
+   000550         009159     WRITE REPREC END-WRITE                                                25                                
+   000551         009160     MOVE '**********'                                                                                       
+   000552         009161       TO REPREC                                                           25                                
+   000553         009162     WRITE REPREC END-WRITE                                                25                                
+   000554         009163     MOVE SPACES TO WS-EOF-SW                                              IMP 77                            
+   000555         009164                                                                                                             
+   000556         009165     DELETE Monitor                                                        27                                
+   000557         009166       INVALID KEY                                                                                           
+   000558      1  009167          MOVE '*Failure* VSAM API Invalid Key'                                                              
+   000559      1  009168            TO REPREC                                                      25                                
+   000560      1  009169          WRITE REPREC END-WRITE                                           25                                
+   000561         009170       NOT INVALID KEY                                                                                       
+   000562      1  009171          MOVE MONITOR-RECORD TO REPREC                                    28 25                             
+   000563      1  009172          WRITE REPREC END-WRITE.                                          25                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    13                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000564         009173                                                                                                             
+   000565         009174     MOVE '**********'                                                                                       
+   000566         009175       TO REPREC                                                           25                                
+   000567         009176     WRITE REPREC END-WRITE                                                25                                
+   000568         009177*                                                                                                            
+   000569         009178* Invalid Key DELETE Scenario                                                                                
+   000570         009179*                                                                                                            
+   000571         009180     MOVE '9999-12-31'           TO MON-XCDT-TSK-STRT-DT                   30                                
+   000572         009181     MOVE '10.30.04'             TO MON-XCDT-TSK-STRT-TM                   36                                
+   000573         009182     MOVE 'CASEIM02'             TO MON-XCDT-PROG-NM                       37                                
+   000574         009183     MOVE 'imsTestCase2'         TO MON-XCDT-MTHD-NM                       38                                
+   000575         009184     MOVE 0                      TO MON-XCTOR-TSK-NO                       39                                
+   000576         009185*                                                                                                            
+   000577         009186     MOVE    '**********'                                                                                    
+   000578         009187       TO REPREC                                                           25                                
+   000579         009188     WRITE REPREC END-WRITE                                                25                                
+   000580         009189     MOVE SPACES TO REPREC                                                 IMP 25                            
+   000581         009190     STRING                                                                                                  
+   000582         009191             'DELETE  PRIMARY KEY :  '                                                                       
+   000583         009192             MON-PRI-KEY DELIMITED BY SIZE                                 29                                
+   000584         009193       INTO REPREC                                                         25                                
+   000585         009194     END-STRING                                                                                              
+   000586         009195     WRITE REPREC END-WRITE                                                25                                
+   000587         009196     MOVE '**********'                                                                                       
+   000588         009197       TO REPREC                                                           25                                
+   000589         009198     WRITE REPREC END-WRITE                                                25                                
+   000590         009199     MOVE SPACES TO WS-EOF-SW                                              IMP 77                            
+   000591         009200                                                                                                             
+   000592         009201     DELETE Monitor                                                        27                                
+   000593         009202       INVALID KEY                                                                                           
+   000594      1  009203          MOVE '*Success* VSAM API Invalid Key'                                                              
+   000595      1  009204            TO REPREC                                                      25                                
+   000596      1  009205          WRITE REPREC END-WRITE                                           25                                
+   000597         009206       NOT INVALID KEY                                                                                       
+   000598      1  009207          MOVE '*Failure* VSAM API NOT Invalid Key'                                                          
+   000599      1  009208            TO REPREC                                                      25                                
+   000600      1  009209          WRITE REPREC END-WRITE.                                          25                                
+   000601         009210                                                                                                             
+   000602         009211     MOVE '**********'                                                                                       
+   000603         009212       TO REPREC                                                           25                                
+   000604         009213     WRITE REPREC                                                          25                                
+   000605         009214                                                                                                             
+   000606         009215*                                                                                                            
+   000607         009216*                                                                                                            
+   000608         009217     CONTINUE.                                                                                               
+   000609         009218                                                                                                             
+   000610         009219 2005-EXIT.                                                                                                  
+   000611         009220     EXIT.                                                                                                   
+   000612         009221                                                                                                             
+   000613         009222*----------------------------------------------------------------*                                           
+   000614         009223 3000-CLOSE-FILES.                                                                                           
+   000615         009224*----------------------------------------------------------------*                                           
+   000616         009225                                                                                                             
+   000617         009226     CLOSE Monitor                                                         27                                
+   000618         009227                                                                                                             
+   000619         009228     CLOSE REPOUT                                                          21                                
+   000620         009229                                                                                                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    14                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000621         009230     CONTINUE.                                                                                               
+   000622         009231                                                                                                             
+   000623         009240 3000-EXIT.                                                                                                  
+   000624         009300     EXIT.                                                                                                   
+   000625         011742                                                                                                             
+   000626         011743*----------------------------------------------------------------*                                           
+   000627         011744 9999-EXIT-PROGRAM.                                                                                          
+   000628         011745*----------------------------------------------------------------*                                           
+   000629         011746                                                                                                             
+   000630         011747     GOBACK.                                                                                                 
+   000631         011748                                                                                                             
+ */ VSAMMON9                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    15                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       78   END-OF-MONITOR                                                                                                           
+       29   MON-PRI-KEY. . . . . . . . . .  15 169 178 206 215 251 287 345 394 453 502 547 583                                       
+       52   MON-USERTOKEN. . . . . . . . .  M337 M386 M445 M494                                                                      
+       42   MON-XCAOR-SYS-ID . . . . . . .  M327 M376 M435 M484                                                                      
+       43   MON-XCAOR-TSK-NO . . . . . . .  M328 M377 M436 M485                                                                      
+       38   MON-XCDT-MTHD-NM . . . . . . .  M160 M197 M242 M278 M323 M372 M431 M480 M538 M574                                        
+       44   MON-XCDT-PGM-TY-CD . . . . . .  M329 M378 M437 M486                                                                      
+       37   MON-XCDT-PROG-NM . . . . . . .  M159 M196 M241 M277 M322 M371 M430 M479 M537 M573                                        
+       50   MON-XCDT-REQ-SZ. . . . . . . .  M335 M384 M443 M492                                                                      
+       45   MON-XCDT-REQR-IP-AD. . . . . .  M330 M379 M438 M487                                                                      
+       51   MON-XCDT-RESP-SZ . . . . . . .  M336 M385 M444 M493                                                                      
+       49   MON-XCDT-TSK-ABND-CD . . . . .  M334 M383 M442 M491                                                                      
+       46   MON-XCDT-TSK-AOR-TM. . . . . .  M331 M380 M439 M488                                                                      
+       48   MON-XCDT-TSK-CMP-CD. . . . . .  M333 M382 M441 M490                                                                      
+       47   MON-XCDT-TSK-ELPS-TM . . . . .  M332 M381 M440 M489                                                                      
+       30   MON-XCDT-TSK-STRT-DT . . . . .  M157 M194 M239 M275 M320 M369 M428 M477 M535 M571                                        
+       35   MON-XCDT-TSK-STRT-DT-DD                                                                                                  
+       33   MON-XCDT-TSK-STRT-DT-MM                                                                                                  
+       31   MON-XCDT-TSK-STRT-DT-YYYY                                                                                                
+       36   MON-XCDT-TSK-STRT-TM . . . . .  M158 M195 M240 M276 M321 M370 M429 M478 M536 M572                                        
+       40   MON-XCTOR-SYS-ID . . . . . . .  M325 M374 M433 M482                                                                      
+       41   MON-XCTOR-TRAN-ID. . . . . . .  M326 M375 M434 M483                                                                      
+       39   MON-XCTOR-TSK-NO . . . . . . .  M161 M198 M243 M279 M324 M373 M432 M481 M539 M575                                        
+       27   MONITOR. . . . . . . . . . . .  11 114 178 184 215 260 296 M556 M592 617                                                 
+       67   MONITOR-FILE-STATUS. . . . . .  16 116 119                                                                               
+       28   MONITOR-RECORD . . . . . . . .  185 266 354 360 403 462 468 511 562                                                      
+       80   NO-MORE-UPDATES                                                                                                          
+       60   Q                                                                                                                        
+       61   R                                                                                                                        
+       82   RECORD-UPDATED                                                                                                           
+       21   REPOUT . . . . . . . . . . . .  9 112 619                                                                                
+       25   REPREC . . . . . . . . . . . .  M117 M121 123 M164 165 M166 M170 172 M174 175 M181 182 M185 186 M189 190 M201            
+                                            202 M203 M207 209 M211 212 M218 219 M222 223 M226 227 M246 247 M248 M252 254             
+                                            M256 257 M263 264 M266 267 M270 271 M282 283 M284 M288 290 M292 293 M299 300             
+                                            M303 304 M307 308 M340 341 M342 M346 348 M350 351 M357 358 M360 361 M364 365             
+                                            M389 390 M391 M395 397 M399 400 M406 407 M410 411 M414 415 M448 449 M450 M454            
+                                            456 M458 459 M465 466 M468 469 M472 473 M497 498 M499 M503 505 M507 508 M514             
+                                            515 M518 519 M522 523 M542 543 M544 M548 550 M552 553 M559 560 M562 563 M566             
+                                            567 M578 579 M580 M584 586 M588 589 M595 596 M599 600 M603 604                           
+       68   STA-IN-STAT1                                                                                                             
+       69   STA-IN-STAT2                                                                                                             
+       72   UPD-OUT-STAT1                                                                                                            
+       73   UPD-OUT-STAT2                                                                                                            
+       63   UPDATE-STAT-ALT-KEY                                                                                                      
+       64   UPDATE-TOKN-SSMVSIPA                                                                                                     
+       71   UPDATES-STATUS                                                                                                           
+       77   WS-EOF-SW. . . . . . . . . . .  M176 M213 M258 M294 M352 M401 M460 M509 M554 M590                                        
+       58   WS-I                                                                                                                     
+       75   WS-IP-NODE                                                                                                               
+       59   WS-J                                                                                                                     
+       65   WS-RN-CNT                                                                                                                
+       76   WS-SWITCHES                                                                                                              
+       62   WS-UPDATE                                                                                                                
+       81   WS-UPDATED-SW                                                                                                            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    16                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0      79   WS-UPDATES-SW                                                                                                            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    17                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      105   0000-EXIT                                                                                                                
+       89   0000-MAINLINE                                                                                                            
+      128   1000-EXIT. . . . . . . . . . .  E93                                                                                      
+      109   1000-OPEN-FILES. . . . . . . .  P92                                                                                      
+      150   2000-EXIT. . . . . . . . . . .  E96                                                                                      
+      131   2000-VSAM-OPERATIONS . . . . .  P95                                                                                      
+      232   2001-EXIT. . . . . . . . . . .  E134                                                                                     
+      153   2001-VSAM-START-API. . . . . .  P133                                                                                     
+      313   2002-EXIT. . . . . . . . . . .  E137                                                                                     
+      235   2002-VSAM-READ-API . . . . . .  P136                                                                                     
+      420   2003-EXIT. . . . . . . . . . .  E140                                                                                     
+      316   2003-VSAM-WRITE-API. . . . . .  P139                                                                                     
+      527   2004-EXIT. . . . . . . . . . .  E143                                                                                     
+      423   2004-VSAM-REWRITE-API. . . . .  P142                                                                                     
+      610   2005-EXIT. . . . . . . . . . .  E146                                                                                     
+      531   2005-VSAM-DELETE-API . . . . .  P145                                                                                     
+      614   3000-CLOSE-FILES . . . . . . .  P98                                                                                      
+      623   3000-EXIT. . . . . . . . . . .  E99                                                                                      
+      627   9999-EXIT-PROGRAM. . . . . . .  G101 G124                                                                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    18                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   VSAMMON9                                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    19                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID VSAMMON9----------------------------------------------------------------------------------------------------*    
+     21   FD REPOUT. . . . . . . . . . . . . . . . . . . .                                              QSAM           F             
+     25   1  REPREC. . . . . . . . . . . . . . . . . . . . BLF=00000  000               DS 300C         Display                      
+     27   FD MONITOR . . . . . . . . . . . . . . . . . . .                                              VSAM           F             
+     28   1  MONITOR-RECORD. . . . . . . . . . . . . . . . BLF=00001  000               DS 0CL281       Group                        
+     29     2  MON-PRI-KEY . . . . . . . . . . . . . . . . BLF=00001  000   0 000 000   DS 0CL65        Group                        
+     30       3  MON-XCDT-TSK-STRT-DT. . . . . . . . . . . BLF=00001  000   0 000 000   DS 0CL10        Group                        
+     31         4  MON-XCDT-TSK-STRT-DT-YYYY . . . . . . . BLF=00001  000   0 000 000   DS 4C           Display                      
+     32         4  FILLER. . . . . . . . . . . . . . . . . BLF=00001  004   0 000 004   DS 1C           Display                      
+     33         4  MON-XCDT-TSK-STRT-DT-MM . . . . . . . . BLF=00001  005   0 000 005   DS 2C           Display                      
+     34         4  FILLER. . . . . . . . . . . . . . . . . BLF=00001  007   0 000 007   DS 1C           Display                      
+     35         4  MON-XCDT-TSK-STRT-DT-DD . . . . . . . . BLF=00001  008   0 000 008   DS 2C           Display                      
+     36       3  MON-XCDT-TSK-STRT-TM. . . . . . . . . . . BLF=00001  00A   0 000 00A   DS 8C           Display                      
+     37       3  MON-XCDT-PROG-NM. . . . . . . . . . . . . BLF=00001  012   0 000 012   DS 8C           Display                      
+     38       3  MON-XCDT-MTHD-NM. . . . . . . . . . . . . BLF=00001  01A   0 000 01A   DS 35C          Display                      
+     39       3  MON-XCTOR-TSK-NO. . . . . . . . . . . . . BLF=00001  03D   0 000 03D   DS 4P           Packed-Dec                   
+     40     2  MON-XCTOR-SYS-ID. . . . . . . . . . . . . . BLF=00001  041   0 000 041   DS 4C           Display                      
+     41     2  MON-XCTOR-TRAN-ID . . . . . . . . . . . . . BLF=00001  045   0 000 045   DS 4C           Display                      
+     42     2  MON-XCAOR-SYS-ID. . . . . . . . . . . . . . BLF=00001  049   0 000 049   DS 4C           Display                      
+     43     2  MON-XCAOR-TSK-NO. . . . . . . . . . . . . . BLF=00001  04D   0 000 04D   DS 4P           Packed-Dec                   
+     44     2  MON-XCDT-PGM-TY-CD. . . . . . . . . . . . . BLF=00001  051   0 000 051   DS 35C          Display                      
+     45     2  MON-XCDT-REQR-IP-AD . . . . . . . . . . . . BLF=00001  074   0 000 074   DS 15C          Display                      
+     46     2  MON-XCDT-TSK-AOR-TM . . . . . . . . . . . . BLF=00001  083   0 000 083   DS 4C           Binary                       
+     47     2  MON-XCDT-TSK-ELPS-TM. . . . . . . . . . . . BLF=00001  087   0 000 087   DS 4C           Binary                       
+     48     2  MON-XCDT-TSK-CMP-CD . . . . . . . . . . . . BLF=00001  08B   0 000 08B   DS 2C           Binary                       
+     49     2  MON-XCDT-TSK-ABND-CD. . . . . . . . . . . . BLF=00001  08D   0 000 08D   DS 4C           Display                      
+     50     2  MON-XCDT-REQ-SZ . . . . . . . . . . . . . . BLF=00001  091   0 000 091   DS 4C           Binary                       
+     51     2  MON-XCDT-RESP-SZ. . . . . . . . . . . . . . BLF=00001  095   0 000 095   DS 4C           Binary                       
+     52     2  MON-USERTOKEN . . . . . . . . . . . . . . . BLF=00001  099   0 000 099   DS 128C         Display                      
+     58   1  WS-I. . . . . . . . . . . . . . . . . . . . . BLW=00000  000               DS 5C           Disp-Num                     
+     59   1  WS-J. . . . . . . . . . . . . . . . . . . . . BLW=00000  008               DS 2C           Binary                       
+     60   1  Q . . . . . . . . . . . . . . . . . . . . . . BLW=00000  010               DS 2C           Binary                       
+     61   1  R . . . . . . . . . . . . . . . . . . . . . . BLW=00000  018               DS 2C           Binary                       
+     62   1  WS-UPDATE . . . . . . . . . . . . . . . . . . BLW=00000  020               DS 0CL47        Group                        
+     63     2  UPDATE-STAT-ALT-KEY . . . . . . . . . . . . BLW=00000  020   0 000 000   DS 32C          Display                      
+     64     2  UPDATE-TOKN-SSMVSIPA. . . . . . . . . . . . BLW=00000  040   0 000 020   DS 15C          Display                      
+     65   1  WS-RN-CNT . . . . . . . . . . . . . . . . . . BLW=00000  050               DS 4C           Disp-Num                     
+     67   1  MONITOR-FILE-STATUS . . . . . . . . . . . . . BLW=00000  058               DS 0CL2         Group                        
+     68     2  STA-IN-STAT1. . . . . . . . . . . . . . . . BLW=00000  058   0 000 000   DS 1C           Display                      
+     69     2  STA-IN-STAT2. . . . . . . . . . . . . . . . BLW=00000  059   0 000 001   DS 1C           Display                      
+     71   1  UPDATES-STATUS. . . . . . . . . . . . . . . . BLW=00000  060               DS 0CL2         Group                        
+     72     2  UPD-OUT-STAT1 . . . . . . . . . . . . . . . BLW=00000  060   0 000 000   DS 1C           Display                      
+     73     2  UPD-OUT-STAT2 . . . . . . . . . . . . . . . BLW=00000  061   0 000 001   DS 1C           Display                      
+     75   1  WS-IP-NODE. . . . . . . . . . . . . . . . . . BLW=00000  068               DS 3C           Disp-Num                     
+     76   1  WS-SWITCHES . . . . . . . . . . . . . . . . . BLW=00000  070               DS 0CL3         Group                        
+     77     2  WS-EOF-SW . . . . . . . . . . . . . . . . . BLW=00000  070   0 000 000   DS 1C           Display                      
+     78     88 END-OF-MONITOR. . . . . . . . . . . . . . .                                                                           
+     79     2  WS-UPDATES-SW . . . . . . . . . . . . . . . BLW=00000  071   0 000 001   DS 1C           Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    20                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+     80     88 NO-MORE-UPDATES . . . . . . . . . . . . . .                                                                           
+     81     2  WS-UPDATED-SW . . . . . . . . . . . . . . . BLW=00000  072   0 000 002   DS 1C           Display                      
+     82     88 RECORD-UPDATED. . . . . . . . . . . . . . .                                                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    21                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000034 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000524 FOR LINE 2                                                                                               
+ PBL2    AT LOCATION 001538 FOR LINE 365                                                                                             
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |    
+ 00011C  (LIT+32)     4040F0F0 F0F0F0                                                          |  00000                         |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    22                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000130 FOR 0002AA BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000158  (LIT+0)      FFFFFFFC 00001000 0000162E 000004D2 0000000E 0000000C 40000022 00000119  |...............K........ .......|    
+ 000178  (LIT+32)     4000001E 4000000A 40000000 00000001 00000000 00C85CC6 818993A4 99855C40  | ... ... ............H*Failure* |    
+ 000198  (LIT+64)     E5E2C1D4 40C1D7C9 40D5D6E3 40C995A5 81938984 40D285A8 5CE2A483 8385A2A2  |VSAM API NOT Invalid Key*Success|    
+ 0001B8  (LIT+96)     5C40E5E2 C1D440C1 D7C940C9 95A58193 898440D2 85A85CC6 818993A4 99855C40  |* VSAM API Invalid Key*Failure* |    
+ 0001D8  (LIT+128)    E5E2C1D4 40C1D7C9 40C995A5 81938984 40D285A8 8994A2E3 85A2A3C3 81A285F2  |VSAM API Invalid KeyimsTestCase2|    
+ 0001F8  (LIT+160)    C3D3D6E4 C4C6D9C1 D4C5F2F0 F5F060F0 F960F2F4 F9F9F9F9 60F1F260 F3F15C5C  |CLOUDFRAME2050-09-249999-12-31**|    
+ 000218  (LIT+192)    5C5C5C5C 5C5C5C5C F2F0F1F2 60F0F960 F2F4F1F1 4BF3F04B F0F4C3C1 E2C5C9D4  |********2012-09-2411.30.04CASEIM|    
+ 000238  (LIT+224)    F0F2F1F0 4BF3F04B F0F4E5E2 C1D4D4D6 D5F9E2E8 E2D6E4E3 4040C9C7 E9E2D9E3  |0210.30.04VSAMMON9SYSOUT  IGZSRT|    
+ 000258  (LIT+256)    C3C4F24B F24BF24B F2F14BF1 4BF14BF1 C1D6D9D7 E3D6D9D7 F0404040 C1F6F0D7  |CD2.2.2.21.1.1.1AORPTORP0   A60P|    
+ 000278  (LIT+288)    E7D4D340 E3F6F0D7 F0F00000 221C0000 220C0000 000C0000 01340000 00020000  |XML T60P00......................|    
+ 000298  (LIT+320)    012C0000 00010000 01300000 00010000 00000000 00000000 00000000 00000000  |................................|    
+ 0002B8  (LIT+352)    00000000 00000000 00000000 00000000 00008000 0000D9C5 E6D9C9E3 C54040D7  |......................REWRITE  P|    
+ 0002D8  (LIT+384)    D9C9D4C1 D9E840D2 C5E8407A 4040E2E3 C1D9E340 6E4040D7 D9C9D4C1 D9E840D2  |RIMARY KEY :  START >  PRIMARY K|    
+ 0002F8  (LIT+416)    C5E8407A 4040C4C5 D3C5E3C5 4040D7D9 C9D4C1D9 E840D2C5 E8407A40 40C59999  |EY :  DELETE  PRIMARY KEY :  Err|    
+ 000318  (LIT+448)    96994096 97859589 958740D4 969589A3 96997A40 D9C5C1C4 4040D7D9 C9D4C1D9  |or opening Monitor: READ  PRIMAR|    
+ 000338  (LIT+480)    E840D2C5 E8407A40 40400000 00000000 00000000 00148000 000C8000 00088000  |Y KEY :   ......................|    
+ 000358  (LIT+512)    00000001 19048000 00040200 00108180 00080000 00200000 40000000 00000000  |..............a......... .......|    
+ 000378  (LIT+544)    00000000 00000000 40000000 0025C000 01C00008 08000028 01124000 01800040  |........ ................. .... |    
+ 000398  (LIT+576)    00028000 80000280 00800001 80004000 00000040 C0000140 00080800 00280112  |.............. .... ... ........|    
+ 0003B8  (LIT+608)    02C00008 08000028 01120900 01380000 0900012C 00580900 01380000 09000134  |................................|    
+ 0003D8  (LIT+640)    0000                                                                     |..                              |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000087 00067C CONTINUE                      000092 000684 PERFORM                       000095 0006A4 PERFORM                       
+ 000098 0006C4 PERFORM                       000101 0006E8 GO                            000103 0006F4 CONTINUE                      
+ 000106 0006FC EXIT                          000112 000704 OPEN                          000114 000720 OPEN                          
+ 000116 000746 IF                            000117 000760 MOVE                          000118 000776 STRING                        
+ 000123 00078E WRITE                         000124 0007BA GO                            000126 0007CA CONTINUE                      
+ 000129 0007D2 EXIT                          000133 0007E0 PERFORM                       000136 000800 PERFORM                       
+ 000139 000820 PERFORM                       000142 000840 PERFORM                       000145 000864 PERFORM                       
+ 000148 000888 CONTINUE                      000151 000890 EXIT                          000157 00089E MOVE                          
+ 000158 0008A8 MOVE                          000159 0008B2 MOVE                          000160 0008BC MOVE                          
+ 000161 0008CC MOVE                          000163 0008D6 MOVE                          000165 0008F0 WRITE                         
+ 000166 00091C MOVE                          000167 000932 STRING                        000172 000946 WRITE                         
+ 000173 000972 MOVE                          000175 00098C WRITE                         000176 0009B8 MOVE                          
+ 000178 0009C4 START                         000180 000A0E MOVE                          000182 000A28 WRITE                         
+ 000184 000A5C READ                          000185 000AA2 MOVE                          000186 000ABC WRITE                         
+ 000188 000AEC MOVE                          000190 000B06 WRITE                         000194 000B32 MOVE                          
+ 000195 000B3C MOVE                          000196 000B46 MOVE                          000197 000B50 MOVE                          
+ 000198 000B60 MOVE                          000200 000B6A MOVE                          000202 000B84 WRITE                         
+ 000203 000BB0 MOVE                          000204 000BC6 STRING                        000209 000BDA WRITE                         
+ 000210 000C06 MOVE                          000212 000C20 WRITE                         000213 000C4C MOVE                          
+ 000215 000C58 START                         000217 000CA2 MOVE                          000219 000CBC WRITE                         
+ 000221 000CF0 MOVE                          000223 000D0A WRITE                         000225 000D3A MOVE                          
+ 000227 000D54 WRITE                         000230 000D80 CONTINUE                      000233 000D88 EXIT                          
+ 000239 000D96 MOVE                          000240 000DA0 MOVE                          000241 000DAA MOVE                          
+ 000242 000DB4 MOVE                          000243 000DC4 MOVE                          000245 000DCE MOVE                          
+ 000247 000DE8 WRITE                         000248 000E14 MOVE                          000249 000E2A STRING                        
+ 000254 000E3E WRITE                         000255 000E6A MOVE                          000257 000E84 WRITE                         
+ 000258 000EB0 MOVE                          000260 000EBC READ                          000262 000F1E MOVE                          
+ 000264 000F38 WRITE                         000266 000F6C MOVE                          000267 000F86 WRITE                         
+ 000269 000FB6 MOVE                          000271 000FD0 WRITE                         000275 000FFC MOVE                          
+ 000276 001006 MOVE                          000277 001010 MOVE                          000278 00101A MOVE                          
+ 000279 00102A MOVE                          000281 001034 MOVE                          000283 00104E WRITE                         
+ 000284 00107A MOVE                          000285 001090 STRING                        000290 0010A4 WRITE                         
+ 000291 0010D0 MOVE                          000293 0010EA WRITE                         000294 001116 MOVE                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    23                
+0000296 001122 READ                          000298 001184 MOVE                          000300 00119E WRITE                         
+ 000302 0011D2 MOVE                          000304 0011EC WRITE                         000306 00121C MOVE                          
+ 000308 001236 WRITE                         000311 001262 CONTINUE                      000314 00126A EXIT                          
+ 000320 001278 MOVE                          000321 001282 MOVE                          000322 00128C MOVE                          
+ 000323 001296 MOVE                          000324 0012A6 MOVE                          000325 0012B0 MOVE                          
+ 000326 0012BA MOVE                          000327 0012C4 MOVE                          000328 0012CE MOVE                          
+ 000329 0012D8 MOVE                          000330 0012EC MOVE                          000331 0012FC MOVE                          
+ 000332 001306 MOVE                          000333 001310 MOVE                          000334 00131A MOVE                          
+ 000335 001324 MOVE                          000336 00132E MOVE                          000337 001338 MOVE                          
+ 000339 00134C MOVE                          000341 001366 WRITE                         000342 001392 MOVE                          
+ 000343 0013A8 STRING                        000348 0013BC WRITE                         000349 0013E8 MOVE                          
+ 000351 001402 WRITE                         000352 00142E MOVE                          000354 00143A WRITE                         
+ 000356 001482 MOVE                          000358 00149C WRITE                         000360 0014D0 MOVE                          
+ 000361 0014EA WRITE                         000363 00151A MOVE                          000365 001534 WRITE                         
+ 000369 001560 MOVE                          000370 00156A MOVE                          000371 001574 MOVE                          
+ 000372 00157E MOVE                          000373 00158E MOVE                          000374 001598 MOVE                          
+ 000375 0015A2 MOVE                          000376 0015AC MOVE                          000377 0015B6 MOVE                          
+ 000378 0015C0 MOVE                          000379 0015D4 MOVE                          000380 0015E4 MOVE                          
+ 000381 0015EE MOVE                          000382 0015F8 MOVE                          000383 001602 MOVE                          
+ 000384 00160C MOVE                          000385 001616 MOVE                          000386 001620 MOVE                          
+ 000388 001634 MOVE                          000390 00164E WRITE                         000391 00167A MOVE                          
+ 000392 001690 STRING                        000397 0016A4 WRITE                         000398 0016D0 MOVE                          
+ 000400 0016EA WRITE                         000401 001716 MOVE                          000403 001722 WRITE                         
+ 000405 00176A MOVE                          000407 001784 WRITE                         000409 0017B8 MOVE                          
+ 000411 0017D2 WRITE                         000413 001802 MOVE                          000415 00181C WRITE                         
+ 000418 001848 CONTINUE                      000421 001850 EXIT                          000428 00185E MOVE                          
+ 000429 001868 MOVE                          000430 001872 MOVE                          000431 00187C MOVE                          
+ 000432 00188C MOVE                          000433 001896 MOVE                          000434 0018A0 MOVE                          
+ 000435 0018AA MOVE                          000436 0018B4 MOVE                          000437 0018BE MOVE                          
+ 000438 0018D2 MOVE                          000439 0018E2 MOVE                          000440 0018EC MOVE                          
+ 000441 0018F6 MOVE                          000442 001900 MOVE                          000443 00190A MOVE                          
+ 000444 001914 MOVE                          000445 00191E MOVE                          000447 001932 MOVE                          
+ 000449 00194C WRITE                         000450 001978 MOVE                          000451 00198E STRING                        
+ 000456 0019A2 WRITE                         000457 0019CE MOVE                          000459 0019E8 WRITE                         
+ 000460 001A14 MOVE                          000462 001A20 REWRITE                       000464 001A6A MOVE                          
+ 000466 001A84 WRITE                         000468 001AB8 MOVE                          000469 001AD2 WRITE                         
+ 000471 001B02 MOVE                          000473 001B1C WRITE                         000477 001B48 MOVE                          
+ 000478 001B52 MOVE                          000479 001B5C MOVE                          000480 001B66 MOVE                          
+ 000481 001B76 MOVE                          000482 001B80 MOVE                          000483 001B8A MOVE                          
+ 000484 001B94 MOVE                          000485 001B9E MOVE                          000486 001BA8 MOVE                          
+ 000487 001BBC MOVE                          000488 001BCC MOVE                          000489 001BD6 MOVE                          
+ 000490 001BE0 MOVE                          000491 001BEA MOVE                          000492 001BF4 MOVE                          
+ 000493 001BFE MOVE                          000494 001C08 MOVE                          000496 001C1C MOVE                          
+ 000498 001C36 WRITE                         000499 001C62 MOVE                          000500 001C78 STRING                        
+ 000505 001C8C WRITE                         000506 001CB8 MOVE                          000508 001CD2 WRITE                         
+ 000509 001CFE MOVE                          000511 001D0A REWRITE                       000513 001D54 MOVE                          
+ 000515 001D6E WRITE                         000517 001DA2 MOVE                          000519 001DBC WRITE                         
+ 000521 001DEC MOVE                          000523 001E06 WRITE                         000525 001E32 CONTINUE                      
+ 000528 001E3A EXIT                          000535 001E48 MOVE                          000536 001E52 MOVE                          
+ 000537 001E5C MOVE                          000538 001E66 MOVE                          000539 001E76 MOVE                          
+ 000541 001E80 MOVE                          000543 001E9A WRITE                         000544 001EC6 MOVE                          
+ 000545 001EDC STRING                        000550 001EF0 WRITE                         000551 001F1C MOVE                          
+ 000553 001F36 WRITE                         000554 001F62 MOVE                          000556 001F6E DELETE                        
+ 000558 001FB0 MOVE                          000560 001FCA WRITE                         000562 001FFE MOVE                          
+ 000563 002018 WRITE                         000565 002048 MOVE                          000567 002062 WRITE                         
+ 000571 00208E MOVE                          000572 002098 MOVE                          000573 0020A2 MOVE                          
+ 000574 0020AC MOVE                          000575 0020BC MOVE                          000577 0020C6 MOVE                          
+ 000579 0020E0 WRITE                         000580 00210C MOVE                          000581 002122 STRING                        
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    24                
+0000586 002136 WRITE                         000587 002162 MOVE                          000589 00217C WRITE                         
+ 000590 0021A8 MOVE                          000592 0021B4 DELETE                        000594 0021F6 MOVE                          
+ 000596 002210 WRITE                         000598 002244 MOVE                          000600 00225E WRITE                         
+ 000602 00228E MOVE                          000604 0022A8 WRITE                         000608 0022D4 CONTINUE                      
+ 000611 0022DC EXIT                          000617 0022EA CLOSE                         000619 002310 CLOSE                         
+ 000621 00232C CONTINUE                      000624 002334 EXIT                          000630 002342 GOBACK                        
+                                                                                                                                     
+0                                                                                                                                    
+   DEBUGINF TABLE LOCATED AT 0023CC FOR 000048 BYTES                                                                                 
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    25                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  BASE LOCATORS FOR FILES                                                                                  
+                    00013C  TEST INFORMATION AREA                                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    26                
+0                   000164  FCB CELLS                                                                                                
+                    00016C  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  000000E0  VARIABLE-LENGTH CELLS                                                                                    
+                  000000F8  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000120  PERFORM SAVE CELLS                                                                                       
+                  00000148  TEMPORARY STORAGE-2                                                                                      
+                  00000158  CALL STATEMENT PROGRAM NAME                                                                              
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000180 BYTES                                                                                       
+ DCB00001 WILL BE ALLOCATED FOR 00000060 BYTES                                                                                       
+ FCB00001 WILL BE ALLOCATED FOR 00000114 BYTES                                                                                       
+ FCB00002 WILL BE ALLOCATED FOR 00000114 BYTES                                                                                       
+ GDT00001 WILL BE ALLOCATED FOR 000000A0 BYTES                                                                                       
+ RCD00001 WILL BE ALLOCATED FOR 00000119 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 00000073 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 000001F8 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 002464                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 0028DC FOR LENGTH 000120                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMON9  Date 11/10/2022  Time 00:21:01   Page    27                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+                                                                                                                                     
+     21  IGYGR1216-I   A "RECORDING MODE" of "F" was assumed for file "REPOUT".                                                      
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       4           2              2                                                                                         
+-* Statistics for COBOL program VSAMMON9:                                                                                            
+ *    Source records = 631                                                                                                           
+ *    Data Division statements = 46                                                                                                  
+ *    Procedure Division statements = 291                                                                                            
+0End of compilation 1,  program VSAMMON9,  highest severity 4.                                                                       
+0Return code 4                                                                                                                       

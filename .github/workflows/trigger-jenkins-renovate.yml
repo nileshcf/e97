@@ -1,0 +1,69 @@
+name: Trigger Jenkins Renovate Job
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  trigger-jenkins-renovate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔐 Install WireGuard + dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wireguard-tools resolvconf zip
+
+      - name: 📄 Create WireGuard config file
+        run: |
+          echo "${{ secrets.WIREGUARD_CONF }}" > wg0.conf
+        shell: bash
+
+      - name: 🔗 Connect to VPN with WireGuard
+        run: |
+          sudo wg-quick up ./wg0.conf
+
+      - name: 📥 Extract Commit Message
+        run: |
+          echo "COMMIT_MESSAGE=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
+
+      - name: 🚀 Trigger Jenkins Renovate job
+        env:
+          JENKINS_URL: http://192.168.20.211:8083/
+          JENKINS_JOB: CFTestAutomation_Release
+          JENKINS_USER: nilesh
+          JAVA_VERSION: 'java17'
+          cloudframebranch: 'master'
+          dcio_baseBranch: 'master'
+          dcio_plusBranch: 'master'
+          cftestautomationbranch: 'CF-9154'
+          cftestbatchapiBranch: 'master'
+          testingType: 'Renovate'
+          jarType: 'PREVIEW'
+          sgrCases: 'ALL'
+          args: '-runall -skip mastercard/EDITS'
+          generatewith: 'default'
+          repo: 'cf_core'
+        run: |
+          JENKINS_TOKEN="${{ secrets.JENKINS_API_TOKEN }}"
+          curl -X POST -u $JENKINS_USER:$JENKINS_TOKEN $JENKINS_URL/job/$JENKINS_JOB/buildWithParameters \
+            --data-urlencode "JAVA_VERSION=$JAVA_VERSION" \
+            --data-urlencode "cloudframebranch=$cloudframebranch" \
+            --data-urlencode "dcio_baseBranch=$dcio_baseBranch" \
+            --data-urlencode "dcio_plusBranch=$dcio_plusBranch" \
+            --data-urlencode "cftestautomationbranch=$cftestautomationbranch" \
+            --data-urlencode "cftestbatchapiBranch=$cftestbatchapiBranch" \
+            --data-urlencode "testingType=$testingType" \
+            --data-urlencode "jarType=$jarType" \
+            --data-urlencode "sgrCases=$sgrCases" \
+            --data-urlencode "args=$args" \
+            --data-urlencode "generatewith=$generatewith" \
+            --data-urlencode "repo=$repo" \
+
+
+      - name: 🧼 Disconnect VPN
+        if: always()
+        run: |
+          sudo wg-quick down ./wg0.conf

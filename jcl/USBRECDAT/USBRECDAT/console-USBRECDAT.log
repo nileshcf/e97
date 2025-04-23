@@ -1,0 +1,43 @@
+09:59:15.977 [main] INFO  o.s.boot.StartupInfoLogger.logStarting   50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1567730 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/USBRECDAT/USBRECDAT/target/USBRECDAT-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/USBRECDAT/USBRECDAT)
+09:59:15.984 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo  654 - No active profile set, falling back to 1 default profile: "default"
+09:59:19.220 [main] INFO  o.s.boot.StartupInfoLogger.logStarted   56 - Started CFApplication in 4.064 seconds (process running for 4.738)
+09:59:19.248 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo  107 - CFDataConnectIO version : 5.0.0.21
+09:59:19.321 [main] INFO  c.c.a.u.d.plus.CFDcioConfiguration.cfDataConnectIOPlusInfo   28 - CFDataConnectIOPlus version : 5.0.0.21
+09:59:19.359 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.initDatabase  189 - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+09:59:20.258 [main] INFO  o.s.b.a.b.JobLauncherApplicationRunner.run  168 - Running default command line with: []
+09:59:20.324 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  154 - Job: [FlowJob: [name=USBRECDAT]] launched with the following parameters: [{}]
+09:59:20.390 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [date1inDecider]
+09:59:20.453 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [date1inDecider] executed in 61ms
+09:59:20.484 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [readUsbrecdatDate1inSortInput]
+09:59:20.589 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [readUsbrecdatDate1inSortInput] executed in 103ms
+09:59:20.619 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sortUsbrecdatDate1inProcess]
+09:59:20.694 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sortUsbrecdatDate1inProcess] executed in 73ms
+09:59:20.734 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [writeUsbrecdatDate1inSortOutput]
+09:59:20.800 [main] INFO  c.c.a.t.UsbrecdatDate1inOutputWriter.afterStep   91 - STEPNAME: USBRECDATDATE1IN Execution completed, number of RECORDS - IN: 10,  OUT: 10
+09:59:20.813 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [writeUsbrecdatDate1inSortOutput] executed in 77ms
+09:59:20.845 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [date1outDecider]
+09:59:20.901 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [date1outDecider] executed in 55ms
+09:59:20.929 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [readUsbrecdatDate1outSortInput]
+09:59:20.986 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [readUsbrecdatDate1outSortInput] executed in 55ms
+09:59:21.007 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sortUsbrecdatDate1outProcess]
+09:59:21.086 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sortUsbrecdatDate1outProcess] executed in 51ms
+09:59:21.110 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [writeUsbrecdatDate1outSortOutput]
+09:59:21.172 [main] INFO  c.c.a.t.UsbrecdatDate1outOutputWriter.afterStep   99 - STEPNAME: USBRECDATDATE1OUT Execution completed, number of RECORDS - IN: 10,  OUT: 10
+09:59:21.179 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [writeUsbrecdatDate1outSortOutput] executed in 67ms
+09:59:21.204 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [printSummary]
+09:59:21.228 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  263 - JOB : USBRECDAT ENDED -  0000
+09:59:21.229 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  267 - 
+
+Stepwise Execution Summary :
++-------------------------------------------------------------+
+| STEPNAME      | PROGRAM   | RC          | ELAPSED           |
+|               |           |             | HH:MM:SS:ss       |
++-------------------------------------------------------------+
+| DATE1IN       | SORT      | 00          | 00:00:00:403      |
++-------------------------------------------------------------+
+| DATE1OUT      | SORT      | 00          | 00:00:00:316      |
++-------------------------------------------------------------+
+  
+09:59:21.241 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [printSummary] executed in 35ms
+09:59:21.271 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  161 - Job: [FlowJob: [name=USBRECDAT]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 907ms
+09:59:21.292 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.shutdownDatabase  220 - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'

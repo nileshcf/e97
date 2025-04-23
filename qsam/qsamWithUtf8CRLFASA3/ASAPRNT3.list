@@ -1,0 +1,709 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 05/06/2021  Time 06:46:17   Page     1                
+0Invocation parameters:                                                                                                              
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(OPT),AWO,NUMPROC(NOPFD),NOADV,TEST(ALL,SYM,SEPARATE)                                                
+                                                                                                                                     
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"  
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no   
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".                                    
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler         
+                       invocation parameter took precedence.                                                                         
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+  NOADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(COMPAT)                                                                                                                    
+    AWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 05/06/2021  Time 06:46:17   Page     2                
+0 NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+    TEST(HOOK,SEPARATE,NOEJPD)                                                                                                       
+  NOTHREAD                                                                                                                           
+    TRUNC(OPT)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT3  Date 05/06/2021  Time 06:46:17   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0/* ASAPRNT3                                                                                                                         
+   000001         000100 IDENTIFICATION DIVISION.                                         00010000                                   
+   000002         000200 PROGRAM-ID.    ASAPRNT3.                                         00020001                                   
+   000003         000210 ENVIRONMENT DIVISION.                                            00021000                                   
+   000004         000211 CONFIGURATION SECTION.                                           00021100                                   
+   000005         000212 SPECIAL-NAMES.                                                   00021200                                   
+   000006         000213     C01 IS PAGE-TOP.                                             00021300                                   
+   000007         000214 INPUT-OUTPUT SECTION.                                            00022000                                   
+   000008         000215 FILE-CONTROL.                                                    00023000                                   
+   000009         000216      SELECT REPOUT                                               00024000 14                                
+   000010         000217             ASSIGN TO REPOUT.                                    00025000                                   
+   000011         000218 DATA DIVISION.                                                   00030000                                   
+   000012         000219 FILE SECTION.                                                    00031000                                   
+   000013         000220                                                                  00032000                                   
+   000014         000230 FD  REPOUT                                                       00033000                                   
+   000015         000240         RECORDING MODE IS F                                      00036100                                   
+   000016         000250         BLOCK CONTAINS 0 RECORDS                                 00036200                                   
+   000017         000260         LABEL RECORD STANDARD.                                   00036300                                   
+   000018         000270 01  REPREC                     PIC X(133).                       00037002 BLF=00000+000         133C        
+   000019         000280                                                                  00038000                                   
+   000020         000290 WORKING-STORAGE SECTION.                                         00040000                                   
+   000021         000300                                                                  00050000                                   
+   000022         000400 77  LINE-SPACE                  PIC S9(4) COMP.                  00060000 BLW=00000+000         2C          
+   000023         000500                                                                  00070000                                   
+   000024         000600 PROCEDURE DIVISION.                                              00100000                                   
+   000025         000700*                                                                 00101000                                   
+   000026         000800***************************************************************** 00101100                                   
+   000027         000900*                                                                 00101200                                   
+   000028         001000* FBA Records contain ISO/ANSI control characters                 00101300                                   
+   000029         001010* FBM Records contain machine code control characters             00101400                                   
+   000030         001011*                                                                 00101500                                   
+   000031         001012* When WRITE BEFORE ADVANCING is used in COBOL, all datasets are  00101600                                   
+   000032         001013* automatically converted to RECFM=FBM. FBM is lot more complex   00101700                                   
+   000033         001014* to handle. Based on future customer needs we can add support    00101800                                   
+   000034         001015*                                                                 00101900                                   
+   000035         001016* When only WRITE AFTER ADVANCING syntax is used, z/OS keeps all  00102000                                   
+   000036         001017* datasets in FBA format. This is much more simple to handle      00102100                                   
+   000037         001018* and will be supported by CF                                     00102200                                   
+   000038         001019*                                                                 00102400                                   
+   000039         001020***************************************************************** 00102500                                   
+   000040         001021****                                                              00102600                                   
+   000041         001022**** MOVE 'BEFORE ADVANCING PAGE'                                 00102700                                   
+   000042         001023****   TO REPREC(2:132)                                           00103002                                   
+   000043         001024**** WRITE REPREC                                                 00104000                                   
+   000044         001025****       BEFORE ADVANCING PAGE                                  00105000                                   
+   000045         001026****                                                              00106000                                   
+   000046         001027**** MOVE 'BEFORE ADVANCING 1 LINE'                               00107000                                   
+   000047         001028****   TO REPREC(2:132)                                           00108002                                   
+   000048         001029**** WRITE REPREC                                                 00109000                                   
+   000049         001030****       BEFORE ADVANCING 1 LINE                                00109100                                   
+   000050         001040****                                                              00109200                                   
+   000051         001050**** MOVE 'BEFORE ADVANCING 2 LINES'                              00109300                                   
+   000052         001060****   TO REPREC(2:132)                                           00109402                                   
+   000053         001070**** WRITE REPREC                                                 00109600                                   
+   000054         001080****       BEFORE ADVANCING 2 LINES                               00109700                                   
+   000055         001090****                                                              00109800                                   
+   000056         001091**** MOVE 'BEFORE ADVANCING 3 LINES'                              00109900                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT3  Date 05/06/2021  Time 06:46:17   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000057         001092****   TO REPREC(2:132)                                           00110002                                   
+   000058         001093**** WRITE REPREC                                                 00110200                                   
+   000059         001094****       BEFORE ADVANCING 3                                     00110300                                   
+   000060         001095****                                                              00110400                                   
+   000061         001096**** MOVE 'BEFORE ADVANCING 4 LINES'                              00110500                                   
+   000062         001097****   TO REPREC(2:132)                                           00110602                                   
+   000063         001098**** WRITE REPREC                                                 00110800                                   
+   000064         001099****       BEFORE 4                                               00110900                                   
+   000065         001100****                                                              00111000                                   
+   000066         001110**** MOVE 'BEFORE ADVANCING 5 LINES'                              00111100                                   
+   000067         001111****   TO REPREC(2:132)                                           00111202                                   
+   000068         001112**** WRITE REPREC                                                 00111400                                   
+   000069         001113****       BEFORE 5 LINES                                         00111500                                   
+   000070         001114****                                                              00111600                                   
+   000071         001115**** MOVE 'BEFORE ADVANCING 6 LINES'                              00111700                                   
+   000072         001116****   TO REPREC(2:132)                                           00111802                                   
+   000073         001117**** WRITE REPREC                                                 00112000                                   
+   000074         001118****       BEFORE 6 LINE                                          00112100                                   
+   000075         001119*                                                                 00112200                                   
+   000076         001120     OPEN OUTPUT REPOUT                                           00112300 14                                
+   000077         001121*                                                                 00112400                                   
+   000078         001122* NORMAL LINE                                                     00112500                                   
+   000079         001123*                                                                 00112600                                   
+   000080         001124     MOVE 'WRITE REPREC (NORMAL LINE)'                            00112800                                   
+   000081         001125       TO REPREC(2:132)                                           00112902 18                                
+   000082         001126     MOVE '123'  TO REPREC(130:3)                                 00113000 18                                
+   000083         001127     WRITE REPREC                                                 00113100 18                                
+   000084         001128*                                                                 00113200                                   
+   000085         001129***************************************************               00113500                                   
+   000086         001130*                                                                 00113600                                   
+   000087         001131     MOVE 'WRITE REPREC AFTER ADVANCING 0 LINE'                   00113800                                   
+   000088         001132       TO REPREC(2:132)                                           00113902 18                                
+   000089         001133     MOVE '123'  TO REPREC(130:3)                                 00114000 18                                
+   000090         001134     WRITE REPREC AFTER ADVANCING 0 LINE                          00114100 18                                
+   000091         001135*                                                                 00114200                                   
+   000092         001136     MOVE 'WRITE REPREC AFTER ADVANCING 0 LINES'                  00114400                                   
+   000093         001137       TO REPREC(2:132)                                           00115002 18                                
+   000094         001138     MOVE '123'  TO REPREC(130:3)                                 00115100 18                                
+   000095         001139     WRITE REPREC AFTER ADVANCING 0 LINES                         00116000 18                                
+   000096         001140*                                                                 00117000                                   
+   000097         001150     MOVE 'WRITE REPREC AFTER 0 LINE'                             00118000                                   
+   000098         001160       TO REPREC(2:132)                                           00119002 18                                
+   000099         001170     MOVE '123'  TO REPREC(130:3)                                 00119100 18                                
+   000100         001180     WRITE REPREC AFTER 0 LINE                                    00120000 18                                
+   000101         001190*                                                                 00130000                                   
+   000102         001200     MOVE 'WRITE REPREC AFTER 0 LINES'                            00140000                                   
+   000103         001300       TO REPREC(2:132)                                           00150002 18                                
+   000104         001400     MOVE '123'  TO REPREC(130:3)                                 00151000 18                                
+   000105         001500     WRITE REPREC AFTER 0 LINES                                   00160000 18                                
+   000106         001600*                                                                 00170000                                   
+   000107         001700     MOVE 'WRITE REPREC AFTER ADVANCING 0 '                       00180000                                   
+   000108         001800       TO REPREC(2:132)                                           00190002 18                                
+   000109         001900     MOVE '123'  TO REPREC(130:3)                                 00191000 18                                
+   000110         002000     WRITE REPREC AFTER ADVANCING 0                               00200000 18                                
+   000111         002100*                                                                 00210000                                   
+   000112         002200     MOVE 'WRITE REPREC AFTER ADVANCING 0 '                       00220000                                   
+   000113         002300       TO REPREC(2:132)                                           00230002 18                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT3  Date 05/06/2021  Time 06:46:17   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000114         002310     MOVE '123'  TO REPREC(130:3)                                 00231000 18                                
+   000115         002320     WRITE REPREC AFTER ADVANCING 0                               00240000 18                                
+   000116         002330*                                                                 00250000                                   
+   000117         002340     MOVE 'WRITE REPREC AFTER 0 '                                 00260000                                   
+   000118         002350       TO REPREC(2:132)                                           00270002 18                                
+   000119         002360     MOVE '123'  TO REPREC(130:3)                                 00271000 18                                
+   000120         002370     WRITE REPREC AFTER 0                                         00280000 18                                
+   000121         002380*                                                                 00290000                                   
+   000122         002390     MOVE 'WRITE REPREC AFTER 0 '                                 00300000                                   
+   000123         002400       TO REPREC(2:132)                                           00310002 18                                
+   000124         002500     MOVE '123'  TO REPREC(130:3)                                 00311000 18                                
+   000125         002600     WRITE REPREC AFTER 0                                         00320000 18                                
+   000126         002700*                                                                 00355000                                   
+   000127         002800***************************************************               00355100                                   
+   000128         002900*                                                                 00355200                                   
+   000129         003000     MOVE 'WRITE REPREC AFTER ADVANCING 1 LINE'                   00355400                                   
+   000130         003100       TO REPREC(2:132)                                           00355502 18                                
+   000131         003200     MOVE '123'  TO REPREC(130:3)                                 00355600 18                                
+   000132         003300     WRITE REPREC AFTER ADVANCING 1 LINE                          00355700 18                                
+   000133         003400*                                                                 00355800                                   
+   000134         003500     MOVE 'WRITE REPREC AFTER ADVANCING 1 LINES'                  00356000                                   
+   000135         003510       TO REPREC(2:132)                                           00356102 18                                
+   000136         003520     MOVE '123'  TO REPREC(130:3)                                 00356200 18                                
+   000137         003530     WRITE REPREC AFTER ADVANCING 1 LINES                         00356300 18                                
+   000138         003540*                                                                 00356400                                   
+   000139         003550     MOVE 'WRITE REPREC AFTER 1 LINE'                             00356600                                   
+   000140         003560       TO REPREC(2:132)                                           00356702 18                                
+   000141         003561     MOVE '123'  TO REPREC(130:3)                                 00356800 18                                
+   000142         003562     WRITE REPREC AFTER 1 LINE                                    00356900 18                                
+   000143         003563*                                                                 00357000                                   
+   000144         003564     MOVE 'WRITE REPREC AFTER 1 LINES'                            00357200                                   
+   000145         003565       TO REPREC(2:132)                                           00357302 18                                
+   000146         003566     MOVE '123'  TO REPREC(130:3)                                 00357400 18                                
+   000147         003567     WRITE REPREC AFTER 1 LINES                                   00357500 18                                
+   000148         003568*                                                                 00357600                                   
+   000149         003569     MOVE 'WRITE REPREC AFTER ADVANCING 1 '                       00357800                                   
+   000150         003570       TO REPREC(2:132)                                           00357902 18                                
+   000151         003580     MOVE '123'  TO REPREC(130:3)                                 00358000 18                                
+   000152         003581     WRITE REPREC AFTER ADVANCING 1                               00358100 18                                
+   000153         003582*                                                                 00358200                                   
+   000154         003583     MOVE 'WRITE REPREC AFTER ADVANCING 1 '                       00358400                                   
+   000155         003584       TO REPREC(2:132)                                           00358502 18                                
+   000156         003585     MOVE '123'  TO REPREC(130:3)                                 00358600 18                                
+   000157         003586     WRITE REPREC AFTER ADVANCING 1                               00358700 18                                
+   000158         003587*                                                                 00358800                                   
+   000159         003588     MOVE 'WRITE REPREC AFTER 1 '                                 00359000                                   
+   000160         003589       TO REPREC(2:132)                                           00359102 18                                
+   000161         003590     MOVE '123'  TO REPREC(130:3)                                 00359200 18                                
+   000162         003591     WRITE REPREC AFTER 1                                         00359300 18                                
+   000163         003592*                                                                 00359400                                   
+   000164         003593     MOVE 'WRITE REPREC AFTER 1 '                                 00359600                                   
+   000165         003594       TO REPREC(2:132)                                           00359702 18                                
+   000166         003595     MOVE '123'  TO REPREC(130:3)                                 00359800 18                                
+   000167         003596     WRITE REPREC AFTER 1                                         00359900 18                                
+   000168         003597*                                                                 00360000                                   
+   000169         003598***************************************************               00360100                                   
+   000170         003599*                                                                 00360200                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT3  Date 05/06/2021  Time 06:46:17   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000171         003600     MOVE 'WRITE REPREC AFTER ADVANCING 2 LINE'                   00360400                                   
+   000172         003601       TO REPREC(2:132)                                           00360502 18                                
+   000173         003602     MOVE '123'  TO REPREC(130:3)                                 00360600 18                                
+   000174         003603     WRITE REPREC AFTER ADVANCING 2 LINE                          00360700 18                                
+   000175         003604*                                                                 00360800                                   
+   000176         003605     MOVE 'WRITE REPREC AFTER ADVANCING 2 LINES'                  00361000                                   
+   000177         003606       TO REPREC(2:132)                                           00361102 18                                
+   000178         003607     MOVE '123'  TO REPREC(130:3)                                 00361200 18                                
+   000179         003608     WRITE REPREC AFTER ADVANCING 2 LINES                         00361300 18                                
+   000180         003609*                                                                 00361400                                   
+   000181         003610     MOVE 'WRITE REPREC AFTER 2 LINE'                             00361600                                   
+   000182         003611       TO REPREC(2:132)                                           00361702 18                                
+   000183         003612     MOVE '123'  TO REPREC(130:3)                                 00361800 18                                
+   000184         003613     WRITE REPREC AFTER 2 LINE                                    00361900 18                                
+   000185         003614*                                                                 00362000                                   
+   000186         003615     MOVE 'WRITE REPREC AFTER 2 LINES'                            00362200                                   
+   000187         003616       TO REPREC(2:132)                                           00362302 18                                
+   000188         003617     MOVE '123'  TO REPREC(130:3)                                 00362400 18                                
+   000189         003618     WRITE REPREC AFTER 2 LINES                                   00362500 18                                
+   000190         003619*                                                                 00362600                                   
+   000191         003620     MOVE 'WRITE REPREC AFTER ADVANCING 2 '                       00362800                                   
+   000192         003621       TO REPREC(2:132)                                           00362902 18                                
+   000193         003622     MOVE '123'  TO REPREC(130:3)                                 00363000 18                                
+   000194         003623     WRITE REPREC AFTER ADVANCING 2                               00363100 18                                
+   000195         003624*                                                                 00363200                                   
+   000196         003625     MOVE 'WRITE REPREC AFTER ADVANCING 2 '                       00363400                                   
+   000197         003626       TO REPREC(2:132)                                           00363502 18                                
+   000198         003627     MOVE '123'  TO REPREC(130:3)                                 00363600 18                                
+   000199         003628     WRITE REPREC AFTER ADVANCING 2                               00363700 18                                
+   000200         003629*                                                                 00363800                                   
+   000201         003630     MOVE 'WRITE REPREC AFTER 2 '                                 00364000                                   
+   000202         003640       TO REPREC(2:132)                                           00364102 18                                
+   000203         003641     MOVE '123'  TO REPREC(130:3)                                 00364200 18                                
+   000204         003642     WRITE REPREC AFTER 2                                         00364300 18                                
+   000205         003643*                                                                 00364400                                   
+   000206         003644     MOVE 'WRITE REPREC AFTER 2 '                                 00364600                                   
+   000207         003645       TO REPREC(2:132)                                           00364702 18                                
+   000208         003646     MOVE '123'  TO REPREC(130:3)                                 00364800 18                                
+   000209         003647     WRITE REPREC AFTER 2                                         00364900 18                                
+   000210         003648*                                                                 00365000                                   
+   000211         003649***************************************************               00365100                                   
+   000212         003650*                                                                 00365200                                   
+   000213         003651     MOVE 'WRITE REPREC AFTER ADVANCING 3 LINE'                   00365400                                   
+   000214         003652       TO REPREC(2:132)                                           00365502 18                                
+   000215         003653     MOVE '123'  TO REPREC(130:3)                                 00365600 18                                
+   000216         003654     WRITE REPREC AFTER ADVANCING 3 LINE                          00365700 18                                
+   000217         003655*                                                                 00365800                                   
+   000218         003656     MOVE 'WRITE REPREC AFTER ADVANCING 3 LINES'                  00366000                                   
+   000219         003657       TO REPREC(2:132)                                           00366102 18                                
+   000220         003658     MOVE '123'  TO REPREC(130:3)                                 00366200 18                                
+   000221         003659     WRITE REPREC AFTER ADVANCING 3 LINES                         00366300 18                                
+   000222         003660*                                                                 00366400                                   
+   000223         003661     MOVE 'WRITE REPREC AFTER 3 LINE'                             00366600                                   
+   000224         003662       TO REPREC(2:132)                                           00366702 18                                
+   000225         003663     MOVE '123'  TO REPREC(130:3)                                 00366800 18                                
+   000226         003664     WRITE REPREC AFTER 3 LINE                                    00366900 18                                
+   000227         003665*                                                                 00367000                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT3  Date 05/06/2021  Time 06:46:17   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000228         003666     MOVE 'WRITE REPREC AFTER 3 LINES'                            00367200                                   
+   000229         003667       TO REPREC(2:132)                                           00367302 18                                
+   000230         003668     MOVE '123'  TO REPREC(130:3)                                 00367400 18                                
+   000231         003669     WRITE REPREC AFTER 3 LINES                                   00367500 18                                
+   000232         003670*                                                                 00367600                                   
+   000233         003671     MOVE 'WRITE REPREC AFTER ADVANCING 3 '                       00367800                                   
+   000234         003672       TO REPREC(2:132)                                           00367902 18                                
+   000235         003673     MOVE '123'  TO REPREC(130:3)                                 00368000 18                                
+   000236         003674     WRITE REPREC AFTER ADVANCING 3                               00368100 18                                
+   000237         003675*                                                                 00368200                                   
+   000238         003676     MOVE 'WRITE REPREC AFTER ADVANCING 3 '                       00368400                                   
+   000239         003677       TO REPREC(2:132)                                           00368502 18                                
+   000240         003678     MOVE '123'  TO REPREC(130:3)                                 00368600 18                                
+   000241         003679     WRITE REPREC AFTER ADVANCING 3                               00368700 18                                
+   000242         003680*                                                                 00368800                                   
+   000243         003690     MOVE 'WRITE REPREC AFTER 3 '                                 00369000                                   
+   000244         003691       TO REPREC(2:132)                                           00369102 18                                
+   000245         003692     MOVE '123'  TO REPREC(130:3)                                 00369200 18                                
+   000246         003693     WRITE REPREC AFTER 3                                         00369300 18                                
+   000247         003694*                                                                 00369400                                   
+   000248         003695     MOVE 'WRITE REPREC AFTER 3 '                                 00369600                                   
+   000249         003696       TO REPREC(2:132)                                           00369702 18                                
+   000250         003697     MOVE '123'  TO REPREC(130:3)                                 00369800 18                                
+   000251         003698     WRITE REPREC AFTER 3                                         00369900 18                                
+   000252         003699*                                                                 00370000                                   
+   000253         003700***************************************************               00370100                                   
+   000254         003701*                                                                 00370200                                   
+   000255         003702     MOVE 'WRITE REPREC AFTER ADVANCING 4 LINE'                   00370400                                   
+   000256         003703       TO REPREC(2:132)                                           00370502 18                                
+   000257         003704     MOVE '123'  TO REPREC(130:3)                                 00370600 18                                
+   000258         003705     WRITE REPREC AFTER ADVANCING 4 LINE                          00370700 18                                
+   000259         003706*                                                                 00370800                                   
+   000260         003707     MOVE 'WRITE REPREC AFTER ADVANCING 4 LINES'                  00371000                                   
+   000261         003708       TO REPREC(2:132)                                           00371102 18                                
+   000262         003709     MOVE '123'  TO REPREC(130:3)                                 00371200 18                                
+   000263         003710     WRITE REPREC AFTER ADVANCING 4 LINES                         00371300 18                                
+   000264         003711*                                                                 00371400                                   
+   000265         003712     MOVE 'WRITE REPREC AFTER 4 LINE'                             00371600                                   
+   000266         003713       TO REPREC(2:132)                                           00371702 18                                
+   000267         003714     MOVE '123'  TO REPREC(130:3)                                 00371800 18                                
+   000268         003715     WRITE REPREC AFTER 4 LINE                                    00371900 18                                
+   000269         003716*                                                                 00372000                                   
+   000270         003717     MOVE 'WRITE REPREC AFTER 4 LINES'                            00372200                                   
+   000271         003718       TO REPREC(2:132)                                           00372302 18                                
+   000272         003719     MOVE '123'  TO REPREC(130:3)                                 00372400 18                                
+   000273         003720     WRITE REPREC AFTER 4 LINES                                   00372500 18                                
+   000274         003721*                                                                 00372600                                   
+   000275         003722     MOVE 'WRITE REPREC AFTER ADVANCING 4 '                       00372800                                   
+   000276         003723       TO REPREC(2:132)                                           00372902 18                                
+   000277         003724     MOVE '123'  TO REPREC(130:3)                                 00373000 18                                
+   000278         003725     WRITE REPREC AFTER ADVANCING 4                               00373100 18                                
+   000279         003726*                                                                 00373200                                   
+   000280         003727     MOVE 'WRITE REPREC AFTER ADVANCING 4 '                       00373400                                   
+   000281         003728       TO REPREC(2:132)                                           00373502 18                                
+   000282         003729     MOVE '123'  TO REPREC(130:3)                                 00373600 18                                
+   000283         003730     WRITE REPREC AFTER ADVANCING 4                               00373700 18                                
+   000284         003731*                                                                 00373800                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT3  Date 05/06/2021  Time 06:46:17   Page     8                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000285         003732     MOVE 'WRITE REPREC AFTER 4 '                                 00374000                                   
+   000286         003733       TO REPREC(2:132)                                           00374102 18                                
+   000287         003734     MOVE '123'  TO REPREC(130:3)                                 00374200 18                                
+   000288         003735     WRITE REPREC AFTER 4                                         00374300 18                                
+   000289         003736*                                                                 00374400                                   
+   000290         003737     MOVE 'WRITE REPREC AFTER 4 '                                 00374600                                   
+   000291         003738       TO REPREC(2:132)                                           00374702 18                                
+   000292         003739     MOVE '123'  TO REPREC(130:3)                                 00374800 18                                
+   000293         003740     WRITE REPREC AFTER 4                                         00374900 18                                
+   000294         003750*                                                                 00375000                                   
+   000295         003751***************************************************               00375100                                   
+   000296         003752*                                                                 00375200                                   
+   000297         003753     MOVE  1 TO LINE-SPACE.                                       00375300 22                                
+   000298         003754*                                                                 00375400                                   
+   000299         003755     MOVE 'WRITE REPREC AFTER ADVANCING LINE-SPACE LINE'          00375600                                   
+   000300         003756       TO REPREC(2:132)                                           00375702 18                                
+   000301         003757     MOVE '123'  TO REPREC(130:3)                                 00375800 18                                
+   000302         003758     WRITE REPREC AFTER ADVANCING LINE-SPACE LINE                 00375900 18 22                             
+   000303         003759*                                                                 00376000                                   
+   000304         003760     MOVE 'WRITE REPREC AFTER ADVANCING LINE-SPACE LINES'         00376200                                   
+   000305         003761       TO REPREC(2:132)                                           00376302 18                                
+   000306         003762     MOVE '123'  TO REPREC(130:3)                                 00376400 18                                
+   000307         003763     WRITE REPREC AFTER ADVANCING LINE-SPACE LINES                00376500 18 22                             
+   000308         003764*                                                                 00376600                                   
+   000309         003765     MOVE 'WRITE REPREC AFTER LINE-SPACE LINE'                    00376800                                   
+   000310         003766       TO REPREC(2:132)                                           00376902 18                                
+   000311         003767     MOVE '123'  TO REPREC(130:3)                                 00377000 18                                
+   000312         003768     WRITE REPREC AFTER LINE-SPACE LINE                           00377100 18 22                             
+   000313         003769*                                                                 00377200                                   
+   000314         003770     MOVE 'WRITE REPREC AFTER LINE-SPACE LINES'                   00377400                                   
+   000315         003771       TO REPREC(2:132)                                           00377502 18                                
+   000316         003772     MOVE '123'  TO REPREC(130:3)                                 00377600 18                                
+   000317         003773     WRITE REPREC AFTER LINE-SPACE LINES                          00377700 18 22                             
+   000318         003774*                                                                 00377800                                   
+   000319         003775     MOVE 'WRITE REPREC AFTER ADVANCING LINE-SPACE '              00378000                                   
+   000320         003776       TO REPREC(2:132)                                           00378102 18                                
+   000321         003777     MOVE '123'  TO REPREC(130:3)                                 00378200 18                                
+   000322         003778     WRITE REPREC AFTER ADVANCING LINE-SPACE                      00378300 18 22                             
+   000323         003779*                                                                 00378400                                   
+   000324         003780     MOVE 'WRITE REPREC AFTER ADVANCING LINE-SPACE '              00378600                                   
+   000325         003781       TO REPREC(2:132)                                           00378702 18                                
+   000326         003782     MOVE '123'  TO REPREC(130:3)                                 00378800 18                                
+   000327         003783     WRITE REPREC AFTER ADVANCING LINE-SPACE                      00378900 18 22                             
+   000328         003784*                                                                 00379000                                   
+   000329         003785     MOVE 'WRITE REPREC AFTER LINE-SPACE '                        00379200                                   
+   000330         003786       TO REPREC(2:132)                                           00379302 18                                
+   000331         003787     MOVE '123'  TO REPREC(130:3)                                 00379400 18                                
+   000332         003788     WRITE REPREC AFTER LINE-SPACE                                00379500 18 22                             
+   000333         003789*                                                                 00379600                                   
+   000334         003790     MOVE 'WRITE REPREC AFTER LINE-SPACE '                        00379800                                   
+   000335         003791       TO REPREC(2:132)                                           00379902 18                                
+   000336         003792     MOVE '123'  TO REPREC(130:3)                                 00380000 18                                
+   000337         003793     WRITE REPREC AFTER LINE-SPACE                                00380100 18 22                             
+   000338         003794*                                                                 00380200                                   
+   000339         003795***************************************************               00380300                                   
+   000340         003796*                                                                 00380400                                   
+   000341         003797     MOVE 'WRITE REPREC AFTER ADVANCING PAGE'                     00380600                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT3  Date 05/06/2021  Time 06:46:17   Page     9                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000342         003798       TO REPREC(2:132)                                           00380702 18                                
+   000343         003799     MOVE '123'  TO REPREC(130:3)                                 00380800 18                                
+   000344         003800     WRITE REPREC AFTER ADVANCING PAGE                            00380900 18                                
+   000345         003810*                                                                 00381000                                   
+   000346         003811     MOVE 'WRITE REPREC AFTER PAGE'                               00381200                                   
+   000347         003812       TO REPREC(2:132)                                           00381302 18                                
+   000348         003813     MOVE '123'  TO REPREC(130:3)                                 00381400 18                                
+   000349         003814     WRITE REPREC AFTER PAGE                                      00381500 18                                
+   000350         003815*                                                                 00381600                                   
+   000351         003816***************************************************               00381700                                   
+   000352         003817*                                                                 00381800                                   
+   000353         003818* C01 - C12 are special environment names supported by COBOL      00381900                                   
+   000354         003819*                                                                 00382000                                   
+   000355         003820* C01 through C12   : Skip to channel 1 through channel 12        00382100                                   
+   000356         003821*                     Respectively                                00382200                                   
+   000357         003822*                                                                 00382300                                   
+   000358         003823* C01 is equivalent of ADVANCING PAGE. We will just support this  00382400                                   
+   000359         003824*                                                                 00382500                                   
+   000360         003825* WRITE ADVANCING support Mnemonic names that map to above        00382600                                   
+   000361         003826* special envornment variables                                    00382700                                   
+   000362         003827*                                                                 00382800                                   
+   000363         003828*                                                                 00382900                                   
+   000364         003829* Special Envoronment variables like C01 can be defined with a    00383000                                   
+   000365         003830* Mnemonic name via SPECIAL-NAMES under CONFIGURATION SECTION     00383100                                   
+   000366         003831*                                                                 00383200                                   
+   000367         003832* In this program we have defined PAGE-TOP mapping to C01         00383300                                   
+   000368         003833*                                                                 00383400                                   
+   000369         003834     MOVE 'WRITE REPREC AFTER ADVANCING PAGE-TOP'                 00383600                                   
+   000370         003835       TO REPREC(2:132)                                           00383702 18                                
+   000371         003836     MOVE '123'  TO REPREC(130:3)                                 00383800 18                                
+   000372         003837     WRITE REPREC AFTER ADVANCING PAGE-TOP                        00383900 18 6                              
+   000373         003838*                                                                 00384000                                   
+   000374         003839     MOVE 'WRITE REPREC AFTER PAGE-TOP'                           00384200                                   
+   000375         003840       TO REPREC(2:132)                                           00384302 18                                
+   000376         003841     MOVE '123'  TO REPREC(130:3)                                 00384400 18                                
+   000377         003842     WRITE REPREC AFTER PAGE-TOP                                  00384500 18 6                              
+   000378         003843*                                                                 00384600                                   
+   000379         003844     CLOSE REPOUT                                                 00385000 14                                
+   000380         003845     GOBACK.                                                      00390000                                   
+ */ ASAPRNT3                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT3  Date 05/06/2021  Time 06:46:17   Page    10                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       22   LINE-SPACE . . . . . . . . . .  M297 302 307 312 317 322 327 332 337                                                     
+        6   PAGE-TOP . . . . . . . . . . .  372 377                                                                                  
+       14   REPOUT . . . . . . . . . . . .  9 76 379                                                                                 
+       18   REPREC . . . . . . . . . . . .  M81 M82 83 M88 M89 90 M93 M94 95 M98 M99 100 M103 M104 105 M108 M109 110 M113            
+                                            M114 115 M118 M119 120 M123 M124 125 M130 M131 132 M135 M136 137 M140 M141 142           
+                                            M145 M146 147 M150 M151 152 M155 M156 157 M160 M161 162 M165 M166 167 M172 M173          
+                                            174 M177 M178 179 M182 M183 184 M187 M188 189 M192 M193 194 M197 M198 199 M202           
+                                            M203 204 M207 M208 209 M214 M215 216 M219 M220 221 M224 M225 226 M229 M230 231           
+                                            M234 M235 236 M239 M240 241 M244 M245 246 M249 M250 251 M256 M257 258 M261 M262          
+                                            263 M266 M267 268 M271 M272 273 M276 M277 278 M281 M282 283 M286 M287 288 M291           
+                                            M292 293 M300 M301 302 M305 M306 307 M310 M311 312 M315 M316 317 M320 M321 322           
+                                            M325 M326 327 M330 M331 332 M335 M336 337 M342 M343 344 M347 M348 349 M370 M371          
+                                            372 M375 M376 377                                                                        
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT3  Date 05/06/2021  Time 06:46:17   Page    11                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   ASAPRNT3                                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT3  Date 05/06/2021  Time 06:46:17   Page    12                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID ASAPRNT3----------------------------------------------------------------------------------------------------*    
+     14   FD REPOUT. . . . . . . . . . . . . . . . . . . .                                              QSAM           FB            
+     18   1  REPREC. . . . . . . . . . . . . . . . . . . . BLF=00000  000               DS 133C         Display                      
+     22   77 LINE-SPACE. . . . . . . . . . . . . . . . . . BLW=00000  000               DS 2C           Binary                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT3  Date 05/06/2021  Time 06:46:17   Page    13                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000030 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000488 FOR LINE 2                                                                                               
+ PBL2    AT LOCATION 0014A2 FOR LINE 376                                                                                             
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |    
+ 00011C  (LIT+32)     4040                                                                     |                                |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT3  Date 05/06/2021  Time 06:46:17   Page    14                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 00012C FOR 0002B9 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000130  (LIT+0)      FFFFFFFC 00001000 00000004 00000003 00000002 00000001 00000000 E6D9C9E3  |............................WRIT|    
+ 000150  (LIT+32)     C540D9C5 D7D9C5C3 40C1C6E3 C5D940C1 C4E5C1D5 C3C9D5C7 40D3C9D5 C560E2D7  |E REPREC AFTER ADVANCING LINE-SP|    
+ 000170  (LIT+64)     C1C3C540 D3C9D5C5 E2E6D9C9 E3C540D9 C5D7D9C5 C340C1C6 E3C5D940 C1C4E5C1  |ACE LINESWRITE REPREC AFTER ADVA|    
+ 000190  (LIT+96)     D5C3C9D5 C740D7C1 C7C560E3 D6D7E6D9 C9E3C540 D9C5D7D9 C5C340C1 C6E3C5D9  |NCING PAGE-TOPWRITE REPREC AFTER|    
+ 0001B0  (LIT+128)    40C1C4E5 C1D5C3C9 D5C740F4 40D3C9D5 C5E2E6D9 C9E3C540 D9C5D7D9 C5C340C1  | ADVANCING 4 LINESWRITE REPREC A|    
+ 0001D0  (LIT+160)    C6E3C5D9 40C1C4E5 C1D5C3C9 D5C740F3 40D3C9D5 C5E2E6D9 C9E3C540 D9C5D7D9  |FTER ADVANCING 3 LINESWRITE REPR|    
+ 0001F0  (LIT+192)    C5C340C1 C6E3C5D9 40C1C4E5 C1D5C3C9 D5C740F2 40D3C9D5 C5E2E6D9 C9E3C540  |EC AFTER ADVANCING 2 LINESWRITE |    
+ 000210  (LIT+224)    D9C5D7D9 C5C340C1 C6E3C5D9 40C1C4E5 C1D5C3C9 D5C740F1 40D3C9D5 C5E2E6D9  |REPREC AFTER ADVANCING 1 LINESWR|    
+ 000230  (LIT+256)    C9E3C540 D9C5D7D9 C5C340C1 C6E3C5D9 40C1C4E5 C1D5C3C9 D5C740F0 40D3C9D5  |ITE REPREC AFTER ADVANCING 0 LIN|    
+ 000250  (LIT+288)    C5E2E6D9 C9E3C540 D9C5D7D9 C5C340C1 C6E3C5D9 40D3C9D5 C560E2D7 C1C3C540  |ESWRITE REPREC AFTER LINE-SPACE |    
+ 000270  (LIT+320)    D3C9D5C5 E2E6D9C9 E3C540D9 C5D7D9C5 C340C1C6 E3C5D940 D7C1C7C5 60E3D6D7  |LINESWRITE REPREC AFTER PAGE-TOP|    
+ 000290  (LIT+352)    E6D9C9E3 C540D9C5 D7D9C5C3 40C1C6E3 C5D940F4 40D3C9D5 C5E2E6D9 C9E3C540  |WRITE REPREC AFTER 4 LINESWRITE |    
+ 0002B0  (LIT+384)    D9C5D7D9 C5C340C1 C6E3C5D9 40F340D3 C9D5C5E2 E6D9C9E3 C540D9C5 D7D9C5C3  |REPREC AFTER 3 LINESWRITE REPREC|    
+ 0002D0  (LIT+416)    40C1C6E3 C5D940F2 40D3C9D5 C5E2E6D9 C9E3C540 D9C5D7D9 C5C340C1 C6E3C5D9  | AFTER 2 LINESWRITE REPREC AFTER|    
+ 0002F0  (LIT+448)    40F140D3 C9D5C5E2 E6D9C9E3 C540D9C5 D7D9C5C3 40C1C6E3 C5D940F0 40D3C9D5  | 1 LINESWRITE REPREC AFTER 0 LIN|    
+ 000310  (LIT+480)    C5E2E6D9 C9E3C540 D9C5D7D9 C5C3404D D5D6D9D4 C1D340D3 C9D5C55D C1E2C1D7  |ESWRITE REPREC (NORMAL LINE)ASAP|    
+ 000330  (LIT+512)    D9D5E3F3 E2E8E2D6 E4E34040 C9C7E9E2 D9E3C3C4 F1F2F300 00013400 00000100  |RNT3SYSOUT  IGZSRTCD123.........|    
+ 000350  (LIT+544)    00012C00 00000100 00013000 00000100 00000000 00000000 00000000 00000000  |................................|    
+ 000370  (LIT+576)    00000000 00000000 00000000 00000000 00000080 00000040 00000000 00000000  |....................... ........|    
+ 000390  (LIT+608)    00000008 00000040 00000000 00000000 00000000 00000040 00000000 25C00001  |....... ............... ........|    
+ 0003B0  (LIT+640)    C0000808 00002402 00400001 80008000 01800040 00000000 40C00001 40000808  |......... ......... .... ... ...|    
+ 0003D0  (LIT+672)    00002402 0002C000 08080000 24020009 00013400 00                          |.....................           |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000076 00059A OPEN                          000080 0005B6 MOVE                          000082 0005CA MOVE                          
+ 000083 0005D4 WRITE                         000087 0005FE MOVE                          000089 000612 MOVE                          
+ 000090 00061C WRITE                         000092 000646 MOVE                          000094 00065A MOVE                          
+ 000095 000664 WRITE                         000097 00068E MOVE                          000099 0006A2 MOVE                          
+ 000100 0006AC WRITE                         000102 0006D6 MOVE                          000104 0006EA MOVE                          
+ 000105 0006F4 WRITE                         000107 00071E MOVE                          000109 000732 MOVE                          
+ 000110 00073C WRITE                         000112 000766 MOVE                          000114 00077A MOVE                          
+ 000115 000784 WRITE                         000117 0007AE MOVE                          000119 0007C2 MOVE                          
+ 000120 0007CC WRITE                         000122 0007F6 MOVE                          000124 00080A MOVE                          
+ 000125 000814 WRITE                         000129 00083E MOVE                          000131 000852 MOVE                          
+ 000132 00085C WRITE                         000134 000886 MOVE                          000136 00089A MOVE                          
+ 000137 0008A4 WRITE                         000139 0008CE MOVE                          000141 0008E2 MOVE                          
+ 000142 0008EC WRITE                         000144 000916 MOVE                          000146 00092A MOVE                          
+ 000147 000934 WRITE                         000149 00095E MOVE                          000151 000972 MOVE                          
+ 000152 00097C WRITE                         000154 0009A6 MOVE                          000156 0009BA MOVE                          
+ 000157 0009C4 WRITE                         000159 0009EE MOVE                          000161 000A02 MOVE                          
+ 000162 000A0C WRITE                         000164 000A36 MOVE                          000166 000A4A MOVE                          
+ 000167 000A54 WRITE                         000171 000A7E MOVE                          000173 000A92 MOVE                          
+ 000174 000A9C WRITE                         000176 000AC6 MOVE                          000178 000ADA MOVE                          
+ 000179 000AE4 WRITE                         000181 000B0E MOVE                          000183 000B22 MOVE                          
+ 000184 000B2C WRITE                         000186 000B56 MOVE                          000188 000B6A MOVE                          
+ 000189 000B74 WRITE                         000191 000B9E MOVE                          000193 000BB2 MOVE                          
+ 000194 000BBC WRITE                         000196 000BE6 MOVE                          000198 000BFA MOVE                          
+ 000199 000C04 WRITE                         000201 000C2E MOVE                          000203 000C42 MOVE                          
+ 000204 000C4C WRITE                         000206 000C76 MOVE                          000208 000C8A MOVE                          
+ 000209 000C94 WRITE                         000213 000CBE MOVE                          000215 000CD2 MOVE                          
+ 000216 000CDC WRITE                         000218 000D06 MOVE                          000220 000D1A MOVE                          
+ 000221 000D24 WRITE                         000223 000D4E MOVE                          000225 000D62 MOVE                          
+ 000226 000D6C WRITE                         000228 000D96 MOVE                          000230 000DAA MOVE                          
+ 000231 000DB4 WRITE                         000233 000DDE MOVE                          000235 000DF2 MOVE                          
+ 000236 000DFC WRITE                         000238 000E26 MOVE                          000240 000E3A MOVE                          
+ 000241 000E44 WRITE                         000243 000E6E MOVE                          000245 000E82 MOVE                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT3  Date 05/06/2021  Time 06:46:17   Page    15                
+0000246 000E8C WRITE                         000248 000EB6 MOVE                          000250 000ECA MOVE                          
+ 000251 000ED4 WRITE                         000255 000EFE MOVE                          000257 000F12 MOVE                          
+ 000258 000F1C WRITE                         000260 000F46 MOVE                          000262 000F5A MOVE                          
+ 000263 000F64 WRITE                         000265 000F8E MOVE                          000267 000FA2 MOVE                          
+ 000268 000FAC WRITE                         000270 000FD6 MOVE                          000272 000FEA MOVE                          
+ 000273 000FF4 WRITE                         000275 00101E MOVE                          000277 001032 MOVE                          
+ 000278 00103C WRITE                         000280 001066 MOVE                          000282 00107A MOVE                          
+ 000283 001084 WRITE                         000285 0010AE MOVE                          000287 0010C2 MOVE                          
+ 000288 0010CC WRITE                         000290 0010F6 MOVE                          000292 00110A MOVE                          
+ 000293 001114 WRITE                         000297 00113E MOVE                          000299 00114C MOVE                          
+ 000301 001160 MOVE                          000302 00116A WRITE                         000304 00119C MOVE                          
+ 000306 0011B0 MOVE                          000307 0011BA WRITE                         000309 0011EC MOVE                          
+ 000311 001200 MOVE                          000312 00120A WRITE                         000314 00123C MOVE                          
+ 000316 001250 MOVE                          000317 00125A WRITE                         000319 00128C MOVE                          
+ 000321 0012A0 MOVE                          000322 0012AA WRITE                         000324 0012DC MOVE                          
+ 000326 0012F0 MOVE                          000327 0012FA WRITE                         000329 00132C MOVE                          
+ 000331 001340 MOVE                          000332 00134A WRITE                         000334 00137C MOVE                          
+ 000336 001390 MOVE                          000337 00139A WRITE                         000341 0013CC MOVE                          
+ 000343 0013E0 MOVE                          000344 0013EA WRITE                         000346 001412 MOVE                          
+ 000348 001426 MOVE                          000349 001430 WRITE                         000369 001458 MOVE                          
+ 000371 00146C MOVE                          000372 001476 WRITE                         000374 00149E MOVE                          
+ 000376 0014B2 MOVE                          000377 0014BC WRITE                         000379 0014E4 CLOSE                         
+ 000380 001500 GOBACK                                                                                                                
+0                                                                                                                                    
+   DEBUGINF TABLE LOCATED AT 00158C FOR 000048 BYTES                                                                                 
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT3  Date 05/06/2021  Time 06:46:17   Page    16                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  BASE LOCATORS FOR FILES                                                                                  
+                    000138  TEST INFORMATION AREA                                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT3  Date 05/06/2021  Time 06:46:17   Page    17                
+0                   000160  FCB CELLS                                                                                                
+                    000164  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  000000E0  VARIABLE-LENGTH CELLS                                                                                    
+                  000000F8  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  000000FC  PERFORM SAVE CELLS                                                                                       
+                  00000100  TEMPORARY STORAGE-2                                                                                      
+                  00000110  CALL STATEMENT PROGRAM NAME                                                                              
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000178 BYTES                                                                                       
+ DCB00001 WILL BE ALLOCATED FOR 00000060 BYTES                                                                                       
+ FCB00001 WILL BE ALLOCATED FOR 00000114 BYTES                                                                                       
+ GDT00001 WILL BE ALLOCATED FOR 000000A0 BYTES                                                                                       
+ RCD00001 WILL BE ALLOCATED FOR 00000085 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 00000002 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 000001B0 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 00161C                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 00197C FOR LENGTH 000102                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT3  Date 05/06/2021  Time 06:46:17   Page    18                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program ASAPRNT3:                                                                                            
+ *    Source records = 380                                                                                                           
+ *    Data Division statements = 2                                                                                                   
+ *    Procedure Division statements = 163                                                                                            
+0End of compilation 1,  program ASAPRNT3,  highest severity 4.                                                                       
+0Return code 4                                                                                                                       
