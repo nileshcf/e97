@@ -1,0 +1,952 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 09/17/2019  Time 08:06:16   Page     1                
+0Invocation parameters:                                                                                                              
+  LIB,OBJECT,RENT,RES,APOST,TRUNC(BIN),,ARITH(EXTEND),OFFSET,NOFDUMP,SOURCE,MAP                                                      
+                                                                                                                                     
+         IGYOS4046-I   The "RESIDENT" option specification is no longer required.  The resident runtime library support is always    
+                       used.                                                                                                         
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4008-W   The "NOFDUMP" compiler option was specified, but is not supported.  The option was discarded.                 
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    APOST                                                                                                                            
+    ARITH(EXTEND)                                                                                                                    
+  NOAWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+  NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 09/17/2019  Time 08:06:16   Page     2                
+0 NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+  NOTEST                                                                                                                             
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 09/17/2019  Time 08:06:16   Page     3                
+0LineID  Message code  Library phase message text                                                                                    
+                                                                                                                                     
+         IGYLI0090-W   74 sequence errors were found in this program.                                                                
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       1                          1                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000001         000100 IDENTIFICATION DIVISION.                                         00010000                                   
+   000002         000200 PROGRAM-ID.    COBTEMP.                                          00020000                                   
+   000003         000208 DATE-WRITTEN. MAY 2017.                                          00020800                                   
+   000004         000209 ENVIRONMENT DIVISION.                                            00020900                                   
+   000005         000210 INPUT-OUTPUT SECTION.                                            00021000                                   
+   000006         000220 FILE-CONTROL.                                                    00022000                                   
+   000007         000230 DATA DIVISION.                                                   00023000                                   
+   000008         000240 FILE SECTION.                                                    00024000                                   
+   000009         000250 WORKING-STORAGE SECTION.                                         00025000                                   
+   000010                01 WS-ACTIVE-SVC-PROD-CNT              PIC S9(04) COMP.                   BLW=00000+000         2C          
+   000011                01 WS-DISPLAY-LEN                      PIC S9(09) COMP.                   BLW=00000+008         4C          
+   000012                01 REVO3-EXTRACT-RECORD.                                                  BLW=00000+010         0CL11518    
+   000013                   05 REVO3-RECORD-TYPE                     PIC  X(01).                   BLW=00000+010,0000000 1C          
+   000014                      88 REVO3-HEADER                       VALUE '1'.                                                      
+   000015                      88 REVO3-DETAIL                       VALUE '2'.                                                      
+   000016                      88 REVO3-TRAILER                      VALUE '3'.                                                      
+   000017                   05 REVO3-COMMA-H1                        PIC  X(01).                   BLW=00000+011,0000001 1C          
+   000018                   05 REVO3-FIXED-PART-OF-RECORD            PIC  X(32).                   BLW=00000+012,0000002 32C         
+   000019                   05 REVO3-HEADER-RECORD                                                 BLW=00000+012,0000002 0CL32       
+   000020                      REDEFINES REVO3-FIXED-PART-OF-RECORD.                               18                                
+   000021                      10 REVO3-HDR-DATE                     PIC  X(10).                   BLW=00000+012,0000002 10C         
+   000022                      10 REVO3-COMMA-H2                     PIC  X(01).                   BLW=00000+01C,000000C 1C          
+   000023                      10 REVO3-HDR-TIME                     PIC  X(08).                   BLW=00000+01D,000000D 8C          
+   000024                      10 FILLER                             PIC  X(13).                   BLW=00000+025,0000015 13C         
+   000025                   05 REVO3-DETAIL-RECORD                                                 BLW=00000+012,0000002 0CL32       
+   000026                      REDEFINES REVO3-FIXED-PART-OF-RECORD.                               18                                
+   000027                      10 REVO3-MDN.                                                       BLW=00000+012,0000002 0CL11       
+   000028                       15 REVO3-NPA                     PIC  X(03).                       BLW=00000+012,0000002 3C          
+   000029                       15 REVO3-NXX                     PIC  X(03).                       BLW=00000+015,0000005 3C          
+   000030                       15 REVO3-TLN                     PIC  X(04).                       BLW=00000+018,0000008 4C          
+   000031                       15 REVO3-COMMA-1                 PIC  X(01).                       BLW=00000+01C,000000C 1C          
+   000032                      10 REVO3-MIN.                                                       BLW=00000+01D,000000D 0CL11       
+   000033                       15 REVO3-MIN-CARRIER             PIC  X(06).                       BLW=00000+01D,000000D 6C          
+   000034                       15 REVO3-MIN-L-DIG               PIC  X(01).                       BLW=00000+023,0000013 1C          
+   000035                       15 REVO3-MIN-REST-OF-L           PIC  X(03).                       BLW=00000+024,0000014 3C          
+   000036                       15 REVO3-COMMA-2                 PIC  X(01).                       BLW=00000+027,0000017 1C          
+   000037                      10 FILLER                         PIC  X(10).                       BLW=00000+028,0000018 10C         
+   000038                   05 REVO3-TRAILER-RECORD                                                BLW=00000+012,0000002 0CL32       
+   000039                      REDEFINES REVO3-FIXED-PART-OF-RECORD.                               18                                
+   000040                     10 REVO3-TRLR-DATE                      PIC  X(10).                  BLW=00000+012,0000002 10C         
+   000041                     10 REVO3-COMMA-T1                       PIC  X(01).                  BLW=00000+01C,000000C 1C          
+   000042                     10 REVO3-TRLR-TIME                      PIC  X(08).                  BLW=00000+01D,000000D 8C          
+   000043                     10 REVO3-COMMA-T2                       PIC  X(01).                  BLW=00000+025,0000015 1C          
+   000044                     10 REVO3-TRLR-RECORD-COUNT              PIC  9(12).                  BLW=00000+026,0000016 12C         
+   000045               ***********************************************************                                                  
+   000046               *PART OF OUTPUT RECORD FOR PRODUCT                                                                           
+   000047               ***********************************************************                                                  
+   000048                    05 REVO3-DACC-RAGRP-LCC-CD              PIC X(03).                    BLW=00000+032,0000022 3C          
+   000049                    05 REVO3-SVC-PROD-COMMA-8               PIC X(01).                    BLW=00000+035,0000025 1C          
+   000050                    05 REVO3-DACC-RAGRP-TBL-OUT.                                          BLW=00000+036,0000026 0CL80       
+   000051                       10 REVO3-DACC-PROD-ARRAY-OUT OCCURS 20 TIMES                       BLW=00000+036,0000026 0CL4        
+   000052                          INDEXED BY DACC-RAGRP-IDX.                                      IDX=00001+000                     
+   000053                         15 REVO3-DACC-RAGRP-PROD-MTAS-CD    PIC X(03).                   BLW=00000+036,0000026 3C          
+   000054                         15 REVO3-SVC-PROD-COMMA-7           PIC X(01).                   BLW=00000+039,0000029 1C          
+   000055                    05 REVO3-SPO-TBL-OUT.                                                 BLW=00000+086,0000076 0CL11400    
+   000056                      10 REVO3-SVC-PROD-ARRAY-OUT OCCURS 1 TO 200 TIMES                   BLW=00000+086,0000076 0CL57       
+   000057                           DEPENDING ON WS-ACTIVE-SVC-PROD-CNT                            10                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000058                           INDEXED BY SPO-IDX.                                            IDX=00002+000                     
+   000059                        15 REVO3-SVC-PROD-ID-OUT          PIC X(10).                      BLW=00000+086,0000076 10C         
+   000060                        15 REVO3-SVC-PROD-COMMA-3         PIC X(01).                      BLW=00000+090,0000080 1C          
+   000061                        15 REVO3-SVC-PROD-LVL-CD-OUT      PIC X(01).                      BLW=00000+091,0000081 1C          
+   000062                        15 REVO3-SVC-PROD-COMMA-4         PIC X(01).                      BLW=00000+092,0000082 1C          
+   000063                        15 REVO3-SVC-PROD-LCC-CD-OUT      PIC X(03).                      BLW=00000+093,0000083 3C          
+   000064                        15 REVO3-SVC-PROD-COMMA-5         PIC X(01).                      BLW=00000+096,0000086 1C          
+   000065                        15 REVO3-SVC-PROD-MTAS-CD-ARR-OUT OCCURS 10 TIMES                 BLW=00000+097,0000087 0CL4        
+   000066                                  INDEXED BY SPO-MTAS-IDX.                                IDX=00003+000                     
+   000067                          20 REVO3-SVC-PROD-MTAS-CD       PIC X(03).                      BLW=00000+097,0000087 3C          
+   000068                          20 REVO3-SVC-PROD-COMMA-6       PIC X(01).                      BLW=00000+09A,000008A 1C          
+   000069                01  REVO-EXTRACT-RECORD.                                                  BLW=00002+D10         0CL1676     
+   000070                                                                                                                            
+   000071                    05  REVO-RECORD-TYPE                       PIC  X(01).                BLW=00002+D10,0000000 1C          
+   000072                        88  REVO-HEADER                        VALUE '1'.                                                   
+   000073                        88  REVO-DETAIL                        VALUE '2'.                                                   
+   000074                        88  REVO-TRAILER                       VALUE '3'.                                                   
+   000075                                                                                                                            
+   000076                    05  REVO-COMMA-1                           PIC  X(01).                BLW=00002+D11,0000001 1C          
+   000077                                                                                                                            
+   000078         817885*    05  REVO-FIXED-PART-OF-RECORD              PIC  X(584).                                                 
+   000079**       808758*    05  REVO-FIXED-PART-OF-RECORD              PIC  X(648).                                                 
+   000080         867316*    05  REVO-FIXED-PART-OF-RECORD              PIC  X(673).                                                 
+   000081         877806     05  REVO-FIXED-PART-OF-RECORD              PIC  X(674).               BLW=00002+D12,0000002 674C        
+   000082                                                                                                                            
+   000083                    05  REVO-HEADER-RECORD         REDEFINES                              BLW=00002+D12,0000002 0CL674      
+   000084                        REVO-FIXED-PART-OF-RECORD.                                        81                                
+   000085                       10  REVO-HDR-DATE                       PIC  X(10).                BLW=00002+D12,0000002 10C         
+   000086                       10  REVO-COMMA-2                        PIC  X(01).                BLW=00002+D1C,000000C 1C          
+   000087                       10  REVO-HDR-TIME                       PIC  X(08).                BLW=00002+D1D,000000D 8C          
+   000088**       817885*       10  FILLER                              PIC  X(565).                                                 
+   000089**       808758*       10  FILLER                              PIC  X(629).                                                 
+   000090         867316*       10  FILLER                              PIC  X(654).                                                 
+   000091         877806        10  FILLER                              PIC  X(655).               BLW=00002+D25,0000015 655C        
+   000092                                                                                                                            
+   000093                    05  REVO-DETAIL-RECORD         REDEFINES                              BLW=00002+D12,0000002 0CL674      
+   000094                        REVO-FIXED-PART-OF-RECORD.                                        81                                
+   000095                       10  REVO-MAJOR-MARKET                   PIC  X(04).                BLW=00002+D12,0000002 4C          
+   000096                       10  REVO-COMMA-3                        PIC  X(01).                BLW=00002+D16,0000006 1C          
+   000097                       10  REVO-MDN.                                                      BLW=00002+D17,0000007 0CL10       
+   000098                           15  REVO-NPA                        PIC  X(03).                BLW=00002+D17,0000007 3C          
+   000099                           15  REVO-NXX                        PIC  X(03).                BLW=00002+D1A,000000A 3C          
+   000100                           15  REVO-TLN                        PIC  X(04).                BLW=00002+D1D,000000D 4C          
+   000101                       10  REVO-COMMA-4                        PIC  X(01).                BLW=00002+D21,0000011 1C          
+   000102                       10  REVO-MIN.                                                      BLW=00002+D22,0000012 0CL10       
+   000103                           15  REVO-MIN-CARRIER                PIC  X(06).                BLW=00002+D22,0000012 6C          
+   000104                           15  REVO-MIN-L-DIG                  PIC  X(01).                BLW=00002+D28,0000018 1C          
+   000105                           15  REVO-MIN-REST-OF-L              PIC  X(03).                BLW=00002+D29,0000019 3C          
+   000106                       10  REVO-COMMA-5                        PIC  X(01).                BLW=00002+D2C,000001C 1C          
+   000107**       CR6136*       10  REVO-ESN.                                                                                        
+   000108**       CR6136*           15  REVO-ESN-MFG-CD                 PIC  X(03).                                                  
+   000109**       CR6136*           15  REVO-ESN-SER-NO                 PIC  X(08).                                                  
+   000110**       CR6136        10  REVO-ESN-ME-ID                      PIC  X(14).                BLW=00002+D2D,000001D 14C         
+   000111                       10  REVO-COMMA-6                        PIC  X(01).                BLW=00002+D3B,000002B 1C          
+   000112                       10  REVO-SUBSCRIBER-IDENTIFIER          PIC  X(02).                BLW=00002+D3C,000002C 2C          
+   000113                       10  REVO-COMMA-7                        PIC  X(01).                BLW=00002+D3E,000002E 1C          
+   000114                       10  REVO-CUST-MTN-STAT-CD               PIC  X(02).                BLW=00002+D3F,000002F 2C          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000115                       10  REVO-COMMA-8                        PIC  X(01).                BLW=00002+D41,0000031 1C          
+   000116                       10  REVO-MDN-STAT-CD-EFF-DT.                                       BLW=00002+D42,0000032 0CL10       
+   000117                           15  REVO-MDN-STAT-CD-MM             PIC  X(02).                BLW=00002+D42,0000032 2C          
+   000118                           15  FILLER                          PIC  X(01).                BLW=00002+D44,0000034 1C          
+   000119                           15  REVO-MDN-STAT-CD-DD             PIC  X(02).                BLW=00002+D45,0000035 2C          
+   000120                           15  FILLER                          PIC  X(01).                BLW=00002+D47,0000037 1C          
+   000121                           15  REVO-MDN-STAT-CD-YYYY           PIC  X(04).                BLW=00002+D48,0000038 4C          
+   000122                       10  REVO-COMMA-9                        PIC  X(01).                BLW=00002+D4C,000003C 1C          
+   000123                       10  REVO-ACCOUNT-TYPE                   PIC  X(02).                BLW=00002+D4D,000003D 2C          
+   000124                       10  REVO-COMMA-10                       PIC  X(01).                BLW=00002+D4F,000003F 1C          
+   000125                       10  REVO-IEC-CODE                       PIC  X(04).                BLW=00002+D50,0000040 4C          
+   000126                       10  REVO-COMMA-11                       PIC  X(01).                BLW=00002+D54,0000044 1C          
+   000127                       10  REVO-PRICE-PLAN                     PIC  X(09).                BLW=00002+D55,0000045 9C          
+   000128                       10  REVO-COMMA-12                       PIC  X(01).                BLW=00002+D5E,000004E 1C          
+   000129                       10  REVO-PRICE-PLAN-DESC                PIC  X(75).                BLW=00002+D5F,000004F 75C         
+   000130                       10  REVO-COMMA-13                       PIC  X(01).                BLW=00002+DAA,000009A 1C          
+   000131                       10  REVO-PRICE-PLAN-ACTIVATION-DT.                                 BLW=00002+DAB,000009B 0CL10       
+   000132                           15  REVO-PPLAN-ACTIVATION-MM        PIC  X(02).                BLW=00002+DAB,000009B 2C          
+   000133                           15  FILLER                          PIC  X(01).                BLW=00002+DAD,000009D 1C          
+   000134                           15  REVO-PPLAN-ACTIVATION-DD        PIC  X(02).                BLW=00002+DAE,000009E 2C          
+   000135                           15  FILLER                          PIC  X(01).                BLW=00002+DB0,00000A0 1C          
+   000136                           15  REVO-PPLAN-ACTIVATION-YYYY      PIC  X(04).                BLW=00002+DB1,00000A1 4C          
+   000137                                                                                                                            
+   000138                       10  REVO-COMMA-14                       PIC  X(01).                BLW=00002+DB5,00000A5 1C          
+   000139                       10  REVO-SIM-CARD-NO                    PIC  X(20).                BLW=00002+DB6,00000A6 20C         
+   000140         CR6367        10  REVO-COMMA-17                       PIC  X(01).                BLW=00002+DCA,00000BA 1C          
+   000141**       CR6367        10  REVO-CUST-ID-NO                     PIC  9(10).                BLW=00002+DCB,00000BB 10C         
+   000142**       CR6367        10  REVO-COMMA-18                       PIC  X(01).                BLW=00002+DD5,00000C5 1C          
+   000143**       CR6367        10  REVO-ACCT-NO                        PIC  9(05).                BLW=00002+DD6,00000C6 5C          
+   000144**       CR6367        10  REVO-COMMA-19                       PIC  X(01).                BLW=00002+DDB,00000CB 1C          
+   000145**       CR6367        10  REVO-PPLAN-SET-ID                   PIC  9(05).                BLW=00002+DDC,00000CC 5C          
+   000146**       CR6367        10  REVO-COMMA-20                       PIC  X(01).                BLW=00002+DE1,00000D1 1C          
+   000147**       CR6367        10  REVO-DEVICE-MAKE                    PIC  X(03).                BLW=00002+DE2,00000D2 3C          
+   000148**       CR6367        10  REVO-COMMA-21                       PIC  X(01).                BLW=00002+DE5,00000D5 1C          
+   000149**       CR6367        10  REVO-DEVICE-MODEL                   PIC  X(32).                BLW=00002+DE6,00000D6 32C         
+   000150         CR6468        10  REVO-COMMA-22                       PIC  X(01).                BLW=00002+E06,00000F6 1C          
+   000151**       CR6468        10  REVO-DUNS-ULT-NUMBER                PIC  X(09).                BLW=00002+E07,00000F7 9C          
+   000152         6840-2        10  REVO-COMMA-23                       PIC  X(01).                BLW=00002+E10,0000100 1C          
+   000153**       6840-2        10  REVO-ETNI-IP-POOL-CD                PIC  X(23).                BLW=00002+E11,0000101 23C         
+   000154**       6840-2        10  REVO-COMMA-24                       PIC  X(01).                BLW=00002+E28,0000118 1C          
+   000155**       6840-2        10  REVO-SUB-ORG-ID                     PIC  X(25).                BLW=00002+E29,0000119 25C         
+   000156**       CR7281        10  REVO-COMMA-25                       PIC  X(01).                BLW=00002+E42,0000132 1C          
+   000157**       CR7281        10  REVO-BL-CYCLE-NBR                   PIC  X(02).                BLW=00002+E43,0000133 2C          
+   000158         720276        10  REVO-COMMA-26                       PIC  X(01).                BLW=00002+E45,0000135 1C          
+   000159**       720276        10  REVO-STAT-REASON-CD                 PIC  X(02).                BLW=00002+E46,0000136 2C          
+   000160         740280        10  REVO-COMMA-27                       PIC  X(01).                BLW=00002+E48,0000138 1C          
+   000161**       740280*           EXPAND THE ADDRESS TO INCLUDE THE DOTS.                                                          
+   000162         867316        10  REVO-IP-ADDRESS                     PIC  X(39).                BLW=00002+E49,0000139 39C         
+   000163         877806        10  REVO-COMMA-27-A                     PIC  X(01).                BLW=00002+E70,0000160 1C          
+   000164**       867316        10  REVO-IP-ADDR-VER-NO                 PIC  X(01).                BLW=00002+E71,0000161 1C          
+   000165**       741621        10  REVO-COMMA-28                       PIC  X(01).                BLW=00002+E72,0000162 1C          
+   000166**       741621        10  REVO-HOME-AGENT-CD                  PIC  X(02).                BLW=00002+E73,0000163 2C          
+   000167**       121628        10  REVO-COMMA-29                       PIC  X(01).                BLW=00002+E75,0000165 1C          
+   000168**       121628        10  REVO-CUST-ASSOC-ID-NO               PIC  9(10).                BLW=00002+E76,0000166 10C         
+   000169**       121628        10  REVO-COMMA-30                       PIC  X(01).                BLW=00002+E80,0000170 1C          
+   000170         177530        10  REVO-CUST-CLASS-CD                  PIC  X(03).                BLW=00002+E81,0000171 3C          
+   000171**       177530        10  REVO-COMMA-31                       PIC  X(01).                BLW=00002+E84,0000174 1C          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000172**       177530        10  REVO-ZIP-CD                         PIC  X(10).                BLW=00002+E85,0000175 10C         
+   000173**       177530        10  REVO-COMMA-32                       PIC  X(01).                BLW=00002+E8F,000017F 1C          
+   000174**       177530        10  REVO-ECPD-ID                        PIC  X(10).                BLW=00002+E90,0000180 10C         
+   000175**       177530        10  REVO-COMMA-33                       PIC  X(01).                BLW=00002+E9A,000018A 1C          
+   000176**       177530        10  REVO-DNS-CD                         PIC  X(05).                BLW=00002+E9B,000018B 5C          
+   000177**       177530        10  REVO-COMMA-34                       PIC  X(01).                BLW=00002+EA0,0000190 1C          
+   000178**       177530        10  REVO-DNS-ID                         PIC  X(05).                BLW=00002+EA1,0000191 5C          
+   000179         800976        10  REVO-COMMA-35                       PIC  X(01).                BLW=00002+EA6,0000196 1C          
+   000180**       800976        10  REVO-IMEI                           PIC  X(20).                BLW=00002+EA7,0000197 20C         
+   000181**       800976        10  REVO-COMMA-36                       PIC  X(01).                BLW=00002+EBB,00001AB 1C          
+   000182**       800976        10  REVO-VZW-IMSI                       PIC  X(15).                BLW=00002+EBC,00001AC 15C         
+   000183**       800976        10  REVO-COMMA-37                       PIC  X(01).                BLW=00002+ECB,00001BB 1C          
+   000184**       800976        10  REVO-VODAFONE-IMSI                  PIC  X(15).                BLW=00002+ECC,00001BC 15C         
+   000185**       800976        10  REVO-COMMA-38                       PIC  X(01).                BLW=00002+EDB,00001CB 1C          
+   000186**       800976        10  REVO-ICCID                          PIC  X(20).                BLW=00002+EDC,00001CC 20C         
+   000187**       800976        10  REVO-COMMA-39                       PIC  X(01).                BLW=00002+EF0,00001E0 1C          
+   000188**       800976        10  REVO-EUIMID                         PIC  X(15).                BLW=00002+EF1,00001E1 15C         
+   000189**       800976        10  REVO-COMMA-40                       PIC  X(01).                BLW=00002+F00,00001F0 1C          
+   000190**       800976        10  REVO-HOME-SID-BID                   PIC  X(05).                BLW=00002+F01,00001F1 5C          
+   000191**       800976        10  REVO-COMMA-41                       PIC  X(01).                BLW=00002+F06,00001F6 1C          
+   000192**       800976        10  REVO-PRL-BASELINE                   PIC  X(06).                BLW=00002+F07,00001F7 6C          
+   000193**       800976        10  REVO-COMMA-42                       PIC  X(01).                BLW=00002+F0D,00001FD 1C          
+   000194         808758        10  REVO-STATE-CD                       PIC  X(02).                BLW=00002+F0E,00001FE 2C          
+   000195**       808758        10  REVO-UND-SCR1                       PIC  X(01).                BLW=00002+F10,0000200 1C          
+   000196**       800976        10  REVO-RATE-CENTER                    PIC  X(10).                BLW=00002+F11,0000201 10C         
+   000197**       800976        10  REVO-COMMA-43                       PIC  X(01).                BLW=00002+F1B,000020B 1C          
+   000198**       800976        10  REVO-TECHNOLOGY-TYPE                PIC  X(10).                BLW=00002+F1C,000020C 10C         
+   000199**       422870        10  REVO-COMMA-44                       PIC  X(01).                BLW=00002+F26,0000216 1C          
+   000200**       422870        10  REVO-EQUIP-MAKE                     PIC  X(03).                BLW=00002+F27,0000217 3C          
+   000201**       422870        10  REVO-COMMA-45                       PIC  X(01).                BLW=00002+F2A,000021A 1C          
+   000202**       422870        10  REVO-EQUIP-MODEL                    PIC  X(32).                BLW=00002+F2B,000021B 32C         
+   000203         487812        10  REVO-COMMA-46                       PIC  X(01).                BLW=00002+F4B,000023B 1C          
+   000204**       487812        10  REVO-PREF-LANG-CD                   PIC  X(01).                BLW=00002+F4C,000023C 1C          
+   000205**       487812        10  REVO-COMMA-47                       PIC  X(01).                BLW=00002+F4D,000023D 1C          
+   000206**       487812        10  REVO-HOME-TIME-ZONE                 PIC  X(03).                BLW=00002+F4E,000023E 3C          
+   000207         504129        10  REVO-COMMA-48                       PIC  X(01).                BLW=00002+F51,0000241 1C          
+   000208**       504129        10  REVO-LN-OF-SVC-ID-NO                PIC  X(26).                BLW=00002+F52,0000242 26C         
+   000209         817885        10  REVO-COMMA-49                       PIC  X(01).                BLW=00002+F6C,000025C 1C          
+   000210**       817885        10  REVO-ACCT-LVL-ZIP-CD                PIC  X(10).                BLW=00002+F6D,000025D 10C         
+   000211         833592        10  REVO-COMMA-50                       PIC  X(01).                BLW=00002+F77,0000267 1C          
+   000212**       833592        10  REVO-EMAIL-ADDR                     PIC  X(60).                BLW=00002+F78,0000268 60C         
+   000213                                                                                                                            
+   000214                    05  REVO-TRAILER-RECORD        REDEFINES                              BLW=00002+D12,0000002 0CL674      
+   000215                        REVO-FIXED-PART-OF-RECORD.                                        81                                
+   000216                       10  REVO-TRLR-DATE                      PIC  X(10).                BLW=00002+D12,0000002 10C         
+   000217                       10  REVO-COMMA-15                       PIC  X(01).                BLW=00002+D1C,000000C 1C          
+   000218                       10  REVO-TRLR-TIME                      PIC  X(08).                BLW=00002+D1D,000000D 8C          
+   000219                       10  REVO-COMMA-16                       PIC  X(01).                BLW=00002+D25,0000015 1C          
+   000220                       10  REVO-TRLR-RECORD-COUNT              PIC  9(12).                BLW=00002+D26,0000016 12C         
+   000221**       817885*       10  FILLER                              PIC  X(552).                                                 
+   000222**       808758*       10  FILLER                              PIC  X(616).                                                 
+   000223         867316*       10  FILLER                              PIC  X(641).                                                 
+   000224         877806        10  FILLER                              PIC  X(642).               BLW=00002+D32,0000022 642C        
+   000225                                                                                                                            
+   000226                    05  REVO-VARIABLE-PART-OF-RECORD.                                     BLW=00002+FB4,00002A4 0CL1000     
+   000227**       C12428********10  REVO-FEATURES  OCCURS 1 TO 30 TIMES                                                              
+   000228**       C12428        10  REVO-FEATURES  OCCURS 1 TO 50 TIMES                            BLW=00002+FB4,00002A4 0CL20       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page     8                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000229         745782***                        DEPENDING ON WS-PROV-FEAT-CNT                                                     
+   000230**       745782                           DEPENDING ON WS-ACTIVE-FEAT-CNT                 247                               
+   000231                                          INDEXED BY REVO-FEAT-IDX.                       IDX=00004+000                     
+   000232                           15  REVO-COMMA-DELIM-1              PIC  X(01).                BLW=00002+FB4,00002A4 1C          
+   000233**       745782***         15  REVO-ACTIVE-PROVISIONING-FEAT   PIC  X(04).                                                  
+   000234**       745782            15  REVO-ACTIVE-FEAT                PIC  X(04).                BLW=00002+FB5,00002A5 4C          
+   000235                           15  REVO-COMMA-DELIM-2              PIC  X(01).                BLW=00002+FB9,00002A9 1C          
+   000236                           15  REVO-FEAT-EFF-DT.                                          BLW=00002+FBA,00002AA 0CL10       
+   000237                               20  REVO-FEAT-EFF-MM            PIC  X(02).                BLW=00002+FBA,00002AA 2C          
+   000238                               20  FILLER                      PIC  X(01).                BLW=00002+FBC,00002AC 1C          
+   000239                               20  REVO-FEAT-EFF-DD            PIC  X(02).                BLW=00002+FBD,00002AD 2C          
+   000240                               20  FILLER                      PIC  X(01).                BLW=00002+FBF,00002AF 1C          
+   000241                               20  REVO-FEAT-EFF-YYYY          PIC  X(04).                BLW=00002+FC0,00002B0 4C          
+   000242                           15  REVO-COMMA-DELIM-3              PIC  X(01).                BLW=00002+FC4,00002B4 1C          
+   000243                           15  REVO-MTAS-FEATURE-CODE          PIC  X(03).                BLW=00002+FC5,00002B5 3C          
+   000244               *----------------------------------------------------------------                                            
+   000245               *               END REVO EXTRACT RECORD                                                                      
+   000246               *----------------------------------------------------------------                                            
+   000247                77 WS-ACTIVE-FEAT-CNT    PIC S9(04) COMP.                                 BLW=00003+3A0         2C          
+   000248**       000551 LINKAGE SECTION.                                                 00055128                                   
+   000249         000558 PROCEDURE DIVISION.                                              00055828                                   
+   000250         000559*    ----                                                         00055928                                   
+   000251                    MOVE 0  TO WS-ACTIVE-SVC-PROD-CNT                                     10                                
+   000252                    MOVE LENGTH OF REVO3-EXTRACT-RECORD TO WS-DISPLAY-LEN                 IMP 12 11                         
+   000253                    DISPLAY ' 0  REVO3 REC LEN ' WS-DISPLAY-LEN                           11                                
+   000254                    MOVE 1  TO WS-ACTIVE-SVC-PROD-CNT                                     10                                
+   000255                    MOVE LENGTH OF REVO3-EXTRACT-RECORD TO WS-DISPLAY-LEN                 IMP 12 11                         
+   000256                    DISPLAY ' 1  REVO3 REC LEN ' WS-DISPLAY-LEN                           11                                
+   000257                    MOVE 2  TO WS-ACTIVE-SVC-PROD-CNT                                     10                                
+   000258                    MOVE LENGTH OF REVO3-EXTRACT-RECORD TO WS-DISPLAY-LEN                 IMP 12 11                         
+   000259                    DISPLAY ' 2  REVO3 REC LEN ' WS-DISPLAY-LEN                           11                                
+   000260                    MOVE 10 TO WS-ACTIVE-SVC-PROD-CNT                                     10                                
+   000261                    MOVE LENGTH OF REVO3-EXTRACT-RECORD TO WS-DISPLAY-LEN                 IMP 12 11                         
+   000262                    DISPLAY ' 10 REVO3 REC LEN ' WS-DISPLAY-LEN                           11                                
+   000263                    MOVE 20  TO WS-ACTIVE-SVC-PROD-CNT                                    10                                
+   000264                    MOVE LENGTH OF REVO3-EXTRACT-RECORD TO WS-DISPLAY-LEN                 IMP 12 11                         
+   000265                    DISPLAY ' 20 REVO3 REC LEN ' WS-DISPLAY-LEN                           11                                
+   000266                    MOVE  0 TO WS-ACTIVE-FEAT-CNT                                         247                               
+   000267                    MOVE LENGTH OF REVO-EXTRACT-RECORD TO WS-DISPLAY-LEN                  IMP 69 11                         
+   000268                    DISPLAY '  0 REVO  REC LEN ' WS-DISPLAY-LEN                           11                                
+   000269                    MOVE 10 TO WS-ACTIVE-FEAT-CNT                                         247                               
+   000270                    MOVE LENGTH OF REVO-EXTRACT-RECORD TO WS-DISPLAY-LEN                  IMP 69 11                         
+   000271                    DISPLAY ' 10 REVO  REC LEN ' WS-DISPLAY-LEN                           11                                
+   000272                    MOVE 20 TO WS-ACTIVE-FEAT-CNT                                         247                               
+   000273                    MOVE LENGTH OF REVO-EXTRACT-RECORD TO WS-DISPLAY-LEN                  IMP 69 11                         
+   000274                    DISPLAY ' 20 REVO  REC LEN ' WS-DISPLAY-LEN                           11                                
+   000275         000620*    ----                                                         00062029                                   
+   000276         000621     GOBACK.                                                      00062129                                   
+   000277         000630 ABC.                                                             00063029                                   
+   000278         000700     CONTINUE.                                                    00070002                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page     9                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       52   DACC-RAGRP-IDX                                                                                                           
+      123   REVO-ACCOUNT-TYPE                                                                                                        
+      210   REVO-ACCT-LVL-ZIP-CD                                                                                                     
+      143   REVO-ACCT-NO                                                                                                             
+      234   REVO-ACTIVE-FEAT                                                                                                         
+      157   REVO-BL-CYCLE-NBR                                                                                                        
+      232   REVO-COMMA-DELIM-1                                                                                                       
+      235   REVO-COMMA-DELIM-2                                                                                                       
+      242   REVO-COMMA-DELIM-3                                                                                                       
+       76   REVO-COMMA-1                                                                                                             
+      124   REVO-COMMA-10                                                                                                            
+      126   REVO-COMMA-11                                                                                                            
+      128   REVO-COMMA-12                                                                                                            
+      130   REVO-COMMA-13                                                                                                            
+      138   REVO-COMMA-14                                                                                                            
+      217   REVO-COMMA-15                                                                                                            
+      219   REVO-COMMA-16                                                                                                            
+      140   REVO-COMMA-17                                                                                                            
+      142   REVO-COMMA-18                                                                                                            
+      144   REVO-COMMA-19                                                                                                            
+       86   REVO-COMMA-2                                                                                                             
+      146   REVO-COMMA-20                                                                                                            
+      148   REVO-COMMA-21                                                                                                            
+      150   REVO-COMMA-22                                                                                                            
+      152   REVO-COMMA-23                                                                                                            
+      154   REVO-COMMA-24                                                                                                            
+      156   REVO-COMMA-25                                                                                                            
+      158   REVO-COMMA-26                                                                                                            
+      160   REVO-COMMA-27                                                                                                            
+      163   REVO-COMMA-27-A                                                                                                          
+      165   REVO-COMMA-28                                                                                                            
+      167   REVO-COMMA-29                                                                                                            
+       96   REVO-COMMA-3                                                                                                             
+      169   REVO-COMMA-30                                                                                                            
+      171   REVO-COMMA-31                                                                                                            
+      173   REVO-COMMA-32                                                                                                            
+      175   REVO-COMMA-33                                                                                                            
+      177   REVO-COMMA-34                                                                                                            
+      179   REVO-COMMA-35                                                                                                            
+      181   REVO-COMMA-36                                                                                                            
+      183   REVO-COMMA-37                                                                                                            
+      185   REVO-COMMA-38                                                                                                            
+      187   REVO-COMMA-39                                                                                                            
+      101   REVO-COMMA-4                                                                                                             
+      189   REVO-COMMA-40                                                                                                            
+      191   REVO-COMMA-41                                                                                                            
+      193   REVO-COMMA-42                                                                                                            
+      197   REVO-COMMA-43                                                                                                            
+      199   REVO-COMMA-44                                                                                                            
+      201   REVO-COMMA-45                                                                                                            
+      203   REVO-COMMA-46                                                                                                            
+      205   REVO-COMMA-47                                                                                                            
+      207   REVO-COMMA-48                                                                                                            
+      209   REVO-COMMA-49                                                                                                            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page    10                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0     106   REVO-COMMA-5                                                                                                             
+      211   REVO-COMMA-50                                                                                                            
+      111   REVO-COMMA-6                                                                                                             
+      113   REVO-COMMA-7                                                                                                             
+      115   REVO-COMMA-8                                                                                                             
+      122   REVO-COMMA-9                                                                                                             
+      168   REVO-CUST-ASSOC-ID-NO                                                                                                    
+      170   REVO-CUST-CLASS-CD                                                                                                       
+      141   REVO-CUST-ID-NO                                                                                                          
+      114   REVO-CUST-MTN-STAT-CD                                                                                                    
+       73   REVO-DETAIL                                                                                                              
+       93   REVO-DETAIL-RECORD                                                                                                       
+      147   REVO-DEVICE-MAKE                                                                                                         
+      149   REVO-DEVICE-MODEL                                                                                                        
+      176   REVO-DNS-CD                                                                                                              
+      178   REVO-DNS-ID                                                                                                              
+      151   REVO-DUNS-ULT-NUMBER                                                                                                     
+      174   REVO-ECPD-ID                                                                                                             
+      212   REVO-EMAIL-ADDR                                                                                                          
+      200   REVO-EQUIP-MAKE                                                                                                          
+      202   REVO-EQUIP-MODEL                                                                                                         
+      110   REVO-ESN-ME-ID                                                                                                           
+      153   REVO-ETNI-IP-POOL-CD                                                                                                     
+      188   REVO-EUIMID                                                                                                              
+       69   REVO-EXTRACT-RECORD. . . . . .  267 270 273                                                                              
+      239   REVO-FEAT-EFF-DD                                                                                                         
+      236   REVO-FEAT-EFF-DT                                                                                                         
+      237   REVO-FEAT-EFF-MM                                                                                                         
+      241   REVO-FEAT-EFF-YYYY                                                                                                       
+      231   REVO-FEAT-IDX                                                                                                            
+      228   REVO-FEATURES                                                                                                            
+       81   REVO-FIXED-PART-OF-RECORD. . .  84 94 215                                                                                
+       85   REVO-HDR-DATE                                                                                                            
+       87   REVO-HDR-TIME                                                                                                            
+       72   REVO-HEADER                                                                                                              
+       83   REVO-HEADER-RECORD                                                                                                       
+      166   REVO-HOME-AGENT-CD                                                                                                       
+      190   REVO-HOME-SID-BID                                                                                                        
+      206   REVO-HOME-TIME-ZONE                                                                                                      
+      186   REVO-ICCID                                                                                                               
+      125   REVO-IEC-CODE                                                                                                            
+      180   REVO-IMEI                                                                                                                
+      164   REVO-IP-ADDR-VER-NO                                                                                                      
+      162   REVO-IP-ADDRESS                                                                                                          
+      208   REVO-LN-OF-SVC-ID-NO                                                                                                     
+       95   REVO-MAJOR-MARKET                                                                                                        
+       97   REVO-MDN                                                                                                                 
+      119   REVO-MDN-STAT-CD-DD                                                                                                      
+      116   REVO-MDN-STAT-CD-EFF-DT                                                                                                  
+      117   REVO-MDN-STAT-CD-MM                                                                                                      
+      121   REVO-MDN-STAT-CD-YYYY                                                                                                    
+      102   REVO-MIN                                                                                                                 
+      103   REVO-MIN-CARRIER                                                                                                         
+      104   REVO-MIN-L-DIG                                                                                                           
+      105   REVO-MIN-REST-OF-L                                                                                                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page    11                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0     243   REVO-MTAS-FEATURE-CODE                                                                                                   
+       98   REVO-NPA                                                                                                                 
+       99   REVO-NXX                                                                                                                 
+      134   REVO-PPLAN-ACTIVATION-DD                                                                                                 
+      132   REVO-PPLAN-ACTIVATION-MM                                                                                                 
+      136   REVO-PPLAN-ACTIVATION-YYYY                                                                                               
+      145   REVO-PPLAN-SET-ID                                                                                                        
+      204   REVO-PREF-LANG-CD                                                                                                        
+      127   REVO-PRICE-PLAN                                                                                                          
+      131   REVO-PRICE-PLAN-ACTIVATION-DT                                                                                            
+      129   REVO-PRICE-PLAN-DESC                                                                                                     
+      192   REVO-PRL-BASELINE                                                                                                        
+      196   REVO-RATE-CENTER                                                                                                         
+       71   REVO-RECORD-TYPE                                                                                                         
+      139   REVO-SIM-CARD-NO                                                                                                         
+      159   REVO-STAT-REASON-CD                                                                                                      
+      194   REVO-STATE-CD                                                                                                            
+      155   REVO-SUB-ORG-ID                                                                                                          
+      112   REVO-SUBSCRIBER-IDENTIFIER                                                                                               
+      198   REVO-TECHNOLOGY-TYPE                                                                                                     
+      100   REVO-TLN                                                                                                                 
+       74   REVO-TRAILER                                                                                                             
+      214   REVO-TRAILER-RECORD                                                                                                      
+      216   REVO-TRLR-DATE                                                                                                           
+      220   REVO-TRLR-RECORD-COUNT                                                                                                   
+      218   REVO-TRLR-TIME                                                                                                           
+      195   REVO-UND-SCR1                                                                                                            
+      226   REVO-VARIABLE-PART-OF-RECORD                                                                                             
+      184   REVO-VODAFONE-IMSI                                                                                                       
+      182   REVO-VZW-IMSI                                                                                                            
+      172   REVO-ZIP-CD                                                                                                              
+       17   REVO3-COMMA-H1                                                                                                           
+       22   REVO3-COMMA-H2                                                                                                           
+       41   REVO3-COMMA-T1                                                                                                           
+       43   REVO3-COMMA-T2                                                                                                           
+       31   REVO3-COMMA-1                                                                                                            
+       36   REVO3-COMMA-2                                                                                                            
+       51   REVO3-DACC-PROD-ARRAY-OUT                                                                                                
+       48   REVO3-DACC-RAGRP-LCC-CD                                                                                                  
+       53   REVO3-DACC-RAGRP-PROD-MTAS-CD                                                                                            
+       50   REVO3-DACC-RAGRP-TBL-OUT                                                                                                 
+       15   REVO3-DETAIL                                                                                                             
+       25   REVO3-DETAIL-RECORD                                                                                                      
+       12   REVO3-EXTRACT-RECORD . . . . .  252 255 258 261 264                                                                      
+       18   REVO3-FIXED-PART-OF-RECORD . .  20 26 39                                                                                 
+       21   REVO3-HDR-DATE                                                                                                           
+       23   REVO3-HDR-TIME                                                                                                           
+       14   REVO3-HEADER                                                                                                             
+       19   REVO3-HEADER-RECORD                                                                                                      
+       27   REVO3-MDN                                                                                                                
+       32   REVO3-MIN                                                                                                                
+       33   REVO3-MIN-CARRIER                                                                                                        
+       34   REVO3-MIN-L-DIG                                                                                                          
+       35   REVO3-MIN-REST-OF-L                                                                                                      
+       28   REVO3-NPA                                                                                                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page    12                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0      29   REVO3-NXX                                                                                                                
+       13   REVO3-RECORD-TYPE                                                                                                        
+       55   REVO3-SPO-TBL-OUT                                                                                                        
+       56   REVO3-SVC-PROD-ARRAY-OUT                                                                                                 
+       60   REVO3-SVC-PROD-COMMA-3                                                                                                   
+       62   REVO3-SVC-PROD-COMMA-4                                                                                                   
+       64   REVO3-SVC-PROD-COMMA-5                                                                                                   
+       68   REVO3-SVC-PROD-COMMA-6                                                                                                   
+       54   REVO3-SVC-PROD-COMMA-7                                                                                                   
+       49   REVO3-SVC-PROD-COMMA-8                                                                                                   
+       59   REVO3-SVC-PROD-ID-OUT                                                                                                    
+       63   REVO3-SVC-PROD-LCC-CD-OUT                                                                                                
+       61   REVO3-SVC-PROD-LVL-CD-OUT                                                                                                
+       67   REVO3-SVC-PROD-MTAS-CD                                                                                                   
+       65   REVO3-SVC-PROD-MTAS-CD-ARR-OUT                                                                                           
+       30   REVO3-TLN                                                                                                                
+       16   REVO3-TRAILER                                                                                                            
+       38   REVO3-TRAILER-RECORD                                                                                                     
+       40   REVO3-TRLR-DATE                                                                                                          
+       44   REVO3-TRLR-RECORD-COUNT                                                                                                  
+       42   REVO3-TRLR-TIME                                                                                                          
+       58   SPO-IDX                                                                                                                  
+       66   SPO-MTAS-IDX                                                                                                             
+      247   WS-ACTIVE-FEAT-CNT . . . . . .  230 M266 M269 M272                                                                       
+       10   WS-ACTIVE-SVC-PROD-CNT . . . .  57 M251 M254 M257 M260 M263                                                              
+       11   WS-DISPLAY-LEN . . . . . . . .  M252 253 M255 256 M258 259 M261 262 M264 265 M267 268 M270 271 M273 274                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page    13                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      277   ABC                                                                                                                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page    14                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   COBTEMP                                                                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page    15                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID COBTEMP-----------------------------------------------------------------------------------------------------*    
+     10   1  WS-ACTIVE-SVC-PROD-CNT. . . . . . . . . . . . BLW=00000  000               DS 2C           Binary         D             
+     11   1  WS-DISPLAY-LEN. . . . . . . . . . . . . . . . BLW=00000  008               DS 4C           Binary                       
+     12   1  REVO3-EXTRACT-RECORD. . . . . . . . . . . . . BLW=00000  010               DS 0CL11518     Grp-VarLen                   
+     13     2  REVO3-RECORD-TYPE . . . . . . . . . . . . . BLW=00000  010   0 000 000   DS 1C           Display                      
+     14     88 REVO3-HEADER. . . . . . . . . . . . . . . .                                                                           
+     15     88 REVO3-DETAIL. . . . . . . . . . . . . . . .                                                                           
+     16     88 REVO3-TRAILER . . . . . . . . . . . . . . .                                                                           
+     17     2  REVO3-COMMA-H1. . . . . . . . . . . . . . . BLW=00000  011   0 000 001   DS 1C           Display                      
+     18     2  REVO3-FIXED-PART-OF-RECORD. . . . . . . . . BLW=00000  012   0 000 002   DS 32C          Display                      
+     19     2  REVO3-HEADER-RECORD . . . . . . . . . . . . BLW=00000  012   0 000 002   DS 0CL32        Group          R             
+     21       3  REVO3-HDR-DATE. . . . . . . . . . . . . . BLW=00000  012   0 000 002   DS 10C          Display                      
+     22       3  REVO3-COMMA-H2. . . . . . . . . . . . . . BLW=00000  01C   0 000 00C   DS 1C           Display                      
+     23       3  REVO3-HDR-TIME. . . . . . . . . . . . . . BLW=00000  01D   0 000 00D   DS 8C           Display                      
+     24       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00000  025   0 000 015   DS 13C          Display                      
+     25     2  REVO3-DETAIL-RECORD . . . . . . . . . . . . BLW=00000  012   0 000 002   DS 0CL32        Group          R             
+     27       3  REVO3-MDN . . . . . . . . . . . . . . . . BLW=00000  012   0 000 002   DS 0CL11        Group                        
+     28         4  REVO3-NPA . . . . . . . . . . . . . . . BLW=00000  012   0 000 002   DS 3C           Display                      
+     29         4  REVO3-NXX . . . . . . . . . . . . . . . BLW=00000  015   0 000 005   DS 3C           Display                      
+     30         4  REVO3-TLN . . . . . . . . . . . . . . . BLW=00000  018   0 000 008   DS 4C           Display                      
+     31         4  REVO3-COMMA-1 . . . . . . . . . . . . . BLW=00000  01C   0 000 00C   DS 1C           Display                      
+     32       3  REVO3-MIN . . . . . . . . . . . . . . . . BLW=00000  01D   0 000 00D   DS 0CL11        Group                        
+     33         4  REVO3-MIN-CARRIER . . . . . . . . . . . BLW=00000  01D   0 000 00D   DS 6C           Display                      
+     34         4  REVO3-MIN-L-DIG . . . . . . . . . . . . BLW=00000  023   0 000 013   DS 1C           Display                      
+     35         4  REVO3-MIN-REST-OF-L . . . . . . . . . . BLW=00000  024   0 000 014   DS 3C           Display                      
+     36         4  REVO3-COMMA-2 . . . . . . . . . . . . . BLW=00000  027   0 000 017   DS 1C           Display                      
+     37       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00000  028   0 000 018   DS 10C          Display                      
+     38     2  REVO3-TRAILER-RECORD. . . . . . . . . . . . BLW=00000  012   0 000 002   DS 0CL32        Group          R             
+     40       3  REVO3-TRLR-DATE . . . . . . . . . . . . . BLW=00000  012   0 000 002   DS 10C          Display                      
+     41       3  REVO3-COMMA-T1. . . . . . . . . . . . . . BLW=00000  01C   0 000 00C   DS 1C           Display                      
+     42       3  REVO3-TRLR-TIME . . . . . . . . . . . . . BLW=00000  01D   0 000 00D   DS 8C           Display                      
+     43       3  REVO3-COMMA-T2. . . . . . . . . . . . . . BLW=00000  025   0 000 015   DS 1C           Display                      
+     44       3  REVO3-TRLR-RECORD-COUNT . . . . . . . . . BLW=00000  026   0 000 016   DS 12C          Disp-Num                     
+     48     2  REVO3-DACC-RAGRP-LCC-CD . . . . . . . . . . BLW=00000  032   0 000 022   DS 3C           Display                      
+     49     2  REVO3-SVC-PROD-COMMA-8. . . . . . . . . . . BLW=00000  035   0 000 025   DS 1C           Display                      
+     50     2  REVO3-DACC-RAGRP-TBL-OUT. . . . . . . . . . BLW=00000  036   0 000 026   DS 0CL80        Group                        
+     51       3  REVO3-DACC-PROD-ARRAY-OUT . . . . . . . . BLW=00000  036   0 000 026   DS 0CL4         Group          O             
+     52          DACC-RAGRP-IDX. . . . . . . . . . . . . . IDX=00001  000                               Index-Name                   
+     53         4  REVO3-DACC-RAGRP-PROD-MTAS-CD . . . . . BLW=00000  036   0 000 026   DS 3C           Display                      
+     54         4  REVO3-SVC-PROD-COMMA-7. . . . . . . . . BLW=00000  039   0 000 029   DS 1C           Display                      
+     55     2  REVO3-SPO-TBL-OUT . . . . . . . . . . . . . BLW=00000  086   0 000 076   DS 0CL11400     Grp-VarLen                   
+     56       3  REVO3-SVC-PROD-ARRAY-OUT. . . . . . . . . BLW=00000  086   0 000 076   DS 0CL57        Group          O             
+     58          SPO-IDX . . . . . . . . . . . . . . . . . IDX=00002  000                               Index-Name                   
+     59         4  REVO3-SVC-PROD-ID-OUT . . . . . . . . . BLW=00000  086   0 000 076   DS 10C          Display                      
+     60         4  REVO3-SVC-PROD-COMMA-3. . . . . . . . . BLW=00000  090   0 000 080   DS 1C           Display                      
+     61         4  REVO3-SVC-PROD-LVL-CD-OUT . . . . . . . BLW=00000  091   0 000 081   DS 1C           Display                      
+     62         4  REVO3-SVC-PROD-COMMA-4. . . . . . . . . BLW=00000  092   0 000 082   DS 1C           Display                      
+     63         4  REVO3-SVC-PROD-LCC-CD-OUT . . . . . . . BLW=00000  093   0 000 083   DS 3C           Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page    16                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+     64         4  REVO3-SVC-PROD-COMMA-5. . . . . . . . . BLW=00000  096   0 000 086   DS 1C           Display                      
+     65         4  REVO3-SVC-PROD-MTAS-CD-ARR-OUT. . . . . BLW=00000  097   0 000 087   DS 0CL4         Group          O             
+     66            SPO-MTAS-IDX. . . . . . . . . . . . . . IDX=00003  000                               Index-Name                   
+     67           5  REVO3-SVC-PROD-MTAS-CD. . . . . . . . BLW=00000  097   0 000 087   DS 3C           Display                      
+     68           5  REVO3-SVC-PROD-COMMA-6. . . . . . . . BLW=00000  09A   0 000 08A   DS 1C           Display                      
+     69   1  REVO-EXTRACT-RECORD . . . . . . . . . . . . . BLW=00002  D10               DS 0CL1676      Grp-VarLen                   
+     71     2  REVO-RECORD-TYPE. . . . . . . . . . . . . . BLW=00002  D10   0 000 000   DS 1C           Display                      
+     72     88 REVO-HEADER . . . . . . . . . . . . . . . .                                                                           
+     73     88 REVO-DETAIL . . . . . . . . . . . . . . . .                                                                           
+     74     88 REVO-TRAILER. . . . . . . . . . . . . . . .                                                                           
+     76     2  REVO-COMMA-1. . . . . . . . . . . . . . . . BLW=00002  D11   0 000 001   DS 1C           Display                      
+     81     2  REVO-FIXED-PART-OF-RECORD . . . . . . . . . BLW=00002  D12   0 000 002   DS 674C         Display                      
+     83     2  REVO-HEADER-RECORD. . . . . . . . . . . . . BLW=00002  D12   0 000 002   DS 0CL674       Group          R             
+     85       3  REVO-HDR-DATE . . . . . . . . . . . . . . BLW=00002  D12   0 000 002   DS 10C          Display                      
+     86       3  REVO-COMMA-2. . . . . . . . . . . . . . . BLW=00002  D1C   0 000 00C   DS 1C           Display                      
+     87       3  REVO-HDR-TIME . . . . . . . . . . . . . . BLW=00002  D1D   0 000 00D   DS 8C           Display                      
+     91       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00002  D25   0 000 015   DS 655C         Display                      
+     93     2  REVO-DETAIL-RECORD. . . . . . . . . . . . . BLW=00002  D12   0 000 002   DS 0CL674       Group          R             
+     95       3  REVO-MAJOR-MARKET . . . . . . . . . . . . BLW=00002  D12   0 000 002   DS 4C           Display                      
+     96       3  REVO-COMMA-3. . . . . . . . . . . . . . . BLW=00002  D16   0 000 006   DS 1C           Display                      
+     97       3  REVO-MDN. . . . . . . . . . . . . . . . . BLW=00002  D17   0 000 007   DS 0CL10        Group                        
+     98         4  REVO-NPA. . . . . . . . . . . . . . . . BLW=00002  D17   0 000 007   DS 3C           Display                      
+     99         4  REVO-NXX. . . . . . . . . . . . . . . . BLW=00002  D1A   0 000 00A   DS 3C           Display                      
+    100         4  REVO-TLN. . . . . . . . . . . . . . . . BLW=00002  D1D   0 000 00D   DS 4C           Display                      
+    101       3  REVO-COMMA-4. . . . . . . . . . . . . . . BLW=00002  D21   0 000 011   DS 1C           Display                      
+    102       3  REVO-MIN. . . . . . . . . . . . . . . . . BLW=00002  D22   0 000 012   DS 0CL10        Group                        
+    103         4  REVO-MIN-CARRIER. . . . . . . . . . . . BLW=00002  D22   0 000 012   DS 6C           Display                      
+    104         4  REVO-MIN-L-DIG. . . . . . . . . . . . . BLW=00002  D28   0 000 018   DS 1C           Display                      
+    105         4  REVO-MIN-REST-OF-L. . . . . . . . . . . BLW=00002  D29   0 000 019   DS 3C           Display                      
+    106       3  REVO-COMMA-5. . . . . . . . . . . . . . . BLW=00002  D2C   0 000 01C   DS 1C           Display                      
+    110       3  REVO-ESN-ME-ID. . . . . . . . . . . . . . BLW=00002  D2D   0 000 01D   DS 14C          Display                      
+    111       3  REVO-COMMA-6. . . . . . . . . . . . . . . BLW=00002  D3B   0 000 02B   DS 1C           Display                      
+    112       3  REVO-SUBSCRIBER-IDENTIFIER. . . . . . . . BLW=00002  D3C   0 000 02C   DS 2C           Display                      
+    113       3  REVO-COMMA-7. . . . . . . . . . . . . . . BLW=00002  D3E   0 000 02E   DS 1C           Display                      
+    114       3  REVO-CUST-MTN-STAT-CD . . . . . . . . . . BLW=00002  D3F   0 000 02F   DS 2C           Display                      
+    115       3  REVO-COMMA-8. . . . . . . . . . . . . . . BLW=00002  D41   0 000 031   DS 1C           Display                      
+    116       3  REVO-MDN-STAT-CD-EFF-DT . . . . . . . . . BLW=00002  D42   0 000 032   DS 0CL10        Group                        
+    117         4  REVO-MDN-STAT-CD-MM . . . . . . . . . . BLW=00002  D42   0 000 032   DS 2C           Display                      
+    118         4  FILLER. . . . . . . . . . . . . . . . . BLW=00002  D44   0 000 034   DS 1C           Display                      
+    119         4  REVO-MDN-STAT-CD-DD . . . . . . . . . . BLW=00002  D45   0 000 035   DS 2C           Display                      
+    120         4  FILLER. . . . . . . . . . . . . . . . . BLW=00002  D47   0 000 037   DS 1C           Display                      
+    121         4  REVO-MDN-STAT-CD-YYYY . . . . . . . . . BLW=00002  D48   0 000 038   DS 4C           Display                      
+    122       3  REVO-COMMA-9. . . . . . . . . . . . . . . BLW=00002  D4C   0 000 03C   DS 1C           Display                      
+    123       3  REVO-ACCOUNT-TYPE . . . . . . . . . . . . BLW=00002  D4D   0 000 03D   DS 2C           Display                      
+    124       3  REVO-COMMA-10 . . . . . . . . . . . . . . BLW=00002  D4F   0 000 03F   DS 1C           Display                      
+    125       3  REVO-IEC-CODE . . . . . . . . . . . . . . BLW=00002  D50   0 000 040   DS 4C           Display                      
+    126       3  REVO-COMMA-11 . . . . . . . . . . . . . . BLW=00002  D54   0 000 044   DS 1C           Display                      
+    127       3  REVO-PRICE-PLAN . . . . . . . . . . . . . BLW=00002  D55   0 000 045   DS 9C           Display                      
+    128       3  REVO-COMMA-12 . . . . . . . . . . . . . . BLW=00002  D5E   0 000 04E   DS 1C           Display                      
+    129       3  REVO-PRICE-PLAN-DESC. . . . . . . . . . . BLW=00002  D5F   0 000 04F   DS 75C          Display                      
+    130       3  REVO-COMMA-13 . . . . . . . . . . . . . . BLW=00002  DAA   0 000 09A   DS 1C           Display                      
+    131       3  REVO-PRICE-PLAN-ACTIVATION-DT . . . . . . BLW=00002  DAB   0 000 09B   DS 0CL10        Group                        
+    132         4  REVO-PPLAN-ACTIVATION-MM. . . . . . . . BLW=00002  DAB   0 000 09B   DS 2C           Display                      
+    133         4  FILLER. . . . . . . . . . . . . . . . . BLW=00002  DAD   0 000 09D   DS 1C           Display                      
+    134         4  REVO-PPLAN-ACTIVATION-DD. . . . . . . . BLW=00002  DAE   0 000 09E   DS 2C           Display                      
+    135         4  FILLER. . . . . . . . . . . . . . . . . BLW=00002  DB0   0 000 0A0   DS 1C           Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page    17                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+    136         4  REVO-PPLAN-ACTIVATION-YYYY. . . . . . . BLW=00002  DB1   0 000 0A1   DS 4C           Display                      
+    138       3  REVO-COMMA-14 . . . . . . . . . . . . . . BLW=00002  DB5   0 000 0A5   DS 1C           Display                      
+    139       3  REVO-SIM-CARD-NO. . . . . . . . . . . . . BLW=00002  DB6   0 000 0A6   DS 20C          Display                      
+    140       3  REVO-COMMA-17 . . . . . . . . . . . . . . BLW=00002  DCA   0 000 0BA   DS 1C           Display                      
+    141       3  REVO-CUST-ID-NO . . . . . . . . . . . . . BLW=00002  DCB   0 000 0BB   DS 10C          Disp-Num                     
+    142       3  REVO-COMMA-18 . . . . . . . . . . . . . . BLW=00002  DD5   0 000 0C5   DS 1C           Display                      
+    143       3  REVO-ACCT-NO. . . . . . . . . . . . . . . BLW=00002  DD6   0 000 0C6   DS 5C           Disp-Num                     
+    144       3  REVO-COMMA-19 . . . . . . . . . . . . . . BLW=00002  DDB   0 000 0CB   DS 1C           Display                      
+    145       3  REVO-PPLAN-SET-ID . . . . . . . . . . . . BLW=00002  DDC   0 000 0CC   DS 5C           Disp-Num                     
+    146       3  REVO-COMMA-20 . . . . . . . . . . . . . . BLW=00002  DE1   0 000 0D1   DS 1C           Display                      
+    147       3  REVO-DEVICE-MAKE. . . . . . . . . . . . . BLW=00002  DE2   0 000 0D2   DS 3C           Display                      
+    148       3  REVO-COMMA-21 . . . . . . . . . . . . . . BLW=00002  DE5   0 000 0D5   DS 1C           Display                      
+    149       3  REVO-DEVICE-MODEL . . . . . . . . . . . . BLW=00002  DE6   0 000 0D6   DS 32C          Display                      
+    150       3  REVO-COMMA-22 . . . . . . . . . . . . . . BLW=00002  E06   0 000 0F6   DS 1C           Display                      
+    151       3  REVO-DUNS-ULT-NUMBER. . . . . . . . . . . BLW=00002  E07   0 000 0F7   DS 9C           Display                      
+    152       3  REVO-COMMA-23 . . . . . . . . . . . . . . BLW=00002  E10   0 000 100   DS 1C           Display                      
+    153       3  REVO-ETNI-IP-POOL-CD. . . . . . . . . . . BLW=00002  E11   0 000 101   DS 23C          Display                      
+    154       3  REVO-COMMA-24 . . . . . . . . . . . . . . BLW=00002  E28   0 000 118   DS 1C           Display                      
+    155       3  REVO-SUB-ORG-ID . . . . . . . . . . . . . BLW=00002  E29   0 000 119   DS 25C          Display                      
+    156       3  REVO-COMMA-25 . . . . . . . . . . . . . . BLW=00002  E42   0 000 132   DS 1C           Display                      
+    157       3  REVO-BL-CYCLE-NBR . . . . . . . . . . . . BLW=00002  E43   0 000 133   DS 2C           Display                      
+    158       3  REVO-COMMA-26 . . . . . . . . . . . . . . BLW=00002  E45   0 000 135   DS 1C           Display                      
+    159       3  REVO-STAT-REASON-CD . . . . . . . . . . . BLW=00002  E46   0 000 136   DS 2C           Display                      
+    160       3  REVO-COMMA-27 . . . . . . . . . . . . . . BLW=00002  E48   0 000 138   DS 1C           Display                      
+    162       3  REVO-IP-ADDRESS . . . . . . . . . . . . . BLW=00002  E49   0 000 139   DS 39C          Display                      
+    163       3  REVO-COMMA-27-A . . . . . . . . . . . . . BLW=00002  E70   0 000 160   DS 1C           Display                      
+    164       3  REVO-IP-ADDR-VER-NO . . . . . . . . . . . BLW=00002  E71   0 000 161   DS 1C           Display                      
+    165       3  REVO-COMMA-28 . . . . . . . . . . . . . . BLW=00002  E72   0 000 162   DS 1C           Display                      
+    166       3  REVO-HOME-AGENT-CD. . . . . . . . . . . . BLW=00002  E73   0 000 163   DS 2C           Display                      
+    167       3  REVO-COMMA-29 . . . . . . . . . . . . . . BLW=00002  E75   0 000 165   DS 1C           Display                      
+    168       3  REVO-CUST-ASSOC-ID-NO . . . . . . . . . . BLW=00002  E76   0 000 166   DS 10C          Disp-Num                     
+    169       3  REVO-COMMA-30 . . . . . . . . . . . . . . BLW=00002  E80   0 000 170   DS 1C           Display                      
+    170       3  REVO-CUST-CLASS-CD. . . . . . . . . . . . BLW=00002  E81   0 000 171   DS 3C           Display                      
+    171       3  REVO-COMMA-31 . . . . . . . . . . . . . . BLW=00002  E84   0 000 174   DS 1C           Display                      
+    172       3  REVO-ZIP-CD . . . . . . . . . . . . . . . BLW=00002  E85   0 000 175   DS 10C          Display                      
+    173       3  REVO-COMMA-32 . . . . . . . . . . . . . . BLW=00002  E8F   0 000 17F   DS 1C           Display                      
+    174       3  REVO-ECPD-ID. . . . . . . . . . . . . . . BLW=00002  E90   0 000 180   DS 10C          Display                      
+    175       3  REVO-COMMA-33 . . . . . . . . . . . . . . BLW=00002  E9A   0 000 18A   DS 1C           Display                      
+    176       3  REVO-DNS-CD . . . . . . . . . . . . . . . BLW=00002  E9B   0 000 18B   DS 5C           Display                      
+    177       3  REVO-COMMA-34 . . . . . . . . . . . . . . BLW=00002  EA0   0 000 190   DS 1C           Display                      
+    178       3  REVO-DNS-ID . . . . . . . . . . . . . . . BLW=00002  EA1   0 000 191   DS 5C           Display                      
+    179       3  REVO-COMMA-35 . . . . . . . . . . . . . . BLW=00002  EA6   0 000 196   DS 1C           Display                      
+    180       3  REVO-IMEI . . . . . . . . . . . . . . . . BLW=00002  EA7   0 000 197   DS 20C          Display                      
+    181       3  REVO-COMMA-36 . . . . . . . . . . . . . . BLW=00002  EBB   0 000 1AB   DS 1C           Display                      
+    182       3  REVO-VZW-IMSI . . . . . . . . . . . . . . BLW=00002  EBC   0 000 1AC   DS 15C          Display                      
+    183       3  REVO-COMMA-37 . . . . . . . . . . . . . . BLW=00002  ECB   0 000 1BB   DS 1C           Display                      
+    184       3  REVO-VODAFONE-IMSI. . . . . . . . . . . . BLW=00002  ECC   0 000 1BC   DS 15C          Display                      
+    185       3  REVO-COMMA-38 . . . . . . . . . . . . . . BLW=00002  EDB   0 000 1CB   DS 1C           Display                      
+    186       3  REVO-ICCID. . . . . . . . . . . . . . . . BLW=00002  EDC   0 000 1CC   DS 20C          Display                      
+    187       3  REVO-COMMA-39 . . . . . . . . . . . . . . BLW=00002  EF0   0 000 1E0   DS 1C           Display                      
+    188       3  REVO-EUIMID . . . . . . . . . . . . . . . BLW=00002  EF1   0 000 1E1   DS 15C          Display                      
+    189       3  REVO-COMMA-40 . . . . . . . . . . . . . . BLW=00002  F00   0 000 1F0   DS 1C           Display                      
+    190       3  REVO-HOME-SID-BID . . . . . . . . . . . . BLW=00002  F01   0 000 1F1   DS 5C           Display                      
+    191       3  REVO-COMMA-41 . . . . . . . . . . . . . . BLW=00002  F06   0 000 1F6   DS 1C           Display                      
+    192       3  REVO-PRL-BASELINE . . . . . . . . . . . . BLW=00002  F07   0 000 1F7   DS 6C           Display                      
+    193       3  REVO-COMMA-42 . . . . . . . . . . . . . . BLW=00002  F0D   0 000 1FD   DS 1C           Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page    18                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+    194       3  REVO-STATE-CD . . . . . . . . . . . . . . BLW=00002  F0E   0 000 1FE   DS 2C           Display                      
+    195       3  REVO-UND-SCR1 . . . . . . . . . . . . . . BLW=00002  F10   0 000 200   DS 1C           Display                      
+    196       3  REVO-RATE-CENTER. . . . . . . . . . . . . BLW=00002  F11   0 000 201   DS 10C          Display                      
+    197       3  REVO-COMMA-43 . . . . . . . . . . . . . . BLW=00002  F1B   0 000 20B   DS 1C           Display                      
+    198       3  REVO-TECHNOLOGY-TYPE. . . . . . . . . . . BLW=00002  F1C   0 000 20C   DS 10C          Display                      
+    199       3  REVO-COMMA-44 . . . . . . . . . . . . . . BLW=00002  F26   0 000 216   DS 1C           Display                      
+    200       3  REVO-EQUIP-MAKE . . . . . . . . . . . . . BLW=00002  F27   0 000 217   DS 3C           Display                      
+    201       3  REVO-COMMA-45 . . . . . . . . . . . . . . BLW=00002  F2A   0 000 21A   DS 1C           Display                      
+    202       3  REVO-EQUIP-MODEL. . . . . . . . . . . . . BLW=00002  F2B   0 000 21B   DS 32C          Display                      
+    203       3  REVO-COMMA-46 . . . . . . . . . . . . . . BLW=00002  F4B   0 000 23B   DS 1C           Display                      
+    204       3  REVO-PREF-LANG-CD . . . . . . . . . . . . BLW=00002  F4C   0 000 23C   DS 1C           Display                      
+    205       3  REVO-COMMA-47 . . . . . . . . . . . . . . BLW=00002  F4D   0 000 23D   DS 1C           Display                      
+    206       3  REVO-HOME-TIME-ZONE . . . . . . . . . . . BLW=00002  F4E   0 000 23E   DS 3C           Display                      
+    207       3  REVO-COMMA-48 . . . . . . . . . . . . . . BLW=00002  F51   0 000 241   DS 1C           Display                      
+    208       3  REVO-LN-OF-SVC-ID-NO. . . . . . . . . . . BLW=00002  F52   0 000 242   DS 26C          Display                      
+    209       3  REVO-COMMA-49 . . . . . . . . . . . . . . BLW=00002  F6C   0 000 25C   DS 1C           Display                      
+    210       3  REVO-ACCT-LVL-ZIP-CD. . . . . . . . . . . BLW=00002  F6D   0 000 25D   DS 10C          Display                      
+    211       3  REVO-COMMA-50 . . . . . . . . . . . . . . BLW=00002  F77   0 000 267   DS 1C           Display                      
+    212       3  REVO-EMAIL-ADDR . . . . . . . . . . . . . BLW=00002  F78   0 000 268   DS 60C          Display                      
+    214     2  REVO-TRAILER-RECORD . . . . . . . . . . . . BLW=00002  D12   0 000 002   DS 0CL674       Group          R             
+    216       3  REVO-TRLR-DATE. . . . . . . . . . . . . . BLW=00002  D12   0 000 002   DS 10C          Display                      
+    217       3  REVO-COMMA-15 . . . . . . . . . . . . . . BLW=00002  D1C   0 000 00C   DS 1C           Display                      
+    218       3  REVO-TRLR-TIME. . . . . . . . . . . . . . BLW=00002  D1D   0 000 00D   DS 8C           Display                      
+    219       3  REVO-COMMA-16 . . . . . . . . . . . . . . BLW=00002  D25   0 000 015   DS 1C           Display                      
+    220       3  REVO-TRLR-RECORD-COUNT. . . . . . . . . . BLW=00002  D26   0 000 016   DS 12C          Disp-Num                     
+    224       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00002  D32   0 000 022   DS 642C         Display                      
+    226     2  REVO-VARIABLE-PART-OF-RECORD. . . . . . . . BLW=00002  FB4   0 000 2A4   DS 0CL1000      Grp-VarLen                   
+    228       3  REVO-FEATURES . . . . . . . . . . . . . . BLW=00002  FB4   0 000 2A4   DS 0CL20        Group          O             
+    231          REVO-FEAT-IDX . . . . . . . . . . . . . . IDX=00004  000                               Index-Name                   
+    232         4  REVO-COMMA-DELIM-1. . . . . . . . . . . BLW=00002  FB4   0 000 2A4   DS 1C           Display                      
+    234         4  REVO-ACTIVE-FEAT. . . . . . . . . . . . BLW=00002  FB5   0 000 2A5   DS 4C           Display                      
+    235         4  REVO-COMMA-DELIM-2. . . . . . . . . . . BLW=00002  FB9   0 000 2A9   DS 1C           Display                      
+    236         4  REVO-FEAT-EFF-DT. . . . . . . . . . . . BLW=00002  FBA   0 000 2AA   DS 0CL10        Group                        
+    237           5  REVO-FEAT-EFF-MM. . . . . . . . . . . BLW=00002  FBA   0 000 2AA   DS 2C           Display                      
+    238           5  FILLER. . . . . . . . . . . . . . . . BLW=00002  FBC   0 000 2AC   DS 1C           Display                      
+    239           5  REVO-FEAT-EFF-DD. . . . . . . . . . . BLW=00002  FBD   0 000 2AD   DS 2C           Display                      
+    240           5  FILLER. . . . . . . . . . . . . . . . BLW=00002  FBF   0 000 2AF   DS 1C           Display                      
+    241           5  REVO-FEAT-EFF-YYYY. . . . . . . . . . BLW=00002  FC0   0 000 2B0   DS 4C           Display                      
+    242         4  REVO-COMMA-DELIM-3. . . . . . . . . . . BLW=00002  FC4   0 000 2B4   DS 1C           Display                      
+    243         4  REVO-MTAS-FEATURE-CODE. . . . . . . . . BLW=00002  FC5   0 000 2B5   DS 3C           Display                      
+    247   77 WS-ACTIVE-FEAT-CNT. . . . . . . . . . . . . . BLW=00003  3A0               DS 2C           Binary         D             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page    19                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 00002C BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000344 FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |    
+ 00011C  (LIT+32)     4040                                                                     |                                |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page    20                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000128 FOR 000219 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 00013C  (LIT+0)      FFFFFFFC 00001000 00000001 FFFFFFFF 000002A4 00000076 00000000 000A0002  |...................u............|    
+ 00015C  (LIT+32)     00140039 40F2F040 D9C5E5D6 4040D9C5 C340D3C5 D54040F1 F040D9C5 E5D64040  |.... 20 REVO  REC LEN  10 REVO  |    
+ 00017C  (LIT+64)     D9C5C340 D3C5D540 4040F040 D9C5E5D6 4040D9C5 C340D3C5 D54040F2 F040D9C5  |REC LEN   0 REVO  REC LEN  20 RE|    
+ 00019C  (LIT+96)     E5D6F340 D9C5C340 D3C5D540 40F1F040 D9C5E5D6 F340D9C5 C340D3C5 D54040F2  |VO3 REC LEN  10 REVO3 REC LEN  2|    
+ 0001BC  (LIT+128)    4040D9C5 E5D6F340 D9C5C340 D3C5D540 40F14040 D9C5E5D6 F340D9C5 C340D3C5  |  REVO3 REC LEN  1  REVO3 REC LE|    
+ 0001DC  (LIT+160)    D54040F0 4040D9C5 E5D6F340 D9C5C340 D3C5D540 E2E8E2D6 E4E34040 C9C7E9E2  |N  0  REVO3 REC LEN SYSOUT  IGZS|    
+ 0001FC  (LIT+192)    D9E3C3C4 C3D6C2E3 C5D4D700 00000000 00012C00 00000400 00013C00 00000100  |RTCDCOBTEMP.....................|    
+ 00021C  (LIT+224)    00014000 00000400 00000000 00000000 00000000 00000000 00000000 00000000  |.. .............................|    
+ 00023C  (LIT+256)    00000000 00000080 00000040 00000000 00000000 00000040 00000000 00000000  |........... ........... ........|    
+ 00025C  (LIT+288)    00000000 00000040 00000000 25C00001 C0000708 00002400 D8014000 00120800  |....... ................Q. .....|    
+ 00027C  (LIT+320)    00240038 0004000A 0900012C 0008FF01 40000012 08000024 004A0004 000A0900  |................ ........J......|    
+ 00029C  (LIT+352)    012C0008 FF014000 00120800 0024005C 0004000A 0900012C 0008FF01 40000012  |...... ........*............ ...|    
+ 0002BC  (LIT+384)    08000024 006E0004 000A0900 012C0008 FF014000 00120800 00240080 0004000A  |.....>............ .............|    
+ 0002DC  (LIT+416)    0900012C 0008FF01 40000012 08000024 00920004 000A0900 012C0008 FF014000  |........ ........k............ .|    
+ 0002FC  (LIT+448)    00120800 002400A4 0004000A 0900012C 0008FF01 40000012 08000024 00B60004  |.......u............ ...........|    
+ 00031C  (LIT+480)    000A0900 012C0008 FF400000 000040C0 00014000 07080000 2400D802 C0000708  |......... .... ... .......Q.....|    
+ 00033C  (LIT+512)    00002400 D8                                                              |....Q                           |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000251 000542 MOVE                          000252 000548 MOVE                          000253 00056E DISPLAY                       
+ 000254 00057C MOVE                          000255 000582 MOVE                          000256 0005AC DISPLAY                       
+ 000257 0005B6 MOVE                          000258 0005BC MOVE                          000259 0005E6 DISPLAY                       
+ 000260 0005F0 MOVE                          000261 0005F6 MOVE                          000262 000620 DISPLAY                       
+ 000263 00062A MOVE                          000264 000630 MOVE                          000265 00065A DISPLAY                       
+ 000266 000664 MOVE                          000267 00066E MOVE                          000268 000698 DISPLAY                       
+ 000269 0006A2 MOVE                          000270 0006A8 MOVE                          000271 0006D2 DISPLAY                       
+ 000272 0006DC MOVE                          000273 0006E2 MOVE                          000274 00070C DISPLAY                       
+ 000276 000716 GOBACK                        000278 00071E CONTINUE                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page    21                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    00013C  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000140  INDEX CELLS                                                                                              
+                    000150  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page    22                
+0                                                                                                                                    
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  SAVE AREA FOR FLOAT REGISTERS 8-15                                                                       
+                  00000110  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  00000130  VARIABLE-LENGTH CELLS                                                                                    
+                  00000158  ODO SAVE CELLS                                                                                           
+                  00000160  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000174  PERFORM SAVE CELLS                                                                                       
+                  000001A0  TEMPORARY STORAGE-2                                                                                      
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000164 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 000033A2 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 000001B0 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 0007C8                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 000910 FOR LENGTH 00009E                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COBTEMP   Date 09/17/2019  Time 08:06:16   Page    23                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYSC0205-W   Warning message(s) were issued during library phase processing.  Refer to the beginning of the listing.       
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       4           1              3                                                                                         
+-* Statistics for COBOL program COBTEMP:                                                                                             
+ *    Source records = 278                                                                                                           
+ *    Data Division statements = 186                                                                                                 
+ *    Procedure Division statements = 26                                                                                             
+0End of compilation 1,  program COBTEMP,  highest severity 4.                                                                        
+0Return code 4                                                                                                                       

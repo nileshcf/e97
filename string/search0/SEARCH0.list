@@ -1,0 +1,543 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 02/18/2021  Time 03:32:22   Page     1                
+0Invocation parameters:                                                                                                              
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(OPT),AWO,NUMPROC(NOPFD),TEST(ALL,SYM,SEPARATE)                                                      
+                                                                                                                                     
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"  
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no   
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".                                    
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler         
+                       invocation parameter took precedence.                                                                         
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(COMPAT)                                                                                                                    
+    AWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 02/18/2021  Time 03:32:22   Page     2                
+0 NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+    TEST(HOOK,SEPARATE,NOEJPD)                                                                                                       
+  NOTHREAD                                                                                                                           
+    TRUNC(OPT)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               RT010     Date 02/18/2021  Time 03:32:22   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0/* RT010                                                                                                                            
+   000001         000100 IDENTIFICATION DIVISION.                                         00010003                                   
+   000002         000200 PROGRAM-ID. RT010.                                               00020003                                   
+   000003         000300 ENVIRONMENT DIVISION.                                            00030003                                   
+   000004         000400 DATA DIVISION.                                                   00040003                                   
+   000005         000500 WORKING-STORAGE SECTION.                                         00050003                                   
+   000006         000600                                                                  00060003                                   
+   000007         000610 01 REMAINDER-NUMBER PIC 99999.                                   00061003 BLW=00000+000         5C          
+   000008         000611 01 WT-FIELDS.                                                    00061103 BLW=00000+008         0CL36       
+   000009         000612    05 WT-CODE-CTRL OCCURS 6   TIMES                              00061203 BLW=00000+008,0000000 0CL6        
+   000010         000613           ASCENDING KEY IS WS-CODE-VALUE                         00061303 12                                
+   000011         000614           INDEXED BY WT-CODE-CTRL-INDEX.                         00061403 IDX=00001+000                     
+   000012         000615       10 WS-CODE-VALUE   PIC X(03).                              00061503 BLW=00000+008,0000000 3C          
+   000013         000616       10 WS-CODE-DESC    PIC X(03).                              00061603 BLW=00000+00B,0000003 3C          
+   000014         000617 01 WS-SEARCH        PIC X(03).                                   00061703 BLW=00000+030         3C          
+   000015         000618 01 WS-XML-DOC-TEXT  PIC X(1000).                                 00061803 BLW=00000+038         1000C       
+   000016         000619 01 WS-XML-DOC-LEN   PIC S9(9) COMP.                              00061903 BLW=00000+420         4C          
+   000017         000620 01 WS-JEMS.                                                      00062003 BLW=00000+428         0CL14       
+   000018         000621    05 WS-INST-LOAN-JEMS-AUD-REC.                                 00062103 BLW=00000+428,0000000 0CL14       
+   000019         000622       10 TB05323-FIN-EVNT-NO PIC 9(09) COMP.                     00062203 BLW=00000+428,0000000 4C          
+   000020         000623       10 TB05323-FIN-MKT-ID  PIC X(03).                          00062303 BLW=00000+42C,0000004 3C          
+   000021         000624       10 TB05323-JEMS-AUDIT-ACT-CD  PIC X.                       00062403 BLW=00000+42F,0000007 1C          
+   000022         000625       10 WS-FINANCIAL-CATEGORY   PIC S9(09) COMP.                00062503 BLW=00000+430,0000008 4C          
+   000023         000626       10 WS-FIN-SHORT-CATEGORY   PIC S9(04) COMP.                00062603 BLW=00000+434,000000C 2C          
+   000024         000627*     *                                                           00062703                                   
+   000025         000628 01 WS-SUMMARY.                                                   00062803 BLW=00000+438         0CL1625004  
+   000026         000629      05 WS-SUMMARY-SUBLDG-MAX-CNTR PIC S9(09) COMP VALUE +5.     00062903 BLW=00000+438,0000000 4C          
+   000027         000630      05 WS-SUMMARY-SUBLDG-ENTRIES OCCURS 1 TO 125000             00063003 BLW=00000+43C,0000004 0CL13       
+   000028         000631                    DEPENDING ON WS-SUMMARY-SUBLDG-MAX-CNTR       00063103 26                                
+   000029         000632                    ASCENDING KEY WS-SUMMARY-FIN-EVNT-NO          00063203 33                                
+   000030         000633                                  WS-SUMMARY-FIN-CAT              00063303 34                                
+   000031         000634                                  WS-SUMMARY-FIN-MKT-ID           00063403 35                                
+   000032         000635                    INDEXED BY WS-SUMMARY-SUBLDG-INDEX.           00063503 IDX=00002+000                     
+   000033         000636        10 WS-SUMMARY-FIN-EVNT-NO  PIC S9(09) COMP.               00063603 BLW=00000+43C,0000004 4C          
+   000034         000637        10 WS-SUMMARY-FIN-CAT      PIC S9(09) COMP.               00063703 BLW=00000+440,0000008 4C          
+   000035         000638        10 WS-SUMMARY-FIN-MKT-ID   PIC X(03).                     00063803 BLW=00000+444,000000C 3C          
+   000036         000639        10 WS-SUMMARY-FIN-JEMS-APPL-ID PIC X(02).                 00063903 BLW=00000+447,000000F 2C          
+   000037         000640 LINKAGE SECTION.                                                 00064003                                   
+   000038         000641 01 FIRST-NUMBER  PIC 99999.                                      00064103 BLL=00001+000         5C          
+   000039         000642 01 SECOND-NUMBER PIC 99999.                                      00064203 BLL=00002+000         5C          
+   000040         000643 01 RESULT-NUMBER PIC 99999.                                      00064303 BLL=00003+000         5C          
+   000041         000644 PROCEDURE DIVISION USING FIRST-NUMBER , SECOND-NUMBER            00064403 38 39                             
+   000042         000645       RESULT-NUMBER.                                             00064503 40                                
+   000043         000646*                                                                 00064603                                   
+   000044         000647        MOVE   676 TO WS-SUMMARY-FIN-EVNT-NO(1)                   00064703 33                                
+   000045         000648        MOVE   676 TO WS-SUMMARY-FIN-EVNT-NO(2)                   00064803 33                                
+   000046         000649        MOVE   676 TO WS-SUMMARY-FIN-EVNT-NO(3)                   00064903 33                                
+   000047         000650        MOVE   676 TO WS-SUMMARY-FIN-EVNT-NO(4)                   00065003 33                                
+   000048         000651        MOVE   676 TO WS-SUMMARY-FIN-EVNT-NO(5)                   00065103 33                                
+   000049         000652*                                                                 00065203                                   
+   000050         000653        MOVE 'T00' TO WS-SUMMARY-FIN-MKT-ID(1)                    00065303 35                                
+   000051         000654        MOVE 'T02' TO WS-SUMMARY-FIN-MKT-ID(2)                    00065403 35                                
+   000052         000655        MOVE 'T02' TO WS-SUMMARY-FIN-MKT-ID(3)                    00065503 35                                
+   000053         000656*       MOVE 'T99' TO WS-SUMMARY-FIN-MKT-ID(4)                    00065605                                   
+   000054         000657        MOVE 'T02' TO WS-SUMMARY-FIN-MKT-ID(4)                    00065705 35                                
+   000055         000658        MOVE 'T02' TO WS-SUMMARY-FIN-MKT-ID(5)                    00065805 35                                
+   000056         000659*                                                                 00065905                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               RT010     Date 02/18/2021  Time 03:32:22   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000057         000660        MOVE 28736 TO WS-SUMMARY-FIN-CAT(1)                       00066005 34                                
+   000058         000661        MOVE 28896 TO WS-SUMMARY-FIN-CAT(2)                       00066105 34                                
+   000059         000662        MOVE 28902 TO WS-SUMMARY-FIN-CAT(3)                       00066205 34                                
+   000060         000663        MOVE 28904 TO WS-SUMMARY-FIN-CAT(4)                       00066305 34                                
+   000061         000664        MOVE 29126 TO WS-SUMMARY-FIN-CAT(5)                       00066405 34                                
+   000062         000665*                                                                 00066505                                   
+   000063         000666       MOVE 676 TO TB05323-FIN-EVNT-NO                            00066605 19                                
+   000064         000667       MOVE 'T02' TO TB05323-FIN-MKT-ID                           00066705 20                                
+   000065         000668       MOVE 29126 TO WS-FINANCIAL-CATEGORY                        00066805 22                                
+   000066         000669       MOVE 29126 TO WS-FIN-SHORT-CATEGORY                        00066905 23                                
+   000067         000670*                                                                 00067005                                   
+   000068         000671       PERFORM 0100-SEARCH THRU 0100-EXIT.                        00067105 109 123                           
+   000069         000672*                                                                 00067205                                   
+   000070         000673       PERFORM 0110-SEARCH THRU 0110-EXIT.                        00067305 125 139                           
+   000071         000674       DISPLAY '-------------------------------------------'      00067405                                   
+   000072         000675       MOVE "120" TO WS-CODE-VALUE(1)                             00067505 12                                
+   000073         000676       MOVE "121" TO WS-CODE-VALUE(2)                             00067605 12                                
+   000074         000677       MOVE "122" TO WS-CODE-VALUE(3)                             00067705 12                                
+   000075         000678       MOVE "125" TO WS-CODE-VALUE(4)                             00067805 12                                
+   000076         000679       MOVE "127" TO WS-CODE-VALUE(5)                             00067905 12                                
+   000077         000680       MOVE "129" TO WS-CODE-VALUE(6)                             00068005 12                                
+   000078         000681       MOVE "AAA" TO WS-CODE-DESC(1)                              00068105 13                                
+   000079         000690       MOVE "BBB" TO WS-CODE-DESC(2)                              00069003 13                                
+   000080         000700       MOVE "CCC" TO WS-CODE-DESC(3)                              00070003 13                                
+   000081         000800       MOVE "EEE" TO WS-CODE-DESC(4)                              00080003 13                                
+   000082         000810       MOVE "GGG" TO WS-CODE-DESC(5)                              00081003 13                                
+   000083         000820       MOVE "HHH" TO WS-CODE-DESC(6)                              00082003 13                                
+   000084         000830                                                                  00083003                                   
+   000085         000840*                                                                 00084003                                   
+   000086         000850       DISPLAY '-------------------------------------------'      00085003                                   
+   000087         000860       DISPLAY ' ABOUT TO SEARCH 122 '                            00086003                                   
+   000088         000870       MOVE "122" TO WS-SEARCH                                    00087003 14                                
+   000089         000880       PERFORM 0200-SEARCH THRU 0200-EXIT.                        00088003 141 180                           
+   000090         000890*                                                                 00089003                                   
+   000091         000900       DISPLAY '-------------------------------------------'      00090003                                   
+   000092         000910       DISPLAY ' ABOUT TO SEARCH 123 '                            00091003                                   
+   000093         000920       MOVE "123" TO WS-SEARCH                                    00092003 14                                
+   000094         000930       PERFORM 0200-SEARCH THRU 0200-EXIT.                        00093003 141 180                           
+   000095         000940*                                                                 00094003                                   
+   000096         000950       DISPLAY '-------------------------------------------'      00095003                                   
+   000097         000960       DISPLAY ' ABOUT TO SEARCH 127 '                            00096003                                   
+   000098         000970       MOVE "127" TO WS-SEARCH                                    00097003 14                                
+   000099         000980       PERFORM 0200-SEARCH THRU 0200-EXIT.                        00098003 141 180                           
+   000100         000990*                                                                 00099003                                   
+   000101         000991       DISPLAY '-------------------------------------------'      00099103                                   
+   000102         000992       DISPLAY ' ABOUT TO SEARCH 129 '                            00099203                                   
+   000103         000993       MOVE "129" TO WS-SEARCH                                    00099303 14                                
+   000104         000994       PERFORM 0200-SEARCH THRU 0200-EXIT.                        00099403 141 180                           
+   000105         000995*                                                                 00099503                                   
+   000106         000996       CONTINUE.                                                  00099603                                   
+   000107         000997 PROGRAM-DONE.                                                    00099703                                   
+   000108         000998     STOP RUN.                                                    00099803                                   
+   000109         000999 0100-SEARCH.                                                     00099903                                   
+   000110         001000            SEARCH ALL WS-SUMMARY-SUBLDG-ENTRIES                  00100003 27                                
+   000111         001100                AT END                                            00110003                                   
+   000112      1  001200                   DISPLAY ' NOT FOUND DURING SEARCH ALL '        00120003                                   
+   000113         001300            WHEN WS-SUMMARY-FIN-EVNT-NO (WS-SUMMARY-SUBLDG-INDEX) 00130003 33 32                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               RT010     Date 02/18/2021  Time 03:32:22   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000114         001400               = TB05323-FIN-EVNT-NO OF WS-INST-LOAN-JEMS-AUD-REC 00140003 19 18                             
+   000115         001500            AND  WS-SUMMARY-FIN-MKT-ID  (WS-SUMMARY-SUBLDG-INDEX) 00150003 35 32                             
+   000116         001600               = TB05323-FIN-MKT-ID  OF WS-INST-LOAN-JEMS-AUD-REC 00160003 20 18                             
+   000117         001700            AND  WS-SUMMARY-FIN-CAT     (WS-SUMMARY-SUBLDG-INDEX) 00170003 34 32                             
+   000118         001800               = WS-FINANCIAL-CATEGORY                            00180003 22                                
+   000119      1  001900                DISPLAY 'JO FOUND '                               00190003                                   
+   000120         002000            END-SEARCH                                            00200003                                   
+   000121         002100                                                                  00210003                                   
+   000122         002200       CONTINUE.                                                  00220003                                   
+   000123         002300 0100-EXIT.                                                       00230003                                   
+   000124         002400       EXIT.                                                      00240003                                   
+   000125         002500 0110-SEARCH.                                                     00250003                                   
+   000126         002600            SEARCH ALL WS-SUMMARY-SUBLDG-ENTRIES                  00260003 27                                
+   000127         002700                AT END                                            00270003                                   
+   000128      1  002800                   DISPLAY ' NOT FOUND DURING SEARCH ALL '        00280003                                   
+   000129         002900            WHEN WS-SUMMARY-FIN-EVNT-NO (WS-SUMMARY-SUBLDG-INDEX) 00290003 33 32                             
+   000130         003000               = TB05323-FIN-EVNT-NO OF WS-INST-LOAN-JEMS-AUD-REC 00300003 19 18                             
+   000131         003100            AND  WS-SUMMARY-FIN-MKT-ID  (WS-SUMMARY-SUBLDG-INDEX) 00310003 35 32                             
+   000132         003200               = TB05323-FIN-MKT-ID  OF WS-INST-LOAN-JEMS-AUD-REC 00320003 20 18                             
+   000133         003300            AND  WS-SUMMARY-FIN-CAT     (WS-SUMMARY-SUBLDG-INDEX) 00330003 34 32                             
+   000134         003400               = WS-FIN-SHORT-CATEGORY                            00340003 23                                
+   000135      1  003500                DISPLAY 'JO FOUND '                               00350003                                   
+   000136         003600            END-SEARCH                                            00360003                                   
+   000137         003700                                                                  00370003                                   
+   000138         003800       CONTINUE.                                                  00380003                                   
+   000139         003900 0110-EXIT.                                                       00390003                                   
+   000140         004000       EXIT.                                                      00400003                                   
+   000141         004010 0200-SEARCH.                                                     00401003                                   
+   000142         004020*                                                                 00402003                                   
+   000143         004030       DISPLAY ' REGULAR SEARCH      '                            00403003                                   
+   000144         004031       SET WT-CODE-CTRL-INDEX TO 1                                00403103 11                                
+   000145         004032       SEARCH WT-CODE-CTRL                                        00403203 9                                 
+   000146         004033       AT END                                                     00403303                                   
+   000147      1  004034          DISPLAY " SEARCH ELEMENT NOT FOUND "                    00403403                                   
+   000148         004035       WHEN WS-CODE-VALUE (WT-CODE-CTRL-INDEX) = WS-SEARCH        00403503 12 11 14                          
+   000149      1  004036          DISPLAY 'WS-CODE-DESC(WT-CODE-CTRL-INDEX) = '           00403604                                   
+   000150      1  004037          DISPLAY WS-CODE-DESC(WT-CODE-CTRL-INDEX)                00403704 13 11                             
+   000151         004038       END-SEARCH                                                 00403804                                   
+   000152         004039*                                                                 00403904                                   
+   000153         004040       DISPLAY ' BINARY SEARCH       '                            00404004                                   
+   000154         004041       SET WT-CODE-CTRL-INDEX TO 1                                00404104 11                                
+   000155         004050       SEARCH ALL WT-CODE-CTRL                                    00405003 9                                 
+   000156         004060       AT END                                                     00406003                                   
+   000157      1  004070          DISPLAY " SEARCH ALL ELEMENT NOT FOUND "                00407003                                   
+   000158         004071       WHEN WS-CODE-VALUE (WT-CODE-CTRL-INDEX) = WS-SEARCH        00407103 12 11 14                          
+   000159      1  004072          DISPLAY WS-CODE-DESC(WT-CODE-CTRL-INDEX)                00407203 13 11                             
+   000160         004073       END-SEARCH                                                 00407303                                   
+   000161         004074*                                                                 00407403                                   
+   000162         004075       DISPLAY ' EVALUATE            '                            00407503                                   
+   000163         004076       EVALUATE TRUE                                              00407603                                   
+   000164         004077       WHEN WS-SEARCH                         = "129"             00407703 14                                
+   000165      1  004078          DISPLAY 'SEARCH MUST HAVE FOUND ' WS-SEARCH             00407803 14                                
+   000166         004079       WHEN WS-SEARCH                         = "127"             00407903 14                                
+   000167      1  004080          DISPLAY 'SEARCH MUST HAVE FOUND ' WS-SEARCH             00408003 14                                
+   000168         004090       WHEN WS-SEARCH                         = "125"             00409003 14                                
+   000169      1  004091          DISPLAY 'SEARCH MUST HAVE FOUND ' WS-SEARCH             00409103 14                                
+   000170         004092       WHEN WS-SEARCH                         = "122"             00409203 14                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               RT010     Date 02/18/2021  Time 03:32:22   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000171      1  004093          DISPLAY 'SEARCH MUST HAVE FOUND ' WS-SEARCH             00409303 14                                
+   000172         004094       WHEN WS-SEARCH                         = "121"             00409403 14                                
+   000173      1  004095          DISPLAY 'SEARCH MUST HAVE FOUND ' WS-SEARCH             00409503 14                                
+   000174         004096       WHEN WS-SEARCH                         = "120"             00409603 14                                
+   000175      1  004097          DISPLAY 'SEARCH MUST HAVE FOUND ' WS-SEARCH             00409703 14                                
+   000176         004099       WHEN OTHER                                                 00409904                                   
+   000177      1  004100          DISPLAY 'NO SUCH VALUE EXIST  '                         00410004                                   
+   000178         004101       END-EVALUATE                                               00410104                                   
+   000179         004110      CONTINUE.                                                   00411003                                   
+   000180         004120 0200-EXIT.                                                       00412003                                   
+   000181         004130      EXIT.                                                       00413003                                   
+ */ RT010                                                                                                                            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               RT010     Date 02/18/2021  Time 03:32:22   Page     7                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       38   FIRST-NUMBER . . . . . . . . .  41                                                                                       
+        7   REMAINDER-NUMBER                                                                                                         
+       40   RESULT-NUMBER. . . . . . . . .  42                                                                                       
+       39   SECOND-NUMBER. . . . . . . . .  41                                                                                       
+       19   TB05323-FIN-EVNT-NO. . . . . .  M63 114 130                                                                              
+       20   TB05323-FIN-MKT-ID . . . . . .  M64 116 132                                                                              
+       21   TB05323-JEMS-AUDIT-ACT-CD                                                                                                
+       13   WS-CODE-DESC . . . . . . . . .  M78 M79 M80 M81 M82 M83 150 159                                                          
+       12   WS-CODE-VALUE. . . . . . . . .  10 M72 M73 M74 M75 M76 M77 148 158                                                       
+       23   WS-FIN-SHORT-CATEGORY. . . . .  M66 134                                                                                  
+       22   WS-FINANCIAL-CATEGORY. . . . .  M65 118                                                                                  
+       18   WS-INST-LOAN-JEMS-AUD-REC. . .  114 116 130 132                                                                          
+       17   WS-JEMS                                                                                                                  
+       14   WS-SEARCH. . . . . . . . . . .  M88 M93 M98 M103 148 158 164 165 166 167 168 169 170 171 172 173 174 175                 
+       25   WS-SUMMARY                                                                                                               
+       34   WS-SUMMARY-FIN-CAT . . . . . .  30 M57 M58 M59 M60 M61 117 133                                                           
+       33   WS-SUMMARY-FIN-EVNT-NO . . . .  29 M44 M45 M46 M47 M48 113 129                                                           
+       36   WS-SUMMARY-FIN-JEMS-APPL-ID                                                                                              
+       35   WS-SUMMARY-FIN-MKT-ID. . . . .  31 M50 M51 M52 M54 M55 115 131                                                           
+       27   WS-SUMMARY-SUBLDG-ENTRIES. . .  110 126                                                                                  
+       32   WS-SUMMARY-SUBLDG-INDEX. . . .  113 115 117 129 131 133                                                                  
+       26   WS-SUMMARY-SUBLDG-MAX-CNTR . .  28                                                                                       
+       16   WS-XML-DOC-LEN                                                                                                           
+       15   WS-XML-DOC-TEXT                                                                                                          
+        9   WT-CODE-CTRL . . . . . . . . .  145 155                                                                                  
+       11   WT-CODE-CTRL-INDEX . . . . . .  M144 148 150 M154 158 159                                                                
+        8   WT-FIELDS                                                                                                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               RT010     Date 02/18/2021  Time 03:32:22   Page     8                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      107   PROGRAM-DONE                                                                                                             
+      123   0100-EXIT. . . . . . . . . . .  E68                                                                                      
+      109   0100-SEARCH. . . . . . . . . .  P68                                                                                      
+      139   0110-EXIT. . . . . . . . . . .  E70                                                                                      
+      125   0110-SEARCH. . . . . . . . . .  P70                                                                                      
+      180   0200-EXIT. . . . . . . . . . .  E89 E94 E99 E104                                                                         
+      141   0200-SEARCH. . . . . . . . . .  P89 P94 P99 P104                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               RT010     Date 02/18/2021  Time 03:32:22   Page     9                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   RT010                                                                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               RT010     Date 02/18/2021  Time 03:32:22   Page    10                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID RT010-------------------------------------------------------------------------------------------------------*    
+      7   1  REMAINDER-NUMBER. . . . . . . . . . . . . . . BLW=00000  000               DS 5C           Disp-Num                     
+      8   1  WT-FIELDS . . . . . . . . . . . . . . . . . . BLW=00000  008               DS 0CL36        Group                        
+      9     2  WT-CODE-CTRL. . . . . . . . . . . . . . . . BLW=00000  008   0 000 000   DS 0CL6         Group          O             
+     11        WT-CODE-CTRL-INDEX. . . . . . . . . . . . . IDX=00001  000                               Index-Name                   
+     12       3  WS-CODE-VALUE . . . . . . . . . . . . . . BLW=00000  008   0 000 000   DS 3C           Display                      
+     13       3  WS-CODE-DESC. . . . . . . . . . . . . . . BLW=00000  00B   0 000 003   DS 3C           Display                      
+     14   1  WS-SEARCH . . . . . . . . . . . . . . . . . . BLW=00000  030               DS 3C           Display                      
+     15   1  WS-XML-DOC-TEXT . . . . . . . . . . . . . . . BLW=00000  038               DS 1000C        Display                      
+     16   1  WS-XML-DOC-LEN. . . . . . . . . . . . . . . . BLW=00000  420               DS 4C           Binary                       
+     17   1  WS-JEMS . . . . . . . . . . . . . . . . . . . BLW=00000  428               DS 0CL14        Group                        
+     18     2  WS-INST-LOAN-JEMS-AUD-REC . . . . . . . . . BLW=00000  428   0 000 000   DS 0CL14        Group                        
+     19       3  TB05323-FIN-EVNT-NO . . . . . . . . . . . BLW=00000  428   0 000 000   DS 4C           Binary                       
+     20       3  TB05323-FIN-MKT-ID. . . . . . . . . . . . BLW=00000  42C   0 000 004   DS 3C           Display                      
+     21       3  TB05323-JEMS-AUDIT-ACT-CD . . . . . . . . BLW=00000  42F   0 000 007   DS 1C           Display                      
+     22       3  WS-FINANCIAL-CATEGORY . . . . . . . . . . BLW=00000  430   0 000 008   DS 4C           Binary                       
+     23       3  WS-FIN-SHORT-CATEGORY . . . . . . . . . . BLW=00000  434   0 000 00C   DS 2C           Binary                       
+     25   1  WS-SUMMARY. . . . . . . . . . . . . . . . . . BLW=00000  438               DS 0CL1625004   Grp-VarLen     OG            
+     26     2  WS-SUMMARY-SUBLDG-MAX-CNTR. . . . . . . . . BLW=00000  438   0 000 000   DS 4C           Binary         D             
+     27     2  WS-SUMMARY-SUBLDG-ENTRIES . . . . . . . . . BLW=00000  43C   0 000 004   DS 0CL13        Group          O             
+     32        WS-SUMMARY-SUBLDG-INDEX . . . . . . . . . . IDX=00002  000                               Index-Name                   
+     33       3  WS-SUMMARY-FIN-EVNT-NO. . . . . . . . . . BLW=00000  43C   0 000 004   DS 4C           Binary                       
+     34       3  WS-SUMMARY-FIN-CAT. . . . . . . . . . . . BLW=00000  440   0 000 008   DS 4C           Binary                       
+     35       3  WS-SUMMARY-FIN-MKT-ID . . . . . . . . . . BLW=00000  444   0 000 00C   DS 3C           Display                      
+     36       3  WS-SUMMARY-FIN-JEMS-APPL-ID . . . . . . . BLW=00000  447   0 000 00F   DS 2C           Display                      
+     38   1  FIRST-NUMBER. . . . . . . . . . . . . . . . . BLL=00001  000               DS 5C           Disp-Num                     
+     39   1  SECOND-NUMBER . . . . . . . . . . . . . . . . BLL=00002  000               DS 5C           Disp-Num                     
+     40   1  RESULT-NUMBER . . . . . . . . . . . . . . . . BLL=00003  000               DS 5C           Disp-Num                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               RT010     Date 02/18/2021  Time 03:32:22   Page    11                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 00002C BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 0004C0 FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |    
+ 00011C  (LIT+32)     4040                                                                     |                                |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               RT010     Date 02/18/2021  Time 03:32:22   Page    12                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000128 FOR 000395 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000140  (LIT+0)      FFFFFFFC 00001000 00000006 0000001E 0000000D 000071C6 000070E8 000070E6  |.......................F...Y...W|    
+ 000160  (LIT+32)     000070E0 00007040 000002A4 00000001 FFFFFFFF 00000004 00000005 00000000  |....... ...u....................|    
+ 000180  (LIT+64)     000B0003 60606060 60606060 60606060 60606060 60606060 60606060 60606060  |....----------------------------|    
+ 0001A0  (LIT+96)     60606060 60606060 60606060 606060E6 E260C3D6 C4C560C4 C5E2C34D E6E360C3  |---------------WS-CODE-DESC(WT-C|    
+ 0001C0  (LIT+128)    D6C4C560 C3E3D9D3 60C9D5C4 C5E75D40 7E4040E2 C5C1D9C3 C840C1D3 D340C5D3  |ODE-CTRL-INDEX) =  SEARCH ALL EL|    
+ 0001E0  (LIT+160)    C5D4C5D5 E340D5D6 E340C6D6 E4D5C440 40D5D6E3 40C6D6E4 D5C440C4 E4D9C9D5  |EMENT NOT FOUND  NOT FOUND DURIN|    
+ 000200  (LIT+192)    C740E2C5 C1D9C3C8 40C1D3D3 4040E2C5 C1D9C3C8 40C5D3C5 D4C5D5E3 40D5D6E3  |G SEARCH ALL  SEARCH ELEMENT NOT|    
+ 000220  (LIT+224)    40C6D6E4 D5C440E2 C5C1D9C3 C840D4E4 E2E340C8 C1E5C540 C6D6E4D5 C440D5D6  | FOUND SEARCH MUST HAVE FOUND NO|    
+ 000240  (LIT+256)    40E2E4C3 C840E5C1 D3E4C540 C5E7C9E2 E3404040 C5E5C1D3 E4C1E3C5 40404040  | SUCH VALUE EXIST   EVALUATE    |    
+ 000260  (LIT+288)    40404040 40404040 40C2C9D5 C1D9E840 E2C5C1D9 C3C84040 40404040 4040D9C5  |         BINARY SEARCH        RE|    
+ 000280  (LIT+320)    C7E4D3C1 D940E2C5 C1D9C3C8 40404040 404040C1 C2D6E4E3 40E3D640 E2C5C1D9  |GULAR SEARCH       ABOUT TO SEAR|    
+ 0002A0  (LIT+352)    C3C840F1 F2F94040 C1C2D6E4 E340E3D6 40E2C5C1 D9C3C840 F1F2F740 40C1C2D6  |CH 129  ABOUT TO SEARCH 127  ABO|    
+ 0002C0  (LIT+384)    E4E340E3 D640E2C5 C1D9C3C8 40F1F2F3 4040C1C2 D6E4E340 E3D640E2 C5C1D9C3  |UT TO SEARCH 123  ABOUT TO SEARC|    
+ 0002E0  (LIT+416)    C840F1F2 F240D1D6 40C6D6E4 D5C440E2 E8E2D6E4 E34040C9 C7E9E2D9 E3C3C4D9  |H 122 JO FOUND SYSOUT  IGZSRTCDR|    
+ 000300  (LIT+448)    E3F0F1F0 F1F2F3C8 C8C8C7C7 C7C5C5C5 C3C3C3C2 C2C2C1C1 C1F1F2F7 F1F2F5F1  |T010123HHHGGGEEECCCBBBAAA1271251|    
+ 000320  (LIT+480)    F2F2F1F2 F1F1F2F0 E3F0F2E3 F0F00000 00000000 012C0000 018D0000 07600000  |22121120T02T00...............-..|    
+ 000340  (LIT+512)    00040000 07980000 00020000 00000000 00000000 00000000 00000000 00000000  |.....q..........................|    
+ 000360  (LIT+544)    00000000 00000000 00008000 00004000 00000000 00000000 0000C004 0000C004  |.............. .................|    
+ 000380  (LIT+576)    00048803 00080040 00000040 00000000 00008000 00000000 00000000 00008803  |..h.... ... ..................h.|    
+ 0003A0  (LIT+608)    00004000 00000000 00000000 00000000 00004000 00000025 C00001C0 00050800  |.. ............... .............|    
+ 0003C0  (LIT+640)    002401D7 01400000 15080000 240116FF 01400000 17080000 2400FF40 00000309  |...P. ........... ......... ....|    
+ 0003E0  (LIT+672)    00012C00 30FF0140 00001508 00002401 2BFF0140 00001E08 00002400 AAFF0140  |....... ........... ........... |    
+ 000400  (LIT+704)    00001508 00002401 40FF0140 0000032D 00580000 01B8000B FF014000 00230800  |........ .. .............. .....|    
+ 000420  (LIT+736)    00240087 FF014000 001A0800 002400E5 FF014000 00150800 00240155 FF014000  |...g.. ........V.. ........... .|    
+ 000440  (LIT+768)    00090800 002401BE FF014000 001D0800 002400C8 FF800000 00000000 00000000  |.......... ........H............|    
+ 000460  (LIT+800)    00000000 00014000 00150800 0024016A FF014000 00150800 0024017F FF014000  |...... ........... ........".. .|    
+ 000480  (LIT+832)    00150800 00240194 FF014000 00150800 002401A9 FF014000 002B0800 0024005C  |.......m.. ........z.. ........*|    
+ 0004A0  (LIT+864)    FF400000 000040C0 00014000 05080000 2401D702 C0000508 00002401 D7        |. .... ... .......P.........P   |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000044 000668 MOVE                          000045 000672 MOVE                          000046 00067C MOVE                          
+ 000047 000686 MOVE                          000048 000690 MOVE                          000050 00069A MOVE                          
+ 000051 0006A4 MOVE                          000052 0006AE MOVE                          000054 0006B8 MOVE                          
+ 000055 0006C2 MOVE                          000057 0006CC MOVE                          000058 0006D6 MOVE                          
+ 000059 0006E0 MOVE                          000060 0006EA MOVE                          000061 0006F4 MOVE                          
+ 000063 0006FE MOVE                          000064 000708 MOVE                          000065 000712 MOVE                          
+ 000066 00071C MOVE                          000068 000726 PERFORM                       000070 000746 PERFORM                       
+ 000071 000766 DISPLAY                       000072 000778 MOVE                          000073 000782 MOVE                          
+ 000074 00078C MOVE                          000075 000796 MOVE                          000076 0007A0 MOVE                          
+ 000077 0007AA MOVE                          000078 0007B4 MOVE                          000079 0007BE MOVE                          
+ 000080 0007C8 MOVE                          000081 0007D2 MOVE                          000082 0007DC MOVE                          
+ 000083 0007E6 MOVE                          000086 0007F0 DISPLAY                       000087 000802 DISPLAY                       
+ 000088 000814 MOVE                          000089 00081E PERFORM                       000091 00083E DISPLAY                       
+ 000092 000850 DISPLAY                       000093 000862 MOVE                          000094 00086C PERFORM                       
+ 000096 00088C DISPLAY                       000097 00089E DISPLAY                       000098 0008B0 MOVE                          
+ 000099 0008BA PERFORM                       000101 0008DA DISPLAY                       000102 0008EC DISPLAY                       
+ 000103 0008FE MOVE                          000104 000908 PERFORM                       000106 000928 CONTINUE                      
+ 000108 000930 STOP                          000110 000976 SEARCH                        000112 000986 DISPLAY                       
+ 000113 0009A0 WHEN                          000119 000A26 DISPLAY                       000122 000A3C CONTINUE                      
+ 000124 000A44 EXIT                          000126 000A52 SEARCH                        000128 000A62 DISPLAY                       
+ 000129 000A7C WHEN                          000135 000B04 DISPLAY                       000138 000B1A CONTINUE                      
+ 000140 000B22 EXIT                          000143 000B30 DISPLAY                       000144 000B42 SET                           
+ 000145 000B4C SEARCH                        000147 000B74 DISPLAY                       000148 000B8E WHEN                          
+ 000149 000BA6 DISPLAY                       000150 000BB8 DISPLAY                       000153 000BE4 DISPLAY                       
+ 000154 000BF6 SET                           000155 000C00 SEARCH                        000157 000C10 DISPLAY                       
+ 000158 000C2A WHEN                          000159 000C9A DISPLAY                       000162 000CBA DISPLAY                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               RT010     Date 02/18/2021  Time 03:32:22   Page    13                
+0000163 000CCC EVALUATE                      000164 000CD0 WHEN                          000165 000CEA DISPLAY                       
+ 000166 000D04 WHEN                          000167 000D1E DISPLAY                       000168 000D38 WHEN                          
+ 000169 000D52 DISPLAY                       000170 000D6C WHEN                          000171 000D86 DISPLAY                       
+ 000172 000DA0 WHEN                          000173 000DBA DISPLAY                       000174 000DD4 WHEN                          
+ 000175 000DEE DISPLAY                       000176 000E08 WHEN                          000177 000E0C DISPLAY                       
+ 000179 000E22 CONTINUE                      000181 000E2A EXIT                                                                      
+0                                                                                                                                    
+   DEBUGINF TABLE LOCATED AT 000EB4 FOR 000046 BYTES                                                                                 
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               RT010     Date 02/18/2021  Time 03:32:22   Page    14                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000760  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000770  TEST INFORMATION AREA                                                                                    
+                    000798  INDEX CELLS                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               RT010     Date 02/18/2021  Time 03:32:22   Page    15                
+0                   0007A0  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  00000110  VARIABLE-LENGTH CELLS                                                                                    
+                  0000012C  ODO SAVE CELLS                                                                                           
+                  00000130  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000148  PERFORM SAVE CELLS                                                                                       
+                  00000168  TEMPORARY STORAGE-1                                                                                      
+                  000001A0  TEMPORARY STORAGE-2                                                                                      
+                  000001B8  TEMPORARY STORAGE-3                                                                                      
+                  000001C0  CALL STATEMENT PROGRAM NAME                                                                              
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 000007B4 BYTES                                                                                       
+ CLG00001 WILL BE ALLOCATED FOR 0000000B BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 0018CFE4 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 00000260 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 000F38                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 0010AC FOR LENGTH 0000CE                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               RT010     Date 02/18/2021  Time 03:32:22   Page    16                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program RT010:                                                                                               
+ *    Source records = 181                                                                                                           
+ *    Data Division statements = 25                                                                                                  
+ *    Procedure Division statements = 84                                                                                             
+0End of compilation 1,  program RT010,  highest severity 4.                                                                          
+0Return code 4                                                                                                                       

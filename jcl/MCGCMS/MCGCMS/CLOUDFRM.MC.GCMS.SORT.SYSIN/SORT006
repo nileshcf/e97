@@ -1,0 +1,12 @@
+  SORT FIELDS=(1,35,CH,A,36,1,CH,D,37,25,CH,A)    :T:-SORT-FIELD                
+  SUM FIELDS=(62,09,PD,                          :T:-SETL-DR                    
+  71,09,PD)                          :T:-SETL-CR                                
+  OUTFIL FILES=1,                                                               
+  OUTREC=(01,61,                           :T:-SORT-FIELD                       
+  62,09,                           :T:-SETL-AMT-DR                              
+  71,09,                           :T:-SETL-AMT-CR                              
+  62,09,PD,SUB,71,09,PD,                                                        
+  EDIT=('TTTTTTTTTTTTTTTTTS'),     :T:-SETL-AMT-NET                             
+  SIGNS=(,,D,C),C'R')              :T:-SETL-AMT-DR-CR                           
+  OUTFIL FILES=2,                                                               
+  INCLUDE=(12,1,CH,NE,C'A')                 :T:-GROUP-ID                        

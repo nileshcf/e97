@@ -1,0 +1,866 @@
+   _____   _                       _   ______                                       
+  / ____| | |                     | | |  ____|                                     
+ | |      | |   ___    _   _    __| | | |__     _ __    __ _   _ __ ___     ___    
+ | |      | |  / _ \  | | | |  / _` | |  __|   | '__|  / _` | | '_ ` _ \   / _ \
+ | |____  | | | (_) | | |_| | | (_| | | |      | |    | (_| | | | | | | | |  __/
+  \_____| |_|  \___/   \__,_|  \__,_| |_|      |_|     \__,_| |_| |_| |_|  \___|
+
+16:31:51.071 [main] INFO  o.s.boot.StartupInfoLogger.logStarting   50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 2470554 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/uhg/UHDYNSQL/UHDYNSQL/target/UHDYNSQL-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/uhg/UHDYNSQL/UHDYNSQL)
+16:31:51.081 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo  654 - No active profile set, falling back to 1 default profile: "default"
+16:31:53.561 [main] INFO  c.c.a.dao.CFDataSourceConfiguration.dataSourceStatus  165 - CFDataSourceConfiguration initialization status...
+16:31:53.562 [main] INFO  c.c.a.dao.CFDataSourceConfiguration.dataSourceStatus  172 - Databse Datasource initialized.
+16:31:53.789 [main] INFO  o.s.boot.StartupInfoLogger.logStarted   56 - Started CFApplication in 4.317 seconds (process running for 5.476)
+16:31:53.801 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo  107 - CFDataConnectIO version : 5.0.0.21
+16:31:54.458 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  109 - HikariPool-1 - Starting...
+16:31:54.886 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast  554 - HikariPool-1 - Added connection com.ibm.db2.jcc.t4.b@479111ba
+16:31:54.892 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  122 - HikariPool-1 - Start completed.
+16:31:55.017 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.buildSql  302 - SQL : 
+16:31:55.018 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.buildSql  304 -       SELECT WIDGET_NUM, WIDGET_COLOR, WIDGET_SIZE, WIDGET_PRICE, WIDGET_SUPPLIER, WIDGET_DESC, WIDGET_MAN
+16:31:55.018 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.buildSql  306 -       U_PLANT, WIDGET_MANU_COST, WIDGET_LEAD_TIME FROM TBWIDGET    WHERE WIDGET_COLOR IN (?,?)      AND WI
+16:31:55.018 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.buildSql  308 -       DGET_SUPPLIER NOT LIKE ?    ORDER BY WIDGET_NUM ASC                                                 
+16:31:55.018 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.buildSql  310 -                                                                                                           
+16:31:55.019 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.buildSql  312 -                                                                                                           
+16:31:55.063 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.prepareAndOpen  465 - MARKER VALUES : BLUE   YELLOW B%      
+16:31:55.064 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.prepareAndOpen  467 -  
+16:31:55.118 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.119 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000002
+16:31:55.120 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.120 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.120 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.121 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.121 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.121 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.122 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.122 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.123 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.124 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000004
+16:31:55.124 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.124 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.125 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 2050
+16:31:55.125 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ARROW   
+16:31:55.125 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.125 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.126 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.126 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.127 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.127 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000005
+16:31:55.128 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.128 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.128 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 2050
+16:31:55.129 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ARROW   
+16:31:55.129 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.130 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.130 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.130 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.131 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.132 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000006
+16:31:55.133 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.133 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.134 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 12345
+16:31:55.134 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = Balaji2 
+16:31:55.134 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.136 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.136 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.137 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.138 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.138 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000007
+16:31:55.139 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.139 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.139 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.140 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.140 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.141 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.141 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.142 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.143 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.143 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000008
+16:31:55.143 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.144 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.144 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.145 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.145 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.146 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.146 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.146 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.147 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.148 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000009
+16:31:55.148 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.148 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.148 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 54321
+16:31:55.149 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = Balaji2 
+16:31:55.149 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.149 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.149 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.151 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.152 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.153 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000010
+16:31:55.153 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.153 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.153 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.153 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.154 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.154 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.154 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.154 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.155 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.156 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000011
+16:31:55.156 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.156 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.156 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.156 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = INTERNAL
+16:31:55.157 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.157 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.157 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.157 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.158 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.158 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000012
+16:31:55.158 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.158 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.158 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.159 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.159 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.159 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.159 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.159 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.160 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.160 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000013
+16:31:55.160 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.160 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.161 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.161 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.161 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.161 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.162 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.162 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.163 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.165 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000014
+16:31:55.165 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.165 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.166 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.166 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.166 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.166 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.167 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.167 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.168 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.168 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000015
+16:31:55.169 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.169 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.169 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.169 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = INTERNAL
+16:31:55.170 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.170 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.170 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.170 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.171 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.171 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000016
+16:31:55.172 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.172 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.172 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.172 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.173 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.173 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.173 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.173 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.174 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.174 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000017
+16:31:55.175 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.175 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.175 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.175 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.175 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.176 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.176 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.176 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.178 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.178 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000018
+16:31:55.178 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.178 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.179 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.179 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.179 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.179 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.180 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.180 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.181 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.181 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000019
+16:31:55.181 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.181 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.182 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3325
+16:31:55.182 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.182 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.182 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.183 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.183 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.184 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.184 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000020
+16:31:55.184 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.185 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.185 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.187 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.188 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.189 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.189 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.189 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.190 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.190 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000021
+16:31:55.190 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.191 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.191 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.191 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = INTERNAL
+16:31:55.191 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.192 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.192 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.192 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.192 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.192 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000022
+16:31:55.192 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.193 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.193 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.193 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.193 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.193 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.193 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.193 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.194 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.194 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000023
+16:31:55.194 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.194 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.194 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.194 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.194 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.195 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.195 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.195 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.195 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.195 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000024
+16:31:55.195 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.196 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.196 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.196 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.196 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.196 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.196 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.196 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.197 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.197 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000025
+16:31:55.198 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.198 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.198 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.199 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = INTERNAL
+16:31:55.199 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.199 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.199 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.199 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.200 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.200 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000026
+16:31:55.201 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.201 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.201 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.201 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.201 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.202 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.204 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.204 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.205 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.205 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000027
+16:31:55.206 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.206 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.206 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.206 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.206 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.207 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.207 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.207 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.211 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.212 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000028
+16:31:55.212 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.212 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.213 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.213 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.213 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.213 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.213 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.214 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.214 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.215 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000029
+16:31:55.215 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.215 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.215 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.216 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = INTERNAL
+16:31:55.216 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.216 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.216 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.216 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.217 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.218 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000030
+16:31:55.218 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.218 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.219 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.219 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.220 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.220 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.220 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.221 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.221 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.222 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000031
+16:31:55.222 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.222 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.222 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.223 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = INTERNAL
+16:31:55.223 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.223 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.223 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.223 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.228 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.229 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000032
+16:31:55.229 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.230 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.230 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.230 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.230 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.230 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.231 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.231 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.232 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.232 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000033
+16:31:55.232 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.232 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.232 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.233 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.233 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.233 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.233 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.233 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.234 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.234 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000034
+16:31:55.234 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.234 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.234 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.235 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.236 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.236 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.236 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.236 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.237 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.237 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000035
+16:31:55.237 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.238 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.239 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.239 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = INTERNAL
+16:31:55.239 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.239 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.239 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.240 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.240 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.241 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000036
+16:31:55.241 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.241 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.242 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.242 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.242 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.242 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.242 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.242 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.243 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.243 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000037
+16:31:55.243 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.244 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.244 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.244 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.244 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.244 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.245 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.245 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.245 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.246 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000038
+16:31:55.246 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.246 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.246 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.246 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.247 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.247 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.247 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.247 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.248 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.248 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000039
+16:31:55.248 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.248 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.248 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.248 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = INTERNAL
+16:31:55.248 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.250 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.251 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.251 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.251 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.252 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000040
+16:31:55.252 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.252 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.252 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.252 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.252 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.252 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.253 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.253 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.253 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.253 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000041
+16:31:55.253 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.254 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.254 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 20
+16:31:55.254 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = 1       
+16:31:55.254 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.254 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.254 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.254 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.255 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.255 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000042
+16:31:55.255 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.255 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.255 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.255 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.255 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.256 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.256 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.256 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.257 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.258 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000043
+16:31:55.258 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.258 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.258 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.258 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.258 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.258 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.258 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.259 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.259 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.259 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000044
+16:31:55.260 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.260 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.260 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.260 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.260 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.260 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.260 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.260 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.263 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.263 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000045
+16:31:55.264 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.264 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.264 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.264 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = INTERNAL
+16:31:55.264 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.264 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.264 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.265 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.265 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.265 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000046
+16:31:55.266 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.266 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.266 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.266 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.266 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.266 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.266 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.267 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.267 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.267 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000047
+16:31:55.267 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.267 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.267 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.268 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.268 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.268 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.268 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.268 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.269 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.269 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000048
+16:31:55.269 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.269 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.270 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.270 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.270 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.270 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.270 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.270 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.271 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.271 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000049
+16:31:55.271 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.271 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.271 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.271 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = INTERNAL
+16:31:55.271 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.271 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.272 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.272 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.272 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.272 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000050
+16:31:55.272 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.273 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.273 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 1500
+16:31:55.273 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = ACME    
+16:31:55.273 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLARGE WIDGET       
+16:31:55.273 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.273 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.273 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.274 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.274 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000051
+16:31:55.274 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = YELLOW
+16:31:55.274 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = S
+16:31:55.274 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3645
+16:31:55.275 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      = RALPH   
+16:31:55.275 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = SMALL Y WIDGET      
+16:31:55.275 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.275 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.275 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.275 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.276 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000058
+16:31:55.276 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = YELLOW
+16:31:55.276 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.276 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.276 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.276 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+16:31:55.276 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.276 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.277 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.277 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.277 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000059
+16:31:55.277 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.277 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = P
+16:31:55.278 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.278 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.278 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.278 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.278 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.278 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.279 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.279 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000061
+16:31:55.279 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.279 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = M
+16:31:55.279 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.279 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.279 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.279 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.280 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.280 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.280 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.280 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000064
+16:31:55.280 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = YELLOW
+16:31:55.280 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = P
+16:31:55.281 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.281 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.281 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+16:31:55.281 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.281 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.281 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.282 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.282 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000066
+16:31:55.282 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.282 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = M
+16:31:55.282 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.282 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.282 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.282 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.283 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.283 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.283 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.283 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000067
+16:31:55.283 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = YELLOW
+16:31:55.283 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = L
+16:31:55.284 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.284 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.284 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+16:31:55.284 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.284 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.284 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.285 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.285 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000072
+16:31:55.285 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = YELLOW
+16:31:55.285 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = S
+16:31:55.285 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.285 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.286 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+16:31:55.286 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.286 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.286 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.286 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.287 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000073
+16:31:55.287 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.287 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = M
+16:31:55.287 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.287 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.287 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.288 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.288 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.288 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.288 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.288 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000076
+16:31:55.288 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = YELLOW
+16:31:55.289 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = P
+16:31:55.289 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.289 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.289 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+16:31:55.289 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.289 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.289 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.290 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.290 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000077
+16:31:55.290 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.290 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = S
+16:31:55.290 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.290 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.291 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.291 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.291 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.291 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.291 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.291 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000080
+16:31:55.292 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = YELLOW
+16:31:55.292 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = S
+16:31:55.292 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.292 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.292 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+16:31:55.292 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.292 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.292 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.293 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.293 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000081
+16:31:55.293 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.293 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.293 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.293 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.294 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.294 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.294 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.294 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.295 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.295 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000085
+16:31:55.295 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.295 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.295 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.295 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.295 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.295 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.296 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.296 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.297 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.298 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000087
+16:31:55.298 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.298 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = S
+16:31:55.298 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.298 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.298 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.298 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.299 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.299 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.300 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.300 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000090
+16:31:55.300 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.300 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.300 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.300 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.301 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.301 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.301 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.301 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.301 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.302 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000093
+16:31:55.302 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = YELLOW
+16:31:55.302 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = M
+16:31:55.302 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.302 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.302 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+16:31:55.302 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.302 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.303 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.303 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.303 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000094
+16:31:55.303 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.303 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = L
+16:31:55.304 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.304 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.304 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.304 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.304 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.304 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.305 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.305 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000155
+16:31:55.305 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = YELLOW
+16:31:55.305 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = S
+16:31:55.305 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.305 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.305 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+16:31:55.305 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.306 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.306 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.306 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.306 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000158
+16:31:55.306 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = YELLOW
+16:31:55.306 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.307 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.307 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.307 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+16:31:55.307 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.307 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.307 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.308 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.308 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000159
+16:31:55.308 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.308 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = P
+16:31:55.308 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.308 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.308 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.308 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.309 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.309 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.309 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.309 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000161
+16:31:55.309 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.310 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = M
+16:31:55.310 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.310 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.310 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.310 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.310 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.310 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.311 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.311 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000164
+16:31:55.311 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = YELLOW
+16:31:55.311 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = P
+16:31:55.311 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.311 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.311 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+16:31:55.311 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.312 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.312 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.312 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.312 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000166
+16:31:55.312 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.313 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = M
+16:31:55.313 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.313 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.313 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.313 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.313 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.313 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.314 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.314 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000167
+16:31:55.314 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = YELLOW
+16:31:55.314 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = L
+16:31:55.314 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.314 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.314 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+16:31:55.314 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.315 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.315 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.315 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.315 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000172
+16:31:55.315 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = YELLOW
+16:31:55.315 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = S
+16:31:55.316 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.316 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.316 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+16:31:55.316 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.316 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.316 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.317 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.317 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000173
+16:31:55.317 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.317 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = M
+16:31:55.317 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.317 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.317 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.317 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.318 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.318 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.318 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.318 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000176
+16:31:55.318 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = YELLOW
+16:31:55.318 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = P
+16:31:55.319 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.319 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.319 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+16:31:55.319 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.319 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.319 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.319 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.320 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000177
+16:31:55.320 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.320 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = S
+16:31:55.320 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.320 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.320 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.320 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.321 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.321 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.321 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.321 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000180
+16:31:55.321 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = YELLOW
+16:31:55.322 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = S
+16:31:55.322 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.322 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.322 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+16:31:55.322 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.322 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.322 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.323 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.323 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000181
+16:31:55.323 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.323 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.323 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.323 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.324 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.324 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.324 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.324 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.324 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.324 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000185
+16:31:55.324 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.325 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.325 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.325 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.325 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.325 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.325 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.325 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.326 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.326 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000187
+16:31:55.326 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.326 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = S
+16:31:55.326 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.326 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.326 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.327 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.327 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.327 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.327 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.327 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000190
+16:31:55.327 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.328 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = X
+16:31:55.328 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.328 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.328 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.328 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.328 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.328 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.329 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.329 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000193
+16:31:55.329 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = YELLOW
+16:31:55.329 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = M
+16:31:55.329 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.329 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.329 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG YELLOW WIDGET  
+16:31:55.329 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.330 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.330 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.330 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  522 - -----------------------------------------
+16:31:55.330 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  524 - WIDGET-NUM           = 00000194
+16:31:55.330 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  526 - WIDGET-COLOR         = BLUE  
+16:31:55.331 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  528 - WIDGET-SIZE          = L
+16:31:55.331 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  530 - WIDGET-PRICE         = 3400
+16:31:55.331 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  532 - WIDGET-SUPPLIER      =  ACME   
+16:31:55.331 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  534 - WIDGET-DESC          = XLRG BLUE WIDGET    
+16:31:55.331 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  536 - WIDGET-MANU-PLANT    =         
+16:31:55.331 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  538 - WIDGET-MANU-COST     = 0
+16:31:55.331 [main] INFO  c.c.app.process.impl.UhdynsqlImpl.fetchAndPrintWidgets  540 - WIDGET-LEAD-TIME     = 0
+16:31:55.368 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close  349 - HikariPool-1 - Shutdown initiated...
+16:31:55.374 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close  351 - HikariPool-1 - Shutdown completed.

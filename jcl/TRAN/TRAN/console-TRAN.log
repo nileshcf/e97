@@ -1,0 +1,108 @@
+16:42:41.425 [main] INFO  o.s.boot.StartupInfoLogger.logStarting   50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 2517385 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/TRAN/TRAN/target/TRAN-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/TRAN/TRAN)
+16:42:41.438 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo  654 - No active profile set, falling back to 1 default profile: "default"
+16:42:45.937 [main] INFO  o.s.boot.StartupInfoLogger.logStarted   56 - Started CFApplication in 6.493 seconds (process running for 7.745)
+16:42:45.965 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo  107 - CFDataConnectIO version : 5.0.0.21
+16:42:46.047 [main] INFO  c.c.a.u.d.plus.CFDcioConfiguration.cfDataConnectIOPlusInfo   28 - CFDataConnectIOPlus version : 5.0.0.21
+16:42:46.085 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.initDatabase  189 - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+16:42:47.432 [main] INFO  o.s.b.a.b.JobLauncherApplicationRunner.run  168 - Running default command line with: []
+16:42:47.523 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  154 - Job: [FlowJob: [name=TRAN]] launched with the following parameters: [{}]
+16:42:47.603 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sort001Decider]
+16:42:47.692 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sort001Decider] executed in 87ms
+16:42:47.719 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [readTranSort001SortInput]
+16:42:48.309 [main] INFO  c.c.app.sort.SpringAsyncConfig.threadPoolTaskExecutor   73 - Thread pool created based on usableMemory 19085645008 requiredByteForEachThread 40000000 with core pool size 20 max pool size 40
+16:42:48.495 [main] INFO  c.c.a.s.s.d.SortStrategyDeciderImpl.decideSortStrategy  117 - Calculated details for strategy decider fileSize 102000 noOfRecords 1000 fileSizeWithOverHead 124000 keysSizeInBytes 30000 fileSizeWithKeysAndRecords124000
+16:42:48.627 [main] INFO  c.c.a.s.s.d.SortStrategyDeciderImpl.getStrategy  221 - Strategy to be adopted is IN_MEMORY_KEY
+16:42:48.628 [main] INFO  c.c.a.s.s.d.SortStrategyDeciderImpl.decideSortStrategy  150 - APPLYING INMEMORY KEY SORT STRATEGY
+16:42:48.785 [main] INFO  c.c.a.s.s.d.SortStrategyDeciderImpl.decideSortStrategy  117 - Calculated details for strategy decider fileSize 95000 noOfRecords 1000 fileSizeWithOverHead 117000 keysSizeInBytes 30000 fileSizeWithKeysAndRecords117000
+16:42:48.944 [main] INFO  c.c.a.s.s.d.SortStrategyDeciderImpl.getStrategy  221 - Strategy to be adopted is IN_MEMORY_KEY
+16:42:48.946 [main] INFO  c.c.a.s.s.d.SortStrategyDeciderImpl.decideSortStrategy  150 - APPLYING INMEMORY KEY SORT STRATEGY
+16:42:48.979 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [readTranSort001SortInput] executed in 1s259ms
+16:42:49.022 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [reformatTranSort001Joinkeys]
+16:42:49.168 [main] INFO  c.c.a.t.TranSort001JoinkeyFormatter.afterStep  166 - STEPNAME: TRANSORT001 Joinkey Formatter execution completed, number of RECORDS - IN: 1087,  OUT: 1087
+16:42:49.172 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [reformatTranSort001Joinkeys] executed in 149ms
+16:42:49.202 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sortTranSort001Process]
+16:42:49.236 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sortTranSort001Process] executed in 33ms
+16:42:49.261 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [writeTranSort001SortOutput]
+16:42:49.342 [main] INFO  c.c.a.tasks.TranSort001OutputWriter.afterStep  119 - STEPNAME: TRANSORT001 Execution completed, number of RECORDS - IN: 1087,  OUT: 913
+16:42:49.346 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [writeTranSort001SortOutput] executed in 84ms
+16:42:49.365 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sort002Decider]
+16:42:49.401 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sort002Decider] executed in 34ms
+16:42:49.424 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [readTranSort002SortInput]
+16:42:49.494 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [readTranSort002SortInput] executed in 69ms
+16:42:49.514 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sortTranSort002Process]
+16:42:49.540 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sortTranSort002Process] executed in 24ms
+16:42:49.559 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [writeTranSort002SortOutput]
+16:42:49.608 [main] INFO  c.c.a.tasks.TranSort002OutputWriter.afterStep   96 - STEPNAME: TRANSORT002 Execution completed, number of RECORDS - IN: 678,  OUT: 678
+16:42:49.612 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [writeTranSort002SortOutput] executed in 52ms
+16:42:49.629 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sort003Decider]
+16:42:49.651 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sort003Decider] executed in 21ms
+16:42:49.674 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [readTranSort003SortInput]
+16:42:49.711 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [readTranSort003SortInput] executed in 36ms
+16:42:49.736 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sortTranSort003Process]
+16:42:49.760 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sortTranSort003Process] executed in 22ms
+16:42:49.779 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [writeTranSort003SortOutput]
+16:42:49.816 [main] INFO  c.c.a.tasks.TranSort003OutputWriter.afterStep   99 - STEPNAME: TRANSORT003 Execution completed, number of RECORDS - IN: 678,  OUT: 678
+16:42:49.819 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [writeTranSort003SortOutput] executed in 39ms
+16:42:49.834 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sort004Decider]
+16:42:49.863 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sort004Decider] executed in 28ms
+16:42:49.884 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [readTranSort004SortInput]
+16:42:49.919 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [readTranSort004SortInput] executed in 34ms
+16:42:49.942 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sortTranSort004Process]
+16:42:49.974 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sortTranSort004Process] executed in 30ms
+16:42:49.995 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [writeTranSort004SortOutput]
+16:42:50.033 [main] INFO  c.c.a.tasks.TranSort004OutputWriter.afterStep  105 - STEPNAME: TRANSORT004 Execution completed, number of RECORDS - IN: 678,  OUT: 678
+16:42:50.037 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [writeTranSort004SortOutput] executed in 40ms
+16:42:50.055 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sort005Decider]
+16:42:50.089 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sort005Decider] executed in 31ms
+16:42:50.106 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [readTranSort005SortInput]
+16:42:50.135 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [readTranSort005SortInput] executed in 28ms
+16:42:50.154 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sortTranSort005Process]
+16:42:50.172 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sortTranSort005Process] executed in 17ms
+16:42:50.188 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [writeTranSort005SortOutput]
+16:42:50.223 [main] INFO  c.c.a.tasks.TranSort005OutputWriter.afterStep  105 - STEPNAME: TRANSORT005 Execution completed, number of RECORDS - IN: 678,  OUT: 678
+16:42:50.227 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [writeTranSort005SortOutput] executed in 37ms
+16:42:50.250 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sort006Decider]
+16:42:50.269 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sort006Decider] executed in 16ms
+16:42:50.279 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [readTranSort006SortInput]
+16:42:50.303 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [readTranSort006SortInput] executed in 23ms
+16:42:50.321 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sortTranSort006Process]
+16:42:50.338 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sortTranSort006Process] executed in 15ms
+16:42:50.352 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [writeTranSort006SortOutput]
+16:42:50.400 [main] INFO  c.c.a.tasks.TranSort006OutputWriter.afterStep   97 - STEPNAME: TRANSORT006 Execution completed, number of RECORDS - IN: 678,  OUT: 678
+16:42:50.406 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [writeTranSort006SortOutput] executed in 52ms
+16:42:50.428 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sort007Decider]
+16:42:50.452 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sort007Decider] executed in 23ms
+16:42:50.466 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [readTranSort007SortInput]
+16:42:50.493 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [readTranSort007SortInput] executed in 26ms
+16:42:50.507 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sortTranSort007Process]
+16:42:50.524 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sortTranSort007Process] executed in 16ms
+16:42:50.543 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [writeTranSort007SortOutput]
+16:42:50.573 [main] INFO  c.c.a.tasks.TranSort007OutputWriter.afterStep   98 - STEPNAME: TRANSORT007 Execution completed, number of RECORDS - IN: 678,  OUT: 678
+16:42:50.576 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [writeTranSort007SortOutput] executed in 32ms
+16:42:50.586 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [printSummary]
+16:42:50.606 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  294 - JOB : TRAN ENDED -  0000
+16:42:50.607 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  298 - 
+
+Stepwise Execution Summary :
++------------------------------------------------------------+
+| STEPNAME     | PROGRAM   | RC          | ELAPSED           |
+|              |           |             | HH:MM:SS:ss       |
++------------------------------------------------------------+
+| SORT001      | SORT      | 00          | 00:00:01:732      |
++------------------------------------------------------------+
+| SORT002      | SORT      | 00          | 00:00:00:237      |
++------------------------------------------------------------+
+| SORT003      | SORT      | 00          | 00:00:00:182      |
++------------------------------------------------------------+
+| SORT004      | SORT      | 00          | 00:00:00:194      |
++------------------------------------------------------------+
+| SORT005      | SORT      | 00          | 00:00:00:162      |
++------------------------------------------------------------+
+| SORT006      | SORT      | 00          | 00:00:00:142      |
++------------------------------------------------------------+
+| SORT007      | SORT      | 00          | 00:00:00:141      |
++------------------------------------------------------------+
+  
+16:42:50.613 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [printSummary] executed in 26ms
+16:42:50.629 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  161 - Job: [FlowJob: [name=TRAN]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 3s72ms
+16:42:50.647 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.shutdownDatabase  220 - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'

@@ -1,0 +1,148 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 10/05/2020  Time 03:32:31   Page     1                //~~0~~
+0Invocation parameters:                                                                                                              //~~0~~
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(BIN),AWO,NUMPROC(PFD),TEST(ALL,SYM,SEPARATE)                                                                                                                                                                                             //~~0~~
+0Options in effect:                                                                                                                  //~~0~~
+  NOADATA                                                                                                                            //~~0~~
+    ADV                                                                                                                              //~~0~~
+    QUOTE                                                                                                                            //~~0~~
+    ARITH(COMPAT)                                                                                                                    //~~0~~
+    AWO                                                                                                                              //~~0~~
+    BUFSIZE(4096)                                                                                                                    //~~0~~
+  NOCICS                                                                                                                             //~~0~~
+    CODEPAGE(1140)                                                                                                                   //~~0~~
+  NOCOMPILE(S)                                                                                                                       //~~0~~
+  NOCURRENCY                                                                                                                         //~~0~~
+    DATA(31)                                                                                                                         //~~0~~
+  NODATEPROC                                                                                                                         //~~0~~
+    DBCS                                                                                                                             //~~0~~
+  NODECK                                                                                                                             //~~0~~
+  NODIAGTRUNC                                                                                                                        //~~0~~
+  NODLL                                                                                                                              //~~0~~
+  NODUMP                                                                                                                             //~~0~~
+  NODYNAM                                                                                                                            //~~0~~
+  NOEXIT                                                                                                                             //~~0~~
+  NOEXPORTALL                                                                                                                        //~~0~~
+  NOFASTSRT                                                                                                                          //~~0~~
+    FLAG(I,I)                                                                                                                        //~~0~~
+  NOFLAGSTD                                                                                                                          //~~0~~
+    INTDATE(ANSI)                                                                                                                    //~~0~~
+    LANGUAGE(EN)                                                                                                                     //~~0~~
+    LIB                                                                                                                              //~~0~~
+    LINECOUNT(60)                                                                                                                    //~~0~~
+  NOLIST                                                                                                                             //~~0~~
+    MAP                                                                                                                              //~~0~~
+  NOMDECK                                                                                                                            //~~0~~
+  NONAME                                                                                                                             //~~0~~
+    NSYMBOL(NATIONAL)                                                                                                                //~~0~~
+  NONUMBER                                                                                                                           //~~0~~
+    NUMPROC(PFD)                                                                                                                     //~~0~~
+    OBJECT                                                                                                                           //~~0~~
+    OFFSET                                                                                                                           //~~0~~
+  NOOPTIMIZE                                                                                                                         //~~0~~
+    OUTDD(SYSOUT)                                                                                                                    //~~0~~
+    PGMNAME(COMPAT)                                                                                                                  //~~0~~
+    RENT                                                                                                                             //~~0~~
+    RMODE(AUTO)                                                                                                                      //~~0~~
+    SEQUENCE                                                                                                                         //~~0~~
+    SIZE(MAX)                                                                                                                        //~~0~~
+    SOURCE                                                                                                                           //~~0~~
+    SPACE(1)                                                                                                                         //~~0~~
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 10/05/2020  Time 03:32:31   Page     2                //~~0~~
+0 NOSQL                                                                                                                              //~~0~~
+    SQLCCSID                                                                                                                         //~~0~~
+  NOSSRANGE                                                                                                                          //~~0~~
+  NOTERM                                                                                                                             //~~0~~
+    TEST(HOOK,SEPARATE,NOEJPD)                                                                                                       //~~0~~
+  NOTHREAD                                                                                                                           //~~0~~
+    TRUNC(BIN)                                                                                                                       //~~0~~
+  NOVBREF                                                                                                                            //~~0~~
+  NOWORD                                                                                                                             //~~0~~
+    XMLPARSE(XMLSS)                                                                                                                  //~~0~~
+    XREF(FULL)                                                                                                                       //~~0~~
+    YEARWINDOW(1900)                                                                                                                 //~~0~~
+    ZWB                                                                                                                              //~~0~~
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MC009     Date 10/05/2020  Time 03:32:31   Page     3                //~~0~~
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           //~~0~~
+0/* MC009                                                                                                                            //~~0~~
+   000000                IDENTIFICATION DIVISION.                                         0001000 ;//~~0~~
+   000000                PROGRAM-ID. ADDRCHK.                                               0002001;//~~0~~
+   000000                ENVIRONMENT DIVISION.                                            0003000 ;//~~0~~
+   000000                INPUT-OUTPUT SECTION.                                            0004000 ;//~~0~~
+   000000                FILE-CONTROL.                                                    0005000 ;//~~0~~
+   000000                DATA DIVISION.                                                           ;//~~0~~
+   000000                WORKING-STORAGE SECTION.                                                 ;//~~0~~
+   000000                01  GROUPVAR1.                                                           ;//~~0~~
+   000000                    05 WS-DATA1    PIC X(10)                                             ;//~~0~~
+   000000                        VALUE '1234567890'.                                              ;//~~0~~
+   000000                01  GROUPVAR2.                                                           ;//~~0~~
+   000000                    05 WS-DATA2    PIC X(10)                                             ;//~~0~~
+   000000                        VALUE 'ABCDEFGHIJ'.                                              ;//~~0~~
+   000000                01  GROUPVAR3.                                                           ;//~~0~~
+   000000                    05 WS-DATA2    PIC X(10)                                             ;//~~0~~
+   000000                        VALUE SPACES.                                                    ;//~~0~~
+   000000                01  WS-MISC.                                                             ;//~~0~~
+   000000                    05  PRIMVAR1   USAGE IS POINTER.                                     ;//~~0~~
+   000000                    05  PRIMVAR2   USAGE IS POINTER.                                     ;//~~0~~
+   000000                    05  PRIMVAR3   USAGE IS POINTER.                                     ;//~~0~~
+   000000                LINKAGE SECTION.                                                         ;//~~0~~
+   000000                01  LK-VAR1.                                                             ;//~~0~~
+   000000                    05 LK-DATA1    PIC X(10).                                            ;//~~0~~
+   000000                01  LK-VAR3.                                                             ;//~~0~~
+   000000                    05 LK-DATA3    PIC X(10).                                            ;//~~0~~
+   000000                PROCEDURE DIVISION.                                                      ;//~~0~~
+   000000                0000-MAINLINE.                                                           ;//~~0~~
+   000000                    SET PRIMVAR1 TO ADDRESS OF GROUPVAR1.                                ;//~~0~~
+   000000                    SET PRIMVAR2 TO ADDRESS OF GROUPVAR2.                                ;//~~0~~
+   000000                    SET PRIMVAR3 TO ADDRESS OF GROUPVAR1.                                ;//~~0~~
+   000000                    IF PRIMVAR1 IS EQUAL TO PRIMVAR3 THEN                                ;//~~0~~
+   000000                       DISPLAY 'PASS: ADDRESS POINTER IS SAME'                           ;//~~0~~
+   000000                    ELSE                                                                 ;//~~0~~
+   000000                       DISPLAY 'FAIL: ADDRESS POINTER IS DIFFERENT'                      ;//~~0~~
+   000000                    END-IF                                                               ;//~~0~~
+   000000                    SET ADDRESS OF LK-VAR1 TO PRIMVAR1                                   ;//~~0~~
+   000000                    SET ADDRESS OF LK-VAR3 TO PRIMVAR3                                   ;//~~0~~
+   000000                    IF LK-VAR1(1:10) = LK-VAR3(1:10)                                     ;//~~0~~
+   000000                        DISPLAY 'PASS: ADDRESS CONTENT IS SAME'                          ;//~~0~~
+   000000                    ELSE                                                                 ;//~~0~~
+   000000                        DISPLAY 'FAIL: ADDRESS CONTENT IS DIFFERENT'                     ;//~~0~~
+   000000                    END-IF                                                               ;//~~0~~
+   000000                    EXIT PROGRAM.                                                0026001 ;//~~0~~
+ */ MC009                                                                                                                            //~~0~~
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MC009     Date 10/05/2020  Time 03:32:31   Page     4                //~~0~~
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  //~~0~~
+                                                                                                                                     //~~0~~
+  Defined   Cross-reference of data names   References                                                                                                                                                                                    //~~0~~
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MC009     Date 10/05/2020  Time 03:32:31   Page     5                //~~0~~
+0 Defined   Cross-reference of programs     References                                                                               //~~0~~
+                                                                                                                                     //~~0~~
+        2   MC009                                                                                                                    //~~0~~
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MC009     Date 10/05/2020  Time 03:32:31   Page     6                //~~0~~
+0Data Division Map                                                                                                                   //~~0~~
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     //~~0~~
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       //~~0~~
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              //~~0~~
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               //~~0~~
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       //~~0~~
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      //~~0~~
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    //~~0~~
+      2  PROGRAM-ID MC009-------------------------------------------------------------------------------------------------------*                //~~0~~
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MC009     Date 10/05/2020  Time 03:32:31   Page     7                //~~0~~
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 00002C BYTES                                                                     //~~0~~
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       //~~0~~
+ PBL1    AT LOCATION 000204 FOR LINE 2                                                                                               //~~0~~
+0                                                                                                                                    //~~0~~
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                          |    //~~0~~
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        //~~0~~
+ 000022 000364 INITIALIZE                    000024 00038C STOP                                                                      //~~0~~
+0                                                                                                                                                                                                                    //~~0~~
+                                                                                                                                     //~~0~~
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MC009     Date 10/05/2020  Time 03:32:31   Page     9                //~~0~~
+0                   *** TGT MEMORY MAP ***                                                                                           //~~0~~
+                    TGTLOC                                                                                                                                                   //~~0~~
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MC009     Date 10/05/2020  Time 03:32:31   Page    11                //~~0~~
+0LineID  Message code  Message text                                                                                                                                                                                    //~~0~~
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     //~~0~~
+0Printed:       3           1              2                                                                                         //~~0~~
+-* Statistics for COBOL program MC009:                                                                                                                                                                                           //~~0~~
+0End of compilation 1,  program MC009,  highest severity 4.                                                                          //~~0~~
+0Return code 0                                                                                                                       //~~0~~
