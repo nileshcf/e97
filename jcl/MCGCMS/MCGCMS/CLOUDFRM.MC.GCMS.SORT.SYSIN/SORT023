@@ -1,0 +1,11 @@
+* INPUT FILE IS IN COPYBOOK LAYOUT IP981302                                     
+  SORT FIELDS=COPY                                                              
+  OUTFIL FNAMES=SORTOUT,                                                        
+         IFTHEN=(WHEN=(260,01,CH,EQ,C'C'),                                      
+          BUILD=(042,011,X,                                                     
+                 169,003,X,                                                     
+                 148,020,ZD,MUL,+1,PD,LENGTH=11)),                              
+         IFTHEN=(WHEN=(NONE),                                                   
+          BUILD=(042,011,X,                                                     
+                 169,003,X,                                                     
+                 148,020,ZD,MUL,-1,PD,LENGTH=11))                               

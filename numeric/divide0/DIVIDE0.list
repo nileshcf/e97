@@ -1,0 +1,531 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 07/02/2022  Time 08:42:20   Page     1                
+0Invocation parameters:                                                                                                              
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(BIN),AWO,NUMPROC(PFD),TEST(ALL,SYM,SEPARATE)                                                        
+                                                                                                                                     
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"  
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no   
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".                                    
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler         
+                       invocation parameter took precedence.                                                                         
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(COMPAT)                                                                                                                    
+    AWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(PFD)                                                                                                                     
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 07/02/2022  Time 08:42:20   Page     2                
+0 NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+    TEST(HOOK,SEPARATE,NOEJPD)                                                                                                       
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DIVIDE0   Date 07/02/2022  Time 08:42:20   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0/* DIVIDE0                                                                                                                          
+   000001         000100 IDENTIFICATION DIVISION.                                         00010000                                   
+   000002         000200 PROGRAM-ID. DIVIDE0.                                             00020000                                   
+   000003         000300*THIS PROGRAM HAS THE DIVIDE TEST CASE FROM THE ISSUE PROGRAM     00030000                                   
+   000004         000400*                                                                 00040000                                   
+   000005         000500 DATA DIVISION.                                                   00050000                                   
+   000006         000600*                                                                 00060000                                   
+   000007         000700 WORKING-STORAGE SECTION.                                         00070000                                   
+   000008         000800*                                                                 00080000                                   
+   000009         000900 77 IP20004-ITEM-LENGTH              PIC S9(4) COMP.              00090000 BLW=00000+000         2C          
+   000010         001000 77 800-TMP-LTH                      PIC S9(4) COMP.              00100000 BLW=00000+008         2C          
+   000011         001001 77 WS-DECIMAL                       PIC S9(2)V99 COMP-3.         00100102 BLW=00000+010         3P          
+   000012         001002 77 WS-EDIT-FLD1                     PIC -9999.                   00100202 BLW=00000+018         5C          
+   000013         001003 77 WS-EDIT-FLD2                     PIC -99.99.                  00100302 BLW=00000+020         6C          
+   000014         001010                                                                  00101000                                   
+   000015         001020 01  FB-TOTAL-VOLUME             PIC  9(11).                      00102000 BLW=00000+028         11C         
+   000016         001030 01  BA-PREFIX-VOLUME-TABLE.                                      00103000 BLW=00000+038         0CL9000     
+   000017         001040     05  BA-VOLUME-ENTRY         OCCURS 1000 TIMES.               00104000 BLW=00000+038,0000000 0CL9        
+   000018         001050         10  BA-VOL-ENTRY        PIC  9(09).                      00105000 BLW=00000+038,0000000 9C          
+   000019         001060 01  DA-REPORT-TABLE.                                             00106000 BLW=00002+360         0CL2745     
+   000020         001070     05  DA-FILE-AREA            PIC  X(10)   VALUE 'DA-AREA-->'. 00107000 BLW=00002+360,0000000 10C         
+   000021         001080     05  DA-SUB                  PIC  9(04)   VALUE 0.            00108000 BLW=00002+36A,000000A 4C          
+   000022         001090     05  DA-SUB-PFX              PIC  9(04)   VALUE 0.            00109000 BLW=00002+36E,000000E 4C          
+   000023         001091     05  DA-IX                   PIC  9(04)   VALUE 0.            00109100 BLW=00002+372,0000012 4C          
+   000024         001092     05  DA-SUB-SAVE             PIC  9(04)   VALUE 0.            00109200 BLW=00002+376,0000016 4C          
+   000025         001093     05  DA-COL-MAX              PIC  9(04)   VALUE 50.           00109300 BLW=00002+37A,000001A 4C          
+   000026         001094     05  DA-TBL-MAX              PIC  9(04)   VALUE 150.          00109400 BLW=00002+37E,000001E 4C          
+   000027         001095     05  DA-HOLD-MAX             PIC  9(04)   VALUE 0.            00109500 BLW=00002+382,0000022 4C          
+   000028         001096     05  DA-TBL-ENTRIES          OCCURS 150 TIMES.                00109600 BLW=00002+386,0000026 0CL18       
+   000029         001097         10  DA-TYPE             PIC  X(01).                      00109700 BLW=00002+386,0000026 1C          
+   000030         001098         10  DA-PREFIX           PIC  9(03).                      00109800 BLW=00002+387,0000027 3C          
+   000031         001099         10  DA-VOLUME           PIC  9(09).                      00109900 BLW=00002+38A,000002A 9C          
+   000032         001100         10  DA-PERCENT          PIC  9(03)V99.                   00110000 BLW=00002+393,0000033 5C          
+   000033         001101     05  DA-PCNT-HOLD            PIC  9(03)V9999.                 00110100 BLW=00002+E12,0000AB2 7C          
+   000034         001102 01 DA-PCNT-HOLD-DISP            PIC  ZZZ.ZZZZ.                   00110200 BLW=00002+E20         8C          
+   000035         001103 01 DA-PERCENT-DISP              PIC  ZZZ.ZZ.                     00110300 BLW=00002+E28         6C          
+   000036         001104*                                                                 00110400                                   
+   000037         001105 PROCEDURE DIVISION.                                              00110500                                   
+   000038         001106*                                                                 00110600                                   
+   000039         001107 MAINLINE.                                                        00110700                                   
+   000040         001108*                                                                 00110800                                   
+   000041         001109* THIS IS A COPY OF MCISSUES                                      00110900                                   
+   000042         001110*                                                                 00111000                                   
+   000043         001120     MOVE 5   TO IP20004-ITEM-LENGTH                              00112000 9                                 
+   000044         001130     DISPLAY '* 1*  IP20004-ITEM-LENGTH  = ' IP20004-ITEM-LENGTH  00113000 9                                 
+   000045         001140*                                                                 00114000                                   
+   000046         001150     DIVIDE IP20004-ITEM-LENGTH BY 2                              00115000 9                                 
+   000047         001160     GIVING IP20004-ITEM-LENGTH                                   00116000 9                                 
+   000048         001170     REMAINDER  800-TMP-LTH                                       00117000 10                                
+   000049         001180*                                                                 00118000                                   
+   000050         001190     DISPLAY '* 2*  IP20004-ITEM-LENGTH  = ' IP20004-ITEM-LENGTH  00119000 9                                 
+   000051         001200     DISPLAY '* 3*  800-TMP-LTH          = ' 800-TMP-LTH.         00120000 10                                
+   000052         001300*                                                                 00130000                                   
+   000053         001400     MOVE 5   TO IP20004-ITEM-LENGTH                              00140000 9                                 
+   000054         001500     DISPLAY '* 4*  IP20004-ITEM-LENGTH  = ' IP20004-ITEM-LENGTH  00150000 9                                 
+   000055         001600*                                                                 00160000                                   
+   000056         001700     DIVIDE IP20004-ITEM-LENGTH BY 2                              00170000 9                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DIVIDE0   Date 07/02/2022  Time 08:42:20   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000057         001800     GIVING 800-TMP-LTH                                           00180000 10                                
+   000058         001900     REMAINDER  IP20004-ITEM-LENGTH                               00190000 9                                 
+   000059         002000*                                                                 00200000                                   
+   000060         002100     DISPLAY '* 5*  IP20004-ITEM-LENGTH  = ' IP20004-ITEM-LENGTH  00210000 9                                 
+   000061         002200     DISPLAY '* 6*  800-TMP-LTH          = ' 800-TMP-LTH.         00220000 10                                
+   000062         002300*                                                                 00230000                                   
+   000063         002400     MOVE 10 TO DA-SUB DA-IX                                      00240000 21 23                             
+   000064         002500     MOVE 876543210  TO FB-TOTAL-VOLUME                           00250000 15                                
+   000065         002600     MOVE 123456789   TO BA-VOL-ENTRY (DA-IX)                     00260000 18 23                             
+   000066         002700     DIVIDE FB-TOTAL-VOLUME    INTO  BA-VOL-ENTRY (DA-IX)         00270000 15 18 23                          
+   000067         002800     GIVING DA-PCNT-HOLD.                                         00280000 33                                
+   000068         002900     MOVE DA-PCNT-HOLD TO DA-PCNT-HOLD-DISP                       00290000 33 34                             
+   000069         003000     DISPLAY '* 7*  DA-PCNT-HOLD         = ' DA-PCNT-HOLD-DISP    00300000 34                                
+   000070         003100     MULTIPLY DA-PCNT-HOLD       BY  100                          00310000 33                                
+   000071         003200                              GIVING DA-PERCENT (DA-SUB).         00320000 32 21                             
+   000072         003300     MOVE DA-PERCENT (DA-SUB) TO DA-PERCENT-DISP                  00330000 32 21 35                          
+   000073         003400     DISPLAY '* 8*  DA-PERCENT (DA-SUB)  = ' DA-PERCENT-DISP      00340000 35                                
+   000074         003410*                                                                 00341000                                   
+   000075         003420     MOVE 11  TO IP20004-ITEM-LENGTH                              00342000 9                                 
+   000076         003431     DIVIDE IP20004-ITEM-LENGTH BY 2                              00343100 9                                 
+   000077         003432     GIVING IP20004-ITEM-LENGTH                                   00343200 9                                 
+   000078         003433     DISPLAY '* 9*  IP20004-ITEM-LENGTH  = ' IP20004-ITEM-LENGTH  00343300 9                                 
+   000079         003434*                                                                 00343400                                   
+   000080         003435     MOVE 11  TO IP20004-ITEM-LENGTH                              00343500 9                                 
+   000081         003436     DIVIDE IP20004-ITEM-LENGTH BY 8                              00343602 9                                 
+   000082         003437     GIVING IP20004-ITEM-LENGTH ROUNDED                           00343700 9                                 
+   000083         003438     DISPLAY '*10*  IP20004-ITEM-LENGTH  = ' IP20004-ITEM-LENGTH  00343800 9                                 
+   000084         003439*                                                                 00343900                                   
+   000085         003440     MOVE 11  TO IP20004-ITEM-LENGTH                              00344000 9                                 
+   000086         003441     DIVIDE IP20004-ITEM-LENGTH BY 8                              00344102 9                                 
+   000087         003442     GIVING IP20004-ITEM-LENGTH                                   00344200 9                                 
+   000088         003443     DISPLAY '*11*  IP20004-ITEM-LENGTH  = ' IP20004-ITEM-LENGTH  00344300 9                                 
+   000089         003444*                                                                 00344400                                   
+   000090         003445     MOVE 11  TO IP20004-ITEM-LENGTH                              00344500 9                                 
+   000091         003446     DIVIDE IP20004-ITEM-LENGTH BY 3                              00344600 9                                 
+   000092         003447     GIVING IP20004-ITEM-LENGTH ROUNDED                           00344700 9                                 
+   000093         003448     DISPLAY '*12*  IP20004-ITEM-LENGTH  = ' IP20004-ITEM-LENGTH  00344800 9                                 
+   000094         003449*                                                                 00344900                                   
+   000095         003450     MOVE -13 TO IP20004-ITEM-LENGTH                              00345000 9                                 
+   000096         003451     DIVIDE IP20004-ITEM-LENGTH BY 2                              00345100 9                                 
+   000097         003452     GIVING IP20004-ITEM-LENGTH                                   00345200 9                                 
+   000098         003453     MOVE IP20004-ITEM-LENGTH TO WS-EDIT-FLD1                     00345302 9 12                              
+   000099         003454     DISPLAY '*13*  IP20004-ITEM-LENGTH  = ' WS-EDIT-FLD1         00345402 12                                
+   000100         003455*                                                                 00345500                                   
+   000101         003456     MOVE -13 TO IP20004-ITEM-LENGTH                              00345600 9                                 
+   000102         003457     DIVIDE IP20004-ITEM-LENGTH BY 2                              00345701 9                                 
+   000103         003458     GIVING IP20004-ITEM-LENGTH ROUNDED                           00345801 9                                 
+   000104         003459     MOVE IP20004-ITEM-LENGTH TO WS-EDIT-FLD1                     00345902 9 12                              
+   000105         003460     DISPLAY '*14*  IP20004-ITEM-LENGTH  = '  WS-EDIT-FLD1        00346002 12                                
+   000106         003461*                                                                 00346100                                   
+   000107         003462     MOVE -16 TO IP20004-ITEM-LENGTH                              00346200 9                                 
+   000108         003463     DIVIDE IP20004-ITEM-LENGTH BY 3                              00346300 9                                 
+   000109         003470     GIVING IP20004-ITEM-LENGTH                                   00347000 9                                 
+   000110         003471     MOVE IP20004-ITEM-LENGTH TO WS-EDIT-FLD1                     00347102 9 12                              
+   000111         003480     DISPLAY '*15*  IP20004-ITEM-LENGTH  = ' WS-EDIT-FLD1         00348002 12                                
+   000112         003481*                                                                 00348100                                   
+   000113         003482     MOVE -16 TO IP20004-ITEM-LENGTH                              00348200 9                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DIVIDE0   Date 07/02/2022  Time 08:42:20   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000114         003483     DIVIDE IP20004-ITEM-LENGTH BY 3                              00348301 9                                 
+   000115         003484     GIVING IP20004-ITEM-LENGTH ROUNDED                           00348401 9                                 
+   000116         003485     MOVE IP20004-ITEM-LENGTH TO WS-EDIT-FLD1                     00348502 9 12                              
+   000117         003486     DISPLAY '*16*  IP20004-ITEM-LENGTH  = ' WS-EDIT-FLD1         00348602 12                                
+   000118         003490*                                                                 00349000                                   
+   000119         003492     MOVE 11.66 TO WS-DECIMAL                                     00349202 11                                
+   000120         003493     DIVIDE WS-DECIMAL   BY 3.4                                   00349302 11                                
+   000121         003494     GIVING WS-DECIMAL                                            00349402 11                                
+   000122         003495     MOVE WS-DECIMAL   TO WS-EDIT-FLD2                            00349502 11 13                             
+   000123         003496     DISPLAY '*17*  WS-DECIMAL           = ' WS-EDIT-FLD2         00349602 13                                
+   000124         003497*                                                                 00349702                                   
+   000125         003498     MOVE 11.66 TO WS-DECIMAL                                     00349802 11                                
+   000126         003499     DIVIDE WS-DECIMAL   BY 3.4                                   00349902 11                                
+   000127         003500     GIVING WS-DECIMAL ROUNDED                                    00350002 11                                
+   000128         003501     MOVE WS-DECIMAL   TO WS-EDIT-FLD2                            00350102 11 13                             
+   000129         003502     DISPLAY '*18*  WS-DECIMAL           = ' WS-EDIT-FLD2         00350202 13                                
+   000130         003503*                                                                 00350302                                   
+   000131         003504     MOVE 12.37 TO WS-DECIMAL                                     00350402 11                                
+   000132         003505     DIVIDE WS-DECIMAL   BY 4.9                                   00350502 11                                
+   000133         003506     GIVING WS-DECIMAL                                            00350602 11                                
+   000134         003507     MOVE WS-DECIMAL   TO WS-EDIT-FLD2                            00350702 11 13                             
+   000135         003508     DISPLAY '*19*  WS-DECIMAL           = ' WS-EDIT-FLD2         00350802 13                                
+   000136         003509*                                                                 00350902                                   
+   000137         003510     MOVE 12.37 TO WS-DECIMAL                                     00351002 11                                
+   000138         003511     DIVIDE WS-DECIMAL   BY 4.9                                   00351102 11                                
+   000139         003512     GIVING WS-DECIMAL ROUNDED                                    00351202 11                                
+   000140         003513     MOVE WS-DECIMAL   TO WS-EDIT-FLD2                            00351302 11 13                             
+   000141         003514     DISPLAY '*20*  WS-DECIMAL           = ' WS-EDIT-FLD2         00351402 13                                
+   000142         003515*                                                                 00351502                                   
+   000143         003517     MOVE -11.66 TO WS-DECIMAL                                    00351702 11                                
+   000144         003518     DIVIDE WS-DECIMAL   BY 3.4                                   00351802 11                                
+   000145         003519     GIVING WS-DECIMAL                                            00351902 11                                
+   000146         003520     MOVE WS-DECIMAL   TO WS-EDIT-FLD2                            00352002 11 13                             
+   000147         003521     DISPLAY '*21*  WS-DECIMAL           = ' WS-EDIT-FLD2         00352102 13                                
+   000148         003522*                                                                 00352202                                   
+   000149         003523     MOVE -11.66 TO WS-DECIMAL                                    00352302 11                                
+   000150         003524     DIVIDE WS-DECIMAL   BY 3.4                                   00352402 11                                
+   000151         003525     GIVING WS-DECIMAL ROUNDED                                    00352502 11                                
+   000152         003526     MOVE WS-DECIMAL   TO WS-EDIT-FLD2                            00352602 11 13                             
+   000153         003527     DISPLAY '*22*  WS-DECIMAL           = ' WS-EDIT-FLD2         00352702 13                                
+   000154         003528*                                                                 00352802                                   
+   000155         003529     MOVE -12.37 TO WS-DECIMAL                                    00352902 11                                
+   000156         003530     DIVIDE WS-DECIMAL   BY 4.9                                   00353002 11                                
+   000157         003531     GIVING WS-DECIMAL                                            00353102 11                                
+   000158         003532     MOVE WS-DECIMAL   TO WS-EDIT-FLD2                            00353202 11 13                             
+   000159         003533     DISPLAY '*23*  WS-DECIMAL           = ' WS-EDIT-FLD2         00353302 13                                
+   000160         003534*                                                                 00353402                                   
+   000161         003535     MOVE -12.37 TO WS-DECIMAL                                    00353502 11                                
+   000162         003536     DIVIDE WS-DECIMAL   BY 4.9                                   00353602 11                                
+   000163         003537     GIVING WS-DECIMAL ROUNDED                                    00353702 11                                
+   000164         003538     MOVE WS-DECIMAL   TO WS-EDIT-FLD2                            00353802 11 13                             
+   000165         003539     DISPLAY '*24*  WS-DECIMAL           = ' WS-EDIT-FLD2         00353902 13                                
+   000166         003540*                                                                 00354002                                   
+   000167         003600        STOP RUN.                                                 00360002                                   
+ */ DIVIDE0                                                                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DIVIDE0   Date 07/02/2022  Time 08:42:20   Page     6                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       16   BA-PREFIX-VOLUME-TABLE                                                                                                   
+       18   BA-VOL-ENTRY . . . . . . . . .  M65 66                                                                                   
+       17   BA-VOLUME-ENTRY                                                                                                          
+       25   DA-COL-MAX                                                                                                               
+       20   DA-FILE-AREA                                                                                                             
+       27   DA-HOLD-MAX                                                                                                              
+       23   DA-IX. . . . . . . . . . . . .  M63 65 66                                                                                
+       33   DA-PCNT-HOLD . . . . . . . . .  M67 68 70                                                                                
+       34   DA-PCNT-HOLD-DISP. . . . . . .  M68 69                                                                                   
+       32   DA-PERCENT . . . . . . . . . .  M71 72                                                                                   
+       35   DA-PERCENT-DISP. . . . . . . .  M72 73                                                                                   
+       30   DA-PREFIX                                                                                                                
+       19   DA-REPORT-TABLE                                                                                                          
+       21   DA-SUB . . . . . . . . . . . .  M63 71 72                                                                                
+       22   DA-SUB-PFX                                                                                                               
+       24   DA-SUB-SAVE                                                                                                              
+       28   DA-TBL-ENTRIES                                                                                                           
+       26   DA-TBL-MAX                                                                                                               
+       29   DA-TYPE                                                                                                                  
+       31   DA-VOLUME                                                                                                                
+       15   FB-TOTAL-VOLUME. . . . . . . .  M64 66                                                                                   
+        9   IP20004-ITEM-LENGTH. . . . . .  M43 44 46 M47 50 M53 54 56 M58 60 M75 76 M77 78 M80 81 M82 83 M85 86 M87 88 M90          
+                                            91 M92 93 M95 96 M97 98 M101 102 M103 104 M107 108 M109 110 M113 114 M115 116            
+       11   WS-DECIMAL . . . . . . . . . .  M119 120 M121 122 M125 126 M127 128 M131 132 M133 134 M137 138 M139 140 M143             
+                                            144 M145 146 M149 150 M151 152 M155 156 M157 158 M161 162 M163 164                       
+       12   WS-EDIT-FLD1 . . . . . . . . .  M98 99 M104 105 M110 111 M116 117                                                        
+       13   WS-EDIT-FLD2 . . . . . . . . .  M122 123 M128 129 M134 135 M140 141 M146 147 M152 153 M158 159 M164 165                  
+       10   800-TMP-LTH. . . . . . . . . .  M48 51 M57 61                                                                            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DIVIDE0   Date 07/02/2022  Time 08:42:20   Page     7                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+       39   MAINLINE                                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DIVIDE0   Date 07/02/2022  Time 08:42:20   Page     8                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   DIVIDE0                                                                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DIVIDE0   Date 07/02/2022  Time 08:42:20   Page     9                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID DIVIDE0-----------------------------------------------------------------------------------------------------*    
+      9   77 IP20004-ITEM-LENGTH . . . . . . . . . . . . . BLW=00000  000               DS 2C           Binary                       
+     10   77 800-TMP-LTH . . . . . . . . . . . . . . . . . BLW=00000  008               DS 2C           Binary                       
+     11   77 WS-DECIMAL. . . . . . . . . . . . . . . . . . BLW=00000  010               DS 3P           Packed-Dec                   
+     12   77 WS-EDIT-FLD1. . . . . . . . . . . . . . . . . BLW=00000  018               DS 5C           Disp-Num-Edit                
+     13   77 WS-EDIT-FLD2. . . . . . . . . . . . . . . . . BLW=00000  020               DS 6C           Disp-Num-Edit                
+     15   1  FB-TOTAL-VOLUME . . . . . . . . . . . . . . . BLW=00000  028               DS 11C          Disp-Num                     
+     16   1  BA-PREFIX-VOLUME-TABLE. . . . . . . . . . . . BLW=00000  038               DS 0CL9000      Group                        
+     17     2  BA-VOLUME-ENTRY . . . . . . . . . . . . . . BLW=00000  038   0 000 000   DS 0CL9         Group          O             
+     18       3  BA-VOL-ENTRY. . . . . . . . . . . . . . . BLW=00000  038   0 000 000   DS 9C           Disp-Num                     
+     19   1  DA-REPORT-TABLE . . . . . . . . . . . . . . . BLW=00002  360               DS 0CL2745      Group                        
+     20     2  DA-FILE-AREA. . . . . . . . . . . . . . . . BLW=00002  360   0 000 000   DS 10C          Display                      
+     21     2  DA-SUB. . . . . . . . . . . . . . . . . . . BLW=00002  36A   0 000 00A   DS 4C           Disp-Num                     
+     22     2  DA-SUB-PFX. . . . . . . . . . . . . . . . . BLW=00002  36E   0 000 00E   DS 4C           Disp-Num                     
+     23     2  DA-IX . . . . . . . . . . . . . . . . . . . BLW=00002  372   0 000 012   DS 4C           Disp-Num                     
+     24     2  DA-SUB-SAVE . . . . . . . . . . . . . . . . BLW=00002  376   0 000 016   DS 4C           Disp-Num                     
+     25     2  DA-COL-MAX. . . . . . . . . . . . . . . . . BLW=00002  37A   0 000 01A   DS 4C           Disp-Num                     
+     26     2  DA-TBL-MAX. . . . . . . . . . . . . . . . . BLW=00002  37E   0 000 01E   DS 4C           Disp-Num                     
+     27     2  DA-HOLD-MAX . . . . . . . . . . . . . . . . BLW=00002  382   0 000 022   DS 4C           Disp-Num                     
+     28     2  DA-TBL-ENTRIES. . . . . . . . . . . . . . . BLW=00002  386   0 000 026   DS 0CL18        Group          O             
+     29       3  DA-TYPE . . . . . . . . . . . . . . . . . BLW=00002  386   0 000 026   DS 1C           Display                      
+     30       3  DA-PREFIX . . . . . . . . . . . . . . . . BLW=00002  387   0 000 027   DS 3C           Disp-Num                     
+     31       3  DA-VOLUME . . . . . . . . . . . . . . . . BLW=00002  38A   0 000 02A   DS 9C           Disp-Num                     
+     32       3  DA-PERCENT. . . . . . . . . . . . . . . . BLW=00002  393   0 000 033   DS 5C           Disp-Num                     
+     33     2  DA-PCNT-HOLD. . . . . . . . . . . . . . . . BLW=00002  E12   0 000 AB2   DS 7C           Disp-Num                     
+     34   1  DA-PCNT-HOLD-DISP . . . . . . . . . . . . . . BLW=00002  E20               DS 8C           Disp-Num-Edit                
+     35   1  DA-PERCENT-DISP . . . . . . . . . . . . . . . BLW=00002  E28               DS 6C           Disp-Num-Edit                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DIVIDE0   Date 07/02/2022  Time 08:42:20   Page    10                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000034 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000730 FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      0000000A 00000001 40404040 40404040 40404040 40404040 40404040 40404040  |........                        |    
+ 00011C  (LIT+32)     40404040 4040F0F0 F0F0                                                   |      0000                      |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DIVIDE0   Date 07/02/2022  Time 08:42:20   Page    11                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000130 FOR 0005FF BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000138  (LIT+0)      FFFFFFFC 00001000 00000001 00000000 FFF0FFF3 00030008 000B0012 00090002  |.................0.3............|    
+ 000158  (LIT+32)     00055CF2 F45C4040 E6E260C4 C5C3C9D4 C1D34040 40404040 40404040 407E405C  |..*24*  WS-DECIMAL           = *|    
+ 000178  (LIT+64)     F2F35C40 40E6E260 C4C5C3C9 D4C1D340 40404040 40404040 40407E40 5CF2F25C  |23*  WS-DECIMAL           = *22*|    
+ 000198  (LIT+96)     4040E6E2 60C4C5C3 C9D4C1D3 40404040 40404040 4040407E 405CF2F1 5C4040E6  |  WS-DECIMAL           = *21*  W|    
+ 0001B8  (LIT+128)    E260C4C5 C3C9D4C1 D3404040 40404040 40404040 7E405CF2 F05C4040 E6E260C4  |S-DECIMAL           = *20*  WS-D|    
+ 0001D8  (LIT+160)    C5C3C9D4 C1D34040 40404040 40404040 407E405C F1F95C40 40E6E260 C4C5C3C9  |ECIMAL           = *19*  WS-DECI|    
+ 0001F8  (LIT+192)    D4C1D340 40404040 40404040 40407E40 5CF1F85C 4040E6E2 60C4C5C3 C9D4C1D3  |MAL           = *18*  WS-DECIMAL|    
+ 000218  (LIT+224)    40404040 40404040 4040407E 405CF1F7 5C4040E6 E260C4C5 C3C9D4C1 D3404040  |           = *17*  WS-DECIMAL   |    
+ 000238  (LIT+256)    40404040 40404040 7E405CF1 F65C4040 C9D7F2F0 F0F0F460 C9E3C5D4 60D3C5D5  |        = *16*  IP20004-ITEM-LEN|    
+ 000258  (LIT+288)    C7E3C840 407E405C F1F55C40 40C9D7F2 F0F0F0F4 60C9E3C5 D460D3C5 D5C7E3C8  |GTH  = *15*  IP20004-ITEM-LENGTH|    
+ 000278  (LIT+320)    40407E40 5CF1F45C 4040C9D7 F2F0F0F0 F460C9E3 C5D460D3 C5D5C7E3 C840407E  |  = *14*  IP20004-ITEM-LENGTH  =|    
+ 000298  (LIT+352)    405CF1F3 5C4040C9 D7F2F0F0 F0F460C9 E3C5D460 D3C5D5C7 E3C84040 7E405CF1  | *13*  IP20004-ITEM-LENGTH  = *1|    
+ 0002B8  (LIT+384)    F25C4040 C9D7F2F0 F0F0F460 C9E3C5D4 60D3C5D5 C7E3C840 407E405C F1F15C40  |2*  IP20004-ITEM-LENGTH  = *11* |    
+ 0002D8  (LIT+416)    40C9D7F2 F0F0F0F4 60C9E3C5 D460D3C5 D5C7E3C8 40407E40 5CF1F05C 4040C9D7  | IP20004-ITEM-LENGTH  = *10*  IP|    
+ 0002F8  (LIT+448)    F2F0F0F0 F460C9E3 C5D460D3 C5D5C7E3 C840407E 405C40F9 5C4040C9 D7F2F0F0  |20004-ITEM-LENGTH  = * 9*  IP200|    
+ 000318  (LIT+480)    F0F460C9 E3C5D460 D3C5D5C7 E3C84040 7E405C40 F85C4040 C4C160D7 C5D9C3C5  |04-ITEM-LENGTH  = * 8*  DA-PERCE|    
+ 000338  (LIT+512)    D5E3404D C4C160E2 E4C25D40 407E405C 40F75C40 40C4C160 D7C3D5E3 60C8D6D3  |NT (DA-SUB)  = * 7*  DA-PCNT-HOL|    
+ 000358  (LIT+544)    C4404040 40404040 40407E40 5C40F65C 4040F8F0 F060E3D4 D760D3E3 C8404040  |D         = * 6*  800-TMP-LTH   |    
+ 000378  (LIT+576)    40404040 4040407E 405C40F5 5C4040C9 D7F2F0F0 F0F460C9 E3C5D460 D3C5D5C7  |       = * 5*  IP20004-ITEM-LENG|    
+ 000398  (LIT+608)    E3C84040 7E405C40 F45C4040 C9D7F2F0 F0F0F460 C9E3C5D4 60D3C5D5 C7E3C840  |TH  = * 4*  IP20004-ITEM-LENGTH |    
+ 0003B8  (LIT+640)    407E405C 40F35C40 40F8F0F0 60E3D4D7 60D3E3C8 40404040 40404040 40407E40  | = * 3*  800-TMP-LTH          = |    
+ 0003D8  (LIT+672)    5C40F25C 4040C9D7 F2F0F0F0 F460C9E3 C5D460D3 C5D5C7E3 C840407E 405C40F1  |* 2*  IP20004-ITEM-LENGTH  = * 1|    
+ 0003F8  (LIT+704)    5C4040C9 D7F2F0F0 F0F460C9 E3C5D460 D3C5D5C7 E3C84040 7E40C4C1 60C1D9C5  |*  IP20004-ITEM-LENGTH  = DA-ARE|    
+ 000418  (LIT+736)    C160606E E2E8E2D6 E4E34040 C9C7E9E2 D9E3C3C4 C4C9E5C9 C4C5F001 237D0116  |A-->SYSOUT  IGZSRTCDDIVIDE0..'..|    
+ 000438  (LIT+768)    6D01237C 01166C04 9F034F10 0F000000 00000001 2C000000 03000001 38000000  |_..@..%...|.....................|    
+ 000458  (LIT+800)    01000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000  |................................|    
+ 000478  (LIT+832)    00000000 00800000 00400000 00000000 00000000 00800000 00000000 00000000  |......... ......................|    
+ 000498  (LIT+864)    00F0F0F8 F7F6F5F4 F3F2F1F0 40202021 4B202020 20F1F2F3 F4F5F6F7 F8F94021  |.00876543210 ........123456789 .|    
+ 0004B8  (LIT+896)    6020204B 20204021 60202020 20F0F0F1 F0F0F1F5 F0F0F0F5 F0400000 00000000  |-..... .-....001001500050 ......|    
+ 0004D8  (LIT+928)    00000000 00000000 00400000 000025C0 0001C000 07080000 2C02FC80 00000000  |......... ......................|    
+ 0004F8  (LIT+960)    00000000 00000000 00000001 4000001D 0800002C 002A4000 00060900 012C0020  |............ ......... .........|    
+ 000518  (LIT+992)    FF014000 001D0800 002C0047 40000006 0900012C 0020FF01 4000001D 0800002C  |.. ......... ........... .......|    
+ 000538  (LIT+1024)   00644000 00060900 012C0020 FF014000 001D0800 002C0081 40000006 0900012C  |.. ........... ........a .......|    
+ 000558  (LIT+1056)   0020FF01 4000001D 0800002C 009E4000 00060900 012C0020 FF014000 001D0800  |.... ......... ........... .....|    
+ 000578  (LIT+1088)   002C00BB 40000006 0900012C 0020FF01 4000001D 0800002C 00D84000 00060900  |.... ........... ........Q .....|    
+ 000598  (LIT+1120)   012C0020 FF014000 001D0800 002C00F5 40000006 0900012C 0020FF01 4000001D  |...... ........5 ........... ...|    
+ 0005B8  (LIT+1152)   0800002C 01124000 00050900 012C0018 FF014000 001D0800 002C012F 40000005  |...... ........... ......... ...|    
+ 0005D8  (LIT+1184)   0900012C 0018FF01 4000001D 0800002C 014C4000 00050900 012C0018 FF014000  |........ ........< ........... .|    
+ 0005F8  (LIT+1216)   001D0800 002C0169 40000005 0900012C 0018FF01 4000001D 0800002C 01860002  |........ ........... ........f..|    
+ 000618  (LIT+1248)   00050900 012C0000 FF014000 001D0800 002C01A3 00020005 0900012C 0000FF01  |.......... ........t............|    
+ 000638  (LIT+1280)   4000001D 0800002C 01C00002 00050900 012C0000 FF014000 001D0800 002C01DD  | ..................... .........|    
+ 000658  (LIT+1312)   00020005 0900012C 0000FF01 4000001D 0800002C 01FA4000 00060900 01340E28  |............ ......... .........|    
+ 000678  (LIT+1344)   FF014000 001D0800 002C0217 40000008 09000134 0E20FF01 4000001D 0800002C  |.. ......... ........... .......|    
+ 000698  (LIT+1376)   02340002 00050900 012C0008 FF014000 001D0800 002C0251 00020005 0900012C  |.............. .................|    
+ 0006B8  (LIT+1408)   0000FF01 4000001D 0800002C 026E0002 00050900 012C0000 FF014000 001D0800  |.... ........>............ .....|    
+ 0006D8  (LIT+1440)   002C028B 00020005 0900012C 0008FF01 4000001D 0800002C 02A80002 00050900  |................ ........y......|    
+ 0006F8  (LIT+1472)   012C0000 FF014000 001D0800 002C02C5 00020005 0900012C 0000FF40 00000000  |...... ........E........... ....|    
+ 000718  (LIT+1504)   40C00001 40000708 00002C02 FC02C000 07080000 2C02FC                      | ... ..................         |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000043 0008A4 MOVE                          000044 0008AE DISPLAY                       000046 0008C0 DIVIDE                        
+ 000050 0008DC DISPLAY                       000051 0008EE DISPLAY                       000053 000900 MOVE                          
+ 000054 00090A DISPLAY                       000056 00091C DIVIDE                        000060 000938 DISPLAY                       
+ 000061 00094A DISPLAY                       000063 00095C MOVE                          000064 000970 MOVE                          
+ 000065 00097A MOVE                          000066 000998 DIVIDE                        000068 0009D2 MOVE                          
+ 000069 000A04 DISPLAY                       000070 000A16 MULTIPLY                      000072 000A44 MOVE                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DIVIDE0   Date 07/02/2022  Time 08:42:20   Page    12                
+0000073 000A86 DISPLAY                       000075 000A98 MOVE                          000076 000AA2 DIVIDE                        
+ 000078 000ABA DISPLAY                       000080 000ACC MOVE                          000081 000AD6 DIVIDE                        
+ 000083 000B00 DISPLAY                       000085 000B12 MOVE                          000086 000B1C DIVIDE                        
+ 000088 000B34 DISPLAY                       000090 000B46 MOVE                          000091 000B50 DIVIDE                        
+ 000093 000B7A DISPLAY                       000095 000B8C MOVE                          000096 000B96 DIVIDE                        
+ 000098 000BAE MOVE                          000099 000BE2 DISPLAY                       000101 000BF4 MOVE                          
+ 000102 000BFE DIVIDE                        000104 000C28 MOVE                          000105 000C5C DISPLAY                       
+ 000107 000C6E MOVE                          000108 000C78 DIVIDE                        000110 000C90 MOVE                          
+ 000111 000CC4 DISPLAY                       000113 000CD6 MOVE                          000114 000CE0 DIVIDE                        
+ 000116 000D0A MOVE                          000117 000D3E DISPLAY                       000119 000D50 MOVE                          
+ 000120 000D5A DIVIDE                        000122 000D7A MOVE                          000123 000DA2 DISPLAY                       
+ 000125 000DB4 MOVE                          000126 000DBE DIVIDE                        000128 000DE4 MOVE                          
+ 000129 000E0C DISPLAY                       000131 000E1E MOVE                          000132 000E28 DIVIDE                        
+ 000134 000E48 MOVE                          000135 000E70 DISPLAY                       000137 000E82 MOVE                          
+ 000138 000E8C DIVIDE                        000140 000EB2 MOVE                          000141 000EDA DISPLAY                       
+ 000143 000EEC MOVE                          000144 000EF6 DIVIDE                        000146 000F16 MOVE                          
+ 000147 000F3E DISPLAY                       000149 000F50 MOVE                          000150 000F5A DIVIDE                        
+ 000152 000F80 MOVE                          000153 000FA8 DISPLAY                       000155 000FBA MOVE                          
+ 000156 000FC4 DIVIDE                        000158 000FE4 MOVE                          000159 00100C DISPLAY                       
+ 000161 00101E MOVE                          000162 001028 DIVIDE                        000164 00104E MOVE                          
+ 000165 001076 DISPLAY                       000167 001088 STOP                                                                      
+0                                                                                                                                    
+   DEBUGINF TABLE LOCATED AT 001130 FOR 000042 BYTES                                                                                 
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DIVIDE0   Date 07/02/2022  Time 08:42:20   Page    13                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000138  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    00013C  TEST INFORMATION AREA                                                                                    
+                    000164  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DIVIDE0   Date 07/02/2022  Time 08:42:20   Page    14                
+0                                                                                                                                    
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  000000F0  VARIABLE-LENGTH CELLS                                                                                    
+                  00000108  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000110  PERFORM SAVE CELLS                                                                                       
+                  00000118  TEMPORARY STORAGE-2                                                                                      
+                  00000130  CALL STATEMENT PROGRAM NAME                                                                              
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000178 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 00002E2E BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 000001D0 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 0011A8                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 001304 FOR LENGTH 0000B0                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DIVIDE0   Date 07/02/2022  Time 08:42:20   Page    15                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program DIVIDE0:                                                                                             
+ *    Source records = 167                                                                                                           
+ *    Data Division statements = 26                                                                                                  
+ *    Procedure Division statements = 80                                                                                             
+0End of compilation 1,  program DIVIDE0,  highest severity 4.                                                                        
+0Return code 4                                                                                                                       

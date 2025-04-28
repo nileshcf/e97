@@ -1,0 +1,22 @@
+  SORT FIELDS=COPY                                                              
+  JOINKEYS FILE=F1,FIELDS=(50,11,A,61,11,A)                                     
+  JOINKEYS FILE=F2,FIELDS=(20,11,A,33,11,A)                                     
+  JOIN UNPAIRED,F1,F2                                                           
+  REFORMAT FIELDS=(F1:001,102,F2:001,095)                                       
+  OUTFIL FNAMES=SORTOUT                                                         
+  OUTREC IFTHEN=(WHEN=(001,001,CH,NE,C' ',AND,                                  
+  103,001,CH,NE,C' '),                                                          
+  BUILD=(020,66,                                                                
+  173,25,                                                                       
+  C'*******',                                                                   
+  C'*******************',                                                       
+  C'*******************')),                                                     
+  IFTHEN=(WHEN=(001,001,CH,NE,C' ',AND,                                         
+  103,001,CH,EQ,C' '),                                                          
+  BUILD=(020,66,                                                                
+  C'*************************',                                                 
+  C'*******',                                                                   
+  C'*******************',                                                       
+  C'*******************')),                                                     
+  IFTHEN=(WHEN=(NONE),                                                          
+  BUILD=(136X))                                                                 

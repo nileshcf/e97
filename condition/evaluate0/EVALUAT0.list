@@ -1,0 +1,546 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 04/29/2021  Time 05:52:07   Page     1                
+0Invocation parameters:                                                                                                              
+  LIB,OBJECT,RENT,RES,APOST,TRUNC(BIN),,ARITH(EXTEND),OFFSET,NOFDUMP,SOURCE,MAP                                                      
+                                                                                                                                     
+         IGYOS4046-I   The "RESIDENT" option specification is no longer required.  The resident runtime library support is always    
+                       used.                                                                                                         
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4008-W   The "NOFDUMP" compiler option was specified, but is not supported.  The option was discarded.                 
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    APOST                                                                                                                            
+    ARITH(EXTEND)                                                                                                                    
+  NOAWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+  NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 04/29/2021  Time 05:52:07   Page     2                
+0 NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+  NOTEST                                                                                                                             
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               EVAL0001  Date 04/29/2021  Time 05:52:07   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000001         000100 IDENTIFICATION DIVISION.                                         00010020                                   
+   000002         000200 PROGRAM-ID. EVAL0001.                                            00020020                                   
+   000003         000300 ENVIRONMENT DIVISION.                                            00040020                                   
+   000004         000400 INPUT-OUTPUT SECTION.                                            00060020                                   
+   000005         000500 FILE-CONTROL.                                                    00070020                                   
+   000006         000600 DATA DIVISION.                                                   00090020                                   
+   000007         000700 FILE SECTION.                                                    00110020                                   
+   000008         000800*-------------------------------------------------------------*                                              
+   000009         000900 WORKING-STORAGE SECTION.                                         00130020                                   
+   000010         001000*-------------------------------------------------------------*                                              
+   000011         001100                                                                  00140020                                   
+   000012         001200 01 WS-MISC-DATA.                                                 00150025 BLW=00000+000         0CL24       
+   000013         001300    05  NUM1                  PIC S9(04) VALUE +0 BINARY.                  BLW=00000+000,0000000 2C          
+   000014         001400    05  NUM2                  PIC S9(04) VALUE +0 BINARY.                  BLW=00000+002,0000002 2C          
+   000015         001420    05 WS-NUMBERS.                                                         BLW=00000+004,0000004 0CL20       
+   000016         001430       10 WS-AGE         PIC S9(04) COMP VALUE 88.                         BLW=00000+004,0000004 2C          
+   000017         001440       10 WS-INCOME      PIC S9(09) COMP VALUE 77777.                      BLW=00000+006,0000006 4C          
+   000018         001450       10 WS-GENDER      PIC X VALUE 'M'.                                  BLW=00000+00A,000000A 1C          
+   000019         001460       10 CROSS-REFERENCE-CD  PIC X(11).                                   BLW=00000+00B,000000B 11C         
+   000020         001470       10 WS-RGSTR-CD         PIC X(02).                                   BLW=00000+016,0000016 2C          
+   000021         001500                                                                  00175020                                   
+   000022         001501 01  WS-MSD-VARS.                                                          BLW=00000+018         0CL1        
+   000023         001502     15 MSD-EXCHANGE-CODE           PIC X(01).                             BLW=00000+018,0000000 1C          
+   000024         001507 01  DCLVSECTRDE.                                                          BLW=00000+020         0CL33       
+   000025         001508     10 SECURITY-ADP-NBR     PIC X(7).                                     BLW=00000+020,0000000 7C          
+   000026         001509     10 EXCHANGE-CD          PIC X(10).                                    BLW=00000+027,0000007 10C         
+   000027         001510     10 SYMBOL-TRADE-CD      PIC X(12).                                    BLW=00000+031,0000011 12C         
+   000028         001511     10 EXCHG-PRIME-IND      PIC X(1).                                     BLW=00000+03D,000001D 1C          
+   000029         001512     10 POST-CD              PIC X(3).                                     BLW=00000+03E,000001E 3C          
+   000030         001520                                                                  00175020                                   
+   000031         001600*-------------------------------------------------------------*                                              
+   000032         001700 PROCEDURE DIVISION.                                              00180020                                   
+   000033         001800*-------------------------------------------------------------*                                              
+   000034         001900     CONTINUE.                                                    00175020                                   
+   000035         002000*-------------------------------------------------------------*                                              
+   000036         002100 0000-MAIN-ROUTINE.                                               00180020                                   
+   000037         002200*-------------------------------------------------------------*                                              
+   000038         002300                                                                                                             
+   000039         002400     MOVE +12 TO NUM1                                                      13                                
+   000040         002500     MOVE +0  TO NUM2                                                      14                                
+   000041         002600                                                                                                             
+   000042         002700     PERFORM 0100-CHECK-NUMS                                               143                               
+   000043         002800        THRU 0100-EXIT                                                     167                               
+   000044         002900                                                                                                             
+   000045         003000     MOVE +6  TO NUM1                                                      13                                
+   000046         003100     MOVE +5  TO NUM2                                                      14                                
+   000047         003200                                                                                                             
+   000048         003300     PERFORM 0100-CHECK-NUMS                                               143                               
+   000049         003400        THRU 0100-EXIT                                                     167                               
+   000050         003500                                                                                                             
+   000051         003600     MOVE +69 TO NUM1                                                      13                                
+   000052         003700     MOVE +4  TO NUM2                                                      14                                
+   000053         003800                                                                                                             
+   000054         003900     PERFORM 0100-CHECK-NUMS                                               143                               
+   000055         004000        THRU 0100-EXIT                                                     167                               
+   000056         004100                                                                                                             
+   000057         004200     MOVE +45 TO NUM1                                                      13                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               EVAL0001  Date 04/29/2021  Time 05:52:07   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000058         004300     MOVE +45 TO NUM2                                                      14                                
+   000059         004400                                                                                                             
+   000060         004500     PERFORM 0100-CHECK-NUMS                                               143                               
+   000061         004600        THRU 0100-EXIT                                                     167                               
+   000062         004700                                                                                                             
+   000063         005400     MOVE +100 TO NUM1                                                     13                                
+   000064         005500     MOVE +69  TO NUM2                                                     14                                
+   000065         005600                                                                                                             
+   000066         005700     PERFORM 0100-CHECK-NUMS                                               143                               
+   000067         005800        THRU 0100-EXIT                                                     167                               
+   000068         005900                                                                                                             
+   000069         005910     MOVE +69 TO NUM1                                                      13                                
+   000070         005920               , NUM2                                                      14                                
+   000071         005930                                                                                                             
+   000072         005940     PERFORM 0100-CHECK-NUMS                                               143                               
+   000073         005950        THRU 0100-EXIT                                                     167                               
+   000074         005960                                                                                                             
+   000075         005970      DISPLAY '---AGE 88---OTHER---------------------'                                                       
+   000076         005980      PERFORM 0110-EVALUATE THRU 0110-EXIT.                                170 203                           
+   000077         005990      DISPLAY '---AGE 50---BABY BOOMER---------------'                                                       
+   000078         005991      MOVE 50 TO WS-AGE                                                    16                                
+   000079         005992      PERFORM 0110-EVALUATE THRU 0110-EXIT.                                170 203                           
+   000080         005993      DISPLAY '---GENDER FEMALE-BABY BOOMER GIRLS ---'                                                       
+   000081         005994      MOVE 'F' TO WS-GENDER                                                18                                
+   000082         005995      PERFORM 0110-EVALUATE THRU 0110-EXIT.                                170 203                           
+   000083         005996                                                                                                             
+   000084         005997*                                                                                                            
+   000085         005998* EVALUATE WITH REF MOD                                                                                      
+   000086         005999*                                                                                                            
+   000087         006000     MOVE '12345678901' TO CROSS-REFERENCE-CD                              19                                
+   000088         006001     MOVE '??'          TO WS-RGSTR-CD                                     20                                
+   000089         006002     EVALUATE CROSS-REFERENCE-CD (11:1)                                    19                                
+   000090         006003        WHEN '0'                                                                                             
+   000091      1  006004           MOVE 'UN'             TO WS-RGSTR-CD                            20                                
+   000092         006005        WHEN '1'                                                                                             
+   000093      1  006006           MOVE 'BR'             TO WS-RGSTR-CD                            20                                
+   000094         006007        WHEN '2'                                                                                             
+   000095      1  006008           MOVE 'RG'             TO WS-RGSTR-CD                            20                                
+   000096         006009        WHEN '3'                                                                                             
+   000097      1  006010           MOVE 'IN'             TO WS-RGSTR-CD                            20                                
+   000098         006011        WHEN '4'                                                                                             
+   000099      1  006012           MOVE 'MU'             TO WS-RGSTR-CD                            20                                
+   000100         006013        WHEN '5'                                                                                             
+   000101      1  006014           MOVE 'RP'             TO WS-RGSTR-CD                            20                                
+   000102         006015        WHEN '6'                                                                                             
+   000103      1  006016           MOVE 'BE'             TO WS-RGSTR-CD                            20                                
+   000104         006017        WHEN '9'                                                                                             
+   000105      1  006018           MOVE 'CL'             TO WS-RGSTR-CD                            20                                
+   000106         006019        WHEN OTHER                                                                                           
+   000107      1  006020           MOVE 'XX'             TO WS-RGSTR-CD                            20                                
+   000108         006021     END-EVALUATE.                                                                                           
+   000109         006022     DISPLAY 'WS-RGSTR-CD = ' WS-RGSTR-CD                                  20                                
+   000110         006023                                                                                                             
+   000111         006024     MOVE 'CBOE' TO EXCHANGE-CD OF DCLVSECTRDE                             26 24                             
+   000112         006025     EVALUATE EXCHANGE-CD OF DCLVSECTRDE                                   26 24                             
+   000113      1  006026         WHEN 'OTC ' MOVE ' ' TO MSD-EXCHANGE-CODE                         23                                
+   000114         006027*             IF MSD-MARGIN-CODE = '2'                                                                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               EVAL0001  Date 04/29/2021  Time 05:52:07   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000115         006028*                MOVE 'G' TO MSD-EXCHANGE-CODE                                                               
+   000116         006029*             ELSE                                                                                           
+   000117         006030*                MOVE ' ' TO MSD-EXCHANGE-CODE                                                               
+   000118         006031*             END-IF                                                                                         
+   000119      1  006032         WHEN 'NYSE' MOVE 'A' TO MSD-EXCHANGE-CODE                         23                                
+   000120      1  006033         WHEN 'AMEX' MOVE 'B' TO MSD-EXCHANGE-CODE                         23                                
+   000121      1  006034         WHEN 'PSE ' MOVE 'E' TO MSD-EXCHANGE-CODE                         23                                
+   000122         006035*        WHEN 'NMS ' MOVE 'H' TO MSD-EXCHANGE-CODE                                                           
+   000123      1  006036         WHEN 'NMS ' MOVE 'F' TO MSD-EXCHANGE-CODE                         23                                
+   000124         006037         WHEN 'PSE '                                                                                         
+   000125         006038         WHEN 'PBW '                                                                                         
+   000126         006039         WHEN 'CBOE'                                                                                         
+   000127      1  006040            MOVE 'E' TO MSD-EXCHANGE-CODE                                  23                                
+   000128         006041         WHEN OTHER                                                                                          
+   000129      1  006042            MOVE EXCHANGE-CD OF DCLVSECTRDE                                26 24                             
+   000130      1  006043                           TO MSD-EXCHANGE-CODE                            23                                
+   000131         006044     END-EVALUATE                                                                                            
+   000132         006045     DISPLAY 'EXCHANGE-CD       = ' EXCHANGE-CD OF DCLVSECTRDE             26 24                             
+   000133         006046     DISPLAY 'MSD-EXCHANGE-CODE = ' MSD-EXCHANGE-CODE                      23                                
+   000134         006047                                                                                                             
+   000135         006050     GO TO 9999-GOBACK                                                     206                               
+   000136         006100                                                                                                             
+   000137         006200     CONTINUE.                                                    00175020                                   
+   000138         006300                                                                                                             
+   000139         006400 0000-EXIT.                                                                                                  
+   000140         006500     EXIT.                                                                                                   
+   000141         006600                                                                                                             
+   000142         006700*-------------------------------------------------------------*                                              
+   000143         006800 0100-CHECK-NUMS.                                                                                            
+   000144         006900*-------------------------------------------------------------*                                              
+   000145         007000                                                                                                             
+   000146         007100     EVALUATE TRUE ALSO TRUE                                                                                 
+   000147         007200        WHEN NUM1 = 12 ALSO NUM2 < 5                                       13 14                             
+   000148         007300        WHEN NUM1 = 6  ALSO NUM2 = 5                                       13 14                             
+   000149      1  007400           DISPLAY 'Condition 1 fired'                                                                       
+   000150         007500                                                                                                             
+   000151         007600        WHEN NUM1 > 12 ALSO NUM2 < 5                                       13 14                             
+   000152      1  007700           DISPLAY 'Condition 2 fired'                                                                       
+   000153         007800                                                                                                             
+   000154         007900        WHEN NUM1 = NUM2 ALSO NUM2 < 50                                    13 14 14                          
+   000155      1  008000           DISPLAY 'Condition 3 fired'                                                                       
+   000156         008100                                                                                                             
+   000157         008110        WHEN NUM1 = 100 ALSO ANY                                           13                                
+   000158      1  008120           DISPLAY 'Condition 4 fired'                                                                       
+   000159         008130                                                                                                             
+   000160         008200        WHEN OTHER                                                                                           
+   000161      1  008300           DISPLAY 'Condition 5 fired'                                                                       
+   000162         008400                                                                                                             
+   000163         008500     END-EVALUATE                                                                                            
+   000164         008600                                                                  00175020                                   
+   000165         008700     CONTINUE.                                                    00175020                                   
+   000166         008800                                                                                                             
+   000167         008900 0100-EXIT.                                                                                                  
+   000168         009000     EXIT.                                                                                                   
+   000169         009100                                                                                                             
+   000170         009191 0110-EVALUATE.                                                                                              
+   000171         009192      EVALUATE TRUE ALSO WS-GENDER ALSO WS-AGE                             18 16                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               EVAL0001  Date 04/29/2021  Time 05:52:07   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000172         009193      WHEN WS-INCOME >= 10000 AND < 500000 ALSO "M"                        17                                
+   000173         009194           ALSO 20 THRU 60                                                                                   
+   000174      1  009195               DISPLAY ' BABY BOOMERS '                                                                      
+   000175         009196      WHEN WS-INCOME >= 10000 AND < 500000 ALSO "F"                        17                                
+   000176         009197           ALSO 20 THRU 60                                                                                   
+   000177      1  009198               DISPLAY ' BABY BOOMERS GIRLS '                                                                
+   000178         009199      WHEN OTHER                                                                                             
+   000179      1  009200               DISPLAY ' REST OF US '                                                                        
+   000180         009201      END-EVALUATE.                                                                                          
+   000181         009202      EVALUATE WS-GENDER                                                   18                                
+   000182         009203      WHEN 'M'                                                                                               
+   000183      1  009204        DISPLAY 'EVALUATED MALE '                                                                            
+   000184         009205      WHEN 'F'                                                                                               
+   000185      1  009206        DISPLAY 'EVALUATED FEMALE '                                                                          
+   000186         009207      END-EVALUATE                                                                                           
+   000187         009208      CONTINUE.                                                                                              
+   000188         009209      EVALUATE TRUE                                                                                          
+   000189         009210      WHEN WS-AGE < 20                                                     16                                
+   000190      1  009211        DISPLAY 'LESS THAN 20   '                                                                            
+   000191         009212      WHEN WS-AGE < 60                                                     16                                
+   000192      1  009213        DISPLAY 'LESS THAN 20 - 60 '                                                                         
+   000193         009214      WHEN OTHER                                                                                             
+   000194      1  009215        DISPLAY 'SENIOR CITIZEN    '                                                                         
+   000195         009216      END-EVALUATE                                                                                           
+   000196         009217      EVALUATE WS-AGE ALSO WS-GENDER                                       16 18                             
+   000197         009218      WHEN 20  THRU 60 ALSO ANY                                                                              
+   000198      1  009220               DISPLAY '* ALL BABY BOOMERS '                                                                 
+   000199         009224      WHEN OTHER                                                                                             
+   000200      1  009225               DISPLAY '* REST OF US '                                                                       
+   000201         009226      END-EVALUATE.                                                                                          
+   000202         009227      CONTINUE.                                                                                              
+   000203         009228 0110-EXIT.                                                                                                  
+   000204         009229      EXIT.                                                                                                  
+   000205         009230*-------------------------------------------------------------*                                              
+   000206         009300 9999-GOBACK.                                                                                                
+   000207         009400*-------------------------------------------------------------*                                              
+   000208         009500     GOBACK.                                                      00250033                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               EVAL0001  Date 04/29/2021  Time 05:52:07   Page     7                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       19   CROSS-REFERENCE-CD . . . . . .  M87 89                                                                                   
+       24   DCLVSECTRDE. . . . . . . . . .  111 112 129 132                                                                          
+       26   EXCHANGE-CD. . . . . . . . . .  M111 112 129 132                                                                         
+       28   EXCHG-PRIME-IND                                                                                                          
+       23   MSD-EXCHANGE-CODE. . . . . . .  M113 M119 M120 M121 M123 M127 M130 133                                                   
+       13   NUM1 . . . . . . . . . . . . .  M39 M45 M51 M57 M63 M69 147 148 151 154 157                                              
+       14   NUM2 . . . . . . . . . . . . .  M40 M46 M52 M58 M64 M70 147 148 151 154 154                                              
+       29   POST-CD                                                                                                                  
+       25   SECURITY-ADP-NBR                                                                                                         
+       27   SYMBOL-TRADE-CD                                                                                                          
+       16   WS-AGE . . . . . . . . . . . .  M78 171 189 191 196                                                                      
+       18   WS-GENDER. . . . . . . . . . .  M81 171 181 196                                                                          
+       17   WS-INCOME. . . . . . . . . . .  172 175                                                                                  
+       12   WS-MISC-DATA                                                                                                             
+       22   WS-MSD-VARS                                                                                                              
+       15   WS-NUMBERS                                                                                                               
+       20   WS-RGSTR-CD. . . . . . . . . .  M88 M91 M93 M95 M97 M99 M101 M103 M105 M107 109                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               EVAL0001  Date 04/29/2021  Time 05:52:07   Page     8                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      139   0000-EXIT                                                                                                                
+       36   0000-MAIN-ROUTINE                                                                                                        
+      143   0100-CHECK-NUMS. . . . . . . .  P42 P48 P54 P60 P66 P72                                                                  
+      167   0100-EXIT. . . . . . . . . . .  E43 E49 E55 E61 E67 E73                                                                  
+      170   0110-EVALUATE. . . . . . . . .  P76 P79 P82                                                                              
+      203   0110-EXIT. . . . . . . . . . .  E76 E79 E82                                                                              
+      206   9999-GOBACK. . . . . . . . . .  G135                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               EVAL0001  Date 04/29/2021  Time 05:52:07   Page     9                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   EVAL0001                                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               EVAL0001  Date 04/29/2021  Time 05:52:07   Page    10                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID EVAL0001----------------------------------------------------------------------------------------------------*    
+     12   1  WS-MISC-DATA. . . . . . . . . . . . . . . . . BLW=00000  000               DS 0CL24        Group                        
+     13     2  NUM1. . . . . . . . . . . . . . . . . . . . BLW=00000  000   0 000 000   DS 2C           Binary                       
+     14     2  NUM2. . . . . . . . . . . . . . . . . . . . BLW=00000  002   0 000 002   DS 2C           Binary                       
+     15     2  WS-NUMBERS. . . . . . . . . . . . . . . . . BLW=00000  004   0 000 004   DS 0CL20        Group                        
+     16       3  WS-AGE. . . . . . . . . . . . . . . . . . BLW=00000  004   0 000 004   DS 2C           Binary                       
+     17       3  WS-INCOME . . . . . . . . . . . . . . . . BLW=00000  006   0 000 006   DS 4C           Binary                       
+     18       3  WS-GENDER . . . . . . . . . . . . . . . . BLW=00000  00A   0 000 00A   DS 1C           Display                      
+     19       3  CROSS-REFERENCE-CD. . . . . . . . . . . . BLW=00000  00B   0 000 00B   DS 11C          Display                      
+     20       3  WS-RGSTR-CD . . . . . . . . . . . . . . . BLW=00000  016   0 000 016   DS 2C           Display                      
+     22   1  WS-MSD-VARS . . . . . . . . . . . . . . . . . BLW=00000  018               DS 0CL1         Group                        
+     23     2  MSD-EXCHANGE-CODE . . . . . . . . . . . . . BLW=00000  018   0 000 000   DS 1C           Display                      
+     24   1  DCLVSECTRDE . . . . . . . . . . . . . . . . . BLW=00000  020               DS 0CL33        Group                        
+     25     2  SECURITY-ADP-NBR. . . . . . . . . . . . . . BLW=00000  020   0 000 000   DS 7C           Display                      
+     26     2  EXCHANGE-CD . . . . . . . . . . . . . . . . BLW=00000  027   0 000 007   DS 10C          Display                      
+     27     2  SYMBOL-TRADE-CD . . . . . . . . . . . . . . BLW=00000  031   0 000 011   DS 12C          Display                      
+     28     2  EXCHG-PRIME-IND . . . . . . . . . . . . . . BLW=00000  03D   0 000 01D   DS 1C           Display                      
+     29     2  POST-CD . . . . . . . . . . . . . . . . . . BLW=00000  03E   0 000 01E   DS 3C           Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               EVAL0001  Date 04/29/2021  Time 05:52:07   Page    11                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000030 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000510 FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      3B9ACA00 00000001 40404040 40404040 40404040 40404040 40404040 40404040  |........                        |    
+ 00011C  (LIT+32)     40404040 4040                                                            |                                |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               EVAL0001  Date 04/29/2021  Time 05:52:07   Page    12                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 00012C FOR 0003E1 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 00013C  (LIT+0)      FFFFFFFC 00001000 0007A120 00002710 00000001 00012FD1 00000000 003C0014  |.......................J........|    
+ 00015C  (LIT+32)     00320064 002D0004 00450005 0006000C 00586060 60C7C5D5 C4C5D940 C6C5D4C1  |..................---GENDER FEMA|    
+ 00017C  (LIT+64)     D3C560C2 C1C2E840 C2D6D6D4 C5D940C7 C9D9D3E2 40606060 606060C1 C7C540F5  |LE-BABY BOOMER GIRLS ------AGE 5|    
+ 00019C  (LIT+96)     F0606060 C2C1C2E8 40C2D6D6 D4C5D960 60606060 60606060 60606060 60606060  |0---BABY BOOMER-----------------|    
+ 0001BC  (LIT+128)    60C1C7C5 40F8F860 6060D6E3 C8C5D960 60606060 60606060 60606060 60606060  |-AGE 88---OTHER-----------------|    
+ 0001DC  (LIT+160)    60606060 40C2C1C2 E840C2D6 D6D4C5D9 E240C7C9 D9D3E240 D4E2C460 C5E7C3C8  |---- BABY BOOMERS GIRLS MSD-EXCH|    
+ 0001FC  (LIT+192)    C1D5C7C5 60C3D6C4 C5407E40 C5E7C3C8 C1D5C7C5 60C3C440 40404040 40407E40  |ANGE-CODE = EXCHANGE-CD       = |    
+ 00021C  (LIT+224)    5C40C1D3 D340C2C1 C2E840C2 D6D6D4C5 D9E240E2 C5D5C9D6 D940C3C9 E3C9E9C5  |* ALL BABY BOOMERS SENIOR CITIZE|    
+ 00023C  (LIT+256)    D5404040 40D3C5E2 E240E3C8 C1D540F2 F0406040 F6F040C5 E5C1D3E4 C1E3C5C4  |N    LESS THAN 20 - 60 EVALUATED|    
+ 00025C  (LIT+288)    40C6C5D4 C1D3C540 C3969584 89A38996 9540F540 86899985 84C39695 8489A389  | FEMALE Condition 5 firedConditi|    
+ 00027C  (LIT+320)    969540F4 40868999 8584C396 958489A3 89969540 F3408689 998584C3 96958489  |on 4 firedCondition 3 firedCondi|    
+ 00029C  (LIT+352)    A3899695 40F24086 89998584 C3969584 89A38996 9540F140 86899985 84D3C5E2  |tion 2 firedCondition 1 firedLES|    
+ 0002BC  (LIT+384)    E240E3C8 C1D540F2 F0404040 C5E5C1D3 E4C1E3C5 C440D4C1 D3C540E6 E260D9C7  |S THAN 20   EVALUATED MALE WS-RG|    
+ 0002DC  (LIT+416)    E2E3D960 C3C4407E 405C40D9 C5E2E340 D6C640E4 E240F1F2 F3F4F5F6 F7F8F9F0  |STR-CD = * REST OF US 1234567890|    
+ 0002FC  (LIT+448)    F1D7C2E6 40404040 404040D5 D4E24040 40404040 40D7E2C5 40404040 404040C1  |1PBW       NMS       PSE       A|    
+ 00031C  (LIT+480)    D4C5E740 40404040 40D5E8E2 C5404040 404040D6 E3C34040 40404040 40C3C2D6  |MEX      NYSE      OTC       CBO|    
+ 00033C  (LIT+512)    C5404040 404040C5 E5C1D3F0 F0F0F1E2 E8E2D6E4 E34040C9 C7E9E2D9 E3C3C4E7  |E      EVAL0001SYSOUT  IGZSRTCDX|    
+ 00035C  (LIT+544)    E7C3D3C2 C5D9D7D4 E4C9D5C2 D9E4D56F 6F000000 00000001 2C000000 01000001  |XCLBERPMUINBRUN??...............|    
+ 00037C  (LIT+576)    30000000 01000000 00000000 00000000 00000000 00000000 00000000 00000000  |................................|    
+ 00039C  (LIT+608)    00000000 00000000 00800000 00400000 00000000 00000000 00400000 00000000  |............. ........... ......|    
+ 0003BC  (LIT+640)    00000000 00000000 00400000 000025C0 0001C000 08080000 28021701 4000000D  |......... .................. ...|    
+ 0003DC  (LIT+672)    08000028 01B9FF01 40000013 08000028 00F0FF01 40000012 08000028 0103FF01  |........ ........0.. ...........|    
+ 0003FC  (LIT+704)    40000012 08000028 0115FF01 4000000F 08000028 018DFF01 40000011 08000028  | ........... ........... .......|    
+ 00041C  (LIT+736)    0127FF01 4000000F 08000028 019CFF01 4000000C 08000028 01BAFF01 40000014  |.... ........... ........... ...|    
+ 00043C  (LIT+768)    08000028 00B4FF01 4000000E 08000028 00F5FF01 40000011 08000028 0138FF01  |........ ........5.. ...........|    
+ 00045C  (LIT+800)    40000011 08000028 0149FF01 40000011 08000028 015AFF01 40000011 08000028  | ........... ........!.. .......|    
+ 00047C  (LIT+832)    016BFF01 40000011 08000028 017CFF01 40000014 08000028 00C84000 00010900  |.,.. ........@.. ........H .....|    
+ 00049C  (LIT+864)    012C0018 FF014000 00140800 002800DC 4000000A 0900012C 0027FF01 4000000E  |...... ......... ........... ...|    
+ 0004BC  (LIT+896)    08000028 01AB4000 00020900 012C0016 FF014000 00260800 00280042 FF014000  |...... ........... ........... .|    
+ 0004DC  (LIT+928)    00260800 00280068 FF014000 00260800 0028008E FF400000 000040C0 00014000  |.......... .......... .... ... .|    
+ 0004FC  (LIT+960)    08080000 28021702 C0000808 00002802 17                                   |.................               |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000034 00067E CONTINUE                      000039 00067E MOVE                          000040 000684 MOVE                          
+ 000042 00068A PERFORM                       000045 0006A2 MOVE                          000046 0006A8 MOVE                          
+ 000048 0006AE PERFORM                       000051 0006CA MOVE                          000052 0006D0 MOVE                          
+ 000054 0006D6 PERFORM                       000057 0006F2 MOVE                          000058 0006F8 MOVE                          
+ 000060 0006FE PERFORM                       000063 00071A MOVE                          000064 000720 MOVE                          
+ 000066 000726 PERFORM                       000069 000742 MOVE                          000072 00074E PERFORM                       
+ 000075 00076A DISPLAY                       000076 000778 PERFORM                       000077 000794 DISPLAY                       
+ 000078 0007A2 MOVE                          000079 0007A8 PERFORM                       000080 0007C4 DISPLAY                       
+ 000081 0007D2 MOVE                          000082 0007D6 PERFORM                       000087 0007F2 MOVE                          
+ 000088 0007F8 MOVE                          000089 0007FE EVALUATE                      000090 0007FE WHEN                          
+ 000091 00080A MOVE                          000092 000814 WHEN                          000093 00081C MOVE                          
+ 000094 000826 WHEN                          000095 00082E MOVE                          000096 000838 WHEN                          
+ 000097 000840 MOVE                          000098 00084A WHEN                          000099 000852 MOVE                          
+ 000100 00085C WHEN                          000101 000864 MOVE                          000102 00086E WHEN                          
+ 000103 000876 MOVE                          000104 000880 WHEN                          000105 000888 MOVE                          
+ 000106 000892 WHEN                          000107 000892 MOVE                          000109 000898 DISPLAY                       
+ 000111 0008A6 MOVE                          000112 0008AC EVALUATE                      000113 0008AC WHEN                          
+ 000113 0008B6 MOVE                          000119 0008BE WHEN                          000119 0008C8 MOVE                          
+ 000120 0008D0 WHEN                          000120 0008DA MOVE                          000121 0008E2 WHEN                          
+ 000121 0008EC MOVE                          000123 0008F4 WHEN                          000123 0008FE MOVE                          
+ 000124 000906 WHEN                          000125 000914 WHEN                          000126 000922 WHEN                          
+ 000127 00092C MOVE                          000128 000934 WHEN                          000129 000934 MOVE                          
+ 000132 00093A DISPLAY                       000133 000944 DISPLAY                       000135 00094E GO                            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               EVAL0001  Date 04/29/2021  Time 05:52:07   Page    13                
+0000137 000952 CONTINUE                      000140 000952 EXIT                          000146 000952 EVALUATE                      
+ 000147 000952 WHEN                          000148 00097E WHEN                          000149 0009A6 DISPLAY                       
+ 000151 0009B8 WHEN                          000152 0009E0 DISPLAY                       000154 0009F2 WHEN                          
+ 000155 000A1C DISPLAY                       000157 000A2E WHEN                          000158 000A42 DISPLAY                       
+ 000160 000A54 WHEN                          000161 000A54 DISPLAY                       000165 000A62 CONTINUE                      
+ 000168 000A62 EXIT                          000171 000A68 EVALUATE                      000172 000A68 WHEN                          
+ 000174 000B0C DISPLAY                       000175 000B1E WHEN                          000177 000BC2 DISPLAY                       
+ 000178 000BD4 WHEN                          000179 000BD4 DISPLAY                       000181 000BE2 EVALUATE                      
+ 000182 000BE2 WHEN                          000183 000BEA DISPLAY                       000184 000BF8 WHEN                          
+ 000185 000C00 DISPLAY                       000187 000C0A CONTINUE                      000188 000C0A EVALUATE                      
+ 000189 000C0A WHEN                          000190 000C1E DISPLAY                       000191 000C2C WHEN                          
+ 000192 000C40 DISPLAY                       000193 000C4E WHEN                          000194 000C4E DISPLAY                       
+ 000196 000C58 EVALUATE                      000197 000C58 WHEN                          000198 000C70 DISPLAY                       
+ 000199 000C7E WHEN                          000200 000C7E DISPLAY                       000202 000C88 CONTINUE                      
+ 000204 000C88 EXIT                          000208 000C8E GOBACK                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               EVAL0001  Date 04/29/2021  Time 05:52:07   Page    14                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               EVAL0001  Date 04/29/2021  Time 05:52:07   Page    15                
+0                   *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  SAVE AREA FOR FLOAT REGISTERS 8-15                                                                       
+                  00000110  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  00000170  VARIABLE-LENGTH CELLS                                                                                    
+                  00000188  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000198  PERFORM SAVE CELLS                                                                                       
+                  000001C8  TEMPORARY STORAGE-2                                                                                      
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000148 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 00000041 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 000001E0 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 000D48                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 000E80 FOR LENGTH 000088                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               EVAL0001  Date 04/29/2021  Time 05:52:07   Page    16                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program EVAL0001:                                                                                            
+ *    Source records = 208                                                                                                           
+ *    Data Division statements = 17                                                                                                  
+ *    Procedure Division statements = 79                                                                                             
+0End of compilation 1,  program EVAL0001,  highest severity 4.                                                                       
+0Return code 4                                                                                                                       

@@ -1,0 +1,646 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 01/14/2023  Time 15:18:03   Page     1                
+0Invocation parameters:                                                                                                              
+  DYNAM,OFFSET,MAP,XREF(FULL),ARITH(EXTEND),TRUNC(BIN),LIB                                                                           
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(EXTEND)                                                                                                                    
+  NOAWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+    DYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+  NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+  NOTEST                                                                                                                             
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 01/14/2023  Time 15:18:03   Page     2                
+0   XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ABEND     Date 01/14/2023  Time 15:18:03   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000001         000100 IDENTIFICATION DIVISION.                                                                                    
+   000002         000200 PROGRAM-ID. ABEND.                                                                                          
+   000003         000300 ENVIRONMENT DIVISION.                                                                                       
+   000004         000400 INPUT-OUTPUT SECTION.                                                                                       
+   000005         000420 FILE-CONTROL.                                                                                               
+   000006         000600 DATA DIVISION.                                                                                              
+   000007         000700 FILE SECTION.                                                                                               
+   000008         000900 WORKING-STORAGE SECTION.                                                                                    
+   000009         001000*                                                                                                            
+   000010         001001 01 WS-SHORT   PIC 9(04).                                                  BLW=00000+000         4C          
+   000011         001010 01 WS-SHORT-X REDEFINES WS-SHORT.                                         BLW=00000+000         0CL2        
+                                                                                                   10                                
+   000012         001100    05  WS-SHORT-X1        PIC X(1).                                       BLW=00000+000,0000000 1C          
+   000013         001110    05  WS-SHORT-X2        PIC X(1).                                       BLW=00000+001,0000001 1C          
+   000014         001111*                                                                                                            
+   000015         001112 01 WS-INT     PIC 9(08).                                                  BLW=00000+008         8C          
+   000016         001113 01 WS-INT-X REDEFINES WS-INT.                                             BLW=00000+008         0CL4        
+                                                                                                   15                                
+   000017         001114    05  WS-INT-X1          PIC X(2).                                       BLW=00000+008,0000000 2C          
+   000018         001115    05  WS-INT-X2          PIC X(2).                                       BLW=00000+00A,0000002 2C          
+   000019         001116*                                                                                                            
+   000020         001117 01 WS-LONG    PIC 9(12).                                                  BLW=00000+010         12C         
+   000021         001118 01 WS-LONG-X REDEFINES WS-LONG.                                           BLW=00000+010         0CL8        
+                                                                                                   20                                
+   000022         001119    05  WS-LONG-X1         PIC X(4).                                       BLW=00000+010,0000000 4C          
+   000023         001120    05  WS-LONG-X2         PIC X(4).                                       BLW=00000+014,0000004 4C          
+   000024         001130*                                                                                                            
+   000025         001207*                                                                                                            
+   000026         001700 LINKAGE SECTION.                                                                                            
+   000027         001824*                                                                                                            
+   000028         001830 PROCEDURE DIVISION.                                                                                         
+   000029         001831*                                                                                                            
+   000030         001832      PERFORM SHORT-COMPARE.                                               37                                
+   000031         001833      PERFORM INT-COMPARE.                                                 108                               
+   000032         001834      PERFORM LONG-COMPARE.                                                179                               
+   000033         001836*                                                                                                            
+   000034         001841*                                                                                                            
+   000035         001842       GOBACK.                                                                                               
+   000036         001843*                                                                                                            
+   000037         001844 SHORT-COMPARE.                                                                                              
+   000038         001845      MOVE 1 TO WS-SHORT                                                   10                                
+   000039         001846      DISPLAY ' VALUE OF WS-SHORT   ' WS-SHORT                             10                                
+   000040         001847      DISPLAY ' VALUE OF WS-SHORT-X '                                                                        
+   000041         001848      WS-SHORT-X                                                           11                                
+   000042         001849*                                                                                                            
+   000043         001850      DISPLAY '         '                                                                                    
+   000044         001851      DISPLAY ' VAR > 1 '                                                                                    
+   000045         001852      IF WS-SHORT > 1                                                      10                                
+   000046      1  001853         DISPLAY '  1*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000047         001854      ELSE                                                                                                   
+   000048      1  001855         DISPLAY '  1*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000049         001856      END-IF                                                                                                 
+   000050         001857      DISPLAY ' VAR < 1 '                                                                                    
+   000051         001858      IF WS-SHORT < 1                                                      10                                
+   000052      1  001859         DISPLAY '  2*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000053         001860      ELSE                                                                                                   
+   000054      1  001861         DISPLAY '  2*. RIGHT ANSWER - CONDITION FALSE '                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ABEND     Date 01/14/2023  Time 15:18:03   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000055         001862      END-IF                                                                                                 
+   000056         001863      DISPLAY ' VAR = 1 '                                                                                    
+   000057         001864      IF WS-SHORT = 1                                                      10                                
+   000058      1  001865         DISPLAY '  3*. RIGHT ANSWER - CONDITION TRUE'                                                       
+   000059         001866      ELSE                                                                                                   
+   000060      1  001867         DISPLAY '  3*. WRONG ANSWER - CONDITION FALSE '                                                     
+   000061         001868      END-IF                                                                                                 
+   000062         001869      DISPLAY ' VAR > 01'                                                                                    
+   000063         001870      IF WS-SHORT > 01                                                     10                                
+   000064      1  001871         DISPLAY '  4*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000065         001872      ELSE                                                                                                   
+   000066      1  001873         DISPLAY '  4*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000067         001874      END-IF                                                                                                 
+   000068         001875      DISPLAY ' VAR < 01'                                                                                    
+   000069         001876      IF WS-SHORT < 01                                                     10                                
+   000070      1  001877         DISPLAY '  5*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000071         001878      ELSE                                                                                                   
+   000072      1  001879         DISPLAY '  5*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000073         001880      END-IF                                                                                                 
+   000074         001881      DISPLAY ' VAR = 01'                                                                                    
+   000075         001882      IF WS-SHORT = 01                                                     10                                
+   000076      1  001883         DISPLAY '  6*. RIGHT ANSWER - CONDITION TRUE'                                                       
+   000077         001884      ELSE                                                                                                   
+   000078      1  001885         DISPLAY '  6*. WRONG ANSWER - CONDITION FALSE '                                                     
+   000079         001886      END-IF                                                                                                 
+   000080         001887*                                                                                                            
+   000081         001888      MOVE X'C0C1'   TO WS-SHORT-X                                         11                                
+   000082         001889*                                                                                                            
+   000083         001890      DISPLAY '         '                                                                                    
+   000084         001891      DISPLAY ' VALUE OF WS-SHORT   ' WS-SHORT                             10                                
+   000085         001892      DISPLAY ' VALUE OF WS-SHORT-X '                                                                        
+   000086         001893       WS-SHORT-X                                                          11                                
+   000087         001894*                                                                                                            
+   000088         001895      DISPLAY '         '                                                                                    
+   000089         001896      DISPLAY ' VAR > 1 '                                                                                    
+   000090         001897      IF WS-SHORT > 01                                                     10                                
+   000091      1  001898         DISPLAY '  7*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000092         001899      ELSE                                                                                                   
+   000093      1  001900         DISPLAY '  7*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000094         001901      END-IF                                                                                                 
+   000095         001902      DISPLAY ' VAR < 1 '                                                                                    
+   000096         001903      IF WS-SHORT < 01                                                     10                                
+   000097      1  001904         DISPLAY '  8*. RIGHT ANSWER - CONDITION TRUE'                                                       
+   000098         001905      ELSE                                                                                                   
+   000099      1  001906         DISPLAY '  8*. WRONG ANSWER - CONDITION FALSE '                                                     
+   000100         001907      END-IF                                                                                                 
+   000101         001908      DISPLAY ' VAR = 1 '                                                                                    
+   000102         001909      IF WS-SHORT = 01                                                     10                                
+   000103      1  001910         DISPLAY '  9*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000104         001911      ELSE                                                                                                   
+   000105      1  001912         DISPLAY '  9*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000106         001913      END-IF                                                                                                 
+   000107         001920      EXIT.                                                                                                  
+   000108         001930 INT-COMPARE.                                                                                                
+   000109         001940      MOVE 1 TO WS-INT                                                     15                                
+   000110         001950      DISPLAY ' VALUE OF WS-INT   ' WS-INT                                 15                                
+   000111         001960      DISPLAY ' VALUE OF WS-INT-X '                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ABEND     Date 01/14/2023  Time 15:18:03   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000112         001970      WS-INT-X                                                             16                                
+   000113         001980*                                                                                                            
+   000114         001990      DISPLAY '         '                                                                                    
+   000115         002000      DISPLAY ' VAR > 1 '                                                                                    
+   000116         002100      IF WS-INT > 1                                                        15                                
+   000117      1  002200         DISPLAY ' 10*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000118         002300      ELSE                                                                                                   
+   000119      1  002400         DISPLAY ' 10*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000120         002500      END-IF                                                                                                 
+   000121         002600      DISPLAY ' VAR < 1 '                                                                                    
+   000122         002700      IF WS-INT < 1                                                        15                                
+   000123      1  002800         DISPLAY ' 11*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000124         002900      ELSE                                                                                                   
+   000125      1  003000         DISPLAY ' 11*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000126         003100      END-IF                                                                                                 
+   000127         003200      DISPLAY ' VAR = 1 '                                                                                    
+   000128         003300      IF WS-INT = 1                                                        15                                
+   000129      1  003400         DISPLAY ' 12*. RIGHT ANSWER - CONDITION TRUE'                                                       
+   000130         003500      ELSE                                                                                                   
+   000131      1  003600         DISPLAY ' 12*. WRONG ANSWER - CONDITION FALSE '                                                     
+   000132         003700      END-IF                                                                                                 
+   000133         003800      DISPLAY ' VAR > 01'                                                                                    
+   000134         003900      IF WS-INT > 01                                                       15                                
+   000135      1  004000         DISPLAY ' 13*. WRONG ANSWER - CONDITION TRUE '                                                      
+   000136         004100      ELSE                                                                                                   
+   000137      1  004200         DISPLAY ' 13*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000138         004300      END-IF                                                                                                 
+   000139         004400      DISPLAY ' VAR < 01'                                                                                    
+   000140         004500      IF WS-INT < 01                                                       15                                
+   000141      1  004600         DISPLAY ' 14*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000142         004700      ELSE                                                                                                   
+   000143      1  004800         DISPLAY ' 14*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000144         004900      END-IF                                                                                                 
+   000145         005000      DISPLAY ' VAR = 01'                                                                                    
+   000146         005100      IF WS-INT = 01                                                       15                                
+   000147      1  005200         DISPLAY ' 15*. RIGHT ANSWER - CONDITION TRUE'                                                       
+   000148         005300      ELSE                                                                                                   
+   000149      1  005400         DISPLAY ' 15*. WRONG ANSWER - CONDITION FALSE '                                                     
+   000150         005500      END-IF                                                                                                 
+   000151         005600*                                                                                                            
+   000152         005700      MOVE X'C0C1C0C1'   TO WS-INT-X                                       16                                
+   000153         005800*                                                                                                            
+   000154         005900      DISPLAY '         '                                                                                    
+   000155         006000      DISPLAY ' VALUE OF WS-INT   ' WS-INT                                 15                                
+   000156         006100      DISPLAY ' VALUE OF WS-INT-X '                                                                          
+   000157         006200       WS-INT-X                                                            16                                
+   000158         006300*                                                                                                            
+   000159         006400      DISPLAY '         '                                                                                    
+   000160         006500      DISPLAY ' VAR > 101 '.                                                                                 
+   000161         006600      IF WS-INT > 0101                                                     15                                
+   000162      1  006700         DISPLAY ' 16*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000163         006800      ELSE                                                                                                   
+   000164      1  006900         DISPLAY ' 16*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000165         007000      END-IF                                                                                                 
+   000166         007100      DISPLAY ' VAR < 101 '.                                                                                 
+   000167         007200      IF WS-INT < 0101                                                     15                                
+   000168      1  007300         DISPLAY ' 17*. RIGHT ANSWER - CONDITION TRUE'                                                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ABEND     Date 01/14/2023  Time 15:18:03   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000169         007400      ELSE                                                                                                   
+   000170      1  007500         DISPLAY ' 17*. WRONG ANSWER - CONDITION FALSE '                                                     
+   000171         007600      END-IF                                                                                                 
+   000172         007700      DISPLAY ' VAR = 101 '.                                                                                 
+   000173         007800      IF WS-INT = 0101                                                     15                                
+   000174      1  007900         DISPLAY ' 18*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000175         008000      ELSE                                                                                                   
+   000176      1  008100         DISPLAY ' 18*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000177         008200      END-IF                                                                                                 
+   000178         008300      EXIT.                                                                                                  
+   000179         008400 LONG-COMPARE.                                                                                               
+   000180         008500      MOVE 1 TO WS-INT                                                     15                                
+   000181         008600      DISPLAY ' VALUE OF WS-INT   ' WS-INT                                 15                                
+   000182         008700      DISPLAY ' VALUE OF WS-LONG-X '                                                                         
+   000183         008800      WS-LONG-X                                                            21                                
+   000184         008900*                                                                                                            
+   000185         009000      DISPLAY '         '                                                                                    
+   000186         009100      DISPLAY ' VAR > 1 '                                                                                    
+   000187         009200      IF WS-INT > 1                                                        15                                
+   000188      1  009300         DISPLAY ' 19*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000189         009400      ELSE                                                                                                   
+   000190      1  009500         DISPLAY ' 19*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000191         009600      END-IF                                                                                                 
+   000192         009700      DISPLAY ' VAR < 1 '                                                                                    
+   000193         009800      IF WS-INT < 1                                                        15                                
+   000194      1  009900         DISPLAY ' 20*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000195         010000      ELSE                                                                                                   
+   000196      1  010100         DISPLAY ' 20*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000197         010200      END-IF                                                                                                 
+   000198         010300      DISPLAY ' VAR = 1 '                                                                                    
+   000199         010400      IF WS-INT = 1                                                        15                                
+   000200      1  010500         DISPLAY ' 21*. RIGHT ANSWER - CONDITION TRUE'                                                       
+   000201         010600      ELSE                                                                                                   
+   000202      1  010700         DISPLAY ' 21*. WRONG ANSWER - CONDITION FALSE '                                                     
+   000203         010800      END-IF                                                                                                 
+   000204         010900      DISPLAY ' VAR > 01'                                                                                    
+   000205         011000      IF WS-INT > 01                                                       15                                
+   000206      1  011100         DISPLAY ' 22*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000207         011200      ELSE                                                                                                   
+   000208      1  011300         DISPLAY ' 22*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000209         011400      END-IF                                                                                                 
+   000210         011500      DISPLAY ' VAR < 01'                                                                                    
+   000211         011600      IF WS-INT < 01                                                       15                                
+   000212      1  011700         DISPLAY ' 23*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000213         011800      ELSE                                                                                                   
+   000214      1  011900         DISPLAY ' 23*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000215         012000      END-IF                                                                                                 
+   000216         012100      DISPLAY ' VAR = 01'                                                                                    
+   000217         012200      IF WS-INT = 01                                                       15                                
+   000218      1  012300         DISPLAY ' 24*. RIGHT ANSWER - CONDITION TRUE'                                                       
+   000219         012400      ELSE                                                                                                   
+   000220      1  012500         DISPLAY ' 24*. WRONG ANSWER - CONDITION FALSE '                                                     
+   000221         012600      END-IF                                                                                                 
+   000222         012700*                                                                                                            
+   000223         012800      MOVE X'4040C0C1'   TO WS-LONG-X                                      21                                
+   000224         012900*                                                                                                            
+   000225         013000      DISPLAY '         '                                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ABEND     Date 01/14/2023  Time 15:18:03   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000226         013100      DISPLAY ' VALUE OF WS-INT   ' WS-INT                                 15                                
+   000227         013200      DISPLAY ' VALUE OF WS-LONG-X '                                                                         
+   000228         013300       WS-LONG-X                                                           21                                
+   000229         013400*                                                                                                            
+   000230         013500      DISPLAY '         '                                                                                    
+   000231         013600      DISPLAY ' VAR > 1 '                                                                                    
+   000232         013700      IF WS-INT > 01                                                       15                                
+   000233      1  013800         DISPLAY ' 25*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000234         013900      ELSE                                                                                                   
+   000235      1  014000         DISPLAY ' 25*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000236         014100      END-IF                                                                                                 
+   000237         014200      DISPLAY ' VAR < 1 '                                                                                    
+   000238         014300      IF WS-INT < 01                                                       15                                
+   000239      1  014400         DISPLAY ' 26*. WRONG ANSWER - CONDITION TRUE'                                                       
+   000240         014500      ELSE                                                                                                   
+   000241      1  014600         DISPLAY ' 26*. RIGHT ANSWER - CONDITION FALSE '                                                     
+   000242         014700      END-IF                                                                                                 
+   000243         014800      DISPLAY ' VAR = 1 '                                                                                    
+   000244         014900      IF WS-INT = 01                                                       15                                
+   000245      1  015000         DISPLAY ' 27*. RIGHT ANSWER - CONDITION TRUE'                                                       
+   000246         015100      ELSE                                                                                                   
+   000247      1  015200         DISPLAY ' 27*. WRONG ANSWER - CONDITION FALSE '                                                     
+   000248         015300      END-IF                                                                                                 
+   000249         015400      EXIT.                                                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ABEND     Date 01/14/2023  Time 15:18:03   Page     8                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       15   WS-INT . . . . . . . . . . . .  16 M109 110 116 122 128 134 140 146 155 161 167 173 M180 181 187 193 199 205             
+                                            211 217 226 232 238 244                                                                  
+       16   WS-INT-X . . . . . . . . . . .  112 M152 157                                                                             
+       17   WS-INT-X1                                                                                                                
+       18   WS-INT-X2                                                                                                                
+       20   WS-LONG. . . . . . . . . . . .  21                                                                                       
+       21   WS-LONG-X. . . . . . . . . . .  183 M223 228                                                                             
+       22   WS-LONG-X1                                                                                                               
+       23   WS-LONG-X2                                                                                                               
+       10   WS-SHORT . . . . . . . . . . .  11 M38 39 45 51 57 63 69 75 84 90 96 102                                                 
+       11   WS-SHORT-X . . . . . . . . . .  41 M81 86                                                                                
+       12   WS-SHORT-X1                                                                                                              
+       13   WS-SHORT-X2                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ABEND     Date 01/14/2023  Time 15:18:03   Page     9                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      108   INT-COMPARE. . . . . . . . . .  P31                                                                                      
+      179   LONG-COMPARE . . . . . . . . .  P32                                                                                      
+       37   SHORT-COMPARE. . . . . . . . .  P30                                                                                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ABEND     Date 01/14/2023  Time 15:18:03   Page    10                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   ABEND                                                                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ABEND     Date 01/14/2023  Time 15:18:03   Page    11                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID ABEND-------------------------------------------------------------------------------------------------------*    
+     10   1  WS-SHORT. . . . . . . . . . . . . . . . . . . BLW=00000  000               DS 4C           Disp-Num                     
+     11   1  WS-SHORT-X. . . . . . . . . . . . . . . . . . BLW=00000  000               DS 0CL2         Group          R             
+     12     2  WS-SHORT-X1 . . . . . . . . . . . . . . . . BLW=00000  000   0 000 000   DS 1C           Display                      
+     13     2  WS-SHORT-X2 . . . . . . . . . . . . . . . . BLW=00000  001   0 000 001   DS 1C           Display                      
+     15   1  WS-INT. . . . . . . . . . . . . . . . . . . . BLW=00000  008               DS 8C           Disp-Num                     
+     16   1  WS-INT-X. . . . . . . . . . . . . . . . . . . BLW=00000  008               DS 0CL4         Group          R             
+     17     2  WS-INT-X1 . . . . . . . . . . . . . . . . . BLW=00000  008   0 000 000   DS 2C           Display                      
+     18     2  WS-INT-X2 . . . . . . . . . . . . . . . . . BLW=00000  00A   0 000 002   DS 2C           Display                      
+     20   1  WS-LONG . . . . . . . . . . . . . . . . . . . BLW=00000  010               DS 12C          Disp-Num                     
+     21   1  WS-LONG-X . . . . . . . . . . . . . . . . . . BLW=00000  010               DS 0CL8         Group          R             
+     22     2  WS-LONG-X1. . . . . . . . . . . . . . . . . BLW=00000  010   0 000 000   DS 4C           Display                      
+     23     2  WS-LONG-X2. . . . . . . . . . . . . . . . . BLW=00000  014   0 000 004   DS 4C           Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ABEND     Date 01/14/2023  Time 15:18:03   Page    12                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 00002C BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000DCC FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |    
+ 00011C  (LIT+32)     4040                                                                     |                                |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ABEND     Date 01/14/2023  Time 15:18:03   Page    13                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000128 FOR 000CA2 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000138  (LIT+0)      FFFFFFFC 00001000 00000001 00000000 40F2F75C 4B40E6D9 D6D5C740 C1D5E2E6  |................ 27*. WRONG ANSW|    
+ 000158  (LIT+32)     C5D94060 40C3D6D5 C4C9E3C9 D6D540C6 C1D3E2C5 4040F2F6 5C4B40D9 C9C7C8E3  |ER - CONDITION FALSE  26*. RIGHT|    
+ 000178  (LIT+64)     40C1D5E2 E6C5D940 6040C3D6 D5C4C9E3 C9D6D540 C6C1D3E2 C54040F2 F55C4B40  | ANSWER - CONDITION FALSE  25*. |    
+ 000198  (LIT+96)     D9C9C7C8 E340C1D5 E2E6C5D9 406040C3 D6D5C4C9 E3C9D6D5 40C6C1D3 E2C54040  |RIGHT ANSWER - CONDITION FALSE  |    
+ 0001B8  (LIT+128)    F2F45C4B 40E6D9D6 D5C740C1 D5E2E6C5 D9406040 C3D6D5C4 C9E3C9D6 D540C6C1  |24*. WRONG ANSWER - CONDITION FA|    
+ 0001D8  (LIT+160)    D3E2C540 40F2F35C 4B40D9C9 C7C8E340 C1D5E2E6 C5D94060 40C3D6D5 C4C9E3C9  |LSE  23*. RIGHT ANSWER - CONDITI|    
+ 0001F8  (LIT+192)    D6D540C6 C1D3E2C5 4040F2F2 5C4B40D9 C9C7C8E3 40C1D5E2 E6C5D940 6040C3D6  |ON FALSE  22*. RIGHT ANSWER - CO|    
+ 000218  (LIT+224)    D5C4C9E3 C9D6D540 C6C1D3E2 C54040F2 F15C4B40 E6D9D6D5 C740C1D5 E2E6C5D9  |NDITION FALSE  21*. WRONG ANSWER|    
+ 000238  (LIT+256)    406040C3 D6D5C4C9 E3C9D6D5 40C6C1D3 E2C54040 F2F05C4B 40D9C9C7 C8E340C1  | - CONDITION FALSE  20*. RIGHT A|    
+ 000258  (LIT+288)    D5E2E6C5 D9406040 C3D6D5C4 C9E3C9D6 D540C6C1 D3E2C540 40F1F95C 4B40D9C9  |NSWER - CONDITION FALSE  19*. RI|    
+ 000278  (LIT+320)    C7C8E340 C1D5E2E6 C5D94060 40C3D6D5 C4C9E3C9 D6D540C6 C1D3E2C5 4040F1F8  |GHT ANSWER - CONDITION FALSE  18|    
+ 000298  (LIT+352)    5C4B40D9 C9C7C8E3 40C1D5E2 E6C5D940 6040C3D6 D5C4C9E3 C9D6D540 C6C1D3E2  |*. RIGHT ANSWER - CONDITION FALS|    
+ 0002B8  (LIT+384)    C54040F1 F75C4B40 E6D9D6D5 C740C1D5 E2E6C5D9 406040C3 D6D5C4C9 E3C9D6D5  |E  17*. WRONG ANSWER - CONDITION|    
+ 0002D8  (LIT+416)    40C6C1D3 E2C54040 F1F65C4B 40D9C9C7 C8E340C1 D5E2E6C5 D9406040 C3D6D5C4  | FALSE  16*. RIGHT ANSWER - COND|    
+ 0002F8  (LIT+448)    C9E3C9D6 D540C6C1 D3E2C540 40F1F55C 4B40E6D9 D6D5C740 C1D5E2E6 C5D94060  |ITION FALSE  15*. WRONG ANSWER -|    
+ 000318  (LIT+480)    40C3D6D5 C4C9E3C9 D6D540C6 C1D3E2C5 4040F1F4 5C4B40D9 C9C7C8E3 40C1D5E2  | CONDITION FALSE  14*. RIGHT ANS|    
+ 000338  (LIT+512)    E6C5D940 6040C3D6 D5C4C9E3 C9D6D540 C6C1D3E2 C54040F1 F35C4B40 D9C9C7C8  |WER - CONDITION FALSE  13*. RIGH|    
+ 000358  (LIT+544)    E340C1D5 E2E6C5D9 406040C3 D6D5C4C9 E3C9D6D5 40C6C1D3 E2C54040 F1F25C4B  |T ANSWER - CONDITION FALSE  12*.|    
+ 000378  (LIT+576)    40E6D9D6 D5C740C1 D5E2E6C5 D9406040 C3D6D5C4 C9E3C9D6 D540C6C1 D3E2C540  | WRONG ANSWER - CONDITION FALSE |    
+ 000398  (LIT+608)    40F1F15C 4B40D9C9 C7C8E340 C1D5E2E6 C5D94060 40C3D6D5 C4C9E3C9 D6D540C6  | 11*. RIGHT ANSWER - CONDITION F|    
+ 0003B8  (LIT+640)    C1D3E2C5 4040F1F0 5C4B40D9 C9C7C8E3 40C1D5E2 E6C5D940 6040C3D6 D5C4C9E3  |ALSE  10*. RIGHT ANSWER - CONDIT|    
+ 0003D8  (LIT+672)    C9D6D540 C6C1D3E2 C5404040 F95C4B40 D9C9C7C8 E340C1D5 E2E6C5D9 406040C3  |ION FALSE   9*. RIGHT ANSWER - C|    
+ 0003F8  (LIT+704)    D6D5C4C9 E3C9D6D5 40C6C1D3 E2C54040 40F85C4B 40E6D9D6 D5C740C1 D5E2E6C5  |ONDITION FALSE   8*. WRONG ANSWE|    
+ 000418  (LIT+736)    D9406040 C3D6D5C4 C9E3C9D6 D540C6C1 D3E2C540 4040F75C 4B40D9C9 C7C8E340  |R - CONDITION FALSE   7*. RIGHT |    
+ 000438  (LIT+768)    C1D5E2E6 C5D94060 40C3D6D5 C4C9E3C9 D6D540C6 C1D3E2C5 404040F6 5C4B40E6  |ANSWER - CONDITION FALSE   6*. W|    
+ 000458  (LIT+800)    D9D6D5C7 40C1D5E2 E6C5D940 6040C3D6 D5C4C9E3 C9D6D540 C6C1D3E2 C5404040  |RONG ANSWER - CONDITION FALSE   |    
+ 000478  (LIT+832)    F55C4B40 D9C9C7C8 E340C1D5 E2E6C5D9 406040C3 D6D5C4C9 E3C9D6D5 40C6C1D3  |5*. RIGHT ANSWER - CONDITION FAL|    
+ 000498  (LIT+864)    E2C54040 40F45C4B 40D9C9C7 C8E340C1 D5E2E6C5 D9406040 C3D6D5C4 C9E3C9D6  |SE   4*. RIGHT ANSWER - CONDITIO|    
+ 0004B8  (LIT+896)    D540C6C1 D3E2C540 4040F35C 4B40E6D9 D6D5C740 C1D5E2E6 C5D94060 40C3D6D5  |N FALSE   3*. WRONG ANSWER - CON|    
+ 0004D8  (LIT+928)    C4C9E3C9 D6D540C6 C1D3E2C5 404040F2 5C4B40D9 C9C7C8E3 40C1D5E2 E6C5D940  |DITION FALSE   2*. RIGHT ANSWER |    
+ 0004F8  (LIT+960)    6040C3D6 D5C4C9E3 C9D6D540 C6C1D3E2 C5404040 F15C4B40 D9C9C7C8 E340C1D5  |- CONDITION FALSE   1*. RIGHT AN|    
+ 000518  (LIT+992)    E2E6C5D9 406040C3 D6D5C4C9 E3C9D6D5 40C6C1D3 E2C54040 F1F35C4B 40E6D9D6  |SWER - CONDITION FALSE  13*. WRO|    
+ 000538  (LIT+1024)   D5C740C1 D5E2E6C5 D9406040 C3D6D5C4 C9E3C9D6 D540E3D9 E4C54040 F2F75C4B  |NG ANSWER - CONDITION TRUE  27*.|    
+ 000558  (LIT+1056)   40D9C9C7 C8E340C1 D5E2E6C5 D9406040 C3D6D5C4 C9E3C9D6 D540E3D9 E4C540F2  | RIGHT ANSWER - CONDITION TRUE 2|    
+ 000578  (LIT+1088)   F65C4B40 E6D9D6D5 C740C1D5 E2E6C5D9 406040C3 D6D5C4C9 E3C9D6D5 40E3D9E4  |6*. WRONG ANSWER - CONDITION TRU|    
+ 000598  (LIT+1120)   C540F2F5 5C4B40E6 D9D6D5C7 40C1D5E2 E6C5D940 6040C3D6 D5C4C9E3 C9D6D540  |E 25*. WRONG ANSWER - CONDITION |    
+ 0005B8  (LIT+1152)   E3D9E4C5 40F2F45C 4B40D9C9 C7C8E340 C1D5E2E6 C5D94060 40C3D6D5 C4C9E3C9  |TRUE 24*. RIGHT ANSWER - CONDITI|    
+ 0005D8  (LIT+1184)   D6D540E3 D9E4C540 F2F35C4B 40E6D9D6 D5C740C1 D5E2E6C5 D9406040 C3D6D5C4  |ON TRUE 23*. WRONG ANSWER - COND|    
+ 0005F8  (LIT+1216)   C9E3C9D6 D540E3D9 E4C540F2 F25C4B40 E6D9D6D5 C740C1D5 E2E6C5D9 406040C3  |ITION TRUE 22*. WRONG ANSWER - C|    
+ 000618  (LIT+1248)   D6D5C4C9 E3C9D6D5 40E3D9E4 C540F2F1 5C4B40D9 C9C7C8E3 40C1D5E2 E6C5D940  |ONDITION TRUE 21*. RIGHT ANSWER |    
+ 000638  (LIT+1280)   6040C3D6 D5C4C9E3 C9D6D540 E3D9E4C5 40F2F05C 4B40E6D9 D6D5C740 C1D5E2E6  |- CONDITION TRUE 20*. WRONG ANSW|    
+ 000658  (LIT+1312)   C5D94060 40C3D6D5 C4C9E3C9 D6D540E3 D9E4C540 F1F95C4B 40E6D9D6 D5C740C1  |ER - CONDITION TRUE 19*. WRONG A|    
+ 000678  (LIT+1344)   D5E2E6C5 D9406040 C3D6D5C4 C9E3C9D6 D540E3D9 E4C540F1 F85C4B40 E6D9D6D5  |NSWER - CONDITION TRUE 18*. WRON|    
+ 000698  (LIT+1376)   C740C1D5 E2E6C5D9 406040C3 D6D5C4C9 E3C9D6D5 40E3D9E4 C540F1F7 5C4B40D9  |G ANSWER - CONDITION TRUE 17*. R|    
+ 0006B8  (LIT+1408)   C9C7C8E3 40C1D5E2 E6C5D940 6040C3D6 D5C4C9E3 C9D6D540 E3D9E4C5 40F1F65C  |IGHT ANSWER - CONDITION TRUE 16*|    
+ 0006D8  (LIT+1440)   4B40E6D9 D6D5C740 C1D5E2E6 C5D94060 40C3D6D5 C4C9E3C9 D6D540E3 D9E4C540  |. WRONG ANSWER - CONDITION TRUE |    
+ 0006F8  (LIT+1472)   F1F55C4B 40D9C9C7 C8E340C1 D5E2E6C5 D9406040 C3D6D5C4 C9E3C9D6 D540E3D9  |15*. RIGHT ANSWER - CONDITION TR|    
+ 000718  (LIT+1504)   E4C540F1 F45C4B40 E6D9D6D5 C740C1D5 E2E6C5D9 406040C3 D6D5C4C9 E3C9D6D5  |UE 14*. WRONG ANSWER - CONDITION|    
+ 000738  (LIT+1536)   40E3D9E4 C540F1F2 5C4B40D9 C9C7C8E3 40C1D5E2 E6C5D940 6040C3D6 D5C4C9E3  | TRUE 12*. RIGHT ANSWER - CONDIT|    
+ 000758  (LIT+1568)   C9D6D540 E3D9E4C5 40F1F15C 4B40E6D9 D6D5C740 C1D5E2E6 C5D94060 40C3D6D5  |ION TRUE 11*. WRONG ANSWER - CON|    
+ 000778  (LIT+1600)   C4C9E3C9 D6D540E3 D9E4C540 F1F05C4B 40E6D9D6 D5C740C1 D5E2E6C5 D9406040  |DITION TRUE 10*. WRONG ANSWER - |    
+ 000798  (LIT+1632)   C3D6D5C4 C9E3C9D6 D540E3D9 E4C54040 F95C4B40 E6D9D6D5 C740C1D5 E2E6C5D9  |CONDITION TRUE  9*. WRONG ANSWER|    
+ 0007B8  (LIT+1664)   406040C3 D6D5C4C9 E3C9D6D5 40E3D9E4 C54040F8 5C4B40D9 C9C7C8E3 40C1D5E2  | - CONDITION TRUE  8*. RIGHT ANS|    
+ 0007D8  (LIT+1696)   E6C5D940 6040C3D6 D5C4C9E3 C9D6D540 E3D9E4C5 4040F75C 4B40E6D9 D6D5C740  |WER - CONDITION TRUE  7*. WRONG |    
+ 0007F8  (LIT+1728)   C1D5E2E6 C5D94060 40C3D6D5 C4C9E3C9 D6D540E3 D9E4C540 40F65C4B 40D9C9C7  |ANSWER - CONDITION TRUE  6*. RIG|    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ABEND     Date 01/14/2023  Time 15:18:03   Page    14                
+0000818  (LIT+1760)   C8E340C1 D5E2E6C5 D9406040 C3D6D5C4 C9E3C9D6 D540E3D9 E4C54040 F55C4B40  |HT ANSWER - CONDITION TRUE  5*. |    
+ 000838  (LIT+1792)   E6D9D6D5 C740C1D5 E2E6C5D9 406040C3 D6D5C4C9 E3C9D6D5 40E3D9E4 C54040F4  |WRONG ANSWER - CONDITION TRUE  4|    
+ 000858  (LIT+1824)   5C4B40E6 D9D6D5C7 40C1D5E2 E6C5D940 6040C3D6 D5C4C9E3 C9D6D540 E3D9E4C5  |*. WRONG ANSWER - CONDITION TRUE|    
+ 000878  (LIT+1856)   4040F35C 4B40D9C9 C7C8E340 C1D5E2E6 C5D94060 40C3D6D5 C4C9E3C9 D6D540E3  |  3*. RIGHT ANSWER - CONDITION T|    
+ 000898  (LIT+1888)   D9E4C540 40F25C4B 40E6D9D6 D5C740C1 D5E2E6C5 D9406040 C3D6D5C4 C9E3C9D6  |RUE  2*. WRONG ANSWER - CONDITIO|    
+ 0008B8  (LIT+1920)   D540E3D9 E4C54040 F15C4B40 E6D9D6D5 C740C1D5 E2E6C5D9 406040C3 D6D5C4C9  |N TRUE  1*. WRONG ANSWER - CONDI|    
+ 0008D8  (LIT+1952)   E3C9D6D5 40E3D9E4 C540E5C1 D3E4C540 D6C640E6 E260E2C8 D6D9E360 E74040E5  |TION TRUE VALUE OF WS-SHORT-X  V|    
+ 0008F8  (LIT+1984)   C1D3E4C5 40D6C640 E6E260E2 C8D6D9E3 40404040 E5C1D3E4 C540D6C6 40E6E260  |ALUE OF WS-SHORT    VALUE OF WS-|    
+ 000918  (LIT+2016)   D3D6D5C7 60E74040 E5C1D3E4 C540D6C6 40E6E260 C9D5E360 E74040E5 C1D3E4C5  |LONG-X  VALUE OF WS-INT-X  VALUE|    
+ 000938  (LIT+2048)   40D6C640 E6E260C9 D5E34040 4040E5C1 D9407E40 F1F0F140 40E5C1D9 404C40F1  | OF WS-INT    VAR = 101  VAR < 1|    
+ 000958  (LIT+2080)   F0F14040 E5C1D940 6E40F1F0 F14040E5 C1D9407E 40F0F140 E5C1D940 4C40F0F1  |01  VAR > 101  VAR = 01 VAR < 01|    
+ 000978  (LIT+2112)   40E5C1D9 406E40F0 F140E5C1 D9407E40 F14040E5 C1D9404C 40F14040 E5C1D940  | VAR > 01 VAR = 1  VAR < 1  VAR |    
+ 000998  (LIT+2144)   6E40F140 40404040 40404040 404040C0 C1404040 40E2E8E2 D6E4E340 40C9C7E9  |> 1            .A    SYSOUT  IGZ|    
+ 0009B8  (LIT+2176)   E2D9E3C3 C4C1C2C5 D5C4C0C1 C0C10000 00000000 012C0000 00010000 01300000  |SRTCDABEND.A.A..................|    
+ 0009D8  (LIT+2208)   00010000 00000000 00000000 00000000 00000000 00000000 00000000 00000000  |................................|    
+ 0009F8  (LIT+2240)   00000000 00008000 00004000 00000000 00000000 0000F0F0 F0F0F0F1 F0F1F0F0  |.......... ...........0000010100|    
+ 000A18  (LIT+2272)   F0F0F0F0 F0F14000 00000000 00000000 00000000 00004000 00000025 C00001C0  |000001 ............... .........|    
+ 000A38  (LIT+2304)   00050800 00240895 01400000 25080000 240020FF 01400000 23080000 24042BFF  |.......n. ........... ..........|    
+ 000A58  (LIT+2336)   01400000 25080000 240045FF 01400000 23080000 24044EFF 01400000 25080000  |. ........... ........+.. ......|    
+ 000A78  (LIT+2368)   24006AFF 01400000 23080000 240471FF 01400000 25080000 24008FFF 01400000  |..... ........... ........... ..|    
+ 000A98  (LIT+2400)   23080000 240494FF 01400000 25080000 2400B4FF 01400000 23080000 2404B7FF  |......m.. ........... ..........|    
+ 000AB8  (LIT+2432)   01400000 25080000 2400D9FF 01400000 23080000 2404DAFF 01400000 25080000  |. ........R.. ........... ......|    
+ 000AD8  (LIT+2464)   2400FEFF 01400000 23080000 2404FDFF 01400000 25080000 240123FF 01400000  |..... ........... ........... ..|    
+ 000AF8  (LIT+2496)   23080000 240520FF 01400000 25080000 240148FF 01400000 23080000 240543FF  |......... ........... ..........|    
+ 000B18  (LIT+2528)   01400000 14080000 2407E340 00000809 00012C00 10FF0140 00002508 00002401  |. ........T ........... ........|    
+ 000B38  (LIT+2560)   6DFF0140 00002308 00002405 66FF0140 00000B08 00002408 1DFF0140 00002508  |_.. ........... ........... ....|    
+ 000B58  (LIT+2592)   00002401 92FF0140 00002308 00002405 89FF0140 00000B08 00002408 28FF0140  |....k.. ........i.. ........... |    
+ 000B78  (LIT+2624)   00002508 00002401 B7FF0140 00002308 00002405 ACFF0140 00000B08 00002408  |........... ........... ........|    
+ 000B98  (LIT+2656)   33FF0140 00002508 00002401 DCFF0140 00002308 00002405 CFFF0140 00002508  |... ........... ........... ....|    
+ 000BB8  (LIT+2688)   00002402 01FF0140 00002308 00002405 F2FF0140 00002508 00002402 26FF0140  |....... ........2.. ........... |    
+ 000BD8  (LIT+2720)   00002408 00002404 07FF0140 00002508 00002402 4BFF0140 00002308 00002406  |........... ........... ........|    
+ 000BF8  (LIT+2752)   15FF0140 00002508 00002402 70FF0140 00002308 00002406 38FF0140 00002508  |... ........... ........... ....|    
+ 000C18  (LIT+2784)   00002402 95FF0140 00002308 00002406 5BFF0140 00001308 00002407 F7400000  |....n.. ........$.. ........7 ..|    
+ 000C38  (LIT+2816)   04090001 2C0008FF 01400000 13080000 24080A40 00000809 00012C00 08FF0140  |......... ......... ........... |    
+ 000C58  (LIT+2848)   00002508 00002402 BAFF0140 00002308 00002406 7EFF0140 00002508 00002402  |........... ........=.. ........|    
+ 000C78  (LIT+2880)   DFFF0140 00002308 00002406 A1FF0140 00002508 00002403 04FF0140 00002308  |... ........... ........... ....|    
+ 000C98  (LIT+2912)   00002406 C4FF0140 00002508 00002403 29FF0140 00002308 00002406 E7FF0140  |....D.. ........... ........X.. |    
+ 000CB8  (LIT+2944)   00000908 00002408 3EFF0140 00002508 00002403 4EFF0140 00002308 00002407  |........... ........+.. ........|    
+ 000CD8  (LIT+2976)   0AFF0140 00000908 00002408 47FF0140 00002508 00002403 73FF0140 00002308  |... ........... ........... ....|    
+ 000CF8  (LIT+3008)   00002407 2DFF0140 00000908 00002408 50FF0140 00002508 00002403 98FF0140  |....... ........&.. ........q.. |    
+ 000D18  (LIT+3040)   00002308 00002407 50FF0140 00000908 00002408 59FF0140 00002508 00002403  |........&.. ........... ........|    
+ 000D38  (LIT+3072)   BDFF0140 00002308 00002407 73FF0140 00000908 00002408 62FF0140 00002508  |... ........... ........... ....|    
+ 000D58  (LIT+3104)   00002403 E2FF0140 00002308 00002407 96FF0140 00000908 00002408 6BFF0140  |....S.. ........o.. ........,.. |    
+ 000D78  (LIT+3136)   00000908 00002408 74FF0140 00001508 00002407 B9400000 02090001 2C0000FF  |........... ......... ..........|    
+ 000D98  (LIT+3168)   01400000 15080000 2407CE40 00000409 00012C00 00FF4000 00000040 C0000140  |. ......... .......... .... ... |    
+ 000DB8  (LIT+3200)   00050800 00240895 02C00005 08000024 0895                                 |.......n.........n              |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000030 000EF4 PERFORM                       000031 000F0C PERFORM                       000032 000F28 PERFORM                       
+ 000035 000F44 GOBACK                        000038 000F4C MOVE                          000039 000F52 DISPLAY                       
+ 000040 000F60 DISPLAY                       000043 000F6A DISPLAY                       000044 000F74 DISPLAY                       
+ 000045 000F7E IF                            000046 000F92 DISPLAY                       000048 000FA0 DISPLAY                       
+ 000050 000FAA DISPLAY                       000051 000FB4 IF                            000052 000FC8 DISPLAY                       
+ 000054 000FD6 DISPLAY                       000056 000FE0 DISPLAY                       000057 000FEA IF                            
+ 000058 000FFE DISPLAY                       000060 00100C DISPLAY                       000062 001016 DISPLAY                       
+ 000063 001020 IF                            000064 001034 DISPLAY                       000066 001042 DISPLAY                       
+ 000068 00104C DISPLAY                       000069 001056 IF                            000070 00106A DISPLAY                       
+ 000072 001078 DISPLAY                       000074 001082 DISPLAY                       000075 00108C IF                            
+ 000076 0010A0 DISPLAY                       000078 0010AE DISPLAY                       000081 0010B8 MOVE                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ABEND     Date 01/14/2023  Time 15:18:03   Page    15                
+0000083 0010BE DISPLAY                       000084 0010C8 DISPLAY                       000085 0010D2 DISPLAY                       
+ 000088 0010DC DISPLAY                       000089 0010E6 DISPLAY                       000090 0010F0 IF                            
+ 000091 001104 DISPLAY                       000093 001112 DISPLAY                       000095 00111C DISPLAY                       
+ 000096 001126 IF                            000097 00113A DISPLAY                       000099 001148 DISPLAY                       
+ 000101 001152 DISPLAY                       000102 00115C IF                            000103 001170 DISPLAY                       
+ 000105 00117E DISPLAY                       000107 001188 EXIT                          000109 00118E MOVE                          
+ 000110 001194 DISPLAY                       000111 0011A2 DISPLAY                       000114 0011AC DISPLAY                       
+ 000115 0011B6 DISPLAY                       000116 0011C0 IF                            000117 0011D4 DISPLAY                       
+ 000119 0011E2 DISPLAY                       000121 0011EC DISPLAY                       000122 0011F6 IF                            
+ 000123 00120A DISPLAY                       000125 001218 DISPLAY                       000127 001222 DISPLAY                       
+ 000128 00122C IF                            000129 001240 DISPLAY                       000131 00124E DISPLAY                       
+ 000133 001258 DISPLAY                       000134 001262 IF                            000135 001276 DISPLAY                       
+ 000137 001284 DISPLAY                       000139 00128E DISPLAY                       000140 001298 IF                            
+ 000141 0012AC DISPLAY                       000143 0012BA DISPLAY                       000145 0012C4 DISPLAY                       
+ 000146 0012CE IF                            000147 0012E2 DISPLAY                       000149 0012F0 DISPLAY                       
+ 000152 0012FA MOVE                          000154 001300 DISPLAY                       000155 00130A DISPLAY                       
+ 000156 001314 DISPLAY                       000159 00131E DISPLAY                       000160 001328 DISPLAY                       
+ 000161 001332 IF                            000162 001346 DISPLAY                       000164 001354 DISPLAY                       
+ 000166 00135E DISPLAY                       000167 001368 IF                            000168 00137C DISPLAY                       
+ 000170 00138A DISPLAY                       000172 001394 DISPLAY                       000173 00139E IF                            
+ 000174 0013B2 DISPLAY                       000176 0013C0 DISPLAY                       000178 0013CA EXIT                          
+ 000180 0013D0 MOVE                          000181 0013D6 DISPLAY                       000182 0013E4 DISPLAY                       
+ 000185 0013EE DISPLAY                       000186 0013F8 DISPLAY                       000187 001402 IF                            
+ 000188 001416 DISPLAY                       000190 001424 DISPLAY                       000192 00142E DISPLAY                       
+ 000193 001438 IF                            000194 00144C DISPLAY                       000196 00145A DISPLAY                       
+ 000198 001464 DISPLAY                       000199 00146E IF                            000200 001482 DISPLAY                       
+ 000202 001490 DISPLAY                       000204 00149A DISPLAY                       000205 0014A4 IF                            
+ 000206 0014B8 DISPLAY                       000208 0014C6 DISPLAY                       000210 0014D0 DISPLAY                       
+ 000211 0014DA IF                            000212 0014EE DISPLAY                       000214 0014FC DISPLAY                       
+ 000216 001506 DISPLAY                       000217 001510 IF                            000218 001524 DISPLAY                       
+ 000220 001532 DISPLAY                       000223 00153C MOVE                          000225 001542 DISPLAY                       
+ 000226 00154C DISPLAY                       000227 001556 DISPLAY                       000230 001560 DISPLAY                       
+ 000231 00156A DISPLAY                       000232 001574 IF                            000233 001588 DISPLAY                       
+ 000235 001596 DISPLAY                       000237 0015A0 DISPLAY                       000238 0015AA IF                            
+ 000239 0015BE DISPLAY                       000241 0015CC DISPLAY                       000243 0015D6 DISPLAY                       
+ 000244 0015E0 IF                            000245 0015F4 DISPLAY                       000247 001602 DISPLAY                       
+ 000249 00160C EXIT                                                                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ABEND     Date 01/14/2023  Time 15:18:03   Page    16                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ABEND     Date 01/14/2023  Time 15:18:03   Page    17                
+0                   *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  SAVE AREA FOR FLOAT REGISTERS 8-15                                                                       
+                  00000110  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  00000120  VARIABLE-LENGTH CELLS                                                                                    
+                  00000138  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000148  PERFORM SAVE CELLS                                                                                       
+                  00000158  TEMPORARY STORAGE-2                                                                                      
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000148 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 0000001C BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 00000168 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 0016C0                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 0017F8 FOR LENGTH 000088                                           
+-* Statistics for COBOL program ABEND:                                                                                               
+ *    Source records = 249                                                                                                           
+ *    Data Division statements = 12                                                                                                  
+ *    Procedure Division statements = 142                                                                                            
+0End of compilation 1,  program ABEND,  no statements flagged.                                                                       
+0Return code 0                                                                                                                       

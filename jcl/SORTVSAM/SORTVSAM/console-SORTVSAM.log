@@ -1,0 +1,67 @@
+07:04:23.687 [main] INFO  o.s.boot.StartupInfoLogger.logStarting   50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 3299895 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/SORTVSAM/SORTVSAM/target/SORTVSAM-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/SORTVSAM/SORTVSAM)
+07:04:23.697 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo  654 - No active profile set, falling back to 1 default profile: "default"
+07:04:26.604 [main] INFO  c.c.a.dao.CFDataSourceConfiguration.dataSourceStatus  165 - CFDataSourceConfiguration initialization status...
+07:04:26.605 [main] INFO  c.c.a.dao.CFDataSourceConfiguration.dataSourceStatus  172 - VSAM Datasource initialized. 
+07:04:26.724 [main] INFO  o.s.boot.StartupInfoLogger.logStarted   56 - Started CFApplication in 4.461 seconds (process running for 5.552)
+07:04:26.733 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo  107 - CFDataConnectIO version : 5.0.0.21
+07:04:26.801 [main] INFO  c.c.a.u.d.plus.CFDcioConfiguration.cfDataConnectIOPlusInfo   28 - CFDataConnectIOPlus version : 5.0.0.21
+07:04:26.822 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.initDatabase  189 - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+07:04:27.435 [main] INFO  o.s.b.a.b.JobLauncherApplicationRunner.run  168 - Running default command line with: []
+07:04:27.486 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  154 - Job: [FlowJob: [name=SORTVSAM]] launched with the following parameters: [{}]
+07:04:27.532 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [delclusr]
+07:04:27.635 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  109 - HikariPool-1 - Starting...
+07:04:27.695 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast  554 - HikariPool-1 - Added connection conn17: url=jdbc:h2:file:./cf-vsam-db user=SA
+07:04:27.698 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  122 - HikariPool-1 - Start completed.
+07:04:27.725 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [delclusr] executed in 191ms
+07:04:27.751 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [defclusr]
+07:04:27.807 [main] INFO  c.c.app.vsam.dao.VsamRepository.lambda$createTable$1  211 - Executing query : create table CLOUDFRM_IDCAMS_MONITOR(
+primary_key binary(65) primary key not null,
+alternate_index_1 binary(35),
+alternate_index_2 binary(8),
+alternate_index_3 binary(15),
+RECORD_DATA blob not null); 
+07:04:27.811 [main] INFO  c.c.app.vsam.dao.VsamRepository.lambda$createTable$1  211 - Executing query : create index CLOUDFRM_IDCAMS_MONITOR_alternate_index_1 on CLOUDFRM_IDCAMS_MONITOR( alternate_index_1 , primary_key ); 
+07:04:27.812 [main] INFO  c.c.app.vsam.dao.VsamRepository.lambda$createTable$1  211 - Executing query : create index CLOUDFRM_IDCAMS_MONITOR_alternate_index_2 on CLOUDFRM_IDCAMS_MONITOR( alternate_index_2 , primary_key ); 
+07:04:27.813 [main] INFO  c.c.app.vsam.dao.VsamRepository.lambda$createTable$1  211 - Executing query : create index CLOUDFRM_IDCAMS_MONITOR_alternate_index_3 on CLOUDFRM_IDCAMS_MONITOR( alternate_index_3 , primary_key ); 
+07:04:27.828 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [defclusr] executed in 71ms
+07:04:27.846 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [qsam2vsamDecider]
+07:04:27.870 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [qsam2vsamDecider] executed in 20ms
+07:04:27.883 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [SortvsamQsam2vsamSort]
+07:04:28.294 [main] INFO  c.cloudframe.app.vsam.VsamJclParser.lambda$getNoOfWrittenRecordsInfo$1  125 - Total no of sorted records written in the cluster CLOUDFRM_IDCAMS_MONITOR : 1000
+07:04:28.303 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [SortvsamQsam2vsamSort] executed in 419ms
+07:04:28.320 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [vsam2qsamDecider]
+07:04:28.338 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [vsam2qsamDecider] executed in 16ms
+07:04:28.357 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [SortvsamVsam2qsamSort]
+07:04:28.532 [main] INFO  c.c.app.tasks.SortvsamVsam2qsamSort.afterStep  126 - STEPNAME: SORTVSAMVSAM2QSAM Execution completed, number of RECORDS - IN: 0,  OUT: 1000
+07:04:28.536 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [SortvsamVsam2qsamSort] executed in 177ms
+07:04:28.551 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [idcamsout]
+07:04:28.564 [main] INFO  c.c.app.vsam.dao.VsamRepository.createTemplateForRead  446 - Using separate datasource for export cluster
+07:04:28.566 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  109 - HikariPool-2 - Starting...
+07:04:28.568 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast  554 - HikariPool-2 - Added connection conn87: url=jdbc:h2:file:./cf-vsam-db user=SA
+07:04:28.569 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection  122 - HikariPool-2 - Start completed.
+07:04:28.700 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [idcamsout] executed in 146ms
+07:04:28.712 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [printSummary]
+07:04:28.730 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  272 - JOB : SORTVSAM ENDED -  0000
+07:04:28.731 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  276 - 
+
+Stepwise Execution Summary :
++----------------------------------------------------------------+
+| STEPNAME       | PROGRAM     | RC          | ELAPSED           |
+|                |             |             | HH:MM:SS:ss       |
++----------------------------------------------------------------+
+| DELCLUSR       | IDCAMS      | 00          | 00:00:00:191      |
++----------------------------------------------------------------+
+| DEFCLUSR       | IDCAMS      | 00          | 00:00:00:071      |
++----------------------------------------------------------------+
+| QSAM2VSAM      | SORT        | 00          | 00:00:00:445      |
++----------------------------------------------------------------+
+| VSAM2QSAM      | SORT        | 00          | 00:00:00:206      |
++----------------------------------------------------------------+
+| IDCAMSOUT      | IDCAMS      | 00          | 00:00:00:146      |
++----------------------------------------------------------------+
+  
+07:04:28.737 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [printSummary] executed in 24ms
+07:04:28.753 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  161 - Job: [FlowJob: [name=SORTVSAM]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 1s244ms
+07:04:28.764 [main] INFO  com.zaxxer.hikari.HikariDataSource.close  349 - HikariPool-1 - Shutdown initiated...
+07:04:28.769 [main] INFO  com.zaxxer.hikari.HikariDataSource.close  351 - HikariPool-1 - Shutdown completed.
+07:04:28.771 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.shutdownDatabase  220 - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'

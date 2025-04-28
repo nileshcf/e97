@@ -1,0 +1,736 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 05/03/2021  Time 23:12:32   Page     1                
+0Invocation parameters:                                                                                                              
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(OPT),AWO,NUMPROC(NOPFD),TEST(ALL,SYM,SEPARATE)                                                      
+                                                                                                                                     
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"  
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no   
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".                                    
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler         
+                       invocation parameter took precedence.                                                                         
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(COMPAT)                                                                                                                    
+    AWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 05/03/2021  Time 23:12:32   Page     2                
+0 NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+    TEST(HOOK,SEPARATE,NOEJPD)                                                                                                       
+  NOTHREAD                                                                                                                           
+    TRUNC(OPT)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT2  Date 05/03/2021  Time 23:12:32   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0/* ASAPRNT2                                                                                                                         
+   000001         000100 IDENTIFICATION DIVISION.                                         00010001                                   
+   000002         000200 PROGRAM-ID.    ASAPRNT2.                                         00020001                                   
+   000003         000210 ENVIRONMENT DIVISION.                                            00021001                                   
+   000004         000211 CONFIGURATION SECTION.                                           00021101                                   
+   000005         000212 SPECIAL-NAMES.                                                   00021201                                   
+   000006         000213     C01 IS PAGE-TOP.                                             00021301                                   
+   000007         000214 INPUT-OUTPUT SECTION.                                            00021401                                   
+   000008         000215 FILE-CONTROL.                                                    00021501                                   
+   000009         000216      SELECT REPOUT                                               00021601 14                                
+   000010         000217             ASSIGN TO REPOUT.                                    00021701                                   
+   000011         000218 DATA DIVISION.                                                   00021801                                   
+   000012         000219 FILE SECTION.                                                    00021901                                   
+   000013         000220                                                                  00022001                                   
+   000014         000230 FD  REPOUT                                                       00023001                                   
+   000015         000240         RECORDING MODE IS F                                      00024001                                   
+   000016         000250         BLOCK CONTAINS 0 RECORDS                                 00025001                                   
+   000017         000260         LABEL RECORD STANDARD.                                   00026001                                   
+   000018         000270 01  REPREC                     PIC X(287).                       00027001 BLF=00000+000         287C        
+   000019         000280                                                                  00028001                                   
+   000020         000290 WORKING-STORAGE SECTION.                                         00029001                                   
+   000021         000300                                                                  00030001                                   
+   000022         000400 77  LINE-SPACE                  PIC S9(4) COMP.                  00040001 BLW=00000+000         2C          
+   000023         000410 01  WS-REPREC                   PIC X(287).                      00041002 BLW=00000+008         287C        
+   000024         000500                                                                  00050001                                   
+   000025         000600 PROCEDURE DIVISION.                                              00060001                                   
+   000026         000700*                                                                 00070001                                   
+   000027         000800***************************************************************** 00080001                                   
+   000028         000900*                                                                 00090001                                   
+   000029         001000* FBA Records contain ISO/ANSI control characters                 00100001                                   
+   000030         001010* FBM Records contain machine code control characters             00101001                                   
+   000031         001011*                                                                 00101101                                   
+   000032         001012* When WRITE BEFORE ADVANCING is used in COBOL, all datasets are  00101201                                   
+   000033         001013* automatically converted to RECFM=FBM. FBM is lot more complex   00101301                                   
+   000034         001014* to handle. Based on future customer needs we can add support    00101401                                   
+   000035         001015*                                                                 00101501                                   
+   000036         001016* When only WRITE AFTER ADVANCING syntax is used, z/OS keeps all  00101601                                   
+   000037         001017* datasets in FBA format. This is much more simple to handle      00101701                                   
+   000038         001018* and will be supported by CF                                     00101801                                   
+   000039         001019*                                                                 00101901                                   
+   000040         001020***************************************************************** 00102001                                   
+   000041         001021****                                                              00102101                                   
+   000042         001022**** MOVE 'BEFORE ADVANCING PAGE'                                 00102201                                   
+   000043         001023****  TO WS-REPREC                                                00102301                                   
+   000044         001025**** WRITE REPREC FROM WS-REPREC                                  00102501                                   
+   000045         001026****       BEFORE ADVANCING PAGE                                  00102601                                   
+   000046         001027****                                                              00102701                                   
+   000047         001028**** MOVE 'BEFORE ADVANCING 1 LINE'                               00102801                                   
+   000048         001029****  TO WS-REPREC                                                00102901                                   
+   000049         001031**** WRITE REPREC FROM WS-REPREC                                  00103101                                   
+   000050         001032****       BEFORE ADVANCING 1 LINE                                00103201                                   
+   000051         001040****                                                              00104001                                   
+   000052         001050**** MOVE 'BEFORE ADVANCING 2 LINES'                              00105001                                   
+   000053         001060****  TO WS-REPREC                                                00106001                                   
+   000054         001070**** WRITE REPREC FROM WS-REPREC                                  00107001                                   
+   000055         001080****       BEFORE ADVANCING 2 LINES                               00108001                                   
+   000056         001090****                                                              00109001                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT2  Date 05/03/2021  Time 23:12:32   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000057         001091**** MOVE 'BEFORE ADVANCING 3 LINES'                              00109101                                   
+   000058         001092****  TO WS-REPREC                                                00109201                                   
+   000059         001094**** WRITE REPREC FROM WS-REPREC                                  00109401                                   
+   000060         001095****       BEFORE ADVANCING 3                                     00109501                                   
+   000061         001096****                                                              00109601                                   
+   000062         001097**** MOVE 'BEFORE ADVANCING 4 LINES'                              00109701                                   
+   000063         001098****  TO WS-REPREC                                                00109801                                   
+   000064         001100**** WRITE REPREC FROM WS-REPREC                                  00110001                                   
+   000065         001101****       BEFORE 4                                               00110101                                   
+   000066         001102****                                                              00110201                                   
+   000067         001103**** MOVE 'BEFORE ADVANCING 5 LINES'                              00110301                                   
+   000068         001104****  TO WS-REPREC                                                00110401                                   
+   000069         001106**** WRITE REPREC FROM WS-REPREC                                  00110601                                   
+   000070         001107****       BEFORE 5 LINES                                         00110701                                   
+   000071         001108****                                                              00110801                                   
+   000072         001109**** MOVE 'BEFORE ADVANCING 6 LINES'                              00110901                                   
+   000073         001110****  TO WS-REPREC                                                00111001                                   
+   000074         001112**** WRITE REPREC FROM WS-REPREC                                  00111201                                   
+   000075         001113****       BEFORE 6 LINE                                          00111301                                   
+   000076         001114*                                                                 00111401                                   
+   000077         001115     OPEN OUTPUT REPOUT                                           00111501 14                                
+   000078         001116*                                                                 00111601                                   
+   000079         001117* NORMAL LINE                                                     00111701                                   
+   000080         001118*                                                                 00111801                                   
+   000081         001120     MOVE 'WRITE REPREC FROM WS-REPREC (NORMAL LINE)'             00112001                                   
+   000082         001121      TO WS-REPREC                                                00112101 23                                
+   000083         001122     MOVE '123'  TO WS-REPREC(285:3)                              00112205 23                                
+   000084         001123     WRITE REPREC FROM WS-REPREC                                  00112301 18 23                             
+   000085         001124*                                                                 00112401                                   
+   000086         001125***************************************************               00112501                                   
+   000087         001126*                                                                 00112601                                   
+   000088         001130     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 0 LINE'    00113001                                   
+   000089         001131      TO WS-REPREC                                                00113101 23                                
+   000090         001132     MOVE '123'  TO WS-REPREC(285:3)                              00113205 23                                
+   000091         001133     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 0 LINE           00113301 18 23                             
+   000092         001134*                                                                 00113401                                   
+   000093         001136     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 0 LINES'   00113601                                   
+   000094         001137      TO WS-REPREC                                                00113701 23                                
+   000095         001138     MOVE '123'  TO WS-REPREC(285:3)                              00113805 23                                
+   000096         001139     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 0 LINES          00113901 18 23                             
+   000097         001140*                                                                 00114001                                   
+   000098         001142     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 0 LINE'              00114201                                   
+   000099         001143      TO WS-REPREC                                                00114301 23                                
+   000100         001144     MOVE '123'  TO WS-REPREC(285:3)                              00114405 23                                
+   000101         001145     WRITE REPREC FROM WS-REPREC AFTER 0 LINE                     00114501 18 23                             
+   000102         001150*                                                                 00115001                                   
+   000103         001160     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 0 LINES'             00116001                                   
+   000104         001170      TO WS-REPREC                                                00117001 23                                
+   000105         001171     MOVE '123'  TO WS-REPREC(285:3)                              00117105 23                                
+   000106         001180     WRITE REPREC FROM WS-REPREC AFTER 0 LINES                    00118001 18 23                             
+   000107         001190*                                                                 00119001                                   
+   000108         001200     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 0 '        00120001                                   
+   000109         001300      TO WS-REPREC                                                00130001 23                                
+   000110         001310     MOVE '123'  TO WS-REPREC(285:3)                              00131005 23                                
+   000111         001400     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 0                00140001 18 23                             
+   000112         001500*                                                                 00150001                                   
+   000113         001600     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 0 '        00160001                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT2  Date 05/03/2021  Time 23:12:32   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000114         001700      TO WS-REPREC                                                00170001 23                                
+   000115         001710     MOVE '123'  TO WS-REPREC(285:3)                              00171005 23                                
+   000116         001800     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 0                00180001 18 23                             
+   000117         001900*                                                                 00190001                                   
+   000118         002000     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 0 '                  00200001                                   
+   000119         002100      TO WS-REPREC                                                00210001 23                                
+   000120         002110     MOVE '123'  TO WS-REPREC(285:3)                              00211005 23                                
+   000121         002200     WRITE REPREC FROM WS-REPREC AFTER 0                          00220001 18 23                             
+   000122         002300*                                                                 00230001                                   
+   000123         002400     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 0 '                  00240001                                   
+   000124         002500      TO WS-REPREC                                                00250001 23                                
+   000125         002510     MOVE '123'  TO WS-REPREC(285:3)                              00251005 23                                
+   000126         002600     WRITE REPREC FROM WS-REPREC AFTER 0                          00260001 18 23                             
+   000127         002700*                                                                 00270001                                   
+   000128         002800***************************************************               00280001                                   
+   000129         002900*                                                                 00290001                                   
+   000130         003000     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 1 LINE'    00300001                                   
+   000131         003100      TO WS-REPREC                                                00310001 23                                
+   000132         003110     MOVE '123'  TO WS-REPREC(285:3)                              00311005 23                                
+   000133         003200     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 1 LINE           00320001 18 23                             
+   000134         003300*                                                                 00330001                                   
+   000135         003400     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 1 LINES'   00340001                                   
+   000136         003500      TO WS-REPREC                                                00350001 23                                
+   000137         003501     MOVE '123'  TO WS-REPREC(285:3)                              00350105 23                                
+   000138         003510     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 1 LINES          00351001 18 23                             
+   000139         003520*                                                                 00352001                                   
+   000140         003530     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 1 LINE'              00353001                                   
+   000141         003540      TO WS-REPREC                                                00354001 23                                
+   000142         003541     MOVE '123'  TO WS-REPREC(285:3)                              00354105 23                                
+   000143         003550     WRITE REPREC FROM WS-REPREC AFTER 1 LINE                     00355001 18 23                             
+   000144         003560*                                                                 00356001                                   
+   000145         003562     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 1 LINES'             00356201                                   
+   000146         003563      TO WS-REPREC                                                00356301 23                                
+   000147         003564     MOVE '123'  TO WS-REPREC(285:3)                              00356405 23                                
+   000148         003565     WRITE REPREC FROM WS-REPREC AFTER 1 LINES                    00356501 18 23                             
+   000149         003566*                                                                 00356601                                   
+   000150         003568     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 1 '        00356801                                   
+   000151         003569      TO WS-REPREC                                                00356901 23                                
+   000152         003570     MOVE '123'  TO WS-REPREC(285:3)                              00357005 23                                
+   000153         003571     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 1                00357101 18 23                             
+   000154         003572*                                                                 00357201                                   
+   000155         003574     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 1 '        00357401                                   
+   000156         003575      TO WS-REPREC                                                00357501 23                                
+   000157         003576     MOVE '123'  TO WS-REPREC(285:3)                              00357605 23                                
+   000158         003577     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 1                00357701 18 23                             
+   000159         003578*                                                                 00357801                                   
+   000160         003580     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 1 '                  00358001                                   
+   000161         003581      TO WS-REPREC                                                00358101 23                                
+   000162         003582     MOVE '123'  TO WS-REPREC(285:3)                              00358205 23                                
+   000163         003583     WRITE REPREC FROM WS-REPREC AFTER 1                          00358301 18 23                             
+   000164         003584*                                                                 00358401                                   
+   000165         003586     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 1 '                  00358601                                   
+   000166         003587      TO WS-REPREC                                                00358701 23                                
+   000167         003588     MOVE '123'  TO WS-REPREC(285:3)                              00358805 23                                
+   000168         003589     WRITE REPREC FROM WS-REPREC AFTER 1                          00358901 18 23                             
+   000169         003590*                                                                 00359001                                   
+   000170         003591***************************************************               00359101                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT2  Date 05/03/2021  Time 23:12:32   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000171         003592*                                                                 00359201                                   
+   000172         003594     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 2 LINE'    00359401                                   
+   000173         003595      TO WS-REPREC                                                00359501 23                                
+   000174         003596     MOVE '123'  TO WS-REPREC(285:3)                              00359605 23                                
+   000175         003597     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 2 LINE           00359701 18 23                             
+   000176         003598*                                                                 00359801                                   
+   000177         003600     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 2 LINES'   00360001                                   
+   000178         003601      TO WS-REPREC                                                00360101 23                                
+   000179         003602     MOVE '123'  TO WS-REPREC(285:3)                              00360205 23                                
+   000180         003603     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 2 LINES          00360301 18 23                             
+   000181         003604*                                                                 00360401                                   
+   000182         003606     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 2 LINE'              00360601                                   
+   000183         003607      TO WS-REPREC                                                00360701 23                                
+   000184         003608     MOVE '123'  TO WS-REPREC(285:3)                              00360805 23                                
+   000185         003609     WRITE REPREC FROM WS-REPREC AFTER 2 LINE                     00360901 18 23                             
+   000186         003610*                                                                 00361001                                   
+   000187         003612     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 2 LINES'             00361201                                   
+   000188         003613      TO WS-REPREC                                                00361301 23                                
+   000189         003614     MOVE '123'  TO WS-REPREC(285:3)                              00361405 23                                
+   000190         003615     WRITE REPREC FROM WS-REPREC AFTER 2 LINES                    00361501 18 23                             
+   000191         003616*                                                                 00361601                                   
+   000192         003618     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 2 '        00361801                                   
+   000193         003619      TO WS-REPREC                                                00361901 23                                
+   000194         003620     MOVE '123'  TO WS-REPREC(285:3)                              00362005 23                                
+   000195         003621     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 2                00362101 18 23                             
+   000196         003622*                                                                 00362201                                   
+   000197         003624     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 2 '        00362401                                   
+   000198         003625      TO WS-REPREC                                                00362501 23                                
+   000199         003626     MOVE '123'  TO WS-REPREC(285:3)                              00362605 23                                
+   000200         003627     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 2                00362701 18 23                             
+   000201         003628*                                                                 00362801                                   
+   000202         003630     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 2 '                  00363001                                   
+   000203         003631      TO WS-REPREC                                                00363101 23                                
+   000204         003632     MOVE '123'  TO WS-REPREC(285:3)                              00363205 23                                
+   000205         003633     WRITE REPREC FROM WS-REPREC AFTER 2                          00363301 18 23                             
+   000206         003634*                                                                 00363401                                   
+   000207         003636     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 2 '                  00363601                                   
+   000208         003637      TO WS-REPREC                                                00363701 23                                
+   000209         003638     MOVE '123'  TO WS-REPREC(285:3)                              00363805 23                                
+   000210         003639     WRITE REPREC FROM WS-REPREC AFTER 2                          00363901 18 23                             
+   000211         003640*                                                                 00364001                                   
+   000212         003641***************************************************               00364101                                   
+   000213         003642*                                                                 00364201                                   
+   000214         003644     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 3 LINE'    00364401                                   
+   000215         003645      TO WS-REPREC                                                00364501 23                                
+   000216         003646     MOVE '123'  TO WS-REPREC(285:3)                              00364605 23                                
+   000217         003647     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 3 LINE           00364701 18 23                             
+   000218         003648*                                                                 00364801                                   
+   000219         003650     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 3 LINES'   00365001                                   
+   000220         003651      TO WS-REPREC                                                00365101 23                                
+   000221         003652     MOVE '123'  TO WS-REPREC(285:3)                              00365205 23                                
+   000222         003653     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 3 LINES          00365301 18 23                             
+   000223         003654*                                                                 00365401                                   
+   000224         003656     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 3 LINE'              00365601                                   
+   000225         003657      TO WS-REPREC                                                00365701 23                                
+   000226         003658     MOVE '123'  TO WS-REPREC(285:3)                              00365805 23                                
+   000227         003659     WRITE REPREC FROM WS-REPREC AFTER 3 LINE                     00365901 18 23                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT2  Date 05/03/2021  Time 23:12:32   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000228         003660*                                                                 00366001                                   
+   000229         003662     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 3 LINES'             00366201                                   
+   000230         003663      TO WS-REPREC                                                00366301 23                                
+   000231         003664     MOVE '123'  TO WS-REPREC(285:3)                              00366405 23                                
+   000232         003665     WRITE REPREC FROM WS-REPREC AFTER 3 LINES                    00366501 18 23                             
+   000233         003666*                                                                 00366601                                   
+   000234         003668     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 3 '        00366801                                   
+   000235         003669      TO WS-REPREC                                                00366901 23                                
+   000236         003670     MOVE '123'  TO WS-REPREC(285:3)                              00367005 23                                
+   000237         003671     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 3                00367101 18 23                             
+   000238         003672*                                                                 00367201                                   
+   000239         003674     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 3 '        00367401                                   
+   000240         003675      TO WS-REPREC                                                00367501 23                                
+   000241         003676     MOVE '123'  TO WS-REPREC(285:3)                              00367605 23                                
+   000242         003677     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 3                00367701 18 23                             
+   000243         003678*                                                                 00367801                                   
+   000244         003680     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 3 '                  00368001                                   
+   000245         003681      TO WS-REPREC                                                00368101 23                                
+   000246         003682     MOVE '123'  TO WS-REPREC(285:3)                              00368205 23                                
+   000247         003683     WRITE REPREC FROM WS-REPREC AFTER 3                          00368301 18 23                             
+   000248         003684*                                                                 00368401                                   
+   000249         003686     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 3 '                  00368601                                   
+   000250         003687      TO WS-REPREC                                                00368701 23                                
+   000251         003688     MOVE '123'  TO WS-REPREC(285:3)                              00368805 23                                
+   000252         003689     WRITE REPREC FROM WS-REPREC AFTER 3                          00368901 18 23                             
+   000253         003690*                                                                 00369001                                   
+   000254         003691***************************************************               00369101                                   
+   000255         003692*                                                                 00369201                                   
+   000256         003694     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 4 LINE'    00369401                                   
+   000257         003695      TO WS-REPREC                                                00369501 23                                
+   000258         003696     MOVE '123'  TO WS-REPREC(285:3)                              00369605 23                                
+   000259         003697     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 4 LINE           00369701 18 23                             
+   000260         003698*                                                                 00369801                                   
+   000261         003700     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 4 LINES'   00370001                                   
+   000262         003701      TO WS-REPREC                                                00370101 23                                
+   000263         003702     MOVE '123'  TO WS-REPREC(285:3)                              00370205 23                                
+   000264         003703     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 4 LINES          00370301 18 23                             
+   000265         003704*                                                                 00370401                                   
+   000266         003706     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 4 LINE'              00370601                                   
+   000267         003707      TO WS-REPREC                                                00370701 23                                
+   000268         003708     MOVE '123'  TO WS-REPREC(285:3)                              00370805 23                                
+   000269         003709     WRITE REPREC FROM WS-REPREC AFTER 4 LINE                     00370901 18 23                             
+   000270         003710*                                                                 00371001                                   
+   000271         003712     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 4 LINES'             00371201                                   
+   000272         003713      TO WS-REPREC                                                00371301 23                                
+   000273         003714     MOVE '123'  TO WS-REPREC(285:3)                              00371405 23                                
+   000274         003715     WRITE REPREC FROM WS-REPREC AFTER 4 LINES                    00371501 18 23                             
+   000275         003716*                                                                 00371601                                   
+   000276         003718     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 4 '        00371801                                   
+   000277         003719      TO WS-REPREC                                                00371901 23                                
+   000278         003720     MOVE '123'  TO WS-REPREC(285:3)                              00372005 23                                
+   000279         003721     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 4                00372101 18 23                             
+   000280         003722*                                                                 00372201                                   
+   000281         003724     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING 4 '        00372401                                   
+   000282         003725      TO WS-REPREC                                                00372501 23                                
+   000283         003726     MOVE '123'  TO WS-REPREC(285:3)                              00372605 23                                
+   000284         003727     WRITE REPREC FROM WS-REPREC AFTER ADVANCING 4                00372701 18 23                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT2  Date 05/03/2021  Time 23:12:32   Page     8                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000285         003728*                                                                 00372801                                   
+   000286         003730     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 4 '                  00373001                                   
+   000287         003731      TO WS-REPREC                                                00373101 23                                
+   000288         003732     MOVE '123'  TO WS-REPREC(285:3)                              00373205 23                                
+   000289         003733     WRITE REPREC FROM WS-REPREC AFTER 4                          00373301 18 23                             
+   000290         003734*                                                                 00373401                                   
+   000291         003736     MOVE 'WRITE REPREC FROM WS-REPREC AFTER 4 '                  00373601                                   
+   000292         003737      TO WS-REPREC                                                00373701 23                                
+   000293         003738     MOVE '123'  TO WS-REPREC(285:3)                              00373805 23                                
+   000294         003739     WRITE REPREC FROM WS-REPREC AFTER 4                          00373901 18 23                             
+   000295         003740*                                                                 00374001                                   
+   000296         003741***************************************************               00374101                                   
+   000297         003742*                                                                 00374201                                   
+   000298         003743     MOVE  1 TO LINE-SPACE.                                       00374301 22                                
+   000299         003744*                                                                 00374401                                   
+   000300         003745     MOVE SPACES TO WS-REPREC                                     00374501 IMP 23                            
+   000301         003746     STRING                                                       00374601                                   
+   000302         003748        'WRITE REPREC FROM WS-REPREC '                            00374801                                   
+   000303         003749        'AFTER ADVANCING LINE-SPACE LINE'                         00374901                                   
+   000304         003750       DELIMITED BY SIZE                                          00375001                                   
+   000305         003751      INTO WS-REPREC                                              00375101 23                                
+   000306         003752     END-STRING                                                   00375201                                   
+   000307         003753     MOVE '123'  TO WS-REPREC(285:3)                              00375305 23                                
+   000308         003754     WRITE REPREC FROM WS-REPREC AFTER ADVANCING LINE-SPACE LINE  00375401 18 23 22                          
+   000309         003755*                                                                 00375501                                   
+   000310         003756     MOVE SPACES TO WS-REPREC                                     00375601 IMP 23                            
+   000311         003757     STRING                                                       00375701                                   
+   000312         003759        'WRITE REPREC FROM WS-REPREC '                            00375901                                   
+   000313         003760        'AFTER ADVANCING LINE-SPACE LINES'                        00376001                                   
+   000314         003761       DELIMITED BY SIZE                                          00376101                                   
+   000315         003762      INTO WS-REPREC                                              00376201 23                                
+   000316         003763     END-STRING                                                   00376301                                   
+   000317         003764     MOVE '123'  TO WS-REPREC(285:3)                              00376405 23                                
+   000318         003765     WRITE REPREC FROM WS-REPREC AFTER ADVANCING LINE-SPACE LINES 00376501 18 23 22                          
+   000319         003766*                                                                 00376601                                   
+   000320         003768     MOVE 'WRITE REPREC FROM WS-REPREC AFTER LINE-SPACE LINE'     00376801                                   
+   000321         003769      TO WS-REPREC                                                00376901 23                                
+   000322         003770     MOVE '123'  TO WS-REPREC(285:3)                              00377005 23                                
+   000323         003771     WRITE REPREC FROM WS-REPREC AFTER LINE-SPACE LINE            00377101 18 23 22                          
+   000324         003772*                                                                 00377201                                   
+   000325         003774     MOVE 'WRITE REPREC FROM WS-REPREC AFTER LINE-SPACE LINES'    00377401                                   
+   000326         003775      TO WS-REPREC                                                00377501 23                                
+   000327         003776     MOVE '123'  TO WS-REPREC(285:3)                              00377605 23                                
+   000328         003777     WRITE REPREC FROM WS-REPREC AFTER LINE-SPACE LINES           00377701 18 23 22                          
+   000329         003778*                                                                 00377801                                   
+   000330         003780     MOVE 'WRITE REPREC AFTER ADVANCING LINE-SPACE '              00378001                                   
+   000331         003781      TO WS-REPREC                                                00378101 23                                
+   000332         003782     MOVE '123'  TO WS-REPREC(285:3)                              00378205 23                                
+   000333         003783     WRITE REPREC FROM WS-REPREC AFTER ADVANCING LINE-SPACE       00378301 18 23 22                          
+   000334         003784*                                                                 00378401                                   
+   000335         003786     MOVE 'WRITE REPREC AFTER ADVANCING LINE-SPACE '              00378601                                   
+   000336         003787      TO WS-REPREC                                                00378701 23                                
+   000337         003788     MOVE '123'  TO WS-REPREC(285:3)                              00378805 23                                
+   000338         003789     WRITE REPREC FROM WS-REPREC AFTER ADVANCING LINE-SPACE       00378901 18 23 22                          
+   000339         003790*                                                                 00379001                                   
+   000340         003792     MOVE 'WRITE REPREC FROM WS-REPREC AFTER LINE-SPACE '         00379201                                   
+   000341         003793      TO WS-REPREC                                                00379301 23                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT2  Date 05/03/2021  Time 23:12:32   Page     9                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000342         003794     MOVE '123'  TO WS-REPREC(285:3)                              00379405 23                                
+   000343         003795     WRITE REPREC FROM WS-REPREC AFTER LINE-SPACE                 00379501 18 23 22                          
+   000344         003796*                                                                 00379601                                   
+   000345         003798     MOVE 'WRITE REPREC FROM WS-REPREC AFTER LINE-SPACE '         00379801                                   
+   000346         003799      TO WS-REPREC                                                00379901 23                                
+   000347         003800     MOVE '123'  TO WS-REPREC(285:3)                              00380005 23                                
+   000348         003801     WRITE REPREC FROM WS-REPREC AFTER LINE-SPACE                 00380101 18 23 22                          
+   000349         003802*                                                                 00380201                                   
+   000350         003803***************************************************               00380301                                   
+   000351         003804*                                                                 00380401                                   
+   000352         003806     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING PAGE'      00380601                                   
+   000353         003807      TO WS-REPREC                                                00380701 23                                
+   000354         003808     MOVE '123'  TO WS-REPREC(285:3)                              00380805 23                                
+   000355         003809     WRITE REPREC FROM WS-REPREC AFTER ADVANCING PAGE             00380901 18 23                             
+   000356         003810*                                                                 00381001                                   
+   000357         003812     MOVE 'WRITE REPREC FROM WS-REPREC AFTER PAGE'                00381201                                   
+   000358         003813      TO WS-REPREC                                                00381301 23                                
+   000359         003814     MOVE '123'  TO WS-REPREC(285:3)                              00381405 23                                
+   000360         003815     WRITE REPREC FROM WS-REPREC AFTER PAGE                       00381501 18 23                             
+   000361         003816*                                                                 00381601                                   
+   000362         003817***************************************************               00381701                                   
+   000363         003818*                                                                 00381801                                   
+   000364         003819* C01 - C12 are special environment names supported by COBOL      00381901                                   
+   000365         003820*                                                                 00382001                                   
+   000366         003821* C01 through C12   : Skip to channel 1 through channel 12        00382101                                   
+   000367         003822*                     Respectively                                00382201                                   
+   000368         003823*                                                                 00382301                                   
+   000369         003824* C01 is equivalent of ADVANCING PAGE. We will just support this  00382401                                   
+   000370         003825*                                                                 00382501                                   
+   000371         003826* WRITE ADVANCING support Mnemonic names that map to above        00382601                                   
+   000372         003827* special envornment variables                                    00382701                                   
+   000373         003828*                                                                 00382801                                   
+   000374         003829*                                                                 00382901                                   
+   000375         003830* Special Envoronment variables like C01 can be defined with a    00383001                                   
+   000376         003831* Mnemonic name via SPECIAL-NAMES under CONFIGURATION SECTION     00383101                                   
+   000377         003832*                                                                 00383201                                   
+   000378         003833* In this program we have defined PAGE-TOP mapping to C01         00383301                                   
+   000379         003834*                                                                 00383401                                   
+   000380         003836     MOVE 'WRITE REPREC FROM WS-REPREC AFTER ADVANCING PAGE-TOP'  00383601                                   
+   000381         003837      TO WS-REPREC                                                00383701 23                                
+   000382         003838     MOVE '123'  TO WS-REPREC(285:3)                              00383805 23                                
+   000383         003839     WRITE REPREC FROM WS-REPREC AFTER ADVANCING PAGE-TOP         00383901 18 23 6                           
+   000384         003840*                                                                 00384001                                   
+   000385         003842     MOVE 'WRITE REPREC FROM WS-REPREC AFTER PAGE-TOP'            00384201                                   
+   000386         003843      TO WS-REPREC                                                00384301 23                                
+   000387         003844     MOVE '123'  TO WS-REPREC(285:3)                              00384405 23                                
+   000388         003845     WRITE REPREC FROM WS-REPREC AFTER PAGE-TOP                   00384501 18 23 6                           
+   000389         003846*                                                                 00384601                                   
+   000390         003850     CLOSE REPOUT                                                 00385001 14                                
+   000391         003900     GOBACK.                                                      00390001                                   
+ */ ASAPRNT2                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT2  Date 05/03/2021  Time 23:12:32   Page    10                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       22   LINE-SPACE . . . . . . . . . .  M298 308 318 323 328 333 338 343 348                                                     
+        6   PAGE-TOP . . . . . . . . . . .  383 388                                                                                  
+       14   REPOUT . . . . . . . . . . . .  9 77 390                                                                                 
+       18   REPREC . . . . . . . . . . . .  M84 M91 M96 M101 M106 M111 M116 M121 M126 M133 M138 M143 M148 M153 M158 M163             
+                                            M168 M175 M180 M185 M190 M195 M200 M205 M210 M217 M222 M227 M232 M237 M242 M247          
+                                            M252 M259 M264 M269 M274 M279 M284 M289 M294 M308 M318 M323 M328 M333 M338 M343          
+                                            M348 M355 M360 M383 M388                                                                 
+       23   WS-REPREC. . . . . . . . . . .  M82 M83 84 M89 M90 91 M94 M95 96 M99 M100 101 M104 M105 106 M109 M110 111 M114           
+                                            M115 116 M119 M120 121 M124 M125 126 M131 M132 133 M136 M137 138 M141 M142 143           
+                                            M146 M147 148 M151 M152 153 M156 M157 158 M161 M162 163 M166 M167 168 M173 M174          
+                                            175 M178 M179 180 M183 M184 185 M188 M189 190 M193 M194 195 M198 M199 200 M203           
+                                            M204 205 M208 M209 210 M215 M216 217 M220 M221 222 M225 M226 227 M230 M231 232           
+                                            M235 M236 237 M240 M241 242 M245 M246 247 M250 M251 252 M257 M258 259 M262 M263          
+                                            264 M267 M268 269 M272 M273 274 M277 M278 279 M282 M283 284 M287 M288 289 M292           
+                                            M293 294 M300 M305 M307 308 M310 M315 M317 318 M321 M322 323 M326 M327 328 M331          
+                                            M332 333 M336 M337 338 M341 M342 343 M346 M347 348 M353 M354 355 M358 M359 360           
+                                            M381 M382 383 M386 M387 388                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT2  Date 05/03/2021  Time 23:12:32   Page    11                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   ASAPRNT2                                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT2  Date 05/03/2021  Time 23:12:32   Page    12                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID ASAPRNT2----------------------------------------------------------------------------------------------------*    
+     14   FD REPOUT. . . . . . . . . . . . . . . . . . . .                                              QSAM           FB            
+     18   1  REPREC. . . . . . . . . . . . . . . . . . . . BLF=00000  000               DS 287C         Display                      
+     22   77 LINE-SPACE. . . . . . . . . . . . . . . . . . BLW=00000  000               DS 2C           Binary                       
+     23   1  WS-REPREC . . . . . . . . . . . . . . . . . . BLW=00000  008               DS 287C         Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT2  Date 05/03/2021  Time 23:12:32   Page    13                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000030 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 0005C4 FOR LINE 2                                                                                               
+ PBL2    AT LOCATION 0015D4 FOR LINE 311                                                                                             
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |    
+ 00011C  (LIT+32)     4040                                                                     |                                |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT2  Date 05/03/2021  Time 23:12:32   Page    14                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 00012C FOR 0003F6 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000130  (LIT+0)      FFFFFFFC 00001000 4000002A 40000034 40000026 40000030 4000002D 40000031  |........ ... ... ... ... ... ...|    
+ 000150  (LIT+32)     40000000 00000004 00000003 00000002 40000024 4000002E 40000028 40000033  | ............... ... ... ... ...|    
+ 000170  (LIT+64)     40000032 40000029 00000001 00000000 E6D9C9E3 C540D9C5 D7D9C5C3 40C6D9D6  | ... ...........WRITE REPREC FRO|    
+ 000190  (LIT+96)     D440E6E2 60D9C5D7 D9C5C340 C1C6E3C5 D940C1C4 E5C1D5C3 C9D5C740 D7C1C7C5  |M WS-REPREC AFTER ADVANCING PAGE|    
+ 0001B0  (LIT+128)    60E3D6D7 E6D9C9E3 C540D9C5 D7D9C5C3 40C6D9D6 D440E6E2 60D9C5D7 D9C5C340  |-TOPWRITE REPREC FROM WS-REPREC |    
+ 0001D0  (LIT+160)    C1C6E3C5 D940C1C4 E5C1D5C3 C9D5C740 F440D3C9 D5C5E2E6 D9C9E3C5 40D9C5D7  |AFTER ADVANCING 4 LINESWRITE REP|    
+ 0001F0  (LIT+192)    D9C5C340 C6D9D6D4 40E6E260 D9C5D7D9 C5C340C1 C6E3C5D9 40C1C4E5 C1D5C3C9  |REC FROM WS-REPREC AFTER ADVANCI|    
+ 000210  (LIT+224)    D5C740F3 40D3C9D5 C5E2E6D9 C9E3C540 D9C5D7D9 C5C340C6 D9D6D440 E6E260D9  |NG 3 LINESWRITE REPREC FROM WS-R|    
+ 000230  (LIT+256)    C5D7D9C5 C340C1C6 E3C5D940 C1C4E5C1 D5C3C9D5 C740F240 D3C9D5C5 E2E6D9C9  |EPREC AFTER ADVANCING 2 LINESWRI|    
+ 000250  (LIT+288)    E3C540D9 C5D7D9C5 C340C6D9 D6D440E6 E260D9C5 D7D9C5C3 40C1C6E3 C5D940C1  |TE REPREC FROM WS-REPREC AFTER A|    
+ 000270  (LIT+320)    C4E5C1D5 C3C9D5C7 40F140D3 C9D5C5E2 E6D9C9E3 C540D9C5 D7D9C5C3 40C6D9D6  |DVANCING 1 LINESWRITE REPREC FRO|    
+ 000290  (LIT+352)    D440E6E2 60D9C5D7 D9C5C340 C1C6E3C5 D940C1C4 E5C1D5C3 C9D5C740 F040D3C9  |M WS-REPREC AFTER ADVANCING 0 LI|    
+ 0002B0  (LIT+384)    D5C5E2E6 D9C9E3C5 40D9C5D7 D9C5C340 C6D9D6D4 40E6E260 D9C5D7D9 C5C340C1  |NESWRITE REPREC FROM WS-REPREC A|    
+ 0002D0  (LIT+416)    C6E3C5D9 40D3C9D5 C560E2D7 C1C3C540 D3C9D5C5 E2E6D9C9 E3C540D9 C5D7D9C5  |FTER LINE-SPACE LINESWRITE REPRE|    
+ 0002F0  (LIT+448)    C340C6D9 D6D440E6 E260D9C5 D7D9C5C3 40C1C6E3 C5D940D7 C1C7C560 E3D6D7E6  |C FROM WS-REPREC AFTER PAGE-TOPW|    
+ 000310  (LIT+480)    D9C9E3C5 40D9C5D7 D9C5C340 C6D9D6D4 40E6E260 D9C5D7D9 C5C340C1 C6E3C5D9  |RITE REPREC FROM WS-REPREC AFTER|    
+ 000330  (LIT+512)    40F440D3 C9D5C5E2 E6D9C9E3 C540D9C5 D7D9C5C3 40C6D9D6 D440E6E2 60D9C5D7  | 4 LINESWRITE REPREC FROM WS-REP|    
+ 000350  (LIT+544)    D9C5C340 C1C6E3C5 D940F340 D3C9D5C5 E2E6D9C9 E3C540D9 C5D7D9C5 C340C6D9  |REC AFTER 3 LINESWRITE REPREC FR|    
+ 000370  (LIT+576)    D6D440E6 E260D9C5 D7D9C5C3 40C1C6E3 C5D940F2 40D3C9D5 C5E2E6D9 C9E3C540  |OM WS-REPREC AFTER 2 LINESWRITE |    
+ 000390  (LIT+608)    D9C5D7D9 C5C340C6 D9D6D440 E6E260D9 C5D7D9C5 C340C1C6 E3C5D940 F140D3C9  |REPREC FROM WS-REPREC AFTER 1 LI|    
+ 0003B0  (LIT+640)    D5C5E2E6 D9C9E3C5 40D9C5D7 D9C5C340 C6D9D6D4 40E6E260 D9C5D7D9 C5C340C1  |NESWRITE REPREC FROM WS-REPREC A|    
+ 0003D0  (LIT+672)    C6E3C5D9 40F040D3 C9D5C5E2 E6D9C9E3 C540D9C5 D7D9C5C3 40C6D9D6 D440E6E2  |FTER 0 LINESWRITE REPREC FROM WS|    
+ 0003F0  (LIT+704)    60D9C5D7 D9C5C340 4DD5D6D9 D4C1D340 D3C9D5C5 5DE6D9C9 E3C540D9 C5D7D9C5  |-REPREC (NORMAL LINE)WRITE REPRE|    
+ 000410  (LIT+736)    C340C1C6 E3C5D940 C1C4E5C1 D5C3C9D5 C740D3C9 D5C560E2 D7C1C3C5 40C1E2C1  |C AFTER ADVANCING LINE-SPACE ASA|    
+ 000430  (LIT+768)    D7D9D5E3 F2E2E8E2 D6E4E340 40C9C7E9 E2D9E3C3 C4F1F2F3 00000134 00000001  |PRNT2SYSOUT  IGZSRTCD123........|    
+ 000450  (LIT+800)    0000012C 00000001 00000130 00000001 00000000 00000000 00000000 00000000  |................................|    
+ 000470  (LIT+832)    00000000 00000000 00000000 00000000 00000000 80000000 C1C6E3C5 D940C1C4  |........................AFTER AD|    
+ 000490  (LIT+864)    E5C1D5C3 C9D5C740 D3C9D5C5 60E2D7C1 C3C540D3 C9D5C5E2 E6D9C9E3 C540D9C5  |VANCING LINE-SPACE LINESWRITE RE|    
+ 0004B0  (LIT+896)    D7D9C5C3 40C6D9D6 D440E6E2 60D9C5D7 D9C5C340 40000000 00000000 00000000  |PREC FROM WS-REPREC  ...........|    
+ 0004D0  (LIT+928)    08000000 40000000 00000000 00000000 00000000 40000000 0025C000 01C00008  |.... ............... ...........|    
+ 0004F0  (LIT+960)    08000024 03014000 01800080 00018000 40000000 0040C000 01400008 08000024  |...... ......... .... ... ......|    
+ 000510  (LIT+992)    030102C0 00080800 00240301 09000134 0000                                 |..................              |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000077 0006D6 OPEN                          000081 0006F2 MOVE                          000083 000708 MOVE                          
+ 000084 000712 WRITE                         000088 00074C MOVE                          000090 000762 MOVE                          
+ 000091 00076C WRITE                         000093 0007A6 MOVE                          000095 0007BC MOVE                          
+ 000096 0007C6 WRITE                         000098 000800 MOVE                          000100 000816 MOVE                          
+ 000101 000820 WRITE                         000103 00085A MOVE                          000105 000870 MOVE                          
+ 000106 00087A WRITE                         000108 0008B4 MOVE                          000110 0008CA MOVE                          
+ 000111 0008D4 WRITE                         000113 00090E MOVE                          000115 000924 MOVE                          
+ 000116 00092E WRITE                         000118 000968 MOVE                          000120 00097E MOVE                          
+ 000121 000988 WRITE                         000123 0009C2 MOVE                          000125 0009D8 MOVE                          
+ 000126 0009E2 WRITE                         000130 000A1C MOVE                          000132 000A32 MOVE                          
+ 000133 000A3C WRITE                         000135 000A76 MOVE                          000137 000A8C MOVE                          
+ 000138 000A96 WRITE                         000140 000AD0 MOVE                          000142 000AE6 MOVE                          
+ 000143 000AF0 WRITE                         000145 000B2A MOVE                          000147 000B40 MOVE                          
+ 000148 000B4A WRITE                         000150 000B84 MOVE                          000152 000B9A MOVE                          
+ 000153 000BA4 WRITE                         000155 000BDE MOVE                          000157 000BF4 MOVE                          
+ 000158 000BFE WRITE                         000160 000C38 MOVE                          000162 000C4E MOVE                          
+ 000163 000C58 WRITE                         000165 000C92 MOVE                          000167 000CA8 MOVE                          
+ 000168 000CB2 WRITE                         000172 000CEC MOVE                          000174 000D02 MOVE                          
+ 000175 000D0C WRITE                         000177 000D46 MOVE                          000179 000D5C MOVE                          
+ 000180 000D66 WRITE                         000182 000DA0 MOVE                          000184 000DB6 MOVE                          
+ 000185 000DC0 WRITE                         000187 000DFA MOVE                          000189 000E10 MOVE                          
+ 000190 000E1A WRITE                         000192 000E54 MOVE                          000194 000E6A MOVE                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT2  Date 05/03/2021  Time 23:12:32   Page    15                
+0000195 000E74 WRITE                         000197 000EAE MOVE                          000199 000EC4 MOVE                          
+ 000200 000ECE WRITE                         000202 000F08 MOVE                          000204 000F1E MOVE                          
+ 000205 000F28 WRITE                         000207 000F62 MOVE                          000209 000F78 MOVE                          
+ 000210 000F82 WRITE                         000214 000FBC MOVE                          000216 000FD2 MOVE                          
+ 000217 000FDC WRITE                         000219 001016 MOVE                          000221 00102C MOVE                          
+ 000222 001036 WRITE                         000224 001070 MOVE                          000226 001086 MOVE                          
+ 000227 001090 WRITE                         000229 0010CA MOVE                          000231 0010E0 MOVE                          
+ 000232 0010EA WRITE                         000234 001124 MOVE                          000236 00113A MOVE                          
+ 000237 001144 WRITE                         000239 00117E MOVE                          000241 001194 MOVE                          
+ 000242 00119E WRITE                         000244 0011D8 MOVE                          000246 0011EE MOVE                          
+ 000247 0011F8 WRITE                         000249 001232 MOVE                          000251 001248 MOVE                          
+ 000252 001252 WRITE                         000256 00128C MOVE                          000258 0012A2 MOVE                          
+ 000259 0012AC WRITE                         000261 0012E6 MOVE                          000263 0012FC MOVE                          
+ 000264 001306 WRITE                         000266 001340 MOVE                          000268 001356 MOVE                          
+ 000269 001360 WRITE                         000271 00139A MOVE                          000273 0013B0 MOVE                          
+ 000274 0013BA WRITE                         000276 0013F4 MOVE                          000278 00140A MOVE                          
+ 000279 001414 WRITE                         000281 00144E MOVE                          000283 001464 MOVE                          
+ 000284 00146E WRITE                         000286 0014A8 MOVE                          000288 0014BE MOVE                          
+ 000289 0014C8 WRITE                         000291 001502 MOVE                          000293 001518 MOVE                          
+ 000294 001522 WRITE                         000298 00155C MOVE                          000300 001566 MOVE                          
+ 000301 001578 STRING                        000307 001588 MOVE                          000308 001592 WRITE                         
+ 000310 0015D0 MOVE                          000311 0015E2 STRING                        000317 0015F2 MOVE                          
+ 000318 0015FC WRITE                         000320 00163A MOVE                          000322 001650 MOVE                          
+ 000323 00165A WRITE                         000325 001698 MOVE                          000327 0016AE MOVE                          
+ 000328 0016B8 WRITE                         000330 0016F6 MOVE                          000332 00170C MOVE                          
+ 000333 001716 WRITE                         000335 001754 MOVE                          000337 00176A MOVE                          
+ 000338 001774 WRITE                         000340 0017B2 MOVE                          000342 0017C8 MOVE                          
+ 000343 0017D2 WRITE                         000345 001810 MOVE                          000347 001826 MOVE                          
+ 000348 001830 WRITE                         000352 00186E MOVE                          000354 001884 MOVE                          
+ 000355 00188E WRITE                         000357 0018C6 MOVE                          000359 0018DC MOVE                          
+ 000360 0018E6 WRITE                         000380 00191E MOVE                          000382 001934 MOVE                          
+ 000383 00193E WRITE                         000385 001976 MOVE                          000387 00198C MOVE                          
+ 000388 001996 WRITE                         000390 0019CE CLOSE                         000391 0019EA GOBACK                        
+                                                                                                                                     
+0                                                                                                                                    
+   DEBUGINF TABLE LOCATED AT 001A74 FOR 000048 BYTES                                                                                 
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT2  Date 05/03/2021  Time 23:12:32   Page    16                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  BASE LOCATORS FOR FILES                                                                                  
+                    000138  TEST INFORMATION AREA                                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT2  Date 05/03/2021  Time 23:12:32   Page    17                
+0                   000160  FCB CELLS                                                                                                
+                    000164  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  000000E0  VARIABLE-LENGTH CELLS                                                                                    
+                  000000F8  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  000000FC  PERFORM SAVE CELLS                                                                                       
+                  00000100  TEMPORARY STORAGE-2                                                                                      
+                  00000110  CALL STATEMENT PROGRAM NAME                                                                              
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000178 BYTES                                                                                       
+ DCB00001 WILL BE ALLOCATED FOR 00000060 BYTES                                                                                       
+ FCB00001 WILL BE ALLOCATED FOR 00000114 BYTES                                                                                       
+ GDT00001 WILL BE ALLOCATED FOR 000000A0 BYTES                                                                                       
+ RCD00001 WILL BE ALLOCATED FOR 00000120 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 00000127 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 000001B0 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 001B04                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 001E64 FOR LENGTH 000106                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               ASAPRNT2  Date 05/03/2021  Time 23:12:32   Page    18                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program ASAPRNT2:                                                                                            
+ *    Source records = 391                                                                                                           
+ *    Data Division statements = 3                                                                                                   
+ *    Procedure Division statements = 165                                                                                            
+0End of compilation 1,  program ASAPRNT2,  highest severity 4.                                                                       
+0Return code 4                                                                                                                       

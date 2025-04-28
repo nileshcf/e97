@@ -1,0 +1,31 @@
+package com.cloudframe.app.repository;
+
+import com.cloudframe.app.cfbooksl.dto.*;
+import com.cloudframe.app.data.Field;
+
+
+public interface CfbookslRepository {
+    /**
+     * This method will handle the sql operations for a open query.
+     *
+     * @parm sqlca
+     */
+    public void openBookscurCfbooksl(Sqlca sqlca) throws Exception;
+
+    /**
+     * This method will handle the sql operations for a close query.
+     *
+     * @parm sqlca
+     */
+    public void closeBookscurCfbooksl(Sqlca sqlca) throws Exception;
+
+    /**
+     * This method will handle the sql operations for a fetch query.
+     *
+     * @parm dclbooks
+* @parm sqlca
+* @parm nullvars
+     */
+    public void fetchBookscurCfbooksl(Dclbooks dclbooks, Sqlca sqlca, Nullvars nullvars) throws Exception;
+
+}

@@ -1,0 +1,558 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 06/24/2019  Time 20:22:15   Page     1                
+0Invocation parameters:                                                                                                              
+  DYNAM,OFFSET,MAP,XREF(SHORT),ARITH(EXTEND),TRUNC(BIN),LIB                                                                          
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(EXTEND)                                                                                                                    
+  NOAWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+    DYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+  NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+  NOTEST                                                                                                                             
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 06/24/2019  Time 20:22:15   Page     2                
+0   XMLPARSE(XMLSS)                                                                                                                  
+    XREF(SHORT)                                                                                                                      
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFCARD    Date 06/24/2019  Time 20:22:15   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000001         000100 IDENTIFICATION DIVISION.                                         00010000                                   
+   000002         000200 PROGRAM-ID.    CFCARD.                                           00020001                                   
+   000003         000201*---------------------------------------------                    00020100                                   
+   000004         000202* CFCARD  - AGGREGATE BALANCE FOR CREDIT CARD                     00020201                                   
+   000005         000203*           TO OUTPUT FILE                                        00020301                                   
+   000006         000204*--------------------------------------------                     00020400                                   
+   000007         000205 DATE-WRITTEN. APRIL 2017.                                        00020500                                   
+   000008         000206 ENVIRONMENT DIVISION.                                            00020600                                   
+   000009         000207 INPUT-OUTPUT SECTION.                                            00020700                                   
+   000010         000208 FILE-CONTROL.                                                    00020800                                   
+   000011         000209     SELECT FL-INPUT-FILE                                         00020900 22                                
+   000012         000210            ASSIGN INPDD                                          00021003                                   
+   000013         000212            STATUS WS-INP1-STATUS.                                00021200 54                                
+   000014         000213                                                                  00021300                                   
+   000015         000214     SELECT FL-OUTPUT-FILE                                        00021400 39                                
+   000016         000215            ASSIGN OUTPDD                                         00021500                                   
+   000017         000217            STATUS WS-OUTP-STATUS.                                00021700 55                                
+   000018         000218                                                                  00021800                                   
+   000019         000219 DATA DIVISION.                                                   00021900                                   
+   000020         000220 FILE SECTION.                                                    00022000                                   
+   000021         000221*                                                                 00022100                                   
+   000022         000222 FD  FL-INPUT-FILE.                                               00022200                                   
+                                                                                                                                     
+ ==000022==> IGYGR1216-I A "RECORDING MODE" of "F" was assumed for file "FL-INPUT-FILE".                                             
+                                                                                                                                     
+   000023         000223  01 WF-RECORD.                                                   00022300 BLF=00000+000         0CL44       
+   000024         000230     05  WF-IN-CARD-NUMBER          PIC X(16).                    00023000 BLF=00000+000,0000000 16C         
+   000025         000231     05  WF-IN-SERVICE-DATE.                                      00023100 BLF=00000+010,0000010 0CL10       
+   000026         000232         10 WF-IN-SERVICE-MM        PIC X(02).                    00023200 BLF=00000+010,0000010 2C          
+   000027         000233         10 FILLER                  PIC X(01).                    00023303 BLF=00000+012,0000012 1C          
+   000028         000234         10 WF-IN-SERVICE-DD        PIC X(02).                    00023400 BLF=00000+013,0000013 2C          
+   000029         000235         10 FILLER                  PIC X(01).                    00023503 BLF=00000+015,0000015 1C          
+   000030         000236         10 WF-IN-SERVICE-YYYY      PIC X(04).                    00023600 BLF=00000+016,0000016 4C          
+   000031         000238     05  WF-IN-CHARGE.                                            00023800 BLF=00000+01A,000001A 0CL10       
+   000032         000239         10 WF-IN-CHARGE-MM         PIC X(02).                    00023900 BLF=00000+01A,000001A 2C          
+   000033         000240         10 FILLER                  PIC X(01).                    00024003 BLF=00000+01C,000001C 1C          
+   000034         000241         10 WF-IN-CHARGE-DD         PIC X(02).                    00024100 BLF=00000+01D,000001D 2C          
+   000035         000242         10 FILLER                  PIC X(01).                    00024203 BLF=00000+01F,000001F 1C          
+   000036         000243         10 WF-IN-CHARGE-YYYY       PIC X(04).                    00024300 BLF=00000+020,0000020 4C          
+   000037         000244     05  WF-IN-BALANCE              PIC S9(05)V9(03).             00024400 BLF=00000+024,0000024 8C          
+   000038         000245*                                                                 00024500                                   
+   000039         000246 FD  FL-OUTPUT-FILE.                                              00024600                                   
+                                                                                                                                     
+ ==000039==> IGYGR1216-I A "RECORDING MODE" of "F" was assumed for file "FL-OUTPUT-FILE".                                            
+                                                                                                                                     
+   000040         000247 01  WF-OUTPUT.                                                   00024700 BLF=00001+000         0CL31       
+   000041         000248     05  WF-OUT-CARD-NUMBER         PIC X(16).                    00024800 BLF=00001+000,0000000 16C         
+   000042         000249     05  WF-OUT-SERVICE-MM          PIC 9(02).                    00024900 BLF=00001+010,0000010 2C          
+   000043         000250     05  WF-OUT-TOTAL               PIC 9(10)V9(03).              00025000 BLF=00001+012,0000012 13C         
+   000044         000251*                                                                 00025100                                   
+   000045         000252*                                                                 00025200                                   
+   000046         000253 WORKING-STORAGE SECTION.                                         00025300                                   
+   000047         000254*                                                                 00025400                                   
+   000048         000255  01 WS-CARD-DATA.                                                00025500 BLW=00000+000         0CL29       
+   000049         000260     05 WS-CURRENT-CARD         PIC X(16)                         00026009 BLW=00000+000,0000000 16C         
+   000050         000261         VALUE '0000000000000000'.                                00026109                                   
+   000051         000270     05  WS-OUT-TOTAL           PIC 9(10)V9(03) VALUE ZERO.       00027000 BLW=00000+010,0000010 13C         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFCARD    Date 06/24/2019  Time 20:22:15   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0                                                                                                  IMP                               
+   000052         000280*                                                                 00028000                                   
+   000053         000290 01  WS-AREA.                                                     00029000 BLW=00000+020         0CL23       
+   000054         000300     05 WS-INP1-STATUS PIC  X(02).                                00030000 BLW=00000+020,0000000 2C          
+   000055         000310     05 WS-OUTP-STATUS PIC  X(02).                                00031000 BLW=00000+022,0000002 2C          
+   000056         000320     05 WS-DONE-STATUS PIC  X(01) VALUE 'S'.                      00032000 BLW=00000+024,0000004 1C          
+   000057         000321        88 WS-PROCESSED VALUE 'P'.                                00032100                                   
+   000058         000322        88 WS-IN-PROGRESS VALUE 'S'.                              00032200                                   
+   000059         000323     05 WS-INP1-CNT    PIC  9(09).                                00032300 BLW=00000+025,0000005 9C          
+   000060         000324     05 WS-OUTP-CNT-W  PIC  9(09).                                00032400 BLW=00000+02E,000000E 9C          
+   000061         000325*                                                                 00032500                                   
+   000062         000326                                                                  00032600                                   
+   000063         000327 LINKAGE SECTION.                                                 00032700                                   
+   000064         000328 01  LK-PARM.                                                     00032800 BLL=00001+000         0CL4        
+   000065         000329     05 LK-PARM-LEN        PIC S9(4) COMP.                        00032900 BLL=00001+000,0000000 2C          
+   000066         000330     05 LK-PARM-MONTH      PIC 9(02).                             00033000 BLL=00001+002,0000002 2C          
+   000067         000340                                                                  00034000                                   
+   000068         000350 PROCEDURE DIVISION USING LK-PARM.                                00035000 64                                
+   000069         000360 0000-MAINLINE.                                                   00036000                                   
+   000070         000370*                                                                 00037000                                   
+   000071         000380     DISPLAY 'SERVICE MONTH ' LK-PARM-MONTH                       00038000 66                                
+   000072         000390*                                                                 00039000                                   
+   000073         000400     PERFORM 0100-INITIALIZE                                      00040000 84                                
+   000074         000500        THRU 0100-EXIT                                            00050000 105                               
+   000075         000600*                                                                 00060000                                   
+   000076         000700     PERFORM 0200-PROCESS-RECORD                                  00070000 109                               
+   000077         000800        THRU 0200-EXIT                                            00080000 152                               
+   000078         000900     UNTIL WS-PROCESSED                                           00090000 57                                
+   000079         001000*                                                                 00100000                                   
+   000080         001100     PERFORM 0300-TERMINATE                                       00110000 175                               
+   000081         001200        THRU 0300-EXIT                                            00120000 204                               
+   000082         001300     .                                                            00130000                                   
+   000083         001400*                                                                 00140000                                   
+   000084         001500 0100-INITIALIZE.                                                 00150000                                   
+   000085         001600*                                                                 00160000                                   
+   000086         001700     OPEN INPUT FL-INPUT-FILE                                     00170000 22                                
+   000087         001800     IF NOT (WS-INP1-STATUS = '00')                               00180000 54                                
+   000088      1  001900        DISPLAY 'OPEN INP1-FILE ERROR ' WS-INP1-STATUS            00190000 54                                
+   000089      1  002000        PERFORM 9100-ABEND                                        00200000 207                               
+   000090      1  002100           THRU 9100-ABEND-EXIT                                   00210000 213                               
+   000091         002200     END-IF                                                       00220000                                   
+   000092         002300                                                                  00230000                                   
+   000093         002400     OPEN OUTPUT FL-OUTPUT-FILE                                   00240000 39                                
+   000094         002410     IF NOT (WS-OUTP-STATUS = '00')                               00241000 55                                
+   000095      1  002420        DISPLAY 'OPEN OUTP-FILE ERROR ' WS-OUTP-STATUS            00242000 55                                
+   000096      1  002430        PERFORM 9100-ABEND                                        00243000 207                               
+   000097      1  002440           THRU 9100-ABEND-EXIT                                   00244000 213                               
+   000098         002450     END-IF                                                       00245000                                   
+   000099         002460                                                                  00246000                                   
+   000100         002470     MOVE  0  TO WS-INP1-CNT                                      00247000 59                                
+   000101         002480     MOVE  0  TO WS-OUTP-CNT-W                                    00248000 60                                
+   000102         002490*                                                                 00249000                                   
+   000103         002491     CONTINUE.                                                    00249100                                   
+   000104         002492*                                                                 00249200                                   
+   000105         002493 0100-EXIT.                                                       00249300                                   
+   000106         002494     EXIT.                                                        00249400                                   
+   000107         002495                                                                  00249500                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFCARD    Date 06/24/2019  Time 20:22:15   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000108         002496*                                                                 00249600                                   
+   000109         002497 0200-PROCESS-RECORD.                                             00249700                                   
+   000110         002498*                                                                 00249800                                   
+   000111         002499        READ  FL-INPUT-FILE                                       00249900 22                                
+   000112         002500*                                                                 00250000                                   
+   000113         002600        IF NOT (WS-INP1-STATUS = '00' OR '10')                    00260000 54                                
+   000114      1  002700           DISPLAY 'READ  INP1-FILE ERROR ' WS-INP1-STATUS        00270000 54                                
+   000115      1  002800                    WF-RECORD                                     00280000 23                                
+   000116      1  002900           PERFORM 9100-ABEND                                     00290000 207                               
+   000117      1  003000              THRU 9100-ABEND-EXIT                                00300000 213                               
+   000118         003100        END-IF                                                    00310000                                   
+   000119         003200*                                                                 00320000                                   
+   000120         003300        ADD  1           TO WS-INP1-CNT                           00330000 59                                
+   000121         003310        IF  WS-INP1-STATUS = '10'                                 00331000 54                                
+   000122         003320        OR  WF-IN-SERVICE-MM > LK-PARM-MONTH                      00332002 26 66                             
+   000123      1  003330            SET WS-PROCESSED TO TRUE                              00333000 57                                
+   000124      1  003340            GO TO 0200-EXIT                                       00334000 152                               
+   000125         003341        END-IF                                                    00334100                                   
+   000126         003342*                                                                 00334201                                   
+   000127         003343* IF THE MONTH ON THE FILE IS LOWER THAN REQUESTED SKIP           00334301                                   
+   000128         003344*                                                                 00334401                                   
+   000129         003345        IF  WF-IN-SERVICE-MM < LK-PARM-MONTH  THEN                00334502 26 66                             
+   000130      1  003346            GO TO 0200-EXIT                                       00334601 152                               
+   000131         003347        END-IF                                                    00334706                                   
+   000132         003348*                                                                 00334800                                   
+   000133         003349        IF WS-CURRENT-CARD = ALL ZEROS                            00334907 49 IMP                            
+   000134      1  003350            MOVE WF-IN-CARD-NUMBER TO WS-CURRENT-CARD             00335001 24 49                             
+   000135      1  003351            MOVE ZERO              TO WS-OUT-TOTAL                00335101 IMP 51                            
+   000136         003352        END-IF                                                    00335200                                   
+   000137         003353*                                                                 00335300                                   
+   000138         003354        IF WS-CURRENT-CARD EQUAL WF-IN-CARD-NUMBER                00335405 49 24                             
+   000139      1  003356           ADD WF-IN-BALANCE TO WS-OUT-TOTAL                      00335600 37 51                             
+   000140         003358        ELSE                                                      00335800                                   
+   000141         003359*                                                                 00335900                                   
+   000142      1  003360            PERFORM 0250-WRITE-FILE                               00336000 155                               
+   000143      1  003361               THRU 0250-EXIT                                     00336100 172                               
+   000144         003362*                                                                 00336200                                   
+   000145      1  003363            MOVE WF-IN-CARD-NUMBER TO WS-CURRENT-CARD             00336301 24 49                             
+   000146      1  003365            MOVE WF-IN-BALANCE     TO WS-OUT-TOTAL                00336501 37 51                             
+   000147         003366*                                                                 00336600                                   
+   000148         003367        END-IF                                                    00336700                                   
+   000149         003370*                                                                 00337000                                   
+   000150         003380      .                                                           00338000                                   
+   000151         003381*                                                                 00338100                                   
+   000152         003382 0200-EXIT.                                                       00338200                                   
+   000153         003383      EXIT.                                                       00338300                                   
+   000154         003384*                                                                 00338400                                   
+   000155         003385 0250-WRITE-FILE.                                                 00338500                                   
+   000156         003386*                                                                 00338600                                   
+   000157         003387            MOVE LK-PARM-MONTH    TO WF-OUT-SERVICE-MM            00338708 66 42                             
+   000158         003388            MOVE WS-CURRENT-CARD  TO WF-OUT-CARD-NUMBER           00338801 49 41                             
+   000159         003389            MOVE WS-OUT-TOTAL     TO WF-OUT-TOTAL                 00338900 51 43                             
+   000160         003390*                                                                 00339000                                   
+   000161         003391            WRITE WF-OUTPUT                                       00339100 40                                
+   000162         003392*                                                                 00339200                                   
+   000163         003393            IF NOT (WS-OUTP-STATUS = '00' OR '22')                00339300 55                                
+   000164      1  003394               DISPLAY 'WRITE OUTP-FILE ERROR ' WS-OUTP-STATUS    00339400 55                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFCARD    Date 06/24/2019  Time 20:22:15   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000165      1  003395                        WF-OUTPUT                                 00339500 40                                
+   000166      1  003396               PERFORM 9100-ABEND                                 00339600 207                               
+   000167      1  003397                  THRU 9100-ABEND-EXIT                            00339700 213                               
+   000168         003398            END-IF                                                00339800                                   
+   000169         003399*                                                                 00339900                                   
+   000170         003400            ADD  1           TO WS-OUTP-CNT-W                     00340000 60                                
+   000171         003401       .                                                          00340100                                   
+   000172         003402 0250-EXIT.                                                       00340200                                   
+   000173         003403     EXIT.                                                        00340300                                   
+   000174         003404*                                                                 00340400                                   
+   000175         003405 0300-TERMINATE.                                                  00340500                                   
+   000176         003406*                                                                 00340600                                   
+   000177         003407     IF WS-CURRENT-CARD = SPACES OR LOW-VALUES THEN               00340701 49 IMP IMP                        
+   000178         003408*        WHEN INPUT FILE HAD NO RECORDS THEN SKIP                 00340800                                   
+   000179      1  003409         CONTINUE                                                 00340900                                   
+   000180         003410     ELSE                                                         00341000                                   
+   000181         003411*        WRITE THE LAST CITY RECORD                               00341100                                   
+   000182      1  003412         PERFORM 0250-WRITE-FILE                                  00341200 155                               
+   000183      1  003413            THRU 0250-EXIT                                        00341300 172                               
+   000184         003414     END-IF                                                       00341400                                   
+   000185         003415*                                                                 00341500                                   
+   000186         003416     CLOSE FL-INPUT-FILE                                          00341600 22                                
+   000187         003417     IF NOT (WS-INP1-STATUS = '00')                               00341700 54                                
+   000188      1  003418        DISPLAY 'CLOSE INP1-FILE ERROR ' WS-INP1-STATUS           00341800 54                                
+   000189      1  003419        PERFORM 9100-ABEND                                        00341900 207                               
+   000190      1  003420           THRU 9100-ABEND-EXIT                                   00342000 213                               
+   000191         003421     END-IF                                                       00342100                                   
+   000192         003422                                                                  00342200                                   
+   000193         003423     CLOSE FL-OUTPUT-FILE                                         00342300 39                                
+   000194         003424     IF NOT (WS-OUTP-STATUS = '00')                               00342400 55                                
+   000195      1  003425        DISPLAY 'CLOSE OUTP-FILE ERROR ' WS-OUTP-STATUS           00342500 55                                
+   000196      1  003426        PERFORM 9100-ABEND                                        00342600 207                               
+   000197      1  003427           THRU 9100-ABEND-EXIT                                   00342700 213                               
+   000198         003428     END-IF                                                       00342800                                   
+   000199         003429                                                                  00342900                                   
+   000200         003430     DISPLAY 'RECORDS WRITTEN    ' WS-OUTP-CNT-W                  00343000 60                                
+   000201         003431     DISPLAY 'PROGRAM CFCITY  ENDED SUCCESSFULLY'                 00343100                                   
+   000202         003432     GOBACK.                                                      00343200                                   
+   000203         003433*                                                                 00343300                                   
+   000204         003434 0300-EXIT.                                                       00343400                                   
+   000205         003435     EXIT.                                                        00343500                                   
+   000206         003436                                                                  00343600                                   
+   000207         003437 9100-ABEND.                                                      00343700                                   
+   000208         003438                                                                  00343800                                   
+   000209         003439     DISPLAY 'PROGRAM CFCARD  ENDED UNSUCCESSFULLY'               00343901                                   
+   000210         003440     MOVE  12 TO RETURN-CODE                                      00344000 IMP                               
+   000211         003441     GOBACK                                                       00344100                                   
+   000212         003442     .                                                            00344200                                   
+   000213         003443 9100-ABEND-EXIT.                                                 00344300                                   
+   000214         003444     EXIT.                                                        00344400                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFCARD    Date 06/24/2019  Time 20:22:15   Page     7                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       22   FL-INPUT-FILE. . . . . . . . .  11 86 111 186                                                                            
+       39   FL-OUTPUT-FILE . . . . . . . .  15 93 193                                                                                
+       64   LK-PARM. . . . . . . . . . . .  68                                                                                       
+       66   LK-PARM-MONTH. . . . . . . . .  71 122 129 157                                                                           
+        0   RETURN-CODE. . . . . . . . . .  M210                                                                                     
+       37   WF-IN-BALANCE. . . . . . . . .  139 146                                                                                  
+       24   WF-IN-CARD-NUMBER. . . . . . .  134 138 145                                                                              
+       26   WF-IN-SERVICE-MM . . . . . . .  122 129                                                                                  
+       41   WF-OUT-CARD-NUMBER . . . . . .  M158                                                                                     
+       42   WF-OUT-SERVICE-MM. . . . . . .  M157                                                                                     
+       43   WF-OUT-TOTAL . . . . . . . . .  M159                                                                                     
+       40   WF-OUTPUT. . . . . . . . . . .  161 165                                                                                  
+       23   WF-RECORD. . . . . . . . . . .  115                                                                                      
+       49   WS-CURRENT-CARD. . . . . . . .  133 M134 138 M145 158 177                                                                
+       59   WS-INP1-CNT. . . . . . . . . .  M100 M120                                                                                
+       54   WS-INP1-STATUS . . . . . . . .  13 87 88 113 114 121 187 188                                                             
+       51   WS-OUT-TOTAL . . . . . . . . .  M135 M139 M146 159                                                                       
+       60   WS-OUTP-CNT-W. . . . . . . . .  M101 M170 200                                                                            
+       55   WS-OUTP-STATUS . . . . . . . .  17 94 95 163 164 194 195                                                                 
+       57   WS-PROCESSED . . . . . . . . .  78 M123                                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFCARD    Date 06/24/2019  Time 20:22:15   Page     8                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      105   0100-EXIT. . . . . . . . . . .  E74                                                                                      
+       84   0100-INITIALIZE. . . . . . . .  P73                                                                                      
+      152   0200-EXIT. . . . . . . . . . .  E77 G124 G130                                                                            
+      109   0200-PROCESS-RECORD. . . . . .  P76                                                                                      
+      172   0250-EXIT. . . . . . . . . . .  E143 E183                                                                                
+      155   0250-WRITE-FILE. . . . . . . .  P142 P182                                                                                
+      204   0300-EXIT. . . . . . . . . . .  E81                                                                                      
+      175   0300-TERMINATE . . . . . . . .  P80                                                                                      
+      207   9100-ABEND . . . . . . . . . .  P89 P96 P116 P166 P189 P196                                                              
+      213   9100-ABEND-EXIT. . . . . . . .  E90 E97 E117 E167 E190 E197                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFCARD    Date 06/24/2019  Time 20:22:15   Page     9                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFCARD    Date 06/24/2019  Time 20:22:15   Page    10                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID CFCARD------------------------------------------------------------------------------------------------------*    
+     22   FD FL-INPUT-FILE . . . . . . . . . . . . . . . .                                              QSAM           F             
+     23   1  WF-RECORD . . . . . . . . . . . . . . . . . . BLF=00000  000               DS 0CL44        Group                        
+     24     2  WF-IN-CARD-NUMBER . . . . . . . . . . . . . BLF=00000  000   0 000 000   DS 16C          Display                      
+     25     2  WF-IN-SERVICE-DATE. . . . . . . . . . . . . BLF=00000  010   0 000 010   DS 0CL10        Group                        
+     26       3  WF-IN-SERVICE-MM. . . . . . . . . . . . . BLF=00000  010   0 000 010   DS 2C           Display                      
+     27       3  FILLER. . . . . . . . . . . . . . . . . . BLF=00000  012   0 000 012   DS 1C           Display                      
+     28       3  WF-IN-SERVICE-DD. . . . . . . . . . . . . BLF=00000  013   0 000 013   DS 2C           Display                      
+     29       3  FILLER. . . . . . . . . . . . . . . . . . BLF=00000  015   0 000 015   DS 1C           Display                      
+     30       3  WF-IN-SERVICE-YYYY. . . . . . . . . . . . BLF=00000  016   0 000 016   DS 4C           Display                      
+     31     2  WF-IN-CHARGE. . . . . . . . . . . . . . . . BLF=00000  01A   0 000 01A   DS 0CL10        Group                        
+     32       3  WF-IN-CHARGE-MM . . . . . . . . . . . . . BLF=00000  01A   0 000 01A   DS 2C           Display                      
+     33       3  FILLER. . . . . . . . . . . . . . . . . . BLF=00000  01C   0 000 01C   DS 1C           Display                      
+     34       3  WF-IN-CHARGE-DD . . . . . . . . . . . . . BLF=00000  01D   0 000 01D   DS 2C           Display                      
+     35       3  FILLER. . . . . . . . . . . . . . . . . . BLF=00000  01F   0 000 01F   DS 1C           Display                      
+     36       3  WF-IN-CHARGE-YYYY . . . . . . . . . . . . BLF=00000  020   0 000 020   DS 4C           Display                      
+     37     2  WF-IN-BALANCE . . . . . . . . . . . . . . . BLF=00000  024   0 000 024   DS 8C           Disp-Num                     
+     39   FD FL-OUTPUT-FILE. . . . . . . . . . . . . . . .                                              QSAM           F             
+     40   1  WF-OUTPUT . . . . . . . . . . . . . . . . . . BLF=00001  000               DS 0CL31        Group                        
+     41     2  WF-OUT-CARD-NUMBER. . . . . . . . . . . . . BLF=00001  000   0 000 000   DS 16C          Display                      
+     42     2  WF-OUT-SERVICE-MM . . . . . . . . . . . . . BLF=00001  010   0 000 010   DS 2C           Disp-Num                     
+     43     2  WF-OUT-TOTAL. . . . . . . . . . . . . . . . BLF=00001  012   0 000 012   DS 13C          Disp-Num                     
+     48   1  WS-CARD-DATA. . . . . . . . . . . . . . . . . BLW=00000  000               DS 0CL29        Group                        
+     49     2  WS-CURRENT-CARD . . . . . . . . . . . . . . BLW=00000  000   0 000 000   DS 16C          Display                      
+     51     2  WS-OUT-TOTAL. . . . . . . . . . . . . . . . BLW=00000  010   0 000 010   DS 13C          Disp-Num                     
+     53   1  WS-AREA . . . . . . . . . . . . . . . . . . . BLW=00000  020               DS 0CL23        Group                        
+     54     2  WS-INP1-STATUS. . . . . . . . . . . . . . . BLW=00000  020   0 000 000   DS 2C           Display                      
+     55     2  WS-OUTP-STATUS. . . . . . . . . . . . . . . BLW=00000  022   0 000 002   DS 2C           Display                      
+     56     2  WS-DONE-STATUS. . . . . . . . . . . . . . . BLW=00000  024   0 000 004   DS 1C           Display                      
+     57     88 WS-PROCESSED. . . . . . . . . . . . . . . .                                                                           
+     58     88 WS-IN-PROGRESS. . . . . . . . . . . . . . .                                                                           
+     59     2  WS-INP1-CNT . . . . . . . . . . . . . . . . BLW=00000  025   0 000 005   DS 9C           Disp-Num                     
+     60     2  WS-OUTP-CNT-W . . . . . . . . . . . . . . . BLW=00000  02E   0 000 00E   DS 9C           Disp-Num                     
+     64   1  LK-PARM . . . . . . . . . . . . . . . . . . . BLL=00001  000               DS 0CL4         Group                        
+     65     2  LK-PARM-LEN . . . . . . . . . . . . . . . . BLL=00001  000   0 000 000   DS 2C           Binary                       
+     66     2  LK-PARM-MONTH . . . . . . . . . . . . . . . BLL=00001  002   0 000 002   DS 2C           Disp-Num                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFCARD    Date 06/24/2019  Time 20:22:15   Page    11                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000038 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000554 FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |    
+ 00011C  (LIT+32)     4040F0F0 F0F0F0F0 F0F0F0F0 F0F0F0                                        |  0000000000000                 |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFCARD    Date 06/24/2019  Time 20:22:15   Page    12                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000134 FOR 0002DF BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000150  (LIT+0)      FFFFFFFC 00001000 00000001 00000000 000CD7D9 D6C7D9C1 D440C3C6 C3C1D9C4  |..................PROGRAM CFCARD|    
+ 000170  (LIT+32)     4040C5D5 C4C5C440 E4D5E2E4 C3C3C5E2 E2C6E4D3 D3E8D7D9 D6C7D9C1 D440C3C6  |  ENDED UNSUCCESSFULLYPROGRAM CF|    
+ 000190  (LIT+64)     C3C9E3E8 4040C5D5 C4C5C440 E2E4C3C3 C5E2E2C6 E4D3D3E8 C3D3D6E2 C540D6E4  |CITY  ENDED SUCCESSFULLYCLOSE OU|    
+ 0001B0  (LIT+96)     E3D760C6 C9D3C540 C5D9D9D6 D940C3D3 D6E2C540 C9D5D7F1 60C6C9D3 C540C5D9  |TP-FILE ERROR CLOSE INP1-FILE ER|    
+ 0001D0  (LIT+128)    D9D6D940 E6D9C9E3 C540D6E4 E3D760C6 C9D3C540 C5D9D9D6 D940D9C5 C1C44040  |ROR WRITE OUTP-FILE ERROR READ  |    
+ 0001F0  (LIT+160)    C9D5D7F1 60C6C9D3 C540C5D9 D9D6D940 D6D7C5D5 40D6E4E3 D760C6C9 D3C540C5  |INP1-FILE ERROR OPEN OUTP-FILE E|    
+ 000210  (LIT+192)    D9D9D6D9 40D6D7C5 D540C9D5 D7F160C6 C9D3C540 C5D9D9D6 D940D9C5 C3D6D9C4  |RROR OPEN INP1-FILE ERROR RECORD|    
+ 000230  (LIT+224)    E240E6D9 C9E3E3C5 D5404040 40F0F0F0 F0F0F0F0 F0F0F0F0 F0F0F0F0 F0E2C5D9  |S WRITTEN    0000000000000000SER|    
+ 000250  (LIT+256)    E5C9C3C5 40D4D6D5 E3C840E2 E8E2D6E4 E34040C9 C7E9E2D9 E3C3C4F2 F2F1F01F  |VICE MONTH SYSOUT  IGZSRTCD2210.|    
+ 000270  (LIT+288)    00000138 00000002 0000012C 00000001 00000130 00000002 00000000 00000000  |................................|    
+ 000290  (LIT+320)    00000000 00000000 00000000 00000000 00000000 00000000 00000000 80000000  |................................|    
+ 0002B0  (LIT+352)    40000000 00000000 00000000 F0F0F0F0 F0F0F0F0 F0080000 00040000 00400000  | ...........000000000........ ..|    
+ 0002D0  (LIT+384)    00000000 00000000 00000000 00400000 000025C0 0001C000 06080000 30003601  |............. ..................|    
+ 0002F0  (LIT+416)    40000024 08000030 002EFF01 40000022 08000030 0052FF01 40000013 08000030  | ........... ........... .......|    
+ 000310  (LIT+448)    00F64000 00090900 012C002E FF014000 00160800 00300074 40000002 0900012C  |.6 ........... ......... .......|    
+ 000330  (LIT+480)    0022FF40 00028000 01400000 16080000 30008A40 00000209 00012C00 20FF4000  |... ..... ......... .......... .|    
+ 000350  (LIT+512)    01800001 40000016 08000030 00A04000 00020900 012C0022 4000001F 0900013C  |.... ......... ......... .......|    
+ 000370  (LIT+544)    0000FF01 40000016 08000030 00B64000 00020900 012C0020 4000002C 09000138  |.... ......... ......... .......|    
+ 000390  (LIT+576)    0000FF01 40000015 08000030 00CC4000 00020900 012C0022 FF800002 80000140  |.... ......... ................ |    
+ 0003B0  (LIT+608)    00001508 00003000 E1400000 02090001 2C0020FF 80000180 00014000 000E0800  |......... ................ .....|    
+ 0003D0  (LIT+640)    00300119 40000002 09000134 0002FF40 00000000 40C00001 40000608 00003000  |.... .......... .... ... .......|    
+ 0003F0  (LIT+672)    3602C000 06080000 30003609 00012C00 22090001 3C000009 00012C00 20090001  |................................|    
+ 000410  (LIT+704)    380000                                                                   |...                             |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000071 0006C2 DISPLAY                       000073 0006D0 PERFORM                       000076 0006E8 PERFORM                       
+ 000080 00070C PERFORM                       000086 000724 OPEN                          000087 000742 IF                            
+ 000088 000750 DISPLAY                       000089 00075A PERFORM                       000093 000772 OPEN                          
+ 000094 000790 IF                            000095 00079E DISPLAY                       000096 0007A8 PERFORM                       
+ 000100 0007C0 MOVE                          000101 0007C6 MOVE                          000103 0007CC CONTINUE                      
+ 000106 0007CC EXIT                          000111 0007D2 READ                          000113 000800 IF                            
+ 000114 000814 DISPLAY                       000116 000822 PERFORM                       000120 00083A ADD                           
+ 000121 000854 IF                            000123 000874 SET                           000124 000878 GO                            
+ 000129 00087C IF                            000130 000886 GO                            000133 00088A IF                            
+ 000134 00089C MOVE                          000135 0008A2 MOVE                          000138 0008A8 IF                            
+ 000139 0008B2 ADD                           000142 0008D6 PERFORM                       000145 0008EE MOVE                          
+ 000146 0008F8 MOVE                          000153 000908 EXIT                          000157 00090E MOVE                          
+ 000158 000920 MOVE                          000159 000926 MOVE                          000161 000930 WRITE                         
+ 000163 000960 IF                            000164 000974 DISPLAY                       000166 000982 PERFORM                       
+ 000170 00099A ADD                           000173 0009B4 EXIT                          000177 0009BA IF                            
+ 000179 0009DA CONTINUE                      000182 0009DE PERFORM                       000186 0009F6 CLOSE                         
+ 000187 000A14 IF                            000188 000A22 DISPLAY                       000189 000A2C PERFORM                       
+ 000193 000A44 CLOSE                         000194 000A62 IF                            000195 000A70 DISPLAY                       
+ 000196 000A7A PERFORM                       000200 000A92 DISPLAY                       000201 000AA0 DISPLAY                       
+ 000202 000AAA GOBACK                        000205 000AB2 EXIT                          000209 000AB8 DISPLAY                       
+ 000210 000AC6 MOVE                          000211 000AD0 GOBACK                        000214 000AD4 EXIT                          
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFCARD    Date 06/24/2019  Time 20:22:15   Page    13                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000138  BASE LOCATORS FOR FILES                                                                                  
+                    000140  FCB CELLS                                                                                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFCARD    Date 06/24/2019  Time 20:22:15   Page    14                
+0                   000148  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  SAVE AREA FOR FLOAT REGISTERS 8-15                                                                       
+                  00000110  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  00000120  VARIABLE-LENGTH CELLS                                                                                    
+                  00000138  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000154  PERFORM SAVE CELLS                                                                                       
+                  00000188  TEMPORARY STORAGE-2                                                                                      
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 0000015C BYTES                                                                                       
+ DCB00001 WILL BE ALLOCATED FOR 00000060 BYTES                                                                                       
+ FCB00001 WILL BE ALLOCATED FOR 00000114 BYTES                                                                                       
+ DCB00002 WILL BE ALLOCATED FOR 00000060 BYTES                                                                                       
+ FCB00002 WILL BE ALLOCATED FOR 00000114 BYTES                                                                                       
+ GDT00001 WILL BE ALLOCATED FOR 000000A0 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 00000037 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 00000198 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 000BAC                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 001068 FOR LENGTH 000118                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFCARD    Date 06/24/2019  Time 20:22:15   Page    15                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+     22  IGYGR1216-I   A "RECORDING MODE" of "F" was assumed for file "FL-INPUT-FILE".                                               
+                                                                                                                                     
+     39  IGYGR1216-I   A "RECORDING MODE" of "F" was assumed for file "FL-OUTPUT-FILE".                                              
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       2           2                                                                                                        
+-* Statistics for COBOL program CFCARD:                                                                                              
+ *    Source records = 214                                                                                                           
+ *    Data Division statements = 29                                                                                                  
+ *    Procedure Division statements = 63                                                                                             
+0End of compilation 1,  program CFCARD,  highest severity 0.                                                                         
+0Return code 0                                                                                                                       

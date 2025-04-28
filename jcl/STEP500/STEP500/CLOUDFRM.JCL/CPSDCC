@@ -1,0 +1,14 @@
+ JOINKEYS F1=SORTJNF1,FIELDS(17,9,A)                                                                                                 
+ JOINKEYS F2=SORTJNF2,FIELDS(2,9,A),SORTED,NOSEQCK                                                                                   
+ JOIN UNPAIRED,F1                                                                                                                    
+ REFORMAT FIELDS=(F1:1,39,F2:1,1,F1:41,9,?)                                                                                          
+    OUTFIL FNAMES=BOTH,INCLUDE=(50,1,CH,EQ,C'B'),                                                                                    
+               BUILD=(1,49,50:+0,TO=PD,LENGTH=3,                                                                                     
+                           53:+0,TO=PD,LENGTH=3,                                                                                     
+                           56:+0,TO=PD,LENGTH=3,80:X)                                                                                
+    OUTFIL FNAMES=F1ONLY,INCLUDE=(50,1,CH,EQ,C'1'),                                                                                  
+               BUILD=(1,39,C' ',41,9,                                                                                                
+                      50:+0,TO=PD,LENGTH=3,                                                                                          
+                      53:+0,TO=PD,LENGTH=3,                                                                                          
+                      56:+0,TO=PD,LENGTH=3,80:X)                                                                                     
+   SORT FIELDS=(1,8,PD,A,40,1,CH,A)                                                                                                  

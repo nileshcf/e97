@@ -1,0 +1,988 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 08/24/2020  Time 22:21:26   Page     1                
+0Invocation parameters:                                                                                                              
+  LIB,OBJECT,RENT,RES,APOST,TRUNC(BIN),,ARITH(EXTEND),OFFSET,NOFDUMP,SOURCE,MAP                                                      
+                                                                                                                                     
+         IGYOS4046-I   The "RESIDENT" option specification is no longer required.  The resident runtime library support is always    
+                       used.                                                                                                         
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4008-W   The "NOFDUMP" compiler option was specified, but is not supported.  The option was discarded.                 
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    APOST                                                                                                                            
+    ARITH(EXTEND)                                                                                                                    
+  NOAWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+  NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 08/24/2020  Time 22:21:26   Page     2                
+0 NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+  NOTEST                                                                                                                             
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000001         000100 IDENTIFICATION DIVISION.                                         00010000                                   
+   000002         000200 PROGRAM-ID. BNCHMARK.                                            00020000                                   
+   000003         000300                                                                  00030000                                   
+   000004         000400 ENVIRONMENT DIVISION.                                            00040000                                   
+   000005         000500                                                                  00050000                                   
+   000006         000600 INPUT-OUTPUT SECTION.                                            00060000                                   
+   000007         000700 FILE-CONTROL.                                                    00070000                                   
+   000008         000800 DATA DIVISION.                                                   00080000                                   
+   000009         000900 FILE SECTION.                                                    00090000                                   
+   000010         001000 WORKING-STORAGE SECTION.                                         00100000                                   
+   000011         001100                                                                  00110000                                   
+   000012         001110 01 WS-SIGN-LEADING.                                              00111004 BLW=00000+000         0CL202      
+   000013         001120      15 MAIN-HB-EQUP-SURCHAGE-OCC-06.                            00112004 BLW=00000+000,0000000 0CL28       
+   000014         001130         20 MAIN-HB-TOT-VZW-SURCHG-AMT     PIC S9(07)V9(02)       00113004 BLW=00000+000,0000000 10C         
+   000015         001140                           SIGN IS LEADING SEPARATE.              00114004                                   
+   000016         001150         20 MAIN-HB-FUSF-RATE              PIC S9(03)V9(02)       00115004 BLW=00000+00A,000000A 6C          
+   000017         001160                           SIGN IS LEADING SEPARATE.              00116004                                   
+   000018         001170         20 MAIN-HB-REGULATORY-CHARG       PIC S9(03)V9(02)       00117004 BLW=00000+010,0000010 6C          
+   000019         001180                           SIGN IS LEADING SEPARATE.              00118004                                   
+   000020         001190         20 MAIN-HB-VZW-ADMIN-CHG-AMT      PIC S9(03)V9(02)       00119004 BLW=00000+016,0000016 6C          
+   000021         001191                           SIGN IS LEADING SEPARATE.              00119104                                   
+   000022         001192      15 ACCT-HB-EQUP-SURCHAGE-OCC-06.                            00119204 BLW=00000+01C,000001C 0CL28       
+   000023         001193         20 ACCT-HB-TOT-VZW-SURCHG-AMT     PIC S9(07)V9(02)       00119304 BLW=00000+01C,000001C 10C         
+   000024         001194                           SIGN IS LEADING SEPARATE.              00119404                                   
+   000025         001195         20 ACCT-HB-FUSF-RATE              PIC S9(03)V9(02)       00119504 BLW=00000+026,0000026 6C          
+   000026         001196                           SIGN IS LEADING SEPARATE.              00119604                                   
+   000027         001197         20 ACCT-HB-REGULATORY-CHARG       PIC S9(03)V9(02)       00119704 BLW=00000+02C,000002C 6C          
+   000028         001198                           SIGN IS LEADING SEPARATE.              00119804                                   
+   000029         001199         20 ACCT-HB-VZW-ADMIN-CHG-AMT      PIC S9(03)V9(02)       00119904 BLW=00000+032,0000032 6C          
+   000030         001200                           SIGN IS LEADING SEPARATE.              00120004                                   
+   000031         001201      15 C584-HB-EQUP-SURCHAGE-OCC-06.                            00120104 BLW=00000+038,0000038 0CL28       
+   000032         001202         20 C584-HB-TOT-VZW-SURCHG-AMT     PIC S9(07)V9(02)       00120204 BLW=00000+038,0000038 10C         
+   000033         001203                           SIGN IS LEADING SEPARATE.              00120304                                   
+   000034         001204         20 C584-HB-FUSF-RATE              PIC S9(03)V9(02)       00120404 BLW=00000+042,0000042 6C          
+   000035         001205                           SIGN IS LEADING SEPARATE.              00120504                                   
+   000036         001206         20 C584-HB-REGULATORY-CHARG       PIC S9(03)V9(02)       00120604 BLW=00000+048,0000048 6C          
+   000037         001207                           SIGN IS LEADING SEPARATE.              00120704                                   
+   000038         001208         20 C584-HB-VZW-ADMIN-CHG-AMT      PIC S9(03)V9(02)       00120804 BLW=00000+04E,000004E 6C          
+   000039         001209                           SIGN IS LEADING SEPARATE.              00120904                                   
+   000040         001210      15 C585-HB-EQUP-SURCHAGE-OCC-06.                            00121006 BLW=00000+054,0000054 0CL40       
+   000041         001211         20 C585-HB-TOT-VZW-SURCHG-AMT     PIC S9(09)V9(03)       00121106 BLW=00000+054,0000054 13C         
+   000042         001212                           SIGN IS LEADING SEPARATE.              00121206                                   
+   000043         001213         20 C585-HB-FUSF-RATE              PIC S9(05)V9(03)       00121306 BLW=00000+061,0000061 9C          
+   000044         001214                           SIGN IS LEADING SEPARATE.              00121406                                   
+   000045         001215         20 C585-HB-REGULATORY-CHARG       PIC S9(05)V9(03)       00121506 BLW=00000+06A,000006A 9C          
+   000046         001216                           SIGN IS LEADING SEPARATE.              00121606                                   
+   000047         001217         20 C585-HB-VZW-ADMIN-CHG-AMT      PIC S9(05)V9(03)       00121706 BLW=00000+073,0000073 9C          
+   000048         001218                           SIGN IS LEADING SEPARATE.              00121806                                   
+   000049         001219      15 C586-HB-EQUP-SURCHAGE-OCC-06.                            00121907 BLW=00000+07C,000007C 0CL32       
+   000050         001220         20 C586-HB-TOT-VZW-SURCHG-AMT     PIC S9(09)V9(01)       00122007 BLW=00000+07C,000007C 11C         
+   000051         001221                           SIGN IS LEADING SEPARATE.              00122107                                   
+   000052         001222         20 C586-HB-FUSF-RATE              PIC S9(05)V9(01)       00122207 BLW=00000+087,0000087 7C          
+   000053         001223                           SIGN IS LEADING SEPARATE.              00122307                                   
+   000054         001224         20 C586-HB-REGULATORY-CHARG       PIC S9(05)V9(01)       00122407 BLW=00000+08E,000008E 7C          
+   000055         001225                           SIGN IS LEADING SEPARATE.              00122507                                   
+   000056         001226         20 C586-HB-VZW-ADMIN-CHG-AMT      PIC S9(05)V9(01)       00122607 BLW=00000+095,0000095 7C          
+   000057         001227                           SIGN IS LEADING SEPARATE.              00122707                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000058         001228      15 C587-HB-EQUP-SURCHAGE-OCC-06.                            00122807 BLW=00000+09C,000009C 0CL19       
+   000059         001229         20 C587-HB-TOT-VZW-SURCHG-AMT     PIC S9(05)V9(01)       00122907 BLW=00000+09C,000009C 7C          
+   000060         001230                           SIGN IS LEADING SEPARATE.              00123007                                   
+   000061         001231         20 C587-HB-FUSF-RATE              PIC S9(02)V9(01)       00123107 BLW=00000+0A3,00000A3 4C          
+   000062         001232                           SIGN IS LEADING SEPARATE.              00123207                                   
+   000063         001233         20 C587-HB-REGULATORY-CHARG       PIC S9(02)V9(01)       00123307 BLW=00000+0A7,00000A7 4C          
+   000064         001234                           SIGN IS LEADING SEPARATE.              00123407                                   
+   000065         001235         20 C587-HB-VZW-ADMIN-CHG-AMT      PIC S9(02)V9(01)       00123507 BLW=00000+0AB,00000AB 4C          
+   000066         001236                           SIGN IS LEADING SEPARATE.              00123607                                   
+   000067         001237      15 C588-HB-EQUP-SURCHAGE-OCC-06.                            00123707 BLW=00000+0AF,00000AF 0CL27       
+   000068         001238         20 C588-HB-TOT-VZW-SURCHG-AMT     PIC S9(05)V9(03)       00123807 BLW=00000+0AF,00000AF 9C          
+   000069         001239                           SIGN IS LEADING SEPARATE.              00123907                                   
+   000070         001240         20 C588-HB-FUSF-RATE              PIC S9(02)V9(03)       00124007 BLW=00000+0B8,00000B8 6C          
+   000071         001241                           SIGN IS LEADING SEPARATE.              00124107                                   
+   000072         001242         20 C588-HB-REGULATORY-CHARG       PIC S9(02)V9(03)       00124207 BLW=00000+0BE,00000BE 6C          
+   000073         001243                           SIGN IS LEADING SEPARATE.              00124307                                   
+   000074         001244         20 C588-HB-VZW-ADMIN-CHG-AMT      PIC S9(02)V9(03)       00124407 BLW=00000+0C4,00000C4 6C          
+   000075         001245                           SIGN IS LEADING SEPARATE.              00124507                                   
+   000076         001250 01 WS-FIELDS.                                                    00125007 BLW=00000+0D0         0CL56       
+   000077         001300    05  NUM-DISP-1   PIC 9(05)V9(04).                             00130000 BLW=00000+0D0,0000000 9C          
+   000078         001400    05  NUM-DEC-1    PIC 9(05)V9(04) COMP-3.                      00140000 BLW=00000+0D9,0000009 5P          
+   000079         001500    05  WS-INT-1     PIC 9(08) BINARY.                            00150000 BLW=00000+0DE,000000E 4C          
+   000080         001600    05  WS-SHORT-1   PIC 9(04) BINARY.                            00160000 BLW=00000+0E2,0000012 2C          
+   000081         001700    05  WS-LONG-1    PIC 9(11) COMP-5.                            00170000 BLW=00000+0E4,0000014 8C          
+   000082         001800    05  NUM-DISP-2   PIC 9(05)V9(04).                             00180000 BLW=00000+0EC,000001C 9C          
+   000083         001900    05  NUM-DEC-2    PIC 9(05)V9(04) COMP-3.                      00190000 BLW=00000+0F5,0000025 5P          
+   000084         002000    05  WS-INT-2     PIC 9(08) BINARY.                            00200000 BLW=00000+0FA,000002A 4C          
+   000085         002100    05  WS-SHORT-2   PIC 9(04) BINARY.                            00210000 BLW=00000+0FE,000002E 2C          
+   000086         002200    05  WS-LONG-2    PIC 9(11) COMP-5.                            00220000 BLW=00000+100,0000030 8C          
+   000087         002300                                                                  00230000                                   
+   000088         002310 01 INTL-REC.                                                     00231009 BLW=00000+108         0CL8        
+   000089         002320    05 INTL-RATE-AMOUNT               PIC S9(4)V9(11) COMP-3.     00232012 BLW=00000+108,0000000 8P          
+   000090         002330 01 WS-VALS.                                                      00233009 BLW=00000+110         0CL91       
+   000091         002340    05 WS-TOT-AMT      PIC S9(09)V99    COMP   VALUE +0.          00234009 BLW=00000+110,0000000 8C          
+   000092         002350    05 WS-97V92        PIC S9(7)V9(2) COMP-3.                     00235009 BLW=00000+118,0000008 5P          
+   000093         002360    05 WS-99V92        PIC S9(9)V9(2) COMP-3.                     00236009 BLW=00000+11D,000000D 6P          
+   000094         002370    05 WS-918-COMP     PIC S9(18) COMP.                           00237009 BLW=00000+123,0000013 8C          
+   000095         002380    05 WS-918-COMP3    PIC S9(18) COMP-3.                         00238009 BLW=00000+12B,000001B 10P         
+   000096         002390    05 WS-99V93-COMP3  PIC S9(9)V9(3) COMP-3.                     00239009 BLW=00000+135,0000025 7P          
+   000097         002391    05 DISP-PER-UNIT-RATE    PIC ZZZZ,ZZZ,ZZ9.99.                 00239109 BLW=00000+13C,000002C 15C         
+   000098         002392    05 RLU7J-PER-UNIT-RATE   PIC X(15).                           00239209 BLW=00000+14B,000003B 15C         
+   000099         002393    05 WS-99V93           PIC S9(09)V9(3) COMP-3.                 00239309 BLW=00000+15A,000004A 7P          
+   000100         002394    05 WS-915V93          PIC S9(15)V9(3) COMP-3 VALUE ZERO.      00239409 BLW=00000+161,0000051 10P         
+                                                                                                   IMP                               
+   000101         002395 01 WS-COUNT              PIC S9(4) COMP.                         00239513 BLW=00000+170         2C          
+   000102         002400 PROCEDURE DIVISION.                                              00240000                                   
+   000103         002401      PERFORM SIGN-LEADING                                        00240104 109                               
+   000104         002410      PERFORM INIT-NUMBERS                                        00241001 180                               
+   000105         002420      PERFORM COMPARE-EQUALS                                      00242001 189                               
+   000106         004200*                                                                 00420000                                   
+   000107         004300      STOP RUN.                                                   00430000                                   
+   000108         004310*                                                                 00431001                                   
+   000109         004311 SIGN-LEADING.                                                    00431104                                   
+   000110         004312*                                                                 00431205                                   
+   000111         004313     MOVE -123.45                                                 00431305                                   
+   000112         004314        TO  MAIN-HB-TOT-VZW-SURCHG-AMT                            00431405 14                                
+   000113         004315     MOVE -123.24                                                 00431505                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000114         004316         TO MAIN-HB-FUSF-RATE                                     00431605 16                                
+   000115         004317     MOVE  823.24                                                 00431705                                   
+   000116         004318         TO MAIN-HB-REGULATORY-CHARG                              00431805 18                                
+   000117         004319     MOVE 0                                                       00431905                                   
+   000118         004320         TO MAIN-HB-VZW-ADMIN-CHG-AMT                             00432005 20                                
+   000119         004321*                                                                 00432105                                   
+   000120         004322     MOVE MAIN-HB-EQUP-SURCHAGE-OCC-06                            00432205 13                                
+   000121         004323       TO ACCT-HB-EQUP-SURCHAGE-OCC-06                            00432305 22                                
+   000122         004324*                                                                 00432405                                   
+   000123         004325     MOVE MAIN-HB-TOT-VZW-SURCHG-AMT                              00432505 14                                
+   000124         004326        TO  C584-HB-TOT-VZW-SURCHG-AMT                            00432605 32                                
+   000125         004327     MOVE MAIN-HB-FUSF-RATE                                       00432705 16                                
+   000126         004328         TO C584-HB-FUSF-RATE                                     00432805 34                                
+   000127         004329     MOVE  MAIN-HB-REGULATORY-CHARG                               00432905 18                                
+   000128         004330         TO C584-HB-REGULATORY-CHARG                              00433005 36                                
+   000129         004331     MOVE MAIN-HB-VZW-ADMIN-CHG-AMT                               00433105 20                                
+   000130         004332         TO C584-HB-VZW-ADMIN-CHG-AMT                             00433205 38                                
+   000131         004333*                                                                 00433305                                   
+   000132         004335     DISPLAY '1A. ' C584-HB-EQUP-SURCHAGE-OCC-06                  00433508 31                                
+   000133         004336*                                                                 00433605                                   
+   000134         004338     MOVE MAIN-HB-TOT-VZW-SURCHG-AMT                              00433806 14                                
+   000135         004339        TO  C585-HB-TOT-VZW-SURCHG-AMT                            00433906 41                                
+   000136         004340     MOVE MAIN-HB-FUSF-RATE                                       00434006 16                                
+   000137         004341         TO C585-HB-FUSF-RATE                                     00434106 43                                
+   000138         004342     MOVE  MAIN-HB-REGULATORY-CHARG                               00434206 18                                
+   000139         004343         TO C585-HB-REGULATORY-CHARG                              00434306 45                                
+   000140         004344     MOVE MAIN-HB-VZW-ADMIN-CHG-AMT                               00434406 20                                
+   000141         004345         TO C585-HB-VZW-ADMIN-CHG-AMT                             00434506 47                                
+   000142         004346*                                                                 00434606                                   
+   000143         004348     DISPLAY '1B. ' C585-HB-EQUP-SURCHAGE-OCC-06                  00434808 40                                
+   000144         004349*                                                                 00434907                                   
+   000145         004350     MOVE MAIN-HB-TOT-VZW-SURCHG-AMT                              00435007 14                                
+   000146         004351        TO  C586-HB-TOT-VZW-SURCHG-AMT                            00435107 50                                
+   000147         004352     MOVE MAIN-HB-FUSF-RATE                                       00435207 16                                
+   000148         004353         TO C586-HB-FUSF-RATE                                     00435307 52                                
+   000149         004354     MOVE  MAIN-HB-REGULATORY-CHARG                               00435407 18                                
+   000150         004355         TO C586-HB-REGULATORY-CHARG                              00435507 54                                
+   000151         004356     MOVE MAIN-HB-VZW-ADMIN-CHG-AMT                               00435607 20                                
+   000152         004357         TO C586-HB-VZW-ADMIN-CHG-AMT                             00435707 56                                
+   000153         004358*                                                                 00435807                                   
+   000154         004360     DISPLAY '1C. ' C586-HB-EQUP-SURCHAGE-OCC-06                  00436008 49                                
+   000155         004361*                                                                 00436107                                   
+   000156         004362     MOVE MAIN-HB-TOT-VZW-SURCHG-AMT                              00436207 14                                
+   000157         004363        TO  C587-HB-TOT-VZW-SURCHG-AMT                            00436307 59                                
+   000158         004364     MOVE MAIN-HB-FUSF-RATE                                       00436407 16                                
+   000159         004365         TO C587-HB-FUSF-RATE                                     00436507 61                                
+   000160         004366     MOVE  MAIN-HB-REGULATORY-CHARG                               00436607 18                                
+   000161         004367         TO C587-HB-REGULATORY-CHARG                              00436707 63                                
+   000162         004368     MOVE MAIN-HB-VZW-ADMIN-CHG-AMT                               00436807 20                                
+   000163         004369         TO C587-HB-VZW-ADMIN-CHG-AMT                             00436907 65                                
+   000164         004370*                                                                 00437007                                   
+   000165         004372     DISPLAY '1D. ' C587-HB-EQUP-SURCHAGE-OCC-06                  00437208 58                                
+   000166         004373*                                                                 00437307                                   
+   000167         004374     MOVE MAIN-HB-TOT-VZW-SURCHG-AMT                              00437407 14                                
+   000168         004375        TO  C588-HB-TOT-VZW-SURCHG-AMT                            00437507 68                                
+   000169         004376     MOVE MAIN-HB-FUSF-RATE                                       00437607 16                                
+   000170         004377         TO C588-HB-FUSF-RATE                                     00437707 70                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000171         004378     MOVE  MAIN-HB-REGULATORY-CHARG                               00437807 18                                
+   000172         004379         TO C588-HB-REGULATORY-CHARG                              00437907 72                                
+   000173         004380     MOVE MAIN-HB-VZW-ADMIN-CHG-AMT                               00438007 20                                
+   000174         004381         TO C588-HB-VZW-ADMIN-CHG-AMT                             00438107 74                                
+   000175         004382*                                                                 00438207                                   
+   000176         004384     DISPLAY '1E. ' C588-HB-EQUP-SURCHAGE-OCC-06                  00438408 67                                
+   000177         004385*                                                                 00438507                                   
+   000178         004386      CONTINUE.                                                   00438607                                   
+   000179         004390*                                                                 00439007                                   
+   000180         004400 INIT-NUMBERS.                                                    00440001                                   
+   000181         004500      MOVE 888.88 TO NUM-DISP-1 NUM-DISP-2                        00450001 77 82                             
+   000182         004600      MOVE 777.77 TO NUM-DEC-1 , NUM-DEC-2                        00460001 78 83                             
+   000183         004700      MOVE 666666 TO WS-INT-1                                     00470001 79                                
+   000184         004800                     WS-INT-2                                     00480001 84                                
+   000185         004900      MOVE 5555   TO WS-SHORT-1 WS-SHORT-2                        00490001 80 85                             
+   000186         004910      MOVE 98765432101234 TO WS-LONG-1 WS-LONG-2                  00491001 81 86                             
+   000187         005000      CONTINUE.                                                   00500001                                   
+   000188         005100*                                                                 00510001                                   
+   000189         005300 COMPARE-EQUALS.                                                  00530001                                   
+   000190         005310* ALL DISP                                                        00531001                                   
+   000191         005400      IF NUM-DISP-1 = NUM-DISP-2 THEN                             00540001 77 82                             
+   000192      1  005500         DISPLAY '2. NUM DISP = NUM DISP '                        00550004                                   
+   000193         005600      ELSE                                                        00560001                                   
+   000194      1  005700         DISPLAY '3. ERROR - NUM DISP -- NUM DISP '               00570004                                   
+   000195         005800      END-IF                                                      00580001                                   
+   000196         005810*                                                                 00581001                                   
+   000197         005820      IF NUM-DISP-1 > NUM-DEC-2  THEN                             00582001 77 83                             
+   000198      1  005830         DISPLAY '4. NUM DISP > NUM DEC  '                        00583004                                   
+   000199         005840      ELSE                                                        00584001                                   
+   000200      1  005841         DISPLAY '5. ERROR - NUM DISP -- NUM DEC  '               00584104                                   
+   000201         005860      END-IF                                                      00586001                                   
+   000202         005870*                                                                 00587001                                   
+   000203         005880      IF NUM-DISP-1 < WS-LONG-2  THEN                             00588001 77 86                             
+   000204      1  005890         DISPLAY '6. NUM DISP < LONG     '                        00589004                                   
+   000205         005891      ELSE                                                        00589101                                   
+   000206      1  005892         DISPLAY '7. ERROR - NUM DISP -- LONG     '               00589204                                   
+   000207         005894      END-IF                                                      00589401                                   
+   000208         005895*                                                                 00589501                                   
+   000209         005896      IF NUM-DISP-1 < WS-INT-2   THEN                             00589601 77 84                             
+   000210      1  005897         DISPLAY '8. NUM DISP < INT      '                        00589704                                   
+   000211         005898      ELSE                                                        00589801                                   
+   000212      1  005899         DISPLAY '9. ERROR - NUM DISP -- INT      '               00589904                                   
+   000213         005901      END-IF                                                      00590101                                   
+   000214         005902*                                                                 00590201                                   
+   000215         005903      IF NUM-DISP-1 < WS-SHORT-2 THEN                             00590301 77 85                             
+   000216      1  005904         DISPLAY '10. NUM DISP < SHORT    '                       00590404                                   
+   000217         005905      ELSE                                                        00590501                                   
+   000218      1  005906         DISPLAY '11. ERROR - NUM DISP -- SHORT    '              00590604                                   
+   000219         005908      END-IF                                                      00590801                                   
+   000220         005910*                                                                 00591001                                   
+   000221         005920* ALL DEC BELOW                                                   00592001                                   
+   000222         006000      IF NUM-DEC-1  < NUM-DISP-2  THEN                            00600001 78 82                             
+   000223      1  006100         DISPLAY '12. NUM DEC  < NUM DISP '                       00610004                                   
+   000224         006200      ELSE                                                        00620001                                   
+   000225      1  006210         DISPLAY '13. ERROR - NUM DISP -- NUM DISP '              00621004                                   
+   000226         006400      END-IF                                                      00640001                                   
+   000227         006401*                                                                 00640101                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000228         006402      IF NUM-DEC-1  = NUM-DEC-2   THEN                            00640201 78 83                             
+   000229      1  006403         DISPLAY '14. NUM DEC  = NUM DEC  '                       00640304                                   
+   000230         006404      ELSE                                                        00640401                                   
+   000231      1  006405         DISPLAY '15. ERROR - NUM DEC  -- NUM DEC  '              00640504                                   
+   000232         006407      END-IF                                                      00640701                                   
+   000233         006408*                                                                 00640801                                   
+   000234         006409      IF NUM-DEC-1  < WS-LONG-2   THEN                            00640901 78 86                             
+   000235      1  006410         DISPLAY '16. NUM DEC  < LONG     '                       00641004                                   
+   000236         006411      ELSE                                                        00641101                                   
+   000237      1  006412         DISPLAY '17. ERROR - NUM DEC  -- LONG     '              00641204                                   
+   000238         006414      END-IF                                                      00641401                                   
+   000239         006415*                                                                 00641501                                   
+   000240         006416      IF NUM-DEC-1  < WS-INT-2    THEN                            00641601 78 84                             
+   000241      1  006417         DISPLAY '18. NUM DEC  < INT      '                       00641704                                   
+   000242         006418      ELSE                                                        00641801                                   
+   000243      1  006419         DISPLAY '19. ERROR - NUM DEC  -- INT      '              00641904                                   
+   000244         006421      END-IF                                                      00642101                                   
+   000245         006422*                                                                 00642201                                   
+   000246         006423      IF NUM-DEC-1  < WS-SHORT-2  THEN                            00642301 78 85                             
+   000247      1  006424         DISPLAY '20. NUM DEC  < SHORT    '                       00642404                                   
+   000248         006425      ELSE                                                        00642501                                   
+   000249      1  006426         DISPLAY '21. ERROR - NUM DEC  -- SHORT    '              00642604                                   
+   000250         006428      END-IF                                                      00642801                                   
+   000251         006429*                                                                 00642901                                   
+   000252         006430*  ALL LONG BELOW                                                 00643001                                   
+   000253         006431      IF WS-LONG-1 > NUM-DISP-2 THEN                              00643101 81 82                             
+   000254      1  006432         DISPLAY '22. LONG > DISP2        '                       00643204                                   
+   000255         006440      ELSE                                                        00644001                                   
+   000256      1  006441         DISPLAY '23. ERROR - LONG     -- DISP     '              00644104                                   
+   000257         006460      END-IF                                                      00646001                                   
+   000258         006461*                                                                 00646101                                   
+   000259         006462      IF WS-LONG-1 > NUM-DEC-2  THEN                              00646201 81 83                             
+   000260      1  006463         DISPLAY '24. LONG > DEC2         '                       00646304                                   
+   000261         006464      ELSE                                                        00646401                                   
+   000262      1  006465         DISPLAY '25. ERROR - LONG     -- DEC      '              00646504                                   
+   000263         006467      END-IF                                                      00646701                                   
+   000264         006468*                                                                 00646801                                   
+   000265         006469      IF WS-LONG-1 = WS-LONG-2  THEN                              00646901 81 86                             
+   000266      1  006470         DISPLAY '26. LONG = LONG         '                       00647004                                   
+   000267         006471      ELSE                                                        00647101                                   
+   000268      1  006472         DISPLAY '27. ERROR - LONG     -- LONG     '              00647204                                   
+   000269         006474      END-IF                                                      00647401                                   
+   000270         006475*                                                                 00647501                                   
+   000271         006476      IF WS-LONG-1 > WS-INT-2   THEN                              00647601 81 84                             
+   000272      1  006477         DISPLAY '28. LONG > INT          '                       00647704                                   
+   000273         006478      ELSE                                                        00647801                                   
+   000274      1  006479         DISPLAY '29. ERROR - LONG     -- INT      '              00647904                                   
+   000275         006481      END-IF                                                      00648101                                   
+   000276         006482*                                                                 00648201                                   
+   000277         006483      IF WS-LONG-1 > WS-SHORT-2 THEN                              00648301 81 85                             
+   000278      1  006484         DISPLAY '30. LONG > SHORT        '                       00648404                                   
+   000279         006485      ELSE                                                        00648501                                   
+   000280      1  006486         DISPLAY '31. ERROR - LONG     -- SHORT    '              00648604                                   
+   000281         006488      END-IF                                                      00648801                                   
+   000282         006489*                                                                 00648901                                   
+   000283         006490* ALL INT BELOW                                                   00649001                                   
+   000284         006491*                                                                 00649101                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page     8                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000285         006492      IF WS-INT-1 > NUM-DISP-2  THEN                              00649201 79 82                             
+   000286      1  006493         DISPLAY '32. INT > DISP          '                       00649304                                   
+   000287         006494      ELSE                                                        00649401                                   
+   000288      1  006495         DISPLAY '33. ERROR - INT      -- DISP     '              00649504                                   
+   000289         006497      END-IF                                                      00649701                                   
+   000290         006498*                                                                 00649801                                   
+   000291         006499      IF WS-INT-1 > NUM-DEC-2   THEN                              00649901 79 83                             
+   000292      1  006500         DISPLAY '34. INT > DEC           '                       00650004                                   
+   000293         006501      ELSE                                                        00650101                                   
+   000294      1  006502         DISPLAY '35. ERROR - INT      -- DEC      '              00650204                                   
+   000295         006504      END-IF                                                      00650401                                   
+   000296         006505*                                                                 00650501                                   
+   000297         006506      IF WS-INT-1 < WS-LONG-2   THEN                              00650601 79 86                             
+   000298      1  006507         DISPLAY '36. INT < LONG          '                       00650704                                   
+   000299         006508      ELSE                                                        00650801                                   
+   000300      1  006509         DISPLAY '37. ERROR - INT      -- LONG     '              00650904                                   
+   000301         006511      END-IF                                                      00651101                                   
+   000302         006512*                                                                 00651201                                   
+   000303         006513      IF WS-INT-1 = WS-INT-2    THEN                              00651301 79 84                             
+   000304      1  006514         DISPLAY '38. INT = INT           '                       00651404                                   
+   000305         006515      ELSE                                                        00651501                                   
+   000306      1  006516         DISPLAY '39. ERROR - INT      -- INT      '              00651604                                   
+   000307         006518      END-IF                                                      00651801                                   
+   000308         006519*                                                                 00651901                                   
+   000309         006520      IF WS-INT-1 > WS-SHORT-2  THEN                              00652001 79 85                             
+   000310      1  006521         DISPLAY '40. INT > SHORT         '                       00652104                                   
+   000311         006522      ELSE                                                        00652201                                   
+   000312      1  006523         DISPLAY '41. ERROR - INT      -- SHORT    '              00652304                                   
+   000313         006525      END-IF                                                      00652501                                   
+   000314         006526*                                                                 00652601                                   
+   000315         006527* ALL SHORT BELOW                                                 00652701                                   
+   000316         006528*                                                                 00652801                                   
+   000317         006529      IF WS-SHORT-1 > NUM-DISP-2 THEN                             00652901 80 82                             
+   000318      1  006530         DISPLAY '42. SHORT > DISP        '                       00653004                                   
+   000319         006531      ELSE                                                        00653101                                   
+   000320      1  006532         DISPLAY '43. ERROR - SHORT    -- DISP     '              00653204                                   
+   000321         006534      END-IF                                                      00653401                                   
+   000322         006535*                                                                 00653501                                   
+   000323         006536      IF WS-SHORT-1 > NUM-DEC-2  THEN                             00653601 80 83                             
+   000324      1  006537         DISPLAY '44. SHORT > DEC         '                       00653704                                   
+   000325         006538      ELSE                                                        00653801                                   
+   000326      1  006539         DISPLAY '45. ERROR - SHORT    -- DEC      '              00653904                                   
+   000327         006541      END-IF                                                      00654101                                   
+   000328         006542*                                                                 00654201                                   
+   000329         006543      IF WS-SHORT-1 = WS-SHORT-2 THEN                             00654301 80 85                             
+   000330      1  006544         DISPLAY '46. SHORT = SHORT       '                       00654404                                   
+   000331         006545      ELSE                                                        00654501                                   
+   000332      1  006546         DISPLAY '47. ERROR - SHORT    -- SHORT    '              00654604                                   
+   000333         006548      END-IF                                                      00654801                                   
+   000334         006549*                                                                 00654901                                   
+   000335         006550      IF WS-SHORT-1 < WS-LONG-2  THEN                             00655001 80 86                             
+   000336      1  006551         DISPLAY '48. SHORT < LONG        '                       00655104                                   
+   000337         006552      ELSE                                                        00655201                                   
+   000338      1  006553         DISPLAY '49. ERROR - SHORT    -- LONG     '              00655304                                   
+   000339         006555      END-IF                                                      00655501                                   
+   000340         006556*                                                                 00655601                                   
+   000341         006557      IF WS-SHORT-1 < WS-INT-2   THEN                             00655701 80 84                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page     9                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000342      1  006558         DISPLAY '50. SHORT < INT         '                       00655804                                   
+   000343         006559      ELSE                                                        00655901                                   
+   000344      1  006560         DISPLAY '51. ERROR - SHORT    -- INT      '              00656004                                   
+   000345         006562      END-IF                                                      00656201                                   
+   000346         006563*                                                                 00656301                                   
+   000347         006565       MOVE 111 TO WS-918-COMP                                    00656511 94                                
+   000348         006566       MOVE 431 TO WS-918-COMP3                                   00656611 95                                
+   000349         006567       COMPUTE WS-99V93-COMP3  =                                  00656711 96                                
+   000350         006568       ( WS-918-COMP3 / WS-918-COMP ) + 0.000999                  00656811 95 94                             
+   000351         006569       DISPLAY '52. WS-99V93-COMP3 ' WS-99V93-COMP3               00656911 96                                
+   000352         006570*                                                                 00657011                                   
+   000353         006571       MOVE 1251.156    TO WS-99V93                               00657111 99                                
+   000354         006572       ADD WS-99V93     TO WS-915V93                              00657211 99 100                            
+   000355         006573       DISPLAY '53. WS-915V93 ' WS-915V93                         00657311 100                               
+   000356         006574*                                                                 00657411                                   
+   000357         006575      MOVE SPACES TO INTL-REC.                                    00657511 IMP 88                            
+   000358         006576      IF INTL-RATE-AMOUNT IS NUMERIC                              00657611 89                                
+   000359      1  006577        MOVE INTL-RATE-AMOUNT     TO DISP-PER-UNIT-RATE           00657711 89 97                             
+   000360      1  006578        MOVE DISP-PER-UNIT-RATE   TO RLU7J-PER-UNIT-RATE          00657811 97 98                             
+   000361         006579      ELSE                                                        00657911                                   
+   000362      1  006580         DISPLAY '54. NOT NUMERIC '                               00658011                                   
+   000363         006581      END-IF                                                      00658111                                   
+   000364         006582      DISPLAY '55.  RLU7J ' RLU7J-PER-UNIT-RATE                   00658211 98                                
+   000365         006583*                                                                 00658311                                   
+   000366         006584      MOVE LOW-VALUES TO INTL-REC.                                00658411 IMP 88                            
+   000367         006585      IF INTL-RATE-AMOUNT IS NUMERIC                              00658511 89                                
+   000368      1  006586        MOVE INTL-RATE-AMOUNT     TO DISP-PER-UNIT-RATE           00658611 89 97                             
+   000369      1  006587        MOVE DISP-PER-UNIT-RATE   TO RLU7J-PER-UNIT-RATE          00658711 97 98                             
+   000370         006588      ELSE                                                        00658811                                   
+   000371      1  006589         DISPLAY '56. NOT NUMERIC '                               00658911                                   
+   000372         006590      END-IF                                                      00659011                                   
+   000373         006591      DISPLAY '57. RLU7J ' RLU7J-PER-UNIT-RATE                    00659111 98                                
+   000374         006592*                                                                 00659211                                   
+   000375         006593      MOVE 78.9999 TO WS-TOT-AMT                                  00659311 91                                
+   000376         006594          DISPLAY '58. WS-TOT-AMT ' WS-TOT-AMT                    00659411 91                                
+   000377         006595      MOVE 78.9    TO WS-TOT-AMT                                  00659511 91                                
+   000378         006596          DISPLAY '59. WS-TOT-AMT ' WS-TOT-AMT                    00659611 91                                
+   000379         006597      MOVE 78      TO WS-TOT-AMT                                  00659711 91                                
+   000380         006598          DISPLAY '60. WS-TOT-AMT ' WS-TOT-AMT                    00659811 91                                
+   000381         006599      MOVE -78.9999 TO WS-TOT-AMT                                 00659911 91                                
+   000382         006600          DISPLAY '61. WS-TOT-AMT ' WS-TOT-AMT                    00660011 91                                
+   000383         006601      MOVE -78.99   TO WS-TOT-AMT                                 00660111 91                                
+   000384         006602          DISPLAY '62. WS-TOT-AMT ' WS-TOT-AMT                    00660211 91                                
+   000385         006603      MOVE -78.9    TO WS-TOT-AMT                                 00660311 91                                
+   000386         006604          DISPLAY '63. WS-TOT-AMT ' WS-TOT-AMT                    00660411 91                                
+   000387         006605      MOVE -78      TO WS-TOT-AMT                                 00660511 91                                
+   000388         006606          DISPLAY '64. WS-TOT-AMT ' WS-TOT-AMT                    00660611 91                                
+   000389         006607      MOVE 78.99 TO WS-TOT-AMT                                    00660711 91                                
+   000390         006608          DISPLAY '65. WS-TOT-AMT ' WS-TOT-AMT                    00660813 91                                
+   000391         006609*                                                                 00660915                                   
+   000392         006610      IF WS-LONG-2  > WS-SHORT-1 THEN                             00661015 86 80                             
+   000393      1  006611         DISPLAY '66. LONG > SHORT        '                       00661115                                   
+   000394         006612      ELSE                                                        00661215                                   
+   000395      1  006613         DISPLAY '67. ERROR - LONG     -- SHORT    '              00661315                                   
+   000396         006614      END-IF                                                      00661415                                   
+   000397         006615*                                                                 00661515                                   
+   000398         006616      MOVE -13.21 TO WS-97V92                                     00661611 92                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page    10                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000399         006617      PERFORM 50 TIMES                                            00661713                                   
+   000400      1  006618         PERFORM 20  TIMES                                        00661811                                   
+   000401      2  006619          ADD WS-97V92 TO WS-TOT-AMT                              00661911 92 91                             
+   000402      2  006620          ADD 1 TO WS-COUNT                                       00662014 101                               
+   000403      2  006621          DISPLAY '-- ' WS-COUNT '-- WS-TOT-AMT ' WS-TOT-AMT      00662113 101 91                            
+   000404      1  006622         END-PERFORM                                              00662211                                   
+   000405      1  006623         MOVE WS-TOT-AMT TO WS-99V92                              00662311 91 93                             
+   000406      1  006624          ADD 1 TO WS-COUNT                                       00662414 101                               
+   000407      1  006625         DISPLAY '-- ' WS-COUNT '-- WS-99V92 ' WS-99V92           00662513 101 93                            
+   000408         006626      END-PERFORM                                                 00662611                                   
+   000409         006627*                                                                 00662710                                   
+   000410         006630      CONTINUE.                                                   00663001                                   
+   000411         006700*                                                                 00670001                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page    11                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       22   ACCT-HB-EQUP-SURCHAGE-OCC-06 .  M121                                                                                     
+       25   ACCT-HB-FUSF-RATE                                                                                                        
+       27   ACCT-HB-REGULATORY-CHARG                                                                                                 
+       23   ACCT-HB-TOT-VZW-SURCHG-AMT                                                                                               
+       29   ACCT-HB-VZW-ADMIN-CHG-AMT                                                                                                
+       31   C584-HB-EQUP-SURCHAGE-OCC-06 .  132                                                                                      
+       34   C584-HB-FUSF-RATE. . . . . . .  M126                                                                                     
+       36   C584-HB-REGULATORY-CHARG . . .  M128                                                                                     
+       32   C584-HB-TOT-VZW-SURCHG-AMT . .  M124                                                                                     
+       38   C584-HB-VZW-ADMIN-CHG-AMT. . .  M130                                                                                     
+       40   C585-HB-EQUP-SURCHAGE-OCC-06 .  143                                                                                      
+       43   C585-HB-FUSF-RATE. . . . . . .  M137                                                                                     
+       45   C585-HB-REGULATORY-CHARG . . .  M139                                                                                     
+       41   C585-HB-TOT-VZW-SURCHG-AMT . .  M135                                                                                     
+       47   C585-HB-VZW-ADMIN-CHG-AMT. . .  M141                                                                                     
+       49   C586-HB-EQUP-SURCHAGE-OCC-06 .  154                                                                                      
+       52   C586-HB-FUSF-RATE. . . . . . .  M148                                                                                     
+       54   C586-HB-REGULATORY-CHARG . . .  M150                                                                                     
+       50   C586-HB-TOT-VZW-SURCHG-AMT . .  M146                                                                                     
+       56   C586-HB-VZW-ADMIN-CHG-AMT. . .  M152                                                                                     
+       58   C587-HB-EQUP-SURCHAGE-OCC-06 .  165                                                                                      
+       61   C587-HB-FUSF-RATE. . . . . . .  M159                                                                                     
+       63   C587-HB-REGULATORY-CHARG . . .  M161                                                                                     
+       59   C587-HB-TOT-VZW-SURCHG-AMT . .  M157                                                                                     
+       65   C587-HB-VZW-ADMIN-CHG-AMT. . .  M163                                                                                     
+       67   C588-HB-EQUP-SURCHAGE-OCC-06 .  176                                                                                      
+       70   C588-HB-FUSF-RATE. . . . . . .  M170                                                                                     
+       72   C588-HB-REGULATORY-CHARG . . .  M172                                                                                     
+       68   C588-HB-TOT-VZW-SURCHG-AMT . .  M168                                                                                     
+       74   C588-HB-VZW-ADMIN-CHG-AMT. . .  M174                                                                                     
+       97   DISP-PER-UNIT-RATE . . . . . .  M359 360 M368 369                                                                        
+       89   INTL-RATE-AMOUNT . . . . . . .  358 359 367 368                                                                          
+       88   INTL-REC . . . . . . . . . . .  M357 M366                                                                                
+       13   MAIN-HB-EQUP-SURCHAGE-OCC-06 .  120                                                                                      
+       16   MAIN-HB-FUSF-RATE. . . . . . .  M114 125 136 147 158 169                                                                 
+       18   MAIN-HB-REGULATORY-CHARG . . .  M116 127 138 149 160 171                                                                 
+       14   MAIN-HB-TOT-VZW-SURCHG-AMT . .  M112 123 134 145 156 167                                                                 
+       20   MAIN-HB-VZW-ADMIN-CHG-AMT. . .  M118 129 140 151 162 173                                                                 
+       78   NUM-DEC-1. . . . . . . . . . .  M182 222 228 234 240 246                                                                 
+       83   NUM-DEC-2. . . . . . . . . . .  M182 197 228 259 291 323                                                                 
+       77   NUM-DISP-1 . . . . . . . . . .  M181 191 197 203 209 215                                                                 
+       82   NUM-DISP-2 . . . . . . . . . .  M181 191 222 253 285 317                                                                 
+       98   RLU7J-PER-UNIT-RATE. . . . . .  M360 364 M369 373                                                                        
+      101   WS-COUNT . . . . . . . . . . .  M402 403 M406 407                                                                        
+       76   WS-FIELDS                                                                                                                
+       79   WS-INT-1 . . . . . . . . . . .  M183 285 291 297 303 309                                                                 
+       84   WS-INT-2 . . . . . . . . . . .  M184 209 240 271 303 341                                                                 
+       81   WS-LONG-1. . . . . . . . . . .  M186 253 259 265 271 277                                                                 
+       86   WS-LONG-2. . . . . . . . . . .  M186 203 234 265 297 335 392                                                             
+       80   WS-SHORT-1 . . . . . . . . . .  M185 317 323 329 335 341 392                                                             
+       85   WS-SHORT-2 . . . . . . . . . .  M185 215 246 277 309 329                                                                 
+       12   WS-SIGN-LEADING                                                                                                          
+       91   WS-TOT-AMT . . . . . . . . . .  M375 376 M377 378 M379 380 M381 382 M383 384 M385 386 M387 388 M389 390 M401             
+                                            403 405                                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page    12                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0      90   WS-VALS                                                                                                                  
+      100   WS-915V93. . . . . . . . . . .  M354 355                                                                                 
+       94   WS-918-COMP. . . . . . . . . .  M347 350                                                                                 
+       95   WS-918-COMP3 . . . . . . . . .  M348 350                                                                                 
+       92   WS-97V92 . . . . . . . . . . .  M398 401                                                                                 
+       93   WS-99V92 . . . . . . . . . . .  M405 407                                                                                 
+       99   WS-99V93 . . . . . . . . . . .  M353 354                                                                                 
+       96   WS-99V93-COMP3 . . . . . . . .  M349 351                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page    13                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      189   COMPARE-EQUALS . . . . . . . .  P105                                                                                     
+      180   INIT-NUMBERS . . . . . . . . .  P104                                                                                     
+      109   SIGN-LEADING . . . . . . . . .  P103                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page    14                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   BNCHMARK                                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page    15                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID BNCHMARK----------------------------------------------------------------------------------------------------*    
+     12   1  WS-SIGN-LEADING . . . . . . . . . . . . . . . BLW=00000  000               DS 0CL202       Group                        
+     13     2  MAIN-HB-EQUP-SURCHAGE-OCC-06. . . . . . . . BLW=00000  000   0 000 000   DS 0CL28        Group                        
+     14       3  MAIN-HB-TOT-VZW-SURCHG-AMT. . . . . . . . BLW=00000  000   0 000 000   DS 10C          Disp-Num                     
+     16       3  MAIN-HB-FUSF-RATE . . . . . . . . . . . . BLW=00000  00A   0 000 00A   DS 6C           Disp-Num                     
+     18       3  MAIN-HB-REGULATORY-CHARG. . . . . . . . . BLW=00000  010   0 000 010   DS 6C           Disp-Num                     
+     20       3  MAIN-HB-VZW-ADMIN-CHG-AMT . . . . . . . . BLW=00000  016   0 000 016   DS 6C           Disp-Num                     
+     22     2  ACCT-HB-EQUP-SURCHAGE-OCC-06. . . . . . . . BLW=00000  01C   0 000 01C   DS 0CL28        Group                        
+     23       3  ACCT-HB-TOT-VZW-SURCHG-AMT. . . . . . . . BLW=00000  01C   0 000 01C   DS 10C          Disp-Num                     
+     25       3  ACCT-HB-FUSF-RATE . . . . . . . . . . . . BLW=00000  026   0 000 026   DS 6C           Disp-Num                     
+     27       3  ACCT-HB-REGULATORY-CHARG. . . . . . . . . BLW=00000  02C   0 000 02C   DS 6C           Disp-Num                     
+     29       3  ACCT-HB-VZW-ADMIN-CHG-AMT . . . . . . . . BLW=00000  032   0 000 032   DS 6C           Disp-Num                     
+     31     2  C584-HB-EQUP-SURCHAGE-OCC-06. . . . . . . . BLW=00000  038   0 000 038   DS 0CL28        Group                        
+     32       3  C584-HB-TOT-VZW-SURCHG-AMT. . . . . . . . BLW=00000  038   0 000 038   DS 10C          Disp-Num                     
+     34       3  C584-HB-FUSF-RATE . . . . . . . . . . . . BLW=00000  042   0 000 042   DS 6C           Disp-Num                     
+     36       3  C584-HB-REGULATORY-CHARG. . . . . . . . . BLW=00000  048   0 000 048   DS 6C           Disp-Num                     
+     38       3  C584-HB-VZW-ADMIN-CHG-AMT . . . . . . . . BLW=00000  04E   0 000 04E   DS 6C           Disp-Num                     
+     40     2  C585-HB-EQUP-SURCHAGE-OCC-06. . . . . . . . BLW=00000  054   0 000 054   DS 0CL40        Group                        
+     41       3  C585-HB-TOT-VZW-SURCHG-AMT. . . . . . . . BLW=00000  054   0 000 054   DS 13C          Disp-Num                     
+     43       3  C585-HB-FUSF-RATE . . . . . . . . . . . . BLW=00000  061   0 000 061   DS 9C           Disp-Num                     
+     45       3  C585-HB-REGULATORY-CHARG. . . . . . . . . BLW=00000  06A   0 000 06A   DS 9C           Disp-Num                     
+     47       3  C585-HB-VZW-ADMIN-CHG-AMT . . . . . . . . BLW=00000  073   0 000 073   DS 9C           Disp-Num                     
+     49     2  C586-HB-EQUP-SURCHAGE-OCC-06. . . . . . . . BLW=00000  07C   0 000 07C   DS 0CL32        Group                        
+     50       3  C586-HB-TOT-VZW-SURCHG-AMT. . . . . . . . BLW=00000  07C   0 000 07C   DS 11C          Disp-Num                     
+     52       3  C586-HB-FUSF-RATE . . . . . . . . . . . . BLW=00000  087   0 000 087   DS 7C           Disp-Num                     
+     54       3  C586-HB-REGULATORY-CHARG. . . . . . . . . BLW=00000  08E   0 000 08E   DS 7C           Disp-Num                     
+     56       3  C586-HB-VZW-ADMIN-CHG-AMT . . . . . . . . BLW=00000  095   0 000 095   DS 7C           Disp-Num                     
+     58     2  C587-HB-EQUP-SURCHAGE-OCC-06. . . . . . . . BLW=00000  09C   0 000 09C   DS 0CL19        Group                        
+     59       3  C587-HB-TOT-VZW-SURCHG-AMT. . . . . . . . BLW=00000  09C   0 000 09C   DS 7C           Disp-Num                     
+     61       3  C587-HB-FUSF-RATE . . . . . . . . . . . . BLW=00000  0A3   0 000 0A3   DS 4C           Disp-Num                     
+     63       3  C587-HB-REGULATORY-CHARG. . . . . . . . . BLW=00000  0A7   0 000 0A7   DS 4C           Disp-Num                     
+     65       3  C587-HB-VZW-ADMIN-CHG-AMT . . . . . . . . BLW=00000  0AB   0 000 0AB   DS 4C           Disp-Num                     
+     67     2  C588-HB-EQUP-SURCHAGE-OCC-06. . . . . . . . BLW=00000  0AF   0 000 0AF   DS 0CL27        Group                        
+     68       3  C588-HB-TOT-VZW-SURCHG-AMT. . . . . . . . BLW=00000  0AF   0 000 0AF   DS 9C           Disp-Num                     
+     70       3  C588-HB-FUSF-RATE . . . . . . . . . . . . BLW=00000  0B8   0 000 0B8   DS 6C           Disp-Num                     
+     72       3  C588-HB-REGULATORY-CHARG. . . . . . . . . BLW=00000  0BE   0 000 0BE   DS 6C           Disp-Num                     
+     74       3  C588-HB-VZW-ADMIN-CHG-AMT . . . . . . . . BLW=00000  0C4   0 000 0C4   DS 6C           Disp-Num                     
+     76   1  WS-FIELDS . . . . . . . . . . . . . . . . . . BLW=00000  0D0               DS 0CL56        Group                        
+     77     2  NUM-DISP-1. . . . . . . . . . . . . . . . . BLW=00000  0D0   0 000 000   DS 9C           Disp-Num                     
+     78     2  NUM-DEC-1 . . . . . . . . . . . . . . . . . BLW=00000  0D9   0 000 009   DS 5P           Packed-Dec                   
+     79     2  WS-INT-1. . . . . . . . . . . . . . . . . . BLW=00000  0DE   0 000 00E   DS 4C           Binary                       
+     80     2  WS-SHORT-1. . . . . . . . . . . . . . . . . BLW=00000  0E2   0 000 012   DS 2C           Binary                       
+     81     2  WS-LONG-1 . . . . . . . . . . . . . . . . . BLW=00000  0E4   0 000 014   DS 8C           Binary                       
+     82     2  NUM-DISP-2. . . . . . . . . . . . . . . . . BLW=00000  0EC   0 000 01C   DS 9C           Disp-Num                     
+     83     2  NUM-DEC-2 . . . . . . . . . . . . . . . . . BLW=00000  0F5   0 000 025   DS 5P           Packed-Dec                   
+     84     2  WS-INT-2. . . . . . . . . . . . . . . . . . BLW=00000  0FA   0 000 02A   DS 4C           Binary                       
+     85     2  WS-SHORT-2. . . . . . . . . . . . . . . . . BLW=00000  0FE   0 000 02E   DS 2C           Binary                       
+     86     2  WS-LONG-2 . . . . . . . . . . . . . . . . . BLW=00000  100   0 000 030   DS 8C           Binary                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page    16                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+     88   1  INTL-REC. . . . . . . . . . . . . . . . . . . BLW=00000  108               DS 0CL8         Group                        
+     89     2  INTL-RATE-AMOUNT. . . . . . . . . . . . . . BLW=00000  108   0 000 000   DS 8P           Packed-Dec                   
+     90   1  WS-VALS . . . . . . . . . . . . . . . . . . . BLW=00000  110               DS 0CL91        Group                        
+     91     2  WS-TOT-AMT. . . . . . . . . . . . . . . . . BLW=00000  110   0 000 000   DS 8C           Binary                       
+     92     2  WS-97V92. . . . . . . . . . . . . . . . . . BLW=00000  118   0 000 008   DS 5P           Packed-Dec                   
+     93     2  WS-99V92. . . . . . . . . . . . . . . . . . BLW=00000  11D   0 000 00D   DS 6P           Packed-Dec                   
+     94     2  WS-918-COMP . . . . . . . . . . . . . . . . BLW=00000  123   0 000 013   DS 8C           Binary                       
+     95     2  WS-918-COMP3. . . . . . . . . . . . . . . . BLW=00000  12B   0 000 01B   DS 10P          Packed-Dec                   
+     96     2  WS-99V93-COMP3. . . . . . . . . . . . . . . BLW=00000  135   0 000 025   DS 7P           Packed-Dec                   
+     97     2  DISP-PER-UNIT-RATE. . . . . . . . . . . . . BLW=00000  13C   0 000 02C   DS 15C          Disp-Num-Edit                
+     98     2  RLU7J-PER-UNIT-RATE . . . . . . . . . . . . BLW=00000  14B   0 000 03B   DS 15C          Display                      
+     99     2  WS-99V93. . . . . . . . . . . . . . . . . . BLW=00000  15A   0 000 04A   DS 7P           Packed-Dec                   
+    100     2  WS-915V93 . . . . . . . . . . . . . . . . . BLW=00000  161   0 000 051   DS 10P          Packed-Dec                   
+    101   1  WS-COUNT. . . . . . . . . . . . . . . . . . . BLW=00000  170               DS 2C           Binary                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page    17                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 00004C BYTES                                                                     
+ THE PGT CONTAINS 000002 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 0013CC FOR LINE 2                                                                                               
+ PBL2    AT LOCATION 0023CC FOR LINE 262                                                                                             
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000000 00000000 3B9ACA00 00000001 27104040 40404040 40404040 40404040  |..................              |    
+ 00011C  (LIT+32)     40404040 40404040 40404040 40404040 00000000 00000000 000C               |                ..........      |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page    18                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000148 FOR 001281 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 00015C  (LIT+0)      FFFFFFFF FFFFE188 FFFFFFFF FFFFE12E FFFFFFFF FFFFE125 00000000 00001E78  |.......h........................|    
+ 00017C  (LIT+32)     00000000 00001ED2 00000000 00001EDB 00000000 0000006F 000059D3 9E7F1972  |.......K...............?...L."..|    
+ 00019C  (LIT+64)     FFFFFFFC 00001000 00000014 00000032 000A2C2A 000000AD 000000AB 000000A9  |...............................z|    
+ 0001BC  (LIT+96)     000000A7 000000A2 000000A0 0000009E 0000009C 00000097 00000095 00000093  |...x...s...............p...n...l|    
+ 0001DC  (LIT+128)    00000091 0000008C 0000008A 00000088 00000086 00000081 0000007F 0000007D  |...j...........h...f...a..."...'|    
+ 0001FC  (LIT+160)    0000007B 00000001 15B3F6F7 4B40C5D9 D9D6D940 6040D3D6 D5C74040 40404060  |...#......67. ERROR - LONG     -|    
+ 00021C  (LIT+192)    6040E2C8 D6D9E340 404040F5 F14B40C5 D9D9D6D9 406040E2 C8D6D9E3 40404040  |- SHORT    51. ERROR - SHORT    |    
+ 00023C  (LIT+224)    606040C9 D5E34040 40404040 F4F94B40 C5D9D9D6 D9406040 E2C8D6D9 E3404040  |-- INT      49. ERROR - SHORT   |    
+ 00025C  (LIT+256)    40606040 D3D6D5C7 40404040 40F4F74B 40C5D9D9 D6D94060 40E2C8D6 D9E34040  | -- LONG     47. ERROR - SHORT  |    
+ 00027C  (LIT+288)    40406060 40E2C8D6 D9E34040 4040F4F5 4B40C5D9 D9D6D940 6040E2C8 D6D9E340  |  -- SHORT    45. ERROR - SHORT |    
+ 00029C  (LIT+320)    40404060 6040C4C5 C3404040 404040F4 F34B40C5 D9D9D6D9 406040E2 C8D6D9E3  |   -- DEC      43. ERROR - SHORT|    
+ 0002BC  (LIT+352)    40404040 606040C4 C9E2D740 40404040 F4F14B40 C5D9D9D6 D9406040 C9D5E340  |    -- DISP     41. ERROR - INT |    
+ 0002DC  (LIT+384)    40404040 40606040 E2C8D6D9 E3404040 40F3F94B 40C5D9D9 D6D94060 40C9D5E3  |     -- SHORT    39. ERROR - INT|    
+ 0002FC  (LIT+416)    40404040 40406060 40C9D5E3 40404040 4040F3F7 4B40C5D9 D9D6D940 6040C9D5  |      -- INT      37. ERROR - IN|    
+ 00031C  (LIT+448)    E3404040 40404060 6040D3D6 D5C74040 404040F3 F54B40C5 D9D9D6D9 406040C9  |T      -- LONG     35. ERROR - I|    
+ 00033C  (LIT+480)    D5E34040 40404040 606040C4 C5C34040 40404040 F3F34B40 C5D9D9D6 D9406040  |NT      -- DEC      33. ERROR - |    
+ 00035C  (LIT+512)    C9D5E340 40404040 40606040 C4C9E2D7 40404040 40F3F14B 40C5D9D9 D6D94060  |INT      -- DISP     31. ERROR -|    
+ 00037C  (LIT+544)    40D3D6D5 C7404040 40406060 40E2C8D6 D9E34040 4040F2F9 4B40C5D9 D9D6D940  | LONG     -- SHORT    29. ERROR |    
+ 00039C  (LIT+576)    6040D3D6 D5C74040 40404060 6040C9D5 E3404040 404040F2 F74B40C5 D9D9D6D9  |- LONG     -- INT      27. ERROR|    
+ 0003BC  (LIT+608)    406040D3 D6D5C740 40404040 606040D3 D6D5C740 40404040 F2F54B40 C5D9D9D6  | - LONG     -- LONG     25. ERRO|    
+ 0003DC  (LIT+640)    D9406040 D3D6D5C7 40404040 40606040 C4C5C340 40404040 40F2F34B 40C5D9D9  |R - LONG     -- DEC      23. ERR|    
+ 0003FC  (LIT+672)    D6D94060 40D3D6D5 C7404040 40406060 40C4C9E2 D7404040 4040F2F1 4B40C5D9  |OR - LONG     -- DISP     21. ER|    
+ 00041C  (LIT+704)    D9D6D940 6040D5E4 D440C4C5 C3404060 6040E2C8 D6D9E340 404040F1 F94B40C5  |ROR - NUM DEC  -- SHORT    19. E|    
+ 00043C  (LIT+736)    D9D9D6D9 406040D5 E4D440C4 C5C34040 606040C9 D5E34040 40404040 F1F74B40  |RROR - NUM DEC  -- INT      17. |    
+ 00045C  (LIT+768)    C5D9D9D6 D9406040 D5E4D440 C4C5C340 40606040 D3D6D5C7 40404040 40F1F54B  |ERROR - NUM DEC  -- LONG     15.|    
+ 00047C  (LIT+800)    40C5D9D9 D6D94060 40D5E4D4 40C4C5C3 40406060 40D5E4D4 40C4C5C3 4040F1F3  | ERROR - NUM DEC  -- NUM DEC  13|    
+ 00049C  (LIT+832)    4B40C5D9 D9D6D940 6040D5E4 D440C4C9 E2D74060 6040D5E4 D440C4C9 E2D740F1  |. ERROR - NUM DISP -- NUM DISP 1|    
+ 0004BC  (LIT+864)    F14B40C5 D9D9D6D9 406040D5 E4D440C4 C9E2D740 606040E2 C8D6D9E3 40404040  |1. ERROR - NUM DISP -- SHORT    |    
+ 0004DC  (LIT+896)    F94B40C5 D9D9D6D9 406040D5 E4D440C4 C9E2D740 606040C9 D5E34040 40404040  |9. ERROR - NUM DISP -- INT      |    
+ 0004FC  (LIT+928)    F74B40C5 D9D9D6D9 406040D5 E4D440C4 C9E2D740 606040D3 D6D5C740 40404040  |7. ERROR - NUM DISP -- LONG     |    
+ 00051C  (LIT+960)    F54B40C5 D9D9D6D9 406040D5 E4D440C4 C9E2D740 606040D5 E4D440C4 C5C34040  |5. ERROR - NUM DISP -- NUM DEC  |    
+ 00053C  (LIT+992)    F34B40C5 D9D9D6D9 406040D5 E4D440C4 C9E2D740 606040D5 E4D440C4 C9E2D740  |3. ERROR - NUM DISP -- NUM DISP |    
+ 00055C  (LIT+1024)   F6F64B40 D3D6D5C7 406E40E2 C8D6D9E3 40404040 40404040 F5F04B40 E2C8D6D9  |66. LONG > SHORT        50. SHOR|    
+ 00057C  (LIT+1056)   E3404C40 C9D5E340 40404040 40404040 F4F84B40 E2C8D6D9 E3404C40 D3D6D5C7  |T < INT         48. SHORT < LONG|    
+ 00059C  (LIT+1088)   40404040 40404040 F4F64B40 E2C8D6D9 E3407E40 E2C8D6D9 E3404040 40404040  |        46. SHORT = SHORT       |    
+ 0005BC  (LIT+1120)   F4F44B40 E2C8D6D9 E3406E40 C4C5C340 40404040 40404040 F4F24B40 E2C8D6D9  |44. SHORT > DEC         42. SHOR|    
+ 0005DC  (LIT+1152)   E3406E40 C4C9E2D7 40404040 40404040 F4F04B40 C9D5E340 6E40E2C8 D6D9E340  |T > DISP        40. INT > SHORT |    
+ 0005FC  (LIT+1184)   40404040 40404040 F3F84B40 C9D5E340 7E40C9D5 E3404040 40404040 40404040  |        38. INT = INT           |    
+ 00061C  (LIT+1216)   F3F64B40 C9D5E340 4C40D3D6 D5C74040 40404040 40404040 F3F44B40 C9D5E340  |36. INT < LONG          34. INT |    
+ 00063C  (LIT+1248)   6E40C4C5 C3404040 40404040 40404040 F3F24B40 C9D5E340 6E40C4C9 E2D74040  |> DEC           32. INT > DISP  |    
+ 00065C  (LIT+1280)   40404040 40404040 F3F04B40 D3D6D5C7 406E40E2 C8D6D9E3 40404040 40404040  |        30. LONG > SHORT        |    
+ 00067C  (LIT+1312)   F2F84B40 D3D6D5C7 406E40C9 D5E34040 40404040 40404040 F2F64B40 D3D6D5C7  |28. LONG > INT          26. LONG|    
+ 00069C  (LIT+1344)   407E40D3 D6D5C740 40404040 40404040 F2F44B40 D3D6D5C7 406E40C4 C5C3F240  | = LONG         24. LONG > DEC2 |    
+ 0006BC  (LIT+1376)   40404040 40404040 F2F24B40 D3D6D5C7 406E40C4 C9E2D7F2 40404040 40404040  |        22. LONG > DISP2        |    
+ 0006DC  (LIT+1408)   F2F04B40 D5E4D440 C4C5C340 404C40E2 C8D6D9E3 40404040 F1F84B40 D5E4D440  |20. NUM DEC  < SHORT    18. NUM |    
+ 0006FC  (LIT+1440)   C4C5C340 404C40C9 D5E34040 40404040 F1F64B40 D5E4D440 C4C5C340 404C40D3  |DEC  < INT      16. NUM DEC  < L|    
+ 00071C  (LIT+1472)   D6D5C740 40404040 F1F44B40 D5E4D440 C4C5C340 407E40D5 E4D440C4 C5C34040  |ONG     14. NUM DEC  = NUM DEC  |    
+ 00073C  (LIT+1504)   F1F24B40 D5E4D440 C4C5C340 404C40D5 E4D440C4 C9E2D740 F1F04B40 D5E4D440  |12. NUM DEC  < NUM DISP 10. NUM |    
+ 00075C  (LIT+1536)   C4C9E2D7 404C40E2 C8D6D9E3 40404040 F84B40D5 E4D440C4 C9E2D740 4C40C9D5  |DISP < SHORT    8. NUM DISP < IN|    
+ 00077C  (LIT+1568)   E3404040 404040F6 4B40D5E4 D440C4C9 E2D7404C 40D3D6D5 C7404040 4040F44B  |T      6. NUM DISP < LONG     4.|    
+ 00079C  (LIT+1600)   40D5E4D4 40C4C9E2 D7406E40 D5E4D440 C4C5C340 40F24B40 D5E4D440 C4C9E2D7  | NUM DISP > NUM DEC  2. NUM DISP|    
+ 0007BC  (LIT+1632)   407E40D5 E4D440C4 C9E2D740 F5F24B40 E6E260F9 F9E5F9F3 60C3D6D4 D7F340F5  | = NUM DISP 52. WS-99V93-COMP3 5|    
+ 0007DC  (LIT+1664)   F64B40D5 D6E340D5 E4D4C5D9 C9C340F5 F44B40D5 D6E340D5 E4D4C5D9 C9C340F6  |6. NOT NUMERIC 54. NOT NUMERIC 6|    
+ 0007FC  (LIT+1696)   F54B40E6 E260E3D6 E360C1D4 E340F6F4 4B40E6E2 60E3D6E3 60C1D4E3 40F6F34B  |5. WS-TOT-AMT 64. WS-TOT-AMT 63.|    
+ 00081C  (LIT+1728)   40E6E260 E3D6E360 C1D4E340 F6F24B40 E6E260E3 D6E360C1 D4E340F6 F14B40E6  | WS-TOT-AMT 62. WS-TOT-AMT 61. W|    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page    19                
+000083C  (LIT+1760)   E260E3D6 E360C1D4 E340F6F0 4B40E6E2 60E3D6E3 60C1D4E3 40F5F94B 40E6E260  |S-TOT-AMT 60. WS-TOT-AMT 59. WS-|    
+ 00085C  (LIT+1792)   E3D6E360 C1D4E340 F5F84B40 E6E260E3 D6E360C1 D4E34060 6040E6E2 60E3D6E3  |TOT-AMT 58. WS-TOT-AMT -- WS-TOT|    
+ 00087C  (LIT+1824)   60C1D4E3 40F5F34B 40E6E260 F9F1F5E5 F9F34060 6040E6E2 60F9F9E5 F9F240F5  |-AMT 53. WS-915V93 -- WS-99V92 5|    
+ 00089C  (LIT+1856)   F54B4040 D9D3E4F7 D140F5F7 4B40D9D3 E4F7D140 00000000 00000000 C2D5C3C8  |5.  RLU7J 57. RLU7J ........BNCH|    
+ 0008BC  (LIT+1888)   D4C1D9D2 E2E8E2D6 E4E34040 C9C7E9E2 D9E3C3C4 F1C54B40 F1C44B40 F1C34B40  |MARKSYSOUT  IGZSRTCD1E. 1D. 1C. |    
+ 0008DC  (LIT+1920)   F1C24B40 F1C14B40 00000000 00000000 431C0000 00125115 6C000001 321D0077  |1B. 1A. ................%.......|    
+ 0008FC  (LIT+1952)   77700F00 00999F00 00000000 00000000 00101080 80104000 00000000 00000000  |.....r................ .........|    
+ 00091C  (LIT+1984)   00101080 80104000 00000000 00000000 00101080 80104000 00000000 00000000  |...... ............... .........|    
+ 00093C  (LIT+2016)   00101080 80104000 00000000 00000000 00101080 80104000 00000000 00000000  |...... ............... .........|    
+ 00095C  (LIT+2048)   00101080 80104000 00000000 00000000 00101080 80104000 00000000 00000000  |...... ............... .........|    
+ 00097C  (LIT+2080)   00101080 80104000 00000000 00000000 00101080 80104000 00000000 00000000  |...... ............... .........|    
+ 00099C  (LIT+2112)   00101080 80104010 10101010 10101010 10101010 10101010 10101010 10101010  |...... .........................|    
+ 0009BC  (LIT+2144)   10101010 10101010 10101010 10101010 10101010 10101010 10101010 10101010  |................................|    
+ 0009DC  (LIT+2176)   10101010 10101010 10101010 10101010 10101010 10101010 10101010 10101010  |................................|    
+ 0009FC  (LIT+2208)   10101010 10101000 00000000 00012C00 00000100 00013000 00000100 00000000  |................................|    
+ 000A1C  (LIT+2240)   00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000080  |................................|    
+ 000A3C  (LIT+2272)   00000040 20202020 206B2020 206B2021 204B2020 40000000 00000000 00000000  |... .....,...,...... ...........|    
+ 000A5C  (LIT+2304)   80000000 00000000 00000000 60F0F0F0 F0F1F2F3 F4F5F0F0 F8F8F8F8 F8F0F004  |............-000012345008888800.|    
+ 000A7C  (LIT+2336)   29496729 6C021474 83648C4E F0F0F0F0 F04EF8F2 F3F2F460 F1F2F3F2 F4000000  |....%...c..+00000+82324-12324...|    
+ 000A9C  (LIT+2368)   3F0C4000 00000000 00000000 00000000 00004000 00000025 C00001C0 00080800  |.. ............... .............|    
+ 000ABC  (LIT+2400)   003C0770 01400000 03080000 3C074700 02000509 00012C01 70400000 0C080000  |..... ................... ......|    
+ 000ADC  (LIT+2432)   3C074720 06000B09 00012C01 1DFF0140 00000308 00003C07 47000200 05090001  |............... ................|    
+ 000AFC  (LIT+2464)   2C017040 00000E08 00003C07 2B000800 13090001 2C0110FF 00000000 3D005800  |... ............................|    
+ 000B1C  (LIT+2496)   0001A83D 00580000 01980140 00002108 00003C00 BEFF0140 00001808 00003C04  |..y......q. ........... ........|    
+ 000B3C  (LIT+2528)   14FF0140 00000F08 00003C06 B3000800 13090001 2C0110FF 01400000 0F080000  |... ..................... ......|    
+ 000B5C  (LIT+2560)   3C06C200 08001309 00012C01 10FF0140 00000F08 00003C06 D1000800 13090001  |..B............ ........J.......|    
+ 000B7C  (LIT+2592)   2C0110FF 01400000 0F080000 3C06E000 08001309 00012C01 10FF0140 00000F08  |..... ..................... ....|    
+ 000B9C  (LIT+2624)   00003C06 EF000800 13090001 2C0110FF 01400000 0F080000 3C06FE00 08001309  |................. ..............|    
+ 000BBC  (LIT+2656)   00012C01 10FF0140 00000F08 00003C07 0D000800 13090001 2C0110FF 01400000  |....... ..................... ..|    
+ 000BDC  (LIT+2688)   0F080000 3C071C00 08001309 00012C01 10FF0140 00000A08 00003C07 5E400000  |................... ......... ..|    
+ 000BFC  (LIT+2720)   0F090001 2C014BFF 01400000 10080000 3C0693FF 01400000 0B080000 3C075340  |......... ........l.. ......... |    
+ 000C1C  (LIT+2752)   00000F09 00012C01 4BFF0140 00001008 00003C06 A3FF0140 00000E08 00003C07  |........... ........t.. ........|    
+ 000C3C  (LIT+2784)   39200A00 12090001 2C0161FF 01400000 13080000 3C068020 07000C09 00012C01  |........../.. ..................|    
+ 000C5C  (LIT+2816)   35FF0000 00003D00 58000001 B83D0058 00000198 3D005800 00018801 40000021  |...................q......h. ...|    
+ 000C7C  (LIT+2848)   0800003C 00DFFF01 40000018 0800003C 042CFF01 40000021 0800003C 0100FF01  |........ ........... ...........|    
+ 000C9C  (LIT+2880)   40000018 0800003C 0444FF01 40000021 0800003C 0121FF01 40000018 0800003C  | ........... ........... .......|    
+ 000CBC  (LIT+2912)   045CFF01 40000021 0800003C 0142FF01 40000018 0800003C 0474FF01 40000021  |.*.. ........... ........... ...|    
+ 000CDC  (LIT+2944)   0800003C 0163FF01 40000018 0800003C 048CFF01 40000021 0800003C 0184FF01  |........ ........... ........d..|    
+ 000CFC  (LIT+2976)   40000018 0800003C 04A4FF01 40000021 0800003C 01A5FF01 40000018 0800003C  | ........u.. ........v.. .......|    
+ 000D1C  (LIT+3008)   04BCFF01 40000021 0800003C 01C6FF01 40000018 0800003C 04D4FF01 40000021  |.... ........F.. ........M.. ...|    
+ 000D3C  (LIT+3040)   0800003C 01E7FF01 40000018 0800003C 04ECFF01 40000021 0800003C 0208FF01  |.....X.. ........... ...........|    
+ 000D5C  (LIT+3072)   40000018 0800003C 0504FF01 40000021 0800003C 0229FF01 40000018 0800003C  | ........... ........... .......|    
+ 000D7C  (LIT+3104)   051CFF01 40000021 0800003C 024AFF01 40000018 0800003C 0534FF01 40000021  |.... ........½.. ........... ...|    
+ 000D9C  (LIT+3136)   0800003C 026BFF01 40000018 0800003C 054CFF01 40000021 0800003C 028CFF01  |.....,.. ........<.. ...........|    
+ 000DBC  (LIT+3168)   40000018 0800003C 0564FF01 40000021 0800003C 02ADFF01 40000018 0800003C  | ........... ........... .......|    
+ 000DDC  (LIT+3200)   057CFF01 40000021 0800003C 02CEFF01 40000018 0800003C 0594FF01 40000021  |.@.. ........... ........m.. ...|    
+ 000DFC  (LIT+3232)   0800003C 02EFFF01 40000018 0800003C 05ACFF01 40000021 0800003C 0310FF01  |........ ........... ...........|    
+ 000E1C  (LIT+3264)   40000018 0800003C 05C4FF01 40000021 0800003C 0331FF01 40000018 0800003C  | ........D.. ........... .......|    
+ 000E3C  (LIT+3296)   05DCFF01 40000021 0800003C 0352FF01 40000018 0800003C 05F4FF01 40000021  |.... ........... ........4.. ...|    
+ 000E5C  (LIT+3328)   0800003C 0373FF01 40000018 0800003C 060CFF01 40000020 0800003C 0394FF01  |........ ........... ........m..|    
+ 000E7C  (LIT+3360)   40000017 0800003C 0624FF01 40000020 0800003C 03B4FF01 40000017 0800003C  | ........... ........... .......|    
+ 000E9C  (LIT+3392)   063BFF01 40000020 0800003C 03D4FF01 40000017 0800003C 0652FF01 40000020  |.... ........M.. ........... ...|    
+ 000EBC  (LIT+3424)   0800003C 03F4FF01 40000017 0800003C 0669FF01 40000004 0800003C 07884000  |.....4.. ........... ........h .|    
+ 000EDC  (LIT+3456)   001B0900 012C00AF FF400000 000027C0 00014000 08080000 3C077002 90000408  |......... ........ .............|    
+ 000EFC  (LIT+3488)   00003C00 68400000 000028C0 00014000 08080000 3C077002 90000408 00003C00  |..... ........ .................|    
+ 000F1C  (LIT+3520)   68400000 000027C0 00014000 08080000 3C077002 90000408 00003C00 6C400000  |. ........ .................% ..|    
+ 000F3C  (LIT+3552)   000028C0 00014000 08080000 3C077002 90000408 00003C00 6C400000 000027C0  |...... .................% ......|    
+ 000F5C  (LIT+3584)   00014000 08080000 3C077002 90000408 00003C00 70400000 000028C0 00014000  |.. .................. ........ .|    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page    20                
+0000F7C  (LIT+3616)   08080000 3C077002 90000408 00003C00 70400000 000027C0 00014000 08080000  |................. ........ .....|    
+ 000F9C  (LIT+3648)   3C077002 90000408 00003C00 74400000 000028C0 00014000 08080000 3C077002  |............. ........ .........|    
+ 000FBC  (LIT+3680)   90000408 00003C00 74014000 00040800 003C078C 40000013 0900012C 009CFF40  |.......... ......... .......... |    
+ 000FDC  (LIT+3712)   00000000 27C00001 40000808 00003C07 70029000 04080000 3C007840 00000000  |........ .................. ....|    
+ 000FFC  (LIT+3744)   28C00001 40000808 00003C07 70029000 04080000 3C007840 00000000 27C00001  |.... .................. ........|    
+ 00101C  (LIT+3776)   40000808 00003C07 70029000 04080000 3C007C40 00000000 28C00001 40000808  | .................@ ........ ...|    
+ 00103C  (LIT+3808)   00003C07 70029000 04080000 3C007C40 00000000 27C00001 40000808 00003C07  |..............@ ........ .......|    
+ 00105C  (LIT+3840)   70029000 04080000 3C008040 00000000 28C00001 40000808 00003C07 70029000  |........... ........ ...........|    
+ 00107C  (LIT+3872)   04080000 3C008040 00000000 27C00001 40000808 00003C07 70029000 04080000  |....... ........ ...............|    
+ 00109C  (LIT+3904)   3C008440 00000000 28C00001 40000808 00003C07 70029000 04080000 3C008401  |..d ........ .................d.|    
+ 0010BC  (LIT+3936)   40000004 0800003C 07904000 00200900 012C007C FF400000 000027C0 00014000  | ......... ........@. ........ .|    
+ 0010DC  (LIT+3968)   08080000 3C077002 90000408 00003C00 88400000 000028C0 00014000 08080000  |................h ........ .....|    
+ 0010FC  (LIT+4000)   3C077002 90000408 00003C00 88400000 000027C0 00014000 08080000 3C077002  |............h ........ .........|    
+ 00111C  (LIT+4032)   90000408 00003C00 8C400000 000028C0 00014000 08080000 3C077002 90000408  |......... ........ .............|    
+ 00113C  (LIT+4064)   00003C00 8C400000 000027C0 00014000 08080000 3C077002 90000408 00003C00  |..... ........ .................|    
+ 00115C  (LIT+4096)   90400000 000028C0 00014000 08080000 3C077002 90000408 00003C00 90400000  |. ........ .................. ..|    
+ 00117C  (LIT+4128)   000027C0 00014000 08080000 3C077002 90000408 00003C00 94400000 000028C0  |...... .................m ......|    
+ 00119C  (LIT+4160)   00014000 08080000 3C077002 90000408 00003C00 94014000 00040800 003C0794  |.. .................m. ........m|    
+ 0011BC  (LIT+4192)   40000028 0900012C 0054FF40 00000000 27C00001 40000808 00003C07 70029000  | .......... ........ ...........|    
+ 0011DC  (LIT+4224)   04080000 3C009840 00000000 28C00001 40000808 00003C07 70029000 04080000  |......q ........ ...............|    
+ 0011FC  (LIT+4256)   3C009840 00000000 27C00001 40000808 00003C07 70029000 04080000 3C009C40  |..q ........ .................. |    
+ 00121C  (LIT+4288)   00000000 28C00001 40000808 00003C07 70029000 04080000 3C009C40 00000000  |........ .................. ....|    
+ 00123C  (LIT+4320)   27C00001 40000808 00003C07 70029000 04080000 3C00A040 00000000 28C00001  |.... .................. ........|    
+ 00125C  (LIT+4352)   40000808 00003C07 70029000 04080000 3C00A040 00000000 27C00001 40000808  | .................. ........ ...|    
+ 00127C  (LIT+4384)   00003C07 70029000 04080000 3C00A440 00000000 28C00001 40000808 00003C07  |..............u ........ .......|    
+ 00129C  (LIT+4416)   70029000 04080000 3C00A401 40000004 0800003C 07984000 001C0900 012C0038  |..........u. ........q .........|    
+ 0012BC  (LIT+4448)   FF400000 000027C0 00014000 08080000 3C077002 90000408 00003C00 A8400000  |. ........ .................y ..|    
+ 0012DC  (LIT+4480)   000028C0 00014000 08080000 3C077002 90000408 00003C00 A8400000 000027C0  |...... .................y ......|    
+ 0012FC  (LIT+4512)   00014000 08080000 3C077002 90000408 00003C00 AC400000 000028C0 00014000  |.. .................. ........ .|    
+ 00131C  (LIT+4544)   08080000 3C077002 90000408 00003C00 AC400000 000027C0 00014000 08080000  |................. ........ .....|    
+ 00133C  (LIT+4576)   3C077002 90000408 00003C00 B0400000 000028C0 00014000 08080000 3C077002  |............. ........ .........|    
+ 00135C  (LIT+4608)   90000408 00003C00 B0400000 000027C0 00014000 08080000 3C077002 90000408  |......... ........ .............|    
+ 00137C  (LIT+4640)   00003C00 B4400000 000028C0 00014000 08080000 3C077002 90000408 00003C00  |..... ........ .................|    
+ 00139C  (LIT+4672)   B4800000 00000000 00000000 00000000 00400000 000040C0 00014000 08080000  |................. .... ... .....|    
+ 0013BC  (LIT+4704)   3C077002 C0000808 00003C07 70                                            |.............                   |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000103 00152E PERFORM                       000104 001546 PERFORM                       000105 001562 PERFORM                       
+ 000107 00157E STOP                          000111 00159E MOVE                          000113 0015A4 MOVE                          
+ 000115 0015AA MOVE                          000117 0015B0 MOVE                          000120 0015B6 MOVE                          
+ 000123 0015BC MOVE                          000125 001642 MOVE                          000127 0016C8 MOVE                          
+ 000129 00174E MOVE                          000132 0017D4 DISPLAY                       000134 0017E6 MOVE                          
+ 000136 00185C MOVE                          000138 0018D2 MOVE                          000140 001948 MOVE                          
+ 000143 0019BE DISPLAY                       000145 0019C8 MOVE                          000147 001A3E MOVE                          
+ 000149 001AB4 MOVE                          000151 001B2A MOVE                          000154 001BA0 DISPLAY                       
+ 000156 001BAA MOVE                          000158 001C20 MOVE                          000160 001C96 MOVE                          
+ 000162 001D0C MOVE                          000165 001D82 DISPLAY                       000167 001D8C MOVE                          
+ 000169 001E02 MOVE                          000171 001E78 MOVE                          000173 001EEE MOVE                          
+ 000176 001F64 DISPLAY                       000178 001F6E CONTINUE                      000181 001F74 MOVE                          
+ 000182 001F80 MOVE                          000183 001F8C MOVE                          000185 001F98 MOVE                          
+ 000186 001FA4 MOVE                          000187 001FB0 CONTINUE                      000191 001FB6 IF                            
+ 000192 001FD4 DISPLAY                       000194 001FE6 DISPLAY                       000197 001FF4 IF                            
+ 000198 002012 DISPLAY                       000200 002020 DISPLAY                       000203 00202A IF                            
+ 000204 002094 DISPLAY                       000206 0020A2 DISPLAY                       000209 0020AC IF                            
+ 000210 0020F2 DISPLAY                       000212 002100 DISPLAY                       000215 00210A IF                            
+ 000216 00212E DISPLAY                       000218 00213C DISPLAY                       000222 002146 IF                            
+ 000223 002164 DISPLAY                       000225 002172 DISPLAY                       000228 00217C IF                            
+ 000229 00219A DISPLAY                       000231 0021A8 DISPLAY                       000234 0021B2 IF                            
+ 000235 00221C DISPLAY                       000237 00222A DISPLAY                       000240 002234 IF                            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page    21                
+0000241 002278 DISPLAY                       000243 002286 DISPLAY                       000246 002290 IF                            
+ 000247 0022B2 DISPLAY                       000249 0022C0 DISPLAY                       000253 0022CA IF                            
+ 000254 002334 DISPLAY                       000256 002342 DISPLAY                       000259 00234C IF                            
+ 000260 0023BA DISPLAY                       000262 0023CC DISPLAY                       000265 0023D6 IF                            
+ 000266 002480 DISPLAY                       000268 00248E DISPLAY                       000271 002498 IF                            
+ 000272 00251C DISPLAY                       000274 00252A DISPLAY                       000277 002534 IF                            
+ 000278 002598 DISPLAY                       000280 0025A6 DISPLAY                       000285 0025B0 IF                            
+ 000286 0025F6 DISPLAY                       000288 002604 DISPLAY                       000291 00260E IF                            
+ 000292 002652 DISPLAY                       000294 002660 DISPLAY                       000297 00266A IF                            
+ 000298 0026EE DISPLAY                       000300 0026FC DISPLAY                       000303 002706 IF                            
+ 000304 002724 DISPLAY                       000306 002732 DISPLAY                       000309 00273C IF                            
+ 000310 002760 DISPLAY                       000312 00276E DISPLAY                       000317 002778 IF                            
+ 000318 00279C DISPLAY                       000320 0027AA DISPLAY                       000323 0027B4 IF                            
+ 000324 0027D6 DISPLAY                       000326 0027E4 DISPLAY                       000329 0027EE IF                            
+ 000330 002800 DISPLAY                       000332 00280E DISPLAY                       000335 002818 IF                            
+ 000336 00287C DISPLAY                       000338 00288A DISPLAY                       000341 002894 IF                            
+ 000342 0028B8 DISPLAY                       000344 0028C6 DISPLAY                       000347 0028D0 MOVE                          
+ 000348 0028D6 MOVE                          000349 0028DC COMPUTE                       000351 00297E DISPLAY                       
+ 000353 002988 MOVE                          000354 00298E ADD                           000355 00299E DISPLAY                       
+ 000357 0029A8 MOVE                          000358 0029AE IF                            000359 0029C4 MOVE                          
+ 000360 0029E8 MOVE                          000362 0029F2 DISPLAY                       000364 002A00 DISPLAY                       
+ 000366 002A0E MOVE                          000367 002A14 IF                            000368 002A2A MOVE                          
+ 000369 002A4E MOVE                          000371 002A58 DISPLAY                       000373 002A66 DISPLAY                       
+ 000375 002A74 MOVE                          000376 002A7A DISPLAY                       000377 002A84 MOVE                          
+ 000378 002A8A DISPLAY                       000379 002A94 MOVE                          000380 002A9A DISPLAY                       
+ 000381 002AA4 MOVE                          000382 002AAA DISPLAY                       000383 002AB4 MOVE                          
+ 000384 002ABA DISPLAY                       000385 002AC4 MOVE                          000386 002ACA DISPLAY                       
+ 000387 002AD4 MOVE                          000388 002ADA DISPLAY                       000389 002AE4 MOVE                          
+ 000390 002AEA DISPLAY                       000392 002AF4 IF                            000393 002B58 DISPLAY                       
+ 000395 002B66 DISPLAY                       000398 002B70 MOVE                          000399 002B76 PERFORM                       
+ 000400 002B7E PERFORM                       000401 002B86 ADD                           000402 002C10 ADD                           
+ 000403 002C1C DISPLAY                       000405 002C2E MOVE                          000406 002C9E ADD                           
+ 000407 002CAA DISPLAY                       000410 002CBC CONTINUE                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page    22                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page    23                
+0                   *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  SAVE AREA FOR FLOAT REGISTERS 8-15                                                                       
+                  00000110  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  00000130  VARIABLE-LENGTH CELLS                                                                                    
+                  00000148  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  0000015C  PERFORM SAVE CELLS                                                                                       
+                  00000170  PERFORM COUNTER CELLS                                                                                    
+                  00000178  TEMPORARY STORAGE-1                                                                                      
+                  00000188  TEMPORARY STORAGE-2                                                                                      
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000148 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 00000172 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 000001D8 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 002D70                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 002EA8 FOR LENGTH 000088                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               BNCHMARK  Date 08/24/2020  Time 22:21:26   Page    24                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program BNCHMARK:                                                                                            
+ *    Source records = 411                                                                                                           
+ *    Data Division statements = 61                                                                                                  
+ *    Procedure Division statements = 164                                                                                            
+0End of compilation 1,  program BNCHMARK,  highest severity 4.                                                                       
+0Return code 4                                                                                                                       
