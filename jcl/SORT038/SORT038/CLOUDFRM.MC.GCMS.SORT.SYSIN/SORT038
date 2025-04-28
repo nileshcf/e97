@@ -1,0 +1,17 @@
+  OPTION COPY
+    INREC  IFTHEN=(WHEN=INIT,
+             OVERLAY=(81:1,9,C'0',10,1,C'0',11,1,C'0',12,1,C'0',13,1,
+                             C'0',14,1,C'0',15,1,C'0',16,1,C'0',17,1)),
+           IFTHEN=(WHEN=INIT,FINDREP=(STARTPOS=90,
+             INOUT=(C'0A',C'10',C'0B',C'11',C'0C',C'12',
+                    C'0D',C'13',C'0E',C'14',C'0F',C'15'))),
+           IFTHEN=(WHEN=INIT,
+             BUILD=(81,9,
+                   ((090,2,ZD,MUL,+201326592),ADD,
+                    (092,2,ZD,MUL,+16777516),ADD,
+                    (094,2,ZD,MUL,+1048576),ADD,
+                    (096,2,ZD,MUL,+65536),ADD,
+                    (098,2,ZD,MUL,+4096),ADD,
+                    (100,2,ZD,MUL,+256),ADD,
+                    (102,2,ZD,MUL,+16),ADD,
+                    (104,2,ZD)),TO=ZDF,LENGTH=8))

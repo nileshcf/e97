@@ -1,0 +1,11 @@
+  JOINKEYS F1=FILE01,FIELDS=(1,38,A)                                            
+  JOINKEYS F2=FILE02,FIELDS=(1,38,A)                                            
+  JOIN UNPAIRED,F1,F2                                                           
+  REFORMAT FIELDS=(?,F1:1,38,F2:1,38)                                           
+  OPTION COPY                                                                   
+  OUTFIL FNAMES=SORTMTCH,INCLUDE=(1,1,CH,EQ,C'B'),                              
+                                 BUILD=(1:2,38,39:C'0591        ')              
+  OUTFIL FNAMES=SORTUN01,INCLUDE=(1,1,CH,EQ,C'1'),                              
+                                 BUILD=(1:2,38,39:C'05          ')              
+  OUTFIL FNAMES=SORTUN02,INCLUDE=(1,1,CH,EQ,C'2'),                              
+                                 BUILD=(1:40,38,39:C'  91        ')             

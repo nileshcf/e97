@@ -1,0 +1,46 @@
+   _____   _                       _   ______                                       
+  / ____| | |                     | | |  ____|                                     
+ | |      | |   ___    _   _    __| | | |__     _ __    __ _   _ __ ___     ___    
+ | |      | |  / _ \  | | | |  / _` | |  __|   | '__|  / _` | | '_ ` _ \   / _ \
+ | |____  | | | (_) | | |_| | | (_| | | |      | |    | (_| | | | | | | | |  __/
+  \_____| |_|  \___/   \__,_|  \__,_| |_|      |_|     \__,_| |_| |_| |_|  \___|
+
+08:03:21.470 [main] INFO  o.s.boot.StartupInfoLogger.logStarting 50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 3452783 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/VBNORDW/QA000120/target/QA000120-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/VBNORDW/QA000120)
+08:03:21.477 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo 654 - No active profile set, falling back to 1 default profile: "default"
+08:03:25.906 [main] INFO  o.s.boot.StartupInfoLogger.logStarted 56 - Started CFApplication in 6.557 seconds (process running for 8.391)
+08:03:25.953 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo 107 - CFDataConnectIO version : 5.0.0.21
+08:03:26.042 [main] INFO  c.c.a.u.d.plus.CFDcioConfiguration.cfDataConnectIOPlusInfo 28 - CFDataConnectIOPlus version : 5.0.0.21
+08:03:26.094 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.initDatabase 189 - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+08:03:28.243 [main] INFO  o.s.b.a.b.JobLauncherApplicationRunner.run 168 - Running default command line with: []
+08:03:28.371 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run 154 - Job: [SimpleJob: [name=QA000120]] launched with the following parameters: [{}]
+08:03:28.455 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep 150 - Executing step: [delete]
+08:03:28.515 [main] INFO  o.s.batch.core.step.AbstractStep.execute 295 - Step: [delete] executed in 58ms
+08:03:28.535 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep 150 - Executing step: [writevb]
+08:03:28.693 [main] INFO  c.c.app.process.impl.Iovb32kImpl.validateInputParm 344 - PROCESSING MODE IS: W, INPUT MINIMUM PARAMETER LENGTH  32700, WILL BE USED TO CONTROL ENGTH OF FIRST RECORD WRITTEN
+08:03:28.694 [main] INFO  c.c.app.process.impl.Iovb32kImpl.validateInputParm 346 - INPUT MAXIMUM PARAMETER LENGTH  32750, WILL BE USED TO CONTROL NUMBER OF RECORDS WRITTEN, AND LENGTH OF LONGEST RECORD
+08:03:28.776 [main] INFO  c.c.app.process.impl.Iovb32kImpl.mainline 194 - RECORDS WRITTEN:     51
+08:03:28.798 [main] INFO  o.s.batch.core.step.AbstractStep.execute 295 - Step: [writevb] executed in 262ms
+08:03:28.841 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep 150 - Executing step: [readvb]
+08:03:28.861 [main] INFO  c.c.app.process.impl.Iovb32kImpl.validateInputParm 344 - PROCESSING MODE IS: R, INPUT MINIMUM PARAMETER LENGTH  32700, WILL BE USED TO CONTROL ENGTH OF FIRST RECORD WRITTEN
+08:03:28.862 [main] INFO  c.c.app.process.impl.Iovb32kImpl.validateInputParm 346 - INPUT MAXIMUM PARAMETER LENGTH  32750, WILL BE USED TO CONTROL NUMBER OF RECORDS WRITTEN, AND LENGTH OF LONGEST RECORD
+08:03:29.324 [main] INFO  c.c.app.process.impl.Iovb32kImpl.mainline 216 - RECORDS READ:     51
+08:03:29.349 [main] INFO  o.s.batch.core.step.AbstractStep.execute 295 - Step: [readvb] executed in 507ms
+08:03:29.407 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep 150 - Executing step: [printSummary]
+08:03:29.447 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary 270 - JOB : QA000120 ENDED -  0000
+08:03:29.448 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary 274 - 
+
+Stepwise Execution Summary :
++---------------------------------------------------------------+
+| STEPNAME     | PROGRAM      | RC          | ELAPSED           |
+|              |              |             | HH:MM:SS:ss       |
++---------------------------------------------------------------+
+| DELETE       | IEFBR14      | 00          | 00:00:00:058      |
++---------------------------------------------------------------+
+| WRITEVB      | IOVB32K      | 00          | 00:00:00:262      |
++---------------------------------------------------------------+
+| READVB       | IOVB32K      | 00          | 00:00:00:507      |
++---------------------------------------------------------------+
+  
+08:03:29.457 [main] INFO  o.s.batch.core.step.AbstractStep.execute 295 - Step: [printSummary] executed in 49ms
+08:03:29.515 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run 161 - Job: [SimpleJob: [name=QA000120]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 1s82ms
+08:03:29.539 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.shutdownDatabase 220 - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'

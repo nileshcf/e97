@@ -1,0 +1,1006 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 04/25/2021  Time 22:05:38   Page     1                
+0Invocation parameters:                                                                                                              
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(OPT),AWO,NUMPROC(NOPFD),TEST(ALL,SYM,SEPARATE)                                                      
+                                                                                                                                     
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"  
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no   
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".                                    
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler         
+                       invocation parameter took precedence.                                                                         
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(COMPAT)                                                                                                                    
+    AWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 04/25/2021  Time 22:05:38   Page     2                
+0 NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+    TEST(HOOK,SEPARATE,NOEJPD)                                                                                                       
+  NOTHREAD                                                                                                                           
+    TRUNC(OPT)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0/* VSAMMS03                                                                                                                         
+   000001         000100 IDENTIFICATION DIVISION.                                                                                    
+   000002         000200 PROGRAM-ID. VSAMMS03.                                                                                       
+   000003         000300 ENVIRONMENT DIVISION.                                                                                       
+   000004         000400 INPUT-OUTPUT SECTION.                                                                                       
+   000005         000500 FILE-CONTROL.                                                                                               
+   000006         000510      SELECT REPOUT                                                        19                                
+   000007         000520             ASSIGN TO REPOUT.                                                                               
+   000008         000590      SELECT MONITOR                                                       25                                
+   000009         000600          ASSIGN       TO MONITOR                                                                            
+   000010         000700          ORGANIZATION IS indexed                                                                            
+   000011         000800          ACCESS MODE  IS DYNAMIC                                                                            
+   000012         000900          RECORD KEY   IS MON-PRI-KEY                                      27                                
+   000013         001000          ALTERNATE RECORD KEY IS MON-XCDT-PROG-NM                         35                                
+   000014         001210          FILE STATUS  IS MONITOR-FILE-STATUS.                             92                                
+   000015         001220                                                                                                             
+   000016         001300 DATA DIVISION.                                                                                              
+   000017         001400 FILE SECTION.                                                                                               
+   000018         001401                                                                                                             
+   000019         001410 FD  REPOUT                                                                                                  
+                                                                                                                                     
+ ==000019==> IGYGR1216-I A "RECORDING MODE" of "F" was assumed for file "REPOUT".                                                    
+                                                                                                                                     
+   000020         001420         RECORD CONTAINS 300 CHARACTERS                                                                      
+   000021         001430         LABEL RECORDS ARE OMITTED                                                                           
+   000022         001431         DATA RECORD IS REPREC.                                            *                                 
+   000023         001432 01  REPREC                     PIC X(300).                                BLF=00000+000         300C        
+   000024         001440                                                                                                             
+   000025         001920 FD  Monitor.                                                                                                
+   000026         001921 01 MONITOR-RECORD.                                                        BLF=00001+000         0CL281      
+   000027         001922    05 MON-PRI-KEY.                                                        BLF=00001+000,0000000 0CL65       
+   000028         001923       10 MON-XCDT-TSK-STRT-DT.                                            BLF=00001+000,0000000 0CL10       
+   000029         001924          15 MON-XCDT-TSK-STRT-DT-YYYY PIC X(4).                           BLF=00001+000,0000000 4C          
+   000030         001925          15 FILLER                    PIC X(1).                           BLF=00001+004,0000004 1C          
+   000031         001926          15 MON-XCDT-TSK-STRT-DT-MM   PIC X(2).                           BLF=00001+005,0000005 2C          
+   000032         001927          15 FILLER                    PIC X(1).                           BLF=00001+007,0000007 1C          
+   000033         001928          15 MON-XCDT-TSK-STRT-DT-DD   PIC X(2).                           BLF=00001+008,0000008 2C          
+   000034         001929       10 MON-XCDT-TSK-STRT-TM         PIC X(8).                           BLF=00001+00A,000000A 8C          
+   000035         001930       10 MON-XCDT-PROG-NM             PIC X(8).                           BLF=00001+012,0000012 8C          
+   000036         001931       10 MON-XCDT-MTHD-NM             PIC X(35).                          BLF=00001+01A,000001A 35C         
+   000037         001932       10 MON-XCTOR-TSK-NO             PIC S9(7) COMP-3.                   BLF=00001+03D,000003D 4P          
+   000038         001933    05 MON-XCTOR-SYS-ID                PIC X(4).                           BLF=00001+041,0000041 4C          
+   000039         001935    05 MON-XCTOR-TRAN-ID               PIC X(4).                           BLF=00001+045,0000045 4C          
+   000040         001936    05 MON-XCAOR-SYS-ID                PIC X(4).                           BLF=00001+049,0000049 4C          
+   000041         001937    05 MON-XCAOR-TSK-NO                PIC S9(7) COMP-3.                   BLF=00001+04D,000004D 4P          
+   000042         001938    05 MON-XCDT-PGM-TY-CD              PIC X(35).                          BLF=00001+051,0000051 35C         
+   000043         001939    05 MON-XCDT-REQR-IP-AD             PIC X(15).                          BLF=00001+074,0000074 15C         
+   000044         001940    05 MON-XCDT-TSK-AOR-TM             PIC S9(9) BINARY.                   BLF=00001+083,0000083 4C          
+   000045         001941    05 MON-XCDT-TSK-ELPS-TM            PIC S9(9) BINARY.                   BLF=00001+087,0000087 4C          
+   000046         001942    05 MON-XCDT-TSK-CMP-CD             PIC S9(4) BINARY.                   BLF=00001+08B,000008B 2C          
+   000047         001943    05 MON-XCDT-TSK-ABND-CD            PIC X(4).                           BLF=00001+08D,000008D 4C          
+   000048         001944    05 MON-XCDT-REQ-SZ                 PIC S9(9) BINARY.                   BLF=00001+091,0000091 4C          
+   000049         001945    05 MON-XCDT-RESP-SZ                PIC S9(9) BINARY.                   BLF=00001+095,0000095 4C          
+   000050         001950    05 MON-USERTOKEN                   PIC X(128).                         BLF=00001+099,0000099 128C        
+   000051         002927                                                                                                             
+   000052         003100*---------------------------------------------------------------*                                            
+   000053         003200 WORKING-STORAGE SECTION.                                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000054         003300*---------------------------------------------------------------*                                            
+   000055         003400                                                                                                             
+   000056         003401 01 WS-ACCEPT-INPUT           PIC X(80).                                   BLW=00000+000         80C         
+   000057         003402 01 WS-INPUT REDEFINES WS-ACCEPT-INPUT.                                    BLW=00000+000         0CL80       
+                                                                                                   56                                
+   000058         003403    05 WS-INPUT-COMMAND       PIC X(7).                                    BLW=00000+000,0000000 7C          
+   000059         003404       88 C-METHOD            VALUE 'METHOD '.                                                               
+   000060         003405       88 C-PROGRAM           VALUE 'PROGRM '.                                                               
+   000061         003407       88 C-IPADDR            VALUE 'IPADDR '.                                                               
+   000062         003408       88 C-KEYREAD           VALUE 'KYREAD '.                                                               
+   000063         003409       88 C-STARTP            VALUE 'STARTP '.                                                               
+   000064         003410       88 C-STARTA            VALUE 'STARTA '.                                                               
+   000065         003411       88 C-READNXT           VALUE 'READNXT'.                                                               
+   000066         003412       88 C-RN9999            VALUE 'RN9999 '.                                                               
+   000067         003413       88 C-INSERT            VALUE 'INSERT '.                                                               
+   000068         003414       88 C-DELETE            VALUE 'DELETE '.                                                               
+   000069         003415       88 C-TERMINATE         VALUE '*END*  '.                                                               
+   000070         003416    05 WS-INPUT-DATA          PIC X(73).                                   BLW=00000+007,0000007 73C         
+   000071         003417    05 WS-METHOD-DATA REDEFINES WS-INPUT-DATA.                             BLW=00000+007,0000007 0CL35       
+                                                                                                   70                                
+                                                                                                                                     
+ ==000071==> IGYDS1073-I "WS-METHOD-DATA" redefined a larger item.                                                                   
+                                                                                                                                     
+   000072         003418       10 WS-I-METHOD         PIC X(35).                                   BLW=00000+007,0000007 35C         
+   000073         003419    05 WS-PROGRAM-DATA   REDEFINES WS-INPUT-DATA.                          BLW=00000+007,0000007 0CL8        
+                                                                                                   70                                
+                                                                                                                                     
+ ==000073==> IGYDS1073-I "WS-PROGRAM-DATA" redefined a larger item.                                                                  
+                                                                                                                                     
+   000074         003420       10 WS-I-PROGRAM        PIC X(8).                                    BLW=00000+007,0000007 8C          
+   000075         003421    05 WS-IPADDR-DATA    REDEFINES WS-INPUT-DATA.                          BLW=00000+007,0000007 0CL15       
+                                                                                                   70                                
+                                                                                                                                     
+ ==000075==> IGYDS1073-I "WS-IPADDR-DATA" redefined a larger item.                                                                   
+                                                                                                                                     
+   000076         003430       10 WS-I-IPADDR         PIC X(15).                                   BLW=00000+007,0000007 15C         
+   000077         003431    05 WS-KEYREAD-DATA    REDEFINES WS-INPUT-DATA.                         BLW=00000+007,0000007 0CL65       
+                                                                                                   70                                
+                                                                                                                                     
+ ==000077==> IGYDS1073-I "WS-KEYREAD-DATA" redefined a larger item.                                                                  
+                                                                                                                                     
+   000078         003432       10 WS-I-KEYREAD        PIC X(65).                                   BLW=00000+007,0000007 65C         
+   000079         003436    05 WS-INSERT-DATA     REDEFINES WS-INPUT-DATA.                         BLW=00000+007,0000007 0CL65       
+                                                                                                   70                                
+                                                                                                                                     
+ ==000079==> IGYDS1073-I "WS-INSERT-DATA" redefined a larger item.                                                                   
+                                                                                                                                     
+   000080         003437       10 WS-I-INSERT-KEY     PIC X(65).                                   BLW=00000+007,0000007 65C         
+   000081         003438    05 WS-DELETE-DATA     REDEFINES WS-INPUT-DATA.                         BLW=00000+007,0000007 0CL65       
+                                                                                                   70                                
+                                                                                                                                     
+ ==000081==> IGYDS1073-I "WS-DELETE-DATA" redefined a larger item.                                                                   
+                                                                                                                                     
+   000082         003439       10 WS-I-DELETE-KEY     PIC X(65).                                   BLW=00000+007,0000007 65C         
+   000083         003440 01  WS-I                       PIC 9(5) VALUE 0.                          BLW=00000+050         5C          
+   000084         003441 01  WS-J                       PIC S9(4) COMP.                            BLW=00000+058         2C          
+   000085         003442 01  q                          PIC s9(4) comp.                            BLW=00000+060         2C          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000086         003443 01  r                          PIC s9(4) comp.                            BLW=00000+068         2C          
+   000087         003444 01  WS-UPDATE.                                                            BLW=00000+070         0CL47       
+   000088         003445     05  UPDATE-STAT-ALT-KEY    PIC  X(32).                       00050000 BLW=00000+070,0000000 32C         
+   000089         003446     05  UPDATE-TOKN-SSMVSIPA   PIC  X(15).                       00270000 BLW=00000+090,0000020 15C         
+   000090         003447 01  WS-RN-CNT           PIC 9(4).                                         BLW=00000+0A0         4C          
+   000091         003450                                                                                                             
+   000092         003610 01  MONITOR-FILE-STATUS.                                                  BLW=00000+0A8         0CL2        
+   000093         003620     05  STA-IN-STAT1              PIC  X(01).                             BLW=00000+0A8,0000000 1C          
+   000094         003630     05  STA-IN-STAT2              PIC  X(01).                             BLW=00000+0A9,0000001 1C          
+   000095         003700                                                                                                             
+   000096         003710 01  UPDATES-STATUS.                                                       BLW=00000+0B0         0CL2        
+   000097         003720     05  UPD-OUT-STAT1             PIC  X(01).                             BLW=00000+0B0,0000000 1C          
+   000098         003730     05  UPD-OUT-STAT2             PIC  X(01).                             BLW=00000+0B1,0000001 1C          
+   000099         003740                                                                                                             
+   000100         003750 01  WS-IP-NODE                    PIC 9(3).                               BLW=00000+0B8         3C          
+   000101         003800 01  WS-SWITCHES.                                                          BLW=00000+0C0         0CL3        
+   000102         003900     05  WS-EOF-SW                 PIC  X(01) VALUE SPACES.                BLW=00000+0C0,0000000 1C          
+                                                                                                   IMP                               
+   000103         004000         88  END-OF-Monitor        VALUE 'Y'.                                                                
+   000104         004001     05  WS-UPDATES-SW             PIC  X(01) VALUE SPACES.                BLW=00000+0C1,0000001 1C          
+                                                                                                   IMP                               
+   000105         004002         88  NO-MORE-UPDATES       VALUE 'Y'.                                                                
+   000106         004003     05  WS-UPDATED-SW             PIC  X(01) VALUE SPACES.                BLW=00000+0C2,0000002 1C          
+                                                                                                   IMP                               
+   000107         004004         88  RECORD-UPDATED        VALUE 'Y'.                                                                
+   000108         004100                                                                                                             
+   000109         004200*----------------------------------------------------------------*                                           
+   000110         004300 PROCEDURE DIVISION.                                                                                         
+   000111         004400*----------------------------------------------------------------*                                           
+   000112         004500     CONTINUE.                                                                                               
+   000113         004600*----------------------------------------------------------------*                                           
+   000114         004700 0000-MAINLINE.                                                                                              
+   000115         004800*----------------------------------------------------------------*                                           
+   000116         004900                                                                                                             
+   000117         004901     PERFORM 0010-OPEN-FILES                                               165                               
+   000118         004902        THRU 0010-EXIT                                                     184                               
+   000119         004903                                                                                                             
+   000120         004910     MOVE SPACES TO WS-INPUT                                               IMP 57                            
+   000121         004960     PERFORM                                                                                                 
+   000122         004970        UNTIL C-TERMINATE                                                  69                                
+   000123      1  004980        ACCEPT WS-ACCEPT-INPUT                                             56                                
+   000124      1  004990        ADD 1 TO WS-I                                                      83                                
+   000125      1  004991        DIVIDE WS-I BY  1000 GIVING Q REMAINDER R                          83 85 86                          
+   000126      1  004992        IF R = 0 THEN                                                      86                                
+   000127      2  004993           DISPLAY '** ' WS-I                                              83                                
+   000128      1  004994        END-IF                                                                                               
+   000129      1  004995        EVALUATE TRUE                                                                                        
+   000130      1  005008            WHEN C-KEYREAD                                                 62                                
+   000131      2  005009                 PERFORM 4000-KEYREAD-BASED-REPORT                         201                               
+   000132      2  005010                    THRU 4000-EXIT                                         238                               
+   000133      1  005020            WHEN C-READNXT                                                 65                                
+   000134      2  005021                 PERFORM 5000-READNXT                                      242                               
+   000135      2  005022                    THRU 5000-EXIT                                         274                               
+   000136      1  005023            WHEN WS-INPUT-COMMAND(1:2) = 'RN'                              58                                
+   000137      2  005024                 PERFORM 6000-RN9999                                       278                               
+   000138      2  005025                    THRU 6000-EXIT                                         322                               
+   000139      1  005026            WHEN C-PROGRAM                                                 60                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000140      2  005027                 PERFORM 7000-PROGRAM                                      326                               
+   000141      2  005028                    THRU 7000-EXIT                                         369                               
+   000142      1  005029            WHEN C-STARTP                                                  63                                
+   000143      2  005030                 PERFORM 8000-STARTP                                       373                               
+   000144      2  005031                    THRU 8000-EXIT                                         407                               
+   000145      1  005032            WHEN C-STARTA                                                  64                                
+   000146      2  005033                 PERFORM 9000-STARTA                                       411                               
+   000147      2  005034                    THRU 9000-EXIT                                         444                               
+   000148      1  005038            WHEN OTHER                                                                                       
+   000149      2  005039                 CONTINUE                                                                                    
+   000150      1  005040         END-EVALUATE                                                                                        
+   000151         005041     END-PERFORM                                                                                             
+   000152         005050     GOBACK.                                                                                                 
+   000153         005500                                                                                                             
+   000154         005510     PERFORM 0020-CLOSE-FILES                                              188                               
+   000155         005520        THRU 0020-EXIT                                                     197                               
+   000156         005530                                                                                                             
+   000157         005600     GO TO 9999-EXIT-PROGRAM                                               448                               
+   000158         005700                                                                                                             
+   000159         005800     CONTINUE.                                                                                               
+   000160         005900                                                                                                             
+   000161         006000 0000-EXIT.                                                                                                  
+   000162         006100     EXIT.                                                                                                   
+   000163         006200                                                                                                             
+   000164         006300*----------------------------------------------------------------*                                           
+   000165         006400 0010-OPEN-FILES.                                                                                            
+   000166         006500*----------------------------------------------------------------*                                           
+   000167         008316                                                                                                             
+   000168         008317     OPEN OUTPUT REPOUT                                                    19                                
+   000169         008318                                                                                                             
+   000170         008319     OPEN I-O   MONITOR                                                    25                                
+   000171         008320                                                                                                             
+   000172         008330     IF  MONITOR-FILE-STATUS NOT = '00'                                    92                                
+   000173      1  008340         MOVE SPACES TO REPREC                                             IMP 23                            
+   000174      1  008341         STRING                                                                                              
+   000175      1  008342              'Error opening Monitor: ' MONITOR-FILE-STATUS                92                                
+   000176      1  008343              DELIMITED BY SIZE                                                                              
+   000177      1  008344          INTO REPREC                                                      23                                
+   000178      1  008345         END-STRING                                                                                          
+   000179      1  008346         WRITE REPREC                                                      23                                
+   000180      1  008347         GO TO 9999-EXIT-PROGRAM                                           448                               
+   000181         008348     END-IF                                                                                                  
+   000182         008350     CONTINUE.                                                                                               
+   000183         008400                                                                                                             
+   000184         008500 0010-EXIT.                                                                                                  
+   000185         008600     EXIT.                                                                                                   
+   000186         008700                                                                                                             
+   000187         008710*----------------------------------------------------------------*                                           
+   000188         008720 0020-CLOSE-FILES.                                                                                           
+   000189         008730*----------------------------------------------------------------*                                           
+   000190         008740                                                                                                             
+   000191         008750     CLOSE Monitor                                                         25                                
+   000192         008751                                                                                                             
+   000193         008752     CLOSE REPOUT                                                          19                                
+   000194         008760                                                                                                             
+   000195         008793     CONTINUE.                                                                                               
+   000196         008794                                                                                                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000197         008795 0020-EXIT.                                                                                                  
+   000198         008796     EXIT.                                                                                                   
+   000199         011742                                                                                                             
+   000200         011743*----------------------------------------------------------------*                                           
+   000201         011744 4000-KEYREAD-BASED-REPORT.                                                                                  
+   000202         011745*----------------------------------------------------------------*                                           
+   000203         011746                                                                                                             
+   000204         011747     MOVE    '**********'                                                                                    
+   000205         011748       TO REPREC                                                           23                                
+   000206         011749     WRITE REPREC                                                          23                                
+   000207         011750     MOVE SPACES TO REPREC                                                 IMP 23                            
+   000208         011751     STRING                                                                                                  
+   000209         011752             'Direct Read of Monitor row  matching KEY = '                                                   
+   000210         011753             WS-I-KEYREAD DELIMITED BY SIZE                                78                                
+   000211         011754       INTO REPREC                                                         23                                
+   000212         011755     END-STRING                                                                                              
+   000213         011756     WRITE REPREC                                                          23                                
+   000214         011757     MOVE '**********'                                                                                       
+   000215         011758       TO REPREC                                                           23                                
+   000216         011759     WRITE REPREC                                                          23                                
+   000217         011760     MOVE SPACES TO WS-EOF-SW                                              IMP 102                           
+   000218         011763     MOVE WS-I-KEYREAD TO  MON-PRI-KEY                                     78 27                             
+   000219         011764     READ Monitor                                                          25                                
+   000220         011765                                                                                                             
+   000221         011766     END-READ                                                                                                
+   000222         011767                                                                                                             
+   000223         011768     IF STA-IN-STAT1 > '1'                                                 93                                
+   000224      1  011769        MOVE SPACES TO REPREC                                              IMP 23                            
+   000225      1  011770        STRING                                                                                               
+   000226      1  011771                'Error reading Monitor: ' MONITOR-FILE-STATUS              92                                
+   000227      1  011772                DELIMITED BY SIZE                                                                            
+   000228      1  011773          INTO REPREC                                                      23                                
+   000229      1  011774        END-STRING                                                                                           
+   000230      1  011775        WRITE REPREC                                                       23                                
+   000231      1  011776        GO TO 4000-EXIT                                                    238                               
+   000232         011777     END-IF                                                                                                  
+   000233         011778     MOVE MONITOR-RECORD                                                   26                                
+   000234         011779       TO REPREC                                                           23                                
+   000235         011780     WRITE REPREC                                                          23                                
+   000236         011781     CONTINUE.                                                                                               
+   000237         011782                                                                                                             
+   000238         011783 4000-EXIT.                                                                                                  
+   000239         011784     EXIT.                                                                                                   
+   000240         011785                                                                                                             
+   000241         011786*----------------------------------------------------------------*                                           
+   000242         011787 5000-READNXT.                                                                                               
+   000243         011788*----------------------------------------------------------------*                                           
+   000244         011789                                                                                                             
+   000245         011791     MOVE    '**********'                                                                                    
+   000246         011792       TO REPREC                                                           23                                
+   000247         011793     WRITE REPREC                                                          23                                
+   000248         011794     MOVE 'READ NEXT done after Direct READ/START'                                                           
+   000249         011795       TO REPREC                                                           23                                
+   000250         011796     WRITE REPREC                                                          23                                
+   000251         011801     MOVE '**********'                                                                                       
+   000252         011802       TO REPREC                                                           23                                
+   000253         011803     WRITE REPREC                                                          23                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page     8                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000254         011804     MOVE SPACES TO WS-EOF-SW                                              IMP 102                           
+   000255         011807                                                                                                             
+   000256         011808     READ Monitor NEXT                                                     25                                
+   000257         011810     END-READ                                                                                                
+   000258         011900                                                                                                             
+   000259         011910     IF STA-IN-STAT1 > '0'                                                 93                                
+   000260      1  011920        MOVE SPACES TO REPREC                                              IMP 23                            
+   000261      1  011930        STRING                                                                                               
+   000262      1  011940                'Error reading Monitor: ' MONITOR-FILE-STATUS              92                                
+   000263      1  011941                DELIMITED BY SIZE                                                                            
+   000264      1  011942          INTO REPREC                                                      23                                
+   000265      1  011943        END-STRING                                                                                           
+   000266      1  011944        WRITE REPREC                                                       23                                
+   000267      1  011945        GO TO 5000-EXIT                                                    274                               
+   000268         011946     END-IF                                                                                                  
+   000269         011947     MOVE MONITOR-RECORD                                                   26                                
+   000270         011948       TO REPREC                                                           23                                
+   000271         011949     WRITE REPREC                                                          23                                
+   000272         011950     CONTINUE.                                                                                               
+   000273         011951                                                                                                             
+   000274         011952 5000-EXIT.                                                                                                  
+   000275         011953     EXIT.                                                                                                   
+   000276         011954                                                                                                             
+   000277         011955*----------------------------------------------------------------*                                           
+   000278         011956 6000-RN9999.                                                                                                
+   000279         011957*----------------------------------------------------------------*                                           
+   000280         011958                                                                                                             
+   000281         011959     MOVE    '**********'                                                                                    
+   000282         011960       TO REPREC                                                           23                                
+   000283         011961     WRITE REPREC                                                          23                                
+   000284         011962                                                                                                             
+   000285         011963     MOVE SPACES TO REPREC                                                 IMP 23                            
+   000286         011964                                                                                                             
+   000287         011965     MOVE WS-ACCEPT-INPUT(3:4) TO WS-RN-CNT                                56 90                             
+   000288         011966     STRING                                                                                                  
+   000289         011967          'READ NEXT of '                                                                                    
+   000290         011968          WS-RN-CNT                                                        90                                
+   000291         011969          ' records done after Direct READ'                                                                  
+   000292         011970          delimited by size                                                                                  
+   000293         011971       INTO REPREC                                                         23                                
+   000294         011972     END-STRING                                                                                              
+   000295         011973     WRITE REPREC                                                          23                                
+   000296         011974     MOVE '**********'                                                                                       
+   000297         011975       TO REPREC                                                           23                                
+   000298         011976     WRITE REPREC                                                          23                                
+   000299         011977                                                                                                             
+   000300         011978     PERFORM VARYING WS-J FROM 1 BY 1                                      84                                
+   000301         011979        UNTIL WS-J > WS-RN-CNT                                             84 90                             
+   000302      1  011980        READ Monitor NEXT                                                  25                                
+   000303      1  011981        END-READ                                                                                             
+   000304         011982                                                                                                             
+   000305      1  011983        IF STA-IN-STAT1 > '0'                                              93                                
+   000306      2  011984           MOVE SPACES TO REPREC                                           IMP 23                            
+   000307      2  011985           STRING                                                                                            
+   000308      2  011986                   'Error reading Monitor: ' MONITOR-FILE-STATUS           92                                
+   000309      2  011987                   DELIMITED BY SIZE                                                                         
+   000310      2  011988             INTO REPREC                                                   23                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page     9                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000311      2  011989           END-STRING                                                                                        
+   000312      2  011990           WRITE REPREC                                                    23                                
+   000313      2  011991           GO TO 6000-EXIT                                                 322                               
+   000314      1  011992        END-IF                                                                                               
+   000315      1  011993        MOVE MONITOR-RECORD                                                26                                
+   000316      1  011994          TO REPREC                                                        23                                
+   000317      1  011995        WRITE REPREC                                                       23                                
+   000318         011996     END-PERFORM                                                                                             
+   000319         011997                                                                                                             
+   000320         011998     CONTINUE.                                                                                               
+   000321         011999                                                                                                             
+   000322         012000 6000-EXIT.                                                                                                  
+   000323         012001     EXIT.                                                                                                   
+   000324         012002                                                                                                             
+   000325         012003*----------------------------------------------------------------*                                           
+   000326         012004 7000-PROGRAM.                                                                                               
+   000327         012005*----------------------------------------------------------------*                                           
+   000328         012006                                                                                                             
+   000329         012007     MOVE    '**********'                                                                                    
+   000330         012008       TO REPREC                                                           23                                
+   000331         012009     WRITE REPREC                                                          23                                
+   000332         012010     MOVE SPACES TO REPREC                                                 IMP 23                            
+   000333         012011     STRING                                                                                                  
+   000334         012012             'Direct Read of Monitor row  matching AIX Prog = '                                              
+   000335         012013             WS-I-PROGRAM        DELIMITED BY SIZE                         74                                
+   000336         012014       INTO REPREC                                                         23                                
+   000337         012015     END-STRING                                                                                              
+   000338         012016     WRITE REPREC                                                          23                                
+   000339         012017     MOVE '**********'                                                                                       
+   000340         012018       TO REPREC                                                           23                                
+   000341         012019     WRITE REPREC                                                          23                                
+   000342         012020     MOVE SPACES TO WS-EOF-SW                                              IMP 102                           
+   000343         012021     MOVE WS-I-PROGRAM TO  MON-XCDT-PROG-NM                                74 35                             
+   000344         012022     READ Monitor                                                          25                                
+   000345         012023          KEY IS MON-XCDT-PROG-NM                                          35                                
+   000346         012024     END-READ                                                                                                
+   000347         012025                                                                                                             
+   000348         012026     IF STA-IN-STAT1 > '1'                                                 93                                
+   000349      1  012027        MOVE SPACES TO REPREC                                              IMP 23                            
+   000350      1  012028        STRING                                                                                               
+   000351      1  012029                'Error reading Monitor: ' MONITOR-FILE-STATUS              92                                
+   000352      1  012030                DELIMITED BY SIZE                                                                            
+   000353      1  012031          INTO REPREC                                                      23                                
+   000354      1  012032        END-STRING                                                                                           
+   000355      1  012033        WRITE REPREC                                                       23                                
+   000356      1  012034        GO TO 7000-EXIT                                                    369                               
+   000357         012035     END-IF                                                                                                  
+   000358         012036     MOVE MONITOR-RECORD                                                   26                                
+   000359         012037       TO REPREC                                                           23                                
+   000360         012038     WRITE REPREC                                                          23                                
+   000361         012039     MOVE SPACES TO REPREC                                                 IMP 23                            
+   000362         012040     STRING '|--> MONITOR-FILE-STATUS = ' MONITOR-FILE-STATUS              92                                
+   000363         012041        DELIMITED BY SIZE                                                                                    
+   000364         012042        INTO REPREC                                                        23                                
+   000365         012043     END-STRING                                                                                              
+   000366         012044     WRITE REPREC                                                          23                                
+   000367         012045     CONTINUE.                                                                                               
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page    10                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000368         012046                                                                                                             
+   000369         012047 7000-EXIT.                                                                                                  
+   000370         012048     EXIT.                                                                                                   
+   000371         012049                                                                                                             
+   000372         012051*----------------------------------------------------------------*                                           
+   000373         012052 8000-STARTP.                                                                                                
+   000374         012053*----------------------------------------------------------------*                                           
+   000375         012054                                                                                                             
+   000376         012055     MOVE    '**********'                                                                                    
+   000377         012056       TO REPREC                                                           23                                
+   000378         012057     WRITE REPREC                                                          23                                
+   000379         012058     MOVE SPACES TO REPREC                                                 IMP 23                            
+   000380         012059     STRING                                                                                                  
+   000381         012060             'START > = PRIMARY KEY :  '                                                                     
+   000382         012061             WS-I-KEYREAD DELIMITED BY SIZE                                78                                
+   000383         012062       INTO REPREC                                                         23                                
+   000384         012063     END-STRING                                                                                              
+   000385         012065     WRITE REPREC                                                          23                                
+   000386         012066     MOVE '**********'                                                                                       
+   000387         012067       TO REPREC                                                           23                                
+   000388         012068     WRITE REPREC                                                          23                                
+   000389         012069     MOVE SPACES TO WS-EOF-SW                                              IMP 102                           
+   000390         012070     MOVE WS-I-KEYREAD TO  MON-PRI-KEY                                     78 27                             
+   000391         012071                                                                                                             
+   000392         012072     START Monitor KEY = MON-PRI-KEY                                       25 27                             
+   000393         012073     END-START                                                                                               
+   000394         012074                                                                                                             
+   000395         012075     IF STA-IN-STAT1 > '0'                                                 93                                
+   000396      1  012076        MOVE SPACES TO REPREC                                              IMP 23                            
+   000397      1  012077        STRING                                                                                               
+   000398      1  012078                'Error reading Monitor: ' MONITOR-FILE-STATUS              92                                
+   000399      1  012079                DELIMITED BY SIZE                                                                            
+   000400      1  012080          INTO REPREC                                                      23                                
+   000401      1  012081        END-STRING                                                                                           
+   000402      1  012082        WRITE REPREC                                                       23                                
+   000403      1  012083        GO TO 8000-EXIT                                                    407                               
+   000404         012084     END-IF                                                                                                  
+   000405         012085     CONTINUE.                                                                                               
+   000406         012086                                                                                                             
+   000407         012087 8000-EXIT.                                                                                                  
+   000408         012088     EXIT.                                                                                                   
+   000409         012089                                                                                                             
+   000410         012090*----------------------------------------------------------------*                                           
+   000411         012091 9000-STARTA.                                                                                                
+   000412         012092*----------------------------------------------------------------*                                           
+   000413         012093                                                                                                             
+   000414         012094     MOVE    '**********'                                                                                    
+   000415         012095       TO REPREC                                                           23                                
+   000416         012096     WRITE REPREC                                                          23                                
+   000417         012097     MOVE SPACES TO REPREC                                                 IMP 23                            
+   000418         012098     STRING                                                                                                  
+   000419         012099             'START > = ALTERNATE KEY :  '                                                                   
+   000420         012100             WS-I-PROGRAM DELIMITED BY SIZE                                74                                
+   000421         012101       INTO REPREC                                                         23                                
+   000422         012102     END-STRING                                                                                              
+   000423         012103     WRITE REPREC                                                          23                                
+   000424         012107     MOVE '**********'                                                                                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page    11                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000425         012108       TO REPREC                                                           23                                
+   000426         012109     WRITE REPREC                                                          23                                
+   000427         012110     MOVE SPACES TO WS-EOF-SW                                              IMP 102                           
+   000428         012111     MOVE WS-I-PROGRAM TO  MON-XCDT-PROG-NM                                74 35                             
+   000429         012112     START Monitor KEY IS EQUAL TO  MON-XCDT-PROG-NM                       25 35                             
+   000430         012113     END-START                                                                                               
+   000431         012114                                                                                                             
+   000432         012115     IF STA-IN-STAT1 > '0'                                                 93                                
+   000433      1  012116        MOVE SPACES TO REPREC                                              IMP 23                            
+   000434      1  012117        STRING                                                                                               
+   000435      1  012118                'Error reading Monitor: ' MONITOR-FILE-STATUS              92                                
+   000436      1  012119                DELIMITED BY SIZE                                                                            
+   000437      1  012120          INTO REPREC                                                      23                                
+   000438      1  012121        END-STRING                                                                                           
+   000439      1  012122        WRITE REPREC                                                       23                                
+   000440      1  012123        GO TO 9000-EXIT                                                    444                               
+   000441         012124     END-IF                                                                                                  
+   000442         012125     CONTINUE.                                                                                               
+   000443         012126                                                                                                             
+   000444         012127 9000-EXIT.                                                                                                  
+   000445         012128     EXIT.                                                                                                   
+   000446         012129                                                                                                             
+   000447         012130*----------------------------------------------------------------*                                           
+   000448         012131 9999-EXIT-PROGRAM.                                                                                          
+   000449         012132*----------------------------------------------------------------*                                           
+   000450         012140                                                                                                             
+   000451         012200     GOBACK.                                                                                                 
+   000452         013091                                                                                                             
+   000453         013100                                                                                                             
+ */ VSAMMS03                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page    12                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       68   C-DELETE                                                                                                                 
+       67   C-INSERT                                                                                                                 
+       61   C-IPADDR                                                                                                                 
+       62   C-KEYREAD. . . . . . . . . . .  130                                                                                      
+       59   C-METHOD                                                                                                                 
+       60   C-PROGRAM. . . . . . . . . . .  139                                                                                      
+       65   C-READNXT. . . . . . . . . . .  133                                                                                      
+       66   C-RN9999                                                                                                                 
+       64   C-STARTA . . . . . . . . . . .  145                                                                                      
+       63   C-STARTP . . . . . . . . . . .  142                                                                                      
+       69   C-TERMINATE. . . . . . . . . .  122                                                                                      
+      103   END-OF-MONITOR                                                                                                           
+       27   MON-PRI-KEY. . . . . . . . . .  12 M218 M390 392                                                                         
+       50   MON-USERTOKEN                                                                                                            
+       40   MON-XCAOR-SYS-ID                                                                                                         
+       41   MON-XCAOR-TSK-NO                                                                                                         
+       36   MON-XCDT-MTHD-NM                                                                                                         
+       42   MON-XCDT-PGM-TY-CD                                                                                                       
+       35   MON-XCDT-PROG-NM . . . . . . .  13 M343 345 M428 429                                                                     
+       48   MON-XCDT-REQ-SZ                                                                                                          
+       43   MON-XCDT-REQR-IP-AD                                                                                                      
+       49   MON-XCDT-RESP-SZ                                                                                                         
+       47   MON-XCDT-TSK-ABND-CD                                                                                                     
+       44   MON-XCDT-TSK-AOR-TM                                                                                                      
+       46   MON-XCDT-TSK-CMP-CD                                                                                                      
+       45   MON-XCDT-TSK-ELPS-TM                                                                                                     
+       28   MON-XCDT-TSK-STRT-DT                                                                                                     
+       33   MON-XCDT-TSK-STRT-DT-DD                                                                                                  
+       31   MON-XCDT-TSK-STRT-DT-MM                                                                                                  
+       29   MON-XCDT-TSK-STRT-DT-YYYY                                                                                                
+       34   MON-XCDT-TSK-STRT-TM                                                                                                     
+       38   MON-XCTOR-SYS-ID                                                                                                         
+       39   MON-XCTOR-TRAN-ID                                                                                                        
+       37   MON-XCTOR-TSK-NO                                                                                                         
+       25   MONITOR. . . . . . . . . . . .  8 170 191 219 256 302 344 392 429                                                        
+       92   MONITOR-FILE-STATUS. . . . . .  14 172 175 226 262 308 351 362 398 435                                                   
+       26   MONITOR-RECORD . . . . . . . .  233 269 315 358                                                                          
+      105   NO-MORE-UPDATES                                                                                                          
+       85   Q. . . . . . . . . . . . . . .  M125                                                                                     
+       86   R. . . . . . . . . . . . . . .  M125 126                                                                                 
+      107   RECORD-UPDATED                                                                                                           
+       19   REPOUT . . . . . . . . . . . .  6 168 193                                                                                
+       23   REPREC . . . . . . . . . . . .  M173 M177 179 M205 206 M207 M211 213 M215 216 M224 M228 230 M234 235 M246 247            
+                                            M249 250 M252 253 M260 M264 266 M270 271 M282 283 M285 M293 295 M297 298 M306            
+                                            M310 312 M316 317 M330 331 M332 M336 338 M340 341 M349 M353 355 M359 360 M361            
+                                            M364 366 M377 378 M379 M383 385 M387 388 M396 M400 402 M415 416 M417 M421 423            
+                                            M425 426 M433 M437 439                                                                   
+       93   STA-IN-STAT1 . . . . . . . . .  223 259 305 348 395 432                                                                  
+       94   STA-IN-STAT2                                                                                                             
+       97   UPD-OUT-STAT1                                                                                                            
+       98   UPD-OUT-STAT2                                                                                                            
+       88   UPDATE-STAT-ALT-KEY                                                                                                      
+       89   UPDATE-TOKN-SSMVSIPA                                                                                                     
+       96   UPDATES-STATUS                                                                                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page    13                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0      56   WS-ACCEPT-INPUT. . . . . . . .  57 M123 287                                                                              
+       81   WS-DELETE-DATA                                                                                                           
+      102   WS-EOF-SW. . . . . . . . . . .  M217 M254 M342 M389 M427                                                                 
+       83   WS-I . . . . . . . . . . . . .  M124 125 127                                                                             
+       82   WS-I-DELETE-KEY                                                                                                          
+       80   WS-I-INSERT-KEY                                                                                                          
+       76   WS-I-IPADDR                                                                                                              
+       78   WS-I-KEYREAD . . . . . . . . .  210 218 382 390                                                                          
+       72   WS-I-METHOD                                                                                                              
+       74   WS-I-PROGRAM . . . . . . . . .  335 343 420 428                                                                          
+       57   WS-INPUT . . . . . . . . . . .  M120                                                                                     
+       58   WS-INPUT-COMMAND . . . . . . .  136                                                                                      
+       70   WS-INPUT-DATA. . . . . . . . .  71 73 75 77 79 81                                                                        
+       79   WS-INSERT-DATA                                                                                                           
+      100   WS-IP-NODE                                                                                                               
+       75   WS-IPADDR-DATA                                                                                                           
+       84   WS-J . . . . . . . . . . . . .  M300 301                                                                                 
+       77   WS-KEYREAD-DATA                                                                                                          
+       71   WS-METHOD-DATA                                                                                                           
+       73   WS-PROGRAM-DATA                                                                                                          
+       90   WS-RN-CNT. . . . . . . . . . .  M287 290 301                                                                             
+      101   WS-SWITCHES                                                                                                              
+       87   WS-UPDATE                                                                                                                
+      106   WS-UPDATED-SW                                                                                                            
+      104   WS-UPDATES-SW                                                                                                            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page    14                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      161   0000-EXIT                                                                                                                
+      114   0000-MAINLINE                                                                                                            
+      184   0010-EXIT. . . . . . . . . . .  E118                                                                                     
+      165   0010-OPEN-FILES. . . . . . . .  P117                                                                                     
+      188   0020-CLOSE-FILES . . . . . . .  P154                                                                                     
+      197   0020-EXIT. . . . . . . . . . .  E155                                                                                     
+      238   4000-EXIT. . . . . . . . . . .  E132 G231                                                                                
+      201   4000-KEYREAD-BASED-REPORT. . .  P131                                                                                     
+      274   5000-EXIT. . . . . . . . . . .  E135 G267                                                                                
+      242   5000-READNXT . . . . . . . . .  P134                                                                                     
+      322   6000-EXIT. . . . . . . . . . .  E138 G313                                                                                
+      278   6000-RN9999. . . . . . . . . .  P137                                                                                     
+      369   7000-EXIT. . . . . . . . . . .  E141 G356                                                                                
+      326   7000-PROGRAM . . . . . . . . .  P140                                                                                     
+      407   8000-EXIT. . . . . . . . . . .  E144 G403                                                                                
+      373   8000-STARTP. . . . . . . . . .  P143                                                                                     
+      444   9000-EXIT. . . . . . . . . . .  E147 G440                                                                                
+      411   9000-STARTA. . . . . . . . . .  P146                                                                                     
+      448   9999-EXIT-PROGRAM. . . . . . .  G157 G180                                                                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page    15                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   VSAMMS03                                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page    16                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID VSAMMS03----------------------------------------------------------------------------------------------------*    
+     19   FD REPOUT. . . . . . . . . . . . . . . . . . . .                                              QSAM           F             
+     23   1  REPREC. . . . . . . . . . . . . . . . . . . . BLF=00000  000               DS 300C         Display                      
+     25   FD MONITOR . . . . . . . . . . . . . . . . . . .                                              VSAM           F             
+     26   1  MONITOR-RECORD. . . . . . . . . . . . . . . . BLF=00001  000               DS 0CL281       Group                        
+     27     2  MON-PRI-KEY . . . . . . . . . . . . . . . . BLF=00001  000   0 000 000   DS 0CL65        Group                        
+     28       3  MON-XCDT-TSK-STRT-DT. . . . . . . . . . . BLF=00001  000   0 000 000   DS 0CL10        Group                        
+     29         4  MON-XCDT-TSK-STRT-DT-YYYY . . . . . . . BLF=00001  000   0 000 000   DS 4C           Display                      
+     30         4  FILLER. . . . . . . . . . . . . . . . . BLF=00001  004   0 000 004   DS 1C           Display                      
+     31         4  MON-XCDT-TSK-STRT-DT-MM . . . . . . . . BLF=00001  005   0 000 005   DS 2C           Display                      
+     32         4  FILLER. . . . . . . . . . . . . . . . . BLF=00001  007   0 000 007   DS 1C           Display                      
+     33         4  MON-XCDT-TSK-STRT-DT-DD . . . . . . . . BLF=00001  008   0 000 008   DS 2C           Display                      
+     34       3  MON-XCDT-TSK-STRT-TM. . . . . . . . . . . BLF=00001  00A   0 000 00A   DS 8C           Display                      
+     35       3  MON-XCDT-PROG-NM. . . . . . . . . . . . . BLF=00001  012   0 000 012   DS 8C           Display                      
+     36       3  MON-XCDT-MTHD-NM. . . . . . . . . . . . . BLF=00001  01A   0 000 01A   DS 35C          Display                      
+     37       3  MON-XCTOR-TSK-NO. . . . . . . . . . . . . BLF=00001  03D   0 000 03D   DS 4P           Packed-Dec                   
+     38     2  MON-XCTOR-SYS-ID. . . . . . . . . . . . . . BLF=00001  041   0 000 041   DS 4C           Display                      
+     39     2  MON-XCTOR-TRAN-ID . . . . . . . . . . . . . BLF=00001  045   0 000 045   DS 4C           Display                      
+     40     2  MON-XCAOR-SYS-ID. . . . . . . . . . . . . . BLF=00001  049   0 000 049   DS 4C           Display                      
+     41     2  MON-XCAOR-TSK-NO. . . . . . . . . . . . . . BLF=00001  04D   0 000 04D   DS 4P           Packed-Dec                   
+     42     2  MON-XCDT-PGM-TY-CD. . . . . . . . . . . . . BLF=00001  051   0 000 051   DS 35C          Display                      
+     43     2  MON-XCDT-REQR-IP-AD . . . . . . . . . . . . BLF=00001  074   0 000 074   DS 15C          Display                      
+     44     2  MON-XCDT-TSK-AOR-TM . . . . . . . . . . . . BLF=00001  083   0 000 083   DS 4C           Binary                       
+     45     2  MON-XCDT-TSK-ELPS-TM. . . . . . . . . . . . BLF=00001  087   0 000 087   DS 4C           Binary                       
+     46     2  MON-XCDT-TSK-CMP-CD . . . . . . . . . . . . BLF=00001  08B   0 000 08B   DS 2C           Binary                       
+     47     2  MON-XCDT-TSK-ABND-CD. . . . . . . . . . . . BLF=00001  08D   0 000 08D   DS 4C           Display                      
+     48     2  MON-XCDT-REQ-SZ . . . . . . . . . . . . . . BLF=00001  091   0 000 091   DS 4C           Binary                       
+     49     2  MON-XCDT-RESP-SZ. . . . . . . . . . . . . . BLF=00001  095   0 000 095   DS 4C           Binary                       
+     50     2  MON-USERTOKEN . . . . . . . . . . . . . . . BLF=00001  099   0 000 099   DS 128C         Display                      
+     56   1  WS-ACCEPT-INPUT . . . . . . . . . . . . . . . BLW=00000  000               DS 80C          Display                      
+     57   1  WS-INPUT. . . . . . . . . . . . . . . . . . . BLW=00000  000               DS 0CL80        Group          R             
+     58     2  WS-INPUT-COMMAND. . . . . . . . . . . . . . BLW=00000  000   0 000 000   DS 7C           Display                      
+     59     88 C-METHOD. . . . . . . . . . . . . . . . . .                                                                           
+     60     88 C-PROGRAM . . . . . . . . . . . . . . . . .                                                                           
+     61     88 C-IPADDR. . . . . . . . . . . . . . . . . .                                                                           
+     62     88 C-KEYREAD . . . . . . . . . . . . . . . . .                                                                           
+     63     88 C-STARTP. . . . . . . . . . . . . . . . . .                                                                           
+     64     88 C-STARTA. . . . . . . . . . . . . . . . . .                                                                           
+     65     88 C-READNXT . . . . . . . . . . . . . . . . .                                                                           
+     66     88 C-RN9999. . . . . . . . . . . . . . . . . .                                                                           
+     67     88 C-INSERT. . . . . . . . . . . . . . . . . .                                                                           
+     68     88 C-DELETE. . . . . . . . . . . . . . . . . .                                                                           
+     69     88 C-TERMINATE . . . . . . . . . . . . . . . .                                                                           
+     70     2  WS-INPUT-DATA . . . . . . . . . . . . . . . BLW=00000  007   0 000 007   DS 73C          Display                      
+     71     2  WS-METHOD-DATA. . . . . . . . . . . . . . . BLW=00000  007   0 000 007   DS 0CL35        Group          R             
+     72       3  WS-I-METHOD . . . . . . . . . . . . . . . BLW=00000  007   0 000 007   DS 35C          Display                      
+     73     2  WS-PROGRAM-DATA . . . . . . . . . . . . . . BLW=00000  007   0 000 007   DS 0CL8         Group          R             
+     74       3  WS-I-PROGRAM. . . . . . . . . . . . . . . BLW=00000  007   0 000 007   DS 8C           Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page    17                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+     75     2  WS-IPADDR-DATA. . . . . . . . . . . . . . . BLW=00000  007   0 000 007   DS 0CL15        Group          R             
+     76       3  WS-I-IPADDR . . . . . . . . . . . . . . . BLW=00000  007   0 000 007   DS 15C          Display                      
+     77     2  WS-KEYREAD-DATA . . . . . . . . . . . . . . BLW=00000  007   0 000 007   DS 0CL65        Group          R             
+     78       3  WS-I-KEYREAD. . . . . . . . . . . . . . . BLW=00000  007   0 000 007   DS 65C          Display                      
+     79     2  WS-INSERT-DATA. . . . . . . . . . . . . . . BLW=00000  007   0 000 007   DS 0CL65        Group          R             
+     80       3  WS-I-INSERT-KEY . . . . . . . . . . . . . BLW=00000  007   0 000 007   DS 65C          Display                      
+     81     2  WS-DELETE-DATA. . . . . . . . . . . . . . . BLW=00000  007   0 000 007   DS 0CL65        Group          R             
+     82       3  WS-I-DELETE-KEY . . . . . . . . . . . . . BLW=00000  007   0 000 007   DS 65C          Display                      
+     83   1  WS-I. . . . . . . . . . . . . . . . . . . . . BLW=00000  050               DS 5C           Disp-Num                     
+     84   1  WS-J. . . . . . . . . . . . . . . . . . . . . BLW=00000  058               DS 2C           Binary                       
+     85   1  Q . . . . . . . . . . . . . . . . . . . . . . BLW=00000  060               DS 2C           Binary                       
+     86   1  R . . . . . . . . . . . . . . . . . . . . . . BLW=00000  068               DS 2C           Binary                       
+     87   1  WS-UPDATE . . . . . . . . . . . . . . . . . . BLW=00000  070               DS 0CL47        Group                        
+     88     2  UPDATE-STAT-ALT-KEY . . . . . . . . . . . . BLW=00000  070   0 000 000   DS 32C          Display                      
+     89     2  UPDATE-TOKN-SSMVSIPA. . . . . . . . . . . . BLW=00000  090   0 000 020   DS 15C          Display                      
+     90   1  WS-RN-CNT . . . . . . . . . . . . . . . . . . BLW=00000  0A0               DS 4C           Disp-Num                     
+     92   1  MONITOR-FILE-STATUS . . . . . . . . . . . . . BLW=00000  0A8               DS 0CL2         Group                        
+     93     2  STA-IN-STAT1. . . . . . . . . . . . . . . . BLW=00000  0A8   0 000 000   DS 1C           Display                      
+     94     2  STA-IN-STAT2. . . . . . . . . . . . . . . . BLW=00000  0A9   0 000 001   DS 1C           Display                      
+     96   1  UPDATES-STATUS. . . . . . . . . . . . . . . . BLW=00000  0B0               DS 0CL2         Group                        
+     97     2  UPD-OUT-STAT1 . . . . . . . . . . . . . . . BLW=00000  0B0   0 000 000   DS 1C           Display                      
+     98     2  UPD-OUT-STAT2 . . . . . . . . . . . . . . . BLW=00000  0B1   0 000 001   DS 1C           Display                      
+    100   1  WS-IP-NODE. . . . . . . . . . . . . . . . . . BLW=00000  0B8               DS 3C           Disp-Num                     
+    101   1  WS-SWITCHES . . . . . . . . . . . . . . . . . BLW=00000  0C0               DS 0CL3         Group                        
+    102     2  WS-EOF-SW . . . . . . . . . . . . . . . . . BLW=00000  0C0   0 000 000   DS 1C           Display                      
+    103     88 END-OF-MONITOR. . . . . . . . . . . . . . .                                                                           
+    104     2  WS-UPDATES-SW . . . . . . . . . . . . . . . BLW=00000  0C1   0 000 001   DS 1C           Display                      
+    105     88 NO-MORE-UPDATES . . . . . . . . . . . . . .                                                                           
+    106     2  WS-UPDATED-SW . . . . . . . . . . . . . . . BLW=00000  0C2   0 000 002   DS 1C           Display                      
+    107     88 RECORD-UPDATED. . . . . . . . . . . . . . .                                                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page    18                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000034 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000544 FOR LINE 2                                                                                               
+ PBL2    AT LOCATION 001554 FOR LINE 416                                                                                             
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |    
+ 00011C  (LIT+32)     4040F0F0 F0F0F00C                                                        |  00000.                        |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page    19                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000130 FOR 0002C3 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000158  (LIT+0)      FFFFFFFC 00001000 40000026 00000119 4000000A 40000000 00000001 00000000  |........ ....... ... ...........|    
+ 000178  (LIT+32)     D9C5C1C4 40D5C5E7 E3408496 95854081 86A38599 40C48999 8583A340 D9C5C1C4  |READ NEXT done after Direct READ|    
+ 000198  (LIT+64)     61E2E3C1 D9E35C5C 5C5C5C5C 5C5C5C5C E5E2C1D4 D4E2F0F3 E2E8E2D6 E4E34040  |/START**********VSAMMS03SYSOUT  |    
+ 0001B8  (LIT+96)     C9C7E9E2 D9E3C3C4 E2E3C1D9 E3C140E2 E3C1D9E3 D740D7D9 D6C7D9D4 40D9C5C1  |IGZSRTCDSTARTA STARTP PROGRM REA|    
+ 0001D8  (LIT+128)    C4D5E7E3 D2E8D9C5 C1C4405C C5D5C45C 40405C5C 40F0F4F0 F0D9D501 000F1F00  |DNXTKYREAD *END*  ** 0400RN.....|    
+ 0001F8  (LIT+160)    00013400 00000200 00012C00 00000100 00013000 00000100 00000000 00000000  |................................|    
+ 000218  (LIT+192)    00000000 00000000 00000000 00000000 00000000 00000000 00000080 000000C4  |...............................D|    
+ 000238  (LIT+224)    89998583 A340D985 81844096 8640D496 9589A396 99409996 A6404094 81A38388  |irect Read of Monitor row  match|    
+ 000258  (LIT+256)    89958740 C1C9E740 D7999687 407E40C4 89998583 A340D985 81844096 8640D496  |ing AIX Prog = Direct Read of Mo|    
+ 000278  (LIT+288)    9589A396 99409996 A6404094 81A38388 89958740 D2C5E840 7E404099 85839699  |nitor row  matching KEY =  recor|    
+ 000298  (LIT+320)    84A24084 96958540 8186A385 9940C489 998583A3 40D9C5C1 C4E2E3C1 D9E3406E  |ds done after Direct READSTART >|    
+ 0002B8  (LIT+352)    407E40C1 D3E3C5D9 D5C1E3C5 40D2C5E8 407A4040 4F60606E 40D4D6D5 C9E3D6D9  | = ALTERNATE KEY :  |--> MONITOR|    
+ 0002D8  (LIT+384)    60C6C9D3 C560E2E3 C1E3E4E2 407E40E2 E3C1D9E3 406E407E 40D7D9C9 D4C1D9E8  |-FILE-STATUS = START > = PRIMARY|    
+ 0002F8  (LIT+416)    40D2C5E8 407A4040 C5999996 99409985 81848995 8740D496 9589A396 997A40C5  | KEY :  Error reading Monitor: E|    
+ 000318  (LIT+448)    99999699 40969785 95899587 40D49695 89A39699 7A40D9C5 C1C440D5 C5E7E340  |rror opening Monitor: READ NEXT |    
+ 000338  (LIT+480)    96864040 00000000 00000000 00000010 01400004 01000004 02000004 00000008  |of  ............. ..............|    
+ 000358  (LIT+512)    00000020 00004000 00000000 00000000 00000000 00004000 00000025 C00001C0  |...... ............... .........|    
+ 000378  (LIT+544)    00080800 00280078 40000180 00400002 80008000 02800080 00018000 01400000  |........ .... ............... ..|    
+ 000398  (LIT+576)    03080000 2800BA40 00000509 00012C00 50FF0408 00000000 00005009 00012C00  |....... ........&.........&.....|    
+ 0003B8  (LIT+608)    00400000 000040C0 00014000 08080000 28007802 C0000808 00002800 78090001  |. .... ... .....................|    
+ 0003D8  (LIT+640)    38001209 00013800 00090001 2C00A809 00013800 00090001 340000             |..............y............     |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000112 000698 CONTINUE                      000117 0006A0 PERFORM                       000120 0006C0 MOVE                          
+ 000121 0006CE PERFORM                       000123 0006E8 ACCEPT                        000124 0006FA ADD                           
+ 000125 000718 DIVIDE                        000126 000772 IF                            000127 000788 DISPLAY                       
+ 000129 00079E EVALUATE                      000130 0007A2 WHEN                          000131 0007BC PERFORM                       
+ 000133 0007E4 WHEN                          000134 0007FE PERFORM                       000136 000826 WHEN                          
+ 000137 000840 PERFORM                       000139 000868 WHEN                          000140 000882 PERFORM                       
+ 000142 0008AA WHEN                          000143 0008C4 PERFORM                       000145 0008EC WHEN                          
+ 000146 000906 PERFORM                       000148 00092E WHEN                          000149 000932 CONTINUE                      
+ 000152 000942 GOBACK                        000154 000952 PERFORM                       000157 000972 GO                            
+ 000159 00097E CONTINUE                      000162 000986 EXIT                          000168 00098E OPEN                          
+ 000170 0009AA OPEN                          000172 0009CC IF                            000173 0009E2 MOVE                          
+ 000174 0009F8 STRING                        000179 000A0C WRITE                         000180 000A38 GO                            
+ 000182 000A48 CONTINUE                      000185 000A50 EXIT                          000191 000A5E CLOSE                         
+ 000193 000A80 CLOSE                         000195 000A9C CONTINUE                      000198 000AA4 EXIT                          
+ 000204 000AB2 MOVE                          000206 000ACC WRITE                         000207 000AF8 MOVE                          
+ 000208 000B0E STRING                        000213 000B22 WRITE                         000214 000B4E MOVE                          
+ 000216 000B68 WRITE                         000217 000B94 MOVE                          000218 000B9C MOVE                          
+ 000219 000BAA READ                          000223 000BEC IF                            000224 000C00 MOVE                          
+ 000225 000C16 STRING                        000230 000C2A WRITE                         000231 000C56 GO                            
+ 000233 000C66 MOVE                          000235 000C84 WRITE                         000236 000CB0 CONTINUE                      
+ 000239 000CB8 EXIT                          000245 000CC6 MOVE                          000247 000CE0 WRITE                         
+ 000248 000D0C MOVE                          000250 000D26 WRITE                         000251 000D52 MOVE                          
+ 000253 000D6C WRITE                         000254 000D98 MOVE                          000256 000DA0 READ                          
+ 000259 000DE2 IF                            000260 000DF6 MOVE                          000261 000E0C STRING                        
+ 000266 000E20 WRITE                         000267 000E4C GO                            000269 000E5C MOVE                          
+ 000271 000E7A WRITE                         000272 000EA6 CONTINUE                      000275 000EAE EXIT                          
+ 000281 000EBC MOVE                          000283 000ED6 WRITE                         000285 000F02 MOVE                          
+ 000287 000F18 MOVE                          000288 000F26 STRING                        000295 000F40 WRITE                         
+ 000296 000F6C MOVE                          000298 000F86 WRITE                         000300 000FB2 PERFORM                       
+ 000302 000FC8 READ                          000305 00100A IF                            000306 00101E MOVE                          
+ 000307 001034 STRING                        000312 001048 WRITE                         000313 001074 GO                            
+ 000315 001084 MOVE                          000317 0010A2 WRITE                         000318 0010CE END-PERFORM                   
+ 000320 001100 CONTINUE                      000323 001108 EXIT                          000329 001116 MOVE                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page    20                
+0000331 001130 WRITE                         000332 00115C MOVE                          000333 001172 STRING                        
+ 000338 001186 WRITE                         000339 0011B2 MOVE                          000341 0011CC WRITE                         
+ 000342 0011F8 MOVE                          000343 001200 MOVE                          000344 00120E READ                          
+ 000348 001254 IF                            000349 001268 MOVE                          000350 00127E STRING                        
+ 000355 001292 WRITE                         000356 0012BE GO                            000358 0012CE MOVE                          
+ 000360 0012EC WRITE                         000361 001318 MOVE                          000362 00132E STRING                        
+ 000366 001342 WRITE                         000367 00136E CONTINUE                      000370 001376 EXIT                          
+ 000376 001384 MOVE                          000378 00139E WRITE                         000379 0013CA MOVE                          
+ 000380 0013E0 STRING                        000385 0013F4 WRITE                         000386 001420 MOVE                          
+ 000388 00143A WRITE                         000389 001466 MOVE                          000390 00146E MOVE                          
+ 000392 00147C START                         000395 0014A6 IF                            000396 0014BA MOVE                          
+ 000397 0014D0 STRING                        000402 0014E4 WRITE                         000403 001510 GO                            
+ 000405 001520 CONTINUE                      000408 001528 EXIT                          000414 001536 MOVE                          
+ 000416 001550 WRITE                         000417 00157C MOVE                          000418 001592 STRING                        
+ 000423 0015A6 WRITE                         000424 0015D2 MOVE                          000426 0015EC WRITE                         
+ 000427 001618 MOVE                          000428 001620 MOVE                          000429 00162E START                         
+ 000432 001658 IF                            000433 00166C MOVE                          000434 001682 STRING                        
+ 000439 001696 WRITE                         000440 0016C2 GO                            000442 0016D2 CONTINUE                      
+ 000445 0016DA EXIT                          000451 0016E8 GOBACK                                                                    
+0                                                                                                                                    
+   DEBUGINF TABLE LOCATED AT 001774 FOR 000048 BYTES                                                                                 
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page    21                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  BASE LOCATORS FOR FILES                                                                                  
+                    00013C  TEST INFORMATION AREA                                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page    22                
+0                   000164  FCB CELLS                                                                                                
+                    00016C  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  000000E0  VARIABLE-LENGTH CELLS                                                                                    
+                  000000F8  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000120  PERFORM SAVE CELLS                                                                                       
+                  00000148  TEMPORARY STORAGE-2                                                                                      
+                  00000170  CALL STATEMENT PROGRAM NAME                                                                              
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000180 BYTES                                                                                       
+ DCB00001 WILL BE ALLOCATED FOR 00000060 BYTES                                                                                       
+ FCB00001 WILL BE ALLOCATED FOR 00000114 BYTES                                                                                       
+ FCB00002 WILL BE ALLOCATED FOR 00000114 BYTES                                                                                       
+ GDT00001 WILL BE ALLOCATED FOR 000000A0 BYTES                                                                                       
+ RCD00001 WILL BE ALLOCATED FOR 00000119 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 000000C3 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 00000210 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 00180C                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 001C84 FOR LENGTH 000120                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VSAMMS03  Date 04/25/2021  Time 22:05:38   Page    23                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+                                                                                                                                     
+     19  IGYGR1216-I   A "RECORDING MODE" of "F" was assumed for file "REPOUT".                                                      
+                                                                                                                                     
+     71  IGYDS1073-I   "WS-METHOD-DATA" redefined a larger item.                                                                     
+                                                                                                                                     
+     73  IGYDS1073-I   "WS-PROGRAM-DATA" redefined a larger item.                                                                    
+                                                                                                                                     
+     75  IGYDS1073-I   "WS-IPADDR-DATA" redefined a larger item.                                                                     
+                                                                                                                                     
+     77  IGYDS1073-I   "WS-KEYREAD-DATA" redefined a larger item.                                                                    
+                                                                                                                                     
+     79  IGYDS1073-I   "WS-INSERT-DATA" redefined a larger item.                                                                     
+                                                                                                                                     
+     81  IGYDS1073-I   "WS-DELETE-DATA" redefined a larger item.                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:      10           8              2                                                                                         
+-* Statistics for COBOL program VSAMMS03:                                                                                            
+ *    Source records = 453                                                                                                           
+ *    Data Division statements = 73                                                                                                  
+ *    Procedure Division statements = 147                                                                                            
+0End of compilation 1,  program VSAMMS03,  highest severity 4.                                                                       
+0Return code 4                                                                                                                       
