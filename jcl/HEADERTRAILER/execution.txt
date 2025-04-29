@@ -1,0 +1,39 @@
+   _____   _                       _   ______                                       
+  / ____| | |                     | | |  ____|                                     
+ | |      | |   ___    _   _    __| | | |__     _ __    __ _   _ __ ___     ___    
+ | |      | |  / _ \  | | | |  / _` | |  __|   | '__|  / _` | | '_ ` _ \   / _ \
+ | |____  | | | (_) | | |_| | | (_| | | |      | |    | (_| | | | | | | | |  __/
+  \_____| |_|  \___/   \__,_|  \__,_| |_|      |_|     \__,_| |_| |_| |_|  \___|
+
+08:32:29.488 [main] INFO  o.s.boot.StartupInfoLogger.logStarting   50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 4176004 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/HEADERTRAILER/HEADERTRAILER/target/HEADERTRAILER-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/HEADERTRAILER/HEADERTRAILER)
+08:32:29.492 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo  654 - No active profile set, falling back to 1 default profile: "default"
+08:32:31.545 [main] INFO  o.s.boot.StartupInfoLogger.logStarted   56 - Started CFApplication in 3.121 seconds (process running for 3.753)
+08:32:31.560 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo  107 - CFDataConnectIO version : 5.0.0.21
+08:32:31.617 [main] INFO  c.c.a.u.d.plus.CFDcioConfiguration.cfDataConnectIOPlusInfo   28 - CFDataConnectIOPlus version : 5.0.0.21
+08:32:31.648 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.initDatabase  189 - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+08:32:32.447 [main] INFO  o.s.b.a.b.JobLauncherApplicationRunner.run  168 - Running default command line with: []
+08:32:32.524 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  154 - Job: [FlowJob: [name=HEADERTRAILER]] launched with the following parameters: [{}]
+08:32:32.598 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sort010Decider]
+08:32:32.655 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sort010Decider] executed in 54ms
+08:32:32.680 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [readHeadertrailerSort010SortInput]
+08:32:32.757 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [readHeadertrailerSort010SortInput] executed in 76ms
+08:32:32.776 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [sortHeadertrailerSort010Process]
+08:32:32.820 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [sortHeadertrailerSort010Process] executed in 42ms
+08:32:32.842 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [writeHeadertrailerSort010SortOutput]
+08:32:32.918 [main] INFO  c.c.a.t.HeadertrailerSort010OutputWriter.afterStep  120 - STEPNAME: HEADERTRAILERSORT010 Execution completed, number of RECORDS - IN: 93,  OUT: 93
+08:32:32.923 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [writeHeadertrailerSort010SortOutput] executed in 79ms
+08:32:32.940 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [printSummary]
+08:32:32.958 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  255 - JOB : HEADERTRAILER ENDED -  0000
+08:32:32.959 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  259 - 
+
+Stepwise Execution Summary :
++------------------------------------------------------------+
+| STEPNAME     | PROGRAM   | RC          | ELAPSED           |
+|              |           |             | HH:MM:SS:ss       |
++------------------------------------------------------------+
+| SORT010      | SORT      | 00          | 00:00:00:314      |
++------------------------------------------------------------+
+  
+08:32:32.967 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [printSummary] executed in 25ms
+08:32:32.987 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  161 - Job: [FlowJob: [name=HEADERTRAILER]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 429ms
+08:32:32.998 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.shutdownDatabase  220 - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'

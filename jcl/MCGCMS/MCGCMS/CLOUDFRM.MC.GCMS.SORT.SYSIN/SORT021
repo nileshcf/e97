@@ -1,0 +1,13 @@
+  INCLUDE COND=(147,2,ZD,EQ,02,OR,                                              
+                147,2,ZD,EQ,03)                                                 
+  INREC FIELDS=(223,11,ZD,PD,                     MEMBER ID                     
+                C'M',                             SETTLE INDIC                  
+                075,01,                           DIRECTION                     
+                076,03,                           CURRENCY                      
+                234,1,CHANGE=(4,C'X',C'XSIF'),    FIELD                         
+                            NOMATCH=(C'SIF '),                                  
+                107,01,C'R',                      DR/CR                         
+                108,11,                           AMOUNT                        
+                141,06)                           COUNT                         
+  SORT FIELDS=(1,17,CH,A)                                                       
+  SUM FIELDS=(18,11,PD,29,06,PD)                                                

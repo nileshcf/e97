@@ -1,0 +1,583 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 09/17/2019  Time 08:02:53   Page     1                
+0Invocation parameters:                                                                                                              
+  LIB,OBJECT,RENT,RES,APOST,TRUNC(BIN),,ARITH(EXTEND),OFFSET,NOFDUMP,SOURCE,MAP                                                      
+                                                                                                                                     
+         IGYOS4046-I   The "RESIDENT" option specification is no longer required.  The resident runtime library support is always    
+                       used.                                                                                                         
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4008-W   The "NOFDUMP" compiler option was specified, but is not supported.  The option was discarded.                 
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    APOST                                                                                                                            
+    ARITH(EXTEND)                                                                                                                    
+  NOAWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+  NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 09/17/2019  Time 08:02:53   Page     2                
+0 NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+  NOTEST                                                                                                                             
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SEARCH1   Date 09/17/2019  Time 08:02:53   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000001         000100 IDENTIFICATION DIVISION.                                         00010047                                   
+   000002         000200 PROGRAM-ID.    SEARCH1.                                          00020047                                   
+   000003         000300*---------------------------------------------                    00030047                                   
+   000004         000400 DATE-WRITTEN. MAY 2017.                                          00040047                                   
+   000005         000500 ENVIRONMENT DIVISION.                                            00050047                                   
+   000006         000600 INPUT-OUTPUT SECTION.                                            00060047                                   
+   000007         000700 FILE-CONTROL.                                                    00070047                                   
+   000008         000800 DATA DIVISION.                                                   00080047                                   
+   000009         000900 FILE SECTION.                                                    00090047                                   
+   000010         001000 WORKING-STORAGE SECTION.                                         00100047                                   
+   000011         001100 77 WS-INITIAL   PIC S9(08) COMP VALUE 1000.                      00110047 BLW=00000+000         4C          
+   000012         001200 77 WS-INCREMENT PIC S9(08) COMP VALUE 100.                       00120047 BLW=00000+008         4C          
+   000013         001300 77 WS-SUB       PIC S9(08) COMP VALUE 1.                         00130047 BLW=00000+010         4C          
+   000014         001400 77 WS-SUB2      PIC S9(08) COMP VALUE 1.                         00140047 BLW=00000+018         4C          
+   000015         001500 77 WS-SUB3      PIC S9(08) COMP VALUE 1.                         00150047 BLW=00000+020         4C          
+   000016         001600 77 WS-123-TOGGLE PIC S9(04) COMP VALUE 1.                        00160047 BLW=00000+028         2C          
+   000017         001700 77 WS-TOGGLE-MAX PIC S9(04) COMP VALUE 2.                        00170047 BLW=00000+030         2C          
+   000018         001800 77 WS-COUNTER   PIC S9(08) COMP VALUE 50.                        00180047 BLW=00000+038         4C          
+   000019         001900 77 WS-SEARCH-ITEM PIC 9(08) COMP.                                00190047 BLW=00000+040         4C          
+   000020         002000 01 WT-FIELDS.                                                    00200047 BLW=00000+048         0CL170000   
+   000021         002100    05 WS-CODE-CTRL OCCURS 1 TO 10000                             00210047 BLW=00000+048,0000000 0CL17       
+   000022         002200                    DEPENDING ON WS-COUNTER                       00220047 18                                
+   000023         002300           ASCENDING KEY IS WS-CODE-VALUE                         00230047 26                                
+   000024         002400                            WS-CODE-TOGGLE                        00240047 27                                
+   000025         002500           INDEXED BY WS-CODE-INDEX.                              00250047 IDX=00001+000                     
+   000026         002600       10 WS-CODE-VALUE   PIC 9(08) COMP.                         00260047 BLW=00000+048,0000000 4C          
+   000027         002700       10 WS-CODE-TOGGLE  PIC 9(04) COMP.                         00270047 BLW=00000+04C,0000004 2C          
+   000028         002800       10 WS-CODE-DESC    PIC X(03).                              00280047 BLW=00000+04E,0000006 3C          
+   000029         002900       10 WS-CODE-MARKER  PIC 9(08).                              00290047 BLW=00000+051,0000009 8C          
+   000030         003000                                                                  00300047                                   
+   000031         003100 01  WS-MISC-DATA.                                                00310047 BLW=00041+858         0CL293      
+   000032         003200     05  i                          PIC S9(04) BINARY.            00320047 BLW=00041+858,0000000 2C          
+   000033         003300     05  CMD-CA-HOME-SID-BID-CODE   PIC X(05).                    00330047 BLW=00041+85A,0000002 5C          
+   000034         003400     05  WS-TBLS.                                                 00340047 BLW=00041+85F,0000007 0CL286      
+   000035         003500         10  FILLER           PIC X(11) VALUE '00001AAAAAA'.      00350047 BLW=00041+85F,0000007 11C         
+   000036         003600         10  FILLER           PIC X(11) VALUE '00002BBBBBB'.      00360047 BLW=00041+86A,0000012 11C         
+   000037         003700         10  FILLER           PIC X(11) VALUE '00003CCCCCC'.      00370047 BLW=00041+875,000001D 11C         
+   000038         003800         10  FILLER           PIC X(11) VALUE '00004DDDDDD'.      00380047 BLW=00041+880,0000028 11C         
+   000039         003900         10  FILLER           PIC X(11) VALUE '00005EEEEEE'.      00390047 BLW=00041+88B,0000033 11C         
+   000040         004000         10  FILLER           PIC X(11) VALUE '00006FFFFFF'.      00400047 BLW=00041+896,000003E 11C         
+   000041         004100         10  FILLER           PIC X(11) VALUE '00007GGGGGG'.      00410047 BLW=00041+8A1,0000049 11C         
+   000042         004200         10  FILLER           PIC X(11) VALUE '00008HHHHHH'.      00420047 BLW=00041+8AC,0000054 11C         
+   000043         004300         10  FILLER           PIC X(11) VALUE '00009IIIIII'.      00430047 BLW=00041+8B7,000005F 11C         
+   000044         004400         10  FILLER           PIC X(11) VALUE '00010JJJJJJ'.      00440047 BLW=00041+8C2,000006A 11C         
+   000045         004500         10  FILLER           PIC X(11) VALUE '00011KKKKKK'.      00450047 BLW=00041+8CD,0000075 11C         
+   000046         004600         10  FILLER           PIC X(11) VALUE '00012LLLLLL'.      00460047 BLW=00041+8D8,0000080 11C         
+   000047         004700         10  FILLER           PIC X(11) VALUE '00013MMMMMM'.      00470047 BLW=00041+8E3,000008B 11C         
+   000048         004800         10  FILLER           PIC X(11) VALUE '00014NNNNNN'.      00480047 BLW=00041+8EE,0000096 11C         
+   000049         004900         10  FILLER           PIC X(11) VALUE '00015OOOOOO'.      00490047 BLW=00041+8F9,00000A1 11C         
+   000050         005000         10  FILLER           PIC X(11) VALUE '00016PPPPPP'.      00500047 BLW=00041+904,00000AC 11C         
+   000051         005100         10  FILLER           PIC X(11) VALUE '00017QQQQQQ'.      00510047 BLW=00041+90F,00000B7 11C         
+   000052         005200         10  FILLER           PIC X(11) VALUE '00018RRRRRR'.      00520047 BLW=00041+91A,00000C2 11C         
+   000053         005300         10  FILLER           PIC X(11) VALUE '00019SSSSSS'.      00530047 BLW=00041+925,00000CD 11C         
+   000054         005400         10  FILLER           PIC X(11) VALUE '00020TTTTTT'.      00540047 BLW=00041+930,00000D8 11C         
+   000055         005500         10  FILLER           PIC X(11) VALUE '00021UUUUUU'.      00550047 BLW=00041+93B,00000E3 11C         
+   000056         005600         10  FILLER           PIC X(11) VALUE '00022VVVVVV'.      00560047 BLW=00041+946,00000EE 11C         
+   000057         005700         10  FILLER           PIC X(11) VALUE '00023WWWWWW'.      00570047 BLW=00041+951,00000F9 11C         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SEARCH1   Date 09/17/2019  Time 08:02:53   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000058         005800         10  FILLER           PIC X(11) VALUE '00024XXXXXX'.      00580047 BLW=00041+95C,0000104 11C         
+   000059         005900         10  FILLER           PIC X(11) VALUE '00025YYYYYY'.      00590047 BLW=00041+967,000010F 11C         
+   000060         006000         10  FILLER           PIC X(11) VALUE '00026ZZZZZZ'.      00600047 BLW=00041+972,000011A 11C         
+   000061         006100     05  FILLER REDEFINES WS-TBLS OCCURS 26 TIMES.                00610047 BLW=00041+85F,0000007 0CL11       
+                                                                                                   34                                
+   000062         006200         10  WS-SBID          PIC 9(05).                          00620047 BLW=00041+85F,0000007 5C          
+   000063         006300         10  WS-ECP           PIC X(06).                          00630047 BLW=00041+864,000000C 6C          
+   000064         006400                                                                  00640047                                   
+   000065         006500 01  WS-SBID-GROUP-TBL.                                           00650047 BLW=00041+980         0CL22000    
+   000066         006600     05 WS-SBID-GROUP-ENTRIES OCCURS 1 TO 2000 TIMES              00660047 BLW=00041+980,0000000 0CL11       
+   000067         006700        DEPENDING ON WS-SBID-COUNT                                00670047 73                                
+   000068         006800        ASCENDING KEY WS-TBL-SBID                                 00680047 70                                
+   000069         006900        INDEXED BY WS-SBID-INDEX.                                 00690047 IDX=00002+000                     
+   000070         007000        10 WS-TBL-SBID                    PIC 9(05).              00700047 BLW=00041+980,0000000 5C          
+   000071         007100        10 WS-TBL-ECP                     PIC X(06).              00710047 BLW=00041+985,0000005 6C          
+   000072         007200                                                                  00720047                                   
+   000073         007300 01 WS-SBID-COUNT                   PIC S9(9) COMP VALUE ZERO.    00730047 BLW=00046+F70         4C          
+                                                                                                   IMP                               
+   000074         007400 01 WS-SBID-COUNT-MAX               PIC S9(9) COMP VALUE +2000.   00740047 BLW=00046+F78         4C          
+   000075         007500 LINKAGE SECTION.                                                 00750047                                   
+   000076         007600 01 LK-FILLER.                                                    00760047 BLL=00001+000         0CL3        
+   000077         007700    05 LK-BIGGER.                                                 00770047 BLL=00001+000,0000000 0CL3        
+   000078         007800       10 LK-BEFORE-FILLER PIC X.                                 00780047 BLL=00001+000,0000000 1C          
+   000079         007900       10 FILLER  PIC X.                                          00790047 BLL=00001+001,0000001 1C          
+   000080         008000          88 FILLER88-YES  VALUE 'Y'.                             00800047                                   
+   000081         008100       10 LK-AFTER-FILLER PIC X.                                  00810047 BLL=00001+002,0000002 1C          
+   000082         008200 PROCEDURE DIVISION.                                              00820047                                   
+   000083         008300*    ----                                                         00830047                                   
+   000084         008400     MOVE 1000 TO WS-INITIAL                                      00840047 11                                
+   000085         008500     MOVE 5901 TO WS-COUNTER                                      00850047 18                                
+   000086         008600     PERFORM VARYING WS-SUB FROM 1 BY 1                           00860047 13                                
+   000087         008700      UNTIL WS-SUB > WS-COUNTER                                   00870047 13 18                             
+   000088      1  008800         ADD WS-INCREMENT    TO WS-INITIAL                        00880047 12 11                             
+   000089      1  008900         MOVE WS-INITIAL     TO WS-CODE-VALUE(WS-SUB)             00890047 11 26 13                          
+   000090      1  009000         MOVE WS-SUB         TO WS-CODE-MARKER(WS-SUB)            00900047 13 29 13                          
+   000091      1  009100         MOVE 1              TO WS-CODE-TOGGLE(WS-SUB)            00910047 27 13                             
+   000092      1  009200         PERFORM 0005-TOGGLE THROUGH 0005-EXIT                    00920047 128 143                           
+   000093      1  009300         ADD 1               TO WS-123-TOGGLE                     00930047 16                                
+   000094         009400     END-PERFORM                                                  00940047                                   
+   000095         009500     MOVE  1        TO WS-SUB                                     00950047 13                                
+   000096         009600                       WS-123-TOGGLE                              00960047 16                                
+   000097         009700     DISPLAY 'SEARCH DUPLICATES '                                 00970047                                   
+   000098         009800     DISPLAY '--------------------'                               00980047                                   
+   000099         009900     PERFORM 0010-FILL-DETAIL THROUGH 0010-EXIT                   00990047 145 162                           
+   000100         010000       UNTIL WS-SUB > 5901                                        01000047 13                                
+   000101         010100*    ----                                                         01010047                                   
+   000102         010200     MOVE +26           TO WS-SBID-COUNT                          01020047 73                                
+   000103         010300     SET  WS-SBID-INDEX TO +1                                     01030047 69                                
+   000104         010400     MOVE '00019'       TO CMD-CA-HOME-SID-BID-CODE               01040047 33                                
+   000105         010500                                                                  01050047                                   
+   000106         010600     PERFORM VARYING i FROM +1 BY +1                              01060047 32                                
+   000107         010700       UNTIL i > +26                                              01070047 32                                
+   000108      1  010800        MOVE WS-SBID (i) TO WS-TBL-SBID (WS-SBID-INDEX)           01080047 62 32 70 69                       
+   000109      1  010900        MOVE WS-ECP  (i) TO WS-TBL-ECP  (WS-SBID-INDEX)           01090047 63 32 71 69                       
+   000110      1  011000        SET WS-SBID-INDEX UP BY +1                                01100047 69                                
+   000111         011100     END-PERFORM                                                  01110047                                   
+   000112         011200                                                                  01120047                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SEARCH1   Date 09/17/2019  Time 08:02:53   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000113         011300     SEARCH ALL WS-SBID-GROUP-ENTRIES                             01130047 66                                
+   000114         011400        AT END                                                    01140047                                   
+   000115      1  011500           DISPLAY 'CMD-CA-HOME-SID-BID-CODE: '                   01150047                                   
+   000116      1  011600                    CMD-CA-HOME-SID-BID-CODE                      01160047 33                                
+   000117      1  011700                   ', NOT found'                                  01170047                                   
+   000118         011800        WHEN WS-TBL-SBID(WS-SBID-INDEX) =                         01180047 70 69                             
+   000119         011900             CMD-CA-HOME-SID-BID-CODE                             01190047 33                                
+   000120      1  012000           DISPLAY 'CMD-CA-HOME-SID-BID-CODE: '                   01200047                                   
+   000121      1  012100                    CMD-CA-HOME-SID-BID-CODE                      01210047 33                                
+   000122      1  012200                   ', found. ECP = '                              01220047                                   
+   000123      1  012300                   WS-TBL-ECP(WS-SBID-INDEX)                      01230047 71 69                             
+   000124         012400     END-SEARCH.                                                  01240047                                   
+   000125         012500*    ----                                                         01250047                                   
+   000126         012600     GOBACK.                                                      01260047                                   
+   000127         012700*    ----                                                         01270047                                   
+   000128         012800 0005-TOGGLE.                                                     01280047                                   
+   000129         012900         IF WS-123-TOGGLE > WS-TOGGLE-MAX THEN                    01290047 16 17                             
+   000130      1  013000          PERFORM VARYING WS-SUB2 FROM 1 BY 1                     01300047 14                                
+   000131      1  013100            UNTIL WS-SUB2 > WS-TOGGLE-MAX                         01310047 14 17                             
+   000132      2  013200              SUBTRACT WS-SUB2 FROM WS-SUB GIVING WS-SUB3         01320047 14 13 15                          
+   000133      2  013300              MOVE WS-CODE-VALUE(WS-SUB)                          01330047 26 13                             
+   000134      2  013400                TO WS-CODE-VALUE(WS-SUB3)                         01340047 26 15                             
+   000135      1  013500          END-PERFORM                                             01350047                                   
+   000136      1  013600          MOVE  ZERO        TO WS-123-TOGGLE                      01360047 IMP 16                            
+   000137      1  013700          ADD   1           TO WS-TOGGLE-MAX                      01370047 17                                
+   000138      1  013800          IF WS-TOGGLE-MAX > 5 THEN                               01380047 17                                
+   000139      2  013900             MOVE 1 TO WS-TOGGLE-MAX                              01390047 17                                
+   000140      1  014000          END-IF                                                  01400047                                   
+   000141         014100         END-IF                                                   01410047                                   
+   000142         014200         CONTINUE.                                                01420047                                   
+   000143         014300 0005-EXIT.                                                       01430047                                   
+   000144         014400         EXIT.                                                    01440047                                   
+   000145         014500 0010-FILL-DETAIL.                                                01450047                                   
+   000146         014600     DISPLAY '** ' WS-SUB ' ** ' WS-CODE-VALUE(WS-SUB)            01460047 13 26 13                          
+   000147         014700             ' , '      WS-CODE-TOGGLE(WS-SUB)                    01470047 27 13                             
+   000148         014800             ' , '      WS-CODE-MARKER(WS-SUB)                    01480047 29 13                             
+   000149         014900     IF WS-123-TOGGLE > WS-TOGGLE-MAX THEN                        01490047 16 17                             
+   000150      1  015000           COMPUTE WS-SEARCH-ITEM = WS-SUB  * 100 + 1000          01500047 19 13                             
+   000151      1  015100           PERFORM 0100-SEARCH-ALL THRU 0100-EXIT                 01510047 179 190                           
+   000152      1  015200           MOVE  ZERO        TO WS-123-TOGGLE                     01520047 IMP 16                            
+   000153      1  015300          ADD   1           TO WS-TOGGLE-MAX                      01530047 17                                
+   000154      1  015400          IF WS-TOGGLE-MAX > 5 THEN                               01540047 17                                
+   000155      2  015500             MOVE 1 TO WS-TOGGLE-MAX                              01550047 17                                
+   000156      1  015600          END-IF                                                  01560047                                   
+   000157         015700     END-IF                                                       01570047                                   
+   000158         015800     ADD 1               TO WS-123-TOGGLE                         01580047 16                                
+   000159         015900                            WS-SUB                                01590047 13                                
+   000160         016000     CONTINUE.                                                    01600047                                   
+   000161         016100*    ----                                                         01610047                                   
+   000162         016200 0010-EXIT.                                                       01620047                                   
+   000163         016300     EXIT.                                                        01630047                                   
+   000164         016400*    ----                                                         01640047                                   
+   000165         016500 0011-FILL-DETAIL.                                                01650047                                   
+   000166         016600     IF WS-123-TOGGLE > 3 THEN                                    01660047 16                                
+   000167      1  016700           COMPUTE WS-SEARCH-ITEM = WS-SUB  * 100 + 1000          01670047 19 13                             
+   000168      1  016800                MOVE WS-SEARCH-ITEM TO WS-CODE-VALUE(WS-SUB)      01680047 19 26 13                          
+   000169      1  016900           PERFORM 0100-SEARCH-ALL THRU 0100-EXIT                 01690047 179 190                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SEARCH1   Date 09/17/2019  Time 08:02:53   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000170      1  017000           MOVE  ZERO        TO WS-123-TOGGLE                     01700047 IMP 16                            
+   000171         017100     END-IF                                                       01710047                                   
+   000172         017200     ADD 1               TO WS-123-TOGGLE                         01720047 16                                
+   000173         017300                            WS-SUB                                01730047 13                                
+   000174         017400     CONTINUE.                                                    01740047                                   
+   000175         017500*    ----                                                         01750047                                   
+   000176         017600 0011-EXIT.                                                       01760047                                   
+   000177         017700     EXIT.                                                        01770047                                   
+   000178         017800*    ----                                                         01780047                                   
+   000179         017900 0100-SEARCH-ALL.                                                 01790047                                   
+   000180         018000      SEARCH ALL  WS-CODE-CTRL                                    01800047 21                                
+   000181         018100        AT END                                                    01810047                                   
+   000182      1  018200           DISPLAY WS-SEARCH-ITEM ' NOT FOUND '                   01820047 19                                
+   000183         018300        WHEN WS-CODE-VALUE(WS-CODE-INDEX) = WS-SEARCH-ITEM        01830047 26 25 19                          
+   000184         018400         AND WS-CODE-TOGGLE(WS-CODE-INDEX) = 1                    01840047 27 25                             
+   000185      1  018500            DISPLAY ' SEARCHING ' WS-SEARCH-ITEM                  01850047 19                                
+   000186      1  018600                    ' TOGGLE ' WS-123-TOGGLE                      01860047 16                                
+   000187      1  018700                    ' ITEM FOUND ' WS-CODE-MARKER(WS-CODE-INDEX)  01870047 29 25                             
+   000188         018800      END-SEARCH                                                  01880047                                   
+   000189         018900      CONTINUE.                                                   01890047                                   
+   000190         019000 0100-EXIT.                                                       01900047                                   
+   000191         019100      EXIT.                                                       01910047                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SEARCH1   Date 09/17/2019  Time 08:02:53   Page     7                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       33   CMD-CA-HOME-SID-BID-CODE . . .  M104 116 119 121                                                                         
+       80   FILLER88-YES                                                                                                             
+       32   I. . . . . . . . . . . . . . .  M106 107 108 109                                                                         
+       81   LK-AFTER-FILLER                                                                                                          
+       78   LK-BEFORE-FILLER                                                                                                         
+       77   LK-BIGGER                                                                                                                
+       76   LK-FILLER                                                                                                                
+       21   WS-CODE-CTRL . . . . . . . . .  180                                                                                      
+       28   WS-CODE-DESC                                                                                                             
+       25   WS-CODE-INDEX. . . . . . . . .  183 184 187                                                                              
+       29   WS-CODE-MARKER . . . . . . . .  M90 148 187                                                                              
+       27   WS-CODE-TOGGLE . . . . . . . .  24 M91 147 184                                                                           
+       26   WS-CODE-VALUE. . . . . . . . .  23 M89 133 M134 146 M168 183                                                             
+       18   WS-COUNTER . . . . . . . . . .  22 M85 87                                                                                
+       63   WS-ECP . . . . . . . . . . . .  109                                                                                      
+       12   WS-INCREMENT . . . . . . . . .  88                                                                                       
+       11   WS-INITIAL . . . . . . . . . .  M84 M88 89                                                                               
+       31   WS-MISC-DATA                                                                                                             
+       62   WS-SBID. . . . . . . . . . . .  108                                                                                      
+       73   WS-SBID-COUNT. . . . . . . . .  67 M102                                                                                  
+       74   WS-SBID-COUNT-MAX                                                                                                        
+       66   WS-SBID-GROUP-ENTRIES. . . . .  113                                                                                      
+       65   WS-SBID-GROUP-TBL                                                                                                        
+       69   WS-SBID-INDEX. . . . . . . . .  M103 108 109 M110 118 123                                                                
+       19   WS-SEARCH-ITEM . . . . . . . .  M150 M167 168 182 183 185                                                                
+       13   WS-SUB . . . . . . . . . . . .  M86 87 89 90 90 91 M95 100 132 133 146 146 147 148 150 M159 167 168 M173                 
+       14   WS-SUB2. . . . . . . . . . . .  M130 131 132                                                                             
+       15   WS-SUB3. . . . . . . . . . . .  M132 134                                                                                 
+       71   WS-TBL-ECP . . . . . . . . . .  M109 123                                                                                 
+       70   WS-TBL-SBID. . . . . . . . . .  68 M108 118                                                                              
+       34   WS-TBLS. . . . . . . . . . . .  61                                                                                       
+       17   WS-TOGGLE-MAX. . . . . . . . .  129 131 M137 138 M139 149 M153 154 M155                                                  
+       16   WS-123-TOGGLE. . . . . . . . .  M93 M96 129 M136 149 M152 M158 166 M170 M172 186                                         
+       20   WT-FIELDS                                                                                                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SEARCH1   Date 09/17/2019  Time 08:02:53   Page     8                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      143   0005-EXIT. . . . . . . . . . .  E92                                                                                      
+      128   0005-TOGGLE. . . . . . . . . .  P92                                                                                      
+      162   0010-EXIT. . . . . . . . . . .  E99                                                                                      
+      145   0010-FILL-DETAIL . . . . . . .  P99                                                                                      
+      176   0011-EXIT                                                                                                                
+      165   0011-FILL-DETAIL                                                                                                         
+      190   0100-EXIT. . . . . . . . . . .  E151 E169                                                                                
+      179   0100-SEARCH-ALL. . . . . . . .  P151 P169                                                                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SEARCH1   Date 09/17/2019  Time 08:02:53   Page     9                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   SEARCH1                                                                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SEARCH1   Date 09/17/2019  Time 08:02:53   Page    10                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID SEARCH1-----------------------------------------------------------------------------------------------------*    
+     11   77 WS-INITIAL. . . . . . . . . . . . . . . . . . BLW=00000  000               DS 4C           Binary                       
+     12   77 WS-INCREMENT. . . . . . . . . . . . . . . . . BLW=00000  008               DS 4C           Binary                       
+     13   77 WS-SUB. . . . . . . . . . . . . . . . . . . . BLW=00000  010               DS 4C           Binary                       
+     14   77 WS-SUB2 . . . . . . . . . . . . . . . . . . . BLW=00000  018               DS 4C           Binary                       
+     15   77 WS-SUB3 . . . . . . . . . . . . . . . . . . . BLW=00000  020               DS 4C           Binary                       
+     16   77 WS-123-TOGGLE . . . . . . . . . . . . . . . . BLW=00000  028               DS 2C           Binary                       
+     17   77 WS-TOGGLE-MAX . . . . . . . . . . . . . . . . BLW=00000  030               DS 2C           Binary                       
+     18   77 WS-COUNTER. . . . . . . . . . . . . . . . . . BLW=00000  038               DS 4C           Binary         D             
+     19   77 WS-SEARCH-ITEM. . . . . . . . . . . . . . . . BLW=00000  040               DS 4C           Binary                       
+     20   1  WT-FIELDS . . . . . . . . . . . . . . . . . . BLW=00000  048               DS 0CL170000    Grp-VarLen                   
+     21     2  WS-CODE-CTRL. . . . . . . . . . . . . . . . BLW=00000  048   0 000 000   DS 0CL17        Group          O             
+     25        WS-CODE-INDEX . . . . . . . . . . . . . . . IDX=00001  000                               Index-Name                   
+     26       3  WS-CODE-VALUE . . . . . . . . . . . . . . BLW=00000  048   0 000 000   DS 4C           Binary                       
+     27       3  WS-CODE-TOGGLE. . . . . . . . . . . . . . BLW=00000  04C   0 000 004   DS 2C           Binary                       
+     28       3  WS-CODE-DESC. . . . . . . . . . . . . . . BLW=00000  04E   0 000 006   DS 3C           Display                      
+     29       3  WS-CODE-MARKER. . . . . . . . . . . . . . BLW=00000  051   0 000 009   DS 8C           Disp-Num                     
+     31   1  WS-MISC-DATA. . . . . . . . . . . . . . . . . BLW=00041  858               DS 0CL293       Group                        
+     32     2  I . . . . . . . . . . . . . . . . . . . . . BLW=00041  858   0 000 000   DS 2C           Binary                       
+     33     2  CMD-CA-HOME-SID-BID-CODE. . . . . . . . . . BLW=00041  85A   0 000 002   DS 5C           Display                      
+     34     2  WS-TBLS . . . . . . . . . . . . . . . . . . BLW=00041  85F   0 000 007   DS 0CL286       Group                        
+     35       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  85F   0 000 007   DS 11C          Display                      
+     36       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  86A   0 000 012   DS 11C          Display                      
+     37       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  875   0 000 01D   DS 11C          Display                      
+     38       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  880   0 000 028   DS 11C          Display                      
+     39       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  88B   0 000 033   DS 11C          Display                      
+     40       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  896   0 000 03E   DS 11C          Display                      
+     41       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  8A1   0 000 049   DS 11C          Display                      
+     42       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  8AC   0 000 054   DS 11C          Display                      
+     43       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  8B7   0 000 05F   DS 11C          Display                      
+     44       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  8C2   0 000 06A   DS 11C          Display                      
+     45       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  8CD   0 000 075   DS 11C          Display                      
+     46       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  8D8   0 000 080   DS 11C          Display                      
+     47       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  8E3   0 000 08B   DS 11C          Display                      
+     48       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  8EE   0 000 096   DS 11C          Display                      
+     49       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  8F9   0 000 0A1   DS 11C          Display                      
+     50       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  904   0 000 0AC   DS 11C          Display                      
+     51       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  90F   0 000 0B7   DS 11C          Display                      
+     52       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  91A   0 000 0C2   DS 11C          Display                      
+     53       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  925   0 000 0CD   DS 11C          Display                      
+     54       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  930   0 000 0D8   DS 11C          Display                      
+     55       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  93B   0 000 0E3   DS 11C          Display                      
+     56       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  946   0 000 0EE   DS 11C          Display                      
+     57       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  951   0 000 0F9   DS 11C          Display                      
+     58       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  95C   0 000 104   DS 11C          Display                      
+     59       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  967   0 000 10F   DS 11C          Display                      
+     60       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00041  972   0 000 11A   DS 11C          Display                      
+     61     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00041  85F   0 000 007   DS 0CL11        Group          R,O           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SEARCH1   Date 09/17/2019  Time 08:02:53   Page    11                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+     62       3  WS-SBID . . . . . . . . . . . . . . . . . BLW=00041  85F   0 000 007   DS 5C           Disp-Num                     
+     63       3  WS-ECP. . . . . . . . . . . . . . . . . . BLW=00041  864   0 000 00C   DS 6C           Display                      
+     65   1  WS-SBID-GROUP-TBL . . . . . . . . . . . . . . BLW=00041  980               DS 0CL22000     Grp-VarLen                   
+     66     2  WS-SBID-GROUP-ENTRIES . . . . . . . . . . . BLW=00041  980   0 000 000   DS 0CL11        Group          O             
+     69        WS-SBID-INDEX . . . . . . . . . . . . . . . IDX=00002  000                               Index-Name                   
+     70       3  WS-TBL-SBID . . . . . . . . . . . . . . . BLW=00041  980   0 000 000   DS 5C           Disp-Num                     
+     71       3  WS-TBL-ECP. . . . . . . . . . . . . . . . BLW=00041  985   0 000 005   DS 6C           Display                      
+     73   1  WS-SBID-COUNT . . . . . . . . . . . . . . . . BLW=00046  F70               DS 4C           Binary         D             
+     74   1  WS-SBID-COUNT-MAX . . . . . . . . . . . . . . BLW=00046  F78               DS 4C           Binary                       
+     76   1  LK-FILLER . . . . . . . . . . . . . . . . . . BLL=00001  000               DS 0CL3         Group                        
+     77     2  LK-BIGGER . . . . . . . . . . . . . . . . . BLL=00001  000   0 000 000   DS 0CL3         Group                        
+     78       3  LK-BEFORE-FILLER. . . . . . . . . . . . . BLL=00001  000   0 000 000   DS 1C           Display                      
+     79       3  FILLER. . . . . . . . . . . . . . . . . . BLL=00001  001   0 000 001   DS 1C           Display                      
+     80       88 FILLER88-YES. . . . . . . . . . . . . . .                                                                           
+     81       3  LK-AFTER-FILLER . . . . . . . . . . . . . BLL=00001  002   0 000 002   DS 1C           Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SEARCH1   Date 09/17/2019  Time 08:02:53   Page    12                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000038 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000500 FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      3B9ACA00 00000001 00000000 40404040 40404040 40404040 40404040 40404040  |............                    |    
+ 00011C  (LIT+32)     40404040 40404040 40400000 00000000                                      |          ......                |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SEARCH1   Date 09/17/2019  Time 08:02:53   Page    13                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000134 FOR 0003CA BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000150  (LIT+0)      FFFFFFFC 00001000 00000011 0000000B 0000001A 0000170D FFFFFFFF 000007D0  |................................|    
+ 000170  (LIT+32)     00000032 00000001 00000064 000003E8 00000000 00060003 00050002 C3D4C460  |...............Y............CMD-|    
+ 000190  (LIT+64)     C3C160C8 D6D4C560 E2C9C460 C2C9C460 C3D6C4C5 7A406060 60606060 60606060  |CA-HOME-SID-BID-CODE: ----------|    
+ 0001B0  (LIT+96)     60606060 60606060 6060E2C5 C1D9C3C8 40C4E4D7 D3C9C3C1 E3C5E240 6B408696  |----------SEARCH DUPLICATES , fo|    
+ 0001D0  (LIT+128)    A495844B 40C5C3D7 407E4040 C9E3C5D4 40C6D6E4 D5C44040 E2C5C1D9 C3C8C9D5  |und. ECP =  ITEM FOUND  SEARCHIN|    
+ 0001F0  (LIT+160)    C74040D5 D6E340C6 D6E4D5C4 406B40D5 D6E34086 96A49584 F0F0F0F2 F6E9E9E9  |G  NOT FOUND , NOT found00026ZZZ|    
+ 000210  (LIT+192)    E9E9E9F0 F0F0F2F5 E8E8E8E8 E8E8F0F0 F0F2F4E7 E7E7E7E7 E7F0F0F0 F2F3E6E6  |ZZZ00025YYYYYY00024XXXXXX00023WW|    
+ 000230  (LIT+224)    E6E6E6E6 F0F0F0F2 F2E5E5E5 E5E5E5F0 F0F0F2F1 E4E4E4E4 E4E4F0F0 F0F2F0E3  |WWWW00022VVVVVV00021UUUUUU00020T|    
+ 000250  (LIT+256)    E3E3E3E3 E3F0F0F0 F1F9E2E2 E2E2E2E2 F0F0F0F1 F8D9D9D9 D9D9D9F0 F0F0F1F7  |TTTTT00019SSSSSS00018RRRRRR00017|    
+ 000270  (LIT+288)    D8D8D8D8 D8D8F0F0 F0F1F6D7 D7D7D7D7 D7F0F0F0 F1F5D6D6 D6D6D6D6 F0F0F0F1  |QQQQQQ00016PPPPPP00015OOOOOO0001|    
+ 000290  (LIT+320)    F4D5D5D5 D5D5D5F0 F0F0F1F3 D4D4D4D4 D4D4F0F0 F0F1F2D3 D3D3D3D3 D3F0F0F0  |4NNNNNN00013MMMMMM00012LLLLLL000|    
+ 0002B0  (LIT+352)    F1F1D2D2 D2D2D2D2 F0F0F0F1 F0D1D1D1 D1D1D1F0 F0F0F0F9 C9C9C9C9 C9C9F0F0  |11KKKKKK00010JJJJJJ00009IIIIII00|    
+ 0002D0  (LIT+384)    F0F0F8C8 C8C8C8C8 C8F0F0F0 F0F7C7C7 C7C7C7C7 F0F0F0F0 F6C6C6C6 C6C6C6F0  |008HHHHHH00007GGGGGG00006FFFFFF0|    
+ 0002F0  (LIT+416)    F0F0F0F5 C5C5C5C5 C5C5F0F0 F0F0F4C4 C4C4C4C4 C4F0F0F0 F0F3C3C3 C3C3C3C3  |0005EEEEEE00004DDDDDD00003CCCCCC|    
+ 000310  (LIT+448)    F0F0F0F0 F2C2C2C2 C2C2C2F0 F0F0F0F1 C1C1C1C1 C1C140E3 D6C7C7D3 C540E2E8  |00002BBBBBB00001AAAAAA TOGGLE SY|    
+ 000330  (LIT+480)    E2D6E4E3 4040C9C7 E9E2D9E3 C3C4E2C5 C1D9C3C8 F1405C5C 40406B40 01000F10  |SOUT  IGZSRTCDSEARCH1 **  , ....|    
+ 000350  (LIT+512)    0F000000 00000001 2C000000 2F000001 E8000000 02000001 F0000000 02000000  |................Y.......0.......|    
+ 000370  (LIT+544)    00000000 00000000 00000000 00000000 00000000 00000000 00000000 00800000  |................................|    
+ 000390  (LIT+576)    00400000 00000000 00000000 00C00400 00C00200 04E00500 00400000 00000000  |. ....................... ......|    
+ 0003B0  (LIT+608)    00000000 00000000 00400000 000025C0 0001C000 07080000 30020A01 4000000B  |......... .................. ...|    
+ 0003D0  (LIT+640)    08000030 00B30204 000A0900 012C0040 40000008 08000030 01F20002 00050900  |...............  ........2......|    
+ 0003F0  (LIT+672)    012C0028 4000000C 08000030 00A74000 00082D00 58000002 480051FF 01020400  |.... ........x .................|    
+ 000410  (LIT+704)    0A090001 2C004040 00000B08 00003000 BEFF0140 00000308 00003002 12000400  |......  ........... ............|    
+ 000430  (LIT+736)    0A090001 2C001040 00000408 00003002 11020400 0A2D0058 00000248 00374000  |....... ...................... .|    
+ 000450  (LIT+768)    00030800 00300215 02020005 2D005800 00025000 3B400000 03080000 30021540  |..................&.. ......... |    
+ 000470  (LIT+800)    0000082D 00580000 02580040 FF014000 001A0800 00300058 40000005 090001D0  |........... .. ......... .......|    
+ 000490  (LIT+832)    085A4000 000F0800 00300098 40000006 2D005800 00024809 85FF0140 00001A08  |.! ........q ...........e.. ....|    
+ 0004B0  (LIT+864)    00003000 58400000 05090001 D0085A40 00000B08 00003000 C9FF0140 00001408  |..... ........! ........I.. ....|    
+ 0004D0  (LIT+896)    00003000 72FF0140 00001208 00003000 86FF4000 00000040 C0000140 00070800  |....... ........f. .... ... ....|    
+ 0004F0  (LIT+928)    0030020A 02C00007 08000030 020A                                          |..............                  |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000084 0007E6 MOVE                          000085 0007EC MOVE                          000086 0007F2 PERFORM                       
+ 000088 0007FC ADD                           000089 00081C MOVE                          000090 000844 MOVE                          
+ 000091 00088A MOVE                          000092 00089C PERFORM                       000093 0008B4 ADD                           
+ 000094 0008C0 END-PERFORM                   000095 000946 MOVE                          000097 000952 DISPLAY                       
+ 000098 000960 DISPLAY                       000099 00096A PERFORM                       000102 0009C0 MOVE                          
+ 000103 0009CA SET                           000104 0009D0 MOVE                          000106 0009DA PERFORM                       
+ 000108 0009E4 MOVE                          000109 000A02 MOVE                          000110 000A18 SET                           
+ 000111 000A24 END-PERFORM                   000113 000A3C SEARCH                        000115 000A40 DISPLAY                       
+ 000118 000A52 WHEN                          000120 000AB8 DISPLAY                       000126 000ACC GOBACK                        
+ 000129 000AD0 IF                            000130 000ADE PERFORM                       000132 000AE8 SUBTRACT                      
+ 000133 000B08 MOVE                          000135 000B26 END-PERFORM                   000136 000B84 MOVE                          
+ 000137 000B8A ADD                           000138 000B96 IF                            000139 000BA2 MOVE                          
+ 000142 000BA8 CONTINUE                      000144 000BA8 EXIT                          000146 000BAE DISPLAY                       
+ 000149 000BEC IF                            000150 000BFA COMPUTE                       000151 000C72 PERFORM                       
+ 000152 000C8A MOVE                          000153 000C90 ADD                           000154 000C9C IF                            
+ 000155 000CAC MOVE                          000158 000CB2 ADD                           000160 000CDE CONTINUE                      
+ 000163 000CDE EXIT                          000166 000CE4 IF                            000167 000CF0 COMPUTE                       
+ 000168 000D68 MOVE                          000169 000D7A PERFORM                       000170 000D92 MOVE                          
+ 000172 000D98 ADD                           000174 000DC8 CONTINUE                      000177 000DC8 EXIT                          
+ 000180 000DC8 SEARCH                        000182 000DCC DISPLAY                       000183 000DDE WHEN                          
+ 000185 000E52 DISPLAY                       000189 000E66 CONTINUE                      000191 000E66 EXIT                          
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SEARCH1   Date 09/17/2019  Time 08:02:53   Page    14                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    0001E8  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    0001F0  INDEX CELLS                                                                                              
+                    0001F8  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SEARCH1   Date 09/17/2019  Time 08:02:53   Page    15                
+0                                                                                                                                    
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  SAVE AREA FOR FLOAT REGISTERS 8-15                                                                       
+                  00000110  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  00000180  VARIABLE-LENGTH CELLS                                                                                    
+                  000001A0  ODO SAVE CELLS                                                                                           
+                  000001A8  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  000001C4  PERFORM SAVE CELLS                                                                                       
+                  000001E0  TEMPORARY STORAGE-1                                                                                      
+                  00000210  TEMPORARY STORAGE-2                                                                                      
+                  00000248  TEMPORARY STORAGE-3                                                                                      
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 0000020C BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 0002EF7C BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 00000260 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 000F20                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 001064 FOR LENGTH 00009E                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SEARCH1   Date 09/17/2019  Time 08:02:53   Page    16                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program SEARCH1:                                                                                             
+ *    Source records = 191                                                                                                           
+ *    Data Division statements = 32                                                                                                  
+ *    Procedure Division statements = 58                                                                                             
+0End of compilation 1,  program SEARCH1,  highest severity 4.                                                                        
+0Return code 4                                                                                                                       

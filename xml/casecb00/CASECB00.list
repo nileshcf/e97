@@ -1,0 +1,846 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 09/17/2019  Time 08:01:51   Page     1                
+0Invocation parameters:                                                                                                              
+  LIB,OBJECT,RENT,RES,APOST,TRUNC(BIN),,ARITH(EXTEND),OFFSET,NOFDUMP,SOURCE,MAP                                                      
+                                                                                                                                     
+         IGYOS4046-I   The "RESIDENT" option specification is no longer required.  The resident runtime library support is always    
+                       used.                                                                                                         
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4008-W   The "NOFDUMP" compiler option was specified, but is not supported.  The option was discarded.                 
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    APOST                                                                                                                            
+    ARITH(EXTEND)                                                                                                                    
+  NOAWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+  NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 09/17/2019  Time 08:01:51   Page     2                
+0 NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+  NOTEST                                                                                                                             
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000001         000100 IDENTIFICATION DIVISION.                                                                                    
+   000002         000200 PROGRAM-ID. CASECB00.                                                                                       
+   000003         000300*DATE-WRITTEN. Feb 26 2010.                                                                                  
+   000004         000400*DATE-COMPILED.                                                                                              
+   000005         000500*REMARKS.                                                                                                    
+   000006         000600*---------------------------------------------------------------*                                            
+   000007         000700* A batch outbound test for testing XMLPC103s handling of *                                                  
+   000008         000800* simple arrays. *                                                                                           
+   000009         000900*---------------------------------------------------------------*                                            
+   000010         001000 ENVIRONMENT DIVISION.                                                                                       
+   000011         001100 CONFIGURATION SECTION.                                                                                      
+   000012         001200 SOURCE-COMPUTER. IBM-370-168.                                                                               
+   000013         001300 OBJECT-COMPUTER. IBM-370-168.                                                                               
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+   000015         001500 DATA DIVISION.                                                                                              
+   000016         001600*---------------------------------------------------------------*                                            
+   000017         001700 WORKING-STORAGE SECTION.                                                                                    
+   000018         001800*---------------------------------------------------------------*                                            
+   000019         001900                                                                                                             
+   000020         002000 01  WS-MISC-DATA.                                                         BLW=00000+000         0CL21       
+   000021         002100     05  S1                        PIC S9(04) VALUE +0 BINARY.             BLW=00000+000,0000000 2C          
+   000022         002200     05  S2                        PIC S9(04) VALUE +0 BINARY.             BLW=00000+002,0000002 2C          
+   000023         002300     05  S3                        PIC S9(04) VALUE +0 BINARY.             BLW=00000+004,0000004 2C          
+   000024         002400     05  S4                        PIC S9(04) VALUE +0 BINARY.             BLW=00000+006,0000006 2C          
+   000025         002500     05  i                         PIC S9(09) VALUE +0 BINARY.             BLW=00000+008,0000008 4C          
+   000026         002600     05  l                         PIC S9(09) VALUE +0 BINARY.             BLW=00000+00C,000000C 4C          
+   000027         002700     05  WS-EDIT                   PIC ZZZZ9.                              BLW=00000+010,0000010 5C          
+   000028         003100                                                                                                             
+   000029         005300 01 WSC-XMLPC103-LINKAGE.                                                  BLW=00000+018         0CL14862    
+   000030         014200     02 Input-Request.                                                     BLW=00000+018,0000000 0CL14862    
+   000031         014300        03 getInventory.                                                   BLW=00000+018,0000000 0CL14862    
+   000032         014400           04 InventoryRequested.                                          BLW=00000+018,0000000 0CL14862    
+   000033         014500              05 RequestDate            PIC  X(10).                        BLW=00000+018,0000000 10C         
+   000034         014600              05 Dealers                OCCURS 3 TIMES.                    BLW=00000+022,000000A 0CL4948     
+   000035         014800                 06 DealerName          PIC  X(30).                        BLW=00000+022,000000A 30C         
+   000036         014900                 06 Locations           OCCURS 3 TIMES.                    BLW=00000+040,0000028 0CL32       
+   000037         015100                    07 State            PIC  X(2).                         BLW=00000+040,0000028 2C          
+   000038         015900                    07 StreetAddress    PIC  X(30).                        BLW=00000+042,000002A 30C         
+   000039         015910                 06 MakeCounter   PIC S9(04) VALUE +0 BINARY.              BLW=00000+0A0,0000088 2C          
+   000040         016000                 06 Manufacturers       OCCURS 4 TIMES.                    BLW=00000+0A2,000008A 0CL1205     
+   000041         016200                    07 Manufacturer     PIC  X(20).                        BLW=00000+0A2,000008A 20C         
+   000042         016300                    07 Country          PIC  X(15).                        BLW=00000+0B6,000009E 15C         
+   000043         016310                    07 ModelCounter PIC S9(04) VALUE +0 BINARY.            BLW=00000+0C5,00000AD 2C          
+   000044         016400                    07 ModelsIn                                            BLW=00000+0C7,00000AF 0CL232      
+   000045         016500                                        OCCURS 5 TIMES.                                                      
+   000046         016600                       08 ModelName     PIC  X(20).                        BLW=00000+0C7,00000AF 20C         
+   000047         016700                       08 EngineSizeCC  PIC  S9(04) COMP.                  BLW=00000+0DB,00000C3 2C          
+   000048         016710                       08 ColorCounter                                     BLW=00000+0DD,00000C5 2C          
+   000049         016720                                  PIC S9(04) VALUE +0 BINARY.                                                
+   000050         016800                       08 AvailableColors.                                 BLW=00000+0DF,00000C7 0CL50       
+   000051         016900                          09 Color      PIC  X(10)                         BLW=00000+0DF,00000C7 10C         
+   000052         017000                                        OCCURS 5 TIMES.                                                      
+   000053         017100                       08 Accessory     PIC  X(30)                         BLW=00000+111,00000F9 30C         
+   000054         017200                                        OCCURS 5 TIMES.                                                      
+   000055         017300                       08 Level-2-Num-In                                   BLW=00000+1A7,000018F 8P          
+   000056         017400                                        PIC  S9(10)V9(4) COMP-3.                                             
+   000057         017500                    07 Level-1-Num-In   PIC  S9(10)V9(4) COMP-3.           BLW=00000+54F,0000537 8P          
+   000058         017600              05 RequestTime            PIC  X(8).                         BLW=00003+A1E,0003A06 8C          
+   000059         021900*---------------------------------------------------------------*                                            
+   000060         022000 LINKAGE SECTION.                                                                                            
+   000061         022100*---------------------------------------------------------------*                                            
+   000062         022200*---------------------------------------------------------------*                                            
+   000063         022300 PROCEDURE DIVISION.                                                                                         
+   000064         022400*---------------------------------------------------------------*                                            
+   000065         022500     CONTINUE.                                                                                               
+   000066         022600*---------------------------------------------------------------*                                            
+   000067         022700 0000-MAIN-PARAGRAPH.                                                                                        
+   000068         022800*---------------------------------------------------------------*                                            
+   000069         022900                                                                                                             
+   000070         023000     PERFORM 0010-INITIALIZE                                               87                                
+   000071         023100        THRU 0010-EXIT                                                     94                                
+   000072         023200                                                                                                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000073         023600     PERFORM 0100-FILL-INPUT-DATA                                          98                                
+   000074         023700        THRU 0100-EXIT                                                     259                               
+   000075         023800                                                                                                             
+   000076         024200     PERFORM 0300-DISPLAY-RESULTS                                          263                               
+   000077         024300        THRU 0300-EXIT                                                     274                               
+   000078         024400                                                                                                             
+   000079         024800     GO TO 9999-GOBACK                                                     387                               
+   000080         024900                                                                                                             
+   000081         025000     CONTINUE.                                                                                               
+   000082         025100                                                                                                             
+   000083         025200 0000-EXIT.                                                                                                  
+   000084         025300     EXIT.                                                                                                   
+   000085         025400                                                                                                             
+   000086         025500*---------------------------------------------------------------*                                            
+   000087         025600 0010-INITIALIZE.                                                                                            
+   000088         025700*---------------------------------------------------------------*                                            
+   000089         025800                                                                                                             
+   000090         025900     INITIALIZE InventoryRequested                                         32                                
+   000091         026000                                                                                                             
+   000092         027300     CONTINUE.                                                                                               
+   000093         027400                                                                                                             
+   000094         027500 0010-EXIT.                                                                                                  
+   000095         027600     EXIT.                                                                                                   
+   000096         027700                                                                                                             
+   000097         038600*---------------------------------------------------------------*                                            
+   000098         038700 0100-FILL-INPUT-DATA.                                                                                       
+   000099         038800*---------------------------------------------------------------*                                            
+   000100         038900                                                                                                             
+   000101         039000     MOVE '2010-03-01'             TO RequestDate                          33                                
+   000102         039100     MOVE '12:00:01'               TO RequestTime                          58                                
+   000103         039220                                                                                                             
+   000104         039300     MOVE 'Mike Piazza  '          TO DealerName    (1)                    35                                
+   000105         039400                                                                                                             
+   000106         039500     MOVE 'NY'                     TO State         (1, 1)                 37                                
+   000107         039600     MOVE '5 Center St.'           TO StreetAddress (1, 1)                 38                                
+   000108         039700     MOVE 'PA'                     TO State         (1, 2)                 37                                
+   000109         039800     MOVE '106 Cherry Blossom La.' TO StreetAddress (1, 2)                 38                                
+   000110         039900     MOVE 'NJ'                     TO State         (1, 3)                 37                                
+   000111         040000     MOVE '17 Hancock Dr.'         TO StreetAddress (1, 3)                 38                                
+   000112         040100                                                                                                             
+   000113         040200     MOVE 'Hamilton Bikes   '      TO DealerName    (2)                    35                                
+   000114         040300                                                                                                             
+   000115         040400     MOVE 'NJ'                     TO State         (2, 1)                 37                                
+   000116         040500     MOVE '21 Kincaid St.'         TO StreetAddress (2, 1)                 38                                
+   000117         040600                                                                                                             
+   000118         040601     MOVE +3                       TO MakeCounter  (1)                     39                                
+   000119         040610     MOVE +2                       TO ModelCounter (1, 1)                  43                                
+   000120         040700     MOVE 'Moto Guzzi'       TO Manufacturer   (1, 1)                      41                                
+   000121         040800     MOVE 'Italy'            TO Country        (1, 1)                      42                                
+   000122         040900     MOVE +1                 TO Level-1-Num-In (1, 1)                      57                                
+   000123         041000     MOVE 'Coppa Italia'     TO ModelName      (1, 1, 1)                   46                                
+   000124         041100     MOVE +1100              TO EngineSizeCC   (1, 1, 1)                   47                                
+   000125         041200     MOVE +11                TO Level-2-Num-In (1, 1, 1)                   55                                
+   000126         041210     MOVE +3                 TO ColorCounter   (1, 1, 1)                   48                                
+   000127         041300     MOVE 'Red'              TO Color          (1, 1, 1, 1)                51                                
+   000128         041400     MOVE 'Green'            TO Color          (1, 1, 1, 2)                51                                
+   000129         041500     MOVE 'White'            TO Color          (1, 1, 1, 3)                51                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000130         041600     MOVE 'Leather Jackets'  TO Accessory      (1, 1, 1, 1)                53                                
+   000131         041700     MOVE 'Titanium Exhaust' TO Accessory      (1, 1, 1, 2)                53                                
+   000132         041800     MOVE 'Auto Oil Filters' TO Accessory      (1, 1, 1, 3)                53                                
+   000133         041900     MOVE 'Filter Retainer'  TO Accessory      (1, 1, 1, 4)                53                                
+   000134         042000                                                                                                             
+   000135         042100     MOVE 'Griso'            TO ModelName      (1, 1, 2)                   46                                
+   000136         042200     MOVE +1100              TO EngineSizeCC   (1, 1, 2)                   47                                
+   000137         042300     MOVE +12                TO Level-2-Num-In (1, 1, 2)                   55                                
+   000138         042310     MOVE +3                 TO ColorCounter   (1, 1, 2)                   48                                
+   000139         042400     MOVE 'Black'            TO Color          (1, 1, 2, 1)                51                                
+   000140         042500     MOVE 'Yellow'           TO Color          (1, 1, 2, 2)                51                                
+   000141         042600     MOVE 'Red'              TO Color          (1, 1, 2, 3)                51                                
+   000142         042700     MOVE 'Britsh Gr.'       TO Color          (1, 1, 2, 4)                51                                
+   000143         042800     MOVE 'Leather Seat'     TO Accessory      (1, 1, 2, 1)                53                                
+   000144         042900     MOVE 'Engine Guards'    TO Accessory      (1, 1, 2, 2)                53                                
+   000145         043000                                                                                                             
+   000146         043100*    -----------------------------------------------------*                                                  
+   000147         043200                                                                                                             
+   000148         043210     MOVE +3                 TO ModelCounter   (1, 2)                      43                                
+   000149         043300     MOVE 'Ducati'           TO Manufacturer   (1, 2)                      41                                
+   000150         043400     MOVE 'Italy'            TO Country        (1, 2)                      42                                
+   000151         043500     MOVE +2                 TO Level-1-Num-In (1, 2)                      57                                
+   000152         043510     MOVE +2                 TO ModelCounter   (1, 2)                      43                                
+   000153         043600     MOVE '1198 RR'          TO ModelName      (1, 2, 1)                   46                                
+   000154         043700     MOVE +1200              TO EngineSizeCC   (1, 2, 1)                   47                                
+   000155         043800     MOVE +21                TO Level-2-Num-In (1, 2, 1)                   55                                
+   000156         043810     MOVE +3                 TO ColorCounter   (1, 2, 1)                   48                                
+   000157         043900     MOVE 'Red'              TO Color          (1, 2, 1, 1)                51                                
+   000158         044000     MOVE 'Black'            TO Color          (1, 2, 1, 2)                51                                
+   000159         044100     MOVE 'White'            TO Color          (1, 2, 1, 3)                51                                
+   000160         044200     MOVE 'Yellow'           TO Color          (1, 2, 1, 4)                51                                
+   000161         044300     MOVE 'Tail Eliminator'     TO Accessory   (1, 2, 1, 1)                53                                
+   000162         044400     MOVE 'Carbon Fiber Wheels' TO Accessory   (1, 2, 1, 2)                53                                
+   000163         044500     MOVE 'Failure'             TO Accessory   (1, 2, 1, 3)                53                                
+   000164         044600                                                                                                             
+   000165         044700     MOVE 'Multi Strada' TO ModelName      (1, 2, 2)                       46                                
+   000166         044800     MOVE +1100          TO EngineSizeCC   (1, 2, 2)                       47                                
+   000167         044900     MOVE +22            TO Level-2-Num-In (1, 2, 2)                       55                                
+   000168         044910     MOVE +2             TO ColorCounter   (1, 2, 2)                       48                                
+   000169         045000     MOVE 'Red'          TO Color          (1, 2, 2, 1)                    51                                
+   000170         045100     MOVE 'Black'        TO Color          (1, 2, 2, 2)                    51                                
+   000171         045200     MOVE 'Fail'         TO Accessory      (1, 2, 2, 1)                    53                                
+   000172         045300                                                                                                             
+   000173         045400     MOVE 'HyperMotard'  TO ModelName      (1, 2, 3)                       46                                
+   000174         045500     MOVE +1100          TO EngineSizeCC   (1, 2, 3)                       47                                
+   000175         045600     MOVE +23            TO Level-2-Num-In (1, 2, 3)                       55                                
+   000176         045610     MOVE +2             TO ColorCounter   (1, 2, 3)                       48                                
+   000177         045700     MOVE 'Red'          TO Color          (1, 2, 3, 1)                    51                                
+   000178         045800     MOVE 'Black'        TO Color          (1, 2, 3, 2)                    51                                
+   000179         045900     MOVE 'Grip Guards'  TO Accessory      (1, 2, 3, 1)                    53                                
+   000180         046000                                                                                                             
+   000181         046100*    -----------------------------------------------------*                                                  
+   000182         046200                                                                                                             
+   000183         046210     MOVE +2             TO ModelCounter   (1, 3)                          43                                
+   000184         046300     MOVE 'Kawasaki'     TO Manufacturer   (1, 3)                          41                                
+   000185         046400     MOVE 'Japan'        TO Country        (1, 3)                          42                                
+   000186         046500     MOVE +3             TO Level-1-Num-In (1, 3)                          57                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000187         046510     MOVE +2             TO ModelCounter   (1, 3)                          43                                
+   000188         046600     MOVE 'ZX10R'        TO ModelName      (1, 3, 1)                       46                                
+   000189         046700     MOVE +998           TO EngineSizeCC   (1, 3, 1)                       47                                
+   000190         046800     MOVE +31            TO Level-2-Num-In (1, 3, 1)                       55                                
+   000191         046810     MOVE +2             TO ColorCounter   (1, 3, 1)                       48                                
+   000192         046900     MOVE 'Green'        TO Color          (1, 3, 1, 1)                    51                                
+   000193         047000     MOVE 'Black'        TO Color          (1, 3, 1, 2)                    51                                
+   000194         047100     MOVE 'Green Helmet' TO Accessory      (1, 3, 1, 1)                    53                                
+   000195         047200                                                                                                             
+   000196         047300     MOVE 'ZX6R'         TO ModelName      (1, 3, 2)                       46                                
+   000197         047400     MOVE +600           TO EngineSizeCC   (1, 3, 2)                       47                                
+   000198         047500     MOVE +32            TO Level-2-Num-In (1, 3, 2)                       55                                
+   000199         047510     MOVE +2             TO ColorCounter   (1, 3, 2)                       48                                
+   000200         047600     MOVE 'Green'        TO Color          (1, 3, 2, 1)                    51                                
+   000201         047700     MOVE 'Black'        TO Color          (1, 3, 2, 2)                    51                                
+   000202         047800     MOVE 'Green Helmet'    TO Accessory   (1, 3, 2, 1)                    53                                
+   000203         047900     MOVE 'Failed'          TO Accessory   (1, 3, 2, 2)                    53                                
+   000204         048000                                                                                                             
+   000205         048100*    -----------------------------------------------------*                                                  
+   000206         048200                                                                                                             
+   000207         048300     MOVE 'Triumph'      TO Manufacturer   (2, 1)                          41                                
+   000208         048400     MOVE 'England'      TO Country        (2, 1)                          42                                
+   000209         048500     MOVE +4             TO Level-1-Num-In (2, 1)                          57                                
+   000210         048510     MOVE +3             TO ModelCounter   (2, 1)                          43                                
+   000211         048600     MOVE 'Thruxton'     TO ModelName      (2, 1, 1)                       46                                
+   000212         048700     MOVE +880           TO EngineSizeCC   (2, 1, 1)                       47                                
+   000213         048800     MOVE +41            TO Level-2-Num-In (2, 1, 1)                       55                                
+   000214         048810     MOVE +4             TO ColorCounter   (2, 1, 1)                       48                                
+   000215         048900     MOVE 'Red'          TO Color          (2, 1, 1, 1)                    51                                
+   000216         049000     MOVE 'Black'        TO Color          (2, 1, 1, 2)                    51                                
+   000217         049100     MOVE 'Blue'         TO Color          (2, 1, 1, 3)                    51                                
+   000218         049200     MOVE 'White'        TO Color          (2, 1, 1, 4)                    51                                
+   000219         049300     MOVE 'Fly Screen'    TO Accessory     (2, 1, 1, 1)                    53                                
+   000220         049400     MOVE 'Arrow Exhaust' TO Accessory     (2, 1, 1, 2)                    53                                
+   000221         049500                                                                                                             
+   000222         049600     MOVE 'Bonneville'   TO ModelName      (2, 1, 2)                       46                                
+   000223         049700     MOVE +880           TO EngineSizeCC   (2, 1, 2)                       47                                
+   000224         049800     MOVE +42            TO Level-2-Num-In (2, 1, 2)                       55                                
+   000225         049810     MOVE +3             TO ColorCounter   (2, 1, 2)                       48                                
+   000226         049900     MOVE 'Blue'         TO Color          (2, 1, 2, 1)                    51                                
+   000227         050000     MOVE 'Black'        TO Color          (2, 1, 2, 2)                    51                                
+   000228         050100     MOVE 'White'        TO Color          (2, 1, 2, 3)                    51                                
+   000229         050200     MOVE 'Nolan Helmets'    TO Accessory  (2, 1, 2, 1)                    53                                
+   000230         050300     MOVE 'Denim Jackets'    TO Accessory  (2, 1, 2, 2)                    53                                
+   000231         050400     MOVE 'Tow Chain'        TO Accessory  (2, 1, 2, 3)                    53                                
+   000232         050500                                                                                                             
+   000233         050600     MOVE 'Speed Triple' TO ModelName      (2, 1, 3)                       46                                
+   000234         050700     MOVE +1200          TO EngineSizeCC   (2, 1, 3)                       47                                
+   000235         050800     MOVE +43            TO Level-2-Num-In (2, 1, 3)                       55                                
+   000236         050810     MOVE +3             TO ColorCounter   (2, 1, 3)                       48                                
+   000237         050900     MOVE 'Blue'         TO Color          (2, 1, 3, 1)                    51                                
+   000238         051000     MOVE 'Black'        TO Color          (2, 1, 3, 2)                    51                                
+   000239         051100     MOVE 'White'        TO Color          (2, 1, 3, 3)                    51                                
+   000240         051200                                                                                                             
+   000241         051300     MOVE 'Norton'       TO Manufacturer   (2, 2)                          41                                
+   000242         051400     MOVE 'England'      TO Country        (2, 2)                          42                                
+   000243         051500     MOVE +5             TO Level-1-Num-In (2, 2)                          57                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page     8                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000244         051510     MOVE +1             TO ModelCounter   (2, 2)                          43                                
+   000245         051600     MOVE 'Comando'      TO ModelName      (2, 2, 1)                       46                                
+   000246         051700     MOVE +900           TO EngineSizeCC   (2, 2, 1)                       47                                
+   000247         051800     MOVE +51            TO Level-2-Num-In (2, 2, 1)                       55                                
+   000248         051810     MOVE +2             TO ColorCounter   (2, 2, 1)                       48                                
+   000249         051900     MOVE 'Red'          TO Color          (2, 2, 1, 1)                    51                                
+   000250         052000     MOVE 'Black'        TO Color          (2, 2, 1, 2)                    51                                
+   000251         052100     MOVE 'Ti Footpegs       ' TO Accessory     (2, 2, 1, 1)               53                                
+   000252         052200     MOVE 'Staintune Exhaust ' TO Accessory     (2, 2, 1, 2)               53                                
+   000253         052300     MOVE 'Dual Seat and Pegs' TO Accessory     (2, 2, 1, 3)               53                                
+   000254         052400     MOVE 'Replace This'       TO Accessory     (2, 2, 1, 4)               53                                
+   000255         052500     MOVE 'And This'           TO Accessory     (2, 2, 1, 5)               53                                
+   000256         052600                                                                                                             
+   000257         052700     CONTINUE.                                                                                               
+   000258         052800                                                                                                             
+   000259         052900 0100-EXIT.                                                                                                  
+   000260         053000     EXIT.                                                                                                   
+   000261         053100                                                                                                             
+   000262         054400*---------------------------------------------------------------*                                            
+   000263         054500 0300-DISPLAY-RESULTS.                                                                                       
+   000264         054600*---------------------------------------------------------------*                                            
+   000265         054700                                                                                                             
+   000266         056100     PERFORM 0310-DISPLAY-DEALERS                                          278                               
+   000267         056200        THRU 0310-EXIT                                                     298                               
+   000268         056300             VARYING S1 FROM +1 BY +1                                      21                                
+   000269         056400       UNTIL S1 > +3                                                       21                                
+   000270         056500          OR DealerName (S1) = SPACES OR LOW-VALUES                        35 21 IMP IMP                     
+   000271         056600                                                                                                             
+   000272         059500     CONTINUE.                                                                                               
+   000273         059600                                                                                                             
+   000274         059700 0300-EXIT.                                                                                                  
+   000275         059800     EXIT.                                                                                                   
+   000276         059900                                                                                                             
+   000277         060000*---------------------------------------------------------------*                                            
+   000278         060100 0310-DISPLAY-DEALERS.                                                                                       
+   000279         060200*---------------------------------------------------------------*                                            
+   000280         060300                                                                                                             
+   000281         060400     DISPLAY 'Dealer..........: ' DealerName (S1)                          35 21                             
+   000282         060500                                                                                                             
+   000283         060600     PERFORM VARYING S2 FROM +1 BY +1                                      22                                
+   000284         060700       UNTIL S2 > +3                                                       22                                
+   000285         060800          OR State (S1, S2) = SPACES OR LOW-VALUES                         37 21 22 IMP IMP                  
+   000286      1  060900        DISPLAY 'State...........: ' State         (S1, S2)                37 21 22                          
+   000287      1  061000        DISPLAY 'Street Address..: ' StreetAddress (S1, S2)                38 21 22                          
+   000288         061100     END-PERFORM                                                                                             
+   000289         061200                                                                                                             
+   000290         061300     PERFORM 0320-DISPLAY-MANUFACTURERS                                    302                               
+   000291         061400        THRU 0320-EXIT                                                     326                               
+   000292         061500             VARYING S2 FROM +1 BY +1                                      22                                
+   000293         061600       UNTIL S2 > +4                                                       22                                
+   000294         061700          OR S2 > MakeCounter (S1)                                         22 39 21                          
+   000295         061800                                                                                                             
+   000296         061900     CONTINUE.                                                                                               
+   000297         062000                                                                                                             
+   000298         062100 0310-EXIT.                                                                                                  
+   000299         062200     EXIT.                                                                                                   
+   000300         062300                                                                                                             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page     9                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000301         062400*---------------------------------------------------------------*                                            
+   000302         062500 0320-DISPLAY-MANUFACTURERS.                                                                                 
+   000303         062600*---------------------------------------------------------------*                                            
+   000304         062700                                                                                                             
+   000305         062800     MOVE Level-1-Num-In (S1, S2) TO WS-EDIT                               57 21 22 27                       
+   000306         062900     DISPLAY ' '                                                                                             
+   000307         063000     DISPLAY '----------------------------------------------'                                                
+   000308         063100     DISPLAY ' '                                                                                             
+   000309         063200     DISPLAY 'Manufacturer....: ' Manufacturer (S1, S2)                    41 21 22                          
+   000310         063300     DISPLAY 'Country.........: ' Country      (S1, S2)                    42 21 22                          
+   000311         063400     DISPLAY 'Level 1 Num.....: ' WS-EDIT                                  27                                
+   000312         063500     MOVE ModelCounter (S1, S2) TO WS-EDIT                                 43 21 22 27                       
+   000313         063600     DISPLAY 'Model Counter...: ' WS-EDIT                                  27                                
+   000314         063700                                                                                                             
+   000315         063800     DISPLAY ' '                                                                                             
+   000316         063900     DISPLAY 'Models ---------------------------------------'                                                
+   000317         064000                                                                                                             
+   000318         064100     PERFORM 0330-DISPLAY-MODELS                                           330                               
+   000319         064200        THRU 0330-EXIT                                                     361                               
+   000320         064300             VARYING S3 FROM +1 BY +1                                      23                                
+   000321         064400       UNTIL S3 > +5                                                       23                                
+   000322         064500          OR ModelName (S1, S2, S3) = SPACES OR LOW-VALUES                 46 21 22 23 IMP IMP               
+   000323         064600                                                                                                             
+   000324         064700     CONTINUE.                                                                                               
+   000325         064800                                                                                                             
+   000326         064900 0320-EXIT.                                                                                                  
+   000327         065000     EXIT.                                                                                                   
+   000328         065100                                                                                                             
+   000329         065200*---------------------------------------------------------------*                                            
+   000330         065300 0330-DISPLAY-MODELS.                                                                                        
+   000331         065400*---------------------------------------------------------------*                                            
+   000332         065500                                                                                                             
+   000333         065600     MOVE Level-2-Num-In  (S1, S2, S3) TO WS-EDIT                          55 21 22 23 27                    
+   000334         065700     DISPLAY ' '                                                                                             
+   000335         065800     DISPLAY 'Model...........: ' ModelName    (S1, S2, S3)                46 21 22 23                       
+   000336         065900     DISPLAY 'Engine Size.....: ' EngineSizeCC (S1, S2, S3)                47 21 22 23                       
+   000337         066000     DISPLAY 'Level 2 Num.....: ' WS-EDIT                                  27                                
+   000338         066100     MOVE ColorCounter (S1, S2, S3) TO WS-EDIT                             48 21 22 23 27                    
+   000339         066200     DISPLAY 'Color Counter...: ' WS-EDIT                                  27                                
+   000340         066300                                                                                                             
+   000341         066400     DISPLAY ' '                                                                                             
+   000342         066500     DISPLAY 'Colors ---------------------------------------'                                                
+   000343         066600                                                                                                             
+   000344         066700     PERFORM 0340-DISPLAY-COLORS                                           365                               
+   000345         066800        THRU 0340-EXIT                                                     372                               
+   000346         066900             VARYING S4 FROM +1 BY +1                                      24                                
+   000347         067000       UNTIL S4 > +5                                                       24                                
+   000348         067100          OR Color (S1, S2, S3, S4) = SPACES OR LOW-VALUES                 51 21 22 23 24 IMP IMP            
+   000349         067200                                                                                                             
+   000350         067300     DISPLAY ' '                                                                                             
+   000351         067400     DISPLAY 'Accessories ----------------------------------'                                                
+   000352         067500                                                                                                             
+   000353         067600     PERFORM 0350-DISPLAY-ACCESSORIES                                      376                               
+   000354         067700        THRU 0350-EXIT                                                     383                               
+   000355         067800             VARYING S4 FROM +1 BY +1                                      24                                
+   000356         067900       UNTIL S4 > +5                                                       24                                
+   000357         068000          OR Accessory (S1, S2, S3, S4) = SPACES OR LOW-VALUES             53 21 22 23 24 IMP IMP            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page    10                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000358         068100                                                                                                             
+   000359         068200     CONTINUE.                                                                                               
+   000360         068300                                                                                                             
+   000361         068400 0330-EXIT.                                                                                                  
+   000362         068500     EXIT.                                                                                                   
+   000363         068600                                                                                                             
+   000364         068700*---------------------------------------------------------------*                                            
+   000365         068800 0340-DISPLAY-COLORS.                                                                                        
+   000366         068900*---------------------------------------------------------------*                                            
+   000367         069000                                                                                                             
+   000368         069100     DISPLAY 'Color...........: ' Color (S1, S2, S3, S4)                   51 21 22 23 24                    
+   000369         069200                                                                                                             
+   000370         069300     CONTINUE.                                                                                               
+   000371         069400                                                                                                             
+   000372         069500 0340-EXIT.                                                                                                  
+   000373         069600     EXIT.                                                                                                   
+   000374         069700                                                                                                             
+   000375         069800*---------------------------------------------------------------*                                            
+   000376         069900 0350-DISPLAY-ACCESSORIES.                                                                                   
+   000377         070000*---------------------------------------------------------------*                                            
+   000378         070100                                                                                                             
+   000379         070200     DISPLAY 'Accessory.......: ' Accessory (S1, S2, S3, S4)               53 21 22 23 24                    
+   000380         070300                                                                                                             
+   000381         070400     CONTINUE.                                                                                               
+   000382         070500                                                                                                             
+   000383         070600 0350-EXIT.                                                                                                  
+   000384         070700     EXIT.                                                                                                   
+   000385         070800                                                                                                             
+   000386         103100*---------------------------------------------------------------*                                            
+   000387         103200 9999-GOBACK.                                                                                                
+   000388         103300*---------------------------------------------------------------*                                            
+   000389         103400                                                                                                             
+   000390         103500     GOBACK                                                                                                  
+   000391         103600                                                                                                             
+   000392         103700     CONTINUE.                                                                                               
+   000393         103800                                                                                                             
+   000394         103900 9999-EXIT.                                                                                                  
+   000395         104000     EXIT.                                                                                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page    11                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       53   ACCESSORY. . . . . . . . . . .  M130 M131 M132 M133 M143 M144 M161 M162 M163 M171 M179 M194 M202 M203 M219 M220          
+                                            M229 M230 M231 M251 M252 M253 M254 M255 357 379                                          
+       50   AVAILABLECOLORS                                                                                                          
+       51   COLOR. . . . . . . . . . . . .  M127 M128 M129 M139 M140 M141 M142 M157 M158 M159 M160 M169 M170 M177 M178 M192          
+                                            M193 M200 M201 M215 M216 M217 M218 M226 M227 M228 M237 M238 M239 M249 M250 348           
+                                            368                                                                                      
+       48   COLORCOUNTER . . . . . . . . .  M126 M138 M156 M168 M176 M191 M199 M214 M225 M236 M248 338                               
+       42   COUNTRY. . . . . . . . . . . .  M121 M150 M185 M208 M242 310                                                             
+       35   DEALERNAME . . . . . . . . . .  M104 M113 270 281                                                                        
+       34   DEALERS                                                                                                                  
+       47   ENGINESIZECC . . . . . . . . .  M124 M136 M154 M166 M174 M189 M197 M212 M223 M234 M246 336                               
+       31   GETINVENTORY                                                                                                             
+       25   I                                                                                                                        
+       30   INPUT-REQUEST                                                                                                            
+       32   INVENTORYREQUESTED . . . . . .  M90                                                                                      
+       26   L                                                                                                                        
+       57   LEVEL-1-NUM-IN . . . . . . . .  M122 M151 M186 M209 M243 305                                                             
+       55   LEVEL-2-NUM-IN . . . . . . . .  M125 M137 M155 M167 M175 M190 M198 M213 M224 M235 M247 333                               
+       36   LOCATIONS                                                                                                                
+       39   MAKECOUNTER. . . . . . . . . .  M118 294                                                                                 
+       41   MANUFACTURER . . . . . . . . .  M120 M149 M184 M207 M241 309                                                             
+       40   MANUFACTURERS                                                                                                            
+       43   MODELCOUNTER . . . . . . . . .  M119 M148 M152 M183 M187 M210 M244 312                                                   
+       46   MODELNAME. . . . . . . . . . .  M123 M135 M153 M165 M173 M188 M196 M211 M222 M233 M245 322 335                           
+       44   MODELSIN                                                                                                                 
+       33   REQUESTDATE. . . . . . . . . .  M101                                                                                     
+       58   REQUESTTIME. . . . . . . . . .  M102                                                                                     
+       37   STATE. . . . . . . . . . . . .  M106 M108 M110 M115 285 286                                                              
+       38   STREETADDRESS. . . . . . . . .  M107 M109 M111 M116 287                                                                  
+       21   S1 . . . . . . . . . . . . . .  M268 269 270 281 285 286 287 294 305 309 310 312 322 333 335 336 338 348 357             
+                                            368 379                                                                                  
+       22   S2 . . . . . . . . . . . . . .  M283 284 285 286 287 M292 293 294 305 309 310 312 322 333 335 336 338 348 357            
+                                            368 379                                                                                  
+       23   S3 . . . . . . . . . . . . . .  M320 321 322 333 335 336 338 348 357 368 379                                             
+       24   S4 . . . . . . . . . . . . . .  M346 347 348 M355 356 357 368 379                                                        
+       27   WS-EDIT. . . . . . . . . . . .  M305 311 M312 313 M333 337 M338 339                                                      
+       20   WS-MISC-DATA                                                                                                             
+       29   WSC-XMLPC103-LINKAGE                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page    12                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+       83   0000-EXIT                                                                                                                
+       67   0000-MAIN-PARAGRAPH                                                                                                      
+       94   0010-EXIT. . . . . . . . . . .  E71                                                                                      
+       87   0010-INITIALIZE. . . . . . . .  P70                                                                                      
+      259   0100-EXIT. . . . . . . . . . .  E74                                                                                      
+       98   0100-FILL-INPUT-DATA . . . . .  P73                                                                                      
+      263   0300-DISPLAY-RESULTS . . . . .  P76                                                                                      
+      274   0300-EXIT. . . . . . . . . . .  E77                                                                                      
+      278   0310-DISPLAY-DEALERS . . . . .  P266                                                                                     
+      298   0310-EXIT. . . . . . . . . . .  E267                                                                                     
+      302   0320-DISPLAY-MANUFACTURERS . .  P290                                                                                     
+      326   0320-EXIT. . . . . . . . . . .  E291                                                                                     
+      330   0330-DISPLAY-MODELS. . . . . .  P318                                                                                     
+      361   0330-EXIT. . . . . . . . . . .  E319                                                                                     
+      365   0340-DISPLAY-COLORS. . . . . .  P344                                                                                     
+      372   0340-EXIT. . . . . . . . . . .  E345                                                                                     
+      376   0350-DISPLAY-ACCESSORIES . . .  P353                                                                                     
+      383   0350-EXIT. . . . . . . . . . .  E354                                                                                     
+      394   9999-EXIT                                                                                                                
+      387   9999-GOBACK. . . . . . . . . .  G79                                                                                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page    13                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   CASECB00                                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page    14                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID CASECB00----------------------------------------------------------------------------------------------------*    
+     20   1  WS-MISC-DATA. . . . . . . . . . . . . . . . . BLW=00000  000               DS 0CL21        Group                        
+     21     2  S1. . . . . . . . . . . . . . . . . . . . . BLW=00000  000   0 000 000   DS 2C           Binary                       
+     22     2  S2. . . . . . . . . . . . . . . . . . . . . BLW=00000  002   0 000 002   DS 2C           Binary                       
+     23     2  S3. . . . . . . . . . . . . . . . . . . . . BLW=00000  004   0 000 004   DS 2C           Binary                       
+     24     2  S4. . . . . . . . . . . . . . . . . . . . . BLW=00000  006   0 000 006   DS 2C           Binary                       
+     25     2  I . . . . . . . . . . . . . . . . . . . . . BLW=00000  008   0 000 008   DS 4C           Binary                       
+     26     2  L . . . . . . . . . . . . . . . . . . . . . BLW=00000  00C   0 000 00C   DS 4C           Binary                       
+     27     2  WS-EDIT . . . . . . . . . . . . . . . . . . BLW=00000  010   0 000 010   DS 5C           Disp-Num-Edit                
+     29   1  WSC-XMLPC103-LINKAGE. . . . . . . . . . . . . BLW=00000  018               DS 0CL14862     Group                        
+     30     2  INPUT-REQUEST . . . . . . . . . . . . . . . BLW=00000  018   0 000 000   DS 0CL14862     Group                        
+     31       3  GETINVENTORY. . . . . . . . . . . . . . . BLW=00000  018   0 000 000   DS 0CL14862     Group                        
+     32         4  INVENTORYREQUESTED. . . . . . . . . . . BLW=00000  018   0 000 000   DS 0CL14862     Group                        
+     33           5  REQUESTDATE . . . . . . . . . . . . . BLW=00000  018   0 000 000   DS 10C          Display                      
+     34           5  DEALERS . . . . . . . . . . . . . . . BLW=00000  022   0 000 00A   DS 0CL4948      Group          O             
+     35             6  DEALERNAME. . . . . . . . . . . . . BLW=00000  022   0 000 00A   DS 30C          Display                      
+     36             6  LOCATIONS . . . . . . . . . . . . . BLW=00000  040   0 000 028   DS 0CL32        Group          O             
+     37             7  STATE . . . . . . . . . . . . . . . BLW=00000  040   0 000 028   DS 2C           Display                      
+     38             7  STREETADDRESS . . . . . . . . . . . BLW=00000  042   0 000 02A   DS 30C          Display                      
+     39             6  MAKECOUNTER . . . . . . . . . . . . BLW=00000  0A0   0 000 088   DS 2C           Binary                       
+     40             6  MANUFACTURERS . . . . . . . . . . . BLW=00000  0A2   0 000 08A   DS 0CL1205      Group          O             
+     41             7  MANUFACTURER. . . . . . . . . . . . BLW=00000  0A2   0 000 08A   DS 20C          Display                      
+     42             7  COUNTRY . . . . . . . . . . . . . . BLW=00000  0B6   0 000 09E   DS 15C          Display                      
+     43             7  MODELCOUNTER. . . . . . . . . . . . BLW=00000  0C5   0 000 0AD   DS 2C           Binary                       
+     44             7  MODELSIN. . . . . . . . . . . . . . BLW=00000  0C7   0 000 0AF   DS 0CL232       Group          O             
+     46             8  MODELNAME . . . . . . . . . . . . . BLW=00000  0C7   0 000 0AF   DS 20C          Display                      
+     47             8  ENGINESIZECC. . . . . . . . . . . . BLW=00000  0DB   0 000 0C3   DS 2C           Binary                       
+     48             8  COLORCOUNTER. . . . . . . . . . . . BLW=00000  0DD   0 000 0C5   DS 2C           Binary                       
+     50             8  AVAILABLECOLORS . . . . . . . . . . BLW=00000  0DF   0 000 0C7   DS 0CL50        Group                        
+     51             9  COLOR . . . . . . . . . . . . . . . BLW=00000  0DF   0 000 0C7   DS 10C          Display        O             
+     53             8  ACCESSORY . . . . . . . . . . . . . BLW=00000  111   0 000 0F9   DS 30C          Display        O             
+     55             8  LEVEL-2-NUM-IN. . . . . . . . . . . BLW=00000  1A7   0 000 18F   DS 8P           Packed-Dec                   
+     57             7  LEVEL-1-NUM-IN. . . . . . . . . . . BLW=00000  54F   0 000 537   DS 8P           Packed-Dec                   
+     58           5  REQUESTTIME . . . . . . . . . . . . . BLW=00003  A1E   0 003 A06   DS 8C           Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page    15                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000030 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000874 FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 00000000 40404040 40404040 40404040 40404040 40404040 40404040  |........                        |    
+ 00011C  (LIT+32)     40404040 4040                                                            |                                |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page    16                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 00012C FOR 000745 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000154  (LIT+0)      FFFFFFFC 00001000 FFFFE6F1 FFFFE705 FFFFE70F FFFFE7F7 FFFFEC8C FFFFECAC  |..........W1..X...X...X7........|    
+ 000174  (LIT+32)     00000003 00000001 00000005 0000007E 00000000 001E000A 00E804B5 00201354  |...............=.........Y......|    
+ 000194  (LIT+64)     03840004 03700258 03E604B0 044C0002 C1838385 A2A29699 8985A240 60606060  |.d.......W...<..Accessories ----|    
+ 0001B4  (LIT+96)     60606060 60606060 60606060 60606060 60606060 60606060 60606060 6060C396  |------------------------------Co|    
+ 0001D4  (LIT+128)    939699A2 40606060 60606060 60606060 60606060 60606060 60606060 60606060  |lors ---------------------------|    
+ 0001F4  (LIT+160)    60606060 60606060 60606060 D4968485 93A24060 60606060 60606060 60606060  |------------Models -------------|    
+ 000214  (LIT+192)    60606060 60606060 60606060 60606060 60606060 60606060 60606060 60606060  |--------------------------------|    
+ 000234  (LIT+224)    60606060 60606060 60606060 60606060 60606060 60606060 60606060 60606060  |--------------------------------|    
+ 000254  (LIT+256)    60606060 60606060 F1F0F640 C3888599 99A840C2 9396A2A2 969440D3 814BC381  |--------106 Cherry Blossom La.Ca|    
+ 000274  (LIT+288)    99829695 40C68982 859940E6 88858593 A2C18383 85A2A296 99A84B4B 4B4B4B4B  |rbon Fiber WheelsAccessory......|    
+ 000294  (LIT+320)    4B7A40C3 96939699 4B4B4B4B 4B4B4B4B 4B4B4B7A 40C39693 969940C3 96A495A3  |.: Color...........: Color Count|    
+ 0002B4  (LIT+352)    85994B4B 4B7A40D3 85A58593 40F240D5 A4944B4B 4B4B4B7A 40C59587 89958540  |er...: Level 2 Num.....: Engine |    
+ 0002D4  (LIT+384)    E289A985 4B4B4B4B 4B7A40D4 96848593 4B4B4B4B 4B4B4B4B 4B4B4B7A 40D49684  |Size.....: Model...........: Mod|    
+ 0002F4  (LIT+416)    859340C3 96A495A3 85994B4B 4B7A40D3 85A58593 40F140D5 A4944B4B 4B4B4B7A  |el Counter...: Level 1 Num.....:|    
+ 000314  (LIT+448)    40C396A4 95A399A8 4B4B4B4B 4B4B4B4B 4B7A40D4 8195A486 8183A3A4 9985994B  | Country.........: Manufacturer.|    
+ 000334  (LIT+480)    4B4B4B7A 40E2A399 8585A340 C1848499 85A2A24B 4B7A40E2 A381A385 4B4B4B4B  |...: Street Address..: State....|    
+ 000354  (LIT+512)    4B4B4B4B 4B4B4B7A 40C48581 9385994B 4B4B4B4B 4B4B4B4B 4B7A40C4 A4819340  |.......: Dealer..........: Dual |    
+ 000374  (LIT+544)    E28581A3 40819584 40D78587 A2E2A381 8995A3A4 958540C5 A78881A4 A2A340E3  |Seat and PegsStaintune Exhaust T|    
+ 000394  (LIT+576)    8940C696 96A39785 87A24040 40404040 40C88194 8993A396 9540C289 9285A240  |i Footpegs       Hamilton Bikes |    
+ 0003B4  (LIT+608)    4040C1A4 A39640D6 899340C6 8993A385 99A2E389 A3819589 A49440C5 A78881A4  |  Auto Oil FiltersTitanium Exhau|    
+ 0003D4  (LIT+640)    A2A3E381 899340C5 93899489 9581A396 99C68993 A3859940 D985A381 89958599  |stTail EliminatorFilter Retainer|    
+ 0003F4  (LIT+672)    D38581A3 88859940 D1818392 85A3A2F2 F140D289 95838189 8440E2A3 4BF1F740  |Leather Jackets21 Kincaid St.17 |    
+ 000414  (LIT+704)    C8819583 96839240 C4994BC4 85958994 40D18183 9285A3A2 D5969381 9540C885  |Hancock Dr.Denim JacketsNolan He|    
+ 000434  (LIT+736)    939485A3 A2C19999 96A640C5 A78881A4 A2A3C595 87899585 40C7A481 9984A2D4  |lmetsArrow ExhaustEngine GuardsM|    
+ 000454  (LIT+768)    89928540 D78981A9 A9814040 D9859793 81838540 E38889A2 E2978585 8440E399  |ike Piazza  Replace ThisSpeed Tr|    
+ 000474  (LIT+800)    89979385 C7998585 9540C885 939485A3 D4A493A3 8940E2A3 99818481 D38581A3  |ipleGreen HelmetMulti StradaLeat|    
+ 000494  (LIT+832)    88859940 E28581A3 C3969797 8140C9A3 81938981 F540C385 95A38599 40E2A34B  |her SeatCoppa Italia5 Center St.|    
+ 0004B4  (LIT+864)    C7998997 40C7A481 9984A2C8 A8978599 D496A381 99840000 00000000 00000000  |Grip GuardsHyperMotard..........|    
+ 0004D4  (LIT+896)    C2969595 85A58993 9385C693 A840E283 99858595 C293A485 40404040 4040C299  |BonnevilleFly ScreenBlue      Br|    
+ 0004F4  (LIT+928)    89A3A288 40C7994B E8859393 96A64040 4040C293 81839240 40404040 E68889A3  |itsh Gr.Yellow    Black     Whit|    
+ 000514  (LIT+960)    85404040 4040C799 85859540 40404040 D9858440 40404040 4040D496 A39640C7  |e     Green     Red       Moto G|    
+ 000534  (LIT+992)    A4A9A989 F2F0F1F0 60F0F360 F0F14040 40404040 40404040 E396A640 C3888189  |uzzi2010-03-01          Tow Chai|    
+ 000554  (LIT+1024)   95C19584 40E38889 A2E38899 A4A7A396 95D281A6 81A28192 89F1F27A F0F07AF0  |nAnd ThisThruxtonKawasaki12:00:0|    
+ 000574  (LIT+1056)   F1C3C1E2 C5C3C2F0 F0E2E8E2 D6E4E340 40C9C7E9 E2D9E3C3 C4C39694 81958496  |1CASECB00SYSOUT  IGZSRTCDComando|    
+ 000594  (LIT+1088)   C5958793 819584E3 9989A494 9788C681 8993A499 85F1F1F9 F840D9D9 D59699A3  |EnglandTriumphFailure1198 RRNort|    
+ 0005B4  (LIT+1120)   9695C681 89938584 C4A48381 A389E9E7 F1F0D9D1 81978195 C79989A2 96C9A381  |onFailedDucatiZX10RJapanGrisoIta|    
+ 0005D4  (LIT+1152)   93A8E9E7 F6D9D5D1 D7C1D5E8 00000000 0510000C 00000000 0050000C 00000000  |lyZX6RNJPANY.............&......|    
+ 0005F4  (LIT+1184)   0430000C 00000000 0420000C 00000000 0410000C 00000000 0040000C 00000000  |......................... ......|    
+ 000614  (LIT+1216)   0320000C 00000000 0310000C 00000000 0030000C 00000000 0230000C 00000000  |................................|    
+ 000634  (LIT+1248)   0220000C 00000000 0210000C 00000000 0020000C 00000000 0120000C 00000000  |................................|    
+ 000654  (LIT+1280)   0110000C 00000000 0010000C 00000000 0000000C 00000000 0000012C 00000004  |................................|    
+ 000674  (LIT+1312)   0000013C 00000001 00000000 00000000 00000000 00000000 00000000 00000000  |................................|    
+ 000694  (LIT+1344)   00000000 00000000 00000000 80000000 40000000 00000000 00000000 40202020  |................ ........... ...|    
+ 0006B4  (LIT+1376)   21200000 00050000 00034000 00000000 00000000 00000000 00004000 00000025  |.......... ............... .....|    
+ 0006D4  (LIT+1408)   C00001C0 00080800 00280449 01400000 12080000 28015940 00001E2D 00580000  |............. ......... ........|    
+ 0006F4  (LIT+1440)   02400111 FF014000 00120800 0028016B 4000000A 2D005800 00024000 DFFF0140  |. .... ........, ......... .... |    
+ 000714  (LIT+1472)   00002E08 00002800 78FF0140 00002E08 00002800 A6FF0140 00001208 00002801  |........... ........w.. ........|    
+ 000734  (LIT+1504)   7D400000 05090001 2C0010FF 01400000 12080000 28018F40 00000509 00012C00  |' ........... ......... ........|    
+ 000754  (LIT+1536)   10FF0140 00001208 00002801 A1000200 052D0058 00000240 00DBFF01 40000012  |... ................... .... ...|    
+ 000774  (LIT+1568)   08000028 01B34000 00142D00 58000002 4000C7FF 01400000 2E080000 2800D4FF  |...... ......... .G.. ........M.|    
+ 000794  (LIT+1600)   01400000 12080000 2801C540 00000509 00012C00 10FF0140 00001208 00002801  |. ........E ........... ........|    
+ 0007B4  (LIT+1632)   D7400000 05090001 2C0010FF 01400000 12080000 2801E940 00000F2D 00580000  |P ........... ........Z ........|    
+ 0007D4  (LIT+1664)   024000B6 FF014000 00120800 002801FB 40000014 2D005800 00024000 A2FF0140  |. .... ......... ......... .s.. |    
+ 0007F4  (LIT+1696)   00002E08 00002801 02FF0140 00000108 00002804 81FF0140 00001208 00002802  |........... ........a.. ........|    
+ 000814  (LIT+1728)   0D400000 1E2D0058 00000240 0042FF01 40000012 08000028 021F4000 00022D00  |. ......... .... ......... .....|    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page    17                
+0000834  (LIT+1760)   58000002 400040FF 01400000 12080000 28023140 00001E2D 00580000 02400022  |.... . .. ......... ......... ..|    
+ 000854  (LIT+1792)   FF400000 000040C0 00014000 08080000 28044902 C0000808 00002804 49        |. .... ... ..................   |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000065 000A5E CONTINUE                      000070 000A5E PERFORM                       000073 000A76 PERFORM                       
+ 000076 000A92 PERFORM                       000079 000AAE GO                            000081 000AB6 CONTINUE                      
+ 000084 000AB6 EXIT                          000090 000AB6 INITIALIZE                    000092 000BEA CONTINUE                      
+ 000095 000BEA EXIT                          000101 000BF0 MOVE                          000102 000BF6 MOVE                          
+ 000104 000C00 MOVE                          000106 000C0C MOVE                          000107 000C12 MOVE                          
+ 000108 000C1E MOVE                          000109 000C24 MOVE                          000110 000C30 MOVE                          
+ 000111 000C36 MOVE                          000113 000C42 MOVE                          000115 000C52 MOVE                          
+ 000116 000C58 MOVE                          000118 000C64 MOVE                          000119 000C6A MOVE                          
+ 000120 000C70 MOVE                          000121 000C7C MOVE                          000122 000C88 MOVE                          
+ 000123 000C8E MOVE                          000124 000C9A MOVE                          000125 000CA0 MOVE                          
+ 000126 000CA6 MOVE                          000127 000CAC MOVE                          000128 000CB2 MOVE                          
+ 000129 000CB8 MOVE                          000130 000CBE MOVE                          000131 000CCA MOVE                          
+ 000132 000CD6 MOVE                          000133 000CE2 MOVE                          000135 000CEE MOVE                          
+ 000136 000CFA MOVE                          000137 000D00 MOVE                          000138 000D06 MOVE                          
+ 000139 000D0C MOVE                          000140 000D12 MOVE                          000141 000D18 MOVE                          
+ 000142 000D1E MOVE                          000143 000D24 MOVE                          000144 000D30 MOVE                          
+ 000148 000D3C MOVE                          000149 000D42 MOVE                          000150 000D4E MOVE                          
+ 000151 000D5A MOVE                          000152 000D60 MOVE                          000153 000D66 MOVE                          
+ 000154 000D72 MOVE                          000155 000D78 MOVE                          000156 000D7E MOVE                          
+ 000157 000D84 MOVE                          000158 000D8A MOVE                          000159 000D90 MOVE                          
+ 000160 000D96 MOVE                          000161 000D9C MOVE                          000162 000DA8 MOVE                          
+ 000163 000DB4 MOVE                          000165 000DC0 MOVE                          000166 000DCC MOVE                          
+ 000167 000DD2 MOVE                          000168 000DD8 MOVE                          000169 000DDE MOVE                          
+ 000170 000DE4 MOVE                          000171 000DEA MOVE                          000173 000DF6 MOVE                          
+ 000174 000E02 MOVE                          000175 000E08 MOVE                          000176 000E0E MOVE                          
+ 000177 000E14 MOVE                          000178 000E1A MOVE                          000179 000E20 MOVE                          
+ 000183 000E2C MOVE                          000184 000E32 MOVE                          000185 000E3E MOVE                          
+ 000186 000E4A MOVE                          000187 000E50 MOVE                          000188 000E56 MOVE                          
+ 000189 000E62 MOVE                          000190 000E68 MOVE                          000191 000E6E MOVE                          
+ 000192 000E74 MOVE                          000193 000E7A MOVE                          000194 000E80 MOVE                          
+ 000196 000E8C MOVE                          000197 000E98 MOVE                          000198 000E9E MOVE                          
+ 000199 000EA4 MOVE                          000200 000EAA MOVE                          000201 000EB0 MOVE                          
+ 000202 000EB6 MOVE                          000203 000EC2 MOVE                          000207 000ECE MOVE                          
+ 000208 000EDA MOVE                          000209 000EE6 MOVE                          000210 000EEC MOVE                          
+ 000211 000EF2 MOVE                          000212 000EFE MOVE                          000213 000F04 MOVE                          
+ 000214 000F0A MOVE                          000215 000F10 MOVE                          000216 000F16 MOVE                          
+ 000217 000F1C MOVE                          000218 000F22 MOVE                          000219 000F28 MOVE                          
+ 000220 000F34 MOVE                          000222 000F40 MOVE                          000223 000F4C MOVE                          
+ 000224 000F52 MOVE                          000225 000F58 MOVE                          000226 000F5E MOVE                          
+ 000227 000F64 MOVE                          000228 000F6A MOVE                          000229 000F70 MOVE                          
+ 000230 000F7C MOVE                          000231 000F88 MOVE                          000233 000F94 MOVE                          
+ 000234 000FA0 MOVE                          000235 000FA6 MOVE                          000236 000FAC MOVE                          
+ 000237 000FB2 MOVE                          000238 000FB8 MOVE                          000239 000FBE MOVE                          
+ 000241 000FC4 MOVE                          000242 000FD0 MOVE                          000243 000FDC MOVE                          
+ 000244 000FE2 MOVE                          000245 000FE8 MOVE                          000246 000FF4 MOVE                          
+ 000247 000FFA MOVE                          000248 001000 MOVE                          000249 001006 MOVE                          
+ 000250 00100C MOVE                          000251 001012 MOVE                          000252 00101E MOVE                          
+ 000253 00102A MOVE                          000254 001036 MOVE                          000255 001042 MOVE                          
+ 000257 00104E CONTINUE                      000260 00104E EXIT                          000266 001054 PERFORM                       
+ 000272 0010C6 CONTINUE                      000275 0010C6 EXIT                          000281 0010CC DISPLAY                       
+ 000283 0010EC PERFORM                       000286 0010F6 DISPLAY                       000287 001120 DISPLAY                       
+ 000288 001146 END-PERFORM                   000290 0011A2 PERFORM                       000296 0011F6 CONTINUE                      
+ 000299 0011F6 EXIT                          000305 0011FC MOVE                          000306 001238 DISPLAY                       
+ 000307 001246 DISPLAY                       000308 001250 DISPLAY                       000309 00125A DISPLAY                       
+ 000310 001280 DISPLAY                       000311 0012A6 DISPLAY                       000312 0012B0 MOVE                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page    18                
+0000313 0012E6 DISPLAY                       000315 0012F0 DISPLAY                       000316 0012FA DISPLAY                       
+ 000318 001304 PERFORM                       000324 00139E CONTINUE                      000327 00139E EXIT                          
+ 000333 0013A4 MOVE                          000334 0013EA DISPLAY                       000335 0013F8 DISPLAY                       
+ 000336 001428 DISPLAY                       000337 001458 DISPLAY                       000338 001462 MOVE                          
+ 000339 0014A2 DISPLAY                       000341 0014AC DISPLAY                       000342 0014B6 DISPLAY                       
+ 000344 0014C0 PERFORM                       000350 001566 DISPLAY                       000351 001574 DISPLAY                       
+ 000353 00157E PERFORM                       000359 00162C CONTINUE                      000362 00162C EXIT                          
+ 000368 001632 DISPLAY                       000370 001670 CONTINUE                      000373 001670 EXIT                          
+ 000379 001676 DISPLAY                       000381 0016B4 CONTINUE                      000384 0016B4 EXIT                          
+ 000390 0016BA GOBACK                        000392 0016BE CONTINUE                      000395 0016BE EXIT                          
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page    19                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    00013C  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000140  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page    20                
+0                   *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  SAVE AREA FOR FLOAT REGISTERS 8-15                                                                       
+                  00000110  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  000001B0  VARIABLE-LENGTH CELLS                                                                                    
+                  000001C8  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  000001F0  PERFORM SAVE CELLS                                                                                       
+                  00000218  TEMPORARY STORAGE-2                                                                                      
+                  00000240  TEMPORARY STORAGE-3                                                                                      
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000154 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 00003A26 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 00000248 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 001770                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 0018A8 FOR LENGTH 00009E                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CASECB00  Date 09/17/2019  Time 08:01:51   Page    21                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program CASECB00:                                                                                            
+ *    Source records = 395                                                                                                           
+ *    Data Division statements = 33                                                                                                  
+ *    Procedure Division statements = 194                                                                                            
+0End of compilation 1,  program CASECB00,  highest severity 4.                                                                       
+0Return code 4                                                                                                                       

@@ -1,0 +1,586 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 01/20/2021  Time 05:11:21   Page     1                
+0Invocation parameters:                                                                                                              
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(OPT),AWO,NUMPROC(PFD),TEST(ALL,SYM,SEPARATE)                                                        
+                                                                                                                                     
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"  
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no   
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".                                    
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler         
+                       invocation parameter took precedence.                                                                         
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(COMPAT)                                                                                                                    
+    AWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(PFD)                                                                                                                     
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 01/20/2021  Time 05:11:21   Page     2                
+0 NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+    TEST(HOOK,SEPARATE,NOEJPD)                                                                                                       
+  NOTHREAD                                                                                                                           
+    TRUNC(OPT)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MCSORT05  Date 01/20/2021  Time 05:11:21   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0/* MCSORT05                                                                                                                         
+   000001         000200 IDENTIFICATION DIVISION.                                         00010000                                   
+   000002         000300 PROGRAM-ID.    MCSORT05.                                         00020000                                   
+   000003         000400****************************************************************  00030000                                   
+   000004         005300 ENVIRONMENT DIVISION.                                            00410000                                   
+   000005         005400 CONFIGURATION SECTION.                                           00410101                                   
+   000006         005500 SPECIAL-NAMES.                                                   00411001                                   
+   000007         005600       ALPHABET EBCDIC IS EBCDIC.                                 00412001                                   
+   000008         005700 INPUT-OUTPUT SECTION.                                            00430000                                   
+   000009         005800 FILE-CONTROL.                                                    00440000                                   
+   000010         006200     SELECT SYS001-GROUP-STAT-FILE                                00480000 22                                
+   000011         006300            ASSIGN TO SYS001                                      00490000                                   
+   000012         006400            ACCESS MODE IS SEQUENTIAL                             00500000                                   
+   000013         006500            ORGANIZATION IS SEQUENTIAL.                           00510000                                   
+   000014         006900     SELECT SORT-FILE                                             00550000 29                                
+   000015         007000            ASSIGN TO SORTWK01.                                   00560000                                   
+   000016         007400     SELECT SYS201-SORTED-GROUP-STAT-FILE                         00600000 62                                
+   000017         007500            ASSIGN TO SYS201                                      00610000                                   
+   000018         007600            ACCESS MODE IS SEQUENTIAL                             00620000                                   
+   000019         007700            ORGANIZATION IS SEQUENTIAL.                           00630000                                   
+   000020         007800 DATA DIVISION.                                                   00640000                                   
+   000021         007900 FILE SECTION.                                                    00650000                                   
+   000022         008300 FD  SYS001-GROUP-STAT-FILE                                       00690000                                   
+   000023         008400        LABEL RECORDS ARE STANDARD                                00700000                                   
+   000024         008500        RECORD CONTAINS 2000 CHARACTERS                           00710000                                   
+   000025         008600        RECORDING MODE IS F                                       00720000                                   
+   000026         008700        DATA RECORD IS SYS001-GROUP-STAT-REC                      00730000 *                                 
+   000027         008800        BLOCK CONTAINS 0 RECORDS.                                 00740000                                   
+   000028         008900 01  SYS001-GROUP-STAT-REC         PIC X(2000).                   00750000 BLF=00000+000         2000C       
+   000029         009300 SD  SORT-FILE.                                                   00800000                                   
+   000030         009500 01  IP40005-GROUP-STATUS-REC.                                    00820000 BLF=00001+000         0CL2000     
+   000031         011500     05  IP40005-GROUP-REC-STATUS              PIC X(01).         00302000 BLF=00001+000,0000000 1C          
+   000032         011600         88  88-IP40005-ADMIN-MSG-BUILT                 VALUE 'Y'.00303000                                   
+   000033         011700         88  88-IP40005-ADMIN-NOT-BUILT                 VALUE 'N'.00303100                                   
+   000034         011800     05  IP40005-GRP-FILE-SEQ-NBR              PIC 9(03).         00304000 BLF=00001+001,0000001 3C          
+   000035         011900     05  IP40005-GRP-FILE-ID.                                     00305000 BLF=00001+004,0000004 0CL25       
+   000036         012000         10  IP40005-GRP-FILE-TYPE             PIC X(03).         00306000 BLF=00001+004,0000004 3C          
+   000037         012100         10  IP40005-GRP-FILE-REF-DATE         PIC 9(06).         00307000 BLF=00001+007,0000007 6C          
+   000038         012200         10  IP40005-GRP-PROCESSOR-ID          PIC X(11).         00308000 BLF=00001+00D,000000D 11C         
+   000039         012300         10  IP40005-GRP-FILE-SEQ-NUM          PIC 9(05).         00309000 BLF=00001+018,0000018 5C          
+   000040         012400     05  IP40005-GROUP-SEQ-NUM                 PIC 9(08) COMP.    00309100 BLF=00001+01D,000001D 4C          
+   000041         012500     05  IP40005-GROUP-BIN                     PIC 9(06).         00309200 BLF=00001+021,0000021 6C          
+   000042         012600     05  IP40005-ERROR-INFO-TABLE.                                00309300 BLF=00001+027,0000027 0CL1710     
+   000043         012700        07  IP40005-GROUP-ERRORS                  OCCURS 10 TIMES.00310300 BLF=00001+027,0000027 0CL171      
+   000044         012800            10  IP40005-GROUP-ERROR-TYPE           PIC 9(02).     00310400 BLF=00001+027,0000027 2C          
+   000045         012900            10  IP40005-GROUP-ERROR-INFO.                         00310500 BLF=00001+029,0000029 0CL19       
+   000046         013000                15  IP40005-ERROR-MSG-SEV-CD-GRP   PIC X(02).     00310600 BLF=00001+029,0000029 2C          
+   000047         013100                15  IP40005-ERROR-NUMBER-GRP       PIC 9(04).     00310700 BLF=00001+02B,000002B 4C          
+   000048         013200                15  IP40005-ERROR-MSG-NUMBER-GRP   PIC 9(04).     00310800 BLF=00001+02F,000002F 4C          
+   000049         013300                15  IP40005-IPM-FIELD-TYPE-GRP     PIC X(01).     00310900 BLF=00001+033,0000033 1C          
+   000050         013400                    88 88-IP40005-M-MTI-GRP                VALUE  00311000                                   
+   000051         013500     '1'.                                                                                                    
+   000052         013600                    88 88-IP40005-D-DATA-ELEMENT-GRP       VALUE  00311100                                   
+   000053         013700     '2'.                                                                                                    
+   000054         013800                    88 88-IP40005-P-PDS-GRP                VALUE  00311200                                   
+   000055         013900     '3'.                                                                                                    
+   000056         014000                15  IP40005-IPM-FIELD-NUMBER-GRP   PIC 9(08) COMP.00311300 BLF=00001+034,0000034 4C          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MCSORT05  Date 01/20/2021  Time 05:11:21   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000057         014100                15  IP40005-IPM-SUBFLD-NUMBER-GRP  PIC 9(08) COMP.00311400 BLF=00001+038,0000038 4C          
+   000058         014200            10  IP40005-GROUP-REPL-TEXT            PIC X(50)      00311500 BLF=00001+03C,000003C 50C         
+   000059         014300                                               OCCURS 3 TIMES.    00311600                                   
+   000060         014400     05  FILLER                            PIC X(251).            00311700 BLF=00001+6D5,00006D5 251C        
+   000061         014500                                                                  00311800                                   
+   000062         015400 FD  SYS201-SORTED-GROUP-STAT-FILE                                00890000                                   
+   000063         015500        LABEL RECORDS ARE STANDARD                                00900000                                   
+   000064         015600        RECORD CONTAINS 2000 CHARACTERS                           00910000                                   
+   000065         015700        RECORDING MODE IS F                                       00920000                                   
+   000066         015800        DATA RECORD IS SYS201-SORTED-GROUP-STAT-REC               00930000 *                                 
+   000067         015900        BLOCK CONTAINS 0 RECORDS.                                 00940000                                   
+   000068         016000 01  SYS201-SORTED-GROUP-STAT-REC  PIC X(2000).                   00950000 BLF=00002+000         2000C       
+   000069         016500 WORKING-STORAGE SECTION.                                         01000000                                   
+   000070         016700 01  FILLER                         PIC X(40)  VALUE              01020000 BLW=00000+000         40C         
+   000071         016800     'WORKING STORAGE STARTS HERE             '.                  01030000                                   
+   000072         017400                                                                  031JSS                                     
+   000073         017900 01  IP996011-PROGRAM-START-MESSAGE EXTERNAL.                              BLX=00000+000         0CL69       
+   000074         018000     05 IP996011-PGM-ID           PIC X(08).                               BLX=00000+000,0000000 8C          
+   000075         018100     05 IP996011-DASH             PIC X(01).                               BLX=00000+008,0000008 1C          
+   000076         018200     05 IP996011-PGM-VERSION      PIC X(7).                                BLX=00000+009,0000009 7C          
+   000077         018300     05 IP996011-STARTED-TEXT     PIC X(08).                               BLX=00000+010,0000010 8C          
+   000078         018400     05 IP996011-START-TIMESTAMP.                                          BLX=00000+018,0000018 0CL19       
+   000079         018500         10 IP996011-START-MONTH  PIC 99/.                                 BLX=00000+018,0000018 3C          
+   000080         018600         10 IP996011-START-DAY    PIC 99/.                                 BLX=00000+01B,000001B 3C          
+   000081         018700         10 IP996011-START-YEAR   PIC 99B.                                 BLX=00000+01E,000001E 3C          
+   000082         018800         10 IP996011-START-HOUR   PIC 99.                                  BLX=00000+021,0000021 2C          
+   000083         018900         10 IP996011-DOT-1        PIC X.                                   BLX=00000+023,0000023 1C          
+   000084         019000         10 IP996011-START-MINUTE PIC 99.                                  BLX=00000+024,0000024 2C          
+   000085         019100         10 IP996011-DOT-2        PIC X.                                   BLX=00000+026,0000026 1C          
+   000086         019200         10 IP996011-START-SECOND PIC 99BB.                                BLX=00000+027,0000027 4C          
+   000087         019300     05 IP996011-COMPILED-TEXT    PIC X(09).                               BLX=00000+02B,000002B 9C          
+   000088         019400     05 IP996011-WHEN-COMPILED    PIC X(08)BX(08).                         BLX=00000+034,0000034 17C         
+   000089         019700                                                                                                             
+   000090         019800 01 300-CONSTANTS-AND-LITERALS.                                   01100000 BLW=00000+028         0CL82       
+   000091         020000    05  300-YES                     PIC X(01)  VALUE 'Y'.         01120000 BLW=00000+028,0000000 1C          
+   000092         020100    05  300-NO                      PIC X(01)  VALUE 'N'.         01130000 BLW=00000+029,0000001 1C          
+   000093         020200    05  300-ZERO                    PIC 9(01)  VALUE 0.           01140000 BLW=00000+02A,0000002 1C          
+   000094         020300    05  300-ONE                     PIC 9(01)  VALUE 1.           01150000 BLW=00000+02B,0000003 1C          
+   000095         020400    05  300-FIFTY                   PIC 9(02)  VALUE 50.          01160000 BLW=00000+02C,0000004 2C          
+   000096         020500    05  300-NINETEEN-STR            PIC X(02)  VALUE '19'.        01170000 BLW=00000+02E,0000006 2C          
+   000097         020600    05  300-TWENTY-STR              PIC X(02)  VALUE '20'.        01180000 BLW=00000+030,0000008 2C          
+   000098         020700    05  300-3008-ERR-NUM            PIC 9(04)  VALUE 3008.        01190000 BLW=00000+032,000000A 4C          
+   000099         020800                                                                                                             
+   000100         021000    05  300-PGM-VERSION             PIC X(07)                     031JSS   BLW=00000+036,000000E 7C          
+   000101         021100                                 VALUE X'01B07F01132800'.                                                    
+   000102         021200    05  300-PGM-MCSORT05            PIC X(08)  VALUE 'MCSORT05'.  031JSS   BLW=00000+03D,0000015 8C          
+   000103         021300    05  300-PGM-IP996010            PIC X(08)  VALUE 'IP996010'.  031JSS   BLW=00000+045,000001D 8C          
+   000104         021500                                                                                                             
+   000105         021600    05  301-END-OF-STEP-MSG.                                               BLW=00000+04D,0000025 0CL45       
+   000106         021700        10                          PIC X(08)  VALUE 'MCSORT05'.           BLW=00000+04D,0000025 8C          
+   000107         021800        10                          PIC X(06)  VALUE '-9999-'.             BLW=00000+055,000002D 6C          
+   000108         021900        10                          PIC X(31)  VALUE                       BLW=00000+05B,0000033 31C         
+   000109         022000            'END OF STEP, CONDITION CODE = '.                     01490000                                   
+   000110         022100                                                                                                             
+   000111         022300 01 400-ACCUMULATORS-AND-COUNTS.                                  01660000 BLW=00000+080         0CL6        
+   000112         022500    05  400-REC-COUNT               PIC 9(06)  VALUE ZEROES.      01680000 BLW=00000+080,0000000 6C          
+                                                                                                   IMP                               
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MCSORT05  Date 01/20/2021  Time 05:11:21   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000113         022700 01 600-ERROR-MESSAGES.                                           01700000 BLW=00000+088         0CL30       
+   000114         022900    05  600-SYS001-EMPTY            PIC X(30)   VALUE             01720000 BLW=00000+088,0000000 30C         
+   000115         023000          'SYS001 - GROUP-STAT FILE EMPTY'.                       01730000                                   
+   000116         023100                                                                                                             
+   000117         023700                                                                  031JSS                                     
+   000118         023800 01  800-PTR-IP996010               PROCEDURE-POINTER.            031JSS   BLW=00000+0A8         8C          
+   000119         024100                                                                                                             
+   000120         024300 01  FILLER                         PIC X(38)  VALUE              01980000 BLW=00000+0B0         38C         
+   000121         024400     'WORKING STORAGE ENDS HERE           '.                      01990000                                   
+   000122         024500                                                                                                             
+   000123         024600                                                                                                             
+   000124         024700                                                                                                             
+   000125         024800 PROCEDURE DIVISION.                                              02020000                                   
+   000126         024900 0000-MAIN-PROCESS.                                               02030000                                   
+   000127         025000     PERFORM 1000-INITIALIZE.                                     02040000 132                               
+   000128         025100     PERFORM 2000-SORT-FILE.                                      02050000 138                               
+   000129         025200     PERFORM 9500-PROCESS-TERMINATION.                            02060000 145                               
+   000130         025300     GOBACK.                                                      02070000                                   
+   000131         025400                                                                                                             
+   000132         025500 1000-INITIALIZE.                                                 02090000                                   
+   000133         025600                                                                                                             
+   000134         025800     SET  800-PTR-IP996010       TO  ENTRY  300-PGM-IP996010      031JSS   118 103                           
+   000135         025900     MOVE 300-PGM-MCSORT05       TO  IP996011-PGM-ID              031JSS   102 74                            
+   000136         026000     MOVE 300-PGM-VERSION        TO  IP996011-PGM-VERSION         031JSS   100 76                            
+   000137         026100     MOVE WHEN-COMPILED          TO  IP996011-WHEN-COMPILED.      031JSS   88                                
+   000138         027100 2000-SORT-FILE.                                                  02610000                                   
+   000139         027200     SORT SORT-FILE                                               02620000 29                                
+                                                                                                                                     
+ ==000139==> IGYPG3134-I File "SYS001-GROUP-STAT-FILE" in the "USING" phrase of the "SORT"                                           
+                         statement would have been eligible for the "FASTSRT" compiler option.                                       
+                                                                                                                                     
+ ==000139==> IGYPG3134-I File "SYS201-SORTED-GROUP-STAT-FILE" in the "GIVING" phrase of the "SORT"                                   
+                         statement would have been eligible for the "FASTSRT" compiler option.                                       
+                                                                                                                                     
+   000140         027300          ON ASCENDING KEY IP40005-GRP-FILE-SEQ-NBR               02630000 34                                
+   000141         027400                           IP40005-GROUP-SEQ-NUM                  02640000 40                                
+   000142         027500          COLLATING SEQUENCE IS EBCDIC                            02641000 7                                 
+   000143         027600          USING  SYS001-GROUP-STAT-FILE                           02650000 22                                
+   000144         027700          GIVING SYS201-SORTED-GROUP-STAT-FILE.                   02660000 62                                
+   000145         027900 9500-PROCESS-TERMINATION.                                        02830000                                   
+   000146         028000     DISPLAY 301-END-OF-STEP-MSG.                                 02860000 105                               
+   000147         028100 END PROGRAM MCSORT05.                                            02861002 2                                 
+ */ MCSORT05                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MCSORT05  Date 01/20/2021  Time 05:11:21   Page     6                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+        7   EBCDIC . . . . . . . . . . . .  142                                                                                      
+       42   IP40005-ERROR-INFO-TABLE                                                                                                 
+       48   IP40005-ERROR-MSG-NUMBER-GRP                                                                                             
+       46   IP40005-ERROR-MSG-SEV-CD-GRP                                                                                             
+       47   IP40005-ERROR-NUMBER-GRP                                                                                                 
+       41   IP40005-GROUP-BIN                                                                                                        
+       45   IP40005-GROUP-ERROR-INFO                                                                                                 
+       44   IP40005-GROUP-ERROR-TYPE                                                                                                 
+       43   IP40005-GROUP-ERRORS                                                                                                     
+       31   IP40005-GROUP-REC-STATUS                                                                                                 
+       58   IP40005-GROUP-REPL-TEXT                                                                                                  
+       40   IP40005-GROUP-SEQ-NUM. . . . .  141                                                                                      
+       30   IP40005-GROUP-STATUS-REC                                                                                                 
+       35   IP40005-GRP-FILE-ID                                                                                                      
+       37   IP40005-GRP-FILE-REF-DATE                                                                                                
+       34   IP40005-GRP-FILE-SEQ-NBR . . .  140                                                                                      
+       39   IP40005-GRP-FILE-SEQ-NUM                                                                                                 
+       36   IP40005-GRP-FILE-TYPE                                                                                                    
+       38   IP40005-GRP-PROCESSOR-ID                                                                                                 
+       56   IP40005-IPM-FIELD-NUMBER-GRP                                                                                             
+       49   IP40005-IPM-FIELD-TYPE-GRP                                                                                               
+       57   IP40005-IPM-SUBFLD-NUMBER-GRP                                                                                            
+       87   IP996011-COMPILED-TEXT                                                                                                   
+       75   IP996011-DASH                                                                                                            
+       83   IP996011-DOT-1                                                                                                           
+       85   IP996011-DOT-2                                                                                                           
+       74   IP996011-PGM-ID. . . . . . . .  M135                                                                                     
+       76   IP996011-PGM-VERSION . . . . .  M136                                                                                     
+       73   IP996011-PROGRAM-START-MESSAGE                                                                                           
+       80   IP996011-START-DAY                                                                                                       
+       82   IP996011-START-HOUR                                                                                                      
+       84   IP996011-START-MINUTE                                                                                                    
+       79   IP996011-START-MONTH                                                                                                     
+       86   IP996011-START-SECOND                                                                                                    
+       78   IP996011-START-TIMESTAMP                                                                                                 
+       81   IP996011-START-YEAR                                                                                                      
+       77   IP996011-STARTED-TEXT                                                                                                    
+       88   IP996011-WHEN-COMPILED . . . .  M137                                                                                     
+       29   SORT-FILE. . . . . . . . . . .  14 139                                                                                   
+       22   SYS001-GROUP-STAT-FILE . . . .  10 143                                                                                   
+       28   SYS001-GROUP-STAT-REC                                                                                                    
+       62   SYS201-SORTED-GROUP-STAT-FILE.  16 M144                                                                                  
+       68   SYS201-SORTED-GROUP-STAT-REC                                                                                             
+       90   300-CONSTANTS-AND-LITERALS                                                                                               
+       95   300-FIFTY                                                                                                                
+       96   300-NINETEEN-STR                                                                                                         
+       92   300-NO                                                                                                                   
+       94   300-ONE                                                                                                                  
+      103   300-PGM-IP996010 . . . . . . .  134                                                                                      
+      102   300-PGM-MCSORT05 . . . . . . .  135                                                                                      
+      100   300-PGM-VERSION. . . . . . . .  136                                                                                      
+       97   300-TWENTY-STR                                                                                                           
+       91   300-YES                                                                                                                  
+       93   300-ZERO                                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MCSORT05  Date 01/20/2021  Time 05:11:21   Page     7                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0      98   300-3008-ERR-NUM                                                                                                         
+      105   301-END-OF-STEP-MSG. . . . . .  146                                                                                      
+      111   400-ACCUMULATORS-AND-COUNTS                                                                                              
+      112   400-REC-COUNT                                                                                                            
+      113   600-ERROR-MESSAGES                                                                                                       
+      114   600-SYS001-EMPTY                                                                                                         
+      118   800-PTR-IP996010 . . . . . . .  M134                                                                                     
+       32   88-IP40005-ADMIN-MSG-BUILT                                                                                               
+       33   88-IP40005-ADMIN-NOT-BUILT                                                                                               
+       52   88-IP40005-D-DATA-ELEMENT-GRP                                                                                            
+       50   88-IP40005-M-MTI-GRP                                                                                                     
+       54   88-IP40005-P-PDS-GRP                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MCSORT05  Date 01/20/2021  Time 05:11:21   Page     8                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      126   0000-MAIN-PROCESS                                                                                                        
+      132   1000-INITIALIZE. . . . . . . .  P127                                                                                     
+      138   2000-SORT-FILE . . . . . . . .  P128                                                                                     
+      145   9500-PROCESS-TERMINATION . . .  P129                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MCSORT05  Date 01/20/2021  Time 05:11:21   Page     9                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   MCSORT05 . . . . . . . . . . .  147                                                                                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MCSORT05  Date 01/20/2021  Time 05:11:21   Page    10                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID MCSORT05----------------------------------------------------------------------------------------------------*    
+     22   FD SYS001-GROUP-STAT-FILE. . . . . . . . . . . .                                              QSAM           FB            
+     28   1  SYS001-GROUP-STAT-REC . . . . . . . . . . . . BLF=00000  000               DS 2000C        Display                      
+     29   SD SORT-FILE . . . . . . . . . . . . . . . . . .                                              SORT           F             
+     30   1  IP40005-GROUP-STATUS-REC. . . . . . . . . . . BLF=00001  000               DS 0CL2000      Group                        
+     31     2  IP40005-GROUP-REC-STATUS. . . . . . . . . . BLF=00001  000   0 000 000   DS 1C           Display                      
+     32     88 88-IP40005-ADMIN-MSG-BUILT. . . . . . . . .                                                                           
+     33     88 88-IP40005-ADMIN-NOT-BUILT. . . . . . . . .                                                                           
+     34     2  IP40005-GRP-FILE-SEQ-NBR. . . . . . . . . . BLF=00001  001   0 000 001   DS 3C           Disp-Num                     
+     35     2  IP40005-GRP-FILE-ID . . . . . . . . . . . . BLF=00001  004   0 000 004   DS 0CL25        Group                        
+     36       3  IP40005-GRP-FILE-TYPE . . . . . . . . . . BLF=00001  004   0 000 004   DS 3C           Display                      
+     37       3  IP40005-GRP-FILE-REF-DATE . . . . . . . . BLF=00001  007   0 000 007   DS 6C           Disp-Num                     
+     38       3  IP40005-GRP-PROCESSOR-ID. . . . . . . . . BLF=00001  00D   0 000 00D   DS 11C          Display                      
+     39       3  IP40005-GRP-FILE-SEQ-NUM. . . . . . . . . BLF=00001  018   0 000 018   DS 5C           Disp-Num                     
+     40     2  IP40005-GROUP-SEQ-NUM . . . . . . . . . . . BLF=00001  01D   0 000 01D   DS 4C           Binary                       
+     41     2  IP40005-GROUP-BIN . . . . . . . . . . . . . BLF=00001  021   0 000 021   DS 6C           Disp-Num                     
+     42     2  IP40005-ERROR-INFO-TABLE. . . . . . . . . . BLF=00001  027   0 000 027   DS 0CL1710      Group                        
+     43       3  IP40005-GROUP-ERRORS. . . . . . . . . . . BLF=00001  027   0 000 027   DS 0CL171       Group          O             
+     44         4  IP40005-GROUP-ERROR-TYPE. . . . . . . . BLF=00001  027   0 000 027   DS 2C           Disp-Num                     
+     45         4  IP40005-GROUP-ERROR-INFO. . . . . . . . BLF=00001  029   0 000 029   DS 0CL19        Group                        
+     46           5  IP40005-ERROR-MSG-SEV-CD-GRP. . . . . BLF=00001  029   0 000 029   DS 2C           Display                      
+     47           5  IP40005-ERROR-NUMBER-GRP. . . . . . . BLF=00001  02B   0 000 02B   DS 4C           Disp-Num                     
+     48           5  IP40005-ERROR-MSG-NUMBER-GRP. . . . . BLF=00001  02F   0 000 02F   DS 4C           Disp-Num                     
+     49           5  IP40005-IPM-FIELD-TYPE-GRP. . . . . . BLF=00001  033   0 000 033   DS 1C           Display                      
+     50           88 88-IP40005-M-MTI-GRP. . . . . . . . .                                                                           
+     52           88 88-IP40005-D-DATA-ELEMENT-GRP . . . .                                                                           
+     54           88 88-IP40005-P-PDS-GRP. . . . . . . . .                                                                           
+     56           5  IP40005-IPM-FIELD-NUMBER-GRP. . . . . BLF=00001  034   0 000 034   DS 4C           Binary                       
+     57           5  IP40005-IPM-SUBFLD-NUMBER-GRP . . . . BLF=00001  038   0 000 038   DS 4C           Binary                       
+     58         4  IP40005-GROUP-REPL-TEXT . . . . . . . . BLF=00001  03C   0 000 03C   DS 50C          Display        O             
+     60     2  FILLER. . . . . . . . . . . . . . . . . . . BLF=00001  6D5   0 000 6D5   DS 251C         Display                      
+     62   FD SYS201-SORTED-GROUP-STAT-FILE . . . . . . . .                                              QSAM           FB            
+     68   1  SYS201-SORTED-GROUP-STAT-REC. . . . . . . . . BLF=00002  000               DS 2000C        Display                      
+     70   1  FILLER. . . . . . . . . . . . . . . . . . . . BLW=00000  000               DS 40C          Display                      
+     73   1  IP996011-PROGRAM-START-MESSAGE. . . . . . . . BLX=00000  000               DS 0CL69        Group          E             
+     74     2  IP996011-PGM-ID . . . . . . . . . . . . . . BLX=00000  000   0 000 000   DS 8C           Display        E             
+     75     2  IP996011-DASH . . . . . . . . . . . . . . . BLX=00000  008   0 000 008   DS 1C           Display        E             
+     76     2  IP996011-PGM-VERSION. . . . . . . . . . . . BLX=00000  009   0 000 009   DS 7C           Display        E             
+     77     2  IP996011-STARTED-TEXT . . . . . . . . . . . BLX=00000  010   0 000 010   DS 8C           Display        E             
+     78     2  IP996011-START-TIMESTAMP. . . . . . . . . . BLX=00000  018   0 000 018   DS 0CL19        Group          E             
+     79       3  IP996011-START-MONTH. . . . . . . . . . . BLX=00000  018   0 000 018   DS 3C           Disp-Num-Edit  E             
+     80       3  IP996011-START-DAY. . . . . . . . . . . . BLX=00000  01B   0 000 01B   DS 3C           Disp-Num-Edit  E             
+     81       3  IP996011-START-YEAR . . . . . . . . . . . BLX=00000  01E   0 000 01E   DS 3C           Disp-Num-Edit  E             
+     82       3  IP996011-START-HOUR . . . . . . . . . . . BLX=00000  021   0 000 021   DS 2C           Disp-Num       E             
+     83       3  IP996011-DOT-1. . . . . . . . . . . . . . BLX=00000  023   0 000 023   DS 1C           Display        E             
+     84       3  IP996011-START-MINUTE . . . . . . . . . . BLX=00000  024   0 000 024   DS 2C           Disp-Num       E             
+     85       3  IP996011-DOT-2. . . . . . . . . . . . . . BLX=00000  026   0 000 026   DS 1C           Display        E             
+     86       3  IP996011-START-SECOND . . . . . . . . . . BLX=00000  027   0 000 027   DS 4C           Disp-Num-Edit  E             
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MCSORT05  Date 01/20/2021  Time 05:11:21   Page    11                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+     87     2  IP996011-COMPILED-TEXT. . . . . . . . . . . BLX=00000  02B   0 000 02B   DS 9C           Display        E             
+     88     2  IP996011-WHEN-COMPILED. . . . . . . . . . . BLX=00000  034   0 000 034   DS 17C          AN-Edit        E             
+     90   1  300-CONSTANTS-AND-LITERALS. . . . . . . . . . BLW=00000  028               DS 0CL82        Group                        
+     91     2  300-YES . . . . . . . . . . . . . . . . . . BLW=00000  028   0 000 000   DS 1C           Display                      
+     92     2  300-NO. . . . . . . . . . . . . . . . . . . BLW=00000  029   0 000 001   DS 1C           Display                      
+     93     2  300-ZERO. . . . . . . . . . . . . . . . . . BLW=00000  02A   0 000 002   DS 1C           Disp-Num                     
+     94     2  300-ONE . . . . . . . . . . . . . . . . . . BLW=00000  02B   0 000 003   DS 1C           Disp-Num                     
+     95     2  300-FIFTY . . . . . . . . . . . . . . . . . BLW=00000  02C   0 000 004   DS 2C           Disp-Num                     
+     96     2  300-NINETEEN-STR. . . . . . . . . . . . . . BLW=00000  02E   0 000 006   DS 2C           Display                      
+     97     2  300-TWENTY-STR. . . . . . . . . . . . . . . BLW=00000  030   0 000 008   DS 2C           Display                      
+     98     2  300-3008-ERR-NUM. . . . . . . . . . . . . . BLW=00000  032   0 000 00A   DS 4C           Disp-Num                     
+    100     2  300-PGM-VERSION . . . . . . . . . . . . . . BLW=00000  036   0 000 00E   DS 7C           Display                      
+    102     2  300-PGM-MCSORT05. . . . . . . . . . . . . . BLW=00000  03D   0 000 015   DS 8C           Display                      
+    103     2  300-PGM-IP996010. . . . . . . . . . . . . . BLW=00000  045   0 000 01D   DS 8C           Display                      
+    105     2  301-END-OF-STEP-MSG . . . . . . . . . . . . BLW=00000  04D   0 000 025   DS 0CL45        Group                        
+    106       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00000  04D   0 000 025   DS 8C           Display                      
+    107       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00000  055   0 000 02D   DS 6C           Display                      
+    108       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00000  05B   0 000 033   DS 31C          Display                      
+    111   1  400-ACCUMULATORS-AND-COUNTS . . . . . . . . . BLW=00000  080               DS 0CL6         Group                        
+    112     2  400-REC-COUNT . . . . . . . . . . . . . . . BLW=00000  080   0 000 000   DS 6C           Disp-Num                     
+    113   1  600-ERROR-MESSAGES. . . . . . . . . . . . . . BLW=00000  088               DS 0CL30        Group                        
+    114     2  600-SYS001-EMPTY. . . . . . . . . . . . . . BLW=00000  088   0 000 000   DS 30C          Display                      
+    118   1  800-PTR-IP996010. . . . . . . . . . . . . . . BLW=00000  0A8               DS 8C           Procedure-Ptr                
+    120   1  FILLER. . . . . . . . . . . . . . . . . . . . BLW=00000  0B0               DS 38C          Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MCSORT05  Date 01/20/2021  Time 05:11:21   Page    12                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000030 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000640 FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |    
+ 00011C  (LIT+32)     4040F0F0 F0F0F0F0                                                        |  000000                        |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MCSORT05  Date 01/20/2021  Time 05:11:21   Page    13                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 00012C FOR 0003D3 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000140  (LIT+0)      FFFFFFFC 00001000 000007D0 00000001 00000000 000040E2 D6D9E340 C6C9C5D3  |...................... SORT FIEL|    
+ 000160  (LIT+32)     C4E27E4D F0F0F0F2 6BF0F0F0 F36BE9C4 6BC16BF0 F0F3F06B F0F0F0F4 6BC2C96B  |DS=(0002,0003,ZD,A,0030,0004,BI,|    
+ 000180  (LIT+64)     C15D40D9 C5C3D6D9 C440E3E8 D7C57EC6 6BD3C5D5 C7E3C87E 4DF0F0F2 F0F0F06B  |A) RECORD TYPE=F,LENGTH=(002000,|    
+ 0001A0  (LIT+96)     6B5D40E6 D6D9D2C9 D5C740E2 E3D6D9C1 C7C540E2 E3C1D9E3 E240C8C5 D9C54040  |,) WORKING STORAGE STARTS HERE  |    
+ 0001C0  (LIT+128)    40404040 40404040 404040E6 D6D9D2C9 D5C740E2 E3D6D9C1 C7C540C5 D5C4E240  |           WORKING STORAGE ENDS |    
+ 0001E0  (LIT+160)    C8C5D9C5 40404040 40404040 404040E2 E8E2F0F0 F1406040 C7D9D6E4 D760E2E3  |HERE           SYS001 - GROUP-ST|    
+ 000200  (LIT+192)    C1E340C6 C9D3C540 C5D4D7E3 E8C5D5C4 40D6C640 E2E3C5D7 6B40C3D6 D5C4C9E3  |AT FILE EMPTYEND OF STEP, CONDIT|    
+ 000220  (LIT+224)    C9D6D540 C3D6C4C5 407E40F0 F161F2F0 61F2F1F0 F54BF1F1 4BF2F1C9 D7F9F9F6  |ION CODE = 01/20/2105.11.21IP996|    
+ 000240  (LIT+256)    F0F1F0D4 C3E2D6D9 E3F0F5E2 E8E2D6E4 E34040C9 C7E9E2D9 E3C3C401 B07F0113  |010MCSORT05SYSOUT  IGZSRTCD.."..|    
+ 000260  (LIT+288)    280060F9 F9F9F960 F1F90001 02030405 06070809 0A0B0C0D 0E0F1011 12131415  |..-9999-19......................|    
+ 000280  (LIT+320)    16171819 1A1B1C1D 1E1F2021 22232425 26272829 2A2B2C2D 2E2F3031 32333435  |................................|    
+ 0002A0  (LIT+352)    36373839 3A3B3C3D 3E3F4041 42434445 46474849 4A4B4C4D 4E4F5051 52535455  |.......... .........J.<(+|&.....|    
+ 0002C0  (LIT+384)    56575859 5A5B5C5D 5E5F6061 62636465 66676869 6A6B6C6D 6E6F7071 72737475  |....!$*).^-/.........,%_>?......|    
+ 0002E0  (LIT+416)    76777879 7A7B7C7D 7E7F80C1 C2C3C4C5 C6C7C8C9 8A8B8C8D 8E8F90D1 D2D3D4D5  |....:#@'=".ABCDEFGHI.......JKLMN|    
+ 000300  (LIT+448)    D6D7D8D9 9A9B9C9D 9E9FA0A1 E2E3E4E5 E6E7E8E9 AAABACAD AEAFB0B1 B2B3B4B5  |OPQR........STUVWXYZ............|    
+ 000320  (LIT+480)    B6B7B8B9 BABBBCBD BEBFC0C1 C2C3C4C5 C6C7C8C9 CACBCCCD CECFD0D1 D2D3D4D5  |...........ABCDEFGHI.......JKLMN|    
+ 000340  (LIT+512)    D6D7D8D9 DADBDCDD DEDFE0E1 E2E3E4E5 E6E7E8E9 EAEBECED EEEFF0F1 F2F3F4F5  |OPQR........STUVWXYZ......012345|    
+ 000360  (LIT+544)    F6F7F8F9 FAFBFCFD FEFF0000 01340000 00030000 012C0000 00010000 01300000  |6789............................|    
+ 000380  (LIT+576)    00010000 00000000 00000000 01400000 00010000 00000000 00000000 00000000  |............. ..................|    
+ 0003A0  (LIT+608)    00000000 00000000 00008000 00004000 00000000 00000000 0000E700 08400001  |.............. ...........X.. ..|    
+ 0003C0  (LIT+640)    E7000800 00008B08 00000004 000000F3 F0F0F8F5 F0400000 00000000 00000000  |X..............300850 ..........|    
+ 0003E0  (LIT+672)    00000000 00400000 000025C0 0001C000 08080000 28011701 4000002D 0900012C  |..... .................. .......|    
+ 000400  (LIT+704)    004DFF40 00000000 1AC00001 40000808 00002801 17029000 04080000 28029740  |.(. ........ .................p |    
+ 000420  (LIT+736)    00028000 100C8000 02800008 40000180 00043D00 58000001 20800001 80000086  |............ ..................f|    
+ 000440  (LIT+768)    09000138 00000000 07D00800 00280028 004F0000 0000C009 00012800 10090001  |.................|..............|    
+ 000460  (LIT+800)    280018FF FF080000 00000000 10080000 2800FF02 00000000 00001109 00014000  |.............................. .|    
+ 000480  (LIT+832)    34090800 0028028E 20080000 3D005800 00012009 00012C00 A83D0058 00000130  |........................y.......|    
+ 0004A0  (LIT+864)    00000000 00FF8000 00000001 19000140 00000045 C9D7F9F9 F6F0F1F1 60D7D9D6  |............... ....IP996011-PRO|    
+ 0004C0  (LIT+896)    C7D9C1D4 60E2E3C1 D9E360D4 C5E2E2C1 C7C50000 0000FF40 00000000 40C00001  |GRAM-START-MESSAGE..... .... ...|    
+ 0004E0  (LIT+928)    40000808 00002801 1702C000 08080000 28011709 00013C00 00090001 340000    | .............................. |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000127 000806 PERFORM                       000128 000826 PERFORM                       000129 000846 PERFORM                       
+ 000130 000866 GOBACK                        000134 00087A SET                           000135 0008A4 MOVE                          
+ 000136 0008B6 MOVE                          000137 0008C8 MOVE                          000139 0008E4 SORT                          
+ 000146 000A30 DISPLAY                                                                                                               
+0                                                                                                                                    
+   DEBUGINF TABLE LOCATED AT 000AC4 FOR 000048 BYTES                                                                                 
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MCSORT05  Date 01/20/2021  Time 05:11:21   Page    14                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  BASE LOCATORS FOR FILES                                                                                  
+                    000140  BASE LOCATORS FOR EXTERNAL DATA                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MCSORT05  Date 01/20/2021  Time 05:11:21   Page    15                
+0                   000144  TEST INFORMATION AREA                                                                                    
+                    00016C  FCB CELLS                                                                                                
+                    000174  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  000000E0  VARIABLE-LENGTH CELLS                                                                                    
+                  000000F8  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  0000010C  PERFORM SAVE CELLS                                                                                       
+                  00000120  TEMPORARY STORAGE-2                                                                                      
+                  00000130  TEMPORARY STORAGE-3                                                                                      
+                  00000138  CALL STATEMENT PROGRAM NAME                                                                              
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000188 BYTES                                                                                       
+ DCB00001 WILL BE ALLOCATED FOR 00000060 BYTES                                                                                       
+ FCB00001 WILL BE ALLOCATED FOR 00000114 BYTES                                                                                       
+ DCB00002 WILL BE ALLOCATED FOR 00000060 BYTES                                                                                       
+ FCB00002 WILL BE ALLOCATED FOR 00000114 BYTES                                                                                       
+ GDT00001 WILL BE ALLOCATED FOR 000000A0 BYTES                                                                                       
+ RCD00001 WILL BE ALLOCATED FOR 000007D0 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 000000D6 BYTES                                                                                       
+ SRT00001 WILL BE ALLOCATED FOR 00000004 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 000001D8 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 000B64                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 001040 FOR LENGTH 00014A                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               MCSORT05  Date 01/20/2021  Time 05:11:21   Page    16                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+                                                                                                                                     
+    139  IGYPG3134-I   File "SYS001-GROUP-STAT-FILE" in the "USING" phrase of the "SORT" statement would have been eligible for the  
+                       "FASTSRT" compiler option.                                                                                    
+                                                                                                                                     
+    139  IGYPG3134-I   File "SYS201-SORTED-GROUP-STAT-FILE" in the "GIVING" phrase of the "SORT" statement would have been eligible  
+                       for the "FASTSRT" compiler option.                                                                            
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       5           3              2                                                                                         
+-* Statistics for COBOL program MCSORT05:                                                                                            
+ *    Source records = 147                                                                                                           
+ *    Data Division statements = 62                                                                                                  
+ *    Procedure Division statements = 10                                                                                             
+0End of compilation 1,  program MCSORT05,  highest severity 4.                                                                       
+0Return code 4                                                                                                                       
