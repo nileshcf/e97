@@ -1,0 +1,395 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 08/25/2022  Time 04:42:23   Page     1                
+0Invocation parameters:                                                                                                              
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(BIN),AWO,NUMPROC(PFD),TEST(ALL,SYM,SEPARATE)                                                        
+                                                                                                                                     
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"  
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no   
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".                                    
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler         
+                       invocation parameter took precedence.                                                                         
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(COMPAT)                                                                                                                    
+    AWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(PFD)                                                                                                                     
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 08/25/2022  Time 04:42:23   Page     2                
+0 NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+    TEST(HOOK,SEPARATE,NOEJPD)                                                                                                       
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SH022     Date 08/25/2022  Time 04:42:23   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0/* SH022                                                                                                                            
+   000001         000100*------------------------                                                                                    
+   000002         000200 IDENTIFICATION DIVISION.                                                                                    
+   000003         000300*------------------------                                                                                    
+   000004         000400 PROGRAM-ID. SH022.                                                                                          
+   000005         000500*---------------------                                                                                       
+   000006         000600 ENVIRONMENT DIVISION.                                                                                       
+   000007         000700*---------------------                                                                                       
+   000008         000800 DATA DIVISION.                                                                                              
+   000009         000900*---------------------                                                                                       
+   000010         001000 WORKING-STORAGE SECTION.                                                                                    
+   000011         001100                                                                                                             
+   000012         003300 01  WV-VARS.                                                              BLW=00000+000         0CL70       
+   000013         003400     03  WV-VOL-EXPOSED                   PIC S9(9)V9(4) COMP-3.           BLW=00000+000,0000000 7P          
+   000014         003500     03  DEALGPAL-ALLOC-WGTN-NUM         PIC S9(4)V9(4) COMP-3.            BLW=00000+007,0000007 5P          
+   000015         003600     03  WV-VOL-EXPOSED-EDIT              PIC -Z(8)9.9(4).                 BLW=00000+00C,000000C 15C         
+   000016         003700     03  WV-EXTR-O-RATE       PIC -(8)9.9(4).                              BLW=00000+01B,000001B 14C         
+   000017         003800     03  WV-EXTR-O-USD-VALUE  PIC -(9)9.                                   BLW=00000+029,0000029 10C         
+   000018         004000     03  PCSTLOG-USD-COST-VALUE          PIC S9(9)V9(4) COMP-3.            BLW=00000+033,0000033 7P          
+   000019         004100     03  WV-EXTR-O-USD-VALUE2 PIC -(9)9.9.                                 BLW=00000+03A,000003A 12C         
+   000020         005300                                                                                                             
+   000021         005400*                                                                                                            
+   000022         005500 PROCEDURE DIVISION.                                                                                         
+   000023         005600 0000-MAIN.                                                                                                  
+   000024         005700*                                                                                                            
+   000025         005701     MOVE 12532.3528 TO WV-VOL-EXPOSED                                     13                                
+   000026         005702     MOVE   157.3286 TO DEALGPAL-ALLOC-WGTN-NUM                            14                                
+   000027         005703*                                                                                                            
+   000028         005710        COMPUTE WV-VOL-EXPOSED = WV-VOL-EXPOSED *                          13 13                             
+   000029         005720                                (DEALGPAL-ALLOC-WGTN-NUM / 100)            14                                
+   000030         005751        MOVE WV-VOL-EXPOSED TO WV-VOL-EXPOSED-EDIT                         13 15                             
+   000031         005752        DISPLAY WV-VOL-EXPOSED-EDIT                                        15                                
+   000032         005753*                                                                                                            
+   000033         005754        COMPUTE WV-VOL-EXPOSED ROUNDED = WV-VOL-EXPOSED *                  13 13                             
+   000034         005755                                (DEALGPAL-ALLOC-WGTN-NUM / 100)            14                                
+   000035         005756        MOVE WV-VOL-EXPOSED TO WV-VOL-EXPOSED-EDIT                         13 15                             
+   000036         005757        DISPLAY WV-VOL-EXPOSED-EDIT                                        15                                
+   000037         005770*                                                                                                            
+   000038         005780     MOVE 12532.3528 TO WV-VOL-EXPOSED                                     13                                
+   000039         005790     MOVE   157.9999 TO DEALGPAL-ALLOC-WGTN-NUM                            14                                
+   000040         005791*                                                                                                            
+   000041         005792*    PERFORM 10 TIMES                                                                                        
+   000042         005793        COMPUTE WV-VOL-EXPOSED = WV-VOL-EXPOSED *                          13 13                             
+   000043         005794                                (DEALGPAL-ALLOC-WGTN-NUM / 100)            14                                
+   000044         005795        MOVE WV-VOL-EXPOSED TO WV-VOL-EXPOSED-EDIT                         13 15                             
+   000045         005796        DISPLAY WV-VOL-EXPOSED-EDIT                                        15                                
+   000046         005797        COMPUTE WV-VOL-EXPOSED ROUNDED = WV-VOL-EXPOSED *                  13 13                             
+   000047         005798                                (DEALGPAL-ALLOC-WGTN-NUM / 100)            14                                
+   000048         005799        MOVE WV-VOL-EXPOSED TO WV-VOL-EXPOSED-EDIT                         13 15                             
+   000049         005800        DISPLAY WV-VOL-EXPOSED-EDIT                                        15                                
+   000050         005801*    END-PERFORM                                                                                             
+   000051         005810*                                                                                                            
+   000052         005820     MOVE 1193564.728   TO PCSTLOG-USD-COST-VALUE                          18                                
+   000053         005830     MOVE   15.9999  TO DEALGPAL-ALLOC-WGTN-NUM                            14                                
+   000054         005900     COMPUTE WV-EXTR-O-USD-VALUE = PCSTLOG-USD-COST-VALUE *                17 18                             
+   000055         006000                                 (DEALGPAL-ALLOC-WGTN-NUM / 100)           14                                
+   000056         006200     DISPLAY WV-EXTR-O-USD-VALUE                                           17                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SH022     Date 08/25/2022  Time 04:42:23   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000057         006210     COMPUTE WV-EXTR-O-USD-VALUE ROUNDED =                                 17                                
+   000058         006211               PCSTLOG-USD-COST-VALUE *                                    18                                
+   000059         006220               ( DEALGPAL-ALLOC-WGTN-NUM / 100)                            14                                
+   000060         006240     DISPLAY WV-EXTR-O-USD-VALUE                                           17                                
+   000061         006300*                                                                                                            
+   000062         006400*                                                                                                            
+   000063         006500     MOVE 1193568.9181  TO PCSTLOG-USD-COST-VALUE                          18                                
+   000064         006600     MOVE   15.9999  TO DEALGPAL-ALLOC-WGTN-NUM                            14                                
+   000065         006700     COMPUTE WV-EXTR-O-USD-VALUE = PCSTLOG-USD-COST-VALUE *                17 18                             
+   000066         006800                                 (DEALGPAL-ALLOC-WGTN-NUM / 100)           14                                
+   000067         006900     DISPLAY WV-EXTR-O-USD-VALUE                                           17                                
+   000068         007000     COMPUTE WV-EXTR-O-USD-VALUE ROUNDED =                                 17                                
+   000069         007100               PCSTLOG-USD-COST-VALUE *                                    18                                
+   000070         007200               ( DEALGPAL-ALLOC-WGTN-NUM / 100)                            14                                
+   000071         007300     DISPLAY WV-EXTR-O-USD-VALUE                                           17                                
+   000072         007310*                                                                                                            
+   000073         007320     MOVE 1193568.9181  TO PCSTLOG-USD-COST-VALUE                          18                                
+   000074         007330     MOVE   15.0311  TO DEALGPAL-ALLOC-WGTN-NUM                            14                                
+   000075         007340     COMPUTE WV-EXTR-O-USD-VALUE = PCSTLOG-USD-COST-VALUE *                17 18                             
+   000076         007350                                 (DEALGPAL-ALLOC-WGTN-NUM / 100)           14                                
+   000077         007360     DISPLAY WV-EXTR-O-USD-VALUE                                           17                                
+   000078         007370     COMPUTE WV-EXTR-O-USD-VALUE ROUNDED =                                 17                                
+   000079         007380               PCSTLOG-USD-COST-VALUE *                                    18                                
+   000080         007390               ( DEALGPAL-ALLOC-WGTN-NUM / 100)                            14                                
+   000081         007391     DISPLAY WV-EXTR-O-USD-VALUE                                           17                                
+   000082         007392*                                                                                                            
+   000083         007393     MOVE 1193564.728   TO PCSTLOG-USD-COST-VALUE                          18                                
+   000084         007394     MOVE   15.9999  TO DEALGPAL-ALLOC-WGTN-NUM                            14                                
+   000085         007395     COMPUTE WV-EXTR-O-USD-VALUE2 = PCSTLOG-USD-COST-VALUE *               19 18                             
+   000086         007396                                 (DEALGPAL-ALLOC-WGTN-NUM / 100)           14                                
+   000087         007397     DISPLAY WV-EXTR-O-USD-VALUE2                                          19                                
+   000088         007398     COMPUTE WV-EXTR-O-USD-VALUE2 ROUNDED =                                19                                
+   000089         007399               PCSTLOG-USD-COST-VALUE *                                    18                                
+   000090         007400               ( DEALGPAL-ALLOC-WGTN-NUM / 100)                            14                                
+   000091         007410     DISPLAY WV-EXTR-O-USD-VALUE2                                          19                                
+   000092         007420*                                                                                                            
+   000093         007430*                                                                                                            
+   000094         007440     MOVE 1193568.9181  TO PCSTLOG-USD-COST-VALUE                          18                                
+   000095         007450     MOVE   15.9999  TO DEALGPAL-ALLOC-WGTN-NUM                            14                                
+   000096         007460     COMPUTE WV-EXTR-O-USD-VALUE2 = PCSTLOG-USD-COST-VALUE *               19 18                             
+   000097         007470                                 (DEALGPAL-ALLOC-WGTN-NUM / 100)           14                                
+   000098         007480     DISPLAY WV-EXTR-O-USD-VALUE2                                          19                                
+   000099         007490     COMPUTE WV-EXTR-O-USD-VALUE2 ROUNDED =                                19                                
+   000100         007491               PCSTLOG-USD-COST-VALUE *                                    18                                
+   000101         007492               ( DEALGPAL-ALLOC-WGTN-NUM / 100)                            14                                
+   000102         007493     DISPLAY WV-EXTR-O-USD-VALUE2                                          19                                
+   000103         007494*                                                                                                            
+   000104         007495     MOVE 1193568.9181  TO PCSTLOG-USD-COST-VALUE                          18                                
+   000105         007496     MOVE   15.0311  TO DEALGPAL-ALLOC-WGTN-NUM                            14                                
+   000106         007497     COMPUTE WV-EXTR-O-USD-VALUE2 = PCSTLOG-USD-COST-VALUE *               19 18                             
+   000107         007498                                 (DEALGPAL-ALLOC-WGTN-NUM / 100)           14                                
+   000108         007499     DISPLAY WV-EXTR-O-USD-VALUE2                                          19                                
+   000109         007500     COMPUTE WV-EXTR-O-USD-VALUE2 ROUNDED =                                19                                
+   000110         007510               PCSTLOG-USD-COST-VALUE *                                    18                                
+   000111         007520               ( DEALGPAL-ALLOC-WGTN-NUM / 100)                            14                                
+   000112         007530     DISPLAY WV-EXTR-O-USD-VALUE2                                          19                                
+   000113         007600*                                                                                                            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SH022     Date 08/25/2022  Time 04:42:23   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000114         009300     GOBACK.                                                                                                 
+   000115         009400*                                                                                                            
+ */ SH022                                                                                                                            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SH022     Date 08/25/2022  Time 04:42:23   Page     6                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       14   DEALGPAL-ALLOC-WGTN-NUM. . . .  M26 29 34 M39 43 47 M53 55 59 M64 66 70 M74 76 80 M84 86 90 M95 97 101 M105 107          
+                                            111                                                                                      
+       18   PCSTLOG-USD-COST-VALUE . . . .  M52 54 58 M63 65 69 M73 75 79 M83 85 89 M94 96 100 M104 106 110                          
+       16   WV-EXTR-O-RATE                                                                                                           
+       17   WV-EXTR-O-USD-VALUE. . . . . .  M54 56 M57 60 M65 67 M68 71 M75 77 M78 81                                                
+       19   WV-EXTR-O-USD-VALUE2 . . . . .  M85 87 M88 91 M96 98 M99 102 M106 108 M109 112                                           
+       12   WV-VARS                                                                                                                  
+       13   WV-VOL-EXPOSED . . . . . . . .  M25 M28 28 30 M33 33 35 M38 M42 42 44 M46 46 48                                          
+       15   WV-VOL-EXPOSED-EDIT. . . . . .  M30 31 M35 36 M44 45 M48 49                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SH022     Date 08/25/2022  Time 04:42:23   Page     7                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+       23   0000-MAIN                                                                                                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SH022     Date 08/25/2022  Time 04:42:23   Page     8                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        4   SH022                                                                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SH022     Date 08/25/2022  Time 04:42:23   Page     9                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      4  PROGRAM-ID SH022-------------------------------------------------------------------------------------------------------*    
+     12   1  WV-VARS . . . . . . . . . . . . . . . . . . . BLW=00000  000               DS 0CL70        Group                        
+     13     2  WV-VOL-EXPOSED. . . . . . . . . . . . . . . BLW=00000  000   0 000 000   DS 7P           Packed-Dec                   
+     14     2  DEALGPAL-ALLOC-WGTN-NUM . . . . . . . . . . BLW=00000  007   0 000 007   DS 5P           Packed-Dec                   
+     15     2  WV-VOL-EXPOSED-EDIT . . . . . . . . . . . . BLW=00000  00C   0 000 00C   DS 15C          Disp-Num-Edit                
+     16     2  WV-EXTR-O-RATE. . . . . . . . . . . . . . . BLW=00000  01B   0 000 01B   DS 14C          Disp-Num-Edit                
+     17     2  WV-EXTR-O-USD-VALUE . . . . . . . . . . . . BLW=00000  029   0 000 029   DS 10C          Disp-Num-Edit                
+     18     2  PCSTLOG-USD-COST-VALUE. . . . . . . . . . . BLW=00000  033   0 000 033   DS 7P           Packed-Dec                   
+     19     2  WV-EXTR-O-USD-VALUE2. . . . . . . . . . . . BLW=00000  03A   0 000 03A   DS 12C          Disp-Num-Edit                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SH022     Date 08/25/2022  Time 04:42:23   Page    10                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 00002C BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000250 FOR LINE 4                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |    
+ 00011C  (LIT+32)     4040                                                                     |                                |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SH022     Date 08/25/2022  Time 04:42:23   Page    11                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000128 FOR 000127 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 00012C  (LIT+0)      FFFFFFFC 00001000 00000001 00000000 E2E8E2D6 E4E34040 C9C7E9E2 D9E3C3C4  |................SYSOUT  IGZSRTCD|    
+ 00014C  (LIT+32)     E2C8F0F2 F2001193 5689181C 00119356 47280C00 00125323 528C0001 50311C00  |SH022..l.i....l.............&...|    
+ 00016C  (LIT+64)     0159999C 00157999 9C001573 286C100F 00000000 0000012C 00000001 00000130  |..r....r.....%..................|    
+ 00018C  (LIT+96)     00000001 00000000 00000000 00000000 00000000 00000000 00000000 00000000  |................................|    
+ 0001AC  (LIT+128)    00000000 00000000 80000000 40602020 20202020 2021204B 20202020 40204020  |............ -.............. . .|    
+ 0001CC  (LIT+160)    20202020 20202120 4B204000 00000000 00000000 00004040 20202020 20202021  |.......... ...........  ........|    
+ 0001EC  (LIT+192)    20400000 00000000 00000000 00000000 00400000 000025C0 0001C000 05080000  |. ............... ..............|    
+ 00020C  (LIT+224)    24002401 4000000C 0900012C 003AFF01 4000000A 0900012C 0029FF01 4000000F  |.... ........... ........... ...|    
+ 00022C  (LIT+256)    0900012C 000CFF40 00000000 40C00001 40000508 00002400 2402C000 05080000  |....... .... ... ...............|    
+ 00024C  (LIT+288)    240024                                                                   |...                             |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000025 000366 MOVE                          000026 000370 MOVE                          000028 00037A COMPUTE                       
+ 000030 0003A2 MOVE                          000031 0003CC DISPLAY                       000033 0003DE COMPUTE                       
+ 000035 000410 MOVE                          000036 00043A DISPLAY                       000038 00044C MOVE                          
+ 000039 000456 MOVE                          000042 000460 COMPUTE                       000044 000488 MOVE                          
+ 000045 0004B2 DISPLAY                       000046 0004C4 COMPUTE                       000048 0004F6 MOVE                          
+ 000049 000520 DISPLAY                       000052 000532 MOVE                          000053 00053C MOVE                          
+ 000054 000546 COMPUTE                       000056 000596 DISPLAY                       000057 0005A8 COMPUTE                       
+ 000060 0005F8 DISPLAY                       000063 00060A MOVE                          000064 000614 MOVE                          
+ 000065 00061E COMPUTE                       000067 00066E DISPLAY                       000068 000680 COMPUTE                       
+ 000071 0006D0 DISPLAY                       000073 0006E2 MOVE                          000074 0006EC MOVE                          
+ 000075 0006F6 COMPUTE                       000077 000746 DISPLAY                       000078 000758 COMPUTE                       
+ 000081 0007A8 DISPLAY                       000083 0007BA MOVE                          000084 0007C4 MOVE                          
+ 000085 0007CE COMPUTE                       000087 00081E DISPLAY                       000088 000830 COMPUTE                       
+ 000091 000884 DISPLAY                       000094 000896 MOVE                          000095 0008A0 MOVE                          
+ 000096 0008AA COMPUTE                       000098 0008FA DISPLAY                       000099 00090C COMPUTE                       
+ 000102 000960 DISPLAY                       000104 000972 MOVE                          000105 00097C MOVE                          
+ 000106 000986 COMPUTE                       000108 0009D6 DISPLAY                       000109 0009E8 COMPUTE                       
+ 000112 000A3C DISPLAY                       000114 000A4E GOBACK                                                                    
+0                                                                                                                                    
+   DEBUGINF TABLE LOCATED AT 000AD8 FOR 000040 BYTES                                                                                 
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SH022     Date 08/25/2022  Time 04:42:23   Page    12                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  TEST INFORMATION AREA                                                                                    
+                    00015C  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SH022     Date 08/25/2022  Time 04:42:23   Page    13                
+0                                                                                                                                    
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  000000E0  VARIABLE-LENGTH CELLS                                                                                    
+                  000000F8  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  000000FC  PERFORM SAVE CELLS                                                                                       
+                  00000100  TEMPORARY STORAGE-1                                                                                      
+                  00000110  TEMPORARY STORAGE-2                                                                                      
+                  00000128  CALL STATEMENT PROGRAM NAME                                                                              
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000170 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 00000046 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 000001C8 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 000B48                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 000CA4 FOR LENGTH 00009A                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SH022     Date 08/25/2022  Time 04:42:23   Page    14                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program SH022:                                                                                               
+ *    Source records = 115                                                                                                           
+ *    Data Division statements = 8                                                                                                   
+ *    Procedure Division statements = 53                                                                                             
+0End of compilation 1,  program SH022,  highest severity 4.                                                                          
+0Return code 4                                                                                                                       

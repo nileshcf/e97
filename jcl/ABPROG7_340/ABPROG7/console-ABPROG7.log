@@ -1,0 +1,41 @@
+07:14:25.237 [main] INFO  o.s.boot.StartupInfoLogger.logStarting   50 - Starting CFApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 4038800 (/home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/ABPROG7_340/ABPROG7/target/ABPROG7-0.0.1-SNAPSHOT.jar started by root in /home/jenkins/workspace/CFTestAutomation_Release/Testing/results/jcl/ABPROG7_340/ABPROG7)
+07:14:25.255 [main] INFO  o.s.boot.SpringApplication.logStartupProfileInfo  654 - No active profile set, falling back to 1 default profile: "default"
+07:14:28.829 [main] INFO  o.s.boot.StartupInfoLogger.logStarted   56 - Started CFApplication in 5.241 seconds (process running for 6.65)
+07:14:28.870 [main] INFO  c.c.app.utility.CFConfiguration.cfDataConnectIOInfo  107 - CFDataConnectIO version : 5.0.0.21
+07:14:28.954 [main] INFO  c.c.a.u.d.plus.CFDcioConfiguration.cfDataConnectIOPlusInfo   28 - CFDataConnectIOPlus version : 5.0.0.21
+07:14:29.001 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.initDatabase  189 - Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+07:14:30.428 [main] INFO  o.s.b.a.b.JobLauncherApplicationRunner.run  168 - Running default command line with: []
+07:14:30.601 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  154 - Job: [SimpleJob: [name=ABPROG7]] launched with the following parameters: [{}]
+07:14:30.694 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [alloc]
+07:14:30.744 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [alloc] executed in 48ms
+07:14:30.772 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [abprog7]
+07:14:30.968 [main] INFO  com.cloudframe.app.process.Abprog7.main   80 - In          ABPROG7
+07:14:30.968 [main] INFO  com.cloudframe.app.process.Abprog7.main   82 - Calling     ABPROG8
+07:14:30.970 [main] INFO  com.cloudframe.app.process.Abprog8.main   80 - In          ABPROG8
+07:14:30.971 [main] INFO  com.cloudframe.app.process.Abprog8.callAbprog9  123 - Calling     ABPROG9 .. Call# 1
+07:14:30.975 [main] INFO  com.cloudframe.app.process.Abprog9.mainline   86 - In          ABPROG9
+07:14:30.976 [main] INFO  com.cloudframe.app.process.Abprog8.callAbprog9  144 - Return From ABPROG9
+07:14:30.977 [main] INFO  com.cloudframe.app.process.Abprog8.callAbprog9  123 - Calling     ABPROG9 .. Call# 2
+07:14:30.978 [main] INFO  com.cloudframe.app.process.Abprog9.mainline   86 - In          ABPROG9
+07:14:30.979 [main] INFO  com.cloudframe.app.process.Abprog8.callAbprog9  144 - Return From ABPROG9
+07:14:30.979 [main] INFO  com.cloudframe.app.process.Abprog8.callAbprog9  123 - Calling     ABPROG9 .. Call# 3
+07:14:30.980 [main] INFO  com.cloudframe.app.process.Abprog9.mainline   86 - In          ABPROG9
+07:14:30.981 [main] INFO  com.cloudframe.app.process.Abprog9.raiseAbend  125 - ** ERROR: PROGRAM ENDING WITH RETURN CODE 10
+07:14:30.998 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [abprog7] executed in 224ms
+07:14:31.024 [main] INFO  o.s.batch.core.job.SimpleStepHandler.handleStep  150 - Executing step: [printSummary]
+07:14:31.046 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  257 - JOB : ABPROG7 ENDED -  0010
+07:14:31.047 [main] INFO  com.cloudframe.app.CFStepHandler.printExecutionSummary  261 - 
+
+Stepwise Execution Summary :
++---------------------------------------------------------------+
+| STEPNAME     | PROGRAM      | RC          | ELAPSED           |
+|              |              |             | HH:MM:SS:ss       |
++---------------------------------------------------------------+
+| ALLOC        | IEFBR14      | 00          | 00:00:00:048      |
++---------------------------------------------------------------+
+| ABPROG7      | ABPROG7      | 10          | 00:00:00:224      |
++---------------------------------------------------------------+
+  
+07:14:31.058 [main] INFO  o.s.batch.core.step.AbstractStep.execute  295 - Step: [printSummary] executed in 33ms
+07:14:31.091 [main] INFO  o.s.b.c.l.s.SimpleJobLauncher$1.run  161 - Job: [SimpleJob: [name=ABPROG7]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 445ms
+07:14:31.107 [main] INFO  o.s.j.d.e.EmbeddedDatabaseFactory.shutdownDatabase  220 - Shutting down embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'

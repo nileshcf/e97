@@ -1,0 +1,12 @@
+* COPYBOOK IP718511                                                             
+     JOINKEYS FILES=F1,FIELDS=(1,7,A,8,11,A,19,2,A,21,4,A,25,3,A)               
+     JOINKEYS FILES=F2,FIELDS=(1,7,A,8,11,A,19,2,A,21,4,A,25,3,A)               
+     JOIN UNPAIRED,F1,F2                                                        
+     REFORMAT FIELDS=(F1:1,35,F2:1,35),FILL=C'-'                                
+     SORT FIELDS=COPY                                                           
+     OUTFIL FNAMES=F1ONLY,INCLUDE=(36,1,CH,EQ,C'-'),                            
+        OUTREC=(1,35,8Z)                                                        
+     OUTFIL FNAMES=F2ONLY,INCLUDE=(1,1,CH,EQ,C'-'),                             
+        OUTREC=(36,27,8Z,63,8)                                                  
+     OUTFIL FNAMES=BOTH,INCLUDE=(36,1,CH,NE,C'-',AND,1,1,CH,NE,C'-'),           
+        OUTREC=(1,35,63,8)                                                      

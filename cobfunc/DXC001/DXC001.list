@@ -1,0 +1,278 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 10/06/2022  Time 09:25:37   Page     1
+0Invocation parameters:
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(BIN),ARITH(EXTEND),NUMPROC(PFD),TEST(ALL,SYM,SEPARATE)
+
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".
+
+
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler
+                       invocation parameter took precedence.
+
+0Options in effect:
+  NOADATA
+    ADV
+    QUOTE
+    ARITH(EXTEND)
+  NOAWO
+    BUFSIZE(4096)
+  NOCICS
+    CODEPAGE(1140)
+  NOCOMPILE(S)
+  NOCURRENCY
+    DATA(31)
+  NODATEPROC
+    DBCS
+  NODECK
+  NODIAGTRUNC
+  NODLL
+  NODUMP
+  NODYNAM
+  NOEXIT
+  NOEXPORTALL
+  NOFASTSRT
+    FLAG(I,I)
+  NOFLAGSTD
+    INTDATE(ANSI)
+    LANGUAGE(EN)
+    LIB
+    LINECOUNT(60)
+  NOLIST
+    MAP
+  NOMDECK
+  NONAME
+    NSYMBOL(NATIONAL)
+  NONUMBER
+    NUMPROC(PFD)
+    OBJECT
+    OFFSET
+  NOOPTIMIZE
+    OUTDD(SYSOUT)
+    PGMNAME(COMPAT)
+    RENT
+    RMODE(AUTO)
+    SEQUENCE
+    SIZE(MAX)
+    SOURCE
+    SPACE(1)
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 10/06/2022  Time 09:25:37   Page     2
+0 NOSQL
+    SQLCCSID
+  NOSSRANGE
+  NOTERM
+    TEST(HOOK,SEPARATE,NOEJPD)
+  NOTHREAD
+    TRUNC(BIN)
+  NOVBREF
+  NOWORD
+    XMLPARSE(XMLSS)
+    XREF(FULL)
+    YEARWINDOW(1900)
+    ZWB
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DXC001    Date 10/06/2022  Time 09:25:37   Page     3
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+0/* DXC001
+   000001         000100 IDENTIFICATION DIVISION.                                         00010000
+   000002         000200 PROGRAM-ID. DXC001.                                              00020000
+   000003         000300*                                                                 00030000
+   000004         001550*                                                                 00155000
+   000005         001560 DATA DIVISION.                                                   00156000
+   000006         003100 WORKING-STORAGE SECTION.                                         00310000
+   000007         003200                                                                  00320000
+   000008         003210 01 CURR-DATE1.                                                   00321000 BLW=00000+000         0CL8
+   000009         003220      05 CHCK-YEAR1                  PIC 9(04).                   00322000 BLW=00000+000,0000000 4C
+   000010         003230      05 CHCK-MONTH1                 PIC 9(02).                   00323000 BLW=00000+004,0000004 2C
+   000011         003240      05 CHCK-DAY1                   PIC 9(02).                   00324000 BLW=00000+006,0000006 2C
+   000012         003250 01 CURR-DAT1                       PIC 9(8) USAGE COMP.          00325000 BLW=00000+008         4C
+   000013         004600                                                                  00460000
+   000014         004700 PROCEDURE DIVISION.                                              00470000
+   000015         004800*                                                                 00480000
+   000016         004900 MAINLINE.                                                        00490000
+   000017         005100     MOVE 2022                 TO CHCK-YEAR1                      00510001 9
+   000018         005110     MOVE 10                   TO CHCK-MONTH1                     00511001 10
+   000019         005120     MOVE 06                   TO CHCK-DAY1                       00512001 11
+   000020         005200     COMPUTE CURR-DAT1 = FUNCTION NUMVAL(CURR-DATE1)              00520000 12 IFN 8
+   000021         005300     DISPLAY 'CURR-DAT1 = ' CURR-DAT1                             00530000 12
+   000022         005500     GOBACK.                                                      00550000
+   000023         005600*----------------------------------                               00560000
+ */ DXC001
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DXC001    Date 10/06/2022  Time 09:25:37   Page     4
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.
+
+  Defined   Cross-reference of data names   References
+
+       11   CHCK-DAY1. . . . . . . . . . .  M19
+       10   CHCK-MONTH1. . . . . . . . . .  M18
+        9   CHCK-YEAR1 . . . . . . . . . .  M17
+        8   CURR-DATE1 . . . . . . . . . .  20
+       12   CURR-DAT1. . . . . . . . . . .  M20 21
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DXC001    Date 10/06/2022  Time 09:25:37   Page     5
+0Context usage is indicated by the letter preceding a procedure-name reference.
+ These letters and their meanings are:
+     A = ALTER (procedure-name)
+     D = GO TO (procedure-name) DEPENDING ON
+     E = End of range of (PERFORM) through (procedure-name)
+     G = GO TO (procedure-name)
+     P = PERFORM (procedure-name)
+     T = (ALTER) TO PROCEED TO (procedure-name)
+     U = USE FOR DEBUGGING (procedure-name)
+
+  Defined   Cross-reference of procedures   References
+
+       16   MAINLINE
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DXC001    Date 10/06/2022  Time 09:25:37   Page     6
+0 Defined   Cross-reference of programs     References
+
+        2   DXC001
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DXC001    Date 10/06/2022  Time 09:25:37   Page     7
+0Data Division Map
+0Data Definition Attribute codes (rightmost column) have the following meanings:
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes
+      2  PROGRAM-ID DXC001------------------------------------------------------------------------------------------------------*
+      8   1  CURR-DATE1. . . . . . . . . . . . . . . . . . BLW=00000  000               DS 0CL8         Group
+      9     2  CHCK-YEAR1. . . . . . . . . . . . . . . . . BLW=00000  000   0 000 000   DS 4C           Disp-Num
+     10     2  CHCK-MONTH1 . . . . . . . . . . . . . . . . BLW=00000  004   0 000 004   DS 2C           Disp-Num
+     11     2  CHCK-DAY1 . . . . . . . . . . . . . . . . . BLW=00000  006   0 000 006   DS 2C           Disp-Num
+     12   1  CURR-DAT1 . . . . . . . . . . . . . . . . . . BLW=00000  008               DS 4C           Binary
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DXC001    Date 10/06/2022  Time 09:25:37   Page     8
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 00002C BYTES
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT
+ PBL1    AT LOCATION 00024C FOR LINE 2
+0
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |
+ 00011C  (LIT+32)     4040                                                                     |                                |
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DXC001    Date 10/06/2022  Time 09:25:37   Page     9
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000128 FOR 000124 BYTES
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:
+
+ 00012C  (LIT+0)      FFFFFFFC 00001000 00000001 00000000 C3E4D9D9 60C4C1E3 F1407E40 E2E8E2D6  |................CURR-DAT1 = SYSO|
+ 00014C  (LIT+32)     E4E34040 C9C7E9E2 D9E3C3C4 C4E7C3F0 F0F10000 00000000 012C0000 00010000  |UT  IGZSRTCDDXC001..............|
+ 00016C  (LIT+64)     01300000 00010000 00000000 00000000 00000000 00000000 00000000 00000000  |................................|
+ 00018C  (LIT+96)     00000000 00000000 00008000 00004000 00000000 00000000 00000000 00100000  |.............. .................|
+ 0001AC  (LIT+128)    001F0000 001FF2F0 F2F2F0F6 F1F04000 00000000 00000000 00000000 00004000  |......20220610 ............... .|
+ 0001CC  (LIT+160)    00000025 C00001C0 00060800 00240030 01400000 0C080000 24001402 04000A09  |................. ..............|
+ 0001EC  (LIT+192)    00012C00 08FF0000 00003D00 58000001 803D0058 00000170 08000000 3D005800  |................................|
+ 00020C  (LIT+224)    00017000 00000015 004B8000 00000108 00000000 00000809 00012C00 003D0058  |................................|
+ 00022C  (LIT+256)    00000150 40000000 0040C000 01400006 08000024 003002C0 00060800 00240030  |...& .... ... ..................|
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB
+ 000017 000382 MOVE                          000018 00038C MOVE                          000019 000396 MOVE
+ 000020 0003A0 COMPUTE                       000021 000400 DISPLAY                       000022 000412 GOBACK
+
+0
+   DEBUGINF TABLE LOCATED AT 0004BC FOR 000042 BYTES
+
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DXC001    Date 10/06/2022  Time 09:25:37   Page    10
+0                   *** TGT MEMORY MAP ***
+                    TGTLOC
+
+                    000000  RESERVED - 72 BYTES
+                    000048  TGT IDENTIFIER
+                    00004C  RESERVED - 4 BYTES
+                    000050  TGT LEVEL INDICATOR
+                    000051  RESERVED - 3 BYTES
+                    000054  32 BIT SWITCH
+                    000058  POINTER TO RUNCOM
+                    00005C  POINTER TO COBVEC
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE
+                    000064  NUMBER OF FCB'S
+                    000068  WORKING-STORAGE LENGTH
+                    00006C  RESERVED - 4 BYTES
+                    000070  ADDRESS OF IGZESMG WORK AREA
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)
+                    000078  RESERVED - 2 BYTES
+                    00007A  RESERVED - 2 BYTES
+                    00007C  RESERVED - 2 BYTES
+                    00007E  MERGE FILE NUMBER
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA
+                    000084  LENGTH OF TGT
+                    000088  RESERVED - 1 SINGLE BYTE FIELD
+                    000089  PROGRAM MASK USED BY THIS PROGRAM
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS
+                    00008C  NUMBER OF SECONDARY FCB CELLS
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT
+                    000098  DDNAME FOR DISPLAY OUTPUT
+                    0000A0  RESERVED - 8 BYTES
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER
+                    0000AC  RESERVED - 52 BYTES
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK
+                    0000E8  ADDRESS OF PGT
+                    0000EC  RESERVED - 4 BYTES
+                    0000F0  POINTER TO 1ST IPCB
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM
+                    0000F8  POINTER TO ABEND INFORMATION TABLE
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT
+                    000100  ADDRESS OF START OF COBOL PROGRAM
+                    000104  POINTER TO ALTER VNI'S IN CGT
+                    000108  POINTER TO ALTER VN'S IN TGT
+                    00010C  POINTER TO FIRST PBL IN THE PGT
+                    000110  POINTER TO FIRST FCB CELL
+                    000114  WORKING-STORAGE ADDRESS
+                    000118  POINTER TO FIRST SECONDARY FCB CELL
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2
+
+                    *** VARIABLE PORTION OF TGT ***
+
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION
+                    000134  TEST INFORMATION AREA
+                    00015C  INTERNAL PROGRAM CONTROL BLOCKS
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DXC001    Date 10/06/2022  Time 09:25:37   Page    11
+0
+                    *** DSA MEMORY MAP ***
+                  DSALOC
+
+                  00000000  REGISTER SAVE AREA
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA
+                  0000005C  ADDRESS OF TGT
+                  00000060  ADDRESS OF CAA
+                  00000080  XML PARSE WORK AREA ANCHOR
+                  00000084  SWITCHES
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME
+                  00000090  CALC ROUTINE REGISTER SAVE AREA
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE
+
+                    *** VARIABLE PORTION OF DSA ***
+
+                  000000D0  SAVE AREA FOR FLOAT REGISTERS 8-15
+                  00000110  BACKSTORE CELLS FOR SYMBOLIC REGISTERS
+                  00000130  VARIABLE-LENGTH CELLS
+                  00000148  VARIABLE NAME (VN) CELLS FOR PERFORM
+                  0000014C  PERFORM SAVE CELLS
+                  00000150  TEMPORARY STORAGE-1
+                  00000160  TEMPORARY STORAGE-2
+                  000001C0  CALL STATEMENT PROGRAM NAME
+0
+ TGT      WILL BE ALLOCATED FOR 00000170 BYTES
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES
+ WRK-STOR WILL BE ALLOCATED FOR 0000000C BYTES
+ DSA      WILL BE ALLOCATED FOR 00000260 BYTES
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 000530
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 00068C FOR LENGTH 00009A
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               DXC001    Date 10/06/2022  Time 09:25:37   Page    12
+0LineID  Message code  Message text
+
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the
+                       beginning of the listing.
+-Messages    Total    Informational    Warning    Error    Severe    Terminating
+0Printed:       3           1              2
+-* Statistics for COBOL program DXC001:
+ *    Source records = 23
+ *    Data Division statements = 5
+ *    Procedure Division statements = 6
+0End of compilation 1,  program DXC001,  highest severity 4.
+0Return code 4
+

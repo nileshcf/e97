@@ -1,0 +1,330 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 10/07/2019  Time 08:32:05   Page     1                
+0Invocation parameters:                                                                                                              
+  LIB,OBJECT,RENT,RES,APOST,TRUNC(BIN),,ARITH(EXTEND),OFFSET,NOFDUMP,SOURCE,MAP                                                      
+                                                                                                                                     
+         IGYOS4046-I   The "RESIDENT" option specification is no longer required.  The resident runtime library support is always    
+                       used.                                                                                                         
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4008-W   The "NOFDUMP" compiler option was specified, but is not supported.  The option was discarded.                 
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    APOST                                                                                                                            
+    ARITH(EXTEND)                                                                                                                    
+  NOAWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+  NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 10/07/2019  Time 08:32:05   Page     2                
+0 NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+  NOTEST                                                                                                                             
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT1   Date 10/07/2019  Time 08:32:05   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000001         000100 IDENTIFICATION DIVISION.                                         00010000                                   
+   000002         000200 PROGRAM-ID.    COMPUT1.                                          00020000                                   
+   000003         000204 ENVIRONMENT DIVISION.                                            00020400                                   
+   000004         000205 INPUT-OUTPUT SECTION.                                            00020500                                   
+   000005         000206 FILE-CONTROL.                                                    00020600                                   
+   000006         000207 DATA DIVISION.                                                   00020700                                   
+   000007         000208 FILE SECTION.                                                    00020800                                   
+   000008         000209 WORKING-STORAGE SECTION.                                         00020900                                   
+   000009         000210 01  WS-DIV                        PIC  9(11)  COMP-3.            00021000 BLW=00000+000         6P          
+   000010         000211 01  WS-ALLOW                      PIC S9(9)V9(3)  COMP-3.        00021100 BLW=00000+008         7P          
+   000011         000212 01  WS-OOSU-SHARED-ALLOW           PIC S9(09)V999 COMP-3.        00021200 BLW=00000+010         7P          
+   000012         000213 01  LK-RLU3A-TOT-DATA-PROMO-ALLOW    PIC S9(5)V9(3)  COMP-3.     00021300 BLW=00000+018         5P          
+   000013         000214 01  LK-RLU3A-ACCT-PLAN-DATA-ALLOW    PIC S9(8)V9(3)  COMP-3.     00021400 BLW=00000+020         6P          
+   000014         000215 01  WS-CONSTANTS.                                                00021500 BLW=00000+028         0CL12       
+   000015         000216     05 C-GIGABYTE-NUM           PIC S9(9) COMP VALUE 1073741824. 00021600 BLW=00000+028,0000000 4C          
+   000016         000217     05 C-KILOBYTE-NUM           PIC S9(9) COMP VALUE 1024.       00021700 BLW=00000+02C,0000004 4C          
+   000017         000218     05 C-MEGABYTE-NUM           PIC S9(9) COMP VALUE 1048576.    00021800 BLW=00000+030,0000008 4C          
+   000018         000219 01  WS-I                        PIC S9(4) COMP.                  00021901 BLW=00000+038         2C          
+   000019         000517 LINKAGE SECTION.                                                 00051700                                   
+   000020         000518 PROCEDURE DIVISION.                                              00051800                                   
+   000021         000521                                                                  00052100                                   
+   000022         000522      MOVE 1.123       TO WS-OOSU-SHARED-ALLOW                    00052201 11                                
+   000023         000523      MOVE 0 TO LK-RLU3A-TOT-DATA-PROMO-ALLOW                     00052302 12                                
+   000024         000524                LK-RLU3A-ACCT-PLAN-DATA-ALLOW                     00052402 13                                
+   000025         000525*                                                                 00052500                                   
+   000026         000526      PERFORM VARYING                                             00052601                                   
+   000027         000527         WS-I FROM 1                                              00052701 18                                
+   000028         000528           BY 1                                                   00052801                                   
+   000029         000529         UNTIL WS-I > 1000                                        00052901 18                                
+   000030      1  000530         DISPLAY '___________________________________'            00053001                                   
+   000031      1  000531         DISPLAY WS-I ' . WS-OOSU-SHARED-ALLOW = '                00053101 18                                
+   000032      1  000532                 WS-OOSU-SHARED-ALLOW                             00053201 11                                
+   000033      1  000533         MOVE C-KILOBYTE-NUM TO WS-DIV                            00053301 16 9                              
+   000034      1  000535         COMPUTE WS-ALLOW =                                       00053501 10                                
+   000035      1  000536             WS-OOSU-SHARED-ALLOW / WS-DIV                        00053601 11 9                              
+   000036      1  000537         ADD WS-ALLOW                                             00053701 10                                
+   000037      1  000540             TO LK-RLU3A-TOT-DATA-PROMO-ALLOW                     00054001 12                                
+   000038      1  000541                LK-RLU3A-ACCT-PLAN-DATA-ALLOW                     00054101 13                                
+   000039      1  000550         DISPLAY '*KB* LK-RLU3A-TOT-DATA-PROMO-ALLOW = '          00055001                                   
+   000040      1  000560                 LK-RLU3A-TOT-DATA-PROMO-ALLOW                    00056001 12                                
+   000041      1  000561         DISPLAY '*KB* LK-RLU3A-ACCT-PLAN-DATA-ALLOW = '          00056101                                   
+   000042      1  000562                 LK-RLU3A-ACCT-PLAN-DATA-ALLOW                    00056201 13                                
+   000043      1  000570         MOVE C-KILOBYTE-NUM TO WS-DIV                            00057001 16 9                              
+   000044         000571*                                                                 00057100                                   
+   000045      1  000572         MOVE C-MEGABYTE-NUM TO WS-DIV                            00057201 17 9                              
+   000046      1  000590         COMPUTE WS-ALLOW =                                       00059001 10                                
+   000047      1  000600             WS-OOSU-SHARED-ALLOW / WS-DIV                        00060001 11 9                              
+   000048      1  000700         ADD WS-ALLOW                                             00070001 10                                
+   000049      1  000701             TO LK-RLU3A-TOT-DATA-PROMO-ALLOW                     00070101 12                                
+   000050      1  000702                LK-RLU3A-ACCT-PLAN-DATA-ALLOW                     00070201 13                                
+   000051      1  000703         DISPLAY '*MB* LK-RLU3A-TOT-DATA-PROMO-ALLOW = '          00070301                                   
+   000052      1  000704                 LK-RLU3A-TOT-DATA-PROMO-ALLOW                    00070401 12                                
+   000053      1  000705         DISPLAY '*MB* LK-RLU3A-ACCT-PLAN-DATA-ALLOW = '          00070501                                   
+   000054      1  000706                 LK-RLU3A-ACCT-PLAN-DATA-ALLOW                    00070601 13                                
+   000055         000707*                                                                 00070700                                   
+   000056      1  000708         MOVE C-GIGABYTE-NUM TO WS-DIV                            00070801 15 9                              
+   000057      1  000711         COMPUTE WS-ALLOW =                                       00071101 10                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT1   Date 10/07/2019  Time 08:32:05   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000058      1  000712             WS-OOSU-SHARED-ALLOW / WS-DIV                        00071201 11 9                              
+   000059      1  000713         ADD WS-ALLOW                                             00071301 10                                
+   000060      1  000714             TO LK-RLU3A-TOT-DATA-PROMO-ALLOW                     00071401 12                                
+   000061      1  000715                LK-RLU3A-ACCT-PLAN-DATA-ALLOW                     00071501 13                                
+   000062      1  000716         DISPLAY '*GB* LK-RLU3A-TOT-DATA-PROMO-ALLOW = '          00071601                                   
+   000063      1  000717                 LK-RLU3A-TOT-DATA-PROMO-ALLOW                    00071701 12                                
+   000064      1  000718         DISPLAY '*GB* LK-RLU3A-ACCT-PLAN-DATA-ALLOW = '          00071801                                   
+   000065      1  000719                 LK-RLU3A-ACCT-PLAN-DATA-ALLOW                    00071901 13                                
+   000066      1  000720      COMPUTE WS-OOSU-SHARED-ALLOW = WS-OOSU-SHARED-ALLOW + WS-I  00072004 11 11 18                          
+   000067      1  000721                                    + (0.987 * WS-I)              00072103 18                                
+   000068         000723     END-PERFORM                                                  00072301                                   
+   000069         000730     GOBACK.                                                      00073000                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT1   Date 10/07/2019  Time 08:32:05   Page     5                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       15   C-GIGABYTE-NUM . . . . . . . .  56                                                                                       
+       16   C-KILOBYTE-NUM . . . . . . . .  33 43                                                                                    
+       17   C-MEGABYTE-NUM . . . . . . . .  45                                                                                       
+       13   LK-RLU3A-ACCT-PLAN-DATA-ALLOW.  M24 M38 42 M50 54 M61 65                                                                 
+       12   LK-RLU3A-TOT-DATA-PROMO-ALLOW.  M23 M37 40 M49 52 M60 63                                                                 
+       10   WS-ALLOW . . . . . . . . . . .  M34 36 M46 48 M57 59                                                                     
+       14   WS-CONSTANTS                                                                                                             
+        9   WS-DIV . . . . . . . . . . . .  M33 35 M43 M45 47 M56 58                                                                 
+       18   WS-I . . . . . . . . . . . . .  M27 29 31 66 67                                                                          
+       11   WS-OOSU-SHARED-ALLOW . . . . .  M22 32 35 47 58 M66 66                                                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT1   Date 10/07/2019  Time 08:32:05   Page     6                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   COMPUT1                                                                                                                  
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT1   Date 10/07/2019  Time 08:32:05   Page     7                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID COMPUT1-----------------------------------------------------------------------------------------------------*    
+      9   1  WS-DIV. . . . . . . . . . . . . . . . . . . . BLW=00000  000               DS 6P           Packed-Dec                   
+     10   1  WS-ALLOW. . . . . . . . . . . . . . . . . . . BLW=00000  008               DS 7P           Packed-Dec                   
+     11   1  WS-OOSU-SHARED-ALLOW. . . . . . . . . . . . . BLW=00000  010               DS 7P           Packed-Dec                   
+     12   1  LK-RLU3A-TOT-DATA-PROMO-ALLOW . . . . . . . . BLW=00000  018               DS 5P           Packed-Dec                   
+     13   1  LK-RLU3A-ACCT-PLAN-DATA-ALLOW . . . . . . . . BLW=00000  020               DS 6P           Packed-Dec                   
+     14   1  WS-CONSTANTS. . . . . . . . . . . . . . . . . BLW=00000  028               DS 0CL12        Group                        
+     15     2  C-GIGABYTE-NUM. . . . . . . . . . . . . . . BLW=00000  028   0 000 000   DS 4C           Binary                       
+     16     2  C-KILOBYTE-NUM. . . . . . . . . . . . . . . BLW=00000  02C   0 000 004   DS 4C           Binary                       
+     17     2  C-MEGABYTE-NUM. . . . . . . . . . . . . . . BLW=00000  030   0 000 008   DS 4C           Binary                       
+     18   1  WS-I. . . . . . . . . . . . . . . . . . . . . BLW=00000  038               DS 2C           Binary                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT1   Date 10/07/2019  Time 08:32:05   Page     8                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000038 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 0003D4 FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      3B9ACA00 00000001 03E84040 40404040 40404040 40404040 40404040 40404040  |.........Y                      |    
+ 00011C  (LIT+32)     40404040 40404040 00000000 00000000                                      |        ........                |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT1   Date 10/07/2019  Time 08:32:05   Page     9                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000134 FOR 00029D BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 00013C  (LIT+0)      FFFFFFFC 00001000 00000001 00100000 00000400 40000000 00000000 03E803DB  |.................... ........Y..|    
+ 00015C  (LIT+32)     5CC7C25C 40D3D260 D9D3E4F3 C160C1C3 C3E360D7 D3C1D560 C4C1E3C1 60C1D3D3  |*GB* LK-RLU3A-ACCT-PLAN-DATA-ALL|    
+ 00017C  (LIT+64)     D6E6407E 405CC7C2 5C40D3D2 60D9D3E4 F3C160E3 D6E360C4 C1E3C160 D7D9D6D4  |OW = *GB* LK-RLU3A-TOT-DATA-PROM|    
+ 00019C  (LIT+96)     D660C1D3 D3D6E640 7E405CD4 C25C40D3 D260D9D3 E4F3C160 C1C3C3E3 60D7D3C1  |O-ALLOW = *MB* LK-RLU3A-ACCT-PLA|    
+ 0001BC  (LIT+128)    D560C4C1 E3C160C1 D3D3D6E6 407E405C D4C25C40 D3D260D9 D3E4F3C1 60E3D6E3  |N-DATA-ALLOW = *MB* LK-RLU3A-TOT|    
+ 0001DC  (LIT+160)    60C4C1E3 C160D7D9 D6D4D660 C1D3D3D6 E6407E40 5CD2C25C 40D3D260 D9D3E4F3  |-DATA-PROMO-ALLOW = *KB* LK-RLU3|    
+ 0001FC  (LIT+192)    C160C1C3 C3E360D7 D3C1D560 C4C1E3C1 60C1D3D3 D6E6407E 405CD2C2 5C40D3D2  |A-ACCT-PLAN-DATA-ALLOW = *KB* LK|    
+ 00021C  (LIT+224)    60D9D3E4 F3C160E3 D6E360C4 C1E3C160 D7D9D6D4 D660C1D3 D3D6E640 7E406D6D  |-RLU3A-TOT-DATA-PROMO-ALLOW = __|    
+ 00023C  (LIT+256)    6D6D6D6D 6D6D6D6D 6D6D6D6D 6D6D6D6D 6D6D6D6D 6D6D6D6D 6D6D6D6D 6D6D6D6D  |________________________________|    
+ 00025C  (LIT+288)    6D404B40 E6E260D6 D6E2E460 E2C8C1D9 C5C460C1 D3D3D6E6 407E40E2 E8E2D6E4  |_ . WS-OOSU-SHARED-ALLOW = SYSOU|    
+ 00027C  (LIT+320)    E34040C9 C7E9E2D9 E3C3C4C3 D6D4D7E4 E3F10000 00000112 3C000000 00000C00  |T  IGZSRTCDCOMPUT1..............|    
+ 00029C  (LIT+352)    00000000 00012C00 00000100 00013000 00000100 00000000 00000000 00000000  |................................|    
+ 0002BC  (LIT+384)    00000000 00000000 00000000 00000000 00000000 00000080 00000040 00000000  |........................... ....|    
+ 0002DC  (LIT+416)    00000000 00000040 00000000 00000000 00000000 00000040 00000000 25C00001  |....... ............... ........|    
+ 0002FC  (LIT+448)    C0000708 00003001 53014000 00250800 00300028 2006000B 0900012C 0020FF01  |.......... .....................|    
+ 00031C  (LIT+480)    40000025 08000030 004D2005 00080900 012C0018 FF014000 00250800 00300072  | ........(............ .........|    
+ 00033C  (LIT+512)    2006000B 0900012C 0020FF01 40000025 08000030 00972005 00080900 012C0018  |............ ........p..........|    
+ 00035C  (LIT+544)    FF014000 00250800 003000BC 2006000B 0900012C 0020FF01 40000025 08000030  |.. ..................... .......|    
+ 00037C  (LIT+576)    00E12005 00080900 012C0018 FF010002 00050900 012C0038 4000001A 08000030  |........................ .......|    
+ 00039C  (LIT+608)    01292007 000C0900 012C0010 FF014000 00230800 00300106 FF400000 000040C0  |.............. .......... .... .|    
+ 0003BC  (LIT+640)    00014000 07080000 30015302 C0000708 00003001 53                          |.. ..................           |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000022 000532 MOVE                          000023 000538 MOVE                          000026 000544 PERFORM                       
+ 000030 00054E DISPLAY                       000031 00055C DISPLAY                       000033 000566 MOVE                          
+ 000034 00059C COMPUTE                       000036 0005B8 ADD                           000039 0005DA DISPLAY                       
+ 000041 0005E4 DISPLAY                       000043 0005EE MOVE                          000045 000624 MOVE                          
+ 000046 00065A COMPUTE                       000048 000676 ADD                           000051 000698 DISPLAY                       
+ 000053 0006A2 DISPLAY                       000056 0006AC MOVE                          000057 0006E2 COMPUTE                       
+ 000059 0006FE ADD                           000062 000720 DISPLAY                       000064 00072A DISPLAY                       
+ 000066 000734 COMPUTE                       000068 000768 END-PERFORM                   000069 000780 GOBACK                        
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT1   Date 10/07/2019  Time 08:32:05   Page    10                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT1   Date 10/07/2019  Time 08:32:05   Page    11                
+0                   *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  SAVE AREA FOR FLOAT REGISTERS 8-15                                                                       
+                  00000110  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  00000130  VARIABLE-LENGTH CELLS                                                                                    
+                  00000148  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000150  PERFORM SAVE CELLS                                                                                       
+                  00000158  TEMPORARY STORAGE-1                                                                                      
+                  00000168  TEMPORARY STORAGE-2                                                                                      
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000148 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 0000003A BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 00000180 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 000838                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 000970 FOR LENGTH 000088                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               COMPUT1   Date 10/07/2019  Time 08:32:05   Page    12                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program COMPUT1:                                                                                             
+ *    Source records = 69                                                                                                            
+ *    Data Division statements = 10                                                                                                  
+ *    Procedure Division statements = 23                                                                                             
+0End of compilation 1,  program COMPUT1,  highest severity 4.                                                                        
+0Return code 4                                                                                                                       

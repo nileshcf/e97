@@ -1,0 +1,437 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 06/03/2020  Time 14:48:38   Page     1                
+0Invocation parameters:                                                                                                              
+  LIB,OBJECT,RENT,RES,APOST,TRUNC(BIN),,ARITH(EXTEND),OFFSET,NOFDUMP,SOURCE,MAP                                                      
+                                                                                                                                     
+         IGYOS4046-I   The "RESIDENT" option specification is no longer required.  The resident runtime library support is always    
+                       used.                                                                                                         
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4008-W   The "NOFDUMP" compiler option was specified, but is not supported.  The option was discarded.                 
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    APOST                                                                                                                            
+    ARITH(EXTEND)                                                                                                                    
+  NOAWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+  NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 06/03/2020  Time 14:48:38   Page     2                
+0 NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+  NOTEST                                                                                                                             
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT03  Date 06/03/2020  Time 14:48:38   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000001         000100 IDENTIFICATION DIVISION.                                         00010000                                   
+   000002         000200 PROGRAM-ID. CFSORT03.                                            00020001                                   
+   000003         000300                                                                  00030000                                   
+   000004         000400 ENVIRONMENT DIVISION.                                            00040000                                   
+   000005         000500    INPUT-OUTPUT SECTION.                                         00050000                                   
+   000006         000600    FILE-CONTROL.                                                 00060000                                   
+   000007         000800       SELECT FILE-IN  ASSIGN TO FILEIN                           00080000 19                                
+   000008         000801              FILE STATUS IS CFIN-STAT.                                    44                                
+   000009         000802                                                                  00100000                                   
+   000010         000810       SELECT FILE-OUT ASSIGN TO FILEOUT                          00080000 27                                
+   000011         000811              FILE STATUS IS CFOUT-STAT.                                   43                                
+   000012         000820                                                                  00100000                                   
+   000013         000900       SELECT WORK ASSIGN TO WRKFILE.                             00090000 30                                
+   000014         001000                                                                  00100000                                   
+   000015         001010*----------------------------------------------------------*                                                 
+   000016         001100 DATA DIVISION.                                                   00110000                                   
+   000017         001200 FILE SECTION.                                                    00120000                                   
+   000018         001300*----------------------------------------------------------*                                                 
+   000019         001700 FD  FILE-IN.                                                     00161000                                   
+                                                                                                                                     
+ ==000019==> IGYGR1216-I A "RECORDING MODE" of "F" was assumed for file "FILE-IN".                                                   
+                                                                                                                                     
+   000020         001800 01  CLIENTS-IN.                                                  00170000 BLF=00000+000         0CL80       
+   000021         001900     05  CLIENT-NAME-IN       PIC  X(20).                         00180000 BLF=00000+000,0000000 20C         
+   000022         001910     05  CLIENT-NUMBER-IN     PIC  X(07).                         00180000 BLF=00000+014,0000014 7C          
+   000023         001920     05  CLIENT-PRR-ID-IN     PIC  X(08).                         00180000 BLF=00000+01B,000001B 8C          
+   000024         001930     05  CLIENT-PH-NO-IN      PIC  X(14).                         00180000 BLF=00000+023,0000023 14C         
+   000025         001940     05  FILLER               PIC  X(31).                         00180000 BLF=00000+031,0000031 31C         
+   000026         001950                                                                                                             
+   000027         002020 FD  FILE-OUT.                                                    00161000                                   
+                                                                                                                                     
+ ==000027==> IGYGR1216-I A "RECORDING MODE" of "F" was assumed for file "FILE-OUT".                                                  
+                                                                                                                                     
+   000028         002030 01  CLIENTS-OUT              PIC  X(80).                         00170000 BLF=00001+000         80C         
+   000029         002060                                                                                                             
+   000030         002100 SD  WORK DATA RECORD IS WORK-CLIENT.                                      *                                 
+   000031         002200 01  WORK-CLIENT.                                                          BLF=00002+000         0CL80       
+   000032         002210     05  CLIENT-NAME-WK       PIC  X(20).                         00180000 BLF=00002+000,0000000 20C         
+   000033         002220     05  CLIENT-NUMBER-WK     PIC  X(07).                         00180000 BLF=00002+014,0000014 7C          
+   000034         002230     05  CLIENT-PRR-ID-WK     PIC  X(08).                         00180000 BLF=00002+01B,000001B 8C          
+   000035         002240     05  CLIENT-PH-NO-WK      PIC  X(14).                         00180000 BLF=00002+023,0000023 14C         
+   000036         002250     05  FILLER               PIC  X(31).                         00180000 BLF=00002+031,0000031 31C         
+   000037         002410                                                                                                             
+   000038         002412                                                                                                             
+   000039         002413*----------------------------------------------------------*                                                 
+   000040         002414 WORKING-STORAGE SECTION.                                                                                    
+   000041         002415*----------------------------------------------------------*                                                 
+   000042         002416                                                                                                             
+   000043         002417 01  CFOUT-STAT                    PIC 99  VALUE 00.                       BLW=00000+000         2C          
+   000044         002418 01  CFIN-STAT                     PIC 99  VALUE 00.                       BLW=00000+008         2C          
+   000045         002419                                                                                                             
+   000046         002420 01  WS-SWITCHES.                                                          BLW=00000+010         0CL3        
+   000047         002421     05  WS-NO-MORE-RECORDS-SW     PIC S9(04) BINARY VALUE +0.             BLW=00000+010,0000000 2C          
+   000048         002422         88 NO-MORE-RECORDS        VALUE +1.                                                                 
+   000049         002424     05  WS-EOF-SW                 PIC  X(01) VALUE SPACES.                BLW=00000+012,0000002 1C          
+                                                                                                   IMP                               
+   000050         002425         88  END-OF-CLIENT-DATA    VALUE 'Y'.                                                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT03  Date 06/03/2020  Time 14:48:38   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000051         002426                                                                                                             
+   000052         002430*----------------------------------------------------------*                                                 
+   000053         002500 PROCEDURE DIVISION.                                                                                         
+   000054         002510*----------------------------------------------------------*                                                 
+   000055         002520                                                                                                             
+   000056         002530     OPEN INPUT FILE-IN                                           00161000 19                                
+   000057         002591                                                                                                             
+   000058         002592     IF CFIN-STAT = 0                                                      44                                
+   000059      1  002593        OPEN OUTPUT FILE-OUT                                      00161000 27                                
+   000060         002594                                                                                                             
+   000061      1  002595        IF CFOUT-STAT = 0                                                  43                                
+   000062      2  002596           SORT WORK                                                       30                                
+   000063      2  002597                ON ASCENDING KEY CLIENT-NUMBER-WK                 00180000 33                                
+   000064      2  002598                WITH DUPLICATES                                                                              
+   000065      2  002599                INPUT  PROCEDURE IS 1000-SORT-CLIENTS                      82                                
+   000066      2  002600                OUTPUT PROCEDURE IS 2000-WRITE-CLIENTS                     106                               
+   000067      1  002601        ELSE                                                                                                 
+   000068      2  002602            MOVE 16 TO RETURN-CODE                                         IMP                               
+   000069      2  002603            DISPLAY 'Error Opening CF Output File: ' CFOUT-STAT            43                                
+   000070      1  002604        END-IF                                                                                               
+   000071         002605     ELSE                                                                                                    
+   000072      1  002606         MOVE 16 TO RETURN-CODE                                            IMP                               
+   000073      1  002607         DISPLAY 'Error Opening CF Input File: ' CFIN-STAT                 44                                
+   000074         002609     END-IF                                                                                                  
+   000075         002610                                                                                                             
+   000076         002800     CLOSE FILE-IN                                                00161000 19                                
+   000077         002880         , FILE-OUT                                               00161000 27                                
+   000078         002890                                                                                                             
+   000079         002900     STOP RUN.                                                                                               
+   000080         003000                                                                                                             
+   000081         003010*----------------------------------------------------------*                                                 
+   000082         003100 1000-SORT-CLIENTS.                                                                                          
+   000083         003110*----------------------------------------------------------*                                                 
+   000084         003111                                                                                                             
+   000085         003112     MOVE SPACES TO WS-EOF-SW                                              IMP 49                            
+   000086         003113                                                                                                             
+   000087         003114     PERFORM UNTIL END-OF-CLIENT-DATA                                      50                                
+   000088         003115                                                                                                             
+   000089      1  003116        READ FILE-IN                                              00161000 19                                
+   000090      1  003118             AT END                                                                                          
+   000091      2  003119                SET END-OF-CLIENT-DATA TO TRUE                             50                                
+   000092      1  003121             NOT AT END                                                                                      
+   000093      2  003122                MOVE CLIENTS-IN TO WORK-CLIENT                    00170000 20 31                             
+   000094      2  003124                RELEASE WORK-CLIENT                                        31                                
+   000095      1  003125        END-READ                                                                                             
+   000096         003126                                                                                                             
+   000097         003142     END-PERFORM                                                                                             
+   000098         003143*       IF CFIN-STAT NOT = 0                                                                                 
+   000099         003144*          DISPLAY 'Error reading Clients: ' CFIN-STAT                                                       
+   000100         003145*          GO TO 9999-EXIT-PROGRAM                                                                           
+   000101         003146*       END-IF                                                                                               
+   000102         003147                                                                                                             
+   000103         003178     CONTINUE.                                                                                               
+   000104         003179                                                                                                             
+   000105         003180*----------------------------------------------------------*                                                 
+   000106         003200 2000-WRITE-CLIENTS.                                                                                         
+   000107         003300*----------------------------------------------------------*                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT03  Date 06/03/2020  Time 14:48:38   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000108         003400                                                                                                             
+   000109         003403     MOVE +0 TO WS-NO-MORE-RECORDS-SW                                      47                                
+   000110         003404                                                                                                             
+   000111         003410     PERFORM UNTIL NO-MORE-RECORDS                                         48                                
+   000112      1  003500        RETURN WORK RECORD                                                 30                                
+   000113      2  003700            AT END SET NO-MORE-RECORDS TO TRUE                             48                                
+   000114      1  003701            NOT AT END                                                                                       
+   000115      2  003702               MOVE WORK-CLIENT TO CLIENTS-OUT                    00170000 31 28                             
+   000116      2  003707               WRITE CLIENTS-OUT                                        00 28                                
+   000117      1  003712        END-RETURN                                                                                           
+   000118         003720     END-PERFORM                                                                                             
+   000119         003800                                                                                                             
+   000120         004000     CONTINUE.                                                                                               
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT03  Date 06/03/2020  Time 14:48:38   Page     6                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       44   CFIN-STAT. . . . . . . . . . .  8 58 73                                                                                  
+       43   CFOUT-STAT . . . . . . . . . .  11 61 69                                                                                 
+       21   CLIENT-NAME-IN                                                                                                           
+       32   CLIENT-NAME-WK                                                                                                           
+       22   CLIENT-NUMBER-IN                                                                                                         
+       33   CLIENT-NUMBER-WK . . . . . . .  63                                                                                       
+       24   CLIENT-PH-NO-IN                                                                                                          
+       35   CLIENT-PH-NO-WK                                                                                                          
+       23   CLIENT-PRR-ID-IN                                                                                                         
+       34   CLIENT-PRR-ID-WK                                                                                                         
+       20   CLIENTS-IN . . . . . . . . . .  93                                                                                       
+       28   CLIENTS-OUT. . . . . . . . . .  M115 116                                                                                 
+       50   END-OF-CLIENT-DATA . . . . . .  87 M91                                                                                   
+       19   FILE-IN. . . . . . . . . . . .  7 56 76 89                                                                               
+       27   FILE-OUT . . . . . . . . . . .  10 59 77                                                                                 
+       48   NO-MORE-RECORDS. . . . . . . .  111 M113                                                                                 
+        0   RETURN-CODE. . . . . . . . . .  M68 M72                                                                                  
+       30   WORK . . . . . . . . . . . . .  13 62 112                                                                                
+       31   WORK-CLIENT. . . . . . . . . .  M93 94 115                                                                               
+       49   WS-EOF-SW. . . . . . . . . . .  M85                                                                                      
+       47   WS-NO-MORE-RECORDS-SW. . . . .  M109                                                                                     
+       46   WS-SWITCHES                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT03  Date 06/03/2020  Time 14:48:38   Page     7                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+       82   1000-SORT-CLIENTS. . . . . . .  P65                                                                                      
+      106   2000-WRITE-CLIENTS . . . . . .  P66                                                                                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT03  Date 06/03/2020  Time 14:48:38   Page     8                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   CFSORT03                                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT03  Date 06/03/2020  Time 14:48:38   Page     9                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID CFSORT03----------------------------------------------------------------------------------------------------*    
+     19   FD FILE-IN . . . . . . . . . . . . . . . . . . .                                              QSAM           F             
+     20   1  CLIENTS-IN. . . . . . . . . . . . . . . . . . BLF=00000  000               DS 0CL80        Group                        
+     21     2  CLIENT-NAME-IN. . . . . . . . . . . . . . . BLF=00000  000   0 000 000   DS 20C          Display                      
+     22     2  CLIENT-NUMBER-IN. . . . . . . . . . . . . . BLF=00000  014   0 000 014   DS 7C           Display                      
+     23     2  CLIENT-PRR-ID-IN. . . . . . . . . . . . . . BLF=00000  01B   0 000 01B   DS 8C           Display                      
+     24     2  CLIENT-PH-NO-IN . . . . . . . . . . . . . . BLF=00000  023   0 000 023   DS 14C          Display                      
+     25     2  FILLER. . . . . . . . . . . . . . . . . . . BLF=00000  031   0 000 031   DS 31C          Display                      
+     27   FD FILE-OUT. . . . . . . . . . . . . . . . . . .                                              QSAM           F             
+     28   1  CLIENTS-OUT . . . . . . . . . . . . . . . . . BLF=00001  000               DS 80C          Display                      
+     30   SD WORK. . . . . . . . . . . . . . . . . . . . .                                              SORT           F             
+     31   1  WORK-CLIENT . . . . . . . . . . . . . . . . . BLF=00002  000               DS 0CL80        Group                        
+     32     2  CLIENT-NAME-WK. . . . . . . . . . . . . . . BLF=00002  000   0 000 000   DS 20C          Display                      
+     33     2  CLIENT-NUMBER-WK. . . . . . . . . . . . . . BLF=00002  014   0 000 014   DS 7C           Display                      
+     34     2  CLIENT-PRR-ID-WK. . . . . . . . . . . . . . BLF=00002  01B   0 000 01B   DS 8C           Display                      
+     35     2  CLIENT-PH-NO-WK . . . . . . . . . . . . . . BLF=00002  023   0 000 023   DS 14C          Display                      
+     36     2  FILLER. . . . . . . . . . . . . . . . . . . BLF=00002  031   0 000 031   DS 31C          Display                      
+     43   1  CFOUT-STAT. . . . . . . . . . . . . . . . . . BLW=00000  000               DS 2C           Disp-Num                     
+     44   1  CFIN-STAT . . . . . . . . . . . . . . . . . . BLW=00000  008               DS 2C           Disp-Num                     
+     46   1  WS-SWITCHES . . . . . . . . . . . . . . . . . BLW=00000  010               DS 0CL3         Group                        
+     47     2  WS-NO-MORE-RECORDS-SW . . . . . . . . . . . BLW=00000  010   0 000 000   DS 2C           Binary                       
+     48     88 NO-MORE-RECORDS . . . . . . . . . . . . . .                                                                           
+     49     2  WS-EOF-SW . . . . . . . . . . . . . . . . . BLW=00000  012   0 000 002   DS 1C           Display                      
+     50     88 END-OF-CLIENT-DATA. . . . . . . . . . . . .                                                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT03  Date 06/03/2020  Time 14:48:38   Page    10                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 00002C BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 00046C FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |    
+ 00011C  (LIT+32)     4040F0F0                                                                 |  00                            |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT03  Date 06/03/2020  Time 14:48:38   Page    11                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000128 FOR 000204 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000138  (LIT+0)      FFFFFFFC 00001000 00000001 00000000 00100000 40E2D6D9 E340C6C9 C5D3C4E2  |.................... SORT FIELDS|    
+ 000158  (LIT+32)     7E4DF0F0 F2F16BF0 F0F0F76B C3C86BC1 5D40D9C5 C3D6D9C4 40E3E8D7 C57EC66B  |=(0021,0007,CH,A) RECORD TYPE=F,|    
+ 000178  (LIT+64)     D3C5D5C7 E3C87E4D F0F0F0F0 F8F06B6B 5D40C599 99969940 D6978595 89958740  |LENGTH=(000080,,) Error Opening |    
+ 000198  (LIT+96)     C3C640D6 A4A397A4 A340C689 93857A40 C5999996 9940D697 85958995 8740C3C6  |CF Output File: Error Opening CF|    
+ 0001B8  (LIT+128)    40C99597 A4A340C6 8993857A 40C3C6E2 D6D9E3F0 F3E2E8E2 D6E4E340 40C9C7E9  | Input File: CFSORT03SYSOUT  IGZ|    
+ 0001D8  (LIT+160)    E2D9E3C3 C4000001 34000000 03000001 2C000000 01000001 30000000 01000000  |SRTCD...........................|    
+ 0001F8  (LIT+192)    00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000  |................................|    
+ 000218  (LIT+224)    00800000 00400000 00000000 00000000 00800000 00000000 00000000 00080000  |..... ..........................|    
+ 000238  (LIT+256)    00040000 00000000 3E400000 00000000 00000000 00000000 00400000 000025C0  |......... ............... ......|    
+ 000258  (LIT+288)    0001C000 08080000 24009D0C 04800000 00000000 00000000 00000000 00400001  |............................. ..|    
+ 000278  (LIT+320)    00028000 01400000 1D080000 24008040 00000209 00012C00 08FF0140 00001E08  |..... ......... ........... ....|    
+ 000298  (LIT+352)    00002400 62400000 02090001 2C0000FF 40000000 001AC000 01400008 08000024  |..... .......... ........ ......|    
+ 0002B8  (LIT+384)    009D0290 00040800 00240115 10080083 0900013C 00000000 00500800 00240022  |...............c.........&......|    
+ 0002D8  (LIT+416)    00400000 0000C009 00012800 10090001 28001880 FFFF8000 02800080 00018000  |. ..............................|    
+ 0002F8  (LIT+448)    40000000 0040C000 01400008 08000024 009D02C0 00080800 0024009D 0900012C  | .... ... ......................|    
+ 000318  (LIT+480)    00000900 01380000 0900012C 00080900 01340000                             |....................            |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000056 0005D8 OPEN                          000058 0005FA IF                            000059 00060E OPEN                          
+ 000061 000628 IF                            000062 00063C SORT                          000068 0006C8 MOVE                          
+ 000069 0006D2 DISPLAY                       000072 0006E0 MOVE                          000073 0006EA DISPLAY                       
+ 000076 0006F4 CLOSE                         000079 000726 STOP                          000085 000742 MOVE                          
+ 000087 000746 PERFORM                       000089 000756 READ                          000091 000798 SET                           
+ 000093 0007A0 MOVE                          000094 0007AE RELEASE                       000103 0007C4 CONTINUE                      
+ 000109 0007CA MOVE                          000111 0007D4 PERFORM                       000112 0007E8 RETURN                        
+ 000113 000806 SET                           000115 000814 MOVE                          000116 000822 WRITE                         
+ 000120 000856 CONTINUE                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT03  Date 06/03/2020  Time 14:48:38   Page    12                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  BASE LOCATORS FOR FILES                                                                                  
+                    000140  FCB CELLS                                                                                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT03  Date 06/03/2020  Time 14:48:38   Page    13                
+0                   000148  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+                                                                                                                                     
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  SAVE AREA FOR FLOAT REGISTERS 8-15                                                                       
+                  00000110  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  00000120  VARIABLE-LENGTH CELLS                                                                                    
+                  00000138  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000148  PERFORM SAVE CELLS                                                                                       
+                  00000158  TEMPORARY STORAGE-2                                                                                      
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 0000015C BYTES                                                                                       
+ DCB00001 WILL BE ALLOCATED FOR 00000060 BYTES                                                                                       
+ FCB00001 WILL BE ALLOCATED FOR 00000114 BYTES                                                                                       
+ DCB00002 WILL BE ALLOCATED FOR 00000060 BYTES                                                                                       
+ FCB00002 WILL BE ALLOCATED FOR 00000114 BYTES                                                                                       
+ GDT00001 WILL BE ALLOCATED FOR 000000A0 BYTES                                                                                       
+ RCD00001 WILL BE ALLOCATED FOR 00000050 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 00000013 BYTES                                                                                       
+ SRT00001 WILL BE ALLOCATED FOR 00000004 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 00000168 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 000934                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 000DEC FOR LENGTH 000132                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               CFSORT03  Date 06/03/2020  Time 14:48:38   Page    14                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+                                                                                                                                     
+     19  IGYGR1216-I   A "RECORDING MODE" of "F" was assumed for file "FILE-IN".                                                     
+                                                                                                                                     
+     27  IGYGR1216-I   A "RECORDING MODE" of "F" was assumed for file "FILE-OUT".                                                    
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       5           3              2                                                                                         
+-* Statistics for COBOL program CFSORT03:                                                                                            
+ *    Source records = 120                                                                                                           
+ *    Data Division statements = 18                                                                                                  
+ *    Procedure Division statements = 25                                                                                             
+0End of compilation 1,  program CFSORT03,  highest severity 4.                                                                       
+0Return code 4                                                                                                                       
