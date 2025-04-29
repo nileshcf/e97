@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="SeprControlBlock" cobol:name="SEPR-CONTROL-BLOCK" cobol:offset="0" cobol:length="39" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="SeprReturnCode" maxOccurs="1"  cobol:name="SEPR-RETURN-CODE" cobol:offset="0" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 seprRc000088 VALUE [[0ALL]].
+                        88 seprRc000288 VALUE [[2]].
+                        88 seprRc000388 VALUE [[3]].
+                        88 seprRc000488 VALUE [[4]].
+                        88 seprRc000688 VALUE [[6]].
+                        88 seprRc000788 VALUE [[7]].
+                        88 seprRc000888 VALUE [[7]].
+                        88 seprRc004888 VALUE [[48]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="SeprReturnDesc" maxOccurs="1"  cobol:name="SEPR-RETURN-DESC" cobol:offset="4" cobol:length="20" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 seprRcDesc000088 VALUE [["SUCCESS!            "]].
+                        88 seprRcDesc000288 VALUE [["INVALID SE-ID.      "]].
+                        88 seprRcDesc000388 VALUE [["INVALID SE-LENGTH.  "]].
+                        88 seprRcDesc000488 VALUE [["DE LENGTH 0/INVALID."]].
+                        88 seprRcDesc000688 VALUE [["NO SE FOUND.        "]].
+                        88 seprRcDesc000788 VALUE [["SE VS DE LENGTH ERR."]].
+                        88 seprRcDesc000888 VALUE [["ADDR POINTER IS NULL"]].
+                        88 seprRcDesc004888 VALUE [["DE48 TCC IS INVALID."]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="20" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="SeprDe48Sw" maxOccurs="1"  cobol:name="SEPR-DE48-SW" cobol:offset="24" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 seprDe4888 VALUE [["Y"]].
+                        88 seprNoDe4888 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="SeprDataLength" type="xs:int" maxOccurs="1"  cobol:name="SEPR-DATA-LENGTH" cobol:offset="25" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+    <xs:element name="SeprBadId" maxOccurs="1"  cobol:name="SEPR-BAD-ID" cobol:offset="28" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="SeprBadLength" maxOccurs="1"  cobol:name="SEPR-BAD-LENGTH" cobol:offset="31" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="SeprTccCd" maxOccurs="1"  cobol:name="SEPR-TCC-CD" cobol:offset="34" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="SeprDataAddr" type="xs:int" maxOccurs="1"  cobol:name="SEPR-DATA-ADDR" cobol:offset="35" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="SeprDataPtr" type="xs:int" maxOccurs="1"  cobol:name="SEPR-DATA-PTR" cobol:offset="35" cobol:length="4" cobol:datatype="Pointer" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

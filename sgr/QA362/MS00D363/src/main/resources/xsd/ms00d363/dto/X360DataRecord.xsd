@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="X360DataRecord" cobol:name="X360-DATA-RECORD" cobol:offset="1" cobol:length="1399" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="X360SrtKey" maxOccurs="1" cobol:name="X360-SRT-KEY" cobol:offset="0" cobol:length="94" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360OtherDataFields" maxOccurs="1" cobol:name="X360-OTHER-DATA-FIELDS" cobol:offset="94" cobol:length="124" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360Financials" maxOccurs="1" cobol:name="X360-FINANCIALS" cobol:offset="218" cobol:length="364" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360Adjustments" maxOccurs="1" cobol:name="X360-ADJUSTMENTS" cobol:offset="582" cobol:length="417" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360MbrRptKey" maxOccurs="1" cobol:name="X360-MBR-RPT-KEY" cobol:offset="999" cobol:length="72" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360AAcqA09DeniedCnt" maxOccurs="1" cobol:name="X360-A-ACQ-A09-DENIED-CNT" cobol:offset="1071" cobol:length="10" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360AIssA09DeniedCnt" maxOccurs="1" cobol:name="X360-A-ISS-A09-DENIED-CNT" cobol:offset="1071" cobol:length="10" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360ExtPrecisionInfo" maxOccurs="1" cobol:name="X360-EXT-PRECISION-INFO" cobol:offset="1081" cobol:length="62" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360FAcqSurchrgPos" maxOccurs="1" cobol:name="X360-F-ACQ-SURCHRG-POS" cobol:offset="1143" cobol:length="26" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360FIssSurchrgPos" maxOccurs="1" cobol:name="X360-F-ISS-SURCHRG-POS" cobol:offset="1143" cobol:length="26" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360AAcqA15ApprovedCnt" maxOccurs="1" cobol:name="X360-A-ACQ-A15-APPROVED-CNT" cobol:offset="1169" cobol:length="10" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360AIssA15ApprovedCnt" maxOccurs="1" cobol:name="X360-A-ISS-A15-APPROVED-CNT" cobol:offset="1169" cobol:length="10" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360FAcqSurchrgRvPos" maxOccurs="1" cobol:name="X360-F-ACQ-SURCHRG-RV-POS" cobol:offset="1179" cobol:length="26" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360FIssSurchrgRvPos" maxOccurs="1" cobol:name="X360-F-ISS-SURCHRG-RV-POS" cobol:offset="1179" cobol:length="26" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360FAcqSurchrgRvAtm" maxOccurs="1" cobol:name="X360-F-ACQ-SURCHRG-RV-ATM" cobol:offset="1205" cobol:length="26" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360FIssSurchrgRvAtm" maxOccurs="1" cobol:name="X360-F-ISS-SURCHRG-RV-ATM" cobol:offset="1205" cobol:length="26" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="X360FBatchIchngSw" maxOccurs="1"  cobol:name="X360-F-BATCH-ICHNG-SW" cobol:offset="1231" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 x360FBatchFinIfeeUsed VALUE [["1"]].
+                        88 x360FBatchNfIfeeUsed VALUE [["2"]].
+                        88 x360FBatchPctIfeeUsed VALUE [["3"]].
+                        88 x360FBatchNobillIfee VALUE [["4"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="X360FAcqIfeeAmt" maxOccurs="1" cobol:name="X360-F-ACQ-IFEE-AMT" cobol:offset="1232" cobol:length="64" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360FIssIfeeAmt" maxOccurs="1" cobol:name="X360-F-ISS-IFEE-AMT" cobol:offset="1232" cobol:length="64" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="CirrusX360RecordFiller16" maxOccurs="1"  cobol:name="FILLER" cobol:offset="1296" cobol:length="103" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="103" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

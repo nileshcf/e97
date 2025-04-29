@@ -1,0 +1,11 @@
+   JOINKEYS F1=SORTJNF1,FIELDS(1,8,A,40,1,A),SORTED,NOSEQCK                                                                          
+   JOINKEYS F2=SORTJNF2,FIELDS(1,8,A,9,1,A)                                                                                          
+   JOIN UNPAIRED,F1                                                                                                                  
+   REFORMAT FIELDS=(F1:1,49,F2:1,18,?)                                                                                               
+    OUTREC IFTHEN(WHEN=(68,1,CH,EQ,C'B'),                                                                                            
+               BUILD=(1,49,59,9,80:X)),                                                                                              
+           IFTHEN(WHEN=(68,1,CH,EQ,C'1'),                                                                                            
+               BUILD=(1,49,50:+0,TO=PD,LENGTH=3,                                                                                     
+                           53:+0,TO=PD,LENGTH=3,                                                                                     
+                           56:+0,TO=PD,LENGTH=3,80:X))                                                                               
+   SORT FIELDS=(11,6,CH,A,1,8,PD,A,40,1,CH,A,17,9,CH,A)                                                                              

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="ResultReasonMsg603" cobol:name="603-RESULT-REASON-MSG" cobol:offset="0" cobol:length="38" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="ResultReasonMsg603ConditionGroup1" maxOccurs="1"  cobol:name="FILLER" cobol:offset="0" cobol:length="9" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1G" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 resultIsReason88603 VALUE [[" REASON: "]].
+                        88 resultTaraept88603 VALUE [[" TARAEPT "]].
+                        88 resultOnHold88603 VALUE [["-ON HOLD "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="9" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="ResultReason603" maxOccurs="1"  cobol:name="603-RESULT-REASON" cobol:offset="9" cobol:length="29" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 resultEptMissing88603 VALUE [["TARAEPT ENDPOINT MISSING     "]].
+                        88 resultEptBackup88603 VALUE [["TARAEPT BACKUP ENDPNT MISSING"]].
+                        88 resultEptBroken88603 VALUE [["TARAEPT BACKUP CHAIN BROKEN  "]].
+                        88 resultEptLoops88603 VALUE [["TARAEPT BACKUP CHAIN LOOPS   "]].
+                        88 resultEfpSelect88603 VALUE [["TARAEFP SQL \"SELECT\" ERROR   "]].
+                        88 resultEfpMissing88603 VALUE [["TARAEFP ENDPOINT MISSING     "]].
+                        88 resultEfpBackup88603 VALUE [["TARAEFP BACKUP ENDPNT MISSING"]].
+                        88 resultEfpStatus88603 VALUE [["PER TARAEFP STATUS CD COL = Y"]].
+                        88 resultFxsDupe88603 VALUE [["TARAFXS DUPLICATE ENDPOINT   "]].
+                        88 resultFxsInsert88603 VALUE [["TARAFXS SQL \"INSERT\" ERROR   "]].
+                        88 resultFxsUpdate88603 VALUE [["TARAFXS SQL \"UPDATE\" ERROR   "]].
+                        88 resultFxsRepeat88603 VALUE [["TARAFXS DUPE FTSS BULK FILEID"]].
+                        88 resultWaitExit88603 VALUE [["AWAITING APPL EXIT: XXXXXXXX "]].
+                        88 resultWaitProc88603 VALUE [["AWAITING APPL EXIT PROCESSING"]].
+                        88 resultBkupDest88603 VALUE [["BACKUP ENDPOINT DEST: XXXXXXX"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="29" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="ResultReason603Redefined01" maxOccurs="1" cobol:name="603-RESULT-REASON-REDEFINED" cobol:offset="9" cobol:length="29" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="ResultReason603Redefined" maxOccurs="1" cobol:name="603-RESULT-REASON-REDEFINED" cobol:offset="9" cobol:length="29" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

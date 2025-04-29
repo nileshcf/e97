@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Work" cobol:name="work" cobol:offset="0" cobol:length="26" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="VskRecordSize" type="xs:long" maxOccurs="1"  cobol:name="VSK-RECORD-SIZE" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="StartKeytype" maxOccurs="1"  cobol:name="WS-START-KEYTYPE" cobol:offset="0" cobol:length="15" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="15" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Sub1" type="xs:short" maxOccurs="1"  cobol:name="WS-SUB1" cobol:offset="0" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="TaskNo" type="xs:long" maxOccurs="1"  cobol:name="WS-TASK-NO" cobol:offset="0" cobol:length="7" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+         <xs:element name="ReqSize" type="xs:long" maxOccurs="1"  cobol:name="WS-REQ-SIZE" cobol:offset="7" cobol:length="9" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="OpenFlags" maxOccurs="1"  cobol:name="OPEN-FLAGS" cobol:offset="16" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 seqMode VALUE [[0ALL]].
+                        88 dynMode VALUE [[1]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="PrimaryKeyDisp" type="xs:long" maxOccurs="1"  cobol:name="PRIMARY-KEY-DISP" cobol:offset="17" cobol:length="9" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="VsamRecordDisp" maxOccurs="1"  cobol:name="VSAM-RECORD-DISP" cobol:offset="26" cobol:length="221" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="221" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="VsvksdsFileStatus" maxOccurs="1"  cobol:name="VSVKSDS-FILE-STATUS" cobol:offset="26" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="EofSw" maxOccurs="1"  cobol:name="WS-EOF-SW" cobol:offset="26" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 endOfVsvksds VALUE [["Y"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Charstr" maxOccurs="1"  cobol:name="WS-CHARSTR" cobol:offset="26" cobol:length="252" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="252" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Numstr" maxOccurs="1"  cobol:name="WS-NUMSTR" cobol:offset="26" cobol:length="200" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="200" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

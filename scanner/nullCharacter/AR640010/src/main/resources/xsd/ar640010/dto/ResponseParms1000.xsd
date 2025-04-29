@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="ResponseParms1000" cobol:name="1000-RESPONSE-PARMS" cobol:offset="0" cobol:length="326" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="FunctionResponse1000" maxOccurs="1"  cobol:name="1000-FUNCTION-RESPONSE" cobol:offset="0" cobol:length="4" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 requestSuccessful881000 VALUE [["0000"]].
+                        88 requestWarning881000 VALUE [[["0001"],["0099"]]].
+                        88 ftssEndpointRepeat881000 VALUE [["0001"]].
+                        88 bulkEndpointNone881000 VALUE [["0020"]].
+                        88 bulkEndpointSome881000 VALUE [["0021"]].
+                        88 bulkEndpointDupe881000 VALUE [["0022"]].
+                        88 bulkEndpointEmpty881000 VALUE [["0023"]].
+                        88 listEndpointNone881000 VALUE [["0040"]].
+                        88 listEndpointSome881000 VALUE [["0041"]].
+                        88 listEndpointDupe881000 VALUE [["0042"]].
+                        88 listEndpointEmpty881000 VALUE [["0043"]].
+                        88 retrieveNoInbound881000 VALUE [["0050"]].
+                        88 resetNotRequired881000 VALUE [["0070"]].
+                        88 requestFailed881000 VALUE [[["0100"],["9999"]]].
+                        88 addCopyApplAlloc881000 VALUE [["0100"]].
+                        88 addCopyApplOpen881000 VALUE [["0101"]].
+                        88 addCopyApplRead881000 VALUE [["0102"]].
+                        88 addCopyApplClose881000 VALUE [["0103"]].
+                        88 addCopyApplUnall881000 VALUE [["0104"]].
+                        88 addCopyApplDltalc881000 VALUE [["0105"]].
+                        88 addCopyApplDltopn881000 VALUE [["0106"]].
+                        88 addCopyApplDltcls881000 VALUE [["0107"]].
+                        88 addCopyApplInUse881000 VALUE [["0108"]].
+                        88 addCopyApplCounts881000 VALUE [["0109"]].
+                        88 addCopyGftAlloc881000 VALUE [["0110"]].
+                        88 addCopyGftOpen881000 VALUE [["0111"]].
+                        88 addCopyGftWrite881000 VALUE [["0112"]].
+                        88 addCopyGftClose881000 VALUE [["0113"]].
+                        88 addCopyGftUnall881000 VALUE [["0114"]].
+                        88 addCopyGftDltalc881000 VALUE [["0115"]].
+                        88 addCopyGftDltopn881000 VALUE [["0116"]].
+                        88 addCopyGftDltcls881000 VALUE [["0117"]].
+                        88 addCopyGftInUse881000 VALUE [["0118"]].
+                        88 addCopyGftNone881000 VALUE [["0119"]].
+                        88 addPrcsXferInsert881000 VALUE [["0120"]].
+                        88 addPrcsEfpoNotfnd881000 VALUE [["0121"]].
+                        88 addPrcsEfpoSelect881000 VALUE [["0122"]].
+                        88 bulkCopyApplAlloc881000 VALUE [["0200"]].
+                        88 bulkCopyApplOpen881000 VALUE [["0201"]].
+                        88 bulkCopyApplRead881000 VALUE [["0202"]].
+                        88 bulkCopyApplClose881000 VALUE [["0203"]].
+                        88 bulkCopyApplUnall881000 VALUE [["0204"]].
+                        88 bulkCopyApplDltalc881000 VALUE [["0205"]].
+                        88 bulkCopyApplDltopn881000 VALUE [["0206"]].
+                        88 bulkCopyApplDltcls881000 VALUE [["0207"]].
+                        88 bulkCopyApplInUse881000 VALUE [["0208"]].
+                        88 bulkCopyApplCounts881000 VALUE [["0209"]].
+                        88 bulkCopyGftAlloc881000 VALUE [["0210"]].
+                        88 bulkCopyGftOpen881000 VALUE [["0211"]].
+                        88 bulkCopyGftWrite881000 VALUE [["0212"]].
+                        88 bulkCopyGftClose881000 VALUE [["0213"]].
+                        88 bulkCopyGftUnall881000 VALUE [["0214"]].
+                        88 bulkCopyGftDltalc881000 VALUE [["0215"]].
+                        88 bulkCopyGftDltopn881000 VALUE [["0216"]].
+                        88 bulkCopyGftDltcls881000 VALUE [["0217"]].
+                        88 bulkCopyGftInUse881000 VALUE [["0218"]].
+                        88 bulkCopyGftNone881000 VALUE [["0219"]].
+                        88 bulkPrcsXferInsert881000 VALUE [["0220"]].
+                        88 bulkPrcsEfpoOpen881000 VALUE [["0221"]].
+                        88 bulkPrcsEfpoFetch881000 VALUE [["0222"]].
+                        88 bulkPrcsEfpoClose881000 VALUE [["0223"]].
+                        88 bulkPrcsEfpoSelect881000 VALUE [["0224"]].
+                        88 bulkPrcsEptoSelect881000 VALUE [["0225"]].
+                        88 bulkPrcsEfpbSelect881000 VALUE [["0226"]].
+                        88 bulkPrcsEptbSelect881000 VALUE [["0227"]].
+                        88 bulkPrcsRsltOpen881000 VALUE [["0228"]].
+                        88 bulkPrcsRsltWrite881000 VALUE [["0229"]].
+                        88 bulkPrcsRsltClose881000 VALUE [["0230"]].
+                        88 bulkPrcsFxsSelect881000 VALUE [["0231"]].
+                        88 cntPrcsBulkSelect881000 VALUE [["0301"]].
+                        88 cntPrcsBulkOutbnd881000 VALUE [["0302"]].
+                        88 listCopyApplAlloc881000 VALUE [["0400"]].
+                        88 listCopyApplOpen881000 VALUE [["0401"]].
+                        88 listCopyApplRead881000 VALUE [["0402"]].
+                        88 listCopyApplClose881000 VALUE [["0403"]].
+                        88 listCopyApplUnall881000 VALUE [["0404"]].
+                        88 listCopyApplDltalc881000 VALUE [["0405"]].
+                        88 listCopyApplDltopn881000 VALUE [["0406"]].
+                        88 listCopyApplDltcls881000 VALUE [["0407"]].
+                        88 listCopyApplInUse881000 VALUE [["0408"]].
+                        88 listCopyApplCounts881000 VALUE [["0409"]].
+                        88 listCopyGftAlloc881000 VALUE [["0410"]].
+                        88 listCopyGftOpen881000 VALUE [["0411"]].
+                        88 listCopyGftWrite881000 VALUE [["0412"]].
+                        88 listCopyGftClose881000 VALUE [["0413"]].
+                        88 listCopyGftUnall881000 VALUE [["0414"]].
+                        88 listCopyGftDltalc881000 VALUE [["0415"]].
+                        88 listCopyGftDltopn881000 VALUE [["0416"]].
+                        88 listCopyGftDltcls881000 VALUE [["0417"]].
+                        88 listCopyGftInUse881000 VALUE [["0418"]].
+                        88 listCopyGftNone881000 VALUE [["0419"]].
+                        88 listPrcsXferInsert881000 VALUE [["0420"]].
+                        88 listPrcsEfpoSelect881000 VALUE [["0421"]].
+                        88 listPrcsEptoSelect881000 VALUE [["0422"]].
+                        88 listPrcsEfpbSelect881000 VALUE [["0423"]].
+                        88 listPrcsEptbSelect881000 VALUE [["0424"]].
+                        88 listPrcsFileOpen881000 VALUE [["0425"]].
+                        88 listPrcsFileRead881000 VALUE [["0426"]].
+                        88 listPrcsFileClose881000 VALUE [["0427"]].
+                        88 listPrcsRsltOpen881000 VALUE [["0428"]].
+                        88 listPrcsRsltWrite881000 VALUE [["0429"]].
+                        88 listPrcsRsltClose881000 VALUE [["0430"]].
+                        88 listPrcsFxsSelect881000 VALUE [["0431"]].
+                        88 retrCopyApplAlloc881000 VALUE [["0500"]].
+                        88 retrCopyApplOpen881000 VALUE [["0501"]].
+                        88 retrCopyApplWrite881000 VALUE [["0502"]].
+                        88 retrCopyApplClose881000 VALUE [["0503"]].
+                        88 retrCopyApplUnall881000 VALUE [["0504"]].
+                        88 retrCopyApplDltalc881000 VALUE [["0505"]].
+                        88 retrCopyApplDltopn881000 VALUE [["0506"]].
+                        88 retrCopyApplDltcls881000 VALUE [["0507"]].
+                        88 retrCopyApplInUse881000 VALUE [["0508"]].
+                        88 retrCopyApplDupe881000 VALUE [["0509"]].
+                        88 retrCopyGftAlloc881000 VALUE [["0510"]].
+                        88 retrCopyGftOpen881000 VALUE [["0511"]].
+                        88 retrCopyGftRead881000 VALUE [["0512"]].
+                        88 retrCopyGftClose881000 VALUE [["0513"]].
+                        88 retrCopyGftUnall881000 VALUE [["0514"]].
+                        88 retrCopyGftInUse881000 VALUE [["0518"]].
+                        88 retrCopyGftCounts881000 VALUE [["0519"]].
+                        88 retrPrcsXferNotrdy881000 VALUE [["0520"]].
+                        88 retrPrcsXferNotfnd881000 VALUE [["0521"]].
+                        88 retrPrcsXferOpen881000 VALUE [["0522"]].
+                        88 retrPrcsXferFetch881000 VALUE [["0523"]].
+                        88 retrPrcsXferClose881000 VALUE [["0524"]].
+                        88 retrPrcsXferSelect881000 VALUE [["0525"]].
+                        88 retrPrcsEfpoNotfnd881000 VALUE [["0526"]].
+                        88 retrPrcsEfpoSelect881000 VALUE [["0527"]].
+                        88 retrPrcsEptoNotfnd881000 VALUE [["0528"]].
+                        88 retrPrcsEptoSelect881000 VALUE [["0529"]].
+                        88 retrUpldXferNotfnd881000 VALUE [["0530"]].
+                        88 retrUpldXferUpdate881000 VALUE [["0531"]].
+                        88 retrUpldXferCommit881000 VALUE [["0532"]].
+                        88 retrCmptXferNotfnd881000 VALUE [["0533"]].
+                        88 retrCmptXferUpdate881000 VALUE [["0534"]].
+                        88 retrCmptXferCommit881000 VALUE [["0535"]].
+                        88 retrPendXferNotfnd881000 VALUE [["0536"]].
+                        88 retrPendXferUpdate881000 VALUE [["0537"]].
+                        88 retrPendXferCommit881000 VALUE [["0538"]].
+                        88 sendCopyApplAlloc881000 VALUE [["0600"]].
+                        88 sendCopyApplOpen881000 VALUE [["0601"]].
+                        88 sendCopyApplRead881000 VALUE [["0602"]].
+                        88 sendCopyApplClose881000 VALUE [["0603"]].
+                        88 sendCopyApplUnall881000 VALUE [["0604"]].
+                        88 sendCopyApplDltalc881000 VALUE [["0605"]].
+                        88 sendCopyApplDltopn881000 VALUE [["0606"]].
+                        88 sendCopyApplDltcls881000 VALUE [["0607"]].
+                        88 sendCopyApplInUse881000 VALUE [["0608"]].
+                        88 sendCopyApplCounts881000 VALUE [["0609"]].
+                        88 sendCopyGftAlloc881000 VALUE [["0610"]].
+                        88 sendCopyGftOpen881000 VALUE [["0611"]].
+                        88 sendCopyGftWrite881000 VALUE [["0612"]].
+                        88 sendCopyGftClose881000 VALUE [["0613"]].
+                        88 sendCopyGftUnall881000 VALUE [["0614"]].
+                        88 sendCopyGftDltalc881000 VALUE [["0615"]].
+                        88 sendCopyGftDltopn881000 VALUE [["0616"]].
+                        88 sendCopyGftDltcls881000 VALUE [["0617"]].
+                        88 sendCopyGftInUse881000 VALUE [["0618"]].
+                        88 sendCopyGftNone881000 VALUE [["0619"]].
+                        88 sendPrcsXferInsert881000 VALUE [["0620"]].
+                        88 sendPrcsEfpoSelect881000 VALUE [["0621"]].
+                        88 sendPrcsEptoSelect881000 VALUE [["0622"]].
+                        88 sendPrcsEfpbSelect881000 VALUE [["0623"]].
+                        88 sendPrcsEptbSelect881000 VALUE [["0624"]].
+                        88 sendPrcsEptbBroken881000 VALUE [["0625"]].
+                        88 sendPrcsEptbLoops881000 VALUE [["0626"]].
+                        88 restPrcsXferNotfnd881000 VALUE [["0701"]].
+                        88 restPrcsXferOpen881000 VALUE [["0702"]].
+                        88 restPrcsXferFetch881000 VALUE [["0703"]].
+                        88 restPrcsXferClose881000 VALUE [["0704"]].
+                        88 restPrcsXferSelect881000 VALUE [["0705"]].
+                        88 restPrcsXferExitna881000 VALUE [["0706"]].
+                        88 restPrcsXferInsert881000 VALUE [["0707"]].
+                        88 restPrcsEfpoNotfnd881000 VALUE [["0708"]].
+                        88 restPrcsEfpoSelect881000 VALUE [["0709"]].
+                        88 restUpdtXferNotfnd881000 VALUE [["0710"]].
+                        88 restUpdtXferUpdate881000 VALUE [["0711"]].
+                        88 restUpdtXferCommit881000 VALUE [["0712"]].
+                        88 instCopyApplAlloc881000 VALUE [["0800"]].
+                        88 instCopyApplOpen881000 VALUE [["0801"]].
+                        88 instCopyApplRead881000 VALUE [["0802"]].
+                        88 instCopyApplClose881000 VALUE [["0803"]].
+                        88 instCopyApplUnall881000 VALUE [["0804"]].
+                        88 instCopyApplDltalc881000 VALUE [["0805"]].
+                        88 instCopyApplDltopn881000 VALUE [["0806"]].
+                        88 instCopyApplDltcls881000 VALUE [["0807"]].
+                        88 instCopyApplInUse881000 VALUE [["0808"]].
+                        88 instCopyApplCounts881000 VALUE [["0809"]].
+                        88 instCopyGftAlloc881000 VALUE [["0810"]].
+                        88 instCopyGftOpen881000 VALUE [["0811"]].
+                        88 instCopyGftWrite881000 VALUE [["0812"]].
+                        88 instCopyGftClose881000 VALUE [["0813"]].
+                        88 instCopyGftUnall881000 VALUE [["0814"]].
+                        88 instCopyGftDltalc881000 VALUE [["0815"]].
+                        88 instCopyGftDltopn881000 VALUE [["0816"]].
+                        88 instCopyGftDltcls881000 VALUE [["0817"]].
+                        88 instCopyGftInUse881000 VALUE [["0818"]].
+                        88 instCopyGftExists881000 VALUE [["0819"]].
+                        88 instPrcsXferInsert881000 VALUE [["0820"]].
+                        88 instPrcsXferOpen881000 VALUE [["0821"]].
+                        88 instPrcsXferFetch881000 VALUE [["0822"]].
+                        88 instPrcsXferClose881000 VALUE [["0823"]].
+                        88 instPrcsXferNotfnd881000 VALUE [["0824"]].
+                        88 instPrcsXferSelect881000 VALUE [["0825"]].
+                        88 instPrcsEptoSelect881000 VALUE [["0826"]].
+                        88 instCmptXferNotfnd881000 VALUE [["0827"]].
+                        88 instCmptXferUpdate881000 VALUE [["0828"]].
+                        88 instExitXferEmpty881000 VALUE [["0829"]].
+                        88 instExitXferNoexit881000 VALUE [["0830"]].
+                        88 instExitXferStatus881000 VALUE [["0831"]].
+                        88 instPrcsRsltOpen881000 VALUE [["0832"]].
+                        88 instPrcsRsltWrite881000 VALUE [["0833"]].
+                        88 instPrcsRsltClose881000 VALUE [["0834"]].
+                        88 instPrcsEfpoNotfnd881000 VALUE [["0835"]].
+                        88 instPrcsEfpoSelect881000 VALUE [["0836"]].
+                        88 instStndEfpoNotfnd881000 VALUE [["0837"]].
+                        88 instStndEfpoSelect881000 VALUE [["0838"]].
+                        88 instPrcsXferCheck881000 VALUE [["0839"]].
+                        88 functionInvalid881000 VALUE [["9000"]].
+                        88 setupPrflRecfm881000 VALUE [["9011"]].
+                        88 setupPrflLrecl881000 VALUE [["9012"]].
+                        88 setupPrflBlksz881000 VALUE [["9013"]].
+                        88 setupPrflSystemId881000 VALUE [["9014"]].
+                        88 setupApplRecfm881000 VALUE [["9021"]].
+                        88 setupApplLrecl881000 VALUE [["9022"]].
+                        88 setupApplBlksz881000 VALUE [["9023"]].
+                        88 setupApplAtype881000 VALUE [["9024"]].
+                        88 setupGftRecfm881000 VALUE [["9031"]].
+                        88 setupGftLrecl881000 VALUE [["9032"]].
+                        88 setupGftBlksz881000 VALUE [["9033"]].
+                        88 setupGftAtype881000 VALUE [["9034"]].
+                        88 setupExitFormat881000 VALUE [["9045"]].
+                        88 parmCtrlDbid881000 VALUE [["9101"]].
+                        88 parmCtrlDbpkg881000 VALUE [["9102"]].
+                        88 parmCtrlHlqid881000 VALUE [["9103"]].
+                        88 connUserdbSetup881000 VALUE [["9200"]].
+                        88 connUserpkgSetup881000 VALUE [["9201"]].
+                        88 connUserpkgSet881000 VALUE [["9202"]].
+                        88 connUserdbConnect881000 VALUE [["9203"]].
+                        88 connGftpkgSet881000 VALUE [["9212"]].
+                        88 connGftdbConnect881000 VALUE [["9213"]].
+                        88 connGftdbRelease881000 VALUE [["9214"]].
+                        88 connGftdbRollback881000 VALUE [["9218"]].
+                        88 connGftdbCommit881000 VALUE [["9219"]].
+                        88 spgmDynamInit881000 VALUE [["9300"]].
+                        88 spgmDynamEnd881000 VALUE [["9309"]].
+                        88 spgmListdsiLinkage881000 VALUE [["9310"]].
+                        88 spgmListdsiTsoe881000 VALUE [["9311"]].
+                        88 spgmListdsiCall881000 VALUE [["9312"]].
+                        88 spgmListdsiFunction881000 VALUE [["9313"]].
+                        88 spgmListdsiParam881000 VALUE [["9314"]].
+                        88 spgmListdsiNogdg881000 VALUE [["9315"]].
+                        88 spgmListdsiNombr881000 VALUE [["9316"]].
+                        88 spgmListdsiProt881000 VALUE [["9317"]].
+                        88 spgmListdsiPdsna881000 VALUE [["9318"]].
+                        88 spgmListdsiUnknown881000 VALUE [["9319"]].
+                        88 spgmReportError881000 VALUE [["9320"]].
+                        88 spgmReportOrder881000 VALUE [["9321"]].
+                        88 spgmReportSyslst881000 VALUE [["9322"]].
+                        88 spgmReportEntry881000 VALUE [["9323"]].
+                        88 spgmReportUnknown881000 VALUE [["9329"]].
+                        88 spgmRenameTsoe881000 VALUE [["9331"]].
+                        88 spgmRenameCall881000 VALUE [["9332"]].
+                        88 spgmRenameFunction881000 VALUE [["9333"]].
+                        88 spgmRenameGftCatal881000 VALUE [["9334"]].
+                        88 spgmRenameApplUse881000 VALUE [["9335"]].
+                        88 spgmRenameApplNone881000 VALUE [["9336"]].
+                        88 spgmRenameApplDsn881000 VALUE [["9337"]].
+                        88 spgmRenameGftDsn881000 VALUE [["9338"]].
+                        88 spgmRenameUnknown881000 VALUE [["9339"]].
+                        88 spgmConfigError881000 VALUE [["9340"]].
+                        88 spgmMcinfoError881000 VALUE [["9341"]].
+                        88 parmCopybookPgmid881000 VALUE [["9400"]].
+                        88 parmCopybookDate881000 VALUE [["9401"]].
+                        88 parmCopybookMod881000 VALUE [["9402"]].
+                        88 parmBulkidNotfnd881000 VALUE [["9410"]].
+                        88 parmBulkidSelect881000 VALUE [["9411"]].
+                        88 parmBulkidDirect881000 VALUE [["9412"]].
+                        88 parmBulkidRequired881000 VALUE [["9419"]].
+                        88 parmEndptidNotfnd881000 VALUE [["9420"]].
+                        88 parmEndptidSelect881000 VALUE [["9421"]].
+                        88 parmEndptidRequired881000 VALUE [["9429"]].
+                        88 parmDeleteInvalid881000 VALUE [["9430"]].
+                        88 parmDeleteRequired881000 VALUE [["9439"]].
+                        88 parmCyclnumInvalid881000 VALUE [["9440"]].
+                        88 parmSeqNbrInvalid881000 VALUE [["9441"]].
+                        88 parmCyclnumRequired881000 VALUE [["9449"]].
+                        88 parmListddInvalid881000 VALUE [["9450"]].
+                        88 parmListddNotcatal881000 VALUE [["9451"]].
+                        88 parmListddNojcldd881000 VALUE [["9452"]].
+                        88 parmListddVsam881000 VALUE [["9453"]].
+                        88 parmListddType881000 VALUE [["9454"]].
+                        88 parmListddDdname881000 VALUE [["9455"]].
+                        88 parmListddNombr881000 VALUE [["9456"]].
+                        88 parmListddRequired881000 VALUE [["9459"]].
+                        88 parmApplInvalid881000 VALUE [["9460"]].
+                        88 parmApplNotcatal881000 VALUE [["9461"]].
+                        88 parmApplNojcldd881000 VALUE [["9462"]].
+                        88 parmApplVsam881000 VALUE [["9463"]].
+                        88 parmApplType881000 VALUE [["9464"]].
+                        88 parmApplDdname881000 VALUE [["9465"]].
+                        88 parmApplNombr881000 VALUE [["9466"]].
+                        88 parmApplNogdg881000 VALUE [["9467"]].
+                        88 parmApplRequired881000 VALUE [["9469"]].
+                        88 parmGftInvalid881000 VALUE [["9470"]].
+                        88 parmGftNotcatal881000 VALUE [["9471"]].
+                        88 parmGftNojcldd881000 VALUE [["9472"]].
+                        88 parmGftVsam881000 VALUE [["9473"]].
+                        88 parmGftType881000 VALUE [["9474"]].
+                        88 parmGftDdname881000 VALUE [["9475"]].
+                        88 parmGftRequired881000 VALUE [["9479"]].
+                        88 parmResultInvalid881000 VALUE [["9480"]].
+                        88 parmResultNotcatal881000 VALUE [["9481"]].
+                        88 parmResultNojcldd881000 VALUE [["9482"]].
+                        88 parmResultVsam881000 VALUE [["9483"]].
+                        88 parmResultType881000 VALUE [["9484"]].
+                        88 parmResultDdname881000 VALUE [["9485"]].
+                        88 parmResultOption881000 VALUE [["9486"]].
+                        88 parmResultRequired881000 VALUE [["9489"]].
+                        88 parmProcdateFormat881000 VALUE [["9490"]].
+                        88 parmProcdateYear881000 VALUE [["9491"]].
+                        88 parmProcdateMonth881000 VALUE [["9492"]].
+                        88 parmProcdateDay881000 VALUE [["9493"]].
+                        88 parmProcdateDom881000 VALUE [["9494"]].
+                        88 confDdCtrlAppl881000 VALUE [["9512"]].
+                        88 confDdCtrlGft881000 VALUE [["9513"]].
+                        88 confDdCtrlList881000 VALUE [["9514"]].
+                        88 confDdCtrlRslt881000 VALUE [["9515"]].
+                        88 confDdApplGft881000 VALUE [["9523"]].
+                        88 confDdApplList881000 VALUE [["9524"]].
+                        88 confDdApplRslt881000 VALUE [["9525"]].
+                        88 confDdGftList881000 VALUE [["9534"]].
+                        88 confDdGftRslt881000 VALUE [["9535"]].
+                        88 confDdListRslt881000 VALUE [["9545"]].
+                        88 confDsnCtrlAppl881000 VALUE [["9612"]].
+                        88 confDsnCtrlGft881000 VALUE [["9613"]].
+                        88 confDsnCtrlList881000 VALUE [["9614"]].
+                        88 confDsnCtrlRslt881000 VALUE [["9615"]].
+                        88 confDsnApplGft881000 VALUE [["9623"]].
+                        88 confDsnApplList881000 VALUE [["9624"]].
+                        88 confDsnApplRslt881000 VALUE [["9625"]].
+                        88 confDsnGftList881000 VALUE [["9634"]].
+                        88 confDsnGftRslt881000 VALUE [["9635"]].
+                        88 confDsnListRslt881000 VALUE [["9645"]].
+                        88 datasetCtrlOpen881000 VALUE [["9900"]].
+                        88 datasetCtrlRead881000 VALUE [["9901"]].
+                        88 datasetCtrlClose881000 VALUE [["9902"]].
+                        88 datasetCtrlNojcldd881000 VALUE [["9903"]].
+                        88 datasetCtrlType881000 VALUE [["9904"]].
+                        88 datasetCtrlLrecl881000 VALUE [["9905"]].
+                        88 datasetCtrlEmpty881000 VALUE [["9906"]].
+                        88 datasetListddLrecl881000 VALUE [["9915"]].
+                        88 datasetResultLrecl881000 VALUE [["9925"]].
+                        88 datasetResultRecfm881000 VALUE [["9927"]].
+                        88 appEndptEptxSelect881000 VALUE [["9930"]].
+                        88 appTarastsSelect881000 VALUE [["9940"]].
+                        88 logicAssignError881000 VALUE [["9990"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="4" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="RequestNbr1000" type="xs:int" maxOccurs="1"  cobol:name="1000-REQUEST-NBR" cobol:offset="4" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="ResponseDsn1000" maxOccurs="1"  cobol:name="1000-RESPONSE-DSN" cobol:offset="9" cobol:length="44" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 responseDsnNull881000 VALUE [["                                            "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="44" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="BulkFilesAvail1000" maxOccurs="1"  cobol:name="1000-BULK-FILES-AVAIL" cobol:offset="53" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 noBulkFilesAvail881000 VALUE [[0ALL]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="AllocUnitType1000" maxOccurs="1"  cobol:name="1000-ALLOC-UNIT-TYPE" cobol:offset="57" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 allocUnitTypeCyls881000 VALUE [["C"]].
+                        88 allocUnitTypeTrks881000 VALUE [["T"]].
+                        88 allocUnitTypeBlks881000 VALUE [["B"]].
+                        88 allocUnitTypeNull881000 VALUE [[" "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="AllocUnitsUsed1000" maxOccurs="1"  cobol:name="1000-ALLOC-UNITS-USED" cobol:offset="58" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 allocUnitsUsedNull881000 VALUE [[0ALL]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Recfm1000" maxOccurs="1"  cobol:name="1000-RECFM" cobol:offset="62" cobol:length="3" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1000" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 recfmNull881000 VALUE [["   "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="3" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Lrecl1000" maxOccurs="1"  cobol:name="1000-LRECL" cobol:offset="65" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 lreclNull881000 VALUE [[0ALL]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Blksz1000" maxOccurs="1"  cobol:name="1000-BLKSZ" cobol:offset="69" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 blkszNull881000 VALUE [[0ALL]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="RecordCopyCnt1000" maxOccurs="1"  cobol:name="1000-RECORD-COPY-CNT" cobol:offset="73" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 noRecordsCopied881000 VALUE [[0ALL]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="BroadcastEndpts1000" maxOccurs="1"  cobol:name="1000-BROADCAST-ENDPTS" cobol:offset="77" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 noBroadcastEndpts881000 VALUE [[0ALL]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="BroadcastErrors1000" maxOccurs="1"  cobol:name="1000-BROADCAST-ERRORS" cobol:offset="81" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 noBroadcastErrors881000 VALUE [[0ALL]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="ResponseMessage1000" maxOccurs="1"  cobol:name="1000-RESPONSE-MESSAGE" cobol:offset="85" cobol:length="50" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="50" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="ResponseMessage1000Redefined" maxOccurs="1" cobol:name="1000-RESPONSE-MESSAGE-REDEFINED" cobol:offset="85" cobol:length="50" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="ApplProcDate1000" maxOccurs="1"  cobol:name="1000-APPL-PROC-DATE" cobol:offset="135" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="ApplProcDateJul1000" maxOccurs="1"  cobol:name="1000-APPL-PROC-DATE-JUL" cobol:offset="145" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="ResponseBusPrtnrId1000" maxOccurs="1"  cobol:name="1000-RESPONSE-BUS-PRTNR-ID" cobol:offset="148" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="ResponseIca1000" maxOccurs="1"  cobol:name="1000-RESPONSE-ICA" cobol:offset="148" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="ResponseTknname1000" maxOccurs="1"  cobol:name="1000-RESPONSE-TKNNAME" cobol:offset="154" cobol:length="128" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 respTknnameNull881000 VALUE [["                                                                                                                                "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="128" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="ResponseGftDsnFail1000" maxOccurs="1"  cobol:name="1000-RESPONSE-GFT-DSN-FAIL" cobol:offset="282" cobol:length="44" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="44" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

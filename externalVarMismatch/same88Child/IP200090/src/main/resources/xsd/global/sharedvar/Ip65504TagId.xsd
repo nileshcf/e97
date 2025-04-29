@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip65504TagId" cobol:name="IP65504-TAG-ID" cobol:offset="0" cobol:length="4" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip65504TagType" maxOccurs="1"  cobol:name="IP65504-TAG-TYPE" cobol:offset="0" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip6550488MtiTag VALUE [[1]].
+                        88 ip6550488DeTag VALUE [[2]].
+                        88 ip6550488PdsTag VALUE [[3]].
+                        88 ip6550488TagTypeValid VALUE [[1], [2], [3]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip65504TagNo" maxOccurs="1"  cobol:name="IP65504-TAG-NO" cobol:offset="2" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip6550488DeNoValid VALUE [[[1],[128]]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Work" cobol:name="work" cobol:offset="0" cobol:length="128" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="ParseSw100" maxOccurs="1"  cobol:name="100-PARSE-SW" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 parsed88100 VALUE [["Y"]].
+                        88 notParsed88100 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="CentralSiteEofSw100" maxOccurs="1"  cobol:name="100-CENTRAL-SITE-EOF-SW" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 centralSiteEof88100 VALUE [["Y"]].
+                        88 centralSiteNotEof88100 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="CycleId100" maxOccurs="1"  cobol:name="100-CYCLE-ID" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="LogClass100" maxOccurs="1"  cobol:name="100-LOG-CLASS" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 logClassJ88100 VALUE [["J"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="LogType100" maxOccurs="1"  cobol:name="100-LOG-TYPE" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 logType388100 VALUE [["3"]].
+                        88 logType2A88100 VALUE [["2"], ["A"]].
+                        88 logType23A88100 VALUE [["2"], ["3"], ["A"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="MessageType100" maxOccurs="1"  cobol:name="100-MESSAGE-TYPE" cobol:offset="0" cobol:length="4" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 mti1011088100 VALUE [["0110"]].
+                        88 mti1010088100 VALUE [["0100"]].
+                        88 mti2010088100 VALUE [["0100"]].
+                        88 mti2011088100 VALUE [["0110"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="4" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="LitA300" maxOccurs="1"  cobol:name="300-LIT-A" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="LitB300" maxOccurs="1"  cobol:name="300-LIT-B" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="LitC300" maxOccurs="1"  cobol:name="300-LIT-C" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="LitN300" maxOccurs="1"  cobol:name="300-LIT-N" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="LitY300" maxOccurs="1"  cobol:name="300-LIT-Y" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="LitIa300" maxOccurs="1"  cobol:name="300-LIT-IA" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit01300" maxOccurs="1"  cobol:name="300-LIT-01" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit02300" maxOccurs="1"  cobol:name="300-LIT-02" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit03300" maxOccurs="1"  cobol:name="300-LIT-03" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit05300" maxOccurs="1"  cobol:name="300-LIT-05" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit06300" maxOccurs="1"  cobol:name="300-LIT-06" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit09300" maxOccurs="1"  cobol:name="300-LIT-09" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit10300" maxOccurs="1"  cobol:name="300-LIT-10" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit16300" maxOccurs="1"  cobol:name="300-LIT-16" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit30300" maxOccurs="1"  cobol:name="300-LIT-30" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit50300" maxOccurs="1"  cobol:name="300-LIT-50" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit51300" maxOccurs="1"  cobol:name="300-LIT-51" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit52300" maxOccurs="1"  cobol:name="300-LIT-52" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit82300" maxOccurs="1"  cobol:name="300-LIT-82" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit83300" maxOccurs="1"  cobol:name="300-LIT-83" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit85300" maxOccurs="1"  cobol:name="300-LIT-85" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit002300" maxOccurs="1"  cobol:name="300-LIT-002" cobol:offset="0" cobol:length="3" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit0120300" maxOccurs="1"  cobol:name="300-LIT-0120" cobol:offset="0" cobol:length="4" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit0130300" maxOccurs="1"  cobol:name="300-LIT-0130" cobol:offset="0" cobol:length="4" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit0420300" maxOccurs="1"  cobol:name="300-LIT-0420" cobol:offset="0" cobol:length="4" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit0430300" maxOccurs="1"  cobol:name="300-LIT-0430" cobol:offset="0" cobol:length="4" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Lit380000300" maxOccurs="1"  cobol:name="300-LIT-380000" cobol:offset="0" cobol:length="6" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="DoubleSpace300" maxOccurs="1"  cobol:name="300-DOUBLE-SPACE" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="TripleSpace300" maxOccurs="1"  cobol:name="300-TRIPLE-SPACE" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="NewPage300" maxOccurs="1"  cobol:name="300-NEW-PAGE" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="PackedOne300" type="xs:short" maxOccurs="1"  cobol:name="300-PACKED-ONE" cobol:offset="0" cobol:length="2" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="One300" type="xs:int" maxOccurs="1"  cobol:name="300-ONE" cobol:offset="2" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+         <xs:element name="Two300" type="xs:int" maxOccurs="1"  cobol:name="300-TWO" cobol:offset="3" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+         <xs:element name="Three300" type="xs:int" maxOccurs="1"  cobol:name="300-THREE" cobol:offset="4" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+         <xs:element name="Four300" type="xs:int" maxOccurs="1"  cobol:name="300-FOUR" cobol:offset="5" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+         <xs:element name="Five300" type="xs:int" maxOccurs="1"  cobol:name="300-FIVE" cobol:offset="6" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+         <xs:element name="Six300" type="xs:int" maxOccurs="1"  cobol:name="300-SIX" cobol:offset="7" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+         <xs:element name="Seven300" type="xs:int" maxOccurs="1"  cobol:name="300-SEVEN" cobol:offset="8" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+         <xs:element name="Eight300" type="xs:int" maxOccurs="1"  cobol:name="300-EIGHT" cobol:offset="9" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+         <xs:element name="Nine300" type="xs:int" maxOccurs="1"  cobol:name="300-NINE" cobol:offset="10" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+         <xs:element name="Twelve300" type="xs:int" maxOccurs="1"  cobol:name="300-TWELVE" cobol:offset="11" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+         <xs:element name="Max300" type="xs:int" maxOccurs="1"  cobol:name="300-MAX" cobol:offset="13" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="Mti0110300" type="xs:int" maxOccurs="1"  cobol:name="300-MTI-0110" cobol:offset="16" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="Mti0100300" type="xs:int" maxOccurs="1"  cobol:name="300-MTI-0100" cobol:offset="20" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+    <xs:element name="Sf910020300" maxOccurs="1"  cobol:name="300-SF910020" cobol:offset="24" cobol:length="8" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Si994010300" maxOccurs="1"  cobol:name="300-SI994010" cobol:offset="24" cobol:length="8" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Binary61300" type="xs:short" maxOccurs="1"  cobol:name="300-BINARY-61" cobol:offset="24" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Binary88300" type="xs:short" maxOccurs="1"  cobol:name="300-BINARY-88" cobol:offset="24" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="MaxLines400" type="xs:int" maxOccurs="1"  cobol:name="400-MAX-LINES" cobol:offset="24" cobol:length="2" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="PageCount400" type="xs:int" maxOccurs="1"  cobol:name="400-PAGE-COUNT" cobol:offset="26" cobol:length="2" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="LineCount400" type="xs:int" maxOccurs="1"  cobol:name="400-LINE-COUNT" cobol:offset="28" cobol:length="2" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="TotalRecs400" type="xs:long" maxOccurs="1"  cobol:name="400-TOTAL-RECS" cobol:offset="30" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="TotalParseErrors400" type="xs:long" maxOccurs="1"  cobol:name="400-TOTAL-PARSE-ERRORS" cobol:offset="35" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="TotalIsoAuth400" type="xs:long" maxOccurs="1"  cobol:name="400-TOTAL-ISO-AUTH" cobol:offset="40" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="TotalIaDropped400" type="xs:long" maxOccurs="1"  cobol:name="400-TOTAL-IA-DROPPED" cobol:offset="45" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="TotalType2400" type="xs:long" maxOccurs="1"  cobol:name="400-TOTAL-TYPE-2" cobol:offset="50" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="TotalType3400" type="xs:long" maxOccurs="1"  cobol:name="400-TOTAL-TYPE-3" cobol:offset="55" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Total0120Adv400" type="xs:long" maxOccurs="1"  cobol:name="400-TOTAL-0120-ADV" cobol:offset="60" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="TotalRevAdv400" type="xs:long" maxOccurs="1"  cobol:name="400-TOTAL-REV-ADV" cobol:offset="65" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="TotalVer2400" type="xs:long" maxOccurs="1"  cobol:name="400-TOTAL-VER2" cobol:offset="70" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="TotalBadPan400" type="xs:long" maxOccurs="1"  cobol:name="400-TOTAL-BAD-PAN" cobol:offset="75" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Avs2RecCount400" type="xs:long" maxOccurs="1"  cobol:name="400-AVS2-REC-COUNT" cobol:offset="80" cobol:length="4" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Se42Lnth400" type="xs:int" maxOccurs="1"  cobol:name="400-SE42-LNTH" cobol:offset="80" cobol:length="2" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="Se42Pos400" type="xs:int" maxOccurs="1"  cobol:name="400-SE42-POS" cobol:offset="82" cobol:length="2" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="Se33Pos400" type="xs:int" maxOccurs="1"  cobol:name="400-SE33-POS" cobol:offset="84" cobol:length="2" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="Se24Pos400" type="xs:short" maxOccurs="1"  cobol:name="400-SE24-POS" cobol:offset="86" cobol:length="2" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="Se66Pos400" type="xs:short" maxOccurs="1"  cobol:name="400-SE66-POS" cobol:offset="88" cobol:length="2" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+    <xs:element name="De48Se42Sf2Sf3500" maxOccurs="1"  cobol:name="500-DE48-SE42-SF2-SF3" cobol:offset="90" cobol:length="4" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="De48Se89500" maxOccurs="1"  cobol:name="500-DE48-SE89" cobol:offset="90" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 magLgth88500 VALUE [["A"], ["B"], ["C"], ["D"], ["E"], ["F"], ["G"], ["H"], ["I"], ["J"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="De48Se33SfId500" maxOccurs="1"  cobol:name="500-DE48-SE33-SF-ID" cobol:offset="90" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 de48Se33Sf0188500 VALUE [["01"]].
+                        88 de48Se33Sf0288500 VALUE [["02"]].
+                        88 de48Se33Sf0588500 VALUE [["05"]].
+                        88 de48Se33Sf0688500 VALUE [["06"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="De48Se33SfLen500" type="xs:int" maxOccurs="1"  cobol:name="500-DE48-SE33-SF-LEN" cobol:offset="90" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+         <xs:element name="De48Se42SfLen500" type="xs:int" maxOccurs="1"  cobol:name="500-DE48-SE42-SF-LEN" cobol:offset="92" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+         <xs:element name="De48Se42SfLen1500" type="xs:int" maxOccurs="1"  cobol:name="500-DE48-SE42-SF-LEN1" cobol:offset="94" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+    <xs:element name="De48Se66SfId500" maxOccurs="1"  cobol:name="500-DE48-SE66-SF-ID" cobol:offset="96" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 de48Se66Sf0188500 VALUE [["01"]].
+                        88 de48Se66Sf0288500 VALUE [["02"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="De48Se24SfId500" maxOccurs="1"  cobol:name="500-DE48-SE24-SF-ID" cobol:offset="96" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 de48Se24Sf0188500 VALUE [["01"]].
+                        88 de48Se24Sf0288500 VALUE [["02"]].
+                        88 de48Se24Sf0388500 VALUE [["03"]].
+                        88 de48Se24Sf0488500 VALUE [["04"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="BilllogMsg1600" maxOccurs="1"  cobol:name="600-BILLLOG-MSG1" cobol:offset="96" cobol:length="27" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="27" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="BilllogMsg2600" maxOccurs="1"  cobol:name="600-BILLLOG-MSG2" cobol:offset="96" cobol:length="7" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="7" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="BilllogMsg3600" maxOccurs="1"  cobol:name="600-BILLLOG-MSG3" cobol:offset="96" cobol:length="13" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="13" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="BilllogMsg4600" maxOccurs="1"  cobol:name="600-BILLLOG-MSG4" cobol:offset="96" cobol:length="9" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="9" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="VoiceMsg600" maxOccurs="1"  cobol:name="600-VOICE-MSG" cobol:offset="96" cobol:length="39" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="39" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="ParmsMsg600" maxOccurs="1"  cobol:name="600-PARMS-MSG" cobol:offset="96" cobol:length="36" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="36" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="CycleMsg600" maxOccurs="1"  cobol:name="600-CYCLE-MSG" cobol:offset="96" cobol:length="38" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="38" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="McwinMsg1600" maxOccurs="1"  cobol:name="600-MCWIN-MSG1" cobol:offset="96" cobol:length="30" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="30" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="McwinMsg2600" maxOccurs="1"  cobol:name="600-MCWIN-MSG2" cobol:offset="96" cobol:length="15" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="15" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="EojMessage650" maxOccurs="1"  cobol:name="650-EOJ-MESSAGE" cobol:offset="96" cobol:length="64" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="64" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="LogLen800" type="xs:int" maxOccurs="1"  cobol:name="800-LOG-LEN" cobol:offset="96" cobol:length="2" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="Mti800" maxOccurs="1"  cobol:name="800-MTI" cobol:offset="96" cobol:length="4" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="HoldCurrCc800" type="xs:int" maxOccurs="1"  cobol:name="800-HOLD-CURR-CC" cobol:offset="96" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+    <xs:element name="ObscureData800" maxOccurs="1"  cobol:name="800-OBSCURE-DATA" cobol:offset="98" cobol:length="100" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="100" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="ObscurePos800" type="xs:int" maxOccurs="1"  cobol:name="800-OBSCURE-POS" cobol:offset="98" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="ObscurePos2800" type="xs:int" maxOccurs="1"  cobol:name="800-OBSCURE-POS2" cobol:offset="101" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="ObscureStartPos800" type="xs:int" maxOccurs="1"  cobol:name="800-OBSCURE-START-POS" cobol:offset="104" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="ObscureEndPos800" type="xs:int" maxOccurs="1"  cobol:name="800-OBSCURE-END-POS" cobol:offset="107" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="ObscureLgth800" type="xs:int" maxOccurs="1"  cobol:name="800-OBSCURE-LGTH" cobol:offset="110" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="Hour800" type="xs:int" maxOccurs="1"  cobol:name="800-HOUR" cobol:offset="113" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+         <xs:element name="Min800" type="xs:int" maxOccurs="1"  cobol:name="800-MIN" cobol:offset="115" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+         <xs:element name="Sec800" type="xs:int" maxOccurs="1"  cobol:name="800-SEC" cobol:offset="117" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+    <xs:element name="IsoBlResponse1800" maxOccurs="1"  cobol:name="800-ISO-BL-RESPONSE-1" cobol:offset="119" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 limit188800 VALUE [[1]].
+                        88 xcode88800 VALUE [[2]].
+                        88 issProcDir88800 VALUE [[3]].
+                        88 issProcNonDir88800 VALUE [[4]].
+                        88 downOption88800 VALUE [[5]].
+                        88 catRiskLvl388800 VALUE [[6]].
+                        88 siLimit188800 VALUE [[7]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="IsoBlResponse2800" maxOccurs="1"  cobol:name="800-ISO-BL-RESPONSE-2" cobol:offset="120" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 typeI88800 VALUE [[1]].
+                        88 typeIi88800 VALUE [[2]].
+                        88 typeIii88800 VALUE [[3]].
+                        88 typeIv88800 VALUE [[4]].
+                        88 typeV88800 VALUE [[5]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="IsoBlDown1800" maxOccurs="1"  cobol:name="800-ISO-BL-DOWN-1" cobol:offset="121" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 downNo88800 VALUE [[0ALL]].
+                        88 downTimeOut88800 VALUE [[1]].
+                        88 downNotDispatch88800 VALUE [[2]].
+                        88 downNotDeliver88800 VALUE [[3]].
+                        88 downSignOut88800 VALUE [[4]].
+                        88 downMisRoute88800 VALUE [[5]].
+                        88 downSentDirect88800 VALUE [[6]].
+                        88 downMipSysErr88800 VALUE [[7]].
+                        88 downRespEditErr88800 VALUE [[8]].
+                        88 downIssHostSys88800 VALUE [[9]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="IsoBlDown2800" maxOccurs="1"  cobol:name="800-ISO-BL-DOWN-2" cobol:offset="122" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 xcodeNo88800 VALUE [[0ALL]].
+                        88 xcodeTimeOut88800 VALUE [[1]].
+                        88 xcodeNotDispatch88800 VALUE [[2]].
+                        88 xcodeNotDeliver88800 VALUE [[3]].
+                        88 xcodeNotAllowed88800 VALUE [[4]].
+                        88 xcodeMisRoute88800 VALUE [[5]].
+                        88 xcodeMipSys88800 VALUE [[7]].
+                        88 xcodeRespEditErr88800 VALUE [[8]].
+                        88 xcodeAltHostSys88800 VALUE [[9]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="IsoBlMoto1800" maxOccurs="1"  cobol:name="800-ISO-BL-MOTO-1" cobol:offset="123" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 motoOn88800 VALUE [[8]].
+                        88 forceIss88800 VALUE [[4]].
+                        88 chipCard88800 VALUE [[2]].
+                        88 acqCcSupport88800 VALUE [[1]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="MciwinReturnCode" type="xs:int" maxOccurs="1"  cobol:name="MCIWIN-RETURN-CODE" cobol:offset="124" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+    <xs:element name="McwinProgram" maxOccurs="1"  cobol:name="MCWIN-PROGRAM" cobol:offset="128" cobol:length="8" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MciabendNodump" maxOccurs="1"  cobol:name="MCIABEND-NODUMP" cobol:offset="128" cobol:length="1" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="SeprPtrSi994020" maxOccurs="1"  cobol:name="SEPR-PTR-SI994020" cobol:offset="128" cobol:length="8" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="SeprCallSi994020" maxOccurs="1"  cobol:name="SEPR-CALL-SI994020" cobol:offset="128" cobol:length="8" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

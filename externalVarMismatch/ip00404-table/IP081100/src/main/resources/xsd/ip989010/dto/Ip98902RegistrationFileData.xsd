@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip98902RegistrationFileData" cobol:name="IP98902-REGISTRATION-FILE-DATA" cobol:offset="0" cobol:length="200" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip98902PanAlias" maxOccurs="1"  cobol:name="IP98902-PAN-ALIAS" cobol:offset="0" cobol:length="36" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="36" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip98902Pan" maxOccurs="1"  cobol:name="IP98902-PAN" cobol:offset="36" cobol:length="16" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="16" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip98902Status" maxOccurs="1"  cobol:name="IP98902-STATUS" cobol:offset="52" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip98902StatusActive88 VALUE [["A"]].
+                        88 ip98902StatusInactive88 VALUE [["I"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip98902DonationAmount" type="xs:int" maxOccurs="1"  cobol:name="IP98902-DONATION-AMOUNT" cobol:offset="56" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="Ip98902DonationUpperLimit" type="xs:int" maxOccurs="1"  cobol:name="IP98902-DONATION-UPPER-LIMIT" cobol:offset="59" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="Ip98902CharityIca" type="xs:long" maxOccurs="1"  cobol:name="IP98902-CHARITY-ICA" cobol:offset="75" cobol:length="11" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

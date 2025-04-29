@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="AbendParaName900" cobol:name="900-ABEND-PARA-NAME" cobol:offset="0" cobol:length="42" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="AbendParaName900Filler1" maxOccurs="1"  cobol:name="FILLER" cobol:offset="0" cobol:length="12" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="12" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="AbendPara900" maxOccurs="1"  cobol:name="900-ABEND-PARA" cobol:offset="12" cobol:length="30" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 para120088900 VALUE [["1200-OPEN-OPT-PARM-FILE       "]].
+                        88 para810088900 VALUE [["8100-READ-CHECK-STATUS        "]].
+                        88 para830088900 VALUE [["8300-CLOSE-OPT-PARM-FILE      "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="30" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

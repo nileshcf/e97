@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip0041TableData" cobol:name="IP0041-TABLE-DATA" cobol:offset="19" cobol:length="111" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Ip0041Bin" type="xs:long" maxOccurs="1"  cobol:name="IP0041-BIN" cobol:offset="0" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+    <xs:element name="Ip0041Ab" maxOccurs="1"  cobol:name="IP0041-AB" cobol:offset="6" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip0041Ica" type="xs:long" maxOccurs="1"  cobol:name="IP0041-ICA" cobol:offset="9" cobol:length="11" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G"/>
+    <xs:element name="Ip0041FormatIndicator" maxOccurs="1"  cobol:name="IP0041-FORMAT-INDICATOR" cobol:offset="20" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip0041Endpoint" type="xs:long" maxOccurs="1"  cobol:name="IP0041-ENDPOINT" cobol:offset="21" cobol:length="7" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+    <xs:element name="Ip0041PosMvInd" maxOccurs="1"  cobol:name="IP0041-POS-MV-IND" cobol:offset="28" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0041AtmMvInd" maxOccurs="1"  cobol:name="IP0041-ATM-MV-IND" cobol:offset="29" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0041UcafInd" maxOccurs="1"  cobol:name="IP0041-UCAF-IND" cobol:offset="30" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip0041RegionTable" maxOccurs="1" cobol:name="IP0041-REGION-TABLE" cobol:offset="31" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Ip0041CountryTable" maxOccurs="1" cobol:name="IP0041-COUNTRY-TABLE" cobol:offset="37" cobol:length="60" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip0041RePowerInd" maxOccurs="1"  cobol:name="IP0041-RE-POWER-IND" cobol:offset="97" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0041DomDbtParticipSw" maxOccurs="1"  cobol:name="IP0041-DOM-DBT-PARTICIP-SW" cobol:offset="98" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0041IchgAcqCd" maxOccurs="1"  cobol:name="IP0041-ICHG-ACQ-CD" cobol:offset="99" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip004188Presentment VALUE [["P"]].
+                        88 ip004188PrsnmntNChgbk VALUE [["B"]].
+                        88 ip004188NotParticipate VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0041MemberFiller" maxOccurs="1"  cobol:name="IP0041-MEMBER-FILLER" cobol:offset="100" cobol:length="5" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="5" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip0041CentralSiteFields" maxOccurs="1" cobol:name="IP0041-CENTRAL-SITE-FIELDS" cobol:offset="105" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

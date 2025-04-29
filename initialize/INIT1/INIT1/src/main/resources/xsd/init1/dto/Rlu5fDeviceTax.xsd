@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Rlu5fDeviceTax" cobol:name="RLU5F-DEVICE-TAX" cobol:offset="686" cobol:length="56" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Rlu5fDeviceTaxDesc" maxOccurs="1"  cobol:name="RLU5F-DEVICE-TAX-DESC" cobol:offset="0" cobol:length="50" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="50" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fDeviceTaxAmt" maxOccurs="1"  cobol:name="RLU5F-DEVICE-TAX-AMT" cobol:offset="50" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

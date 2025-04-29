@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip2ooo1ErrorInfo" cobol:name="IP2OOO1-ERROR-INFO" cobol:offset="2" cobol:length="19" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="Ip2ooo1ErrorIndex" maxOccurs="1" cobol:name="IP2OOO1-ERROR-INDEX" cobol:offset="0" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="Ip2ooo1ErrorMsgNumber" type="xs:int" maxOccurs="1"  cobol:name="IP2OOO1-ERROR-MSG-NUMBER" cobol:offset="6" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+    <xs:element name="Ip2ooo1IpmFieldType" maxOccurs="1"  cobol:name="IP2OOO1-IPM-FIELD-TYPE" cobol:offset="10" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip2ooo1MMti88 VALUE [["1"]].
+                        88 ip2ooo1DDataElement88 VALUE [["2"]].
+                        88 ip2ooo1PPds88 VALUE [["3"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip2ooo1IpmFieldNumber" type="xs:long" maxOccurs="1"  cobol:name="IP2OOO1-IPM-FIELD-NUMBER" cobol:offset="11" cobol:length="4" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Ip2ooo1IpmSubfldNumber" type="xs:long" maxOccurs="1"  cobol:name="IP2OOO1-IPM-SUBFLD-NUMBER" cobol:offset="15" cobol:length="4" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

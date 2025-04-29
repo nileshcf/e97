@@ -1,0 +1,35 @@
+package com.cloudframe.app.ip606130.file.records;
+
+/**
+*  The class SortRec is used to handle fields declared in it
+*  @author CloudFrame Inc.
+*  created on 2025-04-29 at 05:29. using version 5.0.0.257
+**/
+
+
+import com.cloudframe.annotation.processor.Data;
+import com.cloudframe.annotation.processor.Getter;
+import com.cloudframe.annotation.processor.Setter;
+
+
+@Data
+public class SortRec extends SortRecSerialized {
+   
+				@Getter @Setter private SortRec1 sortRec1 = new SortRec1();
+	
+	/**
+	* Constructor for SortRec
+	**/
+    public SortRec() {
+		super();
+		/*  set the parent of each child as this which are a group variable */
+					getSortRec1().setParent(this,getStartOffset() + 0);
+	   	/*  end of offset */
+    }
+
+
+
+
+
+}
+  

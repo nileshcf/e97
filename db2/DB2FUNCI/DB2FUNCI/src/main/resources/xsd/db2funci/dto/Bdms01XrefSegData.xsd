@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Bdms01XrefSegData" cobol:name="BDMS01-XREF-SEG-DATA" cobol:offset="662" cobol:length="320" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Bdms01XrefSegSqlcd" type="xs:int" maxOccurs="1"  cobol:name="BDMS01-XREF-SEG-SQLCD" cobol:offset="0" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+    <xs:element name="MsdCusipNo" maxOccurs="1"  cobol:name="MSD-CUSIP-NO" cobol:offset="4" cobol:length="12" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="12" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdIsinNumber" maxOccurs="1"  cobol:name="MSD-ISIN-NUMBER" cobol:offset="16" cobol:length="12" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="12" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdSecuritySymbol" maxOccurs="1"  cobol:name="MSD-SECURITY-SYMBOL" cobol:offset="28" cobol:length="12" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="12" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdSedolNo" maxOccurs="1"  cobol:name="MSD-SEDOL-NO" cobol:offset="40" cobol:length="7" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="7" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdEuroNo" maxOccurs="1"  cobol:name="MSD-EURO-NO" cobol:offset="47" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdCinNumber" maxOccurs="1"  cobol:name="MSD-CIN-NUMBER" cobol:offset="53" cobol:length="9" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="9" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdCommonCode" maxOccurs="1"  cobol:name="MSD-COMMON-CODE" cobol:offset="62" cobol:length="9" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="9" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdSedEuroInd" maxOccurs="1"  cobol:name="MSD-SED-EURO-IND" cobol:offset="71" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 msdSedolNUeroNbrAvail VALUE [["X"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="MsdExchangeCode" maxOccurs="1"  cobol:name="MSD-EXCHANGE-CODE" cobol:offset="72" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 msdNyse VALUE [["A"]].
+                        88 msdAmex VALUE [["B"]].
+                        88 msdMidwest VALUE [["C"]].
+                        88 msdPacifCoast VALUE [["D"]].
+                        88 msdNatlStkExch VALUE [["E"]].
+                        88 msdOtc VALUE [["F"], ["G"], ["H"], [" "]].
+                        88 msdNotcMrgnable VALUE [["F"]].
+                        88 msdOtcMrgnable VALUE [["G"]].
+                        88 msdMarginable VALUE [[["A"],["G"]]].
+                        88 msdNotcNotMrgnable VALUE [["H"]].
+                        88 msdOtcNotMrgnable VALUE [[" "]].
+                        88 msdSecurityIsListed VALUE [[["A"],["E"]]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="MsdOtcExchangeCode" maxOccurs="1"  cobol:name="MSD-OTC-EXCHANGE-CODE" cobol:offset="73" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="MsdOtherExchange" maxOccurs="1" cobol:name="MSD-OTHER-EXCHANGE" cobol:offset="74" cobol:length="4" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Bdms01SecSymbol" maxOccurs="4"  cobol:name="BDMS01-SEC-SYMBOL" cobol:offset="78" cobol:length="12" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="12" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01OptionCall" maxOccurs="1"  cobol:name="BDMS01-OPTION-CALL" cobol:offset="126" cobol:length="12" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="12" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01OptionPut" maxOccurs="1"  cobol:name="BDMS01-OPTION-PUT" cobol:offset="138" cobol:length="12" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="12" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01CbCusipNo" maxOccurs="1"  cobol:name="BDMS01-CB-CUSIP-NO" cobol:offset="150" cobol:length="12" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="12" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01PrimaryExchangeCd" maxOccurs="1"  cobol:name="BDMS01-PRIMARY-EXCHANGE-CD" cobol:offset="162" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Bdms01OtherExchanges" maxOccurs="4" cobol:name="BDMS01-OTHER-EXCHANGES" cobol:offset="172" cobol:length="22" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Bdms01PostCd" maxOccurs="1"  cobol:name="BDMS01-POST-CD" cobol:offset="260" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdAlternateSymbol" maxOccurs="1"  cobol:name="MSD-ALTERNATE-SYMBOL" cobol:offset="261" cobol:length="12" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="12" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01DualAdpNo" maxOccurs="1"  cobol:name="BDMS01-DUAL-ADP-NO" cobol:offset="273" cobol:length="7" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="7" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01CallParametersFiller9" maxOccurs="1"  cobol:name="FILLER" cobol:offset="280" cobol:length="40" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="40" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

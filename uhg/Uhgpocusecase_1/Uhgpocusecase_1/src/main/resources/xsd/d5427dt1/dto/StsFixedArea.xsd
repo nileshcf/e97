@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="StsFixedArea" cobol:name="STS-FIXED-AREA" cobol:offset="0" cobol:length="1335" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="StsRespProgramName" maxOccurs="1"  cobol:name="STS-RESP-PROGRAM-NAME" cobol:offset="0" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="StsRespCode" maxOccurs="1"  cobol:name="STS-RESP-CODE" cobol:offset="8" cobol:length="4" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 stsRespCodeOk VALUE [["0000"]].
+                        88 stsRespCodeCommarea VALUE [["9001"]].
+                        88 stsRespCodeNullcont VALUE [["9002"]].
+                        88 stsRespCodeChanname VALUE [["9003"]].
+                        88 stsRespCodeCicsresp VALUE [["9004"]].
+                        88 stsRespCodeGetError VALUE [["9005"]].
+                        88 stsRespCodePutError VALUE [["9006"]].
+                        88 stsRespCodeDb2Error VALUE [["9010"]].
+                        88 stsRespCodeProgramError VALUE [["9901"]].
+                        88 stsRespCodeCallException VALUE [["9902"]].
+                        88 stsRespCodeTranAbend VALUE [["9999"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="4" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="StsResponseVars" maxOccurs="1" cobol:name="STS-RESPONSE-VARS" cobol:offset="12" cobol:length="298" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="StsDsmCommonArea" maxOccurs="1" cobol:name="STS-DSM-COMMON-AREA" cobol:offset="310" cobol:length="1025" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

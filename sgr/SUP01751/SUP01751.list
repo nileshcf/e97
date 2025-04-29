@@ -1,0 +1,312 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 11/22/2023  Time 06:17:51   Page     1
+0Invocation parameters:
+  LIB,DYNAM,OBJECT,APOST,TRUNC(BIN),,XREF(SHORT),NOOFFSET,SOURCE,NOMAP,TEST(ALL,SYM,SEPARATE)
+
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".
+
+0Options in effect:
+  NOADATA
+    ADV
+    APOST
+    ARITH(COMPAT)
+  NOAWO
+    BUFSIZE(4096)
+  NOCICS
+    CODEPAGE(1140)
+  NOCOMPILE(S)
+  NOCURRENCY
+    DATA(31)
+  NODATEPROC
+    DBCS
+  NODECK
+  NODIAGTRUNC
+  NODLL
+  NODUMP
+    DYNAM
+  NOEXIT
+  NOEXPORTALL
+  NOFASTSRT
+    FLAG(I,I)
+  NOFLAGSTD
+    INTDATE(ANSI)
+    LANGUAGE(EN)
+    LIB
+    LINECOUNT(60)
+  NOLIST
+  NOMAP
+  NOMDECK
+  NONAME
+    NSYMBOL(NATIONAL)
+  NONUMBER
+    NUMPROC(NOPFD)
+    OBJECT
+  NOOFFSET
+  NOOPTIMIZE
+    OUTDD(SYSOUT)
+    PGMNAME(COMPAT)
+    RENT
+    RMODE(AUTO)
+    SEQUENCE
+    SIZE(MAX)
+    SOURCE
+    SPACE(1)
+  NOSQL
+    SQLCCSID
+  NOSSRANGE
+  NOTERM
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 11/22/2023  Time 06:17:51   Page     2
+0   TEST(HOOK,SEPARATE,NOEJPD)
+  NOTHREAD
+    TRUNC(BIN)
+  NOVBREF
+  NOWORD
+    XMLPARSE(XMLSS)
+    XREF(SHORT)
+    YEARWINDOW(1900)
+    ZWB
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SUP01751  Date 11/22/2023  Time 06:17:51   Page     3
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+0/* SUP01751
+   000001                IDENTIFICATION DIVISION.                                         00010017
+   000002                PROGRAM-ID. SUP01751.                                            00020018
+   000003                ENVIRONMENT DIVISION.                                            00030017
+   000004                DATA DIVISION.                                                   00040017
+   000005                WORKING-STORAGE SECTION.                                         00050017
+   000006               *                                                                 00060017
+   000007                01  WS-ROW-COUNT              PIC  S9(8) COMP.                   00070017
+   000008                01  WS-DB2-DATE-CURR-BUS      PIC  X(10).                        00080017
+   000009                01  WS-CDE-TRAN-STA-IN-PRG    PIC  X.                            00090017
+   000010                01  WS-CDE-TRAN-TYP-DEP       PIC  X.                            00100017
+   000011                01  WS-CDE-STA-PKG-READY      PIC  X.                            00110017
+   000012               *                                                                 00120017
+   000013               *****EXEC SQL                                                     00130017
+   000014               *****     INCLUDE SQLCA                                           00140017
+   000015               *****END-EXEC                                                     00150017
+   000016                 01 SQLCA.
+   000017                    05 SQLCAID     PIC X(8).
+   000018                    05 SQLCABC     PIC S9(9) COMP-5.
+   000019                    05 SQLCODE     PIC S9(9) COMP-5.
+   000020                    05 SQLERRM.
+   000021                       49 SQLERRML PIC S9(4) COMP-5.
+   000022                       49 SQLERRMC PIC X(70).
+   000023                    05 SQLERRP     PIC X(8).
+   000024                    05 SQLERRD     OCCURS 6 TIMES
+   000025                                   PIC S9(9) COMP-5.
+   000026                    05 SQLWARN.
+   000027                       10 SQLWARN0 PIC X.
+   000028                       10 SQLWARN1 PIC X.
+   000029                       10 SQLWARN2 PIC X.
+   000030                       10 SQLWARN3 PIC X.
+   000031                       10 SQLWARN4 PIC X.
+   000032                       10 SQLWARN5 PIC X.
+   000033                       10 SQLWARN6 PIC X.
+   000034                       10 SQLWARN7 PIC X.
+   000035                    05 SQLEXT.
+   000036                       10 SQLWARN8 PIC X.
+   000037                       10 SQLWARN9 PIC X.
+   000038                       10 SQLWARNA PIC X.
+   000039                       10 SQLSTATE PIC X(5).
+   000040               *                                                                 00160017
+   000041                                                                                 00170017
+   000042                 01 SQL-VERS.
+   000043                    05 SQL-VERS-PREF    PIC X(04) VALUE 'VER.'.
+   000044                    05 SQL-VERS-DATA    PIC X(64)
+   000045                                        VALUE '2023-11-22-10.17.50.972899'.
+   000046                 77 SQL-TEMP      PIC X(128).
+   000047                 77 DSN-TEMP      PIC S9(9)  COMP-5.
+   000048                 77 DSN-TMP2      PIC S9(18) COMP-3.
+   000049                 77 DSNNROWS      PIC S9(9)  COMP-5.
+   000050                 77 DSNNTYPE      PIC S9(4)  COMP-5.
+   000051                 77 DSNNLEN       PIC S9(4)  COMP-5.
+   000052                 77 SQL-NULL      PIC S9(9) COMP-5 VALUE +0.
+   000053                 77 SQL-INIT-FLAG PIC S9(4) COMP-5 VALUE +0.
+   000054                    88 SQL-INIT-DONE VALUE +1.
+   000055                 77 SQL-FILE-READ      PIC S9(9) COMP-5 VALUE +2.
+   000056                 77 SQL-FILE-CREATE    PIC S9(9) COMP-5 VALUE +8.
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SUP01751  Date 11/22/2023  Time 06:17:51   Page     4
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+0  000057                 77 SQL-FILE-OVERWRITE PIC S9(9) COMP-5 VALUE +16.
+   000058                 77 SQL-FILE-APPEND    PIC S9(9) COMP-5 VALUE +32.
+   000059                 01 SQL-PLIST1.
+   000060                    05 SQL-PLIST-CON   PIC S9(9) COMP-5 VALUE +4211712.
+   000061                    05 SQL-CALLTYPE    PIC S9(4) COMP-5 VALUE +30.
+   000062                    05 SQL-PROG-NAME   PIC X(8)  VALUE X'5355503031373531'.
+   000063                    05 SQL-TIMESTAMP-1 PIC S9(9) COMP-5 VALUE +466065057.
+   000064                    05 SQL-TIMESTAMP-2 PIC S9(9) COMP-5 VALUE +339343563.
+   000065                    05 SQL-SECTION     PIC S9(4) COMP-5 VALUE +1.
+   000066                    05 SQL-CODEPTR     PIC S9(9) COMP-5.
+   000067                    05 SQL-VPARMPTR    PIC S9(9) COMP-5 VALUE +0.
+   000068                    05 SQL-APARMPTR    PIC S9(9) COMP-5 VALUE +0.
+   000069                    05 FILLER          PIC S9(4) COMP-5 VALUE +1208.
+   000070                    05 SQL-STMT-TYPE   PIC S9(4) COMP-5 VALUE +231.
+   000071                    05 SQL-STMT-NUM    PIC S9(9) COMP-5 VALUE +27.
+   000072                    05 SQL-PLIST-FLG   PIC S9(4) COMP-5 VALUE +0.
+   000073                    05 FILLER          PIC X(18) VALUE
+   000074                       X'000000000000000000000000000000000000'.
+   000075                    05 SQL-PVAR-LIST1.
+   000076                       10 PRE-SQLDAID  PIC X(8)  VALUE 'SQLDA  Ê'.
+   000077                       10 PRE-SQLDABC  PIC S9(9) COMP-5 VALUE +192.
+   000078                       10 PRE-SQLN     PIC S9(4) COMP-5 VALUE +4.
+   000079                       10 PRE-SQLLD    PIC S9(4) COMP-5 VALUE +4.
+   000080                       10 PRE-SQLVAR.
+   000081                         12 SQLVAR-BASE1.
+   000082                           15 SQL-PVAR-TYPE1      PIC S9(4) COMP-5 VALUE +452.
+   000083                           15 SQL-PVAR-LEN1       PIC S9(4) COMP-5 VALUE +10.
+   000084                           15 SQL-PVAR-ADDRS1.
+   000085                              20 SQL-PVAR-ADDR1   PIC S9(9) COMP-5.
+   000086                              20 SQL-PVAR-IND1    PIC S9(9) COMP-5.
+   000087                           15 SQL-PVAR-NAME1.
+   000088                              20 SQL-PVAR-NAMEL1  PIC S9(4) COMP-5 VALUE +0.
+   000089                              20 SQL-PVAR-NAMEC1  PIC X(30) VALUE ' '.
+   000090                         12 SQLVAR-BASE2.
+   000091                           15 SQL-PVAR-TYPE2      PIC S9(4) COMP-5 VALUE +452.
+   000092                           15 SQL-PVAR-LEN2       PIC S9(4) COMP-5 VALUE +1.
+   000093                           15 SQL-PVAR-ADDRS2.
+   000094                              20 SQL-PVAR-ADDR2   PIC S9(9) COMP-5.
+   000095                              20 SQL-PVAR-IND2    PIC S9(9) COMP-5.
+   000096                           15 SQL-PVAR-NAME2.
+   000097                              20 SQL-PVAR-NAMEL2  PIC S9(4) COMP-5 VALUE +0.
+   000098                              20 SQL-PVAR-NAMEC2  PIC X(30) VALUE ' '.
+   000099                         12 SQLVAR-BASE3.
+   000100                           15 SQL-PVAR-TYPE3      PIC S9(4) COMP-5 VALUE +452.
+   000101                           15 SQL-PVAR-LEN3       PIC S9(4) COMP-5 VALUE +1.
+   000102                           15 SQL-PVAR-ADDRS3.
+   000103                              20 SQL-PVAR-ADDR3   PIC S9(9) COMP-5.
+   000104                              20 SQL-PVAR-IND3    PIC S9(9) COMP-5.
+   000105                           15 SQL-PVAR-NAME3.
+   000106                              20 SQL-PVAR-NAMEL3  PIC S9(4) COMP-5 VALUE +0.
+   000107                              20 SQL-PVAR-NAMEC3  PIC X(30) VALUE ' '.
+   000108                         12 SQLVAR-BASE4.
+   000109                           15 SQL-PVAR-TYPE4      PIC S9(4) COMP-5 VALUE +452.
+   000110                           15 SQL-PVAR-LEN4       PIC S9(4) COMP-5 VALUE +1.
+   000111                           15 SQL-PVAR-ADDRS4.
+   000112                              20 SQL-PVAR-ADDR4   PIC S9(9) COMP-5.
+   000113                              20 SQL-PVAR-IND4    PIC S9(9) COMP-5.
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SUP01751  Date 11/22/2023  Time 06:17:51   Page     5
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+0  000114                           15 SQL-PVAR-NAME4.
+   000115                              20 SQL-PVAR-NAMEL4  PIC S9(4) COMP-5 VALUE +0.
+   000116                              20 SQL-PVAR-NAMEC4  PIC X(30) VALUE ' '.
+   000117                    05 SQL-AVAR-LIST1.
+   000118                       10 PRE-SQLDAID  PIC X(8)  VALUE 'SQLDA  Ê'.
+   000119                       10 PRE-SQLDABC  PIC S9(9) COMP-5 VALUE +60.
+   000120                       10 PRE-SQLN     PIC S9(4) COMP-5 VALUE +1.
+   000121                       10 PRE-SQLLD    PIC S9(4) COMP-5 VALUE +1.
+   000122                       10 PRE-SQLVAR.
+   000123                         12 SQLVAR-BASE1.
+   000124                           15 SQL-AVAR-TYPE1      PIC S9(4) COMP-5 VALUE +496.
+   000125                           15 SQL-AVAR-LEN1       PIC S9(4) COMP-5 VALUE +4.
+   000126                           15 SQL-AVAR-ADDRS1.
+   000127                              20 SQL-AVAR-ADDR1   PIC S9(9) COMP-5.
+   000128                              20 SQL-AVAR-IND1    PIC S9(9) COMP-5.
+   000129                           15 SQL-AVAR-NAME1.
+   000130                              20 SQL-AVAR-NAMEL1  PIC S9(4) COMP-5 VALUE +0.
+   000131                              20 SQL-AVAR-NAMEC1  PIC X(30) VALUE ' '.
+   000132
+   000133                PROCEDURE DIVISION.                                              00180017
+   000134                                                                                 00190017
+   000135                DSNSQL SECTION.
+   000136                SQL-SKIP.
+   000137                    GO TO SQL-INIT-END.                                                   151
+   000138                SQL-INITIAL.
+   000139                    MOVE 1 TO SQL-INIT-FLAG.                                              53
+   000140                    CALL 'DSNHADDR' USING SQL-VPARMPTR OF SQL-PLIST1 SQL-PVAR-LIS         EXT 67 59 75
+   000141               -    T1.
+   000142                    CALL 'DSNHADD2' USING SQL-PVAR-ADDRS1 IN                              EXT 84
+   000143                    SQL-PVAR-LIST1 WS-DB2-DATE-CURR-BUS SQL-NULL WS-CDE-TRAN-STA-         75 8 52 9
+   000144               -    IN-PRG SQL-NULL WS-CDE-TRAN-TYP-DEP SQL-NULL WS-CDE-STA-PKG-R         52 10 52 11
+   000145               -    EADY SQL-NULL                                                         52
+   000146                    CALL 'DSNHADDR' USING SQL-APARMPTR OF SQL-PLIST1 SQL-AVAR-LIS         EXT 68 59 117
+   000147               -    T1.
+   000148                    CALL 'DSNHADD2' USING SQL-AVAR-ADDRS1 IN                              EXT 126
+   000149                    SQL-AVAR-LIST1 WS-ROW-COUNT SQL-NULL.                                 117 7 52
+   000150                    CALL 'DSNHADDR' USING SQL-CODEPTR OF SQL-PLIST1 SQLCA.                EXT 66 59 16
+   000151                SQL-INIT-END.
+   000152                    CONTINUE.
+   000153
+   000154                0000-MAINLINE.                                                   00200017
+   000155                                                                                 00210017
+   000156                    MOVE '2023-11-22' TO WS-DB2-DATE-CURR-BUS                    00211019 8
+   000157                    MOVE 'A'          TO WS-CDE-TRAN-STA-IN-PRG                  00212019 9
+   000158                                         WS-CDE-TRAN-TYP-DEP                     00213019 10
+   000159                                         WS-CDE-STA-PKG-READY                    00214019 11
+   000160               *****EXEC SQL                                                     00220017
+   000161               *****   SELECT COUNT(*) INTO :WS-ROW-COUNT                        00230017
+   000162               *****     FROM DBQPVAULT.TPHY_SCY_TRAN TRAN,                      00240017
+   000163               *****          DBQPVAULT.TPHY_SCY_DPST_TRAN DEP                   00250017
+   000164               *****     WHERE TRAN.DT2_TRAN <= :WS-DB2-DATE-CURR-BUS            00260017
+   000165               *****     AND TRAN.CDE_PHY_SCY_TRAN_STA = :WS-CDE-TRAN-STA-IN-PRG 00270017
+   000166               *****     AND TRAN.CDE_PHY_SCY_TRAN_TYP = :WS-CDE-TRAN-TYP-DEP    00280017
+   000167               *****     AND TRAN.IDN_PHY_SCY_TRAN = DEP.IDN_PHY_SCY_TRAN        00290017
+   000168               *****     AND DEP.IND_TRL_DOC = 'N'                               00300017
+   000169               *****     AND DEP.CDE_STA = :WS-CDE-STA-PKG-READY                 00310017
+   000170               *****END-EXEC                                                     00320017
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SUP01751  Date 11/22/2023  Time 06:17:51   Page     6
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+0  000171                    PERFORM SQL-INITIAL UNTIL SQL-INIT-DONE                               138 54
+   000172                    CALL 'DSNHLI' USING SQL-PLIST1                                        EXT 59
+   000173                    END-CALL
+   000174                    PERFORM 9999-SQLCODE-CHECK                                   00330017 178
+   000175                    GOBACK                                                       00340017
+   000176                    .                                                            00350017
+   000177               *                                                                 00360017
+   000178                9999-SQLCODE-CHECK.                                              00370017
+   000179               *                                                                 00380017
+   000180                    DISPLAY 'SQLCODE ' SQLCODE.                                  00390017 19
+   000181                    DISPLAY 'WS-ROW-COUNT: ' WS-ROW-COUNT.                       00400018 7
+ */ SUP01751
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SUP01751  Date 11/22/2023  Time 06:17:51   Page     7
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.
+
+  Defined   Cross-reference of data names   References
+
+       68   SQL-APARMPTR . . . . . . . . .  146
+      126   SQL-AVAR-ADDRS1. . . . . . . .  148
+      117   SQL-AVAR-LIST1 . . . . . . . .  146 149
+       66   SQL-CODEPTR. . . . . . . . . .  150
+       54   SQL-INIT-DONE. . . . . . . . .  171
+       53   SQL-INIT-FLAG. . . . . . . . .  M139
+       52   SQL-NULL . . . . . . . . . . .  143 144 144 145 149
+       59   SQL-PLIST1 . . . . . . . . . .  140 146 150 172
+       84   SQL-PVAR-ADDRS1. . . . . . . .  142
+       75   SQL-PVAR-LIST1 . . . . . . . .  140 143
+       67   SQL-VPARMPTR . . . . . . . . .  140
+       16   SQLCA. . . . . . . . . . . . .  150
+       19   SQLCODE. . . . . . . . . . . .  180
+       11   WS-CDE-STA-PKG-READY . . . . .  144 M159
+        9   WS-CDE-TRAN-STA-IN-PRG . . . .  143 M157
+       10   WS-CDE-TRAN-TYP-DEP. . . . . .  144 M158
+        8   WS-DB2-DATE-CURR-BUS . . . . .  143 M156
+        7   WS-ROW-COUNT . . . . . . . . .  149 181
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SUP01751  Date 11/22/2023  Time 06:17:51   Page     8
+0Context usage is indicated by the letter preceding a procedure-name reference.
+ These letters and their meanings are:
+     A = ALTER (procedure-name)
+     D = GO TO (procedure-name) DEPENDING ON
+     E = End of range of (PERFORM) through (procedure-name)
+     G = GO TO (procedure-name)
+     P = PERFORM (procedure-name)
+     T = (ALTER) TO PROCEED TO (procedure-name)
+     U = USE FOR DEBUGGING (procedure-name)
+
+  Defined   Cross-reference of procedures   References
+
+      151   SQL-INIT-END . . . . . . . . .  G137
+      138   SQL-INITIAL. . . . . . . . . .  P171
+      178   9999-SQLCODE-CHECK . . . . . .  P174
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               SUP01751  Date 11/22/2023  Time 06:17:51   Page     9
+0 Defined   Cross-reference of programs     References
+
+ EXTERNAL   DSNHADDR . . . . . . . . . . .  140 146 150
+ EXTERNAL   DSNHADD2 . . . . . . . . . . .  142 148
+ EXTERNAL   DSNHLI . . . . . . . . . . . .  172
+-Messages    Total    Informational    Warning    Error    Severe    Terminating
+0Printed:       1           1
+-* Statistics for COBOL program SUP01751:
+ *    Source records = 181
+ *    Data Division statements = 114
+ *    Procedure Division statements = 16
+0End of compilation 1,  program SUP01751,  highest severity 0.
+0Return code 0

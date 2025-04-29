@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="TransTable1" cobol:name="WS-TRANS-TABLE1" cobol:offset="0" cobol:length="685" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Tb1TrnId" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-ID" cobol:offset="0" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+    <xs:element name="Tb1TrnDesc" maxOccurs="1"  cobol:name="TB1-TRN-DESC" cobol:offset="3" cobol:length="18" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="18" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Tb1ImpDec" type="xs:int" maxOccurs="1"  cobol:name="TB1-IMP-DEC" cobol:offset="21" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+         <xs:element name="Tb1ImpDecEp" type="xs:int" maxOccurs="1"  cobol:name="TB1-IMP-DEC-EP" cobol:offset="22" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+         <xs:element name="Tb1TrnSurchgFreeCntIss" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-SURCHG-FREE-CNT-ISS" cobol:offset="23" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnSurchgFreeCntAcq" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-SURCHG-FREE-CNT-ACQ" cobol:offset="28" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnAtmAcchrgCntICr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-ATM-ACCHRG-CNT-I-CR" cobol:offset="33" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnAtmAcchrgCntIDb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-ATM-ACCHRG-CNT-I-DB" cobol:offset="38" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="Tb1TrnAtmAcchrgAmtICr" maxOccurs="1"  cobol:name="TB1-TRN-ATM-ACCHRG-AMT-I-CR" cobol:offset="43" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Tb1TrnAtmAcchrgAmtIDb" maxOccurs="1"  cobol:name="TB1-TRN-ATM-ACCHRG-AMT-I-DB" cobol:offset="51" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Tb1TrnPosAcchrgACntICr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-POS-ACCHRG-A-CNT-I-CR" cobol:offset="59" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnPosAcchrgACntIDb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-POS-ACCHRG-A-CNT-I-DB" cobol:offset="64" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="Tb1TrnPosAcchrgAmtICr" maxOccurs="1"  cobol:name="TB1-TRN-POS-ACCHRG-AMT-I-CR" cobol:offset="69" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Tb1TrnPosAcchrgAmtIDb" maxOccurs="1"  cobol:name="TB1-TRN-POS-ACCHRG-AMT-I-DB" cobol:offset="77" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Tb1TrnAtmAcchrgRCntICr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-ATM-ACCHRG-R-CNT-I-CR" cobol:offset="85" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnAtmAcchrgRCntIDb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-ATM-ACCHRG-R-CNT-I-DB" cobol:offset="90" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="Tb1TrnAtmAcchrgRAmtICr" maxOccurs="1"  cobol:name="TB1-TRN-ATM-ACCHRG-R-AMT-I-CR" cobol:offset="95" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Tb1TrnAtmAcchrgRAmtIDb" maxOccurs="1"  cobol:name="TB1-TRN-ATM-ACCHRG-R-AMT-I-DB" cobol:offset="103" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Tb1TrnPosAcchrgRCntICr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-POS-ACCHRG-R-CNT-I-CR" cobol:offset="111" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnPosAcchrgRCntIDb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-POS-ACCHRG-R-CNT-I-DB" cobol:offset="116" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="Tb1TrnPosAcchrgRAmtICr" maxOccurs="1"  cobol:name="TB1-TRN-POS-ACCHRG-R-AMT-I-CR" cobol:offset="121" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Tb1TrnPosAcchrgRAmtIDb" maxOccurs="1"  cobol:name="TB1-TRN-POS-ACCHRG-R-AMT-I-DB" cobol:offset="129" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Tb1TrnFFinAppCntICr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-F-FIN-APP-CNT-I-CR" cobol:offset="137" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnFFinAppCntIDb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-F-FIN-APP-CNT-I-DB" cobol:offset="142" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnFFinDenCntICr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-F-FIN-DEN-CNT-I-CR" cobol:offset="147" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnFFinDenCntIDb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-F-FIN-DEN-CNT-I-DB" cobol:offset="152" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnFFinAmtICr" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-F-FIN-AMT-I-CR" cobol:offset="157" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnFFinAmtIDb" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-F-FIN-AMT-I-DB" cobol:offset="166" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnFFinFeeCntI" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-F-FIN-FEE-CNT-I" cobol:offset="175" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnFPctFeeCntI" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-F-PCT-FEE-CNT-I" cobol:offset="180" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnFNfinFeeCntI" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-F-NFIN-FEE-CNT-I" cobol:offset="185" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnFNbilFeeCntI" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-F-NBIL-FEE-CNT-I" cobol:offset="190" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnFFeeAmtICr" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-F-FEE-AMT-I-CR" cobol:offset="195" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnFFeeAmtIDb" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-F-FEE-AMT-I-DB" cobol:offset="204" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnFMcrAmtICr" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-F-MCR-AMT-I-CR" cobol:offset="213" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnFMcrAmtIDb" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-F-MCR-AMT-I-DB" cobol:offset="222" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnFIcrAmtICr" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-F-ICR-AMT-I-CR" cobol:offset="231" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnFIcrAmtIDb" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-F-ICR-AMT-I-DB" cobol:offset="240" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnEFinAppCntICr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-APP-CNT-I-CR" cobol:offset="249" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnEFinAppCntIDb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-APP-CNT-I-DB" cobol:offset="254" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnENsdA15CntICr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-NSD-A15-CNT-I-CR" cobol:offset="259" cobol:length="3" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+         <xs:element name="Tb1TrnENsdA15CntIDb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-NSD-A15-CNT-I-DB" cobol:offset="262" cobol:length="3" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+         <xs:element name="Tb1TrnEFinA09CntICr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-A09-CNT-I-CR" cobol:offset="265" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnEFinA09CntIDb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-A09-CNT-I-DB" cobol:offset="270" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnEFinDenCntICr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-DEN-CNT-I-CR" cobol:offset="275" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnEFinDenCntIDb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-DEN-CNT-I-DB" cobol:offset="280" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnEFinAmtICr" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-AMT-I-CR" cobol:offset="285" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnEFinAmtIDb" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-AMT-I-DB" cobol:offset="294" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnEFinA09AmtICr" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-A09-AMT-I-CR" cobol:offset="303" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnEFinA09AmtIDb" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-A09-AMT-I-DB" cobol:offset="312" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnEFinFeeCntI" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-FEE-CNT-I" cobol:offset="321" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnEPctFeeCntI" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-PCT-FEE-CNT-I" cobol:offset="326" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnENfinFeeCntI" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-NFIN-FEE-CNT-I" cobol:offset="331" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnENbilFeeCntI" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-NBIL-FEE-CNT-I" cobol:offset="336" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnEFeeAmtICr" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-E-FEE-AMT-I-CR" cobol:offset="341" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P"/>
+         <xs:element name="Tb1TrnEFeeAmtIDb" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-E-FEE-AMT-I-DB" cobol:offset="349" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P"/>
+         <xs:element name="Tb1TrnEMcrAmtICr" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-E-MCR-AMT-I-CR" cobol:offset="357" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnEMcrAmtIDb" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-E-MCR-AMT-I-DB" cobol:offset="366" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnEIcrAmtICr" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-E-ICR-AMT-I-CR" cobol:offset="375" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnEIcrAmtIDb" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-E-ICR-AMT-I-DB" cobol:offset="384" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnAtmAcchrgCntACr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-ATM-ACCHRG-CNT-A-CR" cobol:offset="393" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnAtmAcchrgCntADb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-ATM-ACCHRG-CNT-A-DB" cobol:offset="398" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="Tb1TrnAtmAcchrgAmtACr" maxOccurs="1"  cobol:name="TB1-TRN-ATM-ACCHRG-AMT-A-CR" cobol:offset="403" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Tb1TrnAtmAcchrgAmtADb" maxOccurs="1"  cobol:name="TB1-TRN-ATM-ACCHRG-AMT-A-DB" cobol:offset="411" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Tb1TrnPosAcchrgCntACr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-POS-ACCHRG-CNT-A-CR" cobol:offset="419" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnPosAcchrgCntADb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-POS-ACCHRG-CNT-A-DB" cobol:offset="424" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="Tb1TrnPosAcchrgAmtACr" maxOccurs="1"  cobol:name="TB1-TRN-POS-ACCHRG-AMT-A-CR" cobol:offset="429" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Tb1TrnPosAcchrgAmtADb" maxOccurs="1"  cobol:name="TB1-TRN-POS-ACCHRG-AMT-A-DB" cobol:offset="437" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Tb1TrnAtmAcchrgRCntACr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-ATM-ACCHRG-R-CNT-A-CR" cobol:offset="445" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnAtmAcchrgRCntADb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-ATM-ACCHRG-R-CNT-A-DB" cobol:offset="450" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="Tb1TrnAtmAcchrgRAmtACr" maxOccurs="1"  cobol:name="TB1-TRN-ATM-ACCHRG-R-AMT-A-CR" cobol:offset="455" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Tb1TrnAtmAcchrgRAmtADb" maxOccurs="1"  cobol:name="TB1-TRN-ATM-ACCHRG-R-AMT-A-DB" cobol:offset="463" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Tb1TrnPosAcchrgRCntACr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-POS-ACCHRG-R-CNT-A-CR" cobol:offset="471" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnPosAcchrgRCntADb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-POS-ACCHRG-R-CNT-A-DB" cobol:offset="476" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="Tb1TrnPosAcchrgRAmtACr" maxOccurs="1"  cobol:name="TB1-TRN-POS-ACCHRG-R-AMT-A-CR" cobol:offset="481" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Tb1TrnPosAcchrgRAmtADb" maxOccurs="1"  cobol:name="TB1-TRN-POS-ACCHRG-R-AMT-A-DB" cobol:offset="489" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Tb1TrnFFinAppCntACr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-F-FIN-APP-CNT-A-CR" cobol:offset="497" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnFFinAppCntADb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-F-FIN-APP-CNT-A-DB" cobol:offset="502" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnFFinDenCntACr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-F-FIN-DEN-CNT-A-CR" cobol:offset="507" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnFFinDenCntADb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-F-FIN-DEN-CNT-A-DB" cobol:offset="512" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnFFinAmtACr" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-F-FIN-AMT-A-CR" cobol:offset="517" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnFFinAmtADb" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-F-FIN-AMT-A-DB" cobol:offset="526" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnFFinFeeCntA" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-F-FIN-FEE-CNT-A" cobol:offset="535" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnFPctFeeCntA" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-F-PCT-FEE-CNT-A" cobol:offset="540" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnFNfinFeeCntA" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-F-NFIN-FEE-CNT-A" cobol:offset="545" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnFNbilFeeCntA" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-F-NBIL-FEE-CNT-A" cobol:offset="550" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnFFeeAmtACr" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-F-FEE-AMT-A-CR" cobol:offset="555" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnFFeeAmtADb" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-F-FEE-AMT-A-DB" cobol:offset="564" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnEFinAppCntACr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-APP-CNT-A-CR" cobol:offset="573" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnEFinAppCntADb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-APP-CNT-A-DB" cobol:offset="578" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnEFinA09CntACr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-A09-CNT-A-CR" cobol:offset="583" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnEFinA09CntADb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-A09-CNT-A-DB" cobol:offset="588" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnENsdA15CntACr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-NSD-A15-CNT-A-CR" cobol:offset="593" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnENsdA15CntADb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-NSD-A15-CNT-A-DB" cobol:offset="598" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnEFinDenCntACr" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-DEN-CNT-A-CR" cobol:offset="603" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnEFinDenCntADb" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-DEN-CNT-A-DB" cobol:offset="608" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnEFinAmtACr" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-AMT-A-CR" cobol:offset="613" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnEFinAmtADb" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-AMT-A-DB" cobol:offset="622" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnEFinA09AmtACr" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-A09-AMT-A-CR" cobol:offset="631" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnEFinA09AmtADb" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-A09-AMT-A-DB" cobol:offset="640" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P"/>
+         <xs:element name="Tb1TrnEFinFeeCntA" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-FIN-FEE-CNT-A" cobol:offset="649" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnEPctFeeCntA" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-PCT-FEE-CNT-A" cobol:offset="654" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnENfinFeeCntA" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-NFIN-FEE-CNT-A" cobol:offset="659" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnENbilFeeCntA" type="xs:int" maxOccurs="1"  cobol:name="TB1-TRN-E-NBIL-FEE-CNT-A" cobol:offset="664" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Tb1TrnEFeeAmtACr" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-E-FEE-AMT-A-CR" cobol:offset="669" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P"/>
+         <xs:element name="Tb1TrnEFeeAmtADb" type="xs:long" maxOccurs="1"  cobol:name="TB1-TRN-E-FEE-AMT-A-DB" cobol:offset="677" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

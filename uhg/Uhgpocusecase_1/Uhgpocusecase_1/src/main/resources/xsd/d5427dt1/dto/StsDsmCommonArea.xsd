@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="StsDsmCommonArea" cobol:name="STS-DSM-COMMON-AREA" cobol:offset="310" cobol:length="1025" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="StsDsmFuncCd" type="xs:int" maxOccurs="1"  cobol:name="STS-DSM-FUNC-CD" cobol:offset="0" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+         <xs:element name="StsDsmReturnCode" type="xs:int" maxOccurs="1"  cobol:name="STS-DSM-RETURN-CODE" cobol:offset="2" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+<xs:element name="StsDsmSqlErrorMsgArea" maxOccurs="1" cobol:name="STS-DSM-SQL-ERROR-MSG-AREA" cobol:offset="5" cobol:length="120" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="StsDsmSqlErrorMessage" maxOccurs="1"  cobol:name="STS-DSM-SQL-ERROR-MESSAGE" cobol:offset="125" cobol:length="120" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="120" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="StsDsmFormattedSqlErrMsg" maxOccurs="1" cobol:name="STS-DSM-FORMATTED-SQL-ERR-MSG" cobol:offset="245" cobol:length="780" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Work" cobol:name="work" cobol:offset="0" cobol:length="22" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="InFileStatus" type="xs:int" maxOccurs="1"  cobol:name="WS-IN-FILE-STATUS" cobol:offset="0" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+         <xs:element name="OutFileStatus" type="xs:int" maxOccurs="1"  cobol:name="WS-OUT-FILE-STATUS" cobol:offset="2" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+    <xs:element name="InEofFlag" maxOccurs="1"  cobol:name="WS-IN-EOF-FLAG" cobol:offset="4" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 noMoreRecords VALUE [[1]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="LreclMax" type="xs:short" maxOccurs="1"  cobol:name="WS-LRECL-MAX" cobol:offset="4" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="OutRecLen" type="xs:int" maxOccurs="1"  cobol:name="WS-OUT-REC-LEN" cobol:offset="4" cobol:length="2" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="InRecLen" type="xs:int" maxOccurs="1"  cobol:name="WS-IN-REC-LEN" cobol:offset="4" cobol:length="2" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="I" type="xs:short" maxOccurs="1"  cobol:name="I" cobol:offset="4" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="J" type="xs:short" maxOccurs="1"  cobol:name="J" cobol:offset="4" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="K" type="xs:short" maxOccurs="1"  cobol:name="K" cobol:offset="4" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="DataLenMin" type="xs:short" maxOccurs="1"  cobol:name="WS-DATA-LEN-MIN" cobol:offset="4" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="DataLenMax" type="xs:short" maxOccurs="1"  cobol:name="WS-DATA-LEN-MAX" cobol:offset="4" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="RecInCtr" type="xs:short" maxOccurs="1"  cobol:name="WS-REC-IN-CTR" cobol:offset="4" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="RecOutCtr" type="xs:short" maxOccurs="1"  cobol:name="WS-REC-OUT-CTR" cobol:offset="4" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="DisplayNum1" maxOccurs="1"  cobol:name="WS-DISPLAY-NUM-1" cobol:offset="4" cobol:length="6" cobol:datatype="Disp-Num-Edit" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="DisplayNum2" maxOccurs="1"  cobol:name="WS-DISPLAY-NUM-2" cobol:offset="10" cobol:length="6" cobol:datatype="Disp-Num-Edit" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="DisplayNum3" maxOccurs="1"  cobol:name="WS-DISPLAY-NUM-3" cobol:offset="16" cobol:length="6" cobol:datatype="Disp-Num-Edit" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Mode" maxOccurs="1"  cobol:name="WS-MODE" cobol:offset="22" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 modeValid VALUE [["B"], ["R"], ["W"]].
+                        88 modeWrite VALUE [["W"], ["B"]].
+                        88 modeRead VALUE [["R"], ["B"]].
+                        88 modeBoth VALUE [["B"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="XrefRecord" cobol:name="XREF-RECORD" cobol:offset="0" cobol:length="2340" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="XrfEeDataKey" maxOccurs="1" cobol:name="XRF-EE-DATA-KEY" cobol:offset="0" cobol:length="12" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="XrfAdjstrNum" type="xs:int" maxOccurs="1"  cobol:name="XRF-ADJSTR-NUM" cobol:offset="12" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="XrfCmData" maxOccurs="9"  cobol:name="XRF-CM-DATA" cobol:offset="16" cobol:length="252" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="252" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="XrfBankAcctEe" type="xs:short" maxOccurs="1"  cobol:name="XRF-BANK-ACCT-EE" cobol:offset="2284" cobol:length="2" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+    <xs:element name="XrfRegionIndEe" maxOccurs="1"  cobol:name="XRF-REGION-IND-EE" cobol:offset="2286" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="XrfPrsInd" maxOccurs="9"  cobol:name="XRF-PRS-IND" cobol:offset="2287" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="XrfUpdLog" maxOccurs="1" cobol:name="XRF-UPD-LOG" cobol:offset="2296" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="XrfPortDate" type="xs:short" maxOccurs="1"  cobol:name="XRF-PORT-DATE" cobol:offset="2304" cobol:length="3" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+    <xs:element name="XrfLcaInd" maxOccurs="1"  cobol:name="XRF-LCA-IND" cobol:offset="2307" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="XrfSourceSysInd" maxOccurs="1"  cobol:name="XRF-SOURCE-SYS-IND" cobol:offset="2308" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="DfhcommareaFiller2" maxOccurs="1"  cobol:name="FILLER" cobol:offset="2309" cobol:length="31" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="31" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

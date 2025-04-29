@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip40004FileIdFinan" cobol:name="IP40004-FILE-ID-FINAN" cobol:offset="60" cobol:length="25" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip40004FinFileType" maxOccurs="1"  cobol:name="IP40004-FIN-FILE-TYPE" cobol:offset="0" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip40004FinFileRefDate" type="xs:long" maxOccurs="1"  cobol:name="IP40004-FIN-FILE-REF-DATE" cobol:offset="3" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+    <xs:element name="Ip40004FinProcessorId" maxOccurs="1"  cobol:name="IP40004-FIN-PROCESSOR-ID" cobol:offset="9" cobol:length="11" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="11" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip40004FinFileSeqNum" type="xs:long" maxOccurs="1"  cobol:name="IP40004-FIN-FILE-SEQ-NUM" cobol:offset="20" cobol:length="5" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

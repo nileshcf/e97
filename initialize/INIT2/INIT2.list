@@ -1,0 +1,532 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 07/15/2022  Time 22:39:06   Page     1                
+0Invocation parameters:                                                                                                              
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(OPT),AWO,NUMPROC(PFD),TEST(ALL,SYM,SEPARATE)                                                        
+                                                                                                                                     
+         IGYOS4069-I   Some suboptions specified in "TEST(ALL,SYM,SEPARATE)" are not  supported.  "ALL", "BLOCK", "PATH" and "STMT"  
+                       were interpreted as "HOOK" and the "NONE" suboption was interpreted as "NOHOOK".  The "SYM" suboption is no   
+                       longer required, "SYM" suboption behavior is always in effect with "TEST".                                    
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler         
+                       invocation parameter took precedence.                                                                         
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    QUOTE                                                                                                                            
+    ARITH(COMPAT)                                                                                                                    
+    AWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(PFD)                                                                                                                     
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 07/15/2022  Time 22:39:06   Page     2                
+0 NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+    TEST(HOOK,SEPARATE,NOEJPD)                                                                                                       
+  NOTHREAD                                                                                                                           
+    TRUNC(OPT)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT2     Date 07/15/2022  Time 22:39:06   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0/* INIT2                                                                                                                            
+   000001         000100 IDENTIFICATION DIVISION.                                         00010001                                   
+   000002         000200 PROGRAM-ID. INIT2.                                               00020001                                   
+   000003         000300                                                                  00030001                                   
+   000004         000400 ENVIRONMENT DIVISION.                                            00040001                                   
+   000005         000500                                                                  00050001                                   
+   000006         000600 INPUT-OUTPUT SECTION.                                            00060001                                   
+   000007         000700 FILE-CONTROL.                                                    00070001                                   
+   000008         000800                                                                  00080001                                   
+   000009         000900 DATA DIVISION.                                                   00090001                                   
+   000010         001000                                                                  00100001                                   
+   000011         001100 FILE SECTION.                                                    00110001                                   
+   000012         001200                                                                  00120001                                   
+   000013         001300 WORKING-STORAGE SECTION.                                         00130001                                   
+   000014         001301                                                                  00130101                                   
+   000015         001302 01  L6560-PARM-INFO.                                             00130201 BLW=00000+000         0CL1017     
+   000016         001303     05  L6560-INPUT-PARM-INFO.                                   00130301 BLW=00000+000,0000000 0CL132      
+   000017         001304         10  L6560-RQST-CD                      PIC X(02).        00130401 BLW=00000+000,0000000 2C          
+   000018         001305             88  L6560-RQST-CALC-SURR-CHRG      VALUE 'SC'.       00130501                                   
+   000019         001306         10  L6560-EFF-DT                       PIC X(10).        00130601 BLW=00000+002,0000002 10C         
+   000020         001307         10  L6560-CVG                          PIC S9(04) BINARY.00130701 BLW=00000+00C,000000C 2C          
+   000021         001308         10  L6560-SURR-AMT                     PIC S9(13)V9(02)  00130801 BLW=00000+00E,000000E 8P          
+   000022         001309                                                COMP-3.           00130901                                   
+   000023         001310         10  L6560-SURR-CHRG-TYP-CD             PIC X(01).        00131001 BLW=00000+016,0000016 1C          
+   000024         001311             88  L6560-SURR-CHRG-TYP-FULL       VALUE 'F'.        00131101                                   
+   000025         001312             88  L6560-SURR-CHRG-TYP-PARTL      VALUE 'G' 'N'.    00131201                                   
+   000026         001313             88  L6560-SURR-CHRG-TYP-PARTL-GRS  VALUE 'G'.        00131301                                   
+   000027         001314             88  L6560-SURR-CHRG-TYP-PARTL-NET  VALUE 'N'.        00131401                                   
+   000028         001315         10  L6560-POL-ACUM-VALU-AMT            PIC S9(13)V9(02)  00131501 BLW=00000+017,0000017 8P          
+   000029         001316                                                COMP-3.           00131601                                   
+   000030         001317         10  L6560-CVG-ACUM-VALU-AMT            PIC S9(13)V9(02)  00131701 BLW=00000+01F,000001F 8P          
+   000031         001318                                                COMP-3.           00131801                                   
+   000032         001319         10  L6560-MTHV-ADJ-AMT                 PIC S9(13)V9(02)  00131901 BLW=00000+027,0000027 8P          
+   000033         001320                                                COMP-3.           00132001                                   
+   000034         001321         10  L6560-MKTVAL-ADJ-PCT               PIC S9(05)V9(08)  00132101 BLW=00000+02F,000002F 7P          
+   000035         001322                                                COMP-3.           00132201                                   
+   000036         001323         10  L6560-CALC-IF-TERMINATED-SW        PIC X(01).        00132301 BLW=00000+036,0000036 1C          
+   000037         001324             88  L6560-CALC-IF-TERMINATED-NO    VALUE 'N'.        00132401                                   
+   000038         001325             88  L6560-CALC-IF-TERMINATED       VALUE 'Y'.        00132501                                   
+   000039         001326         10  L6560-FREE-WTH-APPLIED-IND         PIC X(01).        00132601 BLW=00000+037,0000037 1C          
+   000040         001327             88  L6560-FREE-WTH-APPLIED         VALUE 'Y'.        00132701                                   
+   000041         001328             88  L6560-FREE-WTH-NOT-APPLIED     VALUE 'N'.        00132801                                   
+   000042         001329         10  L6560-DBSC-INFO.                                     00132901 BLW=00000+038,0000038 0CL50       
+   000043         001330             15  L6560-DBSC-APPLICABLE-IND      PIC X(01).        00133001 BLW=00000+038,0000038 1C          
+   000044         001331                 88  L6560-DBSC-APPLICABLE      VALUE 'Y'.        00133101                                   
+   000045         001332                 88  L6560-DBSC-APPLICABLE-NO   VALUE 'N'.        00133201                                   
+   000046         001333             15  L6560-DBSC-TOT-SURR-AMT        PIC S9(13)V9(02)  00133301 BLW=00000+039,0000039 8P          
+   000047         001334                                                COMP-3.           00133401                                   
+   000048         001335             15  L6560-DBSC-TOT-CHRG-AMT        PIC S9(13)V9(02)  00133501 BLW=00000+041,0000041 8P          
+   000049         001336                                                COMP-3.           00133601                                   
+   000050         001337             15  L6560-DBSC-TOT-FREE-AMT        PIC S9(13)V9(02)  00133701 BLW=00000+049,0000049 8P          
+   000051         001338                                                COMP-3.           00133801                                   
+   000052         001339             15  L6560-DBSC-ASS-SURR-AMT        PIC S9(13)V9(02)  00133901 BLW=00000+051,0000051 8P          
+   000053         001340                                                COMP-3.           00134001                                   
+   000054         001341             15  L6560-DBSC-ASS-CHRG-AMT        PIC S9(13)V9(02)  00134101 BLW=00000+059,0000059 8P          
+   000055         001342                                                COMP-3.           00134201                                   
+   000056         001343             15  L6560-DBSC-ASS-FREE-AMT        PIC S9(13)V9(02)  00134301 BLW=00000+061,0000061 8P          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT2     Date 07/15/2022  Time 22:39:06   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000057         001344                                                COMP-3.           00134401                                   
+   000058         001345             15  L6560-PLAN-FND-TYP-CD          PIC X(01).        00134501 BLW=00000+069,0000069 1C          
+   000059         001346                 88  L6560-PLAN-FND-TYP-SIDE    VALUE 'S'.        00134601                                   
+   000060         001347                 88  L6560-PLAN-FND-TYP-NONE    VALUE 'N'.        00134701                                   
+   000061         001348                 88  L6560-PLAN-FND-TYP-XTRNL   VALUE 'S'.        00134801                                   
+   000062         001349         10  L6560-SURR-CHRG-OVRID-IND          PIC X(01).        00134901 BLW=00000+06A,000006A 1C          
+   000063         001350             88  L6560-SURR-CHRG-OVRID-CHRG     VALUE 'C'.        00135001                                   
+   000064         001351             88  L6560-SURR-CHRG-OVRID-EXE      VALUE 'E'.        00135101                                   
+   000065         001352             88  L6560-SURR-CHRG-OVRID-FEE      VALUE 'F'.        00135201                                   
+   000066         001353             88  L6560-SURR-CHRG-OVRID          VALUE 'C' 'F'.    00135301                                   
+   000067         001354             88  L6560-SURR-CHRG-OVRID-NO       VALUE 'N'.        00135401                                   
+   000068         001355         10  FILLER                             PIC X(25).        00135501 BLW=00000+06B,000006B 25C         
+   000069         001356                                                                  00135601                                   
+   000070         001357     05  L6560-IO-PARM-INFO.                                      00135701 BLW=00000+084,0000084 0CL25       
+   000071         001358         10  FILLER                             PIC X(25).        00135801 BLW=00000+084,0000084 25C         
+   000072         001359                                                                  00135901                                   
+   000073         001360     05  L6560-OUTPUT-PARM-INFO.                                  00136001 BLW=00000+09D,000009D 0CL860      
+   000074         001361         10  L6560-RETRN-CD                     PIC S9(04) BINARY.00136101 BLW=00000+09D,000009D 2C          
+   000075         001362             88  L6560-RETRN-OK                 VALUE ZERO.       00136201 IMP                               
+   000076         001363             88  L6560-RETRN-PLAN-NOT-FOUND     VALUE +08.        00136301                                   
+   000077         001364             88  L6560-RETRN-RHRT-NOT-FOUND     VALUE +09.        00136401                                   
+   000078         001365             88  L6560-RETRN-PCNT-NOT-FOUND     VALUE +10.        00136501                                   
+   000079         001366             88  L6560-RETRN-PCT-CALC-ERROR     VALUE +80.        00136601                                   
+   000080         001367             88  L6560-RETRN-INVALID-CVG        VALUE +90.        00136701                                   
+   000081         001368             88  L6560-RETRN-INVALID-REQUEST    VALUE +99.        00136801                                   
+   000082         001369         10  L6560-SURR-CHRG-AMT                PIC S9(13)V9(02)  00136901 BLW=00000+09F,000009F 8P          
+   000083         001370                                                COMP-3.           00137001                                   
+   000084         001371         10  L6560-SURR-CHRG-FLAT-AMT           PIC S9(13)V9(02)  00137101 BLW=00000+0A7,00000A7 8P          
+   000085         001372                                                COMP-3.           00137201                                   
+   000086         001373         10  L6560-SURR-CHRG-PCT                PIC S9(09)V9(08)  00137301 BLW=00000+0AF,00000AF 9P          
+   000087         001374                                                COMP-3.           00137401                                   
+   000088         001375         10  L6560-MKTVAL-ADJ-AMT               PIC S9(13)V9(02)  00137501 BLW=00000+0B8,00000B8 8P          
+   000089         001376                                                COMP-3.           00137601                                   
+   000090         001377         10  L6560-SURR-SALE-LOAD-INFO          OCCURS 99 TIMES.  00137701 BLW=00000+0C0,00000C0 0CL8        
+   000091         001378             15  L6560-SURR-SALE-LOAD-AMT       PIC S9(13)V9(02)  00137801 BLW=00000+0C0,00000C0 8P          
+   000092         001379                                                COMP-3.           00137901                                   
+   000093         001380         10  L6560-FREE-WTHDRW-AMT              PIC S9(13)V9(02)  00138001 BLW=00000+3D8,00003D8 8P          
+   000094         001381                                                COMP-3.           00138101                                   
+   000095         001382         10  FILLER                             PIC X(25).        00138201 BLW=00000+3E0,00003E0 25C         
+   000096         001383                                                                  00138301                                   
+   000097         001384                                                                  00138401                                   
+   000098         001385 PROCEDURE DIVISION.                                              00138501                                   
+   000099         001386                                                                  00138601                                   
+   000100         001387      PERFORM 0000-INITIALIZE                                     00138701 105                               
+   000101         001388         THRU 0000-EXIT                                           00138801 153                               
+   000102         001389*                                                                 00138901                                   
+   000103         001390      STOP RUN.                                                   00139001                                   
+   000104         001400*                                                                 00140001                                   
+   000105         001500 0000-INITIALIZE.                                                 00150001                                   
+   000106         001600*                                                                 00160001                                   
+   000107         001610     MOVE 100 TO L6560-SURR-SALE-LOAD-AMT (1)                     00161001 91                                
+   000108         001611                 L6560-SURR-SALE-LOAD-AMT (2)                     00161101 91                                
+   000109         001612                 L6560-SURR-SALE-LOAD-AMT (5)                     00161201 91                                
+   000110         001613                 L6560-SURR-SALE-LOAD-AMT (7)                     00161301 91                                
+   000111         001614                 L6560-SURR-SALE-LOAD-AMT (9)                     00161401 91                                
+   000112         001615                 L6560-SURR-SALE-LOAD-AMT (11)                    00161501 91                                
+   000113         001616*                                                                 00161601                                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT2     Date 07/15/2022  Time 22:39:06   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000114         001617     INITIALIZE L6560-INPUT-PARM-INFO                             00161701 16                                
+   000115         001618               L6560-RQST-CD                                      00161801 17                                
+   000116         001619               L6560-EFF-DT                                       00161901 19                                
+   000117         001620               L6560-CVG                                          00162001 20                                
+   000118         001630               L6560-SURR-AMT                                     00163001 21                                
+   000119         001640               L6560-SURR-CHRG-TYP-CD                             00164001 23                                
+   000120         001650               L6560-POL-ACUM-VALU-AMT                            00165001 28                                
+   000121         001660               L6560-CVG-ACUM-VALU-AMT                            00166001 30                                
+   000122         001670               L6560-MTHV-ADJ-AMT                                 00167001 32                                
+   000123         001680               L6560-MKTVAL-ADJ-PCT                               00168001 34                                
+   000124         001690               L6560-CALC-IF-TERMINATED-SW                        00169001 36                                
+   000125         001700               L6560-FREE-WTH-APPLIED-IND                         00170001 39                                
+   000126         001710               L6560-DBSC-INFO                                    00171001 42                                
+   000127         001711               L6560-DBSC-APPLICABLE-IND                          00171101 43                                
+   000128         001712               L6560-DBSC-TOT-SURR-AMT                            00171201 46                                
+   000129         001713               L6560-DBSC-TOT-CHRG-AMT                            00171301 48                                
+   000130         001714               L6560-DBSC-TOT-FREE-AMT                            00171401 50                                
+   000131         001715               L6560-DBSC-ASS-SURR-AMT                            00171501 52                                
+   000132         001716               L6560-DBSC-ASS-CHRG-AMT                            00171601 54                                
+   000133         001717               L6560-DBSC-ASS-FREE-AMT                            00171701 56                                
+   000134         001718               L6560-PLAN-FND-TYP-CD                              00171801 58                                
+   000135         001719               L6560-SURR-CHRG-OVRID-IND                          00171901 62                                
+   000136         001720               L6560-IO-PARM-INFO                                 00172001 70                                
+   000137         001730               L6560-RETRN-CD                                     00173001 74                                
+   000138         001740               L6560-SURR-CHRG-AMT                                00174001 82                                
+   000139         001750               L6560-SURR-CHRG-FLAT-AMT                           00175001 84                                
+   000140         001751               L6560-SURR-CHRG-PCT                                00175101 86                                
+   000141         001752               L6560-MKTVAL-ADJ-AMT                               00175201 88                                
+   000142         001753                                                                  00175301                                   
+   000143         001754     INITIALIZE L6560-OUTPUT-PARM-INFO                            00175401 73                                
+   000144         001755                                                                  00175501                                   
+   000145         001756     DISPLAY 'L6560-SURR-SALE-LOAD-AMT (25) = '                   00175601                                   
+   000146         001757              L6560-SURR-SALE-LOAD-AMT (25)                       00175701 91                                
+   000147         001758*                                                                 00175801                                   
+   000148         001759     DISPLAY 'L6560-FREE-WTHDRW-AMT         = '                   00175901                                   
+   000149         001760              L6560-FREE-WTHDRW-AMT                               00176001 93                                
+   000150         001761*                                                                 00176101                                   
+   000151         001762     CONTINUE.                                                    00176201                                   
+   000152         001763*                                                                 00176301                                   
+   000153         001764 0000-EXIT.                                                       00176401                                   
+   000154         001765*                                                                 00176501                                   
+   000155         001766     EXIT.                                                        00176601                                   
+ */ INIT2                                                                                                                            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT2     Date 07/15/2022  Time 22:39:06   Page     6                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       38   L6560-CALC-IF-TERMINATED                                                                                                 
+       37   L6560-CALC-IF-TERMINATED-NO                                                                                              
+       36   L6560-CALC-IF-TERMINATED-SW. .  M124                                                                                     
+       20   L6560-CVG. . . . . . . . . . .  M117                                                                                     
+       30   L6560-CVG-ACUM-VALU-AMT. . . .  M121                                                                                     
+       44   L6560-DBSC-APPLICABLE                                                                                                    
+       43   L6560-DBSC-APPLICABLE-IND. . .  M127                                                                                     
+       45   L6560-DBSC-APPLICABLE-NO                                                                                                 
+       54   L6560-DBSC-ASS-CHRG-AMT. . . .  M132                                                                                     
+       56   L6560-DBSC-ASS-FREE-AMT. . . .  M133                                                                                     
+       52   L6560-DBSC-ASS-SURR-AMT. . . .  M131                                                                                     
+       42   L6560-DBSC-INFO. . . . . . . .  M126                                                                                     
+       48   L6560-DBSC-TOT-CHRG-AMT. . . .  M129                                                                                     
+       50   L6560-DBSC-TOT-FREE-AMT. . . .  M130                                                                                     
+       46   L6560-DBSC-TOT-SURR-AMT. . . .  M128                                                                                     
+       19   L6560-EFF-DT . . . . . . . . .  M116                                                                                     
+       40   L6560-FREE-WTH-APPLIED                                                                                                   
+       39   L6560-FREE-WTH-APPLIED-IND . .  M125                                                                                     
+       41   L6560-FREE-WTH-NOT-APPLIED                                                                                               
+       93   L6560-FREE-WTHDRW-AMT. . . . .  149                                                                                      
+       16   L6560-INPUT-PARM-INFO. . . . .  M114                                                                                     
+       70   L6560-IO-PARM-INFO . . . . . .  M136                                                                                     
+       88   L6560-MKTVAL-ADJ-AMT . . . . .  M141                                                                                     
+       34   L6560-MKTVAL-ADJ-PCT . . . . .  M123                                                                                     
+       32   L6560-MTHV-ADJ-AMT . . . . . .  M122                                                                                     
+       73   L6560-OUTPUT-PARM-INFO . . . .  M143                                                                                     
+       15   L6560-PARM-INFO                                                                                                          
+       58   L6560-PLAN-FND-TYP-CD. . . . .  M134                                                                                     
+       60   L6560-PLAN-FND-TYP-NONE                                                                                                  
+       59   L6560-PLAN-FND-TYP-SIDE                                                                                                  
+       61   L6560-PLAN-FND-TYP-XTRNL                                                                                                 
+       28   L6560-POL-ACUM-VALU-AMT. . . .  M120                                                                                     
+       74   L6560-RETRN-CD . . . . . . . .  M137                                                                                     
+       80   L6560-RETRN-INVALID-CVG                                                                                                  
+       81   L6560-RETRN-INVALID-REQUEST                                                                                              
+       75   L6560-RETRN-OK                                                                                                           
+       78   L6560-RETRN-PCNT-NOT-FOUND                                                                                               
+       79   L6560-RETRN-PCT-CALC-ERROR                                                                                               
+       76   L6560-RETRN-PLAN-NOT-FOUND                                                                                               
+       77   L6560-RETRN-RHRT-NOT-FOUND                                                                                               
+       18   L6560-RQST-CALC-SURR-CHRG                                                                                                
+       17   L6560-RQST-CD. . . . . . . . .  M115                                                                                     
+       21   L6560-SURR-AMT . . . . . . . .  M118                                                                                     
+       82   L6560-SURR-CHRG-AMT. . . . . .  M138                                                                                     
+       84   L6560-SURR-CHRG-FLAT-AMT . . .  M139                                                                                     
+       66   L6560-SURR-CHRG-OVRID                                                                                                    
+       63   L6560-SURR-CHRG-OVRID-CHRG                                                                                               
+       64   L6560-SURR-CHRG-OVRID-EXE                                                                                                
+       65   L6560-SURR-CHRG-OVRID-FEE                                                                                                
+       62   L6560-SURR-CHRG-OVRID-IND. . .  M135                                                                                     
+       67   L6560-SURR-CHRG-OVRID-NO                                                                                                 
+       86   L6560-SURR-CHRG-PCT. . . . . .  M140                                                                                     
+       23   L6560-SURR-CHRG-TYP-CD . . . .  M119                                                                                     
+       24   L6560-SURR-CHRG-TYP-FULL                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT2     Date 07/15/2022  Time 22:39:06   Page     7                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0      25   L6560-SURR-CHRG-TYP-PARTL                                                                                                
+       26   L6560-SURR-CHRG-TYP-PARTL-GRS                                                                                            
+       27   L6560-SURR-CHRG-TYP-PARTL-NET                                                                                            
+       91   L6560-SURR-SALE-LOAD-AMT . . .  M107 M108 M109 M110 M111 M112 146                                                        
+       90   L6560-SURR-SALE-LOAD-INFO                                                                                                
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT2     Date 07/15/2022  Time 22:39:06   Page     8                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      153   0000-EXIT. . . . . . . . . . .  E101                                                                                     
+      105   0000-INITIALIZE. . . . . . . .  P100                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT2     Date 07/15/2022  Time 22:39:06   Page     9                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   INIT2                                                                                                                    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT2     Date 07/15/2022  Time 22:39:06   Page    10                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID INIT2-------------------------------------------------------------------------------------------------------*    
+     15   1  L6560-PARM-INFO . . . . . . . . . . . . . . . BLW=00000  000               DS 0CL1017      Group                        
+     16     2  L6560-INPUT-PARM-INFO . . . . . . . . . . . BLW=00000  000   0 000 000   DS 0CL132       Group                        
+     17       3  L6560-RQST-CD . . . . . . . . . . . . . . BLW=00000  000   0 000 000   DS 2C           Display                      
+     18       88 L6560-RQST-CALC-SURR-CHRG . . . . . . . .                                                                           
+     19       3  L6560-EFF-DT. . . . . . . . . . . . . . . BLW=00000  002   0 000 002   DS 10C          Display                      
+     20       3  L6560-CVG . . . . . . . . . . . . . . . . BLW=00000  00C   0 000 00C   DS 2C           Binary                       
+     21       3  L6560-SURR-AMT. . . . . . . . . . . . . . BLW=00000  00E   0 000 00E   DS 8P           Packed-Dec                   
+     23       3  L6560-SURR-CHRG-TYP-CD. . . . . . . . . . BLW=00000  016   0 000 016   DS 1C           Display                      
+     24       88 L6560-SURR-CHRG-TYP-FULL. . . . . . . . .                                                                           
+     25       88 L6560-SURR-CHRG-TYP-PARTL . . . . . . . .                                                                           
+     26       88 L6560-SURR-CHRG-TYP-PARTL-GRS . . . . . .                                                                           
+     27       88 L6560-SURR-CHRG-TYP-PARTL-NET . . . . . .                                                                           
+     28       3  L6560-POL-ACUM-VALU-AMT . . . . . . . . . BLW=00000  017   0 000 017   DS 8P           Packed-Dec                   
+     30       3  L6560-CVG-ACUM-VALU-AMT . . . . . . . . . BLW=00000  01F   0 000 01F   DS 8P           Packed-Dec                   
+     32       3  L6560-MTHV-ADJ-AMT. . . . . . . . . . . . BLW=00000  027   0 000 027   DS 8P           Packed-Dec                   
+     34       3  L6560-MKTVAL-ADJ-PCT. . . . . . . . . . . BLW=00000  02F   0 000 02F   DS 7P           Packed-Dec                   
+     36       3  L6560-CALC-IF-TERMINATED-SW . . . . . . . BLW=00000  036   0 000 036   DS 1C           Display                      
+     37       88 L6560-CALC-IF-TERMINATED-NO . . . . . . .                                                                           
+     38       88 L6560-CALC-IF-TERMINATED. . . . . . . . .                                                                           
+     39       3  L6560-FREE-WTH-APPLIED-IND. . . . . . . . BLW=00000  037   0 000 037   DS 1C           Display                      
+     40       88 L6560-FREE-WTH-APPLIED. . . . . . . . . .                                                                           
+     41       88 L6560-FREE-WTH-NOT-APPLIED. . . . . . . .                                                                           
+     42       3  L6560-DBSC-INFO . . . . . . . . . . . . . BLW=00000  038   0 000 038   DS 0CL50        Group                        
+     43         4  L6560-DBSC-APPLICABLE-IND . . . . . . . BLW=00000  038   0 000 038   DS 1C           Display                      
+     44         88 L6560-DBSC-APPLICABLE . . . . . . . . .                                                                           
+     45         88 L6560-DBSC-APPLICABLE-NO. . . . . . . .                                                                           
+     46         4  L6560-DBSC-TOT-SURR-AMT . . . . . . . . BLW=00000  039   0 000 039   DS 8P           Packed-Dec                   
+     48         4  L6560-DBSC-TOT-CHRG-AMT . . . . . . . . BLW=00000  041   0 000 041   DS 8P           Packed-Dec                   
+     50         4  L6560-DBSC-TOT-FREE-AMT . . . . . . . . BLW=00000  049   0 000 049   DS 8P           Packed-Dec                   
+     52         4  L6560-DBSC-ASS-SURR-AMT . . . . . . . . BLW=00000  051   0 000 051   DS 8P           Packed-Dec                   
+     54         4  L6560-DBSC-ASS-CHRG-AMT . . . . . . . . BLW=00000  059   0 000 059   DS 8P           Packed-Dec                   
+     56         4  L6560-DBSC-ASS-FREE-AMT . . . . . . . . BLW=00000  061   0 000 061   DS 8P           Packed-Dec                   
+     58         4  L6560-PLAN-FND-TYP-CD . . . . . . . . . BLW=00000  069   0 000 069   DS 1C           Display                      
+     59         88 L6560-PLAN-FND-TYP-SIDE . . . . . . . .                                                                           
+     60         88 L6560-PLAN-FND-TYP-NONE . . . . . . . .                                                                           
+     61         88 L6560-PLAN-FND-TYP-XTRNL. . . . . . . .                                                                           
+     62       3  L6560-SURR-CHRG-OVRID-IND . . . . . . . . BLW=00000  06A   0 000 06A   DS 1C           Display                      
+     63       88 L6560-SURR-CHRG-OVRID-CHRG. . . . . . . .                                                                           
+     64       88 L6560-SURR-CHRG-OVRID-EXE . . . . . . . .                                                                           
+     65       88 L6560-SURR-CHRG-OVRID-FEE . . . . . . . .                                                                           
+     66       88 L6560-SURR-CHRG-OVRID . . . . . . . . . .                                                                           
+     67       88 L6560-SURR-CHRG-OVRID-NO. . . . . . . . .                                                                           
+     68       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00000  06B   0 000 06B   DS 25C          Display                      
+     70     2  L6560-IO-PARM-INFO. . . . . . . . . . . . . BLW=00000  084   0 000 084   DS 0CL25        Group                        
+     71       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00000  084   0 000 084   DS 25C          Display                      
+     73     2  L6560-OUTPUT-PARM-INFO. . . . . . . . . . . BLW=00000  09D   0 000 09D   DS 0CL860       Group                        
+     74       3  L6560-RETRN-CD. . . . . . . . . . . . . . BLW=00000  09D   0 000 09D   DS 2C           Binary                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT2     Date 07/15/2022  Time 22:39:06   Page    11                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+     75       88 L6560-RETRN-OK. . . . . . . . . . . . . .                                                                           
+     76       88 L6560-RETRN-PLAN-NOT-FOUND. . . . . . . .                                                                           
+     77       88 L6560-RETRN-RHRT-NOT-FOUND. . . . . . . .                                                                           
+     78       88 L6560-RETRN-PCNT-NOT-FOUND. . . . . . . .                                                                           
+     79       88 L6560-RETRN-PCT-CALC-ERROR. . . . . . . .                                                                           
+     80       88 L6560-RETRN-INVALID-CVG . . . . . . . . .                                                                           
+     81       88 L6560-RETRN-INVALID-REQUEST . . . . . . .                                                                           
+     82       3  L6560-SURR-CHRG-AMT . . . . . . . . . . . BLW=00000  09F   0 000 09F   DS 8P           Packed-Dec                   
+     84       3  L6560-SURR-CHRG-FLAT-AMT. . . . . . . . . BLW=00000  0A7   0 000 0A7   DS 8P           Packed-Dec                   
+     86       3  L6560-SURR-CHRG-PCT . . . . . . . . . . . BLW=00000  0AF   0 000 0AF   DS 9P           Packed-Dec                   
+     88       3  L6560-MKTVAL-ADJ-AMT. . . . . . . . . . . BLW=00000  0B8   0 000 0B8   DS 8P           Packed-Dec                   
+     90       3  L6560-SURR-SALE-LOAD-INFO . . . . . . . . BLW=00000  0C0   0 000 0C0   DS 0CL8         Group          O             
+     91         4  L6560-SURR-SALE-LOAD-AMT. . . . . . . . BLW=00000  0C0   0 000 0C0   DS 8P           Packed-Dec                   
+     93       3  L6560-FREE-WTHDRW-AMT . . . . . . . . . . BLW=00000  3D8   0 000 3D8   DS 8P           Packed-Dec                   
+     95       3  FILLER. . . . . . . . . . . . . . . . . . BLW=00000  3E0   0 000 3E0   DS 25C          Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT2     Date 07/15/2022  Time 22:39:06   Page    12                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 00002C BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 000284 FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 40404040 40404040 40404040 40404040 40404040 40404040 40404040  |....                            |    
+ 00011C  (LIT+32)     4040                                                                     |                                |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT2     Date 07/15/2022  Time 22:39:06   Page    13                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000128 FOR 00015A BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000130  (LIT+0)      FFFFFFFC 00001000 00000062 00000001 00000000 D3F6F5F6 F060C6D9 C5C560E6  |....................L6560-FREE-W|    
+ 000150  (LIT+32)     E3C8C4D9 E660C1D4 E3404040 40404040 40407E40 D3F6F5F6 F060E2E4 D9D960E2  |THDRW-AMT         = L6560-SURR-S|    
+ 000170  (LIT+64)     C1D3C560 D3D6C1C4 60C1D4E3 404DF2F5 5D407E40 40404040 40404040 4040E2E8  |ALE-LOAD-AMT (25) =           SY|    
+ 000190  (LIT+96)     E2D6E4E3 4040C9C7 E9E2D9E3 C3C4C9D5 C9E3F200 00000000 0000000C 00000000  |SOUT  IGZSRTCDINIT2.............|    
+ 0001B0  (LIT+128)    0010000C 00000000 0000012C 00000001 00000130 00000001 00000000 00000000  |................................|    
+ 0001D0  (LIT+160)    00000000 00000000 00000000 00000000 00000000 00000000 00000000 80000000  |................................|    
+ 0001F0  (LIT+192)    40000000 00000000 00000000 80000000 00000000 00000000 40000000 00000000  | ....................... .......|    
+ 000210  (LIT+224)    00000000 00000000 40000000 0025C000 01C00005 08000024 00760140 00002008  |........ .................. ....|    
+ 000230  (LIT+256)    00002400 1C200800 0F090001 2C03D8FF 01400000 20080000 24003C20 08000F09  |..............Q.. ..............|    
+ 000250  (LIT+288)    00012C01 80FF8000 00000000 00000000 00000000 00004000 00000040 C0000140  |...................... .... ... |    
+ 000270  (LIT+320)    00050800 00240076 02C00005 08000024 0076                                 |..................              |    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000100 00039C PERFORM                       000103 0003BC STOP                          000107 000402 MOVE                          
+ 000114 00042A INITIALIZE                    000143 000550 INITIALIZE                    000145 00059C DISPLAY                       
+ 000148 0005AE DISPLAY                       000151 0005C0 CONTINUE                      000155 0005C8 EXIT                          
+                                                                                                                                     
+0                                                                                                                                    
+   DEBUGINF TABLE LOCATED AT 000650 FOR 000044 BYTES                                                                                 
+                                                                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT2     Date 07/15/2022  Time 22:39:06   Page    14                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  TEST INFORMATION AREA                                                                                    
+                    00015C  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT2     Date 07/15/2022  Time 22:39:06   Page    15                
+0                                                                                                                                    
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  000000E0  VARIABLE-LENGTH CELLS                                                                                    
+                  000000F8  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  00000100  PERFORM SAVE CELLS                                                                                       
+                  00000108  TEMPORARY STORAGE-2                                                                                      
+                  00000118  CALL STATEMENT PROGRAM NAME                                                                              
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000170 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 000003F9 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 000001B8 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 0006C8                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 000824 FOR LENGTH 00009A                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               INIT2     Date 07/15/2022  Time 22:39:06   Page    16                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program INIT2:                                                                                               
+ *    Source records = 155                                                                                                           
+ *    Data Division statements = 59                                                                                                  
+ *    Procedure Division statements = 9                                                                                              
+0End of compilation 1,  program INIT2,  highest severity 4.                                                                          
+0Return code 4                                                                                                                       

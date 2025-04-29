@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip43501FileStatusRec" cobol:name="IP43501-FILE-STATUS-REC" cobol:offset="0" cobol:length="1358" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip43501FsRecType" maxOccurs="1"  cobol:name="IP43501-FS-REC-TYPE" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip43501FsRegularProc88 VALUE [["E1"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip43501FsTransmissionId" maxOccurs="1"  cobol:name="IP43501-FS-TRANSMISSION-ID" cobol:offset="2" cobol:length="25" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="25" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip43501FsFileId" maxOccurs="1"  cobol:name="IP43501-FS-FILE-ID" cobol:offset="27" cobol:length="25" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="25" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip43501FsFileSeqNbr" type="xs:int" maxOccurs="1"  cobol:name="IP43501-FS-FILE-SEQ-NBR" cobol:offset="52" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="Ip43501FsInstitutionId" type="xs:long" maxOccurs="1"  cobol:name="IP43501-FS-INSTITUTION-ID" cobol:offset="55" cobol:length="11" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G"/>
+         <xs:element name="Ip43501FsBin" type="xs:long" maxOccurs="1"  cobol:name="IP43501-FS-BIN" cobol:offset="66" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+    <xs:element name="Ip43501FsCardAcceptor" maxOccurs="1"  cobol:name="IP43501-FS-CARD-ACCEPTOR" cobol:offset="72" cobol:length="15" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="15" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip43501FsSourceMsgNum" type="xs:long" maxOccurs="1"  cobol:name="IP43501-FS-SOURCE-MSG-NUM" cobol:offset="87" cobol:length="10" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10G"/>
+    <xs:element name="Ip43501FsFiller" maxOccurs="1"  cobol:name="IP43501-FS-FILLER" cobol:offset="97" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip43501FsFileStatusInfo" maxOccurs="1" cobol:name="IP43501-FS-FILE-STATUS-INFO" cobol:offset="98" cobol:length="2" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip43501ErrorInfoRecFiller2" maxOccurs="1"  cobol:name="FILLER" cobol:offset="100" cobol:length="1258" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1258" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

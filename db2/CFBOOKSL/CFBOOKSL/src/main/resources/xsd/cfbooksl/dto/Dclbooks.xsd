@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Dclbooks" cobol:name="DCLBOOKS" cobol:offset="0" cobol:length="297" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="BooksBookId" type="xs:int" maxOccurs="1"  cobol:name="BOOKS-BOOK-ID" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+<xs:element name="BooksTitle" maxOccurs="1" cobol:name="BOOKS-TITLE" cobol:offset="4" cobol:length="257" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="BooksTotalPages" type="xs:int" maxOccurs="1"  cobol:name="BOOKS-TOTAL-PAGES" cobol:offset="261" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="BooksRating" maxOccurs="1"  cobol:name="BOOKS-RATING" cobol:offset="265" cobol:length="3" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="4" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="BooksIsbn" maxOccurs="1" cobol:name="BOOKS-ISBN" cobol:offset="268" cobol:length="15" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="BooksPublishedDate" maxOccurs="1"  cobol:name="BOOKS-PUBLISHED-DATE" cobol:offset="283" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="BooksPublisherId" type="xs:int" maxOccurs="1"  cobol:name="BOOKS-PUBLISHER-ID" cobol:offset="293" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

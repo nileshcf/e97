@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip64801LrmCommBlock" cobol:name="IP64801-LRM-COMM-BLOCK" cobol:offset="0" cobol:length="77" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip64801LrmRequest" maxOccurs="1"  cobol:name="IP64801-LRM-REQUEST" cobol:offset="0" cobol:length="4" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip6480188LrmStrtReq VALUE [["STRT"]].
+                        88 ip6480188LrmDoneReq VALUE [["DONE"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="4" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip64801LrmJobgrpName" maxOccurs="1"  cobol:name="IP64801-LRM-JOBGRP-NAME" cobol:offset="4" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip64801LrmJobgrpNum" type="xs:int" maxOccurs="1"  cobol:name="IP64801-LRM-JOBGRP-NUM" cobol:offset="10" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+         <xs:element name="Ip64801LrmSelSqlCnt" type="xs:int" maxOccurs="1"  cobol:name="IP64801-LRM-SEL-SQL-CNT" cobol:offset="12" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+<xs:element name="Ip64801LrmSelSqlDtl" maxOccurs="4" cobol:name="IP64801-LRM-SEL-SQL-DTL" cobol:offset="14" cobol:length="10" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="Ip64801LrmUpdComSql" type="xs:int" maxOccurs="1"  cobol:name="IP64801-LRM-UPD-COM-SQL" cobol:offset="54" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+    <xs:element name="Ip64801LrmUpdComMod" maxOccurs="1"  cobol:name="IP64801-LRM-UPD-COM-MOD" cobol:offset="56" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip64801LrmReqStat" maxOccurs="1"  cobol:name="IP64801-LRM-REQ-STAT" cobol:offset="64" cobol:length="3" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1000" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip6480188LrmStatAok VALUE [["AOK"]].
+                        88 ip6480188LrmStatBad VALUE [["BAD"]].
+                        88 ip6480188LrmStatEnd VALUE [["END"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="3" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip64801LrmBadRsn" maxOccurs="1"  cobol:name="IP64801-LRM-BAD-RSN" cobol:offset="67" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip6480188LrmReqCdBad VALUE [[1]].
+                        88 ip6480188LrmJobGrpBad VALUE [[2]].
+                        88 ip6480188LrmJobNbrBad VALUE [[3]].
+                        88 ip6480188LrmSqlCntBad VALUE [[4]].
+                        88 ip6480188LrmSqlNbrBad VALUE [[5]].
+                        88 ip6480188LrmSqlRtnBad VALUE [[6]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip64801LrmJobgrpId" maxOccurs="1"  cobol:name="IP64801-LRM-JOBGRP-ID" cobol:offset="69" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

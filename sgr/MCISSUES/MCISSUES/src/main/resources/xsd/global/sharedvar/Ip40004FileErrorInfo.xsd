@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip40004FileErrorInfo" cobol:name="IP40004-FILE-ERROR-INFO" cobol:offset="110" cobol:length="19" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip40004ErrorMsgSevCdFil" maxOccurs="1"  cobol:name="IP40004-ERROR-MSG-SEV-CD-FIL" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip40004ErrorNumberFil" type="xs:int" maxOccurs="1"  cobol:name="IP40004-ERROR-NUMBER-FIL" cobol:offset="2" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="Ip40004ErrorMsgNumberFil" type="xs:int" maxOccurs="1"  cobol:name="IP40004-ERROR-MSG-NUMBER-FIL" cobol:offset="6" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+    <xs:element name="Ip40004IpmFieldTypeFil" maxOccurs="1"  cobol:name="IP40004-IPM-FIELD-TYPE-FIL" cobol:offset="10" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip40004MMtiFil88 VALUE [["1"]].
+                        88 ip40004DDataElementFil88 VALUE [["2"]].
+                        88 ip40004PPdsFil88 VALUE [["3"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip40004IpmFieldNumberFil" type="xs:long" maxOccurs="1"  cobol:name="IP40004-IPM-FIELD-NUMBER-FIL" cobol:offset="11" cobol:length="4" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Ip40004IpmSubfldNumberFil" type="xs:long" maxOccurs="1"  cobol:name="IP40004-IPM-SUBFLD-NUMBER-FIL" cobol:offset="15" cobol:length="4" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

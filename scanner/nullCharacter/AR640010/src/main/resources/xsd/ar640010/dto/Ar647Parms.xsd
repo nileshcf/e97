@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ar647Parms" cobol:name="AR647-PARMS" cobol:offset="0" cobol:length="110" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ar647ProgramId" maxOccurs="1"  cobol:name="AR647-PROGRAM-ID" cobol:offset="0" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ar647ReturnCode" maxOccurs="1"  cobol:name="AR647-RETURN-CODE" cobol:offset="8" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ar647RequestSuccessful88 VALUE [[0ALL]].
+                        88 ar647NewDsnCatal88 VALUE [[4]].
+                        88 ar647OldDsnInUse88 VALUE [[8]].
+                        88 ar647OldDsnNotCatal88 VALUE [[12]].
+                        88 ar647OldDsnInvalid88 VALUE [[16]].
+                        88 ar647NewDsnInvalid88 VALUE [[20]].
+                        88 ar647RexxFunctionError88 VALUE [[24]].
+                        88 ar647RexxCallError88 VALUE [[28]].
+                        88 ar647TsoFunctionError88 VALUE [[32]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ar647OldDsn" maxOccurs="1"  cobol:name="AR647-OLD-DSN" cobol:offset="10" cobol:length="44" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="44" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ar647NewDsn" maxOccurs="1"  cobol:name="AR647-NEW-DSN" cobol:offset="54" cobol:length="44" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="44" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ar647FunctionFailureCodes" maxOccurs="1" cobol:name="AR647-FUNCTION-FAILURE-CODES" cobol:offset="98" cobol:length="12" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

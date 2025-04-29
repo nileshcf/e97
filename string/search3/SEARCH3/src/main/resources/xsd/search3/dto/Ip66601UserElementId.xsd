@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip66601UserElementId" cobol:name="IP66601-USER-ELEMENT-ID" cobol:offset="2" cobol:length="4" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip66601UserTagType" maxOccurs="1"  cobol:name="IP66601-USER-TAG-TYPE" cobol:offset="0" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip66601UserMtiTag VALUE [[1]].
+                        88 ip66601UserDeTag VALUE [[2]].
+                        88 ip66601UserPdsTag VALUE [[3]].
+                        88 ip66601UserTagTypeValid VALUE [[1], [2], [3]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip66601UserTagNo" maxOccurs="1"  cobol:name="IP66601-USER-TAG-NO" cobol:offset="2" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip66601UserDeNoValid VALUE [[[0ALL],[128]]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip66102IpmFileInformation" cobol:name="IP66102-IPM-FILE-INFORMATION" cobol:offset="0" cobol:length="15" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Ip66102IpmMsgLngth" type="xs:long" maxOccurs="1"  cobol:name="IP66102-IPM-MSG-LNGTH" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Ip66102IpmMsgsRead" type="xs:int" maxOccurs="1"  cobol:name="IP66102-IPM-MSGS-READ" cobol:offset="4" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Ip66102IpmMsgsWritten" type="xs:int" maxOccurs="1"  cobol:name="IP66102-IPM-MSGS-WRITTEN" cobol:offset="8" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="Ip66102IpmFileStatus" maxOccurs="1"  cobol:name="IP66102-IPM-FILE-STATUS" cobol:offset="12" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip66102IpmIoWasGood VALUE [["00"]].
+                        88 ip66102WeHitEndOfFile VALUE [["10"]].
+                        88 ip66102IpmFileIsAbsent VALUE [["35"]].
+                        88 ip66102IpmFileAlreadyOpen VALUE [["41"]].
+                        88 ip66102IpmFileIsClosed VALUE [["42"], ["47"]].
+                        88 ip66102NoValidNextIpmRec VALUE [["46"]].
+                        88 ip66102RecordAlreadyRead VALUE [["RR"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip66102IsIpmFileFinished" maxOccurs="1"  cobol:name="IP66102-IS-IPM-FILE-FINISHED" cobol:offset="14" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip66102IpmFileIsFinished VALUE [["Y"]].
+                        88 ip66102WeGotAMsg VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

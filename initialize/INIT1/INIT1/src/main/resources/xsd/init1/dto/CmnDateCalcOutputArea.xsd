@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="CmnDateCalcOutputArea" cobol:name="CMN-DATE-CALC-OUTPUT-AREA" cobol:offset="1056" cobol:length="22" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="CmnDateCalcReturnCode" maxOccurs="1"  cobol:name="CMN-DATE-CALC-RETURN-CODE" cobol:offset="0" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 successfulCall12 VALUE [[0ALL]].
+                        88 validParameters12 VALUE [[0ALL]].
+                        88 errorInCall12 VALUE [[[1],[15]]].
+                        88 dateTypeOptionNotValid12 VALUE [[1]].
+                        88 dateDowIndNotValid12 VALUE [[2]].
+                        88 dateDowIndNotNumeric12 VALUE [[3]].
+                        88 invalidCalcType12 VALUE [[5]].
+                        88 outofRangeStrtDateInput12 VALUE [[7]].
+                        88 outofRangeEndDateInput12 VALUE [[8]].
+                        88 nonNumericStrtDateInput12 VALUE [[9]].
+                        88 nonNumericEndDateInput12 VALUE [[10]].
+                        88 nonNumericNbrOfDaysIn12 VALUE [[11]].
+                        88 nonNumericNbrOfMnthsIn12 VALUE [[14]].
+                        88 outOfRangeNbrOfDaysIn12 VALUE [[12]].
+                        88 dataBaseError12 VALUE [[13]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="CmnDateCalcCalculations" maxOccurs="1" cobol:name="CMN-DATE-CALC-CALCULATIONS" cobol:offset="2" cobol:length="20" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

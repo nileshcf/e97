@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="SceAltKey" cobol:name="SCE-ALT-KEY" cobol:offset="17" cobol:length="11" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="SceAltModifier" maxOccurs="1"  cobol:name="SCE-ALT-MODIFIER" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="SceAltToHcpcs" maxOccurs="1"  cobol:name="SCE-ALT-TO-HCPCS" cobol:offset="1" cobol:length="5" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="5" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="SceAltCancDate" type="xs:long" maxOccurs="1"  cobol:name="SCE-ALT-CANC-DATE" cobol:offset="6" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

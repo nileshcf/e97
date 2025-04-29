@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="InputOutboundErrMsgTxt600" cobol:name="600-INPUT-OUTBOUND-ERR-MSG-TXT" cobol:offset="0" cobol:length="57" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="InputOutboundMsgDtl600" maxOccurs="1"  cobol:name="600-INPUT-OUTBOUND-MSG-DTL" cobol:offset="0" cobol:length="40" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 inputFileOpenErrTxt88600 VALUE [["ERROR OPENING INPUT IPM OUTBOUND FILE   "]].
+                        88 inputFileReadErrTxt88600 VALUE [["ERROR READING INPUT IPM OUTBOUND FILE   "]].
+                        88 inputFileClosErrTxt88600 VALUE [["ERROR CLOSING INPUT IPM OUTBOUND FILE   "]].
+                        88 inputFileEmtyErrTxt88600 VALUE [["EMPTY UNSCRUBBED IPM OUTBOUND FILE      "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="40" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="InputOutboundErrMsgTxt600Filler1" maxOccurs="1"  cobol:name="FILLER" cobol:offset="40" cobol:length="15" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="15" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="InputOtbndFileStatus600" maxOccurs="1"  cobol:name="600-INPUT-OTBND-FILE-STATUS" cobol:offset="55" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

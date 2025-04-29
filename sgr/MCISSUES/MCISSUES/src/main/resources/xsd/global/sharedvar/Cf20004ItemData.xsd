@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Cf20004ItemData" cobol:name="CF20004-ITEM-DATA" cobol:offset="28" cobol:length="5" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Cf20004ItemCount" type="xs:int" maxOccurs="1"  cobol:name="CF20004-ITEM-COUNT" cobol:offset="0" cobol:length="2" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Cf20004SearchStringSt" type="xs:int" maxOccurs="1"  cobol:name="CF20004-SEARCH-STRING-ST" cobol:offset="0" cobol:length="2" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Cf20004ItemLength" type="xs:int" maxOccurs="1"  cobol:name="CF20004-ITEM-LENGTH" cobol:offset="2" cobol:length="2" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Cf20004SearchStringLt" type="xs:int" maxOccurs="1"  cobol:name="CF20004-SEARCH-STRING-LT" cobol:offset="2" cobol:length="2" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="Cf20004ItemType" maxOccurs="1"  cobol:name="CF20004-ITEM-TYPE" cobol:offset="4" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 cf20004ValueList88 VALUE [["L"]].
+                        88 cf20004ValueRange88 VALUE [["R"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

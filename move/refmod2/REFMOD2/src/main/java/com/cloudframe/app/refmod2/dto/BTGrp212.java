@@ -1,0 +1,35 @@
+package com.cloudframe.app.refmod2.dto;
+
+/**
+*  The class BTGrp212 is used to handle fields declared in it
+*  @author CloudFrame Inc.
+*  created on 2025-04-29 at 05:34. using version 5.0.0.257
+**/
+
+
+import com.cloudframe.annotation.processor.Data;
+import com.cloudframe.annotation.processor.Getter;
+import com.cloudframe.annotation.processor.Setter;
+
+
+@Data
+public class BTGrp212 extends BTGrp212Serialized {
+   
+				@Getter @Setter private BT212 bT212 = new BT212();
+	
+	/**
+	* Constructor for BTGrp212
+	**/
+    public BTGrp212() {
+		super();
+		/*  set the parent of each child as this which are a group variable */
+					getBT212().setParent(this,getStartOffset() + 5);
+	   	/*  end of offset */
+    }
+
+
+
+
+
+}
+  

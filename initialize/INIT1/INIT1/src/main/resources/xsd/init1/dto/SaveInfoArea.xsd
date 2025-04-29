@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="SaveInfoArea" cobol:name="WS-SAVE-INFO-AREA" cobol:offset="0" cobol:length="623" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="KeyInvCustAcct" maxOccurs="1" cobol:name="WS-KEY-INV-CUST-ACCT" cobol:offset="0" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="KeyCpduCustAcct" maxOccurs="1" cobol:name="WS-KEY-CPDU-CUST-ACCT" cobol:offset="8" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="KeyLsbcaCustAcct" maxOccurs="1" cobol:name="WS-KEY-LSBCA-CUST-ACCT" cobol:offset="16" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="KeyLsgremCustAcct" maxOccurs="1" cobol:name="WS-KEY-LSGREM-CUST-ACCT" cobol:offset="24" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="KeyAtdsumCustAcct" maxOccurs="1" cobol:name="WS-KEY-ATDSUM-CUST-ACCT" cobol:offset="32" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="KeyCpduMtn" maxOccurs="1" cobol:name="WS-KEY-CPDU-MTN" cobol:offset="40" cobol:length="10" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="KeyCpduPrev" maxOccurs="1" cobol:name="WS-KEY-CPDU-PREV" cobol:offset="50" cobol:length="88" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="KeyLsbcaMtn" maxOccurs="1" cobol:name="WS-KEY-LSBCA-MTN" cobol:offset="138" cobol:length="10" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="KeyLsbcaPrev" maxOccurs="1" cobol:name="WS-KEY-LSBCA-PREV" cobol:offset="148" cobol:length="62" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="HldIldclLnShrGrpNo" type="xs:int" maxOccurs="1"  cobol:name="WS-HLD-ILDCL-LN-SHR-GRP-NO" cobol:offset="210" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="HldIldcrLnShrGrpNo" type="xs:int" maxOccurs="1"  cobol:name="WS-HLD-ILDCR-LN-SHR-GRP-NO" cobol:offset="214" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="CpduOffrTypCd" maxOccurs="1"  cobol:name="WS-CPDU-OFFR-TYP-CD" cobol:offset="218" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="KeyUsgCustAcct" maxOccurs="1" cobol:name="WS-KEY-USG-CUST-ACCT" cobol:offset="220" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="KeyUsgMtn" maxOccurs="1" cobol:name="WS-KEY-USG-MTN" cobol:offset="228" cobol:length="10" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="KeyUsgPrev" maxOccurs="1" cobol:name="WS-KEY-USG-PREV" cobol:offset="238" cobol:length="90" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="KeyLsgPrev" maxOccurs="1" cobol:name="WS-KEY-LSG-PREV" cobol:offset="328" cobol:length="33" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="UsgOffrTypCd" maxOccurs="1"  cobol:name="WS-USG-OFFR-TYP-CD" cobol:offset="361" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="UsgBeginDtIso" type="xs:long" maxOccurs="1"  cobol:name="WS-USG-BEGIN-DT-ISO" cobol:offset="363" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+         <xs:element name="LsgBlPerFromDtIso" type="xs:long" maxOccurs="1"  cobol:name="WS-LSG-BL-PER-FROM-DT-ISO" cobol:offset="371" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+         <xs:element name="LsgBlPerToDtIso" type="xs:long" maxOccurs="1"  cobol:name="WS-LSG-BL-PER-TO-DT-ISO" cobol:offset="379" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="KeyMtnFile" maxOccurs="1" cobol:name="WS-KEY-MTN-FILE" cobol:offset="387" cobol:length="18" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="CustMtnStatCd" maxOccurs="1"  cobol:name="WS-CUST-MTN-STAT-CD" cobol:offset="405" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="KeyGlbCustAcct" maxOccurs="1" cobol:name="WS-KEY-GLB-CUST-ACCT" cobol:offset="406" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="KeyM2mPromo" maxOccurs="1" cobol:name="WS-KEY-M2M-PROMO" cobol:offset="414" cobol:length="18" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="ErrAcctRecord" maxOccurs="1" cobol:name="WS-ERR-ACCT-RECORD" cobol:offset="432" cobol:length="66" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="ErrAcctRecordSave" maxOccurs="1" cobol:name="WS-ERR-ACCT-RECORD-SAVE" cobol:offset="498" cobol:length="57" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="InvJitrEligDtIso" type="xs:long" maxOccurs="1"  cobol:name="WS-INV-JITR-ELIG-DT-ISO" cobol:offset="555" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+         <xs:element name="InvCycEffDtIso" type="xs:long" maxOccurs="1"  cobol:name="WS-INV-CYC-EFF-DT-ISO" cobol:offset="563" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+    <xs:element name="InvPrevBlCycNo" maxOccurs="1"  cobol:name="WS-INV-PREV-BL-CYC-NO" cobol:offset="571" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="DelayedCycNo" maxOccurs="1"  cobol:name="WS-DELAYED-CYC-NO" cobol:offset="573" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="InvInvoiceNo" type="xs:long" maxOccurs="1"  cobol:name="WS-INV-INVOICE-NO" cobol:offset="575" cobol:length="18" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1E"/>
+    <xs:element name="TooLateFlagSw" maxOccurs="1"  cobol:name="WS-TOO-LATE-FLAG-SW" cobol:offset="593" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 tooLateFlag VALUE [["Y"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="Parm" maxOccurs="1" cobol:name="WS-PARM" cobol:offset="594" cobol:length="15" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="Rl001DtlBlSegregateNo" type="xs:int" maxOccurs="1"  cobol:name="WS-RL001-DTL-BL-SEGREGATE-NO" cobol:offset="609" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+<xs:element name="FgvUsgRecord" maxOccurs="1" cobol:name="WS-FGV-USG-RECORD" cobol:offset="611" cobol:length="12" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

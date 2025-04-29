@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Dt1RequestArea" cobol:name="DT1-REQUEST-AREA" cobol:offset="0" cobol:length="400" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Dt1ReqViewName" maxOccurs="1"  cobol:name="DT1-REQ-VIEW-NAME" cobol:offset="0" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1ReqViewVersionNbr" maxOccurs="1"  cobol:name="DT1-REQ-VIEW-VERSION-NBR" cobol:offset="8" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1ReqSearchType" maxOccurs="1"  cobol:name="DT1-REQ-SEARCH-TYPE" cobol:offset="10" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dt1ReqValidRequest VALUE [["1"], ["4"], ["5"], ["6"], ["7"]].
+                        88 dt1ReqSearchIcnOnly VALUE [["1"]].
+                        88 dt1ReqSearchMemberPlus VALUE [["4"]].
+                        88 dt1ReqSearchMbrAuthNbr VALUE [["5"]].
+                        88 dt1ReqSearchAuthsOnly VALUE [["6"]].
+                        88 dt1ReqSearchCategory VALUE [["7"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Dt1ReqEmpid" maxOccurs="1"  cobol:name="DT1-REQ-EMPID" cobol:offset="11" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1ReqPolicy" maxOccurs="1"  cobol:name="DT1-REQ-POLICY" cobol:offset="21" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Dt1ReqDepNbr" type="xs:int" maxOccurs="1"  cobol:name="DT1-REQ-DEP-NBR" cobol:offset="27" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+    <xs:element name="Dt1ReqFirstName" maxOccurs="1"  cobol:name="DT1-REQ-FIRST-NAME" cobol:offset="30" cobol:length="16" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="16" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1ReqRel" maxOccurs="1"  cobol:name="DT1-REQ-REL" cobol:offset="46" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1ReqSystem" maxOccurs="1"  cobol:name="DT1-REQ-SYSTEM" cobol:offset="48" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Dt1ReqFilmOffice" type="xs:int" maxOccurs="1"  cobol:name="DT1-REQ-FILM-OFFICE" cobol:offset="49" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="Dt1ReqFln" type="xs:long" maxOccurs="1"  cobol:name="DT1-REQ-FLN" cobol:offset="52" cobol:length="10" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10G"/>
+    <xs:element name="Dt1ReqIcn" maxOccurs="1"  cobol:name="DT1-REQ-ICN" cobol:offset="62" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Dt1ReqFirstServiceDate" type="xs:long" maxOccurs="1"  cobol:name="DT1-REQ-FIRST-SERVICE-DATE" cobol:offset="72" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+         <xs:element name="Dt1ReqLastServiceDate" type="xs:long" maxOccurs="1"  cobol:name="DT1-REQ-LAST-SERVICE-DATE" cobol:offset="80" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+         <xs:element name="Dt1ReqProviderTin" type="xs:long" maxOccurs="1"  cobol:name="DT1-REQ-PROVIDER-TIN" cobol:offset="88" cobol:length="9" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="Dt1ReqFundingResp" maxOccurs="1"  cobol:name="DT1-REQ-FUNDING-RESP" cobol:offset="97" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dt1ReqAllFunding VALUE [["0"]].
+                        88 dt1ReqFullyInsured VALUE [["1"]].
+                        88 dt1ReqSelfFunded VALUE [["2"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Dt1ReqAuthNbr" maxOccurs="1"  cobol:name="DT1-REQ-AUTH-NBR" cobol:offset="98" cobol:length="50" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="50" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1ReqServiceCategory" maxOccurs="1"  cobol:name="DT1-REQ-SERVICE-CATEGORY" cobol:offset="148" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1ReqSpiCategoryCd" maxOccurs="5"  cobol:name="DT1-REQ-SPI-CATEGORY-CD" cobol:offset="150" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1ReqNextKey" maxOccurs="1"  cobol:name="DT1-REQ-NEXT-KEY" cobol:offset="160" cobol:length="80" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dt1ReqStartAtTop VALUE [["                                                                                "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="80" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Dt1ReqClmItemsRequested" maxOccurs="1"  cobol:name="DT1-REQ-CLM-ITEMS-REQUESTED" cobol:offset="240" cobol:length="5" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="5" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1ReqCptFrom" maxOccurs="1"  cobol:name="DT1-REQ-CPT-FROM" cobol:offset="245" cobol:length="7" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="7" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1ReqCptThru" maxOccurs="1"  cobol:name="DT1-REQ-CPT-THRU" cobol:offset="252" cobol:length="7" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="7" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1ReqRevFrom" maxOccurs="1"  cobol:name="DT1-REQ-REV-FROM" cobol:offset="259" cobol:length="5" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="5" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1ReqRevThru" maxOccurs="1"  cobol:name="DT1-REQ-REV-THRU" cobol:offset="264" cobol:length="5" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="5" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1ReqRemarkCd" maxOccurs="1"  cobol:name="DT1-REQ-REMARK-CD" cobol:offset="269" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1ReqProvSpclCd" maxOccurs="1"  cobol:name="DT1-REQ-PROV-SPCL-CD" cobol:offset="271" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1ReqCauseCd" maxOccurs="1"  cobol:name="DT1-REQ-CAUSE-CD" cobol:offset="274" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1ReqAppliedToOopInd" maxOccurs="1"  cobol:name="DT1-REQ-APPLIED-TO-OOP-IND" cobol:offset="275" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dt1SelectClaimsWithOop VALUE [["Y"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Dt1ReqFillerArea" maxOccurs="1"  cobol:name="DT1-REQ-FILLER-AREA" cobol:offset="276" cobol:length="124" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="124" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

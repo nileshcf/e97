@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Work" cobol:name="work" cobol:offset="0" cobol:length="50" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="WrkDb1dayFlt" maxOccurs="1"  cobol:name="WRK-DB-1DAY-FLT" cobol:offset="0" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="9" />
+                  <xs:fractionDigits value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="WrkDb1dayFltDisp" maxOccurs="1"  cobol:name="WRK-DB-1DAY-FLT-DISP" cobol:offset="5" cobol:length="11" cobol:datatype="Disp-Num-Edit" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="11" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="AxisWpCoiAccum" maxOccurs="1"  cobol:name="AXIS-WP-COI-ACCUM" cobol:offset="16" cobol:length="15" cobol:datatype="Disp-Num" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="AxisWpCoiRound" type="xs:int" maxOccurs="1"  cobol:name="AXIS-WP-COI-ROUND" cobol:offset="31" cobol:length="9" cobol:datatype="Disp-Num" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="AxisWpCoiRoundDisp" maxOccurs="1"  cobol:name="AXIS-WP-COI-ROUND-DISP" cobol:offset="40" cobol:length="10" cobol:datatype="Disp-Num-Edit" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

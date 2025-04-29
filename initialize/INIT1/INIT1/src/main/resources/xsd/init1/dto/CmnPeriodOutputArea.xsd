@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="CmnPeriodOutputArea" cobol:name="CMN-PERIOD-OUTPUT-AREA" cobol:offset="1028" cobol:length="20" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="CmnPeriodReturnCode" maxOccurs="1"  cobol:name="CMN-PERIOD-RETURN-CODE" cobol:offset="0" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 successfulCall17 VALUE [[0ALL]].
+                        88 validPeriod17 VALUE [[0ALL]].
+                        88 errorInCall17 VALUE [[[1],[9]]].
+                        88 outofRangePeriodInputMm17 VALUE [[7]].
+                        88 nonNumericPeriodInputMm17 VALUE [[8]].
+                        88 nonNumericPeriodInputYy17 VALUE [[9]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="CmnPeriodOutputYyyymm" maxOccurs="1" cobol:name="CMN-PERIOD-OUTPUT-YYYYMM" cobol:offset="1" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="CmnPeriodOutputMonthYyyy" maxOccurs="1" cobol:name="CMN-PERIOD-OUTPUT-MONTH-YYYY" cobol:offset="7" cobol:length="13" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

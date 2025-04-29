@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Bdms01PriceSegData" cobol:name="BDMS01-PRICE-SEG-DATA" cobol:offset="500" cobol:length="162" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Bdms01PriceSegSqlcd" type="xs:int" maxOccurs="1"  cobol:name="BDMS01-PRICE-SEG-SQLCD" cobol:offset="0" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+<xs:element name="MsdPriceCcyymmdd" maxOccurs="1" cobol:name="MSD-PRICE-CCYYMMDD" cobol:offset="4" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="MsdSecurityPrice" maxOccurs="1"  cobol:name="MSD-SECURITY-PRICE" cobol:offset="12" cobol:length="18" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1E">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="18" />
+                  <xs:fractionDigits value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdSecurityPriceHi" maxOccurs="1"  cobol:name="MSD-SECURITY-PRICE-HI" cobol:offset="30" cobol:length="18" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1E">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="18" />
+                  <xs:fractionDigits value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdSecurityPriceLow" maxOccurs="1"  cobol:name="MSD-SECURITY-PRICE-LOW" cobol:offset="48" cobol:length="18" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1E">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="18" />
+                  <xs:fractionDigits value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01PriceIssueWhenInd" maxOccurs="1"  cobol:name="BDMS01-PRICE-ISSUE-WHEN-IND" cobol:offset="66" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01PriceExchangeCode" maxOccurs="1"  cobol:name="BDMS01-PRICE-EXCHANGE-CODE" cobol:offset="67" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01PriceCurrencyCd" maxOccurs="1"  cobol:name="BDMS01-PRICE-CURRENCY-CD" cobol:offset="77" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01VendorCd" maxOccurs="1"  cobol:name="BDMS01-VENDOR-CD" cobol:offset="79" cobol:length="5" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="5" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01PriceSetDt" maxOccurs="1"  cobol:name="BDMS01-PRICE-SET-DT" cobol:offset="84" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01PriceCountryCd" maxOccurs="1"  cobol:name="BDMS01-PRICE-COUNTRY-CD" cobol:offset="94" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01CloseAvSw" maxOccurs="1"  cobol:name="BDMS01-CLOSE-AV-SW" cobol:offset="96" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01AskHiSw" maxOccurs="1"  cobol:name="BDMS01-ASK-HI-SW" cobol:offset="98" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01BidLoSw" maxOccurs="1"  cobol:name="BDMS01-BID-LO-SW" cobol:offset="100" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdHousePrice" maxOccurs="1"  cobol:name="MSD-HOUSE-PRICE" cobol:offset="102" cobol:length="16" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="16" />
+                  <xs:fractionDigits value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdHousePriceDate" maxOccurs="1"  cobol:name="MSD-HOUSE-PRICE-DATE" cobol:offset="118" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdHousePriceSource" maxOccurs="1"  cobol:name="MSD-HOUSE-PRICE-SOURCE" cobol:offset="128" cobol:length="15" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="15" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdHousePriceRegion" maxOccurs="1"  cobol:name="MSD-HOUSE-PRICE-REGION" cobol:offset="143" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 msdHousePriceNa VALUE [["N"], [" "]].
+                        88 msdHousePriceEmea VALUE [["E"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Bdms01CallParametersFiller8" maxOccurs="1"  cobol:name="FILLER" cobol:offset="144" cobol:length="18" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="18" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

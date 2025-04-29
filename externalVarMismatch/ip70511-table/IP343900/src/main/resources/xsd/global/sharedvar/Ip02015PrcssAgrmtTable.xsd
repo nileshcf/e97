@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip02015PrcssAgrmtTable" cobol:name="IP02015-PRCSS-AGRMT-TABLE" cobol:offset="0" cobol:length="28620" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Ip02015PasFoundCount" type="xs:int" maxOccurs="1"  cobol:name="IP02015-PAS-FOUND-COUNT" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="Ip02015HostPrcssAgrmtId" maxOccurs="1"  cobol:name="IP02015-HOST-PRCSS-AGRMT-ID" cobol:offset="4" cobol:length="11" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="11" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015HostGeoScopeCode" maxOccurs="1"  cobol:name="IP02015-HOST-GEO-SCOPE-CODE" cobol:offset="15" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip02015HostPaGlobal88 VALUE [["G"]].
+                        88 ip02015HostPaLocal88 VALUE [["L"]].
+                        88 ip02015HostPaRegional88 VALUE [["R"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip02015HostClrPrcssCd" maxOccurs="1"  cobol:name="IP02015-HOST-CLR-PRCSS-CD" cobol:offset="16" cobol:length="4" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip02015HostGlobalPrcCd88 VALUE [["GCMS"]].
+                        88 ip02015HostLocalPrcCd88 VALUE [["LCMS"]].
+                        88 ip02015HostRedactPrcCd88 VALUE [["RCMS"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="4" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="Ip02015PrcssAgrmtTabEnt" maxOccurs="1" cobol:name="IP02015-PRCSS-AGRMT-TAB-ENT" cobol:offset="20" cobol:length="28600" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

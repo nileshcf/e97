@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Work" cobol:name="work" cobol:offset="0" cobol:length="18" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="LastDeTag800" type="xs:int" maxOccurs="1"  cobol:name="800-LAST-DE-TAG" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Srchval" type="xs:int" maxOccurs="1"  cobol:name="WS-SRCHVAL" cobol:offset="0" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+         <xs:element name="I" type="xs:short" maxOccurs="1"  cobol:name="WS-I" cobol:offset="2" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Start" type="xs:short" maxOccurs="1"  cobol:name="WS-START" cobol:offset="2" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Len" type="xs:short" maxOccurs="1"  cobol:name="WS-LEN" cobol:offset="2" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="ValueCr300" maxOccurs="1"  cobol:name="300-VALUE-CR" cobol:offset="2" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="ValueDr300" maxOccurs="1"  cobol:name="300-VALUE-DR" cobol:offset="2" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="AccAmount801" type="xs:short" maxOccurs="1"  cobol:name="801-ACC-AMOUNT" cobol:offset="2" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="AccFinNonFinInd400" maxOccurs="1"  cobol:name="400-ACC-FIN-NON-FIN-IND" cobol:offset="2" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="AccFinNonFinAmt400" type="xs:short" maxOccurs="1"  cobol:name="400-ACC-FIN-NON-FIN-AMT" cobol:offset="2" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="EntryFoundFlg" maxOccurs="1"  cobol:name="ENTRY-FOUND-FLG" cobol:offset="2" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 entryFoundY VALUE [["Y"]].
+                        88 entryNotFoundN VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip66601UserTagType01" type="xs:short" maxOccurs="1"  cobol:name="WS-IP66601-USER-TAG-TYPE" cobol:offset="2" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="Ip66601UserTagNo01" type="xs:short" maxOccurs="1"  cobol:name="WS-IP66601-USER-TAG-NO" cobol:offset="6" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="Ip66601UserTagOccurrence01" type="xs:short" maxOccurs="1"  cobol:name="WS-IP66601-USER-TAG-OCCURRENCE" cobol:offset="10" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="Ip66601UserTagSubfldNo01" type="xs:short" maxOccurs="1"  cobol:name="WS-IP66601-USER-TAG-SUBFLD-NO" cobol:offset="14" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="Ip66601UserTagStart01" type="xs:short" maxOccurs="1"  cobol:name="WS-IP66601-USER-TAG-START" cobol:offset="18" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Ip66601UserTagLngth01" type="xs:short" maxOccurs="1"  cobol:name="WS-IP66601-USER-TAG-LNGTH" cobol:offset="18" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="Ip66601UserTagStatus01" maxOccurs="1"  cobol:name="WS-IP66601-USER-TAG-STATUS" cobol:offset="18" cobol:length="1" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="L6560OutputParmInfo" cobol:name="L6560-OUTPUT-PARM-INFO" cobol:offset="157" cobol:length="860" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="L6560RetrnCd" maxOccurs="1"  cobol:name="L6560-RETRN-CD" cobol:offset="0" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 l6560RetrnOk VALUE [[0ALL]].
+                        88 l6560RetrnPlanNotFound VALUE [[8]].
+                        88 l6560RetrnRhrtNotFound VALUE [[9]].
+                        88 l6560RetrnPcntNotFound VALUE [[10]].
+                        88 l6560RetrnPctCalcError VALUE [[80]].
+                        88 l6560RetrnInvalidCvg VALUE [[90]].
+                        88 l6560RetrnInvalidRequest VALUE [[99]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="L6560SurrChrgAmt" maxOccurs="1"  cobol:name="L6560-SURR-CHRG-AMT" cobol:offset="2" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="L6560SurrChrgFlatAmt" maxOccurs="1"  cobol:name="L6560-SURR-CHRG-FLAT-AMT" cobol:offset="10" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="L6560SurrChrgPct" maxOccurs="1"  cobol:name="L6560-SURR-CHRG-PCT" cobol:offset="18" cobol:length="9" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="17" />
+                  <xs:fractionDigits value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="L6560MktvalAdjAmt" maxOccurs="1"  cobol:name="L6560-MKTVAL-ADJ-AMT" cobol:offset="27" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="L6560SurrSaleLoadInfo" maxOccurs="99" cobol:name="L6560-SURR-SALE-LOAD-INFO" cobol:offset="35" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="L6560FreeWthdrwAmt" maxOccurs="1"  cobol:name="L6560-FREE-WTHDRW-AMT" cobol:offset="827" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="L6560ParmInfoFiller2" maxOccurs="1"  cobol:name="FILLER" cobol:offset="835" cobol:length="25" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="25" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

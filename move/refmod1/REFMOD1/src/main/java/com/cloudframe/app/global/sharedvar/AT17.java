@@ -1,0 +1,56 @@
+package com.cloudframe.app.global.sharedvar;
+
+/**
+*  The class AT17 is used to handle fields declared in it
+*  @author CloudFrame Inc.
+*  created on 2025-04-29 at 05:34. using version 5.0.0.257
+**/
+
+
+import com.cloudframe.annotation.processor.Data;
+import com.cloudframe.annotation.processor.Getter;
+import com.cloudframe.annotation.processor.Setter;
+import com.cloudframe.app.data.Field;
+import com.cloudframe.app.common.CONSTANTS;
+
+
+@Data
+public class AT17 extends AT17Serialized { 
+   
+
+						@Getter @Setter private char[] aTFld117 = Field.fillLowValue(20);
+
+						@Getter @Setter private char[] aTFld217 = Field.fillLowValue(40);
+	
+	/**
+	* Constructor for AT17
+	**/
+    public AT17() {
+	// TO-DO auto generated code
+    }
+
+
+	/**
+	* Constructor for AT17. sets the parent value to the parent
+	* @param parent
+	* @param begin
+	**/
+    public AT17(Field parent,int begin) {
+    	   setParent(parent,begin);
+    }
+    
+
+	/**
+	 * 	initializes AT17
+	 *  String fields defaults to Spaces
+	 *  short/int/long defaults to zero
+	 *  BigDecimal defaults to BigDecimal.ZERO
+	 */
+   public void initialize() {
+         setATFld117(CONSTANTS.SPACE_20);
+         setATFld217(CONSTANTS.SPACE_40);
+   }
+
+
+}
+  

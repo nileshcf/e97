@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="SvHeaderData282" cobol:name="282-SV-HEADER-DATA" cobol:offset="0" cobol:length="215" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="SvHeaderId282" maxOccurs="1"  cobol:name="282-SV-HEADER-ID" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="SvVersion282" type="xs:int" maxOccurs="1"  cobol:name="282-SV-VERSION" cobol:offset="2" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+         <xs:element name="SvHdrLength282" type="xs:long" maxOccurs="1"  cobol:name="282-SV-HDR-LENGTH" cobol:offset="4" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+         <xs:element name="SvTlvLength282" type="xs:int" maxOccurs="1"  cobol:name="282-SV-TLV-LENGTH" cobol:offset="10" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+<xs:element name="SvServiceTable282" maxOccurs="8" cobol:name="282-SV-SERVICE-TABLE" cobol:offset="11" cobol:length="13" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="SvFiller282" maxOccurs="1"  cobol:name="282-SV-FILLER" cobol:offset="115" cobol:length="100" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="100" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="DrstReturnArea" cobol:name="DRST-RETURN-AREA" cobol:offset="299" cobol:length="43" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="DrstReturnCode" maxOccurs="1"  cobol:name="DRST-RETURN-CODE" cobol:offset="0" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1000" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 drstNoError VALUE [[0ALL]].
+                        88 drstEditError VALUE [[1]].
+                        88 drstCicsError VALUE [[2]].
+                        88 drstDb2Error VALUE [[999]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="DrstEditErrorField" maxOccurs="1"  cobol:name="DRST-EDIT-ERROR-FIELD" cobol:offset="3" cobol:length="20" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="20" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="DrstEditErrorValueTxt" maxOccurs="1" cobol:name="DRST-EDIT-ERROR-VALUE-TXT" cobol:offset="23" cobol:length="17" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

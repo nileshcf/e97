@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="CycleInfo" cobol:name="WS-CYCLE-INFO" cobol:offset="0" cobol:length="132" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="JobIterNo" type="xs:int" maxOccurs="1"  cobol:name="WS-JOB-ITER-NO" cobol:offset="0" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+    <xs:element name="BlTypCd" maxOccurs="1"  cobol:name="WS-BL-TYP-CD" cobol:offset="2" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="CycNo" type="xs:int" maxOccurs="1"  cobol:name="WS-CYC-NO" cobol:offset="4" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+    <xs:element name="CycAsofDt" maxOccurs="1"  cobol:name="WS-CYC-ASOF-DT" cobol:offset="6" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="CycStartDt" maxOccurs="1"  cobol:name="WS-CYC-START-DT" cobol:offset="16" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="CycEndDt" maxOccurs="1"  cobol:name="WS-CYC-END-DT" cobol:offset="26" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="CycStartDtIso" type="xs:long" maxOccurs="1"  cobol:name="WS-CYC-START-DT-ISO" cobol:offset="36" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+         <xs:element name="CycEndDtIso" type="xs:long" maxOccurs="1"  cobol:name="WS-CYC-END-DT-ISO" cobol:offset="44" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+    <xs:element name="CycMthYr" maxOccurs="1"  cobol:name="WS-CYC-MTH-YR" cobol:offset="52" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="BlStreamCd" maxOccurs="1"  cobol:name="WS-BL-STREAM-CD" cobol:offset="58" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="VisionInstanceCd" maxOccurs="1"  cobol:name="WS-VISION-INSTANCE-CD" cobol:offset="59" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 visionB2bInstance VALUE [["B"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="ChgBlEndIso" type="xs:long" maxOccurs="1"  cobol:name="WS-CHG-BL-END-ISO" cobol:offset="60" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="ChgBlEndIsoRedefined" maxOccurs="1" cobol:name="WS-CHG-BL-END-ISO-REDEFINED" cobol:offset="60" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="ChgDtIso" type="xs:long" maxOccurs="1"  cobol:name="WS-CHG-DT-ISO" cobol:offset="68" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="ChgDtIsoRedefined" maxOccurs="1" cobol:name="WS-CHG-DT-ISO-REDEFINED" cobol:offset="68" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="ChgStartDtIso" type="xs:long" maxOccurs="1"  cobol:name="WS-CHG-START-DT-ISO" cobol:offset="76" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="ChgStartDtIsoRedefined" maxOccurs="1" cobol:name="WS-CHG-START-DT-ISO-REDEFINED" cobol:offset="76" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="ChgStartDtIso2" type="xs:long" maxOccurs="1"  cobol:name="WS-CHG-START-DT-ISO-2" cobol:offset="84" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="ChgStartDtIso2Redefined" maxOccurs="1" cobol:name="WS-CHG-START-DT-ISO-2-REDEFINED" cobol:offset="84" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="ChgStartDtIso3" type="xs:long" maxOccurs="1"  cobol:name="WS-CHG-START-DT-ISO-3" cobol:offset="92" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="ChgStartDtIso3Redefined" maxOccurs="1" cobol:name="WS-CHG-START-DT-ISO-3-REDEFINED" cobol:offset="92" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="ChgEndDtIso" type="xs:long" maxOccurs="1"  cobol:name="WS-CHG-END-DT-ISO" cobol:offset="100" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="ChgEndDtIsoRedefined" maxOccurs="1" cobol:name="WS-CHG-END-DT-ISO-REDEFINED" cobol:offset="100" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="ChgEndDtIso2" type="xs:long" maxOccurs="1"  cobol:name="WS-CHG-END-DT-ISO-2" cobol:offset="108" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="ChgEndDtIso2Redefined" maxOccurs="1" cobol:name="WS-CHG-END-DT-ISO-2-REDEFINED" cobol:offset="108" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="ChgEndDtIso3" type="xs:long" maxOccurs="1"  cobol:name="WS-CHG-END-DT-ISO-3" cobol:offset="116" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="ChgEndDtIso3Redefined" maxOccurs="1" cobol:name="WS-CHG-END-DT-ISO-3-REDEFINED" cobol:offset="116" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="CycChangeNo" maxOccurs="1"  cobol:name="WS-CYC-CHANGE-NO" cobol:offset="124" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 noCycChanged VALUE [["  "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="CycChangeBp" maxOccurs="1"  cobol:name="WS-CYC-CHANGE-BP" cobol:offset="126" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 cycChangeBp2 VALUE [[2]].
+                        88 cycChangeBp3 VALUE [[3]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="LeapYear" type="xs:int" maxOccurs="1"  cobol:name="WS-LEAP-YEAR" cobol:offset="127" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+    <xs:element name="LeapYearRemainder" maxOccurs="1"  cobol:name="WS-LEAP-YEAR-REMAINDER" cobol:offset="131" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 leapYear1 VALUE [[0ALL]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

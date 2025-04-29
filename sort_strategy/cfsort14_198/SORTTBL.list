@@ -1,0 +1,1327 @@
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905                 Date 01/19/2021  Time 08:59:51   Page     1                
+0Invocation parameters:                                                                                                              
+  LIST,MAP,XREF,OFFSET,LIB,TRUNC(BIN),AWO,NUMPROC(PFD),TEST(SOURCE,SEPARATE)                                                         
+                                                                                                                                     
+         IGYOS4090-I   The "LIB" option specification is no longer required.  COBOL library processing is always in effect.          
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4020-W   The "LIST" option was discarded due to option conflict resolution.  The "OFFSET" option from compiler         
+                       invocation parameter took precedence.                                                                         
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    AFP(NOVOLATILE)                                                                                                                  
+    QUOTE                                                                                                                            
+    ARCH(7)                                                                                                                          
+    ARITH(COMPAT)                                                                                                                    
+    AWO                                                                                                                              
+  NOBLOCK0                                                                                                                           
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCOPYLOC                                                                                                                          
+  NOCOPYRIGHT                                                                                                                        
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODEFINE                                                                                                                           
+  NODIAGTRUNC                                                                                                                        
+    DISPSIGN(COMPAT)                                                                                                                 
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    HGPR(PRESERVE)                                                                                                                   
+  NOINITCHECK                                                                                                                        
+  NOINITIAL                                                                                                                          
+    INLINE                                                                                                                           
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP(HEX)                                                                                                                         
+    MAXPCF(100000)                                                                                                                   
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+  NONUMCHECK                                                                                                                         
+    NUMPROC(PFD)                                                                                                                     
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905                 Date 01/19/2021  Time 08:59:51   Page     2                
+0   OPTIMIZE(0)                                                                                                                      
+    OUTDD(SYSOUT)                                                                                                                    
+  NOPARMCHECK                                                                                                                        
+    PGMNAME(COMPAT)                                                                                                                  
+    QUALIFY(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+  NORULES                                                                                                                            
+  NOSERVICE                                                                                                                          
+    SEQUENCE                                                                                                                         
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+  NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+  NOSQLIMS                                                                                                                           
+  NOSSRANGE                                                                                                                          
+  NOSTGOPT                                                                                                                           
+    SUPPRESS                                                                                                                         
+  NOTERM                                                                                                                             
+    TEST(NOEJPD,DWARF,SOURCE,SEPARATE(NODSNAME))                                                                                     
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+    VLR(STANDARD)                                                                                                                    
+    VSAMOPENFS(COMPAT)                                                                                                               
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    ZONEDATA(PFD)                                                                                                                    
+    ZWB                                                                                                                              
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0/* SORTTBL                                                                                                                          
+   000001         000100 IDENTIFICATION DIVISION.                                         00010000                                   
+   000002         000200 PROGRAM-ID. SORTTBL.                                             00020000                                   
+   000003         000300*                                                                 00030000                                   
+   000004         000310 ENVIRONMENT DIVISION.                                            00031000                                   
+   000005         000320*                                                                 00032000                                   
+   000006         000330 CONFIGURATION SECTION.                                           00033000                                   
+   000007         000340*                                                                 00034000                                   
+   000008         000350 SPECIAL-NAMES.                                                   00035000                                   
+   000009         000360     ALPHABET EBCDIC IS EBCDIC.                                   00036000                                   
+   000010         000400*                                                                 00040000                                   
+   000011         000500 DATA DIVISION.                                                   00050000                                   
+   000012         000600*                                                                 00060000                                   
+   000013         000700*                                                                 00070000                                   
+   000014         000800 WORKING-STORAGE SECTION.                                         00080000                                   
+   000015         000900                                                                  00090000                                   
+   000016         001000*---------------------------------------------------------------- 00100000                                   
+   000017         001100*TABLE TO STORE ALL INTERCHANGE FEE CODE POINTER RECORDS.         00110000                                   
+   000018         001200*---------------------------------------------------------------- 00120000                                   
+   000019         001210 01  WS-ACCEPT-INPUT                 PIC X(80).                   00121000           000000000 80C           
+   000020         001300 01  IP00854W-ENTRIES-MAX            PIC S9(8) COMP VALUE +500.   00130000           000000000 4C            
+   000021         001400 01  400-RECORDS-LOADED              PIC S9(8) COMP.              00140000           000000000 4C            
+   000022         001500                                                                  00150000                                   
+   000023         001600 01  IP00854W-TABLE-DATA.                                         00160000           000000000 0CL8500       
+   000024         001700      02  IP00854W-TABLE.                                         00170000           000000000 0CL8500       
+   000025         001800          03  IP00854W-ENTRY          OCCURS 1 TO 500 TIMES       00180000           000000000 0CL17         
+   000026         001900             DEPENDING ON 400-RECORDS-LOADED                      00190000 21                                
+   000027         002000             INDEXED BY IP00854W-IDX.                             00200000                                   
+   000028         002100                                                                  00210000                                   
+   000029         002200             05  IP00854W-TABLE-DATA.                             00220000           000000000 0CL17         
+   000030         002300                 10  IP00854W-TXN-CURR-CD          PIC 9(03).     00230000           000000000 3C            
+   000031         002400                 10  IP00854W-TXN-CURR-CD-X        REDEFINES      00240000           000000000 3C            
+   000032         002500                      IP00854W-TXN-CURR-CD         PIC X(03).     00250000 30                                
+   000033         002600                 10  IP00854W-RECON-CURR-CD        PIC 9(03).     00260000           000000003 3C            
+   000034         002700                 10  IP00854W-RECON-CURR-CD-X      REDEFINES      00270000           000000003 3C            
+   000035         002800                      IP00854W-RECON-CURR-CD       PIC X(03).     00280000 33                                
+   000036         002900                      88  88-IP00854W-ANY-CURR-CD  VALUE '***'.   00290000                                   
+   000037         003000                 10  IP00854W-RULE-EFF-DATE        PIC 9(08).     00300000           000000006 8C            
+   000038         003100                 10  IP00854W-TXN-RULE-NUMBER      PIC 9(02).     00310000           00000000E 2C            
+   000039         003200                 10  IP00854W-RULE-INDICATOR       PIC X(01).     00320000           000000010 1C            
+   000040         003300                     88  88-IP00854W-RULE-ACTIVE   VALUE 'A'.     00330000                                   
+   000041         003400                     88  88-IP00854W-RULE-INACTIVE VALUE 'I'.     00340000                                   
+   000042         003500                                                                  00350000                                   
+   000043         003501 01  WS-MISC.                                                     00350105           000000000 0CL26         
+   000044         003502     05  WS-IDX                  PIC S9(4) COMP.                  00350205           000000000 2C            
+   000045         003503     05  800-PTR-IP666040        PROCEDURE-POINTER.               00350305           000000002 8C            
+   000046         003504     05  300-QUICKSORT           PIC X(08) VALUE 'IP666040'.      00350405           00000000A 8C            
+   000047         003505     05  800-MAP-ROW-1-VAL       PIC S9(8) BINARY VALUE 0.        00350505           000000012 4C            
+   000048         003506     05  800-MAP-ROW-1 REDEFINES 800-MAP-ROW-1-VAL INDEX.         00350605           000000012 4C            
+                                                                                                   47                                
+   000049         003507     05  800-USER-END            INDEX.                           00350705           000000016 4C            
+   000050         003508                                                                  00350805                                   
+   000051         003531                                                                  00353105                                   
+   000052         003532 01  IP66601-USER-TAG-INFORMATION EXTERNAL.                       00353205 BLX=00001,000000000 0CL9102       
+   000053         003533     05 IP66601-USER-TCNT                             PIC S9(4)   00353305 BLX=00001,000000000 2C            
+   000054         003534     BINARY.                                                      00353405                                   
+   000055         003535     05 IP66601-USER-TAG-TABLE.                                   00353505 BLX=00001,000000002 0CL9100       
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000056         003536        10 IP66601-USER-TAG OCCURS 700 TIMES                      00353605 BLX=00001,000000002 0CL13         
+   000057         003538           INDEXED BY IP66601-USER-T,                             00353805                                   
+   000058         003539                      IP66601-USER-P,                             00353905                                   
+   000059         003540                      IP66601-USER-LEFT,                          00354005                                   
+   000060         003541                      IP66601-USER-RIGHT,                         00354105                                   
+   000061         003542                      IP66601-USER-MEDIAN,                        00354205                                   
+   000062         003543                      IP66601-USER-START,                         00354305                                   
+   000063         003544                      IP66601-USER-END.                           00354405                                   
+   000064         003545           15 IP66601-USER-TAG-ID BINARY.                         00354505 BLX=00001,000000002 0CL8          
+   000065         003546              20  IP66601-USER-ELEMENT-ID.                        00354605 BLX=00001,000000002 0CL4          
+   000066         003547                  25 IP66601-USER-TAG-TYPE            PIC S9(4).  00354705 BLX=00001,000000002 2C            
+   000067         003548                      88 IP66601-USER-MTI-TAG      VALUE 1.       00354805                                   
+   000068         003549                      88 IP66601-USER-DE-TAG       VALUE 2.       00354905                                   
+   000069         003550                      88 IP66601-USER-PDS-TAG      VALUE 3.       00355005                                   
+   000070         003551                      88 IP66601-USER-TAG-TYPE-VALID VALUES 1 2 3.00355105                                   
+   000071         003552                  25 IP66601-USER-TAG-NO              PIC S9(4).  00355205 BLX=00001,000000004 2C            
+   000072         003553                      88 IP66601-USER-DE-NO-VALID  VALUES 0       00355305                                   
+   000073         003554     THROUGH 128.                                                 00355405                                   
+   000074         003555              20 IP66601-USER-TAG-OCCURRENCE          PIC S9(4).  00355505 BLX=00001,000000006 2C            
+   000075         003556              20 IP66601-USER-TAG-SUBFLD-NO           PIC S9(4).  00355605 BLX=00001,000000008 2C            
+   000076         003557           15 IP66601-USER-TAG-START                  PIC S9(4)   00355705 BLX=00001,00000000A 2C            
+   000077         003558     BINARY.                                                      00355805                                   
+   000078         003559           15 IP66601-USER-TAG-LNGTH                  PIC S9(4)   00355905 BLX=00001,00000000C 2C            
+   000079         003560     BINARY.                                                      00356005                                   
+   000080         003561           15 IP66601-USER-TAG-STATUS                 PIC X.      00356105 BLX=00001,00000000E 1C            
+   000081         003562                                                                  00356205                                   
+   000082         003570                                                                  00357005                                   
+   000083         003600 PROCEDURE DIVISION.                                              00360000                                   
+   000084         003700*                                                                 00370000                                   
+   000085         003800 MAINLINE.                                                        00380000                                   
+   000086         003810*                                                                 00381000                                   
+   000087         003811*    SORT TABLE WITH NO DUPLICATES                                00381100                                   
+   000088         003812*                                                                 00381200                                   
+   000089         003814     MOVE 0 TO 400-RECORDS-LOADED                                 00381400 21                                
+   000090         003815     ACCEPT WS-ACCEPT-INPUT                                       00381500 19                                
+   000091         003820     PERFORM                                                      00382000                                   
+   000092         003830        UNTIL WS-ACCEPT-INPUT(1:5) = '*END*'                      00383000 19                                
+   000093         003831           OR 400-RECORDS-LOADED  >= IP00854W-ENTRIES-MAX         00383100 21 20                             
+   000094      1  003833        ADD 1 TO 400-RECORDS-LOADED                               00383301 21                                
+   000095      1  003834        MOVE WS-ACCEPT-INPUT                                      00383401 19                                
+   000096      1  003835          TO IP00854W-ENTRY(400-RECORDS-LOADED)                   00383501 25 21                             
+   000097      1  003840        ACCEPT WS-ACCEPT-INPUT                                    00384000 19                                
+   000098         003850     END-PERFORM                                                  00385000                                   
+   000099         003870*                                                                 00387001                                   
+   000100         003900     SORT IP00854W-ENTRY ASCENDING IP00854W-TXN-CURR-CD-X         00390000 25 25 31                          
+   000101         004000                                  ,IP00854W-RECON-CURR-CD-X       00400000 34                                
+                                                                                                                                     
+ ==000101==> IGYPS0001-W A blank was missing before character "I" in column 42.  A blank was                                         
+                         assumed.                                                                                                    
+                                                                                                                                     
+   000102         004100                         DESCENDING IP00854W-RULE-EFF-DATE.       00410000 37                                
+   000103         004110                                                                  00411001                                   
+   000104         004111     DISPLAY '>>>>>>>'                                            00411101                                   
+   000105         004112     DISPLAY ' '                                                  00411201                                   
+   000106         004120     DISPLAY 'SORTED TABLE (NO DUPLICATES)'                       00412001                                   
+   000107         004121     DISPLAY ' '                                                  00412101                                   
+   000108         004122     PERFORM VARYING IP00854W-IDX                                 00412201 27                                
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000109         004123        FROM 1 BY 1 UNTIL IP00854W-IDX > 400-RECORDS-LOADED       00412301 27 21                             
+   000110      1  004124        DISPLAY IP00854W-ENTRY(IP00854W-IDX)                      00412401 25 27                             
+   000111         004125     END-PERFORM                                                  00412501                                   
+   000112         004126     DISPLAY ' '                                                  00412601                                   
+   000113         004127     DISPLAY '<<<<<<<'                                            00412701                                   
+   000114         004128     DISPLAY ' '                                                  00412801                                   
+   000115         004130*                                                                 00413000                                   
+   000116         004140*    SORT TABLE WITH DUPLICATES                                   00414004                                   
+   000117         004150*                                                                 00415000                                   
+   000118         004160     MOVE 0 TO 400-RECORDS-LOADED                                 00416001 21                                
+   000119         004180     ACCEPT WS-ACCEPT-INPUT                                       00418000 19                                
+   000120         004190     PERFORM                                                      00419000                                   
+   000121         004191        UNTIL WS-ACCEPT-INPUT(1:5) = '*END*'                      00419100 19                                
+   000122         004192           OR 400-RECORDS-LOADED  >= IP00854W-ENTRIES-MAX         00419200 21 20                             
+   000123      1  004193        ADD 1 TO 400-RECORDS-LOADED                               00419301 21                                
+   000124      1  004194        MOVE WS-ACCEPT-INPUT                                      00419401 19                                
+   000125      1  004195          TO IP00854W-ENTRY(400-RECORDS-LOADED)                   00419501 25 21                             
+   000126      1  004199        ACCEPT WS-ACCEPT-INPUT                                    00419900 19                                
+   000127         004200     END-PERFORM                                                  00420000                                   
+   000128         004201*                                                                 00420101                                   
+   000129         004202     SORT IP00854W-ENTRY ASCENDING IP00854W-TXN-CURR-CD-X         00420200 25 25 31                          
+   000130         004203                                 , IP00854W-RECON-CURR-CD-X       00420302 34                                
+   000131         004204                         DESCENDING IP00854W-RULE-EFF-DATE        00420400 37                                
+   000132         004210          WITH DUPLICATES IN ORDER                                00421000                                   
+   000133         004220          COLLATING SEQUENCE IS EBCDIC                            00422000 9                                 
+   000134         004221*                                                                 00422101                                   
+   000135         004230     DISPLAY '>>>>>>>'                                            00423001                                   
+   000136         004240     DISPLAY ' '                                                  00424001                                   
+   000137         004250     DISPLAY 'SORTED TABLE (DUPLICATES)'                          00425001                                   
+   000138         004260     DISPLAY ' '                                                  00426001                                   
+   000139         004270     PERFORM VARYING IP00854W-IDX                                 00427001 27                                
+   000140         004280        FROM 1 BY 1 UNTIL IP00854W-IDX > 400-RECORDS-LOADED       00428001 27 21                             
+   000141      1  004290        DISPLAY IP00854W-ENTRY(IP00854W-IDX)                      00429001 25 27                             
+   000142         004291     END-PERFORM                                                  00429101                                   
+   000143         004292     DISPLAY ' '                                                  00429201                                   
+   000144         004293     DISPLAY '<<<<<<<'                                            00429301                                   
+   000145         004294     DISPLAY ' '                                                  00429401                                   
+   000146         004295*                                                                 00429501                                   
+   000147         004296*                                                                 00429605                                   
+   000148         004297* POPULATE IP66601-USER-TAG-TABLE                                 00429705                                   
+   000149         004298*                                                                 00429805                                   
+   000150         004299     MOVE SPACES TO IP66601-USER-TAG-INFORMATION                  00429908 IMP 52                            
+   000151         004300     MOVE 10 TO IP66601-USER-TCNT                                 00430005 53                                
+   000152         004301* ITEM 1                                                          00430105                                   
+   000153         004302                                                                  00430205                                   
+   000154         004303     MOVE 1 TO WS-IDX                                             00430305 44                                
+   000155         004304*                                                                 00430405                                   
+   000156         004305     MOVE 1                                                       00430505                                   
+   000157         004306       TO IP66601-USER-TAG-TYPE (WS-IDX)                          00430605 66 44                             
+   000158         004307     MOVE 0                                                       00430705                                   
+   000159         004308       TO IP66601-USER-TAG-NO (WS-IDX)                            00430805 71 44                             
+   000160         004309     MOVE 0                                                       00430905                                   
+   000161         004310       TO IP66601-USER-TAG-OCCURRENCE (WS-IDX)                    00431005 74 44                             
+   000162         004311     MOVE 0                                                       00431105                                   
+   000163         004312       TO IP66601-USER-TAG-SUBFLD-NO (WS-IDX)                     00431205 75 44                             
+   000164         004313     MOVE 1                                                       00431305                                   
+   000165         004314       TO IP66601-USER-TAG-START        (WS-IDX)                  00431405 76 44                             
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000166         004315     MOVE 4                                                       00431505                                   
+   000167         004316       TO IP66601-USER-TAG-LNGTH (WS-IDX)                         00431605 78 44                             
+   000168         004317     MOVE '?'                                                     00431705                                   
+   000169         004318       TO IP66601-USER-TAG-STATUS (IP66601-USER-T)                00431805 80 57                             
+   000170         004319*                                                                 00431905                                   
+   000171         004320*                                                                 00432005                                   
+   000172         004321* ITEM 2                                                          00432105                                   
+   000173         004322*                                                                 00432205                                   
+   000174         004323     MOVE 2 TO WS-IDX                                             00432305 44                                
+   000175         004324*                                                                 00432405                                   
+   000176         004325     MOVE 2                                                       00432505                                   
+   000177         004326       TO IP66601-USER-TAG-TYPE (WS-IDX)                          00432605 66 44                             
+   000178         004327     MOVE 24                                                      00432705                                   
+   000179         004328       TO IP66601-USER-TAG-NO (WS-IDX)                            00432805 71 44                             
+   000180         004329     MOVE 0                                                       00432905                                   
+   000181         004330       TO IP66601-USER-TAG-OCCURRENCE (WS-IDX)                    00433005 74 44                             
+   000182         004331     MOVE 0                                                       00433105                                   
+   000183         004332       TO IP66601-USER-TAG-SUBFLD-NO (WS-IDX)                     00433205 75 44                             
+   000184         004333     MOVE 21                                                      00433305                                   
+   000185         004334       TO IP66601-USER-TAG-START        (WS-IDX)                  00433405 76 44                             
+   000186         004335     MOVE 3                                                       00433505                                   
+   000187         004336       TO IP66601-USER-TAG-LNGTH (WS-IDX)                         00433605 78 44                             
+   000188         004337     MOVE ' '                                                     00433705                                   
+   000189         004338       TO IP66601-USER-TAG-STATUS (IP66601-USER-T)                00433805 80 57                             
+   000190         004339*                                                                 00433905                                   
+   000191         004340*                                                                 00434005                                   
+   000192         004341* ITEM 3                                                          00434105                                   
+   000193         004342*                                                                 00434205                                   
+   000194         004343     MOVE 3 TO WS-IDX                                             00434305 44                                
+   000195         004344*                                                                 00434405                                   
+   000196         004345     MOVE 3                                                       00434505                                   
+   000197         004346       TO IP66601-USER-TAG-TYPE (WS-IDX)                          00434605 66 44                             
+   000198         004347     MOVE 105                                                     00434705                                   
+   000199         004348       TO IP66601-USER-TAG-NO (WS-IDX)                            00434805 71 44                             
+   000200         004349     MOVE 0                                                       00434905                                   
+   000201         004350       TO IP66601-USER-TAG-OCCURRENCE (WS-IDX)                    00435005 74 44                             
+   000202         004351     MOVE 1                                                       00435105                                   
+   000203         004352       TO IP66601-USER-TAG-SUBFLD-NO (WS-IDX)                     00435205 75 44                             
+   000204         004353     MOVE 34                                                      00435305                                   
+   000205         004354       TO IP66601-USER-TAG-START        (WS-IDX)                  00435405 76 44                             
+   000206         004355     MOVE 3                                                       00435505                                   
+   000207         004356       TO IP66601-USER-TAG-LNGTH (WS-IDX)                         00435605 78 44                             
+   000208         004357     MOVE ' '                                                     00435705                                   
+   000209         004358       TO IP66601-USER-TAG-STATUS (IP66601-USER-T)                00435805 80 57                             
+   000210         004359*                                                                 00435905                                   
+   000211         004360*                                                                 00436005                                   
+   000212         004361* ITEM 4                                                          00436105                                   
+   000213         004362*                                                                 00436205                                   
+   000214         004363     MOVE 4 TO WS-IDX                                             00436305 44                                
+   000215         004364*                                                                 00436405                                   
+   000216         004365     MOVE 3                                                       00436505                                   
+   000217         004366       TO IP66601-USER-TAG-TYPE (WS-IDX)                          00436605 66 44                             
+   000218         004367     MOVE 105                                                     00436705                                   
+   000219         004368       TO IP66601-USER-TAG-NO (WS-IDX)                            00436805 71 44                             
+   000220         004369     MOVE 0                                                       00436905                                   
+   000221         004370       TO IP66601-USER-TAG-OCCURRENCE (WS-IDX)                    00437005 74 44                             
+   000222         004371     MOVE 2                                                       00437105                                   
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000223         004372       TO IP66601-USER-TAG-SUBFLD-NO (WS-IDX)                     00437205 75 44                             
+   000224         004373     MOVE 37                                                      00437305                                   
+   000225         004374       TO IP66601-USER-TAG-START        (WS-IDX)                  00437405 76 44                             
+   000226         004375     MOVE 6                                                       00437505                                   
+   000227         004376       TO IP66601-USER-TAG-LNGTH (WS-IDX)                         00437605 78 44                             
+   000228         004377     MOVE ' '                                                     00437705                                   
+   000229         004378       TO IP66601-USER-TAG-STATUS (IP66601-USER-T)                00437805 80 57                             
+   000230         004379*                                                                 00437905                                   
+   000231         004380*                                                                 00438005                                   
+   000232         004381* ITEM 5                                                          00438105                                   
+   000233         004382*                                                                 00438205                                   
+   000234         004383     MOVE 5 TO WS-IDX                                             00438305 44                                
+   000235         004384*                                                                 00438405                                   
+   000236         004385     MOVE 3                                                       00438505                                   
+   000237         004386       TO IP66601-USER-TAG-TYPE (WS-IDX)                          00438605 66 44                             
+   000238         004387     MOVE 105                                                     00438705                                   
+   000239         004388       TO IP66601-USER-TAG-NO (WS-IDX)                            00438805 71 44                             
+   000240         004389     MOVE 0                                                       00438905                                   
+   000241         004390       TO IP66601-USER-TAG-OCCURRENCE (WS-IDX)                    00439005 74 44                             
+   000242         004391     MOVE 3                                                       00439105                                   
+   000243         004392       TO IP66601-USER-TAG-SUBFLD-NO (WS-IDX)                     00439205 75 44                             
+   000244         004393     MOVE 43                                                      00439305                                   
+   000245         004394       TO IP66601-USER-TAG-START        (WS-IDX)                  00439405 76 44                             
+   000246         004395     MOVE 11                                                      00439505                                   
+   000247         004396       TO IP66601-USER-TAG-LNGTH (WS-IDX)                         00439605 78 44                             
+   000248         004397     MOVE ' '                                                     00439705                                   
+   000249         004398       TO IP66601-USER-TAG-STATUS (IP66601-USER-T)                00439805 80 57                             
+   000250         004399*                                                                 00439905                                   
+   000251         004400*                                                                 00440005                                   
+   000252         004401* ITEM 6                                                          00440105                                   
+   000253         004402*                                                                 00440205                                   
+   000254         004403     MOVE 6 TO WS-IDX                                             00440305 44                                
+   000255         004404*                                                                 00440405                                   
+   000256         004405     MOVE 3                                                       00440505                                   
+   000257         004406       TO IP66601-USER-TAG-TYPE (WS-IDX)                          00440605 66 44                             
+   000258         004407     MOVE 105                                                     00440705                                   
+   000259         004408       TO IP66601-USER-TAG-NO (WS-IDX)                            00440805 71 44                             
+   000260         004409     MOVE 0                                                       00440905                                   
+   000261         004410       TO IP66601-USER-TAG-OCCURRENCE (WS-IDX)                    00441005 74 44                             
+   000262         004411     MOVE 4                                                       00441105                                   
+   000263         004412       TO IP66601-USER-TAG-SUBFLD-NO (WS-IDX)                     00441205 75 44                             
+   000264         004413     MOVE 54                                                      00441305                                   
+   000265         004414       TO IP66601-USER-TAG-START        (WS-IDX)                  00441405 76 44                             
+   000266         004415     MOVE 05                                                      00441505                                   
+   000267         004416       TO IP66601-USER-TAG-LNGTH (WS-IDX)                         00441605 78 44                             
+   000268         004417     MOVE ' '                                                     00441705                                   
+   000269         004418       TO IP66601-USER-TAG-STATUS (IP66601-USER-T)                00441805 80 57                             
+   000270         004419*                                                                 00441905                                   
+   000271         004420*                                                                 00442005                                   
+   000272         004421* ITEM 7                                                          00442105                                   
+   000273         004422*                                                                 00442205                                   
+   000274         004423     MOVE 7 TO WS-IDX                                             00442305 44                                
+   000275         004424*                                                                 00442405                                   
+   000276         004425     MOVE 3                                                       00442505                                   
+   000277         004426       TO IP66601-USER-TAG-TYPE (WS-IDX)                          00442605 66 44                             
+   000278         004427     MOVE 122                                                     00442705                                   
+   000279         004428       TO IP66601-USER-TAG-NO (WS-IDX)                            00442805 71 44                             
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page     8                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000280         004429     MOVE 0                                                       00442905                                   
+   000281         004430       TO IP66601-USER-TAG-OCCURRENCE (WS-IDX)                    00443005 74 44                             
+   000282         004431     MOVE 0                                                       00443105                                   
+   000283         004432       TO IP66601-USER-TAG-SUBFLD-NO (WS-IDX)                     00443205 75 44                             
+   000284         004433     MOVE 66                                                      00443305                                   
+   000285         004434       TO IP66601-USER-TAG-START        (WS-IDX)                  00443405 76 44                             
+   000286         004435     MOVE 1                                                       00443505                                   
+   000287         004436       TO IP66601-USER-TAG-LNGTH (WS-IDX)                         00443605 78 44                             
+   000288         004437     MOVE ' '                                                     00443705                                   
+   000289         004438       TO IP66601-USER-TAG-STATUS (IP66601-USER-T)                00443805 80 57                             
+   000290         004439*                                                                 00443905                                   
+   000291         004440*                                                                 00444005                                   
+   000292         004441* ITEM 8                                                          00444105                                   
+   000293         004442*                                                                 00444205                                   
+   000294         004443     MOVE 8 TO WS-IDX                                             00444305 44                                
+   000295         004444*                                                                 00444405                                   
+   000296         004445     MOVE 2                                                       00444505                                   
+   000297         004446       TO IP66601-USER-TAG-TYPE (WS-IDX)                          00444605 66 44                             
+   000298         004447     MOVE 71                                                      00444705                                   
+   000299         004448       TO IP66601-USER-TAG-NO (WS-IDX)                            00444805 71 44                             
+   000300         004449     MOVE 0                                                       00444905                                   
+   000301         004450       TO IP66601-USER-TAG-OCCURRENCE (WS-IDX)                    00445005 74 44                             
+   000302         004451     MOVE 0                                                       00445105                                   
+   000303         004452       TO IP66601-USER-TAG-SUBFLD-NO (WS-IDX)                     00445205 75 44                             
+   000304         004453     MOVE 67                                                      00445305                                   
+   000305         004454       TO IP66601-USER-TAG-START        (WS-IDX)                  00445405 76 44                             
+   000306         004455     MOVE 8                                                       00445505                                   
+   000307         004456       TO IP66601-USER-TAG-LNGTH (WS-IDX)                         00445605 78 44                             
+   000308         004457     MOVE ' '                                                     00445705                                   
+   000309         004458       TO IP66601-USER-TAG-STATUS (IP66601-USER-T)                00445805 80 57                             
+   000310         004459*                                                                 00445905                                   
+   000311         004460*                                                                 00446005                                   
+   000312         004461* ITEM 9                                                          00446105                                   
+   000313         004462*                                                                 00446205                                   
+   000314         004463     MOVE 9 TO WS-IDX                                             00446305 44                                
+   000315         004464*                                                                 00446405                                   
+   000316         004465     MOVE 3                                                       00446505                                   
+   000317         004466       TO IP66601-USER-TAG-TYPE (WS-IDX)                          00446605 66 44                             
+   000318         004467     MOVE 26                                                      00446705                                   
+   000319         004468       TO IP66601-USER-TAG-NO (WS-IDX)                            00446805 71 44                             
+   000320         004469     MOVE 0                                                       00446905                                   
+   000321         004470       TO IP66601-USER-TAG-OCCURRENCE (WS-IDX)                    00447005 74 44                             
+   000322         004471     MOVE 1                                                       00447105                                   
+   000323         004472       TO IP66601-USER-TAG-SUBFLD-NO (WS-IDX)                     00447205 75 44                             
+   000324         004473     MOVE 75                                                      00447305                                   
+   000325         004474       TO IP66601-USER-TAG-START        (WS-IDX)                  00447405 76 44                             
+   000326         004475     MOVE 1                                                       00447505                                   
+   000327         004476       TO IP66601-USER-TAG-LNGTH (WS-IDX)                         00447605 78 44                             
+   000328         004477     MOVE ' '                                                     00447705                                   
+   000329         004478       TO IP66601-USER-TAG-STATUS (IP66601-USER-T)                00447805 80 57                             
+   000330         004479*                                                                 00447905                                   
+   000331         004480*                                                                 00448005                                   
+   000332         004481* ITEM 10                                                         00448105                                   
+   000333         004482*                                                                 00448205                                   
+   000334         004483     MOVE 10 TO WS-IDX                                            00448305 44                                
+   000335         004484*                                                                 00448405                                   
+   000336         004485     MOVE 3                                                       00448505                                   
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page     9                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000337         004486       TO IP66601-USER-TAG-TYPE (WS-IDX)                          00448605 66 44                             
+   000338         004487     MOVE 26                                                      00448705                                   
+   000339         004488       TO IP66601-USER-TAG-NO (WS-IDX)                            00448805 71 44                             
+   000340         004489     MOVE 0                                                       00448905                                   
+   000341         004490       TO IP66601-USER-TAG-OCCURRENCE (WS-IDX)                    00449005 74 44                             
+   000342         004491     MOVE 2                                                       00449105                                   
+   000343         004492       TO IP66601-USER-TAG-SUBFLD-NO (WS-IDX)                     00449205 75 44                             
+   000344         004493     MOVE 76                                                      00449305                                   
+   000345         004494       TO IP66601-USER-TAG-START        (WS-IDX)                  00449405 76 44                             
+   000346         004495     MOVE 6                                                       00449505                                   
+   000347         004496       TO IP66601-USER-TAG-LNGTH (WS-IDX)                         00449605 78 44                             
+   000348         004497     MOVE ' '                                                     00449705                                   
+   000349         004498       TO IP66601-USER-TAG-STATUS (IP66601-USER-T)                00449805 80 57                             
+   000350         004499*                                                                 00449905                                   
+   000351         004500     DISPLAY ' '                                                  00450005                                   
+   000352         004501     DISPLAY 'IP66601 TABLE ** INITIAL DISPLAY ** '               00450105                                   
+   000353         004502     DISPLAY ' '                                                  00450205                                   
+   000354         004503     PERFORM VARYING IP66601-USER-T FROM 1 BY 1                   00450305 57                                
+   000355         004504             UNTIL IP66601-USER-T >  IP66601-USER-TCNT            00450405 57 53                             
+   000356      1  004505       DISPLAY '_____________'                                    00450505                                   
+   000357      1  004506       DISPLAY IP66601-USER-TAG-TYPE (IP66601-USER-T)             00450605 66 57                             
+   000358      1  004507       DISPLAY IP66601-USER-TAG-NO (IP66601-USER-T)               00450705 71 57                             
+   000359      1  004508       DISPLAY IP66601-USER-TAG-OCCURRENCE (IP66601-USER-T)       00450805 74 57                             
+   000360      1  004509       DISPLAY IP66601-USER-TAG-SUBFLD-NO (IP66601-USER-T)        00450905 75 57                             
+   000361      1  004510       DISPLAY IP66601-USER-TAG-START (IP66601-USER-T)            00451005 76 57                             
+   000362      1  004511       DISPLAY IP66601-USER-TAG-LNGTH (IP66601-USER-T)            00451105 78 57                             
+   000363      1  004512       DISPLAY IP66601-USER-TAG-STATUS(IP66601-USER-T)            00451205 80 57                             
+   000364         004513     END-PERFORM.                                                 00451305                                   
+   000365         004514*                                                                 00451405                                   
+   000366         004515     SET 800-PTR-IP666040          TO ENTRY 300-QUICKSORT         00451505 45 46                             
+   000367         004516                                                                  00451605                                   
+   000368         004517     SET IP66601-USER-END             TO IP66601-USER-TCNT        00451705 63 53                             
+   000369         004518     SET 800-USER-END                 TO IP66601-USER-END         00451805 49 63                             
+   000370         004527     DISPLAY '** CALLING IP666040 **'                             00452705                                   
+   000371         004528     CALL 800-PTR-IP666040                                        00452805 45                                
+   000372         004529     SET IP66601-USER-T TO 800-USER-END                           00452905 57 49                             
+   000373         004532*                                                                 00453205                                   
+   000374         004547     GOBACK.                                                      00454703                                   
+   000375         004550*                                                                 00455003                                   
+   000376         004600     EXIT.                                                        00460000                                   
+ */ SORTTBL                                                                                                                          
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    10                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+        9   EBCDIC . . . . . . . . . . . .  133                                                                                      
+       20   IP00854W-ENTRIES-MAX . . . . .  93 122                                                                                   
+       25   IP00854W-ENTRY . . . . . . . .  M96 100 M100 110 M125 129 M129 141                                                       
+       27   IP00854W-IDX . . . . . . . . .  M108 109 110 M139 140 141                                                                
+       33   IP00854W-RECON-CURR-CD . . . .  35                                                                                       
+       34   IP00854W-RECON-CURR-CD-X . . .  101 130                                                                                  
+       37   IP00854W-RULE-EFF-DATE . . . .  102 131                                                                                  
+       39   IP00854W-RULE-INDICATOR                                                                                                  
+       24   IP00854W-TABLE                                                                                                           
+       23   IP00854W-TABLE-DATA                                                                                                      
+       29   IP00854W-TABLE-DATA                                                                                                      
+       30   IP00854W-TXN-CURR-CD . . . . .  32                                                                                       
+       31   IP00854W-TXN-CURR-CD-X . . . .  100 129                                                                                  
+       38   IP00854W-TXN-RULE-NUMBER                                                                                                 
+       72   IP66601-USER-DE-NO-VALID                                                                                                 
+       68   IP66601-USER-DE-TAG                                                                                                      
+       65   IP66601-USER-ELEMENT-ID                                                                                                  
+       63   IP66601-USER-END . . . . . . .  M368 369                                                                                 
+       59   IP66601-USER-LEFT                                                                                                        
+       61   IP66601-USER-MEDIAN                                                                                                      
+       67   IP66601-USER-MTI-TAG                                                                                                     
+       58   IP66601-USER-P                                                                                                           
+       69   IP66601-USER-PDS-TAG                                                                                                     
+       60   IP66601-USER-RIGHT                                                                                                       
+       62   IP66601-USER-START                                                                                                       
+       57   IP66601-USER-T . . . . . . . .  169 189 209 229 249 269 289 309 329 349 M354 355 357 358 359 360 361 362 363             
+                                            M372                                                                                     
+       56   IP66601-USER-TAG                                                                                                         
+       64   IP66601-USER-TAG-ID                                                                                                      
+       52   IP66601-USER-TAG-INFORMATION .  M150                                                                                     
+       78   IP66601-USER-TAG-LNGTH . . . .  M167 M187 M207 M227 M247 M267 M287 M307 M327 M347 362                                    
+       71   IP66601-USER-TAG-NO. . . . . .  M159 M179 M199 M219 M239 M259 M279 M299 M319 M339 358                                    
+       74   IP66601-USER-TAG-OCCURRENCE. .  M161 M181 M201 M221 M241 M261 M281 M301 M321 M341 359                                    
+       76   IP66601-USER-TAG-START . . . .  M165 M185 M205 M225 M245 M265 M285 M305 M325 M345 361                                    
+       80   IP66601-USER-TAG-STATUS. . . .  M169 M189 M209 M229 M249 M269 M289 M309 M329 M349 363                                    
+       75   IP66601-USER-TAG-SUBFLD-NO . .  M163 M183 M203 M223 M243 M263 M283 M303 M323 M343 360                                    
+       55   IP66601-USER-TAG-TABLE                                                                                                   
+       66   IP66601-USER-TAG-TYPE. . . . .  M157 M177 M197 M217 M237 M257 M277 M297 M317 M337 357                                    
+       70   IP66601-USER-TAG-TYPE-VALID                                                                                              
+       53   IP66601-USER-TCNT. . . . . . .  M151 355 368                                                                             
+       19   WS-ACCEPT-INPUT. . . . . . . .  M90 92 95 M97 M119 121 124 M126                                                          
+       44   WS-IDX . . . . . . . . . . . .  M154 157 159 161 163 165 167 M174 177 179 181 183 185 187 M194 197 199 201 203           
+                                            205 207 M214 217 219 221 223 225 227 M234 237 239 241 243 245 247 M254 257 259           
+                                            261 263 265 267 M274 277 279 281 283 285 287 M294 297 299 301 303 305 307 M314           
+                                            317 319 321 323 325 327 M334 337 339 341 343 345 347                                     
+       43   WS-MISC                                                                                                                  
+       46   300-QUICKSORT. . . . . . . . .  366                                                                                      
+       21   400-RECORDS-LOADED . . . . . .  26 M89 93 M94 96 109 M118 122 M123 125 140                                               
+       48   800-MAP-ROW-1                                                                                                            
+       47   800-MAP-ROW-1-VAL. . . . . . .  48                                                                                       
+       45   800-PTR-IP666040 . . . . . . .  M366 371                                                                                 
+       49   800-USER-END . . . . . . . . .  M369 372                                                                                 
+       36   88-IP00854W-ANY-CURR-CD                                                                                                  
+       40   88-IP00854W-RULE-ACTIVE                                                                                                  
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    11                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0      41   88-IP00854W-RULE-INACTIVE                                                                                                
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    12                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+       85   MAINLINE                                                                                                                 
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    13                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+        2   SORTTBL                                                                                                                  
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    14                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+     X = Unallocated                                                                                                                 
+0Source   Hierarchy and                                    Base      Displacement  Asmblr Data                      Data Def         
+ LineID   Data Name                                        Locator     Structure   Definition        Data Type      Attributes       
+      2  PROGRAM-ID SORTTBL-----------------------------------------------------------------------------------------------------*    
+     19   1  WS-ACCEPT-INPUT . . . . . . . . . . . . . . .             000000000   DS 80C            Display                         
+     20   1  IP00854W-ENTRIES-MAX. . . . . . . . . . . . .             000000000   DS 4C             Binary                          
+     21   1  400-RECORDS-LOADED. . . . . . . . . . . . . .             000000000   DS 4C             Binary         D                
+     23   1  IP00854W-TABLE-DATA . . . . . . . . . . . . .             000000000   DS 0CL8500        Grp-VarLen                      
+     24     2  IP00854W-TABLE. . . . . . . . . . . . . . .             000000000   DS 0CL8500        Grp-VarLen                      
+     25       3  IP00854W-ENTRY. . . . . . . . . . . . . .             000000000   DS 0CL17          Group          O                
+     27          IP00854W-IDX. . . . . . . . . . . . . . .                                           Index-Name                      
+     29         4  IP00854W-TABLE-DATA . . . . . . . . . .             000000000   DS 0CL17          Group                           
+     30           5  IP00854W-TXN-CURR-CD. . . . . . . . .             000000000   DS 3C             Disp-Num                        
+     31           5  IP00854W-TXN-CURR-CD-X. . . . . . . .             000000000   DS 3C             Display        R                
+     33           5  IP00854W-RECON-CURR-CD. . . . . . . .             000000003   DS 3C             Disp-Num                        
+     34           5  IP00854W-RECON-CURR-CD-X. . . . . . .             000000003   DS 3C             Display        R                
+     36           88 88-IP00854W-ANY-CURR-CD . . . . . . .                                                                           
+     37           5  IP00854W-RULE-EFF-DATE. . . . . . . .             000000006   DS 8C             Disp-Num                        
+     38           5  IP00854W-TXN-RULE-NUMBER. . . . . . .             00000000E   DS 2C             Disp-Num                        
+     39           5  IP00854W-RULE-INDICATOR . . . . . . .             000000010   DS 1C             Display                         
+     40           88 88-IP00854W-RULE-ACTIVE . . . . . . .                                                                           
+     41           88 88-IP00854W-RULE-INACTIVE . . . . . .                                                                           
+     43   1  WS-MISC . . . . . . . . . . . . . . . . . . .             000000000   DS 0CL26          Group                           
+     44     2  WS-IDX. . . . . . . . . . . . . . . . . . .             000000000   DS 2C             Binary                          
+     45     2  800-PTR-IP666040. . . . . . . . . . . . . .             000000002   DS 8C             Procedure-Ptr                   
+     46     2  300-QUICKSORT . . . . . . . . . . . . . . .             00000000A   DS 8C             Display                         
+     47     2  800-MAP-ROW-1-VAL . . . . . . . . . . . . .             000000012   DS 4C             Binary                          
+     48     2  800-MAP-ROW-1 . . . . . . . . . . . . . . .             000000012   DS 4C             Index          R                
+     49     2  800-USER-END. . . . . . . . . . . . . . . .             000000016   DS 4C             Index                           
+     52   1  IP66601-USER-TAG-INFORMATION. . . . . . . . . BLX=00001   000000000   DS 0CL9102        Group          E                
+     53     2  IP66601-USER-TCNT . . . . . . . . . . . . . BLX=00001   000000000   DS 2C             Binary         E                
+     55     2  IP66601-USER-TAG-TABLE. . . . . . . . . . . BLX=00001   000000002   DS 0CL9100        Group          E                
+     56       3  IP66601-USER-TAG. . . . . . . . . . . . . BLX=00001   000000002   DS 0CL13          Group          E,O              
+     57          IP66601-USER-T. . . . . . . . . . . . . .                                           Index-Name                      
+     58          IP66601-USER-P. . . . . . . . . . . . . .                                           Index-Name                      
+     59          IP66601-USER-LEFT . . . . . . . . . . . .                                           Index-Name                      
+     60          IP66601-USER-RIGHT. . . . . . . . . . . .                                           Index-Name                      
+     61          IP66601-USER-MEDIAN . . . . . . . . . . .                                           Index-Name                      
+     62          IP66601-USER-START. . . . . . . . . . . .                                           Index-Name                      
+     63          IP66601-USER-END. . . . . . . . . . . . .                                           Index-Name                      
+     64         4  IP66601-USER-TAG-ID . . . . . . . . . . BLX=00001   000000002   DS 0CL8           Group          E                
+     65           5  IP66601-USER-ELEMENT-ID . . . . . . . BLX=00001   000000002   DS 0CL4           Group          E                
+     66             6  IP66601-USER-TAG-TYPE . . . . . . . BLX=00001   000000002   DS 2C             Binary         E                
+     67             88 IP66601-USER-MTI-TAG. . . . . . . . BLX=00001                                                E                
+     68             88 IP66601-USER-DE-TAG . . . . . . . . BLX=00001                                                E                
+     69             88 IP66601-USER-PDS-TAG. . . . . . . . BLX=00001                                                E                
+     70             88 IP66601-USER-TAG-TYPE-VALID . . . . BLX=00001                                                E                
+     71             6  IP66601-USER-TAG-NO . . . . . . . . BLX=00001   000000004   DS 2C             Binary         E                
+     72             88 IP66601-USER-DE-NO-VALID. . . . . . BLX=00001                                                E                
+     74           5  IP66601-USER-TAG-OCCURRENCE . . . . . BLX=00001   000000006   DS 2C             Binary         E                
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    15                
+0Source   Hierarchy and                                    Base      Displacement  Asmblr Data                      Data Def         
+ LineID   Data Name                                        Locator     Structure   Definition        Data Type      Attributes       
+     75           5  IP66601-USER-TAG-SUBFLD-NO. . . . . . BLX=00001   000000008   DS 2C             Binary         E                
+     76         4  IP66601-USER-TAG-START. . . . . . . . . BLX=00001   00000000A   DS 2C             Binary         E                
+     78         4  IP66601-USER-TAG-LNGTH. . . . . . . . . BLX=00001   00000000C   DS 2C             Binary         E                
+     80         4  IP66601-USER-TAG-STATUS . . . . . . . . BLX=00001   00000000E   DS 1C             Display        E                
+ End of Data Division Map                                                                                                            
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    16                
+0LINEID  HEXLOC  VERBCODE                     LINEID  HEXLOC  VERBCODE                     LINEID  HEXLOC  VERBCODE                  
+ 000089  00019E  MOVE                         000090  0001A6  ACCEPT                       000091  0001CC  PERFORM                   
+ 000094  0001E6  ADD                          000095  0001F4  MOVE                         000097  000206  ACCEPT                    
+ 000100  000230  SORT                         000104  000262  DISPLAY                      000105  000276  DISPLAY                   
+ 000106  00028A  DISPLAY                      000107  00029E  DISPLAY                      000108  0002B2  PERFORM                   
+ 000110  0002BE  DISPLAY                      000111  0002E4  END-PERFORM                  000112  000304  DISPLAY                   
+ 000113  000318  DISPLAY                      000114  00032C  DISPLAY                      000118  000340  MOVE                      
+ 000119  000348  ACCEPT                       000120  00036E  PERFORM                      000123  000388  ADD                       
+ 000124  000396  MOVE                         000126  0003A8  ACCEPT                       000129  0003D2  SORT                      
+ 000135  000406  DISPLAY                      000136  00041A  DISPLAY                      000137  00042E  DISPLAY                   
+ 000138  000442  DISPLAY                      000139  000456  PERFORM                      000141  000462  DISPLAY                   
+ 000142  000488  END-PERFORM                  000143  0004A8  DISPLAY                      000144  0004BC  DISPLAY                   
+ 000145  0004D0  DISPLAY                      000150  0004E4  MOVE                         000151  000504  MOVE                      
+ 000154  000510  MOVE                         000156  00051A  MOVE                         000158  000532  MOVE                      
+ 000160  00054A  MOVE                         000162  000562  MOVE                         000164  00057A  MOVE                      
+ 000166  000592  MOVE                         000168  0005AA  MOVE                         000174  0005BC  MOVE                      
+ 000176  0005C6  MOVE                         000178  0005DE  MOVE                         000180  0005F6  MOVE                      
+ 000182  00060E  MOVE                         000184  000626  MOVE                         000186  00063E  MOVE                      
+ 000188  000656  MOVE                         000194  000668  MOVE                         000196  000672  MOVE                      
+ 000198  00068A  MOVE                         000200  0006A2  MOVE                         000202  0006BA  MOVE                      
+ 000204  0006D2  MOVE                         000206  0006EA  MOVE                         000208  000702  MOVE                      
+ 000214  000714  MOVE                         000216  00071E  MOVE                         000218  000736  MOVE                      
+ 000220  00074E  MOVE                         000222  000766  MOVE                         000224  00077E  MOVE                      
+ 000226  000796  MOVE                         000228  0007AE  MOVE                         000234  0007C0  MOVE                      
+ 000236  0007CA  MOVE                         000238  0007E2  MOVE                         000240  0007FA  MOVE                      
+ 000242  000812  MOVE                         000244  00082A  MOVE                         000246  000842  MOVE                      
+ 000248  00085A  MOVE                         000254  00086C  MOVE                         000256  000876  MOVE                      
+ 000258  00088E  MOVE                         000260  0008A6  MOVE                         000262  0008BE  MOVE                      
+ 000264  0008D6  MOVE                         000266  0008EE  MOVE                         000268  000906  MOVE                      
+ 000274  000918  MOVE                         000276  000922  MOVE                         000278  00093A  MOVE                      
+ 000280  000952  MOVE                         000282  00096A  MOVE                         000284  000982  MOVE                      
+ 000286  00099A  MOVE                         000288  0009B2  MOVE                         000294  0009C4  MOVE                      
+ 000296  0009CE  MOVE                         000298  0009E6  MOVE                         000300  0009FE  MOVE                      
+ 000302  000A16  MOVE                         000304  000A2E  MOVE                         000306  000A46  MOVE                      
+ 000308  000A5E  MOVE                         000314  000A70  MOVE                         000316  000A7A  MOVE                      
+ 000318  000A92  MOVE                         000320  000AAA  MOVE                         000322  000AC2  MOVE                      
+ 000324  000ADA  MOVE                         000326  000AF2  MOVE                         000328  000B0A  MOVE                      
+ 000334  000B1C  MOVE                         000336  000B26  MOVE                         000338  000B3E  MOVE                      
+ 000340  000B56  MOVE                         000342  000B6E  MOVE                         000344  000B86  MOVE                      
+ 000346  000B9E  MOVE                         000348  000BB6  MOVE                         000351  000BC8  DISPLAY                   
+ 000352  000BDC  DISPLAY                      000353  000BF0  DISPLAY                      000354  000C04  PERFORM                   
+ 000356  000C10  DISPLAY                      000357  000C24  DISPLAY                      000358  000C4E  DISPLAY                   
+ 000359  000C78  DISPLAY                      000360  000CA2  DISPLAY                      000361  000CCC  DISPLAY                   
+ 000362  000CF6  DISPLAY                      000363  000D20  DISPLAY                      000364  000D4A  END-PERFORM               
+ 000366  000D6E  SET                          000368  000D9E  SET                          000369  000DB2  SET                       
+ 000370  000DBE  DISPLAY                      000371  000DD2  CALL                         000372  000E0A  SET                       
+ 000374  000E16  GOBACK                       000376  000E66  EXIT                                                                   
+                                                                                                                                     
+                                                                                                                                     
+                                                                                                                                     
+                     CONSTANT AREA                                                                                                   
+                                                                                                                                     
+  0011E8 (+0)      00CCDDFF 00000000 E2D6D9E3 E3C2D300 00000000 00000000 00000000 00000000      |........SORTTBL.................|   
+  001208 (+32)     00000EC8 00000FF0 00000000 00000000 00000000 00000000 00000000 00000000      |...H...0........................|   
+  001228 (+64)     00000000 E2D6D9E3 E3C2D300 00000040 00000000 00000002 0000000B 00000007      |....SORTTBL.... ................|   
+  001248 (+96)     0000122C 0000000B 00000007 0000122C 00000001 00000003 00000001 01800000      |................................|   
+  001268 (+128)    00000004 00000003 00000001 01800000 00000007 00000008 00000002 00000000      |................................|   
+  001288 (+160)    00000000 00000003 00001258 00001268 00001278 6E6E6E6E 6E6E6E00 00000001      |....................>>>>>>>.....|   
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    17                
+0 0012A8 (+192)    01040474 0000129C 0000000B 00000007 00000000 40000000 00000001 01040474      |.................... ...........|   
+  0012C8 (+224)    000012BC 0000000B 00000001 00000000 E2D6D9E3 C5C440E3 C1C2D3C5 404DD5D6      |................SORTED TABLE (NO|   
+  0012E8 (+256)    40C4E4D7 D3C9C3C1 E3C5E25D 00000001 01040474 000012D8 0000000B 0000001C      | DUPLICATES)...........Q........|   
+  001308 (+288)    00000000 4C4C4C4C 4C4C4C00 00000001 01040474 0000130C 0000000B 00000007      |....<<<<<<<.....................|   
+  001328 (+320)    00000000 E2D6D9E3 C5C440E3 C1C2D3C5 404DC4E4 D7D3C9C3 C1E3C5E2 5D000000      |....SORTED TABLE (DUPLICATES)...|   
+  001348 (+352)    00000001 01040474 0000132C 0000000B 00000019 00000000 C9D7F6F6 F6F0F140      |........................IP66601 |   
+  001368 (+384)    E3C1C2D3 C5405C5C 40C9D5C9 E3C9C1D3 40C4C9E2 D7D3C1E8 405C5C40 00000001      |TABLE ** INITIAL DISPLAY ** ....|   
+  001388 (+416)    01040474 00001360 0000000B 00000024 00000000 6D6D6D6D 6D6D6D6D 6D6D6D6D      |.......-............____________|   
+  0013A8 (+448)    6D000000 00000001 01040474 0000139C 0000000B 0000000D 00000000 00000000      |_...............................|   
+  0013C8 (+480)    000013C4 00000000 00000011 5C5C40C3 C1D3D3C9 D5C740C9 D7F6F6F6 F0F4F040      |...D........** CALLING IP666040 |   
+  0013E8 (+512)    5C5C0000 00000001 01040474 000013D4 0000000B 00000016 00000000 00000025      |**.............M................|   
+  001408 (+544)    00000000 00000001 0000000B 00000007 0000122C 00000001 40404040 40404040      |........................        |   
+  001428 (+576)    40404040 40404040 40404040 40404040 40404040 40400000 238EC9D7 F6F6F6F0      |                      ....IP6660|   
+  001448 (+608)    F160E4E2 C5D960E3 C1C760C9 D5C6D6D9 D4C1E3C9 D6D54040 0000000B 00000011      |1-USER-TAG-INFORMATION  ........|   
+  001468 (+640)    00000000 0000000F 00000002 00000005 0000000B 00000001 00000000 00000000      |................................|   
+  001488 (+672)    00000001 01040474 5CC5D5C4 5C6F0000 FFFFFFFF 40404040 40404040 40404040      |........*END*?......            |   
+  0014A8 (+704)    40404040 40404040 40404040 40404040 4040C9C7 E9E2D9E3 C3C44000 0AE2E8E2      |                  IGZSRTCD ..SYS|   
+  0014C8 (+736)    D6E4E340 40000A0E 0F000000 00000000 C9D7F6F6 F6F0F4F0 00000000 0000122C      |OUT  ...........IP666040........|   
+  0014E8 (+768)    00000007 44000000 00000000 00000000 E2E8E2D6 E4E34040 00000000               |................SYSOUT  ....    |   
+                                                                                                                                     
+                                                                                                                                     
+                                                                                                                                     
+                     PPA1:  Entry Point Constants                                                                                    
+  001508  1CCEA506                                               =F'483304710'      Flags                                            
+  00150C  000016E0                                               =A(PPA2-SORTTBL)                                                    
+  001510  00001640                                               =A(PPA3-SORTTBL)                                                    
+  001514  00000000                                               =F'0'              No EPD                                           
+  001518  FFFF0000                                               =F'-65536'         Register Save Mask                               
+  00151C  40000000                                               =F'1073741824'     Member Flags                                     
+  001520  90                                                     =AL1(144)          Flags                                            
+  001521  000550                                                 =AL3(1360)         Callee's DSA use/8                               
+  001524  0000                                                   =AL1(0)            Flags                                            
+  001526  0012                                                   =H'18'             Offset/2 to CDL                                  
+  001528  D00004E0                                               =F'-805305120'     State variable location                          
+  00152C  00000000                                               =F'0'              CDL function length/2                            
+  001530  00000000                                               =F'0'              CDL function EP offset                           
+  001534  00000000                                               =F'0'              CDL prolog                                       
+  001538  00000000                                               =F'0'              CDL epilog                                       
+  00153C  00000000                                               =F'0'              CDL end                                          
+  001540  0007  ****                                             AL2(7),C'SORTTBL'                                                   
+                     PPA1  End                                                                                                       
+                                                                                                                                     
+                                                                                                                                     
+                                                                                                                                     
+                                                                                                                                     
+                     PPA1:  Entry Point Constants                                                                                    
+  001550  1CCE2106                                               =F'483270918'      Flags                                            
+  001554  00000818                                               =A(PPA2-#SRVal000000001 )                                           
+  001558  00000788                                               =A(PPA3-#SRVal000000001 )                                           
+  00155C  00000000                                               =F'0'              No EPD                                           
+  001560  FFF10000                                               =F'-983040'        Register Save Mask                               
+  001564  00000000                                               =F'0'              Member Flags                                     
+  001568  90                                                     =AL1(144)          Flags                                            
+  001569  0000E8                                                 =AL3(232)          Callee's DSA use/8                               
+  00156C  0000                                                   =AL1(0)            Flags                                            
+  00156E  0012                                                   =H'18'             Offset/2 to CDL                                  
+  001570  00000000                                               =F'0'              State variable location                          
+  001574  00000000                                               =F'0'              CDL function length/2                            
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    18                
+0 001578  00000000                                               =F'0'              CDL function EP offset                           
+  00157C  00000000                                               =F'0'              CDL prolog                                       
+  001580  00000000                                               =F'0'              CDL epilog                                       
+  001584  00000000                                               =F'0'              CDL end                                          
+  001588  0010  ****                                             AL2(16),C'#SRVal000000001 '                                         
+                     PPA1  End                                                                                                       
+                                                                                                                                     
+                                                                                                                                     
+                                                                                                                                     
+                                                                                                                                     
+                     PPA1:  Entry Point Constants                                                                                    
+  0015A0  1CCE2106                                               =F'483270918'      Flags                                            
+  0015A4  000006F0                                               =A(PPA2-#WSVal000000001 )                                           
+  0015A8  00000670                                               =A(PPA3-#WSVal000000001 )                                           
+  0015AC  00000000                                               =F'0'              No EPD                                           
+  0015B0  FFF10000                                               =F'-983040'        Register Save Mask                               
+  0015B4  00000000                                               =F'0'              Member Flags                                     
+  0015B8  90                                                     =AL1(144)          Flags                                            
+  0015B9  0000E8                                                 =AL3(232)          Callee's DSA use/8                               
+  0015BC  0000                                                   =AL1(0)            Flags                                            
+  0015BE  0012                                                   =H'18'             Offset/2 to CDL                                  
+  0015C0  00000000                                               =F'0'              State variable location                          
+  0015C4  00000000                                               =F'0'              CDL function length/2                            
+  0015C8  00000000                                               =F'0'              CDL function EP offset                           
+  0015CC  00000000                                               =F'0'              CDL prolog                                       
+  0015D0  00000000                                               =F'0'              CDL epilog                                       
+  0015D4  00000000                                               =F'0'              CDL end                                          
+  0015D8  0010  ****                                             AL2(16),C'#WSVal000000001 '                                         
+                     PPA1  End                                                                                                       
+                                                                                                                                     
+                                                                                                                                     
+                                                                                                                                     
+                                                                                                                                     
+                     PPA1:  Entry Point Constants                                                                                    
+  0015F0  1CCE2106                                               =F'483270918'      Flags                                            
+  0015F4  00000628                                               =A(PPA2-__COMPUNITsinit)                                            
+  0015F8  000005B8                                               =A(PPA3-__COMPUNITsinit)                                            
+  0015FC  00000000                                               =F'0'              No EPD                                           
+  001600  FFFF0000                                               =F'-65536'         Register Save Mask                               
+  001604  00000000                                               =F'0'              Member Flags                                     
+  001608  90                                                     =AL1(144)          Flags                                            
+  001609  0000E8                                                 =AL3(232)          Callee's DSA use/8                               
+  00160C  0000                                                   =AL1(0)            Flags                                            
+  00160E  0012                                                   =H'18'             Offset/2 to CDL                                  
+  001610  00000000                                               =F'0'              State variable location                          
+  001614  00000000                                               =F'0'              CDL function length/2                            
+  001618  00000000                                               =F'0'              CDL function EP offset                           
+  00161C  00000000                                               =F'0'              CDL prolog                                       
+  001620  00000000                                               =F'0'              CDL epilog                                       
+  001624  00000000                                               =F'0'              CDL end                                          
+  001628  000F  ****                                             AL2(15),C'__COMPUNITsinit'                                          
+                     PPA1  End                                                                                                       
+                                                                                                                                     
+  001680  5EFD  1B00  1D54                                       =X'5EFD1B001D54'   md5 signature                                    
+  001686  03D5  C9A7  870C                                       =X'03D5C9A7870C'   md5 signature                                    
+  00168C  AEAD  574F                                             =X'AEAD574F'       md5 signature                                    
+                                                                                                                                     
+                     Timestamp and Version Information                                                                               
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    19                
+0 001690  F2F0  F2F1                                             =C'2021'           Compiled Year                                    
+  001694  F0F1  F1F9                                             =C'0119'           Compiled Date MMDD                               
+  001698  F0F8  F5F9  F5F1                                       =C'085951'         Compiled Time HHMMSS                             
+  00169E  F0F6  F0F2  F0F0                                       =C'060200'         VERSION/RELEASE/MOD LEVEL OF PROD                
+                     Timestamp and Version Information End                                                                           
+                                                                                                                                     
+                                                                                                                                     
+                     Compiler Options and Program Information Section                                                                
+  0016A4         0034                                            =X'0034'           Size of Compiler Options and Prog Info Section   
+  0016A6  (+00)  0474                                            =X'0474'           UNSIGNED BINARY CODE PAGE CCSID VALUE            
+  0016A8  (+02)  07                                              =X'07'             ARCHITECTURE LEVEL                               
+  0016A9  (+03)  00                                              =X'00'             OPTIMIZATION LEVEL                               
+  0016AA  (+04)  1403                                            =X'1403'           INFO. BYTES 28-29                                
+  0016AC  (+06)  0000                                            =X'0000'           INFO. BYTES 30-31                                
+  0016AE  (+08)  A0ACF48C3801                                    =X'A0ACF48C3801'   INFO. BYTES 1-6                                  
+  0016B4  (+14)  0110D0084809                                    =X'0110D0084809'   INFO. BYTES 7-12                                 
+  0016BA  (+20)  018000000800                                    =X'018000000800'   INFO. BYTES 13-18                                
+  0016C0  (+26)  0000004009                                      =X'0000004009'     INFO. BYTES 19-23                                
+  0016C5  (+31)  00                                              =X'00'             COBOL SIGNATURE LEVEL                            
+  0016C6  (+32)  0000002A                                        =X'0000002A'       # DATA DIVISION STATEMENTS                       
+  0016CA  (+36)  00000086                                        =X'00000086'       # PROCEDURE DIVISION STATEMENTS                  
+  0016CE  (+40)  21008208                                        =X'21008208'       INFO. BYTES 24-27                                
+  0016D2  (+44)  D7F1F9F0F9F0F540                                =C'P190905 '       BUILD LEVEL INFO                                 
+                     Compiler Options and Program Information Section End                                                            
+                                                                                                                                     
+                                                                                                                                     
+                                                                                                                                     
+                     PPA2:  Entry Point Constants                                                                                    
+  0016E0  04002203                                               =F'67117571'       Flags                                            
+  0016E4  FFFFE920                                               =A(CEESTART-PPA2)                                                   
+  0016E8  00000058                                               =F'88'             A(PPA4-PPA2)                                     
+  0016EC  FFFFFFB0                                               =A(TIMESTMP-PPA2)                                                   
+  0016F0  FFFFE920                                               =A(PrimaryEntryPoint-PPA2)                                          
+  0016F4  02400000                                               =F'37748736'       Flags                                            
+                     PPA2  End                                                                                                       
+                                                                                                                                     
+                                                                                                                                     
+                     PPA3:  Entry Point Constants                                                                                    
+  001640  00000000                                               =F'0'              Flags                                            
+  001644  000000D0                                               =F'208'            A(Base_Locator_Table-PPA3)                       
+  001648  000000E8                                               =F'232'            A(Special_Register_Table-PPA3)                   
+  00164C  0000019E                                               =X'19E'            A(User_Entry-CUEntry)                            
+                     PPA3  End                                                                                                       
+                                                                                                                                     
+                                                                                                                                     
+                     PPA3:  Entry Point Constants                                                                                    
+  001650  00000000                                               =F'0'              Flags                                            
+  001654  00000000                                               =F'0'              A(Base_Locator_Table-PPA3)                       
+  001658  00000000                                               =F'0'              A(Special_Register_Table-PPA3)                   
+  00165C  00000000                                               =X'0'              A(User_Entry-CUEntry)                            
+                     PPA3  End                                                                                                       
+                                                                                                                                     
+                                                                                                                                     
+                     PPA3:  Entry Point Constants                                                                                    
+  001660  00000000                                               =F'0'              Flags                                            
+  001664  00000000                                               =F'0'              A(Base_Locator_Table-PPA3)                       
+  001668  00000000                                               =F'0'              A(Special_Register_Table-PPA3)                   
+  00166C  00000000                                               =X'0'              A(User_Entry-CUEntry)                            
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    20                
+0                    PPA3  End                                                                                                       
+                                                                                                                                     
+                                                                                                                                     
+                     PPA3:  Entry Point Constants                                                                                    
+  001670  00000000                                               =F'0'              Flags                                            
+  001674  00000000                                               =F'0'              A(Base_Locator_Table-PPA3)                       
+  001678  00000000                                               =F'0'              A(Special_Register_Table-PPA3)                   
+  00167C  00000000                                               =X'0'              A(User_Entry-CUEntry)                            
+                     PPA3  End                                                                                                       
+                                                                                                                                     
+                                                                                                                                     
+                     Base Locator Table                                                                                              
+  001710  01                                                     =X'1'              Table Version                                    
+  001711  00                                                     =X'0'              Reserved                                         
+  001712  0008                                                   =H'8'              Header length                                    
+  001714  00000010                                               =F'16'             Array byte length                                
+  001718  1A00                                                   =X'1A00'           Flags & info (element  1)                        
+  00171A  00000020                                               =X'20'             Offset to cells                                  
+  00171E  01                                                     =X'01'             Cell count                                       
+  00171F  2A00                                                   =X'2A00'           Flags & info (element  2)                        
+  001721  00000024                                               =X'24'             Offset to cells                                  
+  001725  03                                                     =X'03'             Cell count                                       
+  001726  0000                                                   =X'0'              Flags & info (end of array)                      
+                     Base Locator Table End                                                                                          
+                                                                                                                                     
+                                                                                                                                     
+                     Special Register Table                                                                                          
+  001728  01                                                     =X'1'              Table Version                                    
+  001729  00                                                     =X'0'              Reserved                                         
+  00172A  0008                                                   =H'8'              Header length                                    
+  00172C  00000006                                               =F'6'              Array byte length                                
+  001730  13                                                     =X'13'             Flags & info (element  1)                        
+  001731  00000008                                               =X'8'              Offset to cells                                  
+  001735  00                                                     =X'0'              Flags & info (end of array)                      
+                     Special Register Table End                                                                                      
+                                                                                                                                     
+                                                                                                                                     
+                     PPA4:  Entry Point Constants                                                                                    
+  001738  06000000                                               =F'100663296'      Flags 1                                          
+  00173C  00020100                                               =F'131328'         Flags 2                                          
+  001740  00000000                                               =F'0'              A(NORENTstatic)                                  
+  001744  00000000                                               =F'0'              Q(RENTstatic)                                    
+  001748  00000090                                               =F'144'            A(DATA31_address_cell-RENTstatic)                
+  00174C  FFFFE8C8                                               =F'-5944'          A(Code-PPA4)                                     
+  001750  00001788                                               =F'6024'           Code Length                                      
+  001754  00000000                                               =F'0'              Length NORENTstatic                              
+  001758  0000009C                                               =F'156'            Length RENTstatic                                
+  00175C  0000224A                                               =F'8778'           Length DATA31                                    
+  001760  003F                                                   =X'3F'             A(CUName-PPA4)                                   
+  001762  0000                                                   =X'0'              PPA4 Minor Ver                                   
+  00176C  00000098                                               =X'98'             Offset UsrWrkStrg                                
+  001770  000021B2                                               =X'21B2'           Length UsrWrkStrg                                
+  001774  01                                                     =X'1'              Has Externals                                    
+  001775  0000                                                   =X'0'              A(SYSDEBUGName-PPA4)                             
+                     PPA4  End                                                                                                       
+                                                                                                                                     
+                                                                                                                                     
+                                                                                                                                     
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    21                
+0                                                                                                                                    
+                                                                                                                                     
+                     E X T E R N A L    S Y M B O L    D I C T I O N A R Y                                                           
+                                                                                                                                     
+                      TYPE   ID   ADDR   LENGTH        NAME                                                                          
+                                                                                                                                     
+                       SD     1  000000  000000        SORTTBL                                                                       
+                       ED     2  000000  000000        C_CEESG003                                                                    
+                       ED     3  000000  001788        C_CODE                                                                        
+                       LD     4  000000  000000        SORTTBL#C                                                                     
+                       ER     5  000000  000000        CEESTART                                                                      
+                       ER     6  000000  000000        CEEBETBL                                                                      
+                       ED     7  000000  000000        C_WSA                                                                         
+                       PR     8  000000  00009C        SORTTBL#S                                                                     
+                       ED     9  000000  000022        B_IDRL                                                                        
+                       ER    10  000000  000000        IGZXBST3                                                                      
+                       ER    11  000000  000000        SORTTBL                                                                       
+                       ER    12  000000  000000        IGZXPRS                                                                       
+                       ER    13  000000  000000        IGZXEXT                                                                       
+                       ER    14  000000  000000        IGZXCMSG                                                                      
+                       ER    15  000000  000000        IGZXACP                                                                       
+                       ER    16  000000  000000        IGZXSRT                                                                       
+                       ER    17  000000  000000        IGZXDSP                                                                       
+                       ER    18  000000  000000        IGZXPPL                                                                       
+                       ER    19  000000  000000        IGZXRTN                                                                       
+                       ER    20  000000  000000        IGZXTREN                                                                      
+                       ER    21  000000  000000        IGZXRT1                                                                       
+                       LD    22  000000  000000        SORTTBL                                                                       
+                       ER    23  000000  000000        CEESG004                                                                      
+                       ER    24  000000  000000        IGZXBS61                                                                      
+                       ED    25  000000  000000        C_@@PPA2                                                                      
+                       PR    26  000000  000008                                                                                      
+                       ED    27  000000  000000        C_@@CSINIT                                                                    
+                       PR    28  000000  000004                                                                                      
+                                                                                                                                     
+                                                                                                                                     
+                     * * * * *   S T A T I C     M A P   * * * * *                                                                   
+                                                                                                                                     
+  OFFSET (HEX)   LENGTH (HEX)   NAME                                                                                                 
+                                                                                                                                     
+            0              4       IP00854W-IDX                                                                                      
+            4              4       IP66601-USER-T                                                                                    
+            8              4       IP66601-USER-P                                                                                    
+            C              4       IP66601-USER-LEFT                                                                                 
+           10              4       IP66601-USER-RIGHT                                                                                
+           14              4       IP66601-USER-MEDIAN                                                                               
+           18              4       IP66601-USER-START                                                                                
+           1C              4       IP66601-USER-END                                                                                  
+           20              4       BLX_Ptrs                                                                                          
+           24              C       BLT_Ptrs                                                                                          
+           30             60       GPCB                                                                                              
+           90              4       WS-BASE-ADDRESS                                                                                   
+           94              8       TS2=236                                                                                           
+                                                                                                                                     
+                                                                                                                                     
+                     * * * * *   E N D     O F     S T A T I C     M A P   * * * * *                                                 
+                                                                                                                                     
+                     * * * * *   W O R K I N G - S T O R A G E   M A P   * * * * *                                                   
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    22                
+0                                                                                                                                    
+  OFFSET (HEX)   LENGTH (HEX)   NAME                                                                                                 
+                                                                                                                                     
+            0              4       JNIENVPTR                                                                                         
+            8              2       RETURN-CODE                                                                                       
+           10              2       SORT-RETURN                                                                                       
+           18              8       SORT-CONTROL                                                                                      
+           20              4       SORT-CORE-SIZE                                                                                    
+           28              4       SORT-FILE-SIZE                                                                                    
+           30              4       SORT-MODE-SIZE                                                                                    
+           38              8       SORT-MESSAGE                                                                                      
+           40              4       TALLY                                                                                             
+           48              1       SHIFT-OUT                                                                                         
+           50              1       SHIFT-IN                                                                                          
+           58              4       XML-CODE                                                                                          
+           60             1E       XML-EVENT                                                                                         
+           80              4       XML-INFORMATION                                                                                   
+           88              4       JSON-CODE                                                                                         
+           90              4       JSON-STATUS                                                                                       
+           98             50       WS-ACCEPT-INPUT                                                                                   
+           E8              4       IP00854W-ENTRIES-MAX                                                                              
+           F0              4       400-RECORDS-LOADED                                                                                
+           F8           2134       IP00854W-TABLE-DATA                                                                               
+         2230             1A       WS-MISC                                                                                           
+                                                                                                                                     
+                                                                                                                                     
+                     * * * * *   E N D    O F    W - S T O R .   M A P   * * * * *                                                   
+                                                                                                                                     
+                     * * * * *   A U T O M A T I C     M A P   * * * * *                                                             
+                                                                                                                                     
+  OFFSET (HEX)   LENGTH (HEX)   NAME                                                                                                 
+                                                                                                                                     
+  Block name: SORTTBL                                                                                                                
+                                                                                                                                     
+           80              4       _@CAA                                                                                             
+           D8              4       _CACHED_$WORKING-STORAGE                                                                          
+           DC              4       _CACHED_$STATIC                                                                                   
+           E0              4       _CACHED_CRENT                                                                                     
+           E4              4       TS2=238                                                                                           
+           E8              4       TS2=237                                                                                           
+           EC              4       TS2=235                                                                                           
+           F0              4       TS2=234                                                                                           
+           F4              4       TS2=233                                                                                           
+           F8              4       TS2=232                                                                                           
+           FC              4       Subscr-AddrTemp                                                                                   
+          100              4       Subscr-AddrTemp                                                                                   
+          104              4       Subscr-AddrTemp                                                                                   
+          108              4       Subscr-AddrTemp                                                                                   
+          10C              4       Subscr-AddrTemp                                                                                   
+          110              4       Subscr-AddrTemp                                                                                   
+          114              4       Subscr-AddrTemp                                                                                   
+          118              4       Subscr-AddrTemp                                                                                   
+          11C              4       Subscr-AddrTemp                                                                                   
+          120              4       TS2=222                                                                                           
+          124              4       Subscr-Temp                                                                                       
+          128              4       Subscr-AddrTemp                                                                                   
+          12C              4       TS2=219                                                                                           
+          130              4       Subscr-Temp                                                                                       
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    23                
+0         134              4       Subscr-AddrTemp                                                                                   
+          138              4       TS2=216                                                                                           
+          13C              4       Subscr-Temp                                                                                       
+          140              4       Subscr-AddrTemp                                                                                   
+          144              4       TS2=213                                                                                           
+          148              4       Subscr-Temp                                                                                       
+          14C              4       Subscr-AddrTemp                                                                                   
+          150              4       TS2=210                                                                                           
+          154              4       Subscr-Temp                                                                                       
+          158              4       Subscr-AddrTemp                                                                                   
+          15C              4       TS2=207                                                                                           
+          160              4       Subscr-Temp                                                                                       
+          164              4       Subscr-AddrTemp                                                                                   
+          168              4       Subscr-AddrTemp                                                                                   
+          16C              4       TS2=203                                                                                           
+          170              4       Subscr-Temp                                                                                       
+          174              4       Subscr-AddrTemp                                                                                   
+          178              4       TS2=200                                                                                           
+          17C              4       Subscr-Temp                                                                                       
+          180              4       Subscr-AddrTemp                                                                                   
+          184              4       TS2=197                                                                                           
+          188              4       Subscr-Temp                                                                                       
+          18C              4       Subscr-AddrTemp                                                                                   
+          190              4       TS2=194                                                                                           
+          194              4       Subscr-Temp                                                                                       
+          198              4       Subscr-AddrTemp                                                                                   
+          19C              4       TS2=191                                                                                           
+          1A0              4       Subscr-Temp                                                                                       
+          1A4              4       Subscr-AddrTemp                                                                                   
+          1A8              4       TS2=188                                                                                           
+          1AC              4       Subscr-Temp                                                                                       
+          1B0              4       Subscr-AddrTemp                                                                                   
+          1B4              4       Subscr-AddrTemp                                                                                   
+          1B8              4       TS2=184                                                                                           
+          1BC              4       Subscr-Temp                                                                                       
+          1C0              4       Subscr-AddrTemp                                                                                   
+          1C4              4       TS2=181                                                                                           
+          1C8              4       Subscr-Temp                                                                                       
+          1CC              4       Subscr-AddrTemp                                                                                   
+          1D0              4       TS2=178                                                                                           
+          1D4              4       Subscr-Temp                                                                                       
+          1D8              4       Subscr-AddrTemp                                                                                   
+          1DC              4       TS2=175                                                                                           
+          1E0              4       Subscr-Temp                                                                                       
+          1E4              4       Subscr-AddrTemp                                                                                   
+          1E8              4       TS2=172                                                                                           
+          1EC              4       Subscr-Temp                                                                                       
+          1F0              4       Subscr-AddrTemp                                                                                   
+          1F4              4       TS2=169                                                                                           
+          1F8              4       Subscr-Temp                                                                                       
+          1FC              4       Subscr-AddrTemp                                                                                   
+          200              4       Subscr-AddrTemp                                                                                   
+          204              4       TS2=165                                                                                           
+          208              4       Subscr-Temp                                                                                       
+          20C              4       Subscr-AddrTemp                                                                                   
+          210              4       TS2=162                                                                                           
+          214              4       Subscr-Temp                                                                                       
+          218              4       Subscr-AddrTemp                                                                                   
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    24                
+0         21C              4       TS2=159                                                                                           
+          220              4       Subscr-Temp                                                                                       
+          224              4       Subscr-AddrTemp                                                                                   
+          228              4       TS2=156                                                                                           
+          22C              4       Subscr-Temp                                                                                       
+          230              4       Subscr-AddrTemp                                                                                   
+          234              4       TS2=153                                                                                           
+          238              4       Subscr-Temp                                                                                       
+          23C              4       Subscr-AddrTemp                                                                                   
+          240              4       TS2=150                                                                                           
+          244              4       Subscr-Temp                                                                                       
+          248              4       Subscr-AddrTemp                                                                                   
+          24C              4       Subscr-AddrTemp                                                                                   
+          250              4       TS2=146                                                                                           
+          254              4       Subscr-Temp                                                                                       
+          258              4       Subscr-AddrTemp                                                                                   
+          25C              4       TS2=143                                                                                           
+          260              4       Subscr-Temp                                                                                       
+          264              4       Subscr-AddrTemp                                                                                   
+          268              4       TS2=140                                                                                           
+          26C              4       Subscr-Temp                                                                                       
+          270              4       Subscr-AddrTemp                                                                                   
+          274              4       TS2=137                                                                                           
+          278              4       Subscr-Temp                                                                                       
+          27C              4       Subscr-AddrTemp                                                                                   
+          280              4       TS2=134                                                                                           
+          284              4       Subscr-Temp                                                                                       
+          288              4       Subscr-AddrTemp                                                                                   
+          28C              4       TS2=131                                                                                           
+          290              4       Subscr-Temp                                                                                       
+          294              4       Subscr-AddrTemp                                                                                   
+          298              4       Subscr-AddrTemp                                                                                   
+          29C              4       TS2=127                                                                                           
+          2A0              4       Subscr-Temp                                                                                       
+          2A4              4       Subscr-AddrTemp                                                                                   
+          2A8              4       TS2=124                                                                                           
+          2AC              4       Subscr-Temp                                                                                       
+          2B0              4       Subscr-AddrTemp                                                                                   
+          2B4              4       TS2=121                                                                                           
+          2B8              4       Subscr-Temp                                                                                       
+          2BC              4       Subscr-AddrTemp                                                                                   
+          2C0              4       TS2=118                                                                                           
+          2C4              4       Subscr-Temp                                                                                       
+          2C8              4       Subscr-AddrTemp                                                                                   
+          2CC              4       TS2=115                                                                                           
+          2D0              4       Subscr-Temp                                                                                       
+          2D4              4       Subscr-AddrTemp                                                                                   
+          2D8              4       TS2=112                                                                                           
+          2DC              4       Subscr-Temp                                                                                       
+          2E0              4       Subscr-AddrTemp                                                                                   
+          2E4              4       Subscr-AddrTemp                                                                                   
+          2E8              4       TS2=108                                                                                           
+          2EC              4       Subscr-Temp                                                                                       
+          2F0              4       Subscr-AddrTemp                                                                                   
+          2F4              4       TS2=105                                                                                           
+          2F8              4       Subscr-Temp                                                                                       
+          2FC              4       Subscr-AddrTemp                                                                                   
+          300              4       TS2=102                                                                                           
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    25                
+0         304              4       Subscr-Temp                                                                                       
+          308              4       Subscr-AddrTemp                                                                                   
+          30C              4       TS2=99                                                                                            
+          310              4       Subscr-Temp                                                                                       
+          314              4       Subscr-AddrTemp                                                                                   
+          318              4       TS2=96                                                                                            
+          31C              4       Subscr-Temp                                                                                       
+          320              4       Subscr-AddrTemp                                                                                   
+          324              4       TS2=93                                                                                            
+          328              4       Subscr-Temp                                                                                       
+          32C              4       Subscr-AddrTemp                                                                                   
+          330              4       Subscr-AddrTemp                                                                                   
+          334              4       TS2=89                                                                                            
+          338              4       Subscr-Temp                                                                                       
+          33C              4       Subscr-AddrTemp                                                                                   
+          340              4       TS2=86                                                                                            
+          344              4       Subscr-Temp                                                                                       
+          348              4       Subscr-AddrTemp                                                                                   
+          34C              4       TS2=83                                                                                            
+          350              4       Subscr-Temp                                                                                       
+          354              4       Subscr-AddrTemp                                                                                   
+          358              4       TS2=80                                                                                            
+          35C              4       Subscr-Temp                                                                                       
+          360              4       Subscr-AddrTemp                                                                                   
+          364              4       TS2=77                                                                                            
+          368              4       Subscr-Temp                                                                                       
+          36C              4       Subscr-AddrTemp                                                                                   
+          370              4       TS2=74                                                                                            
+          374              4       Subscr-Temp                                                                                       
+          378              4       Subscr-AddrTemp                                                                                   
+          37C              4       Subscr-AddrTemp                                                                                   
+          380              4       TS2=70                                                                                            
+          384              4       Subscr-Temp                                                                                       
+          388              4       Subscr-AddrTemp                                                                                   
+          38C              4       TS2=67                                                                                            
+          390              4       Subscr-Temp                                                                                       
+          394              4       Subscr-AddrTemp                                                                                   
+          398              4       TS2=64                                                                                            
+          39C              4       Subscr-Temp                                                                                       
+          3A0              4       Subscr-AddrTemp                                                                                   
+          3A4              4       TS2=61                                                                                            
+          3A8              4       Subscr-Temp                                                                                       
+          3AC              4       Subscr-AddrTemp                                                                                   
+          3B0              4       TS2=58                                                                                            
+          3B4              4       Subscr-Temp                                                                                       
+          3B8              4       Subscr-AddrTemp                                                                                   
+          3BC              4       TS2=55                                                                                            
+          3C0              4       Subscr-Temp                                                                                       
+          3C4              4       Subscr-AddrTemp                                                                                   
+          3C8              4       Subscr-AddrTemp                                                                                   
+          3CC              4       TS2=51                                                                                            
+          3D0              4       Subscr-Temp                                                                                       
+          3D4              4       Subscr-AddrTemp                                                                                   
+          3D8              4       TS2=48                                                                                            
+          3DC              4       Subscr-Temp                                                                                       
+          3E0              4       Subscr-AddrTemp                                                                                   
+          3E4              4       TS2=45                                                                                            
+          3E8              4       Subscr-Temp                                                                                       
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    26                
+0         3EC              4       Subscr-AddrTemp                                                                                   
+          3F0              4       TS2=42                                                                                            
+          3F4              4       Subscr-Temp                                                                                       
+          3F8              4       Subscr-AddrTemp                                                                                   
+          3FC              4       TS2=39                                                                                            
+          400              4       Subscr-Temp                                                                                       
+          404              4       Subscr-AddrTemp                                                                                   
+          408              4       TS2=36                                                                                            
+          40C              4       Subscr-Temp                                                                                       
+          410              4       TS2=34                                                                                            
+          414              4       Subscr-AddrTemp                                                                                   
+          418              4       Subscr-AddrTemp                                                                                   
+          41C              4       Subscr-AddrTemp                                                                                   
+          420              4       Subscr-Temp                                                                                       
+          424              4       RefMod-Start@                                                                                     
+          428              4       TS2=21                                                                                            
+          42C              4       Subscr-AddrTemp                                                                                   
+          430              4       Subscr-AddrTemp                                                                                   
+          434              4       Subscr-AddrTemp                                                                                   
+          438              4       Subscr-Temp                                                                                       
+          43C              4       RefMod-Start@                                                                                     
+          440              4       TS2=8                                                                                             
+          444              2       _returnValue                                                                                      
+          448             24       _ArgumentList                                                                                     
+          470              8       TS2=33                                                                                            
+          478              8       TS2=29                                                                                            
+          480              8       TS2=27                                                                                            
+          488              8       TS2=26                                                                                            
+          490              8       TS2=25                                                                                            
+          498              8       TS2=24                                                                                            
+          4A0              8       TS2=23                                                                                            
+          4A8              8       TS2=20                                                                                            
+          4B0              8       TS2=16                                                                                            
+          4B8              8       TS2=14                                                                                            
+          4C0              8       TS2=13                                                                                            
+          4C8              8       TS2=12                                                                                            
+          4D0              8       TS2=11                                                                                            
+          4D8              8       TS2=10                                                                                            
+          4E0             44       COBDSACB                                                                                          
+          528              4       ODOsv_cells                                                                                       
+          530             20       VLC_cells                                                                                         
+                                                                                                                                     
+                                                                                                                                     
+  OFFSET (HEX)   LENGTH (HEX)   NAME                                                                                                 
+                                                                                                                                     
+  Block name: #SRVal000000001                                                                                                        
+                                                                                                                                     
+           80              4       _@CAA                                                                                             
+           84              4       _@ParentDSA                                                                                       
+           DC              4       _CACHED_$WORKING-STORAGE                                                                          
+           E0              4       _CACHED_$STATIC                                                                                   
+           E4              4       _CACHED_CRENT                                                                                     
+                                                                                                                                     
+                                                                                                                                     
+  OFFSET (HEX)   LENGTH (HEX)   NAME                                                                                                 
+                                                                                                                                     
+  Block name: #WSVal000000001                                                                                                        
+                                                                                                                                     
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    27                
+0          80              4       _@CAA                                                                                             
+           84              4       _@ParentDSA                                                                                       
+           DC              4       _CACHED_$WORKING-STORAGE                                                                          
+           E0              4       _CACHED_$STATIC                                                                                   
+           E4              4       _CACHED_CRENT                                                                                     
+                                                                                                                                     
+                                                                                                                                     
+  OFFSET (HEX)   LENGTH (HEX)   NAME                                                                                                 
+                                                                                                                                     
+  Block name: __COMPUNITsinit                                                                                                        
+                                                                                                                                     
+            C              4       __CAACRENT                                                                                        
+           80              4       _@MYARGS                                                                                          
+           84              4       _@CAA                                                                                             
+           DC              4       _CACHED_$STATIC                                                                                   
+           E0              4       _CACHED_CRENT                                                                                     
+                                                                                                                                     
+                                                                                                                                     
+                     * * * * *   E N D     O F     A U T O M A T I C     M A P   * * * * *                                           
+                                                                                                                                     
+                                                                                                                                     
+                                                                                                                                     
+            Compiler back end level: tr_r16_cobol_20190826_1347_oeKj88gpEem47oTHworqTQ                                               
+                                                                                                                                     
+                                                                                                                                     
+                                                                                                                                     
+            * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *                                                              
+                                                                                                                                     
+1PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.2.0 P190905       SORTTBL   Date 01/19/2021  Time 08:59:51   Page    28                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+                                                                                                                                     
+    101  IGYPS0001-W   A blank was missing before character "I" in column 42.  A blank was assumed.                                  
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       4           1              3                                                                                         
+-* Statistics for COBOL program SORTTBL:                                                                                             
+ *    Source records = 376                                                                                                           
+ *    Data Division statements = 42                                                                                                  
+ *    Procedure Division statements = 134                                                                                            
+ *    Generated COBOL statements = 0                                                                                                 
+ *    Program complexity factor = 135                                                                                                
+0End of compilation 1,  program SORTTBL,  highest severity 4.                                                                        
+0Return code 4                                                                                                                       

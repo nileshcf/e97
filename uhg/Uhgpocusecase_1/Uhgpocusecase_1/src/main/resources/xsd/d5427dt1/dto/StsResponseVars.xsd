@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="StsResponseVars" cobol:name="STS-RESPONSE-VARS" cobol:offset="12" cobol:length="298" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="StsRespMessageType" maxOccurs="1"  cobol:name="STS-RESP-MESSAGE-TYPE" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 stsRespMessageAppl VALUE [["A"]].
+                        88 stsRespMessageCics VALUE [["C"]].
+                        88 stsRespMessageDb2 VALUE [["D"]].
+                        88 stsRespMessageMq VALUE [["M"]].
+                        88 stsRespMessageValid VALUE [["A"], ["C"], ["D"], ["M"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="StsRespAdditionalInfo1" maxOccurs="1"  cobol:name="STS-RESP-ADDITIONAL-INFO-1" cobol:offset="1" cobol:length="100" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="100" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="StsRespAdditionalInfo2" maxOccurs="1"  cobol:name="STS-RESP-ADDITIONAL-INFO-2" cobol:offset="101" cobol:length="100" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="100" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="StsRespDataValue" maxOccurs="1"  cobol:name="STS-RESP-DATA-VALUE" cobol:offset="201" cobol:length="30" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="30" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="StsCicsresp" type="xs:long" maxOccurs="1"  cobol:name="STS-CICSRESP" cobol:offset="231" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+         <xs:element name="StsCicsresp2" type="xs:long" maxOccurs="1"  cobol:name="STS-CICSRESP2" cobol:offset="239" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+         <xs:element name="StsEibtaskn" type="xs:long" maxOccurs="1"  cobol:name="STS-EIBTASKN" cobol:offset="247" cobol:length="7" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+         <xs:element name="StsSqlcode" type="xs:long" maxOccurs="1"  cobol:name="STS-SQLCODE" cobol:offset="254" cobol:length="9" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="StsSqlstate" maxOccurs="1"  cobol:name="STS-SQLSTATE" cobol:offset="263" cobol:length="5" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="5" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="StsParagraph" maxOccurs="1"  cobol:name="STS-PARAGRAPH" cobol:offset="268" cobol:length="30" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="30" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

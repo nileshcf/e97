@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Messages" cobol:name="MESSAGES" cobol:offset="24" cobol:length="527" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="MessageSeverity" maxOccurs="1"  cobol:name="MESSAGE-SEVERITY" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="MessageCode" maxOccurs="1" cobol:name="MESSAGE-CODE" cobol:offset="1" cobol:length="12" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="MessageInformation" maxOccurs="1" cobol:name="MESSAGE-INFORMATION" cobol:offset="13" cobol:length="257" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="MessageDescription" maxOccurs="1" cobol:name="MESSAGE-DESCRIPTION" cobol:offset="270" cobol:length="257" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

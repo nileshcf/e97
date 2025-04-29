@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Work" cobol:name="work" cobol:offset="0" cobol:length="63" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="ShortCountComp" type="xs:short" maxOccurs="1"  cobol:name="WS-SHORT-COUNT-COMP" cobol:offset="0" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="IntCountComp" type="xs:int" maxOccurs="1"  cobol:name="WS-INT-COUNT-COMP" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="LongCountComp" type="xs:long" maxOccurs="1"  cobol:name="WS-LONG-COUNT-COMP" cobol:offset="0" cobol:length="8" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="CountComp34" type="xs:short" maxOccurs="1"  cobol:name="WS-COUNT-COMP3-4" cobol:offset="0" cobol:length="3" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="CountComp38" type="xs:int" maxOccurs="1"  cobol:name="WS-COUNT-COMP3-8" cobol:offset="3" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+         <xs:element name="CountComp311" type="xs:long" maxOccurs="1"  cobol:name="WS-COUNT-COMP3-11" cobol:offset="8" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G"/>
+         <xs:element name="CountComp314" type="xs:long" maxOccurs="1"  cobol:name="WS-COUNT-COMP3-14" cobol:offset="14" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100T"/>
+    <xs:element name="CountComp3104" maxOccurs="1"  cobol:name="WS-COUNT-COMP3-10-4" cobol:offset="22" cobol:length="8" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100T">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="14" />
+                  <xs:fractionDigits value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="CountEdit" maxOccurs="1"  cobol:name="WS-COUNT-EDIT" cobol:offset="30" cobol:length="14" cobol:datatype="Disp-Num-Edit" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="14" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="CountEdit2" maxOccurs="1"  cobol:name="WS-COUNT-EDIT2" cobol:offset="44" cobol:length="15" cobol:datatype="Disp-Num-Edit" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="15" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sqlcode_Ws" maxOccurs="1"  cobol:name="WS-SQLCODE" cobol:offset="59" cobol:length="4" cobol:datatype="Disp-Num-Edit" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Pe8090r" cobol:name="PE8090R" cobol:offset="0" cobol:length="233" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Indtipidef" maxOccurs="1"  cobol:name="INDTIPIDEF" cobol:offset="0" cobol:length="2" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1000" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dni VALUE [[1]].
+                        88 extranjeroTarjetaResidente VALUE [[3]].
+                        88 extranjeroDocumentoIdentif VALUE [[4]].
+                        88 nif VALUE [[5]].
+                        88 cif VALUE [[6]].
+                        88 cifDiscriminador VALUE [[8]].
+                        88 cifExtranjero VALUE [[10]].
+                        88 niePersonaFisica VALUE [[11]].
+                        88 niePersonaJuridica VALUE [[12]].
+                        88 pasaporteEspanol VALUE [[13]].
+                        88 grupoDeRiesgo VALUE [[91]].
+                        88 grupoDeGestion VALUE [[92]].
+                        88 nombreComercial VALUE [[93]].
+                        88 menorDeEdad VALUE [[99]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Desnombre" maxOccurs="1"  cobol:name="DESNOMBRE" cobol:offset="10" cobol:length="60" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="60" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Despriapel" maxOccurs="1"  cobol:name="DESPRIAPEL" cobol:offset="70" cobol:length="100" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="100" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dessegapel" maxOccurs="1"  cobol:name="DESSEGAPEL" cobol:offset="170" cobol:length="60" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="60" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sepapell" maxOccurs="1"  cobol:name="SEPAPELL" cobol:offset="230" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Indidioma" maxOccurs="1"  cobol:name="INDIDIOMA" cobol:offset="231" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 catellano VALUE [["C "]].
+                        88 euskera VALUE [["E "]].
+                        88 frances VALUE [["F "]].
+                        88 catalan VALUE [["T "]].
+                        88 valenciano VALUE [["V "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

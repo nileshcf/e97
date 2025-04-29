@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip00854wTableData01" cobol:name="IP00854W-TABLE-DATA" cobol:offset="0" cobol:length="17" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Ip00854wTxnCurrCd" type="xs:int" maxOccurs="1"  cobol:name="IP00854W-TXN-CURR-CD" cobol:offset="0" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+    <xs:element name="Ip00854wTxnCurrCdX" maxOccurs="1"  cobol:name="IP00854W-TXN-CURR-CD-X" cobol:offset="0" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip00854wReconCurrCd" type="xs:int" maxOccurs="1"  cobol:name="IP00854W-RECON-CURR-CD" cobol:offset="3" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+    <xs:element name="Ip00854wReconCurrCdX" maxOccurs="1"  cobol:name="IP00854W-RECON-CURR-CD-X" cobol:offset="3" cobol:length="3" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1000" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip00854wAnyCurrCd88 VALUE [["***"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="3" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip00854wRuleEffDate" type="xs:long" maxOccurs="1"  cobol:name="IP00854W-RULE-EFF-DATE" cobol:offset="6" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

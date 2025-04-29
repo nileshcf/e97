@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Work" cobol:name="work" cobol:offset="0" cobol:length="51" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="WvTempVolume" maxOccurs="1"  cobol:name="WV-TEMP-VOLUME" cobol:offset="0" cobol:length="8" cobol:datatype="Comp-2" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="0" />
+                  <xs:fractionDigits value="0" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="WvWorkingQty" maxOccurs="1"  cobol:name="WV-WORKING-QTY" cobol:offset="8" cobol:length="8" cobol:datatype="Comp-2" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="0" />
+                  <xs:fractionDigits value="0" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="WvSourceScale" type="xs:long" maxOccurs="1"  cobol:name="WV-SOURCE-SCALE" cobol:offset="16" cobol:length="7" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10T"/>
+    <xs:element name="WvUnsignedVolume" maxOccurs="1"  cobol:name="WV-UNSIGNED-VOLUME" cobol:offset="23" cobol:length="14" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100T">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="14" />
+                  <xs:fractionDigits value="5" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dexr001SourceQty" maxOccurs="1"  cobol:name="DEXR001-SOURCE-QTY" cobol:offset="37" cobol:length="7" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10T">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="13" />
+                  <xs:fractionDigits value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dexr001TargetQty" maxOccurs="1"  cobol:name="DEXR001-TARGET-QTY" cobol:offset="44" cobol:length="7" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10T">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="13" />
+                  <xs:fractionDigits value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="WvSourceSub" type="xs:short" maxOccurs="1"  cobol:name="WV-SOURCE-SUB" cobol:offset="51" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="WvTargetSub" type="xs:short" maxOccurs="1"  cobol:name="WV-TARGET-SUB" cobol:offset="51" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

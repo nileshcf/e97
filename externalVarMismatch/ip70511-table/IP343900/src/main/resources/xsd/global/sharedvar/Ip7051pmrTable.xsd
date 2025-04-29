@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip7051pmrTable" cobol:name="IP7051PMR-TABLE" cobol:offset="0" cobol:length="225" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="Ip7051pmrTableKey" maxOccurs="1" cobol:name="IP7051PMR-TABLE-KEY" cobol:offset="0" cobol:length="32" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip7051pmrMqBypassSw" maxOccurs="1"  cobol:name="IP7051PMR-MQ-BYPASS-SW" cobol:offset="32" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip7051pmrMqBypassY VALUE [["Y"]].
+                        88 ip7051pmrMqBypassN VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="Ip7051pmrRequestDetails" maxOccurs="1" cobol:name="IP7051PMR-REQUEST-DETAILS" cobol:offset="33" cobol:length="96" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Ip7051pmrResponseDetails" maxOccurs="1" cobol:name="IP7051PMR-RESPONSE-DETAILS" cobol:offset="129" cobol:length="96" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

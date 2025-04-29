@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="XtkMsg2600" cobol:name="600-XTK-MSG2" cobol:offset="184" cobol:length="57" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Messages600Filler8" maxOccurs="1"  cobol:name="FILLER" cobol:offset="0" cobol:length="17" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="17" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="FailedValidation600" maxOccurs="1"  cobol:name="600-FAILED-VALIDATION" cobol:offset="17" cobol:length="40" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 xtkSqlfail88600 VALUE [["TARAXTK SELECT FAILED                   "]].
+                        88 xtkParmNull88600 VALUE [["TARAXTK PARM IS NULL OR LENGTH < 4      "]].
+                        88 xtkSpace88600 VALUE [["TARAXTK PARM HAS SPACE                  "]].
+                        88 xtkTildePipe88600 VALUE [["TARAXTK PRM DOES NOT HAVE 13 PIPE/TILDE "]].
+                        88 xtkKeyValPair88600 VALUE [["TARAXTK KEY-VALUE PAIR IS NOT THIRTEEN  "]].
+                        88 xtkScol88600 VALUE [["TARAXTK PRM DOES NOT HAVE 1 SEMICOLON   "]].
+                        88 xtkTilde88600 VALUE [["KEY VALUE PAIR HAS TILDE > 1            "]].
+                        88 xtkOverflow88600 VALUE [["XTK KEY/VALUE OVERFLOW IN UNSTRING      "]].
+                        88 xtkNotNumeric88600 VALUE [["XTK VALUE IS NOT NUMERIC OR ZEROES      "]].
+                        88 xtkKeyInvalid88600 VALUE [["INCORRECT KEY INFO PROVIDED IN XTK      "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="40" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

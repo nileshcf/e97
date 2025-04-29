@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Work" cobol:name="work" cobol:offset="0" cobol:length="31" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="CurrentCard" maxOccurs="1"  cobol:name="WS-CURRENT-CARD" cobol:offset="0" cobol:length="16" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="16" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="OutTotal" maxOccurs="1"  cobol:name="WS-OUT-TOTAL" cobol:offset="0" cobol:length="13" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10T">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="13" />
+                  <xs:fractionDigits value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Inp1Status" maxOccurs="1"  cobol:name="WS-INP1-STATUS" cobol:offset="13" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="OutpStatus" maxOccurs="1"  cobol:name="WS-OUTP-STATUS" cobol:offset="13" cobol:length="2" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="DoneStatus" maxOccurs="1"  cobol:name="WS-DONE-STATUS" cobol:offset="13" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 processed VALUE [["P"]].
+                        88 inProgress VALUE [["S"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Inp1Cnt" type="xs:long" maxOccurs="1"  cobol:name="WS-INP1-CNT" cobol:offset="13" cobol:length="9" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="OutpCntW" type="xs:long" maxOccurs="1"  cobol:name="WS-OUTP-CNT-W" cobol:offset="22" cobol:length="9" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

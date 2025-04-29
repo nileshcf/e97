@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Work" cobol:name="work" cobol:offset="0" cobol:length="25" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Sys201FileStatus200" maxOccurs="1"  cobol:name="200-SYS201-FILE-STATUS" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 sys201Success88200 VALUE [["00"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Sys202FileStatus200" maxOccurs="1"  cobol:name="200-SYS202-FILE-STATUS" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 sys202Success88200 VALUE [["00"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="StatusCode300" maxOccurs="1"  cobol:name="300-STATUS-CODE" cobol:offset="0" cobol:length="25" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="25" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="AbendCode300" maxOccurs="1"  cobol:name="300-ABEND-CODE" cobol:offset="0" cobol:length="4" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 fileOpenAbendCode88300 VALUE [["3001"]].
+                        88 fileWriteAbendCode88300 VALUE [["3003"]].
+                        88 fileCloseAbendCode88300 VALUE [["3004"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="4" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="ErrorMessage600" maxOccurs="1"  cobol:name="600-ERROR-MESSAGE" cobol:offset="0" cobol:length="40" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 abendOpenSys20188600 VALUE [["ERROR OPENING SYS201 CAB EXTRACT FILE   "]].
+                        88 abendWriteSys20188600 VALUE [["ERROR WRITING SYS201 CAB EXTRACT FILE   "]].
+                        88 abendCloseSys20188600 VALUE [["ERROR CLOSING SYS201 CAB EXTRACT FILE   "]].
+                        88 abendOpenSys20288600 VALUE [["ERROR OPENING SYS202 NSPK EXTRCT FILE   "]].
+                        88 abendWriteSys20288600 VALUE [["ERROR WRITING SYS202 NSPK EXTRCT FILE   "]].
+                        88 abendCloseSys20288600 VALUE [["ERROR CLOSING SYS202 NSPK EXTRCT FILE   "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="40" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="StatusCode600" type="xs:int" maxOccurs="1"  cobol:name="600-STATUS-CODE" cobol:offset="0" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+    <xs:element name="DisplayAbendMsgTxt600" maxOccurs="1"  cobol:name="600-DISPLAY-ABEND-MSG-TXT" cobol:offset="2" cobol:length="480" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="480" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="AbendPara300" maxOccurs="1"  cobol:name="300-ABEND-PARA" cobol:offset="2" cobol:length="35" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 openSys201Para88300 VALUE [["1100-OPEN-SYS201-FILE              "]].
+                        88 writeSys201Para88300 VALUE [["2900-WRITE-SYS201-FILE             "]].
+                        88 closeSys201Para88300 VALUE [["2950-CLOSE-SYS201-FILE             "]].
+                        88 openSys202Para88300 VALUE [["1101-OPEN-SYS202-FILE              "]].
+                        88 writeSys202Para88300 VALUE [["2901-WRITE-SYS202-FILE             "]].
+                        88 closeSys202Para88300 VALUE [["2951-CLOSE-SYS202-FILE             "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="35" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Idx800" type="xs:long" maxOccurs="1"  cobol:name="800-IDX" cobol:offset="2" cobol:length="5" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+         <xs:element name="Sub800" type="xs:long" maxOccurs="1"  cobol:name="800-SUB" cobol:offset="7" cobol:length="5" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+         <xs:element name="PlusOneHundred300" type="xs:short" maxOccurs="1"  cobol:name="300-PLUS-ONE-HUNDRED" cobol:offset="12" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+    <xs:element name="CabtccextCsr100" maxOccurs="1"  cobol:name="100-CABTCCEXT-CSR" cobol:offset="15" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 startCabtccextCsr100 VALUE [["N"]].
+                        88 endCabtccextCsr100 VALUE [["Y"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="OutfileCnt" type="xs:long" maxOccurs="1"  cobol:name="WS-OUTFILE-CNT" cobol:offset="15" cobol:length="5" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+         <xs:element name="OcrCnt" type="xs:int" maxOccurs="1"  cobol:name="WS-OCR-CNT" cobol:offset="20" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+    <xs:element name="ThisPgmDb2CollIdBase300" maxOccurs="1"  cobol:name="300-THIS-PGM-DB2-COLL-ID-BASE" cobol:offset="21" cobol:length="7" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="7" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Db2ErrModule300" maxOccurs="1"  cobol:name="300-DB2-ERR-MODULE" cobol:offset="21" cobol:length="8" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="OutputCntMsg600" maxOccurs="1"  cobol:name="600-OUTPUT-CNT-MSG" cobol:offset="21" cobol:length="43" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="43" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="WsSqlcodeDisp800" maxOccurs="1"  cobol:name="800-WS-SQLCODE-DISP" cobol:offset="21" cobol:length="4" cobol:datatype="Disp-Num-Edit" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="WsCurrParagraph800" maxOccurs="1"  cobol:name="800-WS-CURR-PARAGRAPH" cobol:offset="25" cobol:length="30" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="30" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="WsSqlFunction800" maxOccurs="1"  cobol:name="800-WS-SQL-FUNCTION" cobol:offset="25" cobol:length="25" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="25" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="WsCurrTable800" maxOccurs="1"  cobol:name="800-WS-CURR-TABLE" cobol:offset="25" cobol:length="25" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="25" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

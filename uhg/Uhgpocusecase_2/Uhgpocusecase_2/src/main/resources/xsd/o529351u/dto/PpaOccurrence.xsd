@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="PpaOccurrence" cobol:name="PPA-OCCURRENCE" cobol:offset="11981" cobol:length="28" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="PpaProduct" maxOccurs="1"  cobol:name="PPA-PRODUCT" cobol:offset="0" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="PpaMarketType" type="xs:short" maxOccurs="1"  cobol:name="PPA-MARKET-TYPE" cobol:offset="3" cobol:length="2" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+         <xs:element name="PpaMarket" type="xs:int" maxOccurs="1"  cobol:name="PPA-MARKET" cobol:offset="5" cobol:length="4" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+         <xs:element name="PpaIpa" type="xs:int" maxOccurs="1"  cobol:name="PPA-IPA" cobol:offset="9" cobol:length="3" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+    <xs:element name="PpaGrpTabNo" maxOccurs="1"  cobol:name="PPA-GRP-TAB-NO" cobol:offset="12" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="PpaContractArrange" maxOccurs="1"  cobol:name="PPA-CONTRACT-ARRANGE" cobol:offset="16" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="PpaFirstEffDate" type="xs:int" maxOccurs="1"  cobol:name="PPA-FIRST-EFF-DATE" cobol:offset="17" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="PpaLastCanDate" type="xs:int" maxOccurs="1"  cobol:name="PPA-LAST-CAN-DATE" cobol:offset="22" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="PpaFacContr" maxOccurs="1"  cobol:name="PPA-FAC-CONTR" cobol:offset="27" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

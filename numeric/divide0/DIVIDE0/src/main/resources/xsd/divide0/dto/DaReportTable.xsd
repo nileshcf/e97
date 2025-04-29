@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="DaReportTable" cobol:name="DA-REPORT-TABLE" cobol:offset="0" cobol:length="2745" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="DaFileArea" maxOccurs="1"  cobol:name="DA-FILE-AREA" cobol:offset="0" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="DaSub" type="xs:int" maxOccurs="1"  cobol:name="DA-SUB" cobol:offset="10" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="DaSubPfx" type="xs:int" maxOccurs="1"  cobol:name="DA-SUB-PFX" cobol:offset="14" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="DaIx" type="xs:int" maxOccurs="1"  cobol:name="DA-IX" cobol:offset="18" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="DaSubSave" type="xs:int" maxOccurs="1"  cobol:name="DA-SUB-SAVE" cobol:offset="22" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="DaColMax" type="xs:int" maxOccurs="1"  cobol:name="DA-COL-MAX" cobol:offset="26" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="DaTblMax" type="xs:int" maxOccurs="1"  cobol:name="DA-TBL-MAX" cobol:offset="30" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="DaHoldMax" type="xs:int" maxOccurs="1"  cobol:name="DA-HOLD-MAX" cobol:offset="34" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+<xs:element name="DaTblEntries" maxOccurs="150" cobol:name="DA-TBL-ENTRIES" cobol:offset="38" cobol:length="18" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="DaPcntHold" maxOccurs="1"  cobol:name="DA-PCNT-HOLD" cobol:offset="2738" cobol:length="7" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="7" />
+                  <xs:fractionDigits value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

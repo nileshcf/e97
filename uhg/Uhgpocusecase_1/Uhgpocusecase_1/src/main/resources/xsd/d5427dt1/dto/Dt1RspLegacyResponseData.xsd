@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Dt1RspLegacyResponseData" cobol:name="DT1-RSP-LEGACY-RESPONSE-DATA" cobol:offset="10" cobol:length="26" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Dt1RspReturnCode" maxOccurs="1"  cobol:name="DT1-RSP-RETURN-CODE" cobol:offset="0" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dt1RspOk VALUE [[0ALL]].
+                        88 dt1RspFailedSeeExpCode VALUE [[6]].
+                        88 dt1RspDatabaseError VALUE [[7]].
+                        88 dt1RspNotAuthForView VALUE [[8]].
+                        88 dt1RspFail VALUE [[99]].
+                        88 dt1RspNotOk VALUE [[[1],[99]]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Dt1RspExplanationCode" maxOccurs="1"  cobol:name="DT1-RSP-EXPLANATION-CODE" cobol:offset="2" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1000" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dt1RspExplOk VALUE [[0ALL]].
+                        88 dt1RspInvalidView VALUE [[2]].
+                        88 dt1RspIOError VALUE [[5]].
+                        88 dt1RspFoundPgmError VALUE [[90]].
+                        88 dt1RspSeeParmsForMoreInf VALUE [[997]].
+                        88 dt1RspSeeViewForMoreInfo VALUE [[998]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Dt1RspRespCode" maxOccurs="1"  cobol:name="DT1-RSP-RESP-CODE" cobol:offset="5" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dt1RspGoodReturn VALUE [[0ALL]].
+                        88 dt1RspInvalidRequest VALUE [[1]].
+                        88 dt1RspNoClaimsFound VALUE [[3]].
+                        88 dt1RspEmployeeNotFound VALUE [[100]].
+                        88 dt1RspPatientNotFound VALUE [[101]].
+                        88 dt1RspIcnNotFound VALUE [[102]].
+                        88 dt1RspInvalidIcn VALUE [[200]].
+                        88 dt1RspInvalidMbrInfo VALUE [[201]].
+                        88 dt1RspInvalidOffice VALUE [[202]].
+                        88 dt1RspInvalidDepNumber VALUE [[203]].
+                        88 dt1RspInvalidPolicy VALUE [[205]].
+                        88 dt1RspInvalidEmployeeId VALUE [[206]].
+                        88 dt1RspInvalidRelationship VALUE [[207]].
+                        88 dt1RspInvalidName VALUE [[208]].
+                        88 dt1RspInvalidTin VALUE [[209]].
+                        88 dt1RspAuthNbrNotFound VALUE [[210]].
+                        88 dt1RspSearchCatReqd VALUE [[211]].
+                        88 dt1RspInvalidBegDate VALUE [[221]].
+                        88 dt1RspInvalidEndDate VALUE [[222]].
+                        88 dt1RspMaxClaimsExceeded VALUE [[223]].
+                        88 dt1RspMissingCatCode VALUE [[225]].
+                        88 dt1RspInvalidVersionNbr VALUE [[400]].
+                        88 dt1RspInvalidViewName VALUE [[401]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Dt1RspSqlCode" type="xs:long" maxOccurs="1"  cobol:name="DT1-RSP-SQL-CODE" cobol:offset="9" cobol:length="9" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="Dt1RspErrSection" maxOccurs="1"  cobol:name="DT1-RSP-ERR-SECTION" cobol:offset="18" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

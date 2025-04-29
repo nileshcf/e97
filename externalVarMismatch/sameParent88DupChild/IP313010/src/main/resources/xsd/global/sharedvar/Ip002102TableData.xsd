@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip002102TableData" cobol:name="IP002102-TABLE-DATA" cobol:offset="4" cobol:length="21" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="Ip002102OldElementId" maxOccurs="1" cobol:name="IP002102-OLD-ELEMENT-ID" cobol:offset="0" cobol:length="4" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip002102OldSubfldNo" maxOccurs="1"  cobol:name="IP002102-OLD-SUBFLD-NO" cobol:offset="4" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip002102EntireElement VALUE [[0ALL]].
+                        88 ip002102NoOldSubfld VALUE [[99]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="Ip002102NewElementId" maxOccurs="1" cobol:name="IP002102-NEW-ELEMENT-ID" cobol:offset="6" cobol:length="4" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip002102NewSubfldNo" maxOccurs="1"  cobol:name="IP002102-NEW-SUBFLD-NO" cobol:offset="10" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip002102EntireElement1 VALUE [[0ALL]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip002102Justified" maxOccurs="1"  cobol:name="IP002102-JUSTIFIED" cobol:offset="12" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip002102FirstDefaultPtr" type="xs:int" maxOccurs="1"  cobol:name="IP002102-FIRST-DEFAULT-PTR" cobol:offset="13" cobol:length="4" cobol:datatype="Index" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="Ip002102FirstDefaultPtrRedefined" maxOccurs="1"  cobol:name="IP002102-FIRST-DEFAULT-PTR-REDEFINED" cobol:offset="13" cobol:length="4" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip002102NoDefaultValue VALUE [[0xFFALL]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="4" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip002102LastDefaultPtr" type="xs:int" maxOccurs="1"  cobol:name="IP002102-LAST-DEFAULT-PTR" cobol:offset="17" cobol:length="4" cobol:datatype="Index" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

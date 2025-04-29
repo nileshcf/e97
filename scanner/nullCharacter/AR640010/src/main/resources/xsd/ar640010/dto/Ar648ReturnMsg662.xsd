@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ar648ReturnMsg662" cobol:name="662-AR648-RETURN-MSG" cobol:offset="0" cobol:length="71" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ar648ReturnMsg662Filler1" maxOccurs="1"  cobol:name="FILLER" cobol:offset="0" cobol:length="19" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="19" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ar648ReturnCode662" maxOccurs="1"  cobol:name="662-AR648-RETURN-CODE" cobol:offset="19" cobol:length="5" cobol:datatype="Disp-Num-Edit" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="5" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ar648ReturnMsg662ConditionGroup2" maxOccurs="1"  cobol:name="FILLER" cobol:offset="24" cobol:length="47" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ar648ReturnError88662 VALUE [[": LINKAGE AREA REQUEST CODE IS IN ERROR        "]].
+                        88 ar648ReturnOrder88662 VALUE [[": AR648010 REQUESTS ARE NOT IN ACCEPTABLE ORDER"]].
+                        88 ar648ReturnSyslst88662 VALUE [[": AR648010 SYSLST COBOL I/O ERROR ENCOUNTERED  "]].
+                        88 ar648ReturnEntry88662 VALUE [[": AR648010 ENTERED AFTER SYSLST COBOL I/O ERROR"]].
+                        88 ar648ReturnUnknown88662 VALUE [[": AR648010 RETURN VALUE UNKNOWN TO API MANAGER "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="47" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

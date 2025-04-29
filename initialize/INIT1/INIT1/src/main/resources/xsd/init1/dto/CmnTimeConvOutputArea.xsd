@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="CmnTimeConvOutputArea" cobol:name="CMN-TIME-CONV-OUTPUT-AREA" cobol:offset="1047" cobol:length="30" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="CmnTimeConvReturnCode" maxOccurs="1"  cobol:name="CMN-TIME-CONV-RETURN-CODE" cobol:offset="0" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 conversionSuccessful16 VALUE [[0ALL]].
+                        88 validParameters16 VALUE [[0ALL]].
+                        88 errorInCall16 VALUE [[[1],[9]]].
+                        88 invalidConvType16 VALUE [[5]].
+                        88 outOfRangeTimeInput16 VALUE [[7]].
+                        88 nonNumericTimeInput16 VALUE [[8]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="CmnConvertedTimeFormats" maxOccurs="1" cobol:name="CMN-CONVERTED-TIME-FORMATS" cobol:offset="1" cobol:length="29" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

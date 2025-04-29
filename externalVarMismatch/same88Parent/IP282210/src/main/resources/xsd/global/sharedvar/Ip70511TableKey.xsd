@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip70511TableKey" cobol:name="IP70511-TABLE-KEY" cobol:offset="0" cobol:length="32" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip70511EnvCd" maxOccurs="1"  cobol:name="IP70511-ENV-CD" cobol:offset="0" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip70511CloneOwnerId" maxOccurs="1"  cobol:name="IP70511-CLONE-OWNER-ID" cobol:offset="3" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip70511Cpu" maxOccurs="1"  cobol:name="IP70511-CPU" cobol:offset="6" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip70511HostPrcssAgrmtId" maxOccurs="1"  cobol:name="IP70511-HOST-PRCSS-AGRMT-ID" cobol:offset="10" cobol:length="11" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="11" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip70511ServCd" maxOccurs="1"  cobol:name="IP70511-SERV-CD" cobol:offset="21" cobol:length="4" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip70511PmaServCdIdn88 VALUE [["0001"]].
+                        88 ip70511PmtMapServCd88 VALUE [["0002"]].
+                        88 ip70511PimMapServCd88 VALUE [["0003"]].
+                        88 ip70511CemServCd88 VALUE [["0004"]].
+                        88 ip70511FnsServCd88 VALUE [["0005"]].
+                        88 ip70511CemAuthServCd88 VALUE [["0006"]].
+                        88 ip70511FraudServCd88 VALUE [["0007"]].
+                        88 ip70511CemNspkServCd88 VALUE [["0008"]].
+                        88 ip70511FastpayServCd88 VALUE [["0009"]].
+                        88 ip70511InstallServCd88 VALUE [["0010"]].
+                        88 ip70511RefundQrServCd88 VALUE [["0011"]].
+                        88 ip70511MpAchServCd88 VALUE [["0012"]].
+                        88 ip70511PmaServCdRus88 VALUE [["0013"]].
+                        88 ip70511PmtServCdIdn88 VALUE [["0002"]].
+                        88 ip70511PimServCdIdn88 VALUE [["0003"]].
+                        88 ip70511PimServCdRus88 VALUE [["0014"]].
+                        88 ip70511PmiServCdIdn88 VALUE [["0015"]].
+                        88 ip70511PmiServCdRus88 VALUE [["0016"]].
+                        88 ip70511PmaServCdAms88 VALUE [["0017"]].
+                        88 ip70511PmiServCdAms88 VALUE [["0018"]].
+                        88 ip70511PimServCdAms88 VALUE [["0019"]].
+                        88 ip70511PmtServCdRus88 VALUE [["0020"]].
+                        88 ip70511PmtServCdInd88 VALUE [["0021"]].
+                        88 ip70511PmaServCdInd88 VALUE [["0022"]].
+                        88 ip70511PimServCdInd88 VALUE [["0023"]].
+                        88 ip70511PmiServCdInd88 VALUE [["0024"]].
+                        88 ip70511AlmServCd88 VALUE [["0025"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="4" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip70511FuncCd" maxOccurs="1"  cobol:name="IP70511-FUNC-CD" cobol:offset="25" cobol:length="4" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip70511GeneralFuncCd88 VALUE [["0000"]].
+                        88 ip70511PresFuncCd88 VALUE [["0001"]].
+                        88 ip70511ChaFuncCd88 VALUE [["0002"]].
+                        88 ip70511CemFuncCdReq88 VALUE [["0003"]].
+                        88 ip70511CemFuncCdRes88 VALUE [["0004"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="4" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip70511QueueNum" type="xs:int" maxOccurs="1"  cobol:name="IP70511-QUEUE-NUM" cobol:offset="29" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

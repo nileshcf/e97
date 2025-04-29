@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Vchar1Table" cobol:name="VCHAR1-TABLE" cobol:offset="0" cobol:length="51" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Vchar1Id" type="xs:short" maxOccurs="1"  cobol:name="VCHAR1-ID" cobol:offset="0" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+<xs:element name="Vchar1FirstName" maxOccurs="1" cobol:name="VCHAR1-FIRST-NAME" cobol:offset="2" cobol:length="17" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Vchar1LastName" maxOccurs="1"  cobol:name="VCHAR1-LAST-NAME" cobol:offset="19" cobol:length="15" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="15" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Vchar1NickName" maxOccurs="1" cobol:name="VCHAR1-NICK-NAME" cobol:offset="34" cobol:length="17" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

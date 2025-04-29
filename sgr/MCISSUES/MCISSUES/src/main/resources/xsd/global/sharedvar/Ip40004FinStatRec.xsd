@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip40004FinStatRec" cobol:name="IP40004-FIN-STAT-REC" cobol:offset="35" cobol:length="578" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip40004TransmissionId" maxOccurs="1"  cobol:name="IP40004-TRANSMISSION-ID" cobol:offset="0" cobol:length="25" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="25" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip40004FileIdFinan" maxOccurs="1" cobol:name="IP40004-FILE-ID-FINAN" cobol:offset="25" cobol:length="25" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip40004FinancialInd" maxOccurs="1"  cobol:name="IP40004-FINANCIAL-IND" cobol:offset="50" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip40004FinTrans88 VALUE [["F"]].
+                        88 ip40004NonFinTrans88 VALUE [["N"]].
+                        88 ip40004UnrecTrans88 VALUE [["U"]].
+                        88 ip40004InvProcCdTrans88 VALUE [["V"]].
+                        88 ip40004InvFuncCdTrans88 VALUE [["W"]].
+                        88 ip40004InvAmtTrans88 VALUE [["X"]].
+                        88 ip40004InvRevIndTrans88 VALUE [["Y"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip40004MtiFunc" maxOccurs="1"  cobol:name="IP40004-MTI-FUNC" cobol:offset="51" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip40004ReversalInd" maxOccurs="1"  cobol:name="IP40004-REVERSAL-IND" cobol:offset="59" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip40004Original88 VALUE [["O"]].
+                        88 ip40004Reversal88 VALUE [["R"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip40004ReversalDate" maxOccurs="1"  cobol:name="IP40004-REVERSAL-DATE" cobol:offset="60" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip40004TransType2" maxOccurs="1"  cobol:name="IP40004-TRANS-TYPE2" cobol:offset="66" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip40004Mcc" type="xs:int" maxOccurs="1"  cobol:name="IP40004-MCC" cobol:offset="68" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+    <xs:element name="Ip40004Ird" maxOccurs="1"  cobol:name="IP40004-IRD" cobol:offset="72" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip40004CurrencyCode" maxOccurs="1"  cobol:name="IP40004-CURRENCY-CODE" cobol:offset="74" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip40004CurrencyExp" maxOccurs="1"  cobol:name="IP40004-CURRENCY-EXP" cobol:offset="77" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip40004InvDtlData" maxOccurs="10"  cobol:name="IP40004-INV-DTL-DATA" cobol:offset="78" cobol:length="50" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="50" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

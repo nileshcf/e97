@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ov4MicrLineInfo" cobol:name="OV4-MICR-LINE-INFO" cobol:offset="125" cobol:length="67" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="Ov4Aba" maxOccurs="1" cobol:name="OV4-ABA" cobol:offset="0" cobol:length="9" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ov4AcctAppl" maxOccurs="1"  cobol:name="OV4-ACCT-APPL" cobol:offset="9" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ov4AcctNo" type="xs:long" maxOccurs="1"  cobol:name="OV4-ACCT-NO" cobol:offset="10" cobol:length="18" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1E"/>
+    <xs:element name="Ov4AmntSign" maxOccurs="1"  cobol:name="OV4-AMNT-SIGN" cobol:offset="28" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ov4Amnt" maxOccurs="1"  cobol:name="OV4-AMNT" cobol:offset="29" cobol:length="18" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1E">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="18" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ov4ParameterListFiller5" maxOccurs="1"  cobol:name="FILLER" cobol:offset="47" cobol:length="20" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="20" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

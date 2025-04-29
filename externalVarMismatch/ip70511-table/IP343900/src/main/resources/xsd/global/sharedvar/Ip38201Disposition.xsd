@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip38201Disposition" cobol:name="IP38201-DISPOSITION" cobol:offset="53" cobol:length="3" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip38201DispBeginParm" maxOccurs="1"  cobol:name="IP38201-DISP-BEGIN-PARM" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dispBeginNew88 VALUE [["N"]].
+                        88 dispBeginShr88 VALUE [["S"]].
+                        88 dispBeginMod88 VALUE [["M"]].
+                        88 dispBeginOld88 VALUE [["O"]].
+                        88 dispBeginValid88 VALUE [["N"], ["S"], ["M"], ["O"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip38201DispNormalParm" maxOccurs="1"  cobol:name="IP38201-DISP-NORMAL-PARM" cobol:offset="1" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dispNormalCatlg88 VALUE [["C"]].
+                        88 dispNormalKeep88 VALUE [["K"]].
+                        88 dispNormalDelete88 VALUE [["D"]].
+                        88 dispNormalPass88 VALUE [["P"]].
+                        88 dispNormalUncatlg88 VALUE [["U"]].
+                        88 dispNormalValid88 VALUE [["C"], ["K"], ["D"], ["P"], ["U"]].
+                        88 dispNormalBlank88 VALUE [[" "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip38201DispAbnormalParm" maxOccurs="1"  cobol:name="IP38201-DISP-ABNORMAL-PARM" cobol:offset="2" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dispAbnormalDelete88 VALUE [["D"]].
+                        88 dispAbnormalCatlg88 VALUE [["C"]].
+                        88 dispAbnormalUncatlg88 VALUE [["U"]].
+                        88 dispAbnormalKeep88 VALUE [["K"]].
+                        88 dispAbnormalValid88 VALUE [["D"], ["C"], ["U"], ["K"]].
+                        88 dispAbnormalBlank88 VALUE [[" "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

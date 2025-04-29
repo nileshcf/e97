@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="CmnDateValidOutputArea" cobol:name="CMN-DATE-VALID-OUTPUT-AREA" cobol:offset="1034" cobol:length="9" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="CmnDateValidReturnCode" maxOccurs="1"  cobol:name="CMN-DATE-VALID-RETURN-CODE" cobol:offset="0" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 successfullCall11 VALUE [[0ALL]].
+                        88 validParameters11 VALUE [[0ALL]].
+                        88 errorInCall11 VALUE [[[1],[9]]].
+                        88 nonNumericDateInputMm11 VALUE [[1]].
+                        88 nonNumericDateInputDd11 VALUE [[2]].
+                        88 nonNumericDateInputYyyy11 VALUE [[3]].
+                        88 outOfRangeDateInputMm11 VALUE [[7]].
+                        88 outOfRangeDateInputDd11 VALUE [[8]].
+                        88 yyyyNot1900Thru200011 VALUE [[9]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="CmnDateValid" type="xs:long" maxOccurs="1"  cobol:name="CMN-DATE-VALID" cobol:offset="1" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="CmnDateValidR" maxOccurs="1" cobol:name="CMN-DATE-VALID-R" cobol:offset="1" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

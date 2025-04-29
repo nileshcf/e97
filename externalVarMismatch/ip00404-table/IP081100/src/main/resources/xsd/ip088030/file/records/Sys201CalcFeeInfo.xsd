@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Sys201CalcFeeInfo" cobol:name="SYS201-CALC-FEE-INFO" cobol:offset="750" cobol:length="20" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Sys201CalcPayParty" maxOccurs="1"  cobol:name="SYS201-CALC-PAY-PARTY" cobol:offset="0" cobol:length="3" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1000" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 sys20188PayPartyAcq VALUE [["ACQ"]].
+                        88 sys20188PayPartyIss VALUE [["ISS"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="3" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Sys201CalcFeeSetlAmt" type="xs:long" maxOccurs="1"  cobol:name="SYS201-CALC-FEE-SETL-AMT" cobol:offset="3" cobol:length="12" cobol:datatype="Disp-Num" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1T"/>
+         <xs:element name="Sys201CalcFeeSetlCur" type="xs:int" maxOccurs="1"  cobol:name="SYS201-CALC-FEE-SETL-CUR" cobol:offset="15" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+    <xs:element name="Sys201CalcFeeDrCrInd" maxOccurs="1"  cobol:name="SYS201-CALC-FEE-DR-CR-IND" cobol:offset="18" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 sys20188FeeIndCr VALUE [["CR"]].
+                        88 sys20188FeeIndDr VALUE [["DR"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

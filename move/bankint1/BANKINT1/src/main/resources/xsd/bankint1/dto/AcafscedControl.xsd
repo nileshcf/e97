@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="AcafscedControl" cobol:name="ACAFSCED-CONTROL" cobol:offset="80" cobol:length="430" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="AcafscedNombreRutinaError" maxOccurs="1"  cobol:name="ACAFSCED-NOMBRE-RUTINA-ERROR" cobol:offset="0" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="AcafscedMensajeError" maxOccurs="1" cobol:name="ACAFSCED-MENSAJE-ERROR" cobol:offset="8" cobol:length="80" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="AcafscedErrorDb2" maxOccurs="1" cobol:name="ACAFSCED-ERROR-DB2" cobol:offset="88" cobol:length="340" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="AcafscedCodigoRetorno" maxOccurs="1"  cobol:name="ACAFSCED-CODIGO-RETORNO" cobol:offset="428" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 acafscedCrBien VALUE [["00"]].
+                        88 acafscedCrErrorLogico VALUE [["10"]].
+                        88 acafscedCrErrorEntrada VALUE [["15"]].
+                        88 acafscedCrErrorDb2 VALUE [["20"]].
+                        88 acafscedCrErrorCics VALUE [["30"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

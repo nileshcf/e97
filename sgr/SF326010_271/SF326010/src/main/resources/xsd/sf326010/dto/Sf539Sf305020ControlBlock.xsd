@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Sf539Sf305020ControlBlock" cobol:name="SF539-SF305020-CONTROL-BLOCK" cobol:offset="0" cobol:length="768" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Sf539SubprogamId" maxOccurs="1"  cobol:name="SF539-SUBPROGAM-ID" cobol:offset="0" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf539CallingProgram" maxOccurs="1"  cobol:name="SF539-CALLING-PROGRAM" cobol:offset="8" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Sf539ZlogRecordPtr" type="xs:int" maxOccurs="1"  cobol:name="SF539-ZLOG-RECORD-PTR" cobol:offset="16" cobol:length="4" cobol:datatype="Pointer" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+         <xs:element name="Sf539ZlogRecordAddr" type="xs:int" maxOccurs="1"  cobol:name="SF539-ZLOG-RECORD-ADDR" cobol:offset="16" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Sf539ZlogRecordLnth" type="xs:int" maxOccurs="1"  cobol:name="SF539-ZLOG-RECORD-LNTH" cobol:offset="20" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Sf539ZlogElapsedTime" type="xs:int" maxOccurs="1"  cobol:name="SF539-ZLOG-ELAPSED-TIME" cobol:offset="24" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Sf539Sr1Length" type="xs:short" maxOccurs="1"  cobol:name="SF539-SR1-LENGTH" cobol:offset="28" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Sf539Sr2Length" type="xs:short" maxOccurs="1"  cobol:name="SF539-SR2-LENGTH" cobol:offset="30" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+<xs:element name="Sf539ServiceTable" maxOccurs="8" cobol:name="SF539-SERVICE-TABLE" cobol:offset="32" cobol:length="80" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Sf539HeaderSpec" maxOccurs="1"  cobol:name="SF539-HEADER-SPEC" cobol:offset="672" cobol:length="16" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="16" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Sf539IsoMsgOffset" type="xs:short" maxOccurs="1"  cobol:name="SF539-ISO-MSG-OFFSET" cobol:offset="688" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Sf539IsoMsgLnth" type="xs:short" maxOccurs="1"  cobol:name="SF539-ISO-MSG-LNTH" cobol:offset="690" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Sf539Trailer1Offset" type="xs:short" maxOccurs="1"  cobol:name="SF539-TRAILER-1-OFFSET" cobol:offset="692" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Sf539Trailer1Lnth" type="xs:short" maxOccurs="1"  cobol:name="SF539-TRAILER-1-LNTH" cobol:offset="694" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Sf539IsoMsg2Offset" type="xs:short" maxOccurs="1"  cobol:name="SF539-ISO-MSG-2-OFFSET" cobol:offset="696" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Sf539IsoMsg2Lnth" type="xs:short" maxOccurs="1"  cobol:name="SF539-ISO-MSG-2-LNTH" cobol:offset="698" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Sf539Trailer2Offset" type="xs:short" maxOccurs="1"  cobol:name="SF539-TRAILER-2-OFFSET" cobol:offset="700" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Sf539Trailer2Lnth" type="xs:short" maxOccurs="1"  cobol:name="SF539-TRAILER-2-LNTH" cobol:offset="702" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Sf539IsoMsg3Offset" type="xs:short" maxOccurs="1"  cobol:name="SF539-ISO-MSG-3-OFFSET" cobol:offset="704" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Sf539IsoMsg3Lnth" type="xs:short" maxOccurs="1"  cobol:name="SF539-ISO-MSG-3-LNTH" cobol:offset="706" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="Sf539FillerExpansion" maxOccurs="1"  cobol:name="SF539-FILLER-EXPANSION" cobol:offset="708" cobol:length="60" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="60" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

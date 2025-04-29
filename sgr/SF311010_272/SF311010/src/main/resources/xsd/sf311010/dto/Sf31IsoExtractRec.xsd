@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Sf31IsoExtractRec" cobol:name="SF31-ISO-EXTRACT-REC" cobol:offset="0" cobol:length="900" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Sf31IsoCardholderNbr" maxOccurs="1"  cobol:name="SF31-ISO-CARDHOLDER-NBR" cobol:offset="0" cobol:length="19" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="19" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoTransactionAmt" maxOccurs="1"  cobol:name="SF31-ISO-TRANSACTION-AMT" cobol:offset="19" cobol:length="12" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1T">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="12" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoAcquirerIca" maxOccurs="1"  cobol:name="SF31-ISO-ACQUIRER-ICA" cobol:offset="31" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoForwardInstIdOnly" maxOccurs="1"  cobol:name="SF31-ISO-FORWARD-INST-ID-ONLY" cobol:offset="37" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoAuthNumber" maxOccurs="1"  cobol:name="SF31-ISO-AUTH-NUMBER" cobol:offset="43" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoAuthResponse" maxOccurs="1"  cobol:name="SF31-ISO-AUTH-RESPONSE" cobol:offset="49" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoAuthAddlData" maxOccurs="1"  cobol:name="SF31-ISO-AUTH-ADDL-DATA" cobol:offset="51" cobol:length="25" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="25" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoCardholderExpdt" maxOccurs="1"  cobol:name="SF31-ISO-CARDHOLDER-EXPDT" cobol:offset="76" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoPosDeviceType" maxOccurs="1"  cobol:name="SF31-ISO-POS-DEVICE-TYPE" cobol:offset="80" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoTrackTwoData" maxOccurs="1"  cobol:name="SF31-ISO-TRACK-TWO-DATA" cobol:offset="83" cobol:length="37" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="37" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoTrackOneData" maxOccurs="1"  cobol:name="SF31-ISO-TRACK-ONE-DATA" cobol:offset="120" cobol:length="76" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="76" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoTransactionType" maxOccurs="1"  cobol:name="SF31-ISO-TRANSACTION-TYPE" cobol:offset="196" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoAvsRequestTag" maxOccurs="1"  cobol:name="SF31-ISO-AVS-REQUEST-TAG" cobol:offset="197" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoAvsRequestLgth" maxOccurs="1"  cobol:name="SF31-ISO-AVS-REQUEST-LGTH" cobol:offset="199" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoAvsRequestCode" maxOccurs="1"  cobol:name="SF31-ISO-AVS-REQUEST-CODE" cobol:offset="201" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoAvsResponseTag" maxOccurs="1"  cobol:name="SF31-ISO-AVS-RESPONSE-TAG" cobol:offset="203" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoAvsResponseLgth" maxOccurs="1"  cobol:name="SF31-ISO-AVS-RESPONSE-LGTH" cobol:offset="205" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoAvsResponseCode" maxOccurs="1"  cobol:name="SF31-ISO-AVS-RESPONSE-CODE" cobol:offset="207" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoPosData" maxOccurs="1"  cobol:name="SF31-ISO-POS-DATA" cobol:offset="208" cobol:length="26" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="26" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoFinNetworkCode" maxOccurs="1"  cobol:name="SF31-ISO-FIN-NETWORK-CODE" cobol:offset="234" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoProcessingCode" maxOccurs="1"  cobol:name="SF31-ISO-PROCESSING-CODE" cobol:offset="237" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDateTimeXmit" maxOccurs="1"  cobol:name="SF31-ISO-DATE-TIME-XMIT" cobol:offset="243" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoMerchantType" maxOccurs="1"  cobol:name="SF31-ISO-MERCHANT-TYPE" cobol:offset="253" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoCountryCode" maxOccurs="1"  cobol:name="SF31-ISO-COUNTRY-CODE" cobol:offset="257" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoPosPinCapture" maxOccurs="1"  cobol:name="SF31-ISO-POS-PIN-CAPTURE" cobol:offset="260" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoRetrievalRefno" maxOccurs="1"  cobol:name="SF31-ISO-RETRIEVAL-REFNO" cobol:offset="262" cobol:length="12" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="12" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoIdTerminal" maxOccurs="1"  cobol:name="SF31-ISO-ID-TERMINAL" cobol:offset="274" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoCardAcceptor" maxOccurs="1"  cobol:name="SF31-ISO-CARD-ACCEPTOR" cobol:offset="282" cobol:length="15" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="15" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoAddtlData" maxOccurs="1"  cobol:name="SF31-ISO-ADDTL-DATA" cobol:offset="297" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Sf31IsoBkntData" maxOccurs="1" cobol:name="SF31-ISO-BKNT-DATA" cobol:offset="300" cobol:length="9" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Sf31IsoMerchantId" maxOccurs="1"  cobol:name="SF31-ISO-MERCHANT-ID" cobol:offset="309" cobol:length="16" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="16" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Sf31IsoTransDate" maxOccurs="1" cobol:name="SF31-ISO-TRANS-DATE" cobol:offset="325" cobol:length="4" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Sf31IsoIssUpIca" maxOccurs="1"  cobol:name="SF31-ISO-ISS-UP-ICA" cobol:offset="329" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoStateCode" maxOccurs="1"  cobol:name="SF31-ISO-STATE-CODE" cobol:offset="335" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoBlIcSeqNo" maxOccurs="1"  cobol:name="SF31-ISO-BL-IC-SEQ-NO" cobol:offset="337" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoIcMagCc" maxOccurs="1"  cobol:name="SF31-ISO-IC-MAG-CC" cobol:offset="345" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDe48Tag87Present" maxOccurs="1"  cobol:name="SF31-ISO-DE48-TAG87-PRESENT" cobol:offset="346" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDe48Tag88Present" maxOccurs="1"  cobol:name="SF31-ISO-DE48-TAG88-PRESENT" cobol:offset="347" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDe48Tag89Value" maxOccurs="1"  cobol:name="SF31-ISO-DE48-TAG89-VALUE" cobol:offset="348" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Sf31IsoAddlAvsii" maxOccurs="1" cobol:name="SF31-ISO-ADDL-AVSII" cobol:offset="349" cobol:length="175" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Sf31IsoCrncyConvFields" maxOccurs="1" cobol:name="SF31-ISO-CRNCY-CONV-FIELDS" cobol:offset="524" cobol:length="98" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Sf31IsoMemberData" maxOccurs="1"  cobol:name="SF31-ISO-MEMBER-DATA" cobol:offset="622" cobol:length="99" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="99" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDe48Se24Sf1" maxOccurs="1"  cobol:name="SF31-ISO-DE48-SE24-SF1" cobol:offset="721" cobol:length="5" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="5" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDe48Se24Sf2" maxOccurs="1"  cobol:name="SF31-ISO-DE48-SE24-SF2" cobol:offset="726" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDe48Se24Sf3" maxOccurs="1"  cobol:name="SF31-ISO-DE48-SE24-SF3" cobol:offset="729" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDe48Se24Sf4" maxOccurs="1"  cobol:name="SF31-ISO-DE48-SE24-SF4" cobol:offset="732" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDe48Se43Aav" maxOccurs="1"  cobol:name="SF31-ISO-DE48-SE43-AAV" cobol:offset="735" cobol:length="32" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="32" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDe48Se66Sf1" maxOccurs="1"  cobol:name="SF31-ISO-DE48-SE66-SF1" cobol:offset="767" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDe48Se66Sf2" maxOccurs="1"  cobol:name="SF31-ISO-DE48-SE66-SF2" cobol:offset="768" cobol:length="36" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="36" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoExtractRecFiller4" maxOccurs="1"  cobol:name="FILLER" cobol:offset="804" cobol:length="17" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="17" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Sf31IsoTimeLocalTrans" type="xs:long" maxOccurs="1"  cobol:name="SF31-ISO-TIME-LOCAL-TRANS" cobol:offset="821" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+         <xs:element name="Sf31IsoDateLocalTrans" type="xs:int" maxOccurs="1"  cobol:name="SF31-ISO-DATE-LOCAL-TRANS" cobol:offset="827" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+    <xs:element name="Sf31IsoDe48Se42Len3" maxOccurs="1"  cobol:name="SF31-ISO-DE48-SE42-LEN3" cobol:offset="831" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDe48Se42Sf2Sf3" maxOccurs="1"  cobol:name="SF31-ISO-DE48-SE42-SF2-SF3" cobol:offset="834" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDe48Se33Sf1" maxOccurs="1"  cobol:name="SF31-ISO-DE48-SE33-SF1" cobol:offset="838" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDe48Se33Sf2" maxOccurs="1"  cobol:name="SF31-ISO-DE48-SE33-SF2" cobol:offset="839" cobol:length="19" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="19" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDe48Se33Sf5" maxOccurs="1"  cobol:name="SF31-ISO-DE48-SE33-SF5" cobol:offset="858" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDe48Se33Sf6" maxOccurs="1"  cobol:name="SF31-ISO-DE48-SE33-SF6" cobol:offset="860" cobol:length="11" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="11" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31IsoDe48Se52Tic" maxOccurs="1"  cobol:name="SF31-ISO-DE48-SE52-TIC" cobol:offset="871" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf31FutureFiller" maxOccurs="1"  cobol:name="SF31-FUTURE-FILLER" cobol:offset="873" cobol:length="27" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="27" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

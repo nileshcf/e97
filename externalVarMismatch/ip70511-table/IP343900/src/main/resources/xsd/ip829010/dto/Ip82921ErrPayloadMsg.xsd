@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip82921ErrPayloadMsg" cobol:name="IP82921-ERR-PAYLOAD-MSG" cobol:offset="0" cobol:length="222" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Ip82921PayloadQueryNo" type="xs:short" maxOccurs="1"  cobol:name="IP82921-PAYLOAD-QUERY-NO" cobol:offset="0" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="Ip82921PayloadGftDsn" maxOccurs="1"  cobol:name="IP82921-PAYLOAD-GFT-DSN" cobol:offset="2" cobol:length="44" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="44" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip82921PayloadLogicalSeq" type="xs:int" maxOccurs="1"  cobol:name="IP82921-PAYLOAD-LOGICAL-SEQ" cobol:offset="46" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Ip82921PayloadTxnNum" type="xs:int" maxOccurs="1"  cobol:name="IP82921-PAYLOAD-TXN-NUM" cobol:offset="50" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+         <xs:element name="Ip82921PayloadFacCount" type="xs:short" maxOccurs="1"  cobol:name="IP82921-PAYLOAD-FAC-COUNT" cobol:offset="55" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="Ip82921PayloadFaaPanStat" maxOccurs="1"  cobol:name="IP82921-PAYLOAD-FAA-PAN-STAT" cobol:offset="57" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip82921PayloadFaaCloseDt" maxOccurs="1"  cobol:name="IP82921-PAYLOAD-FAA-CLOSE-DT" cobol:offset="58" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip82921FnsDataFields" maxOccurs="1" cobol:name="IP82921-FNS-DATA-FIELDS" cobol:offset="68" cobol:length="154" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Dealers" cobol:name="DEALERS" cobol:offset="10" cobol:length="4948" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Dealername" maxOccurs="1"  cobol:name="DEALERNAME" cobol:offset="0" cobol:length="30" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="30" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Locations" maxOccurs="3" cobol:name="LOCATIONS" cobol:offset="30" cobol:length="32" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="Makecounter" type="xs:short" maxOccurs="1"  cobol:name="MAKECOUNTER" cobol:offset="126" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+<xs:element name="Manufacturers" maxOccurs="4" cobol:name="MANUFACTURERS" cobol:offset="128" cobol:length="1205" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

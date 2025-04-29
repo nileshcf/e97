@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Bdms01CanadaBondSegData" cobol:name="BDMS01-CANADA-BOND-SEG-DATA" cobol:offset="5233" cobol:length="44" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Bdms01CanBondSegSqlcd" type="xs:int" maxOccurs="1"  cobol:name="BDMS01-CAN-BOND-SEG-SQLCD" cobol:offset="0" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+    <xs:element name="Bdms01ClsBooksBondDt" maxOccurs="1"  cobol:name="BDMS01-CLS-BOOKS-BOND-DT" cobol:offset="4" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01OfferingBondDt" maxOccurs="1"  cobol:name="BDMS01-OFFERING-BOND-DT" cobol:offset="14" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01ParFctrPct" maxOccurs="1"  cobol:name="BDMS01-PAR-FCTR-PCT" cobol:offset="24" cobol:length="18" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1E">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="18" />
+                  <xs:fractionDigits value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Bdms01PayMadeNbr" type="xs:short" maxOccurs="1"  cobol:name="BDMS01-PAY-MADE-NBR" cobol:offset="42" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

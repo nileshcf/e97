@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Bdms01BondBasicSegData" cobol:name="BDMS01-BOND-BASIC-SEG-DATA" cobol:offset="2538" cobol:length="249" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Bdms01BondBasicSegSqlcd" type="xs:int" maxOccurs="1"  cobol:name="BDMS01-BOND-BASIC-SEG-SQLCD" cobol:offset="0" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+    <xs:element name="MsdBondInterestRate" maxOccurs="1"  cobol:name="MSD-BOND-INTEREST-RATE" cobol:offset="4" cobol:length="11" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="MsdBondMaturityMmddccyy" maxOccurs="1" cobol:name="MSD-BOND-MATURITY-MMDDCCYY" cobol:offset="15" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="MsdBondCouponMmdd" maxOccurs="1" cobol:name="MSD-BOND-COUPON-MMDD" cobol:offset="23" cobol:length="4" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Bdms01DateCouponCd" maxOccurs="1"  cobol:name="BDMS01-DATE-COUPON-CD" cobol:offset="23" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="MsdBondDatedMmddyycc" maxOccurs="1" cobol:name="MSD-BOND-DATED-MMDDYYCC" cobol:offset="27" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="MsdBondRecordMmddyycc" maxOccurs="1" cobol:name="MSD-BOND-RECORD-MMDDYYCC" cobol:offset="35" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="MsdBondDatedIndicator" maxOccurs="1"  cobol:name="MSD-BOND-DATED-INDICATOR" cobol:offset="43" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 msdNotDated VALUE [["0"]].
+                        88 msdLongDate VALUE [["1"]].
+                        88 msdShortDate VALUE [["2"]].
+                        88 msdIssueDate VALUE [["3"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="MsdStateCode" maxOccurs="1"  cobol:name="MSD-STATE-CODE" cobol:offset="44" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdInsuranceCode" maxOccurs="1"  cobol:name="MSD-INSURANCE-CODE" cobol:offset="46" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01InsJjkCd" maxOccurs="1"  cobol:name="BDMS01-INS-JJK-CD" cobol:offset="46" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdBondGuaranteedInd" maxOccurs="1"  cobol:name="MSD-BOND-GUARANTEED-IND" cobol:offset="48" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 msdFederal VALUE [["1"]].
+                        88 msdProvincial VALUE [["2"]].
+                        88 msdLocal VALUE [["3"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="MsdBndEvalueCode" maxOccurs="1"  cobol:name="MSD-BND-EVALUE-CODE" cobol:offset="49" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="MsdBondPayMmddyycc" maxOccurs="1" cobol:name="MSD-BOND-PAY-MMDDYYCC" cobol:offset="50" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="MsdBondActualPayDate" maxOccurs="1"  cobol:name="MSD-BOND-ACTUAL-PAY-DATE" cobol:offset="58" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01DatePayActualCd" maxOccurs="1"  cobol:name="BDMS01-DATE-PAY-ACTUAL-CD" cobol:offset="58" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="MsdBondFirstCpnDt" type="xs:long" maxOccurs="1"  cobol:name="MSD-BOND-FIRST-CPN-DT" cobol:offset="62" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+    <xs:element name="Bdms01FrqncRateChgCd" maxOccurs="1"  cobol:name="BDMS01-FRQNC-RATE-CHG-CD" cobol:offset="68" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Bdms01FrqncRateChgCdRedefined" maxOccurs="1" cobol:name="BDMS01-FRQNC-RATE-CHG-CD-REDEFINED" cobol:offset="68" cobol:length="2" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Bdms01MaturityDt" maxOccurs="1"  cobol:name="BDMS01-MATURITY-DT" cobol:offset="70" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01AccrueIntDt" maxOccurs="1"  cobol:name="BDMS01-ACCRUE-INT-DT" cobol:offset="80" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01PayInterestDt" maxOccurs="1"  cobol:name="BDMS01-PAY-INTEREST-DT" cobol:offset="90" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01CouponFirstDt" maxOccurs="1"  cobol:name="BDMS01-COUPON-FIRST-DT" cobol:offset="100" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01CalcYldIntCd" maxOccurs="1"  cobol:name="BDMS01-CALC-YLD-INT-CD" cobol:offset="110" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01RecordHldEstDt" maxOccurs="1"  cobol:name="BDMS01-RECORD-HLD-EST-DT" cobol:offset="111" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01PrdLongShortCd" maxOccurs="1"  cobol:name="BDMS01-PRD-LONG-SHORT-CD" cobol:offset="121" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01ExtCallInd" maxOccurs="1"  cobol:name="BDMS01-EXT-CALL-IND" cobol:offset="122" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MsdExtraordinaryCall" maxOccurs="1"  cobol:name="MSD-EXTRAORDINARY-CALL" cobol:offset="122" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01ChngRateCd" maxOccurs="1"  cobol:name="BDMS01-CHNG-RATE-CD" cobol:offset="123" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01MuniMultInd" maxOccurs="1"  cobol:name="BDMS01-MUNI-MULT-IND" cobol:offset="124" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01SbaInd" maxOccurs="1"  cobol:name="BDMS01-SBA-IND" cobol:offset="125" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01TaxExmptBankInd" maxOccurs="1"  cobol:name="BDMS01-TAX-EXMPT-BANK-IND" cobol:offset="126" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01StrpdBondInd" maxOccurs="1"  cobol:name="BDMS01-STRPD-BOND-IND" cobol:offset="127" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01DefaultInd" maxOccurs="1"  cobol:name="BDMS01-DEFAULT-IND" cobol:offset="128" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01SerialBondNbr" maxOccurs="1"  cobol:name="BDMS01-SERIAL-BOND-NBR" cobol:offset="129" cobol:length="7" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="7" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01InterestPayCd" maxOccurs="1"  cobol:name="BDMS01-INTEREST-PAY-CD" cobol:offset="136" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01NbrDayPayCd" maxOccurs="1"  cobol:name="BDMS01-NBR-DAY-PAY-CD" cobol:offset="138" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01CmrlBondCd" maxOccurs="1"  cobol:name="BDMS01-CMRL-BOND-CD" cobol:offset="142" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01TypeGovtCd" maxOccurs="1"  cobol:name="BDMS01-TYPE-GOVT-CD" cobol:offset="144" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01StateCd" maxOccurs="1"  cobol:name="BDMS01-STATE-CD" cobol:offset="146" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01GovtBackCd" maxOccurs="1"  cobol:name="BDMS01-GOVT-BACK-CD" cobol:offset="148" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01TypePaperCd" maxOccurs="1"  cobol:name="BDMS01-TYPE-PAPER-CD" cobol:offset="150" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01PymntArreasInd" maxOccurs="1"  cobol:name="BDMS01-PYMNT-ARREAS-IND" cobol:offset="152" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01RdmptPrtlCd" maxOccurs="1"  cobol:name="BDMS01-RDMPT-PRTL-CD" cobol:offset="153" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01OrgnlIntPayDt" maxOccurs="1"  cobol:name="BDMS01-ORGNL-INT-PAY-DT" cobol:offset="155" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01EvltnBondCd" maxOccurs="1"  cobol:name="BDMS01-EVLTN-BOND-CD" cobol:offset="165" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01RefundReasonCd" maxOccurs="1"  cobol:name="BDMS01-REFUND-REASON-CD" cobol:offset="167" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01CanadaBondInd" maxOccurs="1"  cobol:name="BDMS01-CANADA-BOND-IND" cobol:offset="169" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01ErbndInd" maxOccurs="1"  cobol:name="BDMS01-ERBND-IND" cobol:offset="170" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01CallTypeCd" maxOccurs="1"  cobol:name="BDMS01-CALL-TYPE-CD" cobol:offset="171" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01TypeMuniCd" maxOccurs="1"  cobol:name="BDMS01-TYPE-MUNI-CD" cobol:offset="173" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01AgencyInd" maxOccurs="1"  cobol:name="BDMS01-AGENCY-IND" cobol:offset="177" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01TiisInd" maxOccurs="1"  cobol:name="BDMS01-TIIS-IND" cobol:offset="178" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01IntCalcnCd" maxOccurs="1"  cobol:name="BDMS01-INT-CALCN-CD" cobol:offset="179" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01AstBckdCd" maxOccurs="1"  cobol:name="BDMS01-AST-BCKD-CD" cobol:offset="183" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01GnmaSrlNoteInd" maxOccurs="1"  cobol:name="BDMS01-GNMA-SRL-NOTE-IND" cobol:offset="185" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01TraceInd" maxOccurs="1"  cobol:name="BDMS01-TRACE-IND" cobol:offset="186" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01TbaInd" maxOccurs="1"  cobol:name="BDMS01-TBA-IND" cobol:offset="187" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01MnmmDnmntAmt" maxOccurs="1"  cobol:name="BDMS01-MNMM-DNMNT-AMT" cobol:offset="188" cobol:length="13" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10T">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="13" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Bdms01ClNoticeDaysNbr" type="xs:int" maxOccurs="1"  cobol:name="BDMS01-CL-NOTICE-DAYS-NBR" cobol:offset="201" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+    <xs:element name="Bdms01SinkingFundInd" maxOccurs="1"  cobol:name="BDMS01-SINKING-FUND-IND" cobol:offset="204" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01DefeaseInd" maxOccurs="1"  cobol:name="BDMS01-DEFEASE-IND" cobol:offset="205" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01RvnuInd" maxOccurs="1"  cobol:name="BDMS01-RVNU-IND" cobol:offset="206" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01CvrsnRt" maxOccurs="1"  cobol:name="BDMS01-CVRSN-RT" cobol:offset="207" cobol:length="15" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01CvrsnPrcAmt" maxOccurs="1"  cobol:name="BDMS01-CVRSN-PRC-AMT" cobol:offset="222" cobol:length="15" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1P">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="15" />
+                  <xs:fractionDigits value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01CvrsnExpDt" maxOccurs="1"  cobol:name="BDMS01-CVRSN-EXP-DT" cobol:offset="237" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bdms01CallParametersFiller22" maxOccurs="1"  cobol:name="FILLER" cobol:offset="247" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

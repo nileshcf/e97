@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip38201SpaceParms" cobol:name="IP38201-SPACE-PARMS" cobol:offset="67" cobol:length="12" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip38201TrackCylinderInd" maxOccurs="1"  cobol:name="IP38201-TRACK-CYLINDER-IND" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip38201SpaceInTracks88 VALUE [["T"]].
+                        88 ip38201SpaceInCylinders88 VALUE [["C"]].
+                        88 ip38201SpaceInBlkLngth88 VALUE [["B"]].
+                        88 ip38201ValidTrackCylInd88 VALUE [["C"], ["T"], ["B"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip38201PrimarySpace" type="xs:long" maxOccurs="1"  cobol:name="IP38201-PRIMARY-SPACE" cobol:offset="1" cobol:length="5" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+         <xs:element name="Ip38201SecondarySpace" type="xs:long" maxOccurs="1"  cobol:name="IP38201-SECONDARY-SPACE" cobol:offset="6" cobol:length="5" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+    <xs:element name="Ip38201ReleaseIndicator" maxOccurs="1"  cobol:name="IP38201-RELEASE-INDICATOR" cobol:offset="11" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip38201Release88 VALUE [["R"]].
+                        88 ip38201DoNotRelease88 VALUE [[" "]].
+                        88 ip38201ValidReleaseInd88 VALUE [["R"], [" "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

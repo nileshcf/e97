@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip50005oTableKey" cobol:name="IP50005O-TABLE-KEY" cobol:offset="0" cobol:length="18" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="Ip50005oTableId" maxOccurs="1" cobol:name="IP50005O-TABLE-ID" cobol:offset="0" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip50005oReadTableId" maxOccurs="1"  cobol:name="IP50005O-READ-TABLE-ID" cobol:offset="0" cobol:length="8" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100M" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip50005oCloseIndicator88 VALUE [["99999999"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="8" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip50005oEffDate" type="xs:long" maxOccurs="1"  cobol:name="IP50005O-EFF-DATE" cobol:offset="8" cobol:length="10" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10G"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

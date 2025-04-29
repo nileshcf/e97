@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="WorkFields" cobol:name="WORK-FIELDS" cobol:offset="0" cobol:length="200258" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Paragraph" maxOccurs="1"  cobol:name="WS-PARAGRAPH" cobol:offset="0" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="PlanVarInputLines" maxOccurs="1" cobol:name="WS-PLAN-VAR-INPUT-LINES" cobol:offset="4" cobol:length="199980" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="HoldTransData" maxOccurs="1" cobol:name="WS-HOLD-TRANS-DATA" cobol:offset="199984" cobol:length="25" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="PrevMatchedKey" maxOccurs="1" cobol:name="WS-PREV-MATCHED-KEY" cobol:offset="200009" cobol:length="9" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="HoldTransData2" maxOccurs="1" cobol:name="WS-HOLD-TRANS-DATA2" cobol:offset="200018" cobol:length="63" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="NbrMatched" type="xs:short" maxOccurs="1"  cobol:name="WS-NBR-MATCHED" cobol:offset="200081" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="NbrMatchedPrev" type="xs:short" maxOccurs="1"  cobol:name="WS-NBR-MATCHED-PREV" cobol:offset="200084" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+<xs:element name="Point" maxOccurs="1" cobol:name="WS-POINT" cobol:offset="200087" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Datecj" maxOccurs="1" cobol:name="WS-DATECJ" cobol:offset="200095" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="DatecjIn" maxOccurs="1"  cobol:name="WS-DATECJ-IN" cobol:offset="200095" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="DatecjOut" maxOccurs="1"  cobol:name="WS-DATECJ-OUT" cobol:offset="200103" cobol:length="5" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="5" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="DatecjNum" type="xs:long" maxOccurs="1"  cobol:name="WS-DATECJ-NUM" cobol:offset="200103" cobol:length="5" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+         <xs:element name="ComplimentDate" type="xs:long" maxOccurs="1"  cobol:name="WS-COMPLIMENT-DATE" cobol:offset="200108" cobol:length="5" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+         <xs:element name="JulEffDate" type="xs:long" maxOccurs="1"  cobol:name="WS-JUL-EFF-DATE" cobol:offset="200113" cobol:length="5" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+         <xs:element name="PlanEffDate" type="xs:long" maxOccurs="1"  cobol:name="WS-PLAN-EFF-DATE" cobol:offset="200118" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="PlanEffDt" maxOccurs="1" cobol:name="WS-PLAN-EFF-DT" cobol:offset="200118" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="PlanCanDate" type="xs:long" maxOccurs="1"  cobol:name="WS-PLAN-CAN-DATE" cobol:offset="200126" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="PlanCanDt" maxOccurs="1" cobol:name="WS-PLAN-CAN-DT" cobol:offset="200126" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="PlanDosDate" type="xs:long" maxOccurs="1"  cobol:name="WS-PLAN-DOS-DATE" cobol:offset="200134" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+<xs:element name="PlanDosDt" maxOccurs="1" cobol:name="WS-PLAN-DOS-DT" cobol:offset="200134" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="PlanDate" type="xs:long" maxOccurs="1"  cobol:name="WS-PLAN-DATE" cobol:offset="200140" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="PlanDt" maxOccurs="1" cobol:name="WS-PLAN-DT" cobol:offset="200140" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="Number" type="xs:int" maxOccurs="1"  cobol:name="WS-NUMBER" cobol:offset="200148" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+    <xs:element name="PolNo" maxOccurs="1"  cobol:name="WS-POL-NO" cobol:offset="200149" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="PlnNo" type="xs:long" maxOccurs="1"  cobol:name="WS-PLN-NO" cobol:offset="200155" cobol:length="3" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+    <xs:element name="Hold51uPolicy" maxOccurs="1"  cobol:name="WS-HOLD-51U-POLICY" cobol:offset="200158" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Hold51uPlan" type="xs:long" maxOccurs="1"  cobol:name="WS-HOLD-51U-PLAN" cobol:offset="200164" cobol:length="3" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+    <xs:element name="CtlCntId1" maxOccurs="1"  cobol:name="CTL-CNT-ID1" cobol:offset="200167" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Zero" type="xs:int" maxOccurs="1"  cobol:name="WS-ZERO" cobol:offset="200168" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+    <xs:element name="NewServiceCode" maxOccurs="1"  cobol:name="WS-NEW-SERVICE-CODE" cobol:offset="200169" cobol:length="6" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1M" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 newSvcCd VALUE [[["SC76  "],["SC99  "]]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="6" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="CkServCls" maxOccurs="1" cobol:name="CK-SERV-CLS" cobol:offset="200175" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="ServTop" maxOccurs="1" cobol:name="WS-SERV-TOP" cobol:offset="200181" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="ServAlphaf" maxOccurs="1" cobol:name="WS-SERV-ALPHAF" cobol:offset="200181" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="ServAlphal" maxOccurs="1" cobol:name="WS-SERV-ALPHAL" cobol:offset="200181" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="FeServFr" maxOccurs="1" cobol:name="FE-SERV-FR" cobol:offset="200187" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="ServToAlphaff" maxOccurs="1" cobol:name="WS-SERV-TO-ALPHAFF" cobol:offset="200187" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="ServToAlphafl" maxOccurs="1" cobol:name="WS-SERV-TO-ALPHAFL" cobol:offset="200187" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="FeServTo" maxOccurs="1" cobol:name="FE-SERV-TO" cobol:offset="200193" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="ServToAlphatf" maxOccurs="1" cobol:name="WS-SERV-TO-ALPHATF" cobol:offset="200193" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="ServToAlphatl" maxOccurs="1" cobol:name="WS-SERV-TO-ALPHATL" cobol:offset="200193" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="NbrOfLines" type="xs:int" maxOccurs="1"  cobol:name="WS-NBR-OF-LINES" cobol:offset="200199" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="NbrOfPlanVar" type="xs:int" maxOccurs="1"  cobol:name="WS-NBR-OF-PLAN-VAR" cobol:offset="200203" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="NbrOfNewPlanVar" type="xs:short" maxOccurs="1"  cobol:name="WS-NBR-OF-NEW-PLAN-VAR" cobol:offset="200207" cobol:length="3" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="PlanVarPrev" type="xs:short" maxOccurs="1"  cobol:name="WS-PLAN-VAR-PREV" cobol:offset="200210" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="NewPlanVarPrev" type="xs:short" maxOccurs="1"  cobol:name="WS-NEW-PLAN-VAR-PREV" cobol:offset="200212" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="LatestLastDate" type="xs:int" maxOccurs="1"  cobol:name="WS-LATEST-LAST-DATE" cobol:offset="200218" cobol:length="4" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+    <xs:element name="HoldServCd" maxOccurs="1"  cobol:name="WS-HOLD-SERV-CD" cobol:offset="200228" cobol:length="6" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1M" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 informationalServCd VALUE [["      "], ["PARS  "], ["COBDT "], ["SSO   "], ["COPAY "], ["NCOPAY"], ["PCOPAY"], ["ACPD  "], ["TDPD  "], ["POD   "], ["PRE   "], ["OI    "], ["FW    "], ["EMER  "], ["CFPD  "], ["COMAC "], ["MATDC "], ["OIM   "], ["OIMEDI"], ["PLPRE "], ["CXINT "], ["CXMED "], ["CXLEG "], ["CXMISC"], ["CXAUDT"], ["DISCO "], ["DRGIN "], ["DRGOUT"], ["CB0   "], ["CB1   "], ["CB2   "], ["CB3   "], ["CB4   "], ["CB5   "], ["CB6   "], ["CB7   "], ["CB8   "], ["CB9   "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="6" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="PrevDateServ" type="xs:int" maxOccurs="1"  cobol:name="WS-PREV-DATE-SERV" cobol:offset="200234" cobol:length="4" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+         <xs:element name="McrCondCtr" type="xs:int" maxOccurs="1"  cobol:name="MCR-COND-CTR" cobol:offset="200238" cobol:length="3" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+         <xs:element name="ChargeSub" type="xs:short" maxOccurs="1"  cobol:name="CHARGE-SUB" cobol:offset="200241" cobol:length="2" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+    <xs:element name="ChargeCombined" maxOccurs="1"  cobol:name="WS-CHARGE-COMBINED" cobol:offset="200243" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 chargeCombined1 VALUE [["Y"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="ToCauseCdChanged" maxOccurs="1"  cobol:name="WS-TO-CAUSE-CD-CHANGED" cobol:offset="200245" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 toCauseCdChanged1 VALUE [["Y"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="McrCheckTable" maxOccurs="1" cobol:name="MCR-CHECK-TABLE" cobol:offset="200246" cobol:length="12" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

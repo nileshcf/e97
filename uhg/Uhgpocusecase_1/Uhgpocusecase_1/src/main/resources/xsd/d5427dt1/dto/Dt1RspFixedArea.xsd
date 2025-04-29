@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Dt1RspFixedArea" cobol:name="DT1-RSP-FIXED-AREA" cobol:offset="0" cobol:length="386" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Dt1RspViewName" maxOccurs="1"  cobol:name="DT1-RSP-VIEW-NAME" cobol:offset="0" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1RspViewVersion" maxOccurs="1"  cobol:name="DT1-RSP-VIEW-VERSION" cobol:offset="8" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Dt1RspLegacyResponseData" maxOccurs="1" cobol:name="DT1-RSP-LEGACY-RESPONSE-DATA" cobol:offset="10" cobol:length="26" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Dt1RspEmpid" maxOccurs="1"  cobol:name="DT1-RSP-EMPID" cobol:offset="36" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1RspPolicy" maxOccurs="1"  cobol:name="DT1-RSP-POLICY" cobol:offset="46" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Dt1RspDepNbr" type="xs:int" maxOccurs="1"  cobol:name="DT1-RSP-DEP-NBR" cobol:offset="52" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+    <xs:element name="Dt1RspFirstName" maxOccurs="1"  cobol:name="DT1-RSP-FIRST-NAME" cobol:offset="55" cobol:length="12" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="12" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1RspLastName" maxOccurs="1"  cobol:name="DT1-RSP-LAST-NAME" cobol:offset="67" cobol:length="20" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="20" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1RspRel" maxOccurs="1"  cobol:name="DT1-RSP-REL" cobol:offset="87" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1RspSystem" maxOccurs="1"  cobol:name="DT1-RSP-SYSTEM" cobol:offset="89" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Dt1RspPlanVariation" type="xs:int" maxOccurs="1"  cobol:name="DT1-RSP-PLAN-VARIATION" cobol:offset="90" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="Dt1RspReportingCode" type="xs:int" maxOccurs="1"  cobol:name="DT1-RSP-REPORTING-CODE" cobol:offset="94" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+    <xs:element name="Dt1RspFundingResponsibility" maxOccurs="1"  cobol:name="DT1-RSP-FUNDING-RESPONSIBILITY" cobol:offset="98" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dt1RspSelfInsured VALUE [["1"]].
+                        88 dt1RspFullyInsured VALUE [["2"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Dt1RspPatPhiInd" maxOccurs="1"  cobol:name="DT1-RSP-PAT-PHI-IND" cobol:offset="99" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1RspUhpInd" maxOccurs="1"  cobol:name="DT1-RSP-UHP-IND" cobol:offset="100" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1RspCcmRelSrvcInd" maxOccurs="1"  cobol:name="DT1-RSP-CCM-REL-SRVC-IND" cobol:offset="101" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1RspCcmPriorAuthInd" maxOccurs="1"  cobol:name="DT1-RSP-CCM-PRIOR-AUTH-IND" cobol:offset="102" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1RspEbrPriorAuthInd" maxOccurs="1"  cobol:name="DT1-RSP-EBR-PRIOR-AUTH-IND" cobol:offset="103" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1RspEbcPriorAuthInd" maxOccurs="1"  cobol:name="DT1-RSP-EBC-PRIOR-AUTH-IND" cobol:offset="104" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1RspOncPolPrtcpCd" maxOccurs="1"  cobol:name="DT1-RSP-ONC-POL-PRTCP-CD" cobol:offset="105" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Dt1RspTotalClaimCount" type="xs:int" maxOccurs="1"  cobol:name="DT1-RSP-TOTAL-CLAIM-COUNT" cobol:offset="106" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="Dt1RspCurrentClaimCount" type="xs:int" maxOccurs="1"  cobol:name="DT1-RSP-CURRENT-CLAIM-COUNT" cobol:offset="110" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+    <xs:element name="Dt1RspExplCode" maxOccurs="1"  cobol:name="DT1-RSP-EXPL-CODE" cobol:offset="114" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dt1RspMultipleRecords VALUE [["1"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Dt1RspNextKey" maxOccurs="1"  cobol:name="DT1-RSP-NEXT-KEY" cobol:offset="115" cobol:length="80" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dt1RspStartAtTop VALUE [["                                                                                "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="80" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Dt1RspClmContainerName" maxOccurs="1"  cobol:name="DT1-RSP-CLM-CONTAINER-NAME" cobol:offset="195" cobol:length="16" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="16" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Dt1RspClmContainerItemCnt" type="xs:long" maxOccurs="1"  cobol:name="DT1-RSP-CLM-CONTAINER-ITEM-CNT" cobol:offset="211" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+         <xs:element name="Dt1RspClmContainerItemLen" type="xs:long" maxOccurs="1"  cobol:name="DT1-RSP-CLM-CONTAINER-ITEM-LEN" cobol:offset="219" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+    <xs:element name="Dt1RspGenTstPrtcpCd" maxOccurs="1"  cobol:name="DT1-RSP-GEN-TST-PRTCP-CD" cobol:offset="227" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1RspSecOpinVendCd" maxOccurs="1"  cobol:name="DT1-RSP-SEC-OPIN-VEND-CD" cobol:offset="228" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1RspUgiInd" maxOccurs="1"  cobol:name="DT1-RSP-UGI-IND" cobol:offset="229" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1RspLgiInd" maxOccurs="1"  cobol:name="DT1-RSP-LGI-IND" cobol:offset="230" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1RspExdInd" maxOccurs="1"  cobol:name="DT1-RSP-EXD-IND" cobol:offset="231" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Dt1RspFillerArea" maxOccurs="1"  cobol:name="DT1-RSP-FILLER-AREA" cobol:offset="232" cobol:length="154" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="154" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

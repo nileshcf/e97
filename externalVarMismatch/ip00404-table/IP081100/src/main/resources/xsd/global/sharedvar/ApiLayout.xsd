@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="ApiLayout" cobol:name="API-LAYOUT" cobol:offset="0" cobol:length="18" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="ActnCd100" maxOccurs="1"  cobol:name="100-ACTN-CD" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 selectRtn88100 VALUE [["S"]].
+                        88 updateRtn88100 VALUE [["U"]].
+                        88 insertRtn88100 VALUE [["I"]].
+                        88 deleteRtn88100 VALUE [["D"]].
+                        88 commitRtn88100 VALUE [["C"]].
+                        88 rollbckRtn88100 VALUE [["R"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="QueryNo" type="xs:short" maxOccurs="1"  cobol:name="QUERY-NO" cobol:offset="1" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="NoOfRows" type="xs:long" maxOccurs="1"  cobol:name="NO-OF-ROWS" cobol:offset="3" cobol:length="10" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10G"/>
+    <xs:element name="ApiStatus100" maxOccurs="1"  cobol:name="100-API-STATUS" cobol:offset="13" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 rowsFound88100 VALUE [["G"]].
+                        88 rowsNotFnd88100 VALUE [["N"]].
+                        88 negativeCode88100 VALUE [["B"]].
+                        88 duplicateCode88100 VALUE [["D"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="ApiSwitch100" maxOccurs="1"  cobol:name="100-API-SWITCH" cobol:offset="14" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 openFirstTime88100 VALUE [["Y"]].
+                        88 notOpenFirstTime88100 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="AbendSwitch100" maxOccurs="1"  cobol:name="100-ABEND-SWITCH" cobol:offset="15" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 itIsAbend88100 VALUE [["Y"]].
+                        88 itIsNotAbend88100 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="IsItConnectedToDb2100" maxOccurs="1"  cobol:name="100-IS-IT-CONNECTED-TO-DB2" cobol:offset="16" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 itIsConnectedToDb288100 VALUE [["Y"]].
+                        88 notConnectedToDb288100 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="IsItNull100" maxOccurs="1"  cobol:name="100-IS-IT-NULL" cobol:offset="17" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 itIsNull88100 VALUE [["Y"]].
+                        88 itIsNotNull88100 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

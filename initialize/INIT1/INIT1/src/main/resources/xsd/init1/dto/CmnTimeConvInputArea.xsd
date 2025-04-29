@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="CmnTimeConvInputArea" cobol:name="CMN-TIME-CONV-INPUT-AREA" cobol:offset="1024" cobol:length="23" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="CmnTimeConvType" maxOccurs="1"  cobol:name="CMN-TIME-CONV-TYPE" cobol:offset="0" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 db2IsoToNumeric16 VALUE [[1]].
+                        88 db2IsoToAmPm16 VALUE [[2]].
+                        88 jisToNumeric16 VALUE [[3]].
+                        88 jisToAmPm16 VALUE [[4]].
+                        88 numericToJis16 VALUE [[5]].
+                        88 numericToDb2Iso16 VALUE [[6]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="CmnTimeConvInput" maxOccurs="1" cobol:name="CMN-TIME-CONV-INPUT" cobol:offset="1" cobol:length="22" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

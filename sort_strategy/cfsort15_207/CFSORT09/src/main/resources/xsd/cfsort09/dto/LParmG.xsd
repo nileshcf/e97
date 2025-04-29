@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="LParmG" cobol:name="L-PARM-G" cobol:offset="0" cobol:length="10" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="LParmLen" type="xs:short" maxOccurs="1"  cobol:name="L-PARM-LEN" cobol:offset="0" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="LParmSortKey" maxOccurs="1"  cobol:name="L-PARM-SORT-KEY" cobol:offset="2" cobol:length="8" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100M" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 lParmSortBinary VALUE [["BINARY  "]].
+                        88 lParmSortComp VALUE [["COMP    "]].
+                        88 lParmSortComp1 VALUE [["COMP-1  "]].
+                        88 lParmSortComp2 VALUE [["COMP-2  "]].
+                        88 lParmSortComp3 VALUE [["COMP-3  "]].
+                        88 lParmSortComp4 VALUE [["COMP-4  "]].
+                        88 lParmSortComp5 VALUE [["COMP-5  "]].
+                        88 lParmSortZoneDecimal VALUE [["ZONE-DEC"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="8" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

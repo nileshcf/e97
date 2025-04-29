@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="CmnTimeValidateOutputArea" cobol:name="CMN-TIME-VALIDATE-OUTPUT-AREA" cobol:offset="1032" cobol:length="15" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="CmnTimeValidReturnCode" maxOccurs="1"  cobol:name="CMN-TIME-VALID-RETURN-CODE" cobol:offset="0" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 successfullCall14 VALUE [[0ALL]].
+                        88 validParameters14 VALUE [[0ALL]].
+                        88 errorInCall14 VALUE [[[1],[9]]].
+                        88 outOfRangeTimeInput14 VALUE [[7]].
+                        88 nonNumericTimeInput14 VALUE [[8]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="CmnTimeValidIso" maxOccurs="1"  cobol:name="CMN-TIME-VALID-ISO" cobol:offset="1" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="CmnTimeValidNumeric" type="xs:long" maxOccurs="1"  cobol:name="CMN-TIME-VALID-NUMERIC" cobol:offset="9" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

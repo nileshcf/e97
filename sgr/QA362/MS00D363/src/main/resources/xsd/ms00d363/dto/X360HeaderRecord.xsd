@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="X360HeaderRecord" cobol:name="X360-HEADER-RECORD" cobol:offset="1" cobol:length="1399" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="X360HeaderId" maxOccurs="1"  cobol:name="X360-HEADER-ID" cobol:offset="0" cobol:length="8" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100M" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 x360HeaderIdExtract VALUE [["EXTRACT "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="8" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="CirrusX360RecordFiller1" maxOccurs="1"  cobol:name="FILLER" cobol:offset="8" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="X360HeaderPgm" maxOccurs="1"  cobol:name="X360-HEADER-PGM" cobol:offset="9" cobol:length="8" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100M" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 x360HeaderPgmMs00d360 VALUE [["MS00D360"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="8" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="CirrusX360RecordFiller2" maxOccurs="1"  cobol:name="FILLER" cobol:offset="17" cobol:length="5" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="5" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="X360HeaderDate" maxOccurs="1" cobol:name="X360-HEADER-DATE" cobol:offset="22" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="CirrusX360RecordFiller3" maxOccurs="1"  cobol:name="FILLER" cobol:offset="28" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="X360HeaderFileId" maxOccurs="1"  cobol:name="X360-HEADER-FILE-ID" cobol:offset="29" cobol:length="3" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1000" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 x360HeaderFileAcquir VALUE [["ACQ"]].
+                        88 x360HeaderFileIssuer VALUE [["ISS"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="3" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="X360HeaderEndpoint" type="xs:long" maxOccurs="1"  cobol:name="X360-HEADER-ENDPOINT" cobol:offset="32" cobol:length="7" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+         <xs:element name="X360HeaderEntIca" type="xs:long" maxOccurs="1"  cobol:name="X360-HEADER-ENT-ICA" cobol:offset="39" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+         <xs:element name="X360HeaderMbrIca" type="xs:long" maxOccurs="1"  cobol:name="X360-HEADER-MBR-ICA" cobol:offset="45" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+         <xs:element name="X360HeaderCuttime" type="xs:int" maxOccurs="1"  cobol:name="X360-HEADER-CUTTIME" cobol:offset="51" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+<xs:element name="X360HeaderSscIdGrp" maxOccurs="1" cobol:name="X360-HEADER-SSC-ID-GRP" cobol:offset="55" cobol:length="75" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="CirrusX360RecordFiller4" maxOccurs="1"  cobol:name="FILLER" cobol:offset="130" cobol:length="1269" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1269" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

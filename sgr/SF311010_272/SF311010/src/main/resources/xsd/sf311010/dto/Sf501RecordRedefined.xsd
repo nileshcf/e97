@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Sf501RecordRedefined" cobol:name="SF501-RECORD-REDEFINED" cobol:offset="0" cobol:length="8000" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Sf501Class" maxOccurs="1"  cobol:name="SF501-CLASS" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Sf501Type" maxOccurs="1"  cobol:name="SF501-TYPE" cobol:offset="1" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Sf501Header" maxOccurs="1" cobol:name="SF501-HEADER" cobol:offset="2" cobol:length="51" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Sf501JIcSeqNo" maxOccurs="1"  cobol:name="SF501-J-IC-SEQ-NO" cobol:offset="53" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Sf501JIcSeqNoComp" type="xs:long" maxOccurs="1"  cobol:name="SF501-J-IC-SEQ-NO-COMP" cobol:offset="53" cobol:length="4" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="Sf501JIsoData" maxOccurs="1"  cobol:name="SF501-J-ISO-DATA" cobol:offset="61" cobol:length="7939" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="7939" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Sf501JIsoDataRedefined" maxOccurs="1" cobol:name="SF501-J-ISO-DATA-REDEFINED" cobol:offset="61" cobol:length="7939" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

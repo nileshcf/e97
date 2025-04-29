@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="D51uNonArrayData" cobol:name="D51U-NON-ARRAY-DATA" cobol:offset="262" cobol:length="89" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="D51uReturnCode" maxOccurs="1"  cobol:name="D51U-RETURN-CODE" cobol:offset="0" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 d51uGoodReturn VALUE [[0ALL]].
+                        88 d51uNotFound VALUE [[1]].
+                        88 d51uDb2Error VALUE [[2]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="D51uInvReason" maxOccurs="1"  cobol:name="D51U-INV-REASON" cobol:offset="2" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1000" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 noError VALUE [[0ALL]].
+                        88 d51uInvFuncCd VALUE [[1]].
+                        88 d51uInvCallingPgm VALUE [[2]].
+                        88 d51uInvReqType VALUE [[3]].
+                        88 d51uGeneralDb2Error VALUE [[40]].
+                        88 d51uDb2SelectError VALUE [[41]].
+                        88 d51uDb2OpenError VALUE [[42]].
+                        88 d51uDb2CloseError VALUE [[43]].
+                        88 d51uDb2FetchError VALUE [[44]].
+                        88 d51uDb2DeadlockErr VALUE [[45]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="D51uErrTable" maxOccurs="1"  cobol:name="D51U-ERR-TABLE" cobol:offset="5" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 errD51uTable VALUE [[1]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="D51uErrorTrace" maxOccurs="1" cobol:name="D51U-ERROR-TRACE" cobol:offset="6" cobol:length="23" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="D51uMoreRecordsInd" maxOccurs="1"  cobol:name="D51U-MORE-RECORDS-IND" cobol:offset="29" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="D51uMoreIcdRecords" maxOccurs="1"  cobol:name="D51U-MORE-ICD-RECORDS" cobol:offset="30" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 moreIcdRecords VALUE [["Y"]].
+                        88 noMoreIcdRecords VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="D51uMoreIcdSwitch" maxOccurs="1"  cobol:name="D51U-MORE-ICD-SWITCH" cobol:offset="31" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 firstTimeMoreIcd VALUE [["Y"]].
+                        88 notFirstTimeMoreIcd VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="D51uNbrOfEntries" type="xs:long" maxOccurs="1"  cobol:name="D51U-NBR-OF-ENTRIES" cobol:offset="32" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+<xs:element name="D51uReturnSw" maxOccurs="1" cobol:name="D51U-RETURN-SW" cobol:offset="38" cobol:length="51" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

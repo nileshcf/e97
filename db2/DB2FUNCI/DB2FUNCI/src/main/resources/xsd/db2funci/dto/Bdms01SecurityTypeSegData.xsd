@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Bdms01SecurityTypeSegData" cobol:name="BDMS01-SECURITY-TYPE-SEG-DATA" cobol:offset="457" cobol:length="43" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Bdms01SecurityTypeSegSqlcd" type="xs:int" maxOccurs="1"  cobol:name="BDMS01-SECURITY-TYPE-SEG-SQLCD" cobol:offset="0" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+    <xs:element name="MsdTypeOfRecordInd" maxOccurs="1"  cobol:name="MSD-TYPE-OF-RECORD-IND" cobol:offset="4" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 msdStockRecordFollows VALUE [["1"]].
+                        88 msdBondRecordFollows VALUE [["2"]].
+                        88 msdOptionRecordFollows VALUE [["3"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="MsdSecurityTypePos1" maxOccurs="1"  cobol:name="MSD-SECURITY-TYPE-POS1" cobol:offset="5" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 msdStock VALUE [["1"]].
+                        88 msdCorporateBond VALUE [["2"]].
+                        88 msdTreasGovAgen VALUE [["3"]].
+                        88 msdMuniBond VALUE [["4"]].
+                        88 msdOptPrivSec VALUE [["6"]].
+                        88 msdUnit VALUE [["7"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="MsdSecTypeCodes" maxOccurs="1" cobol:name="MSD-SEC-TYPE-CODES" cobol:offset="6" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="MsdSecPriceMultiplier" maxOccurs="1"  cobol:name="MSD-SEC-PRICE-MULTIPLIER" cobol:offset="12" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 msdMultiplyBy1 VALUE [["0"]].
+                        88 msdMultiplyBy10 VALUE [["1"]].
+                        88 msdMultiplyBy100 VALUE [["2"]].
+                        88 msdMultiplyBy1000 VALUE [["3"]].
+                        88 msdMultiplyBy10000 VALUE [["4"]].
+                        88 msdMultiplyBy100000 VALUE [["5"]].
+                        88 msdMultiplyBy1000000 VALUE [["6"]].
+                        88 msdMultiplyBy10000000 VALUE [["7"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Bdms01CallParametersFiller7" maxOccurs="1"  cobol:name="FILLER" cobol:offset="13" cobol:length="30" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="30" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

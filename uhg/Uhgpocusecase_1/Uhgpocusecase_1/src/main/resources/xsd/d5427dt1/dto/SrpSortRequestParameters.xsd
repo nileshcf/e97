@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="SrpSortRequestParameters" cobol:name="SRP-SORT-REQUEST-PARAMETERS" cobol:offset="0" cobol:length="15" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="SrpReturnCode" maxOccurs="1"  cobol:name="SRP-RETURN-CODE" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 srpGoodReturn VALUE [["00"]].
+                        88 srpAddressMissing VALUE [["01"]].
+                        88 srpCountError VALUE [["02"]].
+                        88 srpEntryLengthError VALUE [["03"]].
+                        88 srpKeyStartError VALUE [["04"]].
+                        88 srpKeyLengthError VALUE [["05"]].
+                        88 srpSequenceError VALUE [["06"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="SrpEntryCount" type="xs:int" maxOccurs="1"  cobol:name="SRP-ENTRY-COUNT" cobol:offset="2" cobol:length="3" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+         <xs:element name="SrpEntryLength" type="xs:int" maxOccurs="1"  cobol:name="SRP-ENTRY-LENGTH" cobol:offset="5" cobol:length="3" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+         <xs:element name="SrpKeyStart" type="xs:int" maxOccurs="1"  cobol:name="SRP-KEY-START" cobol:offset="8" cobol:length="3" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+         <xs:element name="SrpKeyLength" type="xs:int" maxOccurs="1"  cobol:name="SRP-KEY-LENGTH" cobol:offset="11" cobol:length="3" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+    <xs:element name="SrpSequence" maxOccurs="1"  cobol:name="SRP-SEQUENCE" cobol:offset="14" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 srpAscendingSort VALUE [["A"]].
+                        88 srpDescendingSort VALUE [["D"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

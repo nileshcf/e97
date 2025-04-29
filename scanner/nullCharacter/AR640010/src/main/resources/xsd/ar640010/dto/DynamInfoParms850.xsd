@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="DynamInfoParms850" cobol:name="850-DYNAM-INFO-PARMS" cobol:offset="248" cobol:length="70" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="DynamInfoDd850" maxOccurs="1"  cobol:name="850-DYNAM-INFO-DD" cobol:offset="0" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="DynamInfoDsn850" maxOccurs="1"  cobol:name="850-DYNAM-INFO-DSN" cobol:offset="8" cobol:length="44" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="44" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="DynamInfoMember850" maxOccurs="1"  cobol:name="850-DYNAM-INFO-MEMBER" cobol:offset="52" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="DynamInfoStatus850" maxOccurs="1"  cobol:name="850-DYNAM-INFO-STATUS" cobol:offset="60" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dynamInfoStatusOld88850 VALUE [[0x01]].
+                        88 dynamInfoStatusMod88850 VALUE [[0x02]].
+                        88 dynamInfoStatusNew88850 VALUE [[0x04]].
+                        88 dynamInfoStatusShr88850 VALUE [[0x08]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="DynamInfoDisp850" maxOccurs="1"  cobol:name="850-DYNAM-INFO-DISP" cobol:offset="61" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dynamInfoDispUnctlg88850 VALUE [[0x01]].
+                        88 dynamInfoDispCatlg88850 VALUE [[0x02]].
+                        88 dynamInfoDispDelete88850 VALUE [[0x04]].
+                        88 dynamInfoDispKeep88850 VALUE [[0x08]].
+                        88 dynamInfoDispPass88850 VALUE [[0x10]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="DynamInfoCond850" maxOccurs="1"  cobol:name="850-DYNAM-INFO-COND" cobol:offset="62" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dynamInfoCondUnctlg88850 VALUE [[0x01]].
+                        88 dynamInfoCondCatlg88850 VALUE [[0x02]].
+                        88 dynamInfoCondDelete88850 VALUE [[0x04]].
+                        88 dynamInfoCondKeep88850 VALUE [[0x08]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="DynamInfoDsorg850" maxOccurs="1"  cobol:name="850-DYNAM-INFO-DSORG" cobol:offset="63" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dynamInfoDsorgOther88850 VALUE [[0x0000]].
+                        88 dynamInfoDsorgPo88850 VALUE [[0x0200]].
+                        88 dynamInfoDsorgPs88850 VALUE [[0x4000]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="DynamInfoLimit850" type="xs:short" maxOccurs="1"  cobol:name="850-DYNAM-INFO-LIMIT" cobol:offset="65" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="DynamInfoAttr850" maxOccurs="1"  cobol:name="850-DYNAM-INFO-ATTR" cobol:offset="67" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dynamInfoAttrDynam88850 VALUE [[0x08]].
+                        88 dynamInfoAttrConv88850 VALUE [[0x10]].
+                        88 dynamInfoAttrPrmall88850 VALUE [[0x20]].
+                        88 dynamInfoAttrInUse88850 VALUE [[0x40]].
+                        88 dynamInfoAttrPrmcon88850 VALUE [[0x80]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="DynamInfoEntry850" maxOccurs="1"  cobol:name="850-DYNAM-INFO-ENTRY" cobol:offset="68" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dynamInfoEntryMore88850 VALUE [[0x00]].
+                        88 dynamInfoEntryLast88850 VALUE [[0x80]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="DynamInfoType850" maxOccurs="1"  cobol:name="850-DYNAM-INFO-TYPE" cobol:offset="69" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dynamInfoTypeDataset88850 VALUE [[0x00]].
+                        88 dynamInfoTypeSysout88850 VALUE [[0x10]].
+                        88 dynamInfoTypeSysrdr88850 VALUE [[0x20]].
+                        88 dynamInfoTypeTerm88850 VALUE [[0x40]].
+                        88 dynamInfoTypeDummy88850 VALUE [[0x80]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

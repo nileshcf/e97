@@ -1,0 +1,56 @@
+package com.cloudframe.app.refmod3.dto;
+
+/**
+*  The class AT220 is used to handle fields declared in it
+*  @author CloudFrame Inc.
+*  created on 2025-04-29 at 05:32. using version 5.0.0.257
+**/
+
+
+import com.cloudframe.annotation.processor.Data;
+import com.cloudframe.annotation.processor.Getter;
+import com.cloudframe.annotation.processor.Setter;
+import com.cloudframe.app.data.Field;
+import com.cloudframe.app.common.CONSTANTS;
+
+
+@Data
+public class AT220 extends AT220Serialized { 
+   
+
+						@Getter @Setter private char[] aTFld1220 = Field.fillLowValue(20);
+
+						@Getter @Setter private char[] aTFld2220 = Field.fillLowValue(40);
+	
+	/**
+	* Constructor for AT220
+	**/
+    public AT220() {
+	// TO-DO auto generated code
+    }
+
+
+	/**
+	* Constructor for AT220. sets the parent value to the parent
+	* @param parent
+	* @param begin
+	**/
+    public AT220(Field parent,int begin) {
+    	   setParent(parent,begin);
+    }
+    
+
+	/**
+	 * 	initializes AT220
+	 *  String fields defaults to Spaces
+	 *  short/int/long defaults to zero
+	 *  BigDecimal defaults to BigDecimal.ZERO
+	 */
+   public void initialize() {
+         setATFld1220(CONSTANTS.SPACE_20);
+         setATFld2220(CONSTANTS.SPACE_40);
+   }
+
+
+}
+  

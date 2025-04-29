@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip9890hPaymentFileData" cobol:name="IP9890H-PAYMENT-FILE-DATA" cobol:offset="0" cobol:length="200" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="Ip9890hClearingDate" maxOccurs="1" cobol:name="IP9890H-CLEARING-DATE" cobol:offset="0" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip9890hTransactionAmount" maxOccurs="1"  cobol:name="IP9890H-TRANSACTION-AMOUNT" cobol:offset="6" cobol:length="12" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="12" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip9890hTransactionDate" maxOccurs="1" cobol:name="IP9890H-TRANSACTION-DATE" cobol:offset="18" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip9890hMerchant" maxOccurs="1"  cobol:name="IP9890H-MERCHANT" cobol:offset="24" cobol:length="25" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="25" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip9890hBankNetReference" maxOccurs="1"  cobol:name="IP9890H-BANK-NET-REFERENCE" cobol:offset="49" cobol:length="9" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="9" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip9890hBankNetDate" maxOccurs="1"  cobol:name="IP9890H-BANK-NET-DATE" cobol:offset="58" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip9890hIssuerIca" type="xs:long" maxOccurs="1"  cobol:name="IP9890H-ISSUER-ICA" cobol:offset="62" cobol:length="11" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G"/>
+         <xs:element name="Ip9890hAcquirerIca" type="xs:long" maxOccurs="1"  cobol:name="IP9890H-ACQUIRER-ICA" cobol:offset="73" cobol:length="11" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G"/>
+    <xs:element name="Ip9890hPanAlias" maxOccurs="1"  cobol:name="IP9890H-PAN-ALIAS" cobol:offset="84" cobol:length="36" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="36" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip9890hProductCode" maxOccurs="1"  cobol:name="IP9890H-PRODUCT-CODE" cobol:offset="120" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip9890hPaymentFileDataFiller1" maxOccurs="1"  cobol:name="FILLER" cobol:offset="123" cobol:length="77" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="77" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

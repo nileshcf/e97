@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip02015PrcssAgrmtEntry" cobol:name="IP02015-PRCSS-AGRMT-ENTRY" cobol:offset="20" cobol:length="572" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip02015PrcssAgrmtId" maxOccurs="1"  cobol:name="IP02015-PRCSS-AGRMT-ID" cobol:offset="0" cobol:length="11" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="11" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015GeoScopeCode" maxOccurs="1"  cobol:name="IP02015-GEO-SCOPE-CODE" cobol:offset="11" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip02015PaGlobal88 VALUE [["G"]].
+                        88 ip02015PaLocal88 VALUE [["L"]].
+                        88 ip02015PaRegional88 VALUE [["R"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip02015HostInd" maxOccurs="1"  cobol:name="IP02015-HOST-IND" cobol:offset="12" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip02015PaIsHost88 VALUE [["Y"]].
+                        88 ip02015NotTheHost88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="Ip02015ImpBulkId" maxOccurs="1" cobol:name="IP02015-IMP-BULK-ID" cobol:offset="13" cobol:length="4" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="Ip02015NumCurrCd" type="xs:int" maxOccurs="1"  cobol:name="IP02015-NUM-CURR-CD" cobol:offset="17" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+    <xs:element name="Ip02015OfsoilDataTypCd" maxOccurs="1"  cobol:name="IP02015-OFSOIL-DATA-TYP-CD" cobol:offset="20" cobol:length="3" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1000" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip02015PaTransLevel88 VALUE [["TXL"]].
+                        88 ip02015PaTransLevelObs88 VALUE [["TXO"]].
+                        88 ip02015PaSummaryLevel88 VALUE [["SUM"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="3" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip02015MrchntSplitSw" maxOccurs="1"  cobol:name="IP02015-MRCHNT-SPLIT-SW" cobol:offset="23" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip02015IncMrchntSpltY88 VALUE [["Y"]].
+                        88 ip02015IncMrchntSpltN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip02015MrchntSplitCd" maxOccurs="1"  cobol:name="IP02015-MRCHNT-SPLIT-CD" cobol:offset="23" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip02015IncMrchntSpltY882 VALUE [["Y"]].
+                        88 ip02015IncMrchntSpltN882 VALUE [["N"]].
+                        88 ip02015IncMrchntSpltC88 VALUE [["C"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip02015CurrSplitSw" maxOccurs="1"  cobol:name="IP02015-CURR-SPLIT-SW" cobol:offset="24" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip02015CurrSplitYes88 VALUE [["Y"]].
+                        88 ip02015CurrSpitNo88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip02015CurrSplitCd" maxOccurs="1"  cobol:name="IP02015-CURR-SPLIT-CD" cobol:offset="24" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip02015CurrSplitYes882 VALUE [["Y"]].
+                        88 ip02015CurrSpitNo882 VALUE [["N"]].
+                        88 ip02015CurrSplitCond88 VALUE [["C"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip02015AcquirerSplitSw" maxOccurs="1"  cobol:name="IP02015-ACQUIRER-SPLIT-SW" cobol:offset="25" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip02015AcquirerSplitYes88 VALUE [["Y"]].
+                        88 ip02015AcquirerSplitNo88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip02015AcquirerSplitCd" maxOccurs="1"  cobol:name="IP02015-ACQUIRER-SPLIT-CD" cobol:offset="25" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip02015AcquirerSplitYes882 VALUE [["Y"]].
+                        88 ip02015AcquirerSplitNo882 VALUE [["N"]].
+                        88 ip02015AcquirerSplitCon88 VALUE [["C"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip02015DomCollOnlyCd" maxOccurs="1"  cobol:name="IP02015-DOM-COLL-ONLY-CD" cobol:offset="26" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip02015DomCollOnlySplt88 VALUE [["S"]].
+                        88 ip02015DomCollOnlyHost88 VALUE [["H"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip02015OnsoilDataShrSw" maxOccurs="1"  cobol:name="IP02015-ONSOIL-DATA-SHR-SW" cobol:offset="27" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip02015DataShrAllowed88 VALUE [["Y"]].
+                        88 ip02015DataShrNotAllow88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip02015ClrCycleNum" type="xs:int" maxOccurs="1"  cobol:name="IP02015-CLR-CYCLE-NUM" cobol:offset="25" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+    <xs:element name="Ip02015DtaWrhsOnsoilSw" maxOccurs="1"  cobol:name="IP02015-DTA-WRHS-ONSOIL-SW" cobol:offset="27" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015BllngOnsoilSw" maxOccurs="1"  cobol:name="IP02015-BLLNG-ONSOIL-SW" cobol:offset="28" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015SetlOnsoilSw" maxOccurs="1"  cobol:name="IP02015-SETL-ONSOIL-SW" cobol:offset="29" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015ClrOnsoilSw" maxOccurs="1"  cobol:name="IP02015-CLR-ONSOIL-SW" cobol:offset="30" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015AmsOnsoilSw" maxOccurs="1"  cobol:name="IP02015-AMS-ONSOIL-SW" cobol:offset="31" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015McomOnsoilSw" maxOccurs="1"  cobol:name="IP02015-MCOM-ONSOIL-SW" cobol:offset="32" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015MdsOnsoilSw" maxOccurs="1"  cobol:name="IP02015-MDS-ONSOIL-SW" cobol:offset="33" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015StndInOnsoilSw" maxOccurs="1"  cobol:name="IP02015-STND-IN-ONSOIL-SW" cobol:offset="34" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015AuthOnsoilSw" maxOccurs="1"  cobol:name="IP02015-AUTH-ONSOIL-SW" cobol:offset="35" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015RptHdrName" maxOccurs="1"  cobol:name="IP02015-RPT-HDR-NAME" cobol:offset="36" cobol:length="80" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="80" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015ClrPrcssCd" maxOccurs="1"  cobol:name="IP02015-CLR-PRCSS-CD" cobol:offset="116" cobol:length="4" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip02015GlobalPrcssCd88 VALUE [["GCMS"]].
+                        88 ip02015LocalPrcssCd88 VALUE [["LCMS"]].
+                        88 ip02015RedactPrcssCd88 VALUE [["RCMS"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="4" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip02015OnUsPrcssAgrmtId" maxOccurs="1"  cobol:name="IP02015-ON-US-PRCSS-AGRMT-ID" cobol:offset="120" cobol:length="11" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="11" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015PushOnsoilSw" maxOccurs="1"  cobol:name="IP02015-PUSH-ONSOIL-SW" cobol:offset="134" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015IncontrolOnsoilSw" maxOccurs="1"  cobol:name="IP02015-INCONTROL-ONSOIL-SW" cobol:offset="135" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015EsrvcOnsoilSw" maxOccurs="1"  cobol:name="IP02015-ESRVC-ONSOIL-SW" cobol:offset="136" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015GftOnsoilSw" maxOccurs="1"  cobol:name="IP02015-GFT-ONSOIL-SW" cobol:offset="137" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015BnknetOnsoilSw" maxOccurs="1"  cobol:name="IP02015-BNKNET-ONSOIL-SW" cobol:offset="138" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015MdesOnsoilSw" maxOccurs="1"  cobol:name="IP02015-MDES-ONSOIL-SW" cobol:offset="139" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015ZappOnsoilSw" maxOccurs="1"  cobol:name="IP02015-ZAPP-ONSOIL-SW" cobol:offset="140" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015CemOnsoilSw" maxOccurs="1"  cobol:name="IP02015-CEM-ONSOIL-SW" cobol:offset="141" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015OperSysId" maxOccurs="1"  cobol:name="IP02015-OPER-SYS-ID" cobol:offset="131" cobol:length="20" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="20" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip02015DbId" maxOccurs="1"  cobol:name="IP02015-DB-ID" cobol:offset="151" cobol:length="20" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="20" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip02015Db2Table" maxOccurs="10" cobol:name="IP02015-DB2-TABLE" cobol:offset="171" cobol:length="39" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip02015Filler" maxOccurs="1"  cobol:name="IP02015-FILLER" cobol:offset="561" cobol:length="390" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="390" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip30331FaFileIdStatusTbl" cobol:name="IP30331-FA-FILE-ID-STATUS-TBL" cobol:offset="4" cobol:length="26" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Ip30331MessageNumber" type="xs:long" maxOccurs="1"  cobol:name="IP30331-MESSAGE-NUMBER" cobol:offset="0" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="Ip30331ErrorInfo" maxOccurs="1" cobol:name="IP30331-ERROR-INFO" cobol:offset="8" cobol:length="10" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Ip30331Pds501Value" maxOccurs="1" cobol:name="IP30331-PDS501-VALUE" cobol:offset="18" cobol:length="5" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip30331EditStatus" maxOccurs="1"  cobol:name="IP30331-EDIT-STATUS" cobol:offset="23" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip30331AddndmInError88 VALUE [["R"]].
+                        88 ip30331AddndmCausedError88 VALUE [["A"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip30331CorpIncentFlag" maxOccurs="1"  cobol:name="IP30331-CORP-INCENT-FLAG" cobol:offset="24" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip30331ApplyCorpincent88 VALUE [["Y"]].
+                        88 ip30331DontApplyCorpinc88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip303312ndlvlCorpIncntFlag" maxOccurs="1"  cobol:name="IP30331-2NDLVL-CORP-INCNT-FLAG" cobol:offset="25" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip303312lvlAplyCorpincY88 VALUE [["Y"]].
+                        88 ip303312lvlAplyCorpincN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

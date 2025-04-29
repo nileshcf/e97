@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Cf20004Data" cobol:name="CF20004-DATA" cobol:offset="18" cobol:length="442" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="Cf20004TableDataKey" maxOccurs="1" cobol:name="CF20004-TABLE-DATA-KEY" cobol:offset="0" cobol:length="10" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Cf20004ItemData" maxOccurs="1" cobol:name="CF20004-ITEM-DATA" cobol:offset="10" cobol:length="5" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Cf20004Items" maxOccurs="1"  cobol:name="CF20004-ITEMS" cobol:offset="15" cobol:length="425" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="425" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Cf20004PtrToIp2000t2" type="xs:int" maxOccurs="1"  cobol:name="CF20004-PTR-TO-IP2000T2" cobol:offset="440" cobol:length="2" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

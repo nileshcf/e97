@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="SysVariables" cobol:name="SYS-VARIABLES" cobol:offset="178" cobol:length="36" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="SysCvdaCicsstatus" type="xs:int" maxOccurs="1"  cobol:name="SYS-CVDA-CICSSTATUS" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="SysCvdaInitstatus" type="xs:int" maxOccurs="1"  cobol:name="SYS-CVDA-INITSTATUS" cobol:offset="4" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="SysDb2conn" maxOccurs="1"  cobol:name="SYS-DB2CONN" cobol:offset="8" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="SysJobname" maxOccurs="1" cobol:name="SYS-JOBNAME" cobol:offset="16" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="SysMqconn" maxOccurs="1"  cobol:name="SYS-MQCONN" cobol:offset="24" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="SysStartupdate" type="xs:int" maxOccurs="1"  cobol:name="SYS-STARTUPDATE" cobol:offset="32" cobol:length="4" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

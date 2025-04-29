@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip0040iMpePeRecDataCs" cobol:name="IP0040I-MPE-PE-REC-DATA-CS" cobol:offset="25" cobol:length="199" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip0040iProductType" maxOccurs="1"  cobol:name="IP0040I-PRODUCT-TYPE" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip0040iEndpoint" type="xs:long" maxOccurs="1"  cobol:name="IP0040I-ENDPOINT" cobol:offset="1" cobol:length="7" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+    <xs:element name="Ip0040iCountry" maxOccurs="1"  cobol:name="IP0040I-COUNTRY" cobol:offset="8" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip0040iCountryNum" type="xs:int" maxOccurs="1"  cobol:name="IP0040I-COUNTRY-NUM" cobol:offset="11" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+<xs:element name="Ip0040iRegionSubreg" maxOccurs="1" cobol:name="IP0040I-REGION-SUBREG" cobol:offset="14" cobol:length="1" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip0040iProductClass" maxOccurs="1"  cobol:name="IP0040I-PRODUCT-CLASS" cobol:offset="15" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0040iTranRoutingInd" maxOccurs="1"  cobol:name="IP0040I-TRAN-ROUTING-IND" cobol:offset="18" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0040iPrsProdReassgnSw" maxOccurs="1"  cobol:name="IP0040I-PRS-PROD-REASSGN-SW" cobol:offset="19" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iPrsPdReasgn88 VALUE [["Y"]].
+                        88 ip0040iPrsPdNotReasgn88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iProdReassignmentSw" maxOccurs="1"  cobol:name="IP0040I-PROD-REASSIGNMENT-SW" cobol:offset="20" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iPdReassigned88 VALUE [["Y"]].
+                        88 ip0040iPdNotReassigned88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iOptInFlag" maxOccurs="1"  cobol:name="IP0040I-OPT-IN-FLAG" cobol:offset="21" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0040iLicensedProdId" maxOccurs="1"  cobol:name="IP0040I-LICENSED-PROD-ID" cobol:offset="22" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0040iVirtFundPanInd" maxOccurs="1"  cobol:name="IP0040I-VIRT-FUND-PAN-IND" cobol:offset="25" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iVirtPan88 VALUE [["1"], ["2"], ["3"], ["4"], ["5"], ["6"], ["8"], ["9"], ["C"]].
+                        88 ip0040iVpPaypass88 VALUE [["1"], ["2"], ["3"], ["4"], ["5"], ["6"]].
+                        88 ip0040iVpIncontrol88 VALUE [["8"]].
+                        88 ip0040iVpExpChkout88 VALUE [["9"]].
+                        88 ip0040iMdes88 VALUE [["C"]].
+                        88 ip0040iTspTokenRange88 VALUE [["I"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iAcctCatgPartSw" maxOccurs="1"  cobol:name="IP0040I-ACCT-CATG-PART-SW" cobol:offset="26" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip0040iAcctCatgActvnDate" type="xs:long" maxOccurs="1"  cobol:name="IP0040I-ACCT-CATG-ACTVN-DATE" cobol:offset="27" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+<xs:element name="Ip0040iCardHldrBlngCur" maxOccurs="1" cobol:name="IP0040I-CARD-HLDR-BLNG-CUR" cobol:offset="33" cobol:length="32" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip0040iChipConversionSw" maxOccurs="1"  cobol:name="IP0040I-CHIP-CONVERSION-SW" cobol:offset="65" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip0040iFloorExpiryDate" maxOccurs="1" cobol:name="IP0040I-FLOOR-EXPIRY-DATE" cobol:offset="66" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip0040iCoBrandSw" maxOccurs="1"  cobol:name="IP0040I-CO-BRAND-SW" cobol:offset="72" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0040iSpendControlRcnSw" maxOccurs="1"  cobol:name="IP0040I-SPEND-CONTROL-RCN-SW" cobol:offset="73" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iRcnSpndCntl88 VALUE [["Y"]].
+                        88 ip0040iNotRcnSpndCntl88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iMerchCleanServPart" maxOccurs="1"  cobol:name="IP0040I-MERCH-CLEAN-SERV-PART" cobol:offset="74" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip0040iMerchCleanActvDate" type="xs:long" maxOccurs="1"  cobol:name="IP0040I-MERCH-CLEAN-ACTV-DATE" cobol:offset="77" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+    <xs:element name="Ip0040iPaypassEnabledInd" maxOccurs="1"  cobol:name="IP0040I-PAYPASS-ENABLED-IND" cobol:offset="83" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iPaypassEnabledY88 VALUE [["Y"]].
+                        88 ip0040iPaypassEnabledN88 VALUE [["N"]].
+                        88 ip0040iPaypassEnabledM88 VALUE [["M"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iRateTypeIndicator" maxOccurs="1"  cobol:name="IP0040I-RATE-TYPE-INDICATOR" cobol:offset="84" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0040iRoutePsnIndicator" maxOccurs="1"  cobol:name="IP0040I-ROUTE-PSN-INDICATOR" cobol:offset="85" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iRoutePsnIndY88 VALUE [["Y"]].
+                        88 ip0040iRoutePsnIndN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iCbwpIndicator" maxOccurs="1"  cobol:name="IP0040I-CBWP-INDICATOR" cobol:offset="86" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iCbwpIndY88 VALUE [["Y"]].
+                        88 ip0040iCbwpIndN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iFlexParticipInd" maxOccurs="1"  cobol:name="IP0040I-FLEX-PARTICIP-IND" cobol:offset="87" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iParticipInd088 VALUE [["0"]].
+                        88 ip0040iParticipInd188 VALUE [["1"]].
+                        88 ip0040iParticipInd288 VALUE [["2"]].
+                        88 ip0040iParticipInd388 VALUE [["3"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iRepwrRldInd" maxOccurs="1"  cobol:name="IP0040I-REPWR-RLD-IND" cobol:offset="88" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0040iMoneySendInd" maxOccurs="1"  cobol:name="IP0040I-MONEY-SEND-IND" cobol:offset="89" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iMoneySendDomCrs88 VALUE [["Y"]].
+                        88 ip0040iMoneySendDom88 VALUE [["D"]].
+                        88 ip0040iMoneySendNo88 VALUE [["N"]].
+                        88 ip0040iMoneySendUnknown88 VALUE [["U"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iRegulatedRateIndSw" maxOccurs="1"  cobol:name="IP0040I-REGULATED-RATE-IND-SW" cobol:offset="90" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iRegRateIndSw88 VALUE [["Y"]].
+                        88 ip0040iNonRegIndSw88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iCashAccessSw" maxOccurs="1"  cobol:name="IP0040I-CASH-ACCESS-SW" cobol:offset="91" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip0040iPersonPresentInd" type="xs:int" maxOccurs="1"  cobol:name="IP0040I-PERSON-PRESENT-IND" cobol:offset="92" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+    <xs:element name="Ip0040iCrossBdrException" maxOccurs="1"  cobol:name="IP0040I-CROSS-BDR-EXCEPTION" cobol:offset="93" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0040iIssTargetMarketInd" maxOccurs="1"  cobol:name="IP0040I-ISS-TARGET-MARKET-IND" cobol:offset="94" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iIssTrgtmktPartY88 VALUE [["Y"]].
+                        88 ip0040iIssTrgtmktPartN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iPostDateServSw" maxOccurs="1"  cobol:name="IP0040I-POST-DATE-SERV-SW" cobol:offset="95" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iPostDteServSwY88 VALUE [["Y"]].
+                        88 ip0040iPostDteServSwN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iMealVoucherInd" maxOccurs="1"  cobol:name="IP0040I-MEAL-VOUCHER-IND" cobol:offset="96" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iMealVoucherIndY88 VALUE [["Y"]].
+                        88 ip0040iMealVoucherIndN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iNonRldblPrpdSw" maxOccurs="1"  cobol:name="IP0040I-NON-RLDBL-PRPD-SW" cobol:offset="97" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iNonRldblPrpd88 VALUE [["01"]].
+                        88 ip0040iNonRldlPrpdNomc88 VALUE [["99"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iFasterFundsInd" maxOccurs="1"  cobol:name="IP0040I-FASTER-FUNDS-IND" cobol:offset="99" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iFasterFundsNo88 VALUE [["N"]].
+                        88 ip0040iFasterFundsDom88 VALUE [["D"]].
+                        88 ip0040iFstrFndDomCrs88 VALUE [["Y"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iAnonPrepaidInd" maxOccurs="1"  cobol:name="IP0040I-ANON-PREPAID-IND" cobol:offset="100" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iAnonPrepaidIndN88 VALUE [["N"]].
+                        88 ip0040iAnonPrepaidIndE88 VALUE [["E"]].
+                        88 ip0040iAnonPrepaidIndA88 VALUE [["A"]].
+                        88 ip0040iAnonPrepaidIndU88 VALUE [["U"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iDccStatusInd" maxOccurs="1"  cobol:name="IP0040I-DCC-STATUS-IND" cobol:offset="101" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0040iPayByAcctInd" maxOccurs="1"  cobol:name="IP0040I-PAY-BY-ACCT-IND" cobol:offset="102" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iPayByAcctIndY88 VALUE [["Y"]].
+                        88 ip0040iPayByAcctIndN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iIssGamParticipSw" maxOccurs="1"  cobol:name="IP0040I-ISS-GAM-PARTICIP-SW" cobol:offset="103" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iIssGamParticipY88 VALUE [["Y"]].
+                        88 ip0040iIssGamParticipN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iMemberFiller" maxOccurs="1"  cobol:name="IP0040I-MEMBER-FILLER" cobol:offset="104" cobol:length="12" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="12" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0040iChbConvExclId" maxOccurs="1"  cobol:name="IP0040I-CHB-CONV-EXCL-ID" cobol:offset="116" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip0040iChbConvExclExpire" type="xs:long" maxOccurs="1"  cobol:name="IP0040I-CHB-CONV-EXCL-EXPIRE" cobol:offset="117" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+    <xs:element name="Ip0040iHardshipIndicator" maxOccurs="1"  cobol:name="IP0040I-HARDSHIP-INDICATOR" cobol:offset="123" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip0040iHardshipEffective" type="xs:long" maxOccurs="1"  cobol:name="IP0040I-HARDSHIP-EFFECTIVE" cobol:offset="124" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+         <xs:element name="Ip0040iHardshipExpiration" type="xs:long" maxOccurs="1"  cobol:name="IP0040I-HARDSHIP-EXPIRATION" cobol:offset="130" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+    <xs:element name="Ip0040iGamingCountrySw" maxOccurs="1"  cobol:name="IP0040I-GAMING-COUNTRY-SW" cobol:offset="136" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip0040iCrossBorderInd" type="xs:int" maxOccurs="1"  cobol:name="IP0040I-CROSS-BORDER-IND" cobol:offset="137" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+    <xs:element name="Ip0040iRecPaymtCanSw" maxOccurs="1"  cobol:name="IP0040I-REC-PAYMT-CAN-SW" cobol:offset="138" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0040iDomDbtParticipSw" maxOccurs="1"  cobol:name="IP0040I-DOM-DBT-PARTICIP-SW" cobol:offset="139" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip0040iGrpCode" maxOccurs="1" cobol:name="IP0040I-GRP-CODE" cobol:offset="140" cobol:length="10" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip0040iIpcFraudCtlSw" maxOccurs="1"  cobol:name="IP0040I-IPC-FRAUD-CTL-SW" cobol:offset="150" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iIpcFraudY88 VALUE [["Y"]].
+                        88 ip0040iIpcFraudN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iIccrParticipInd" maxOccurs="1"  cobol:name="IP0040I-ICCR-PARTICIP-IND" cobol:offset="151" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iItIsIccr88 VALUE [["I"]].
+                        88 ip0040iItIsCccr88 VALUE [["C"]].
+                        88 ip0040iItIsCcm88 VALUE [["E"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iRevCreditInd" maxOccurs="1"  cobol:name="IP0040I-REV-CREDIT-IND" cobol:offset="152" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iRevCrdIndY88 VALUE [["Y"]].
+                        88 ip0040iRevCrdIndN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iChgbkBkoutInd" maxOccurs="1"  cobol:name="IP0040I-CHGBK-BKOUT-IND" cobol:offset="153" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iChgbkBkoutY88 VALUE [["Y"]].
+                        88 ip0040iChgbkBkoutN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iRtnTrnstNum" maxOccurs="1"  cobol:name="IP0040I-RTN-TRNST-NUM" cobol:offset="154" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip0040iTrueIssuerIca" type="xs:long" maxOccurs="1"  cobol:name="IP0040I-TRUE-ISSUER-ICA" cobol:offset="164" cobol:length="11" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G"/>
+    <xs:element name="Ip0040iMerchantTaxIdSw" maxOccurs="1"  cobol:name="IP0040I-MERCHANT-TAX-ID-SW" cobol:offset="175" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0040iInstallServSw" maxOccurs="1"  cobol:name="IP0040I-INSTALL-SERV-SW" cobol:offset="176" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iInstallServSwY88 VALUE [["Y"]].
+                        88 ip0040iInstallServSwN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iTokenServiceInd" maxOccurs="1"  cobol:name="IP0040I-TOKEN-SERVICE-IND" cobol:offset="177" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iMdesToken88 VALUE [["C"]].
+                        88 ip0040iCofToken88 VALUE [["O"]].
+                        88 ip0040iDualToken88 VALUE [["D"]].
+                        88 ip0040iTspToken88 VALUE [["T"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iGbsBillInd" maxOccurs="1"  cobol:name="IP0040I-GBS-BILL-IND" cobol:offset="178" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0040iInstallAuthSw" maxOccurs="1"  cobol:name="IP0040I-INSTALL-AUTH-SW" cobol:offset="179" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iInstallAuthSwY88 VALUE [["Y"]].
+                        88 ip0040iInstallAuthSwN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iSeqServiceInd" maxOccurs="1"  cobol:name="IP0040I-SEQ-SERVICE-IND" cobol:offset="180" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iSeqOptIn88 VALUE [["Y"]].
+                        88 ip0040iSeqOptOut88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iCbfmParticipInd" maxOccurs="1"  cobol:name="IP0040I-CBFM-PARTICIP-IND" cobol:offset="181" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iCbfmPartY88 VALUE [["Y"]].
+                        88 ip0040iCbfmPartN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iCbcmParticipInd" maxOccurs="1"  cobol:name="IP0040I-CBCM-PARTICIP-IND" cobol:offset="182" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iCbcmPartY88 VALUE [["Y"]].
+                        88 ip0040iCbcmPartN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iCbfmDccSw" maxOccurs="1"  cobol:name="IP0040I-CBFM-DCC-SW" cobol:offset="183" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iCbfmDccSwY88 VALUE [["Y"]].
+                        88 ip0040iCbfmDccSwN88 VALUE [["N"]].
+                        88 ip0040iCbfmDccSwD88 VALUE [["D"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iInstApiGcmsSw" maxOccurs="1"  cobol:name="IP0040I-INST-API-GCMS-SW" cobol:offset="184" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iInstApiGcmsSwY88 VALUE [["Y"]].
+                        88 ip0040iInstApiGcmsSwN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iInsEnabApiInd" maxOccurs="1"  cobol:name="IP0040I-INS-ENAB-API-IND" cobol:offset="185" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iInsEnabApiIndY88 VALUE [["Y"]].
+                        88 ip0040iInsEnabApiIndN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iInstApiUiSw" maxOccurs="1"  cobol:name="IP0040I-INST-API-UI-SW" cobol:offset="186" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iInstApiUiSwY88 VALUE [["Y"]].
+                        88 ip0040iInstApiUiSwN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iFiller" maxOccurs="1"  cobol:name="IP0040I-FILLER" cobol:offset="187" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip0040iOboServiceInd" maxOccurs="1"  cobol:name="IP0040I-OBO-SERVICE-IND" cobol:offset="188" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iOboY88 VALUE [["Y"]].
+                        88 ip0040iOboN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iMultCurrSw" maxOccurs="1"  cobol:name="IP0040I-MULT-CURR-SW" cobol:offset="189" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iMultCurrSwY88 VALUE [["Y"]].
+                        88 ip0040iMultCurrSwN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip0040iAnonIndEffDate" type="xs:long" maxOccurs="1"  cobol:name="IP0040I-ANON-IND-EFF-DATE" cobol:offset="190" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+    <xs:element name="Ip0040iCbfmEcbRateParInd" maxOccurs="1"  cobol:name="IP0040I-CBFM-ECB-RATE-PAR-IND" cobol:offset="196" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iEcbPartY88 VALUE [["Y"]].
+                        88 ip0040iEcbPartN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iAlmXbOptOutInd" maxOccurs="1"  cobol:name="IP0040I-ALM-XB-OPT-OUT-IND" cobol:offset="197" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iAlmXbOptOutY88 VALUE [["Y"]].
+                        88 ip0040iAlmXbOptOutN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip0040iJpnNonmdesTknrngSw" maxOccurs="1"  cobol:name="IP0040I-JPN-NONMDES-TKNRNG-SW" cobol:offset="198" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip0040iJpnNonmdesRngY88 VALUE [["Y"]].
+                        88 ip0040iJpnNonmdesRngN88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

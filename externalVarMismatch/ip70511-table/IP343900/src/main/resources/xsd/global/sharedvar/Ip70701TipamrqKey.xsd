@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip70701TipamrqKey" cobol:name="IP70701-TIPAMRQ-KEY" cobol:offset="0" cobol:length="57" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip70701GftDasetNam" maxOccurs="1"  cobol:name="IP70701-GFT-DASET-NAM" cobol:offset="0" cobol:length="44" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="44" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip70701FileSeqNum" type="xs:int" maxOccurs="1"  cobol:name="IP70701-FILE-SEQ-NUM" cobol:offset="44" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="Ip70701ServCd" maxOccurs="1"  cobol:name="IP70701-SERV-CD" cobol:offset="48" cobol:length="4" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip70701InctrlServCd88 VALUE [["0001"]].
+                        88 ip70701CmdMqServCd88 VALUE [["0002"]].
+                        88 ip70701CmdDb2ServCd88 VALUE [["0003"]].
+                        88 ip70701CemServCd88 VALUE [["0004"]].
+                        88 ip70701FraServCd88 VALUE [["0007"]].
+                        88 ip70701InstallServCd88 VALUE [["0010"]].
+                        88 ip70701AlmServCd88 VALUE [["0025"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="4" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip70701TxnNum" type="xs:int" maxOccurs="1"  cobol:name="IP70701-TXN-NUM" cobol:offset="52" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

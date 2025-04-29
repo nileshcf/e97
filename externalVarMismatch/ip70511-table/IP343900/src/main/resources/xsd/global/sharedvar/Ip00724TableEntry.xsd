@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip00724TableEntry" cobol:name="IP00724-TABLE-ENTRY" cobol:offset="0" cobol:length="126" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="Ip00724Key" maxOccurs="1" cobol:name="IP00724-KEY" cobol:offset="0" cobol:length="11" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip00724Filler3" maxOccurs="1"  cobol:name="IP00724-FILLER3" cobol:offset="11" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00724Filler4" maxOccurs="1"  cobol:name="IP00724-FILLER4" cobol:offset="12" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00724IchgReg" maxOccurs="1"  cobol:name="IP00724-ICHG-REG" cobol:offset="13" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip00724Ichg" maxOccurs="1" cobol:name="IP00724-ICHG" cobol:offset="13" cobol:length="1" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip00724ElectronicQualifier" maxOccurs="1"  cobol:name="IP00724-ELECTRONIC-QUALIFIER" cobol:offset="14" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip00724IeiQualified88 VALUE [["01"]].
+                        88 ip00724NotIeiQualified88 VALUE [["00"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip00724IntUseIca" maxOccurs="1"  cobol:name="IP00724-INT-USE-ICA" cobol:offset="16" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip00724NoIntUse88 VALUE [[" "], ["N"]].
+                        88 ip00724NoDbCr88 VALUE [["B"]].
+                        88 ip00724NoCr88 VALUE [["C"]].
+                        88 ip00724NoDb88 VALUE [["D"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip00724AcqSw" maxOccurs="1"  cobol:name="IP00724-ACQ-SW" cobol:offset="17" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip00724AcqOnly88 VALUE [["A"]].
+                        88 ip00724IssOnly88 VALUE [["I"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip00724AtmInd" maxOccurs="1"  cobol:name="IP00724-ATM-IND" cobol:offset="18" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip00724NotAtm88 VALUE [[" "]].
+                        88 ip00724AtmAcq88 VALUE [["1"]].
+                        88 ip00724AtmIss88 VALUE [["2"]].
+                        88 ip00724AcqIss88 VALUE [["3"]].
+                        88 ip00724MdsPrc88 VALUE [["4"]].
+                        88 ip00724NonmdsEuro88 VALUE [["5"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip00724RclRegion" maxOccurs="1"  cobol:name="IP00724-RCL-REGION" cobol:offset="19" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip00724Endpoint" type="xs:long" maxOccurs="1"  cobol:name="IP00724-ENDPOINT" cobol:offset="20" cobol:length="7" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+    <xs:element name="Ip00724WorldIcaChbSw" maxOccurs="1"  cobol:name="IP00724-WORLD-ICA-CHB-SW" cobol:offset="27" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00724WorldGrpChbSw1" maxOccurs="1"  cobol:name="IP00724-WORLD-GRP-CHB-SW1" cobol:offset="28" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00724WorldGrpChbSw2" maxOccurs="1"  cobol:name="IP00724-WORLD-GRP-CHB-SW2" cobol:offset="29" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00724WorldGrpChbSw3" maxOccurs="1"  cobol:name="IP00724-WORLD-GRP-CHB-SW3" cobol:offset="30" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00724WorldGrpChbSw4" maxOccurs="1"  cobol:name="IP00724-WORLD-GRP-CHB-SW4" cobol:offset="31" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00724WorldGrpChbSw5" maxOccurs="1"  cobol:name="IP00724-WORLD-GRP-CHB-SW5" cobol:offset="32" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00724Filler5" maxOccurs="1"  cobol:name="IP00724-FILLER5" cobol:offset="33" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00724MemberName" maxOccurs="1"  cobol:name="IP00724-MEMBER-NAME" cobol:offset="34" cobol:length="30" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="30" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00724CountryCode" maxOccurs="1"  cobol:name="IP00724-COUNTRY-CODE" cobol:offset="64" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip00724CountryIso" type="xs:int" maxOccurs="1"  cobol:name="IP00724-COUNTRY-ISO" cobol:offset="67" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+    <xs:element name="Ip00724ChbConvExclId" maxOccurs="1"  cobol:name="IP00724-CHB-CONV-EXCL-ID" cobol:offset="70" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip00724ChbConvExprDt" type="xs:long" maxOccurs="1"  cobol:name="IP00724-CHB-CONV-EXPR-DT" cobol:offset="71" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+    <xs:element name="Ip00724ChbEditExcl" maxOccurs="1"  cobol:name="IP00724-CHB-EDIT-EXCL" cobol:offset="77" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00724HardshipEffectInd" maxOccurs="1"  cobol:name="IP00724-HARDSHIP-EFFECT-IND" cobol:offset="78" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip00724HardshipEffectDate" type="xs:long" maxOccurs="1"  cobol:name="IP00724-HARDSHIP-EFFECT-DATE" cobol:offset="79" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+         <xs:element name="Ip00724HardshipExpireDate" type="xs:long" maxOccurs="1"  cobol:name="IP00724-HARDSHIP-EXPIRE-DATE" cobol:offset="85" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+    <xs:element name="Ip00724FormatIndicator" maxOccurs="1"  cobol:name="IP00724-FORMAT-INDICATOR" cobol:offset="91" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00724McePartcptnCd" maxOccurs="1"  cobol:name="IP00724-MCE-PARTCPTN-CD" cobol:offset="92" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00724EeaAcqCtrySrvIca" maxOccurs="1"  cobol:name="IP00724-EEA-ACQ-CTRY-SRV-ICA" cobol:offset="93" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00724IrdDeterminePart" maxOccurs="1"  cobol:name="IP00724-IRD-DETERMINE-PART" cobol:offset="94" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00724NpgAcqProcInd" maxOccurs="1"  cobol:name="IP00724-NPG-ACQ-PROC-IND" cobol:offset="95" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip00724NpgAcqProcIndY88 VALUE [["Y"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip00724PtaParticipantInd" maxOccurs="1"  cobol:name="IP00724-PTA-PARTICIPANT-IND" cobol:offset="96" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip00724PtaParticipantY88 VALUE [["Y"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip00724MemberFiller" maxOccurs="1"  cobol:name="IP00724-MEMBER-FILLER" cobol:offset="97" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip00724CentralSiteFields" maxOccurs="1" cobol:name="IP00724-CENTRAL-SITE-FIELDS" cobol:offset="105" cobol:length="21" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

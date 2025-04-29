@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ms10frptHeaderRec" cobol:name="MS10FRPT-HEADER-REC" cobol:offset="0" cobol:length="270" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ms10frptHdrRecType" maxOccurs="1"  cobol:name="MS10FRPT-HDR-REC-TYPE" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ms10frptFileHdr VALUE [["00"]].
+                        88 ms10frptReptHdr VALUE [["01"]].
+                        88 ms10frptDetRec VALUE [["10"]].
+                        88 ms10frptTlrRec VALUE [["90"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ms10frptHdrEndpt" type="xs:long" maxOccurs="1"  cobol:name="MS10FRPT-HDR-ENDPT" cobol:offset="2" cobol:length="7" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+         <xs:element name="Ms10frptHdrEntIca" type="xs:long" maxOccurs="1"  cobol:name="MS10FRPT-HDR-ENT-ICA" cobol:offset="9" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+         <xs:element name="Ms10frptHdrProc" type="xs:long" maxOccurs="1"  cobol:name="MS10FRPT-HDR-PROC" cobol:offset="15" cobol:length="10" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10G"/>
+         <xs:element name="Ms10frptHdrHier" type="xs:int" maxOccurs="1"  cobol:name="MS10FRPT-HDR-HIER" cobol:offset="25" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+    <xs:element name="Ms10frptHdrRptId" maxOccurs="1"  cobol:name="MS10FRPT-HDR-RPT-ID" cobol:offset="29" cobol:length="12" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="12" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ms10frptHdrWrkofYmd" type="xs:long" maxOccurs="1"  cobol:name="MS10FRPT-HDR-WRKOF-YMD" cobol:offset="41" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+         <xs:element name="Ms10frptHdrCutoffHhmm" type="xs:int" maxOccurs="1"  cobol:name="MS10FRPT-HDR-CUTOFF-HHMM" cobol:offset="47" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="Ms10frptHdrLineSeqN0" type="xs:long" maxOccurs="1"  cobol:name="MS10FRPT-HDR-LINE-SEQ-N0" cobol:offset="51" cobol:length="12" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1T"/>
+         <xs:element name="Ms10frptHdrProc2" type="xs:long" maxOccurs="1"  cobol:name="MS10FRPT-HDR-PROC-2" cobol:offset="63" cobol:length="10" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10G"/>
+    <xs:element name="Ms10frptFill1" maxOccurs="1"  cobol:name="MS10FRPT-FILL-1" cobol:offset="73" cobol:length="20" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="20" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ms10frptHdrSysDte" type="xs:long" maxOccurs="1"  cobol:name="MS10FRPT-HDR-SYS-DTE" cobol:offset="93" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+         <xs:element name="Ms10frptHdrSysTime" type="xs:long" maxOccurs="1"  cobol:name="MS10FRPT-HDR-SYS-TIME" cobol:offset="99" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+    <xs:element name="Ms10frptFill2" maxOccurs="1"  cobol:name="MS10FRPT-FILL-2" cobol:offset="105" cobol:length="14" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="14" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ms10frptHdrMbrIca" type="xs:long" maxOccurs="1"  cobol:name="MS10FRPT-HDR-MBR-ICA" cobol:offset="119" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+    <xs:element name="Ms10frptHdrEservFlag" maxOccurs="1"  cobol:name="MS10FRPT-HDR-ESERV-FLAG" cobol:offset="125" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ms10frptFill3" maxOccurs="1"  cobol:name="MS10FRPT-FILL-3" cobol:offset="126" cobol:length="144" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="144" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

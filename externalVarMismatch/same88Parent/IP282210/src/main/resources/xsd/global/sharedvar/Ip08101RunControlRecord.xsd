@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip08101RunControlRecord" cobol:name="IP08101-RUN-CONTROL-RECORD" cobol:offset="0" cobol:length="80" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip08101RunOption" maxOccurs="1"  cobol:name="IP08101-RUN-OPTION" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip08101ProcessDate" type="xs:long" maxOccurs="1"  cobol:name="IP08101-PROCESS-DATE" cobol:offset="1" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="Ip08101RptInds" maxOccurs="1" cobol:name="IP08101-RPT-INDS" cobol:offset="9" cobol:length="15" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip08101RptIndValues" maxOccurs="15"  cobol:name="IP08101-RPT-IND-VALUES" cobol:offset="9" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip08101MsgTbl" maxOccurs="1" cobol:name="IP08101-MSG-TBL" cobol:offset="24" cobol:length="15" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip08101MsgThreshValues" maxOccurs="5"  cobol:name="IP08101-MSG-THRESH-VALUES" cobol:offset="24" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip08101RptUtcSign" maxOccurs="1"  cobol:name="IP08101-RPT-UTC-SIGN" cobol:offset="39" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip08101RptUtcOffset" maxOccurs="1"  cobol:name="IP08101-RPT-UTC-OFFSET" cobol:offset="40" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip08101RptProcessTime" maxOccurs="1"  cobol:name="IP08101-RPT-PROCESS-TIME" cobol:offset="44" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip08101MaxNumCycles" type="xs:int" maxOccurs="1"  cobol:name="IP08101-MAX-NUM-CYCLES" cobol:offset="48" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+    <xs:element name="Ip08101Filler" maxOccurs="1"  cobol:name="IP08101-FILLER" cobol:offset="51" cobol:length="29" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="29" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

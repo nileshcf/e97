@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ar642Parameters" cobol:name="AR642-PARAMETERS" cobol:offset="0" cobol:length="144" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ar642ProgramId" maxOccurs="1"  cobol:name="AR642-PROGRAM-ID" cobol:offset="0" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ar642DatasetId" maxOccurs="1"  cobol:name="AR642-DATASET-ID" cobol:offset="8" cobol:length="54" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="54" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ar642ReturnCode" maxOccurs="1"  cobol:name="AR642-RETURN-CODE" cobol:offset="62" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ar642RequestSuccessful88 VALUE [[0ALL]].
+                        88 ar642DatasetIdMissing88 VALUE [[4]].
+                        88 ar642DatasetIdInvalid88 VALUE [[8]].
+                        88 ar642TsoFunctionError88 VALUE [[12]].
+                        88 ar642RexxCallError88 VALUE [[16]].
+                        88 ar642RexxFunctionError88 VALUE [[20]].
+                        88 ar642RexxParamError88 VALUE [[24]].
+                        88 ar642DatasetNotCatal88 VALUE [[28]].
+                        88 ar642DdnameNotInJcl88 VALUE [[32]].
+                        88 ar642VsamNotSupported88 VALUE [[36]].
+                        88 ar642TypeNotProcessed88 VALUE [[40]].
+                        88 ar642DatasetNotFound88 VALUE [[44]].
+                        88 ar642DatasetNotAvail88 VALUE [[48]].
+                        88 ar642DatasetError88 VALUE [[52]].
+                        88 ar642ListdsiError88 VALUE [[99]].
+                        88 ar642GdgNotFound88 VALUE [[100]].
+                        88 ar642PdsMbrNotFound88 VALUE [[104]].
+                        88 ar642PdsNotValid88 VALUE [[108]].
+                        88 ar642PdsProtected88 VALUE [[112]].
+                        88 ar642PdsNotAvail88 VALUE [[116]].
+                        88 ar642SysdsnError88 VALUE [[199]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ar642AllocUnit" maxOccurs="1"  cobol:name="AR642-ALLOC-UNIT" cobol:offset="64" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ar642RecordFormat" maxOccurs="1"  cobol:name="AR642-RECORD-FORMAT" cobol:offset="65" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ar642UnitsUsed" type="xs:long" maxOccurs="1"  cobol:name="AR642-UNITS-USED" cobol:offset="68" cobol:length="4" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Ar642RecordLength" type="xs:long" maxOccurs="1"  cobol:name="AR642-RECORD-LENGTH" cobol:offset="72" cobol:length="4" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Ar642BlockSize" type="xs:long" maxOccurs="1"  cobol:name="AR642-BLOCK-SIZE" cobol:offset="76" cobol:length="4" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="Ar642ReturnDsn" maxOccurs="1"  cobol:name="AR642-RETURN-DSN" cobol:offset="80" cobol:length="44" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="44" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ar642PrimarySpace" type="xs:long" maxOccurs="1"  cobol:name="AR642-PRIMARY-SPACE" cobol:offset="124" cobol:length="4" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Ar642SecondarySpace" type="xs:long" maxOccurs="1"  cobol:name="AR642-SECONDARY-SPACE" cobol:offset="128" cobol:length="4" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+<xs:element name="Ar642FunctionFailureCodes" maxOccurs="1" cobol:name="AR642-FUNCTION-FAILURE-CODES" cobol:offset="132" cobol:length="12" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

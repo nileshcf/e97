@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip43501SortSolution" cobol:name="IP43501-SORT-SOLUTION" cobol:offset="0" cobol:length="1358" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip43501EiRecType" maxOccurs="1"  cobol:name="IP43501-EI-REC-TYPE" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip43501EiRegularProc88 VALUE [["E1"]].
+                        88 ip43501EiCollOnlyProc88 VALUE [["E2"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip43501EiTransmissionId" maxOccurs="1"  cobol:name="IP43501-EI-TRANSMISSION-ID" cobol:offset="2" cobol:length="25" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="25" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip43501EiFileId" maxOccurs="1"  cobol:name="IP43501-EI-FILE-ID" cobol:offset="27" cobol:length="25" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="25" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip43501EiFileSeqNbr" type="xs:int" maxOccurs="1"  cobol:name="IP43501-EI-FILE-SEQ-NBR" cobol:offset="52" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="Ip43501EiInstitutionId" type="xs:long" maxOccurs="1"  cobol:name="IP43501-EI-INSTITUTION-ID" cobol:offset="55" cobol:length="11" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G"/>
+         <xs:element name="Ip43501EiBin" type="xs:long" maxOccurs="1"  cobol:name="IP43501-EI-BIN" cobol:offset="66" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+    <xs:element name="Ip43501EiCardAcceptor" maxOccurs="1"  cobol:name="IP43501-EI-CARD-ACCEPTOR" cobol:offset="72" cobol:length="15" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="15" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip43501EiSourceMsgNum" type="xs:long" maxOccurs="1"  cobol:name="IP43501-EI-SOURCE-MSG-NUM" cobol:offset="87" cobol:length="10" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10G"/>
+    <xs:element name="Ip43501EiErrorType" maxOccurs="1"  cobol:name="IP43501-EI-ERROR-TYPE" cobol:offset="97" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip43501FileError88 VALUE [["F"]].
+                        88 ip43501MsgError88 VALUE [["M"]].
+                        88 ip43501UnkError88 VALUE [["U"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip43501EiErrorCode" maxOccurs="1"  cobol:name="IP43501-EI-ERROR-CODE" cobol:offset="98" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip43501EiErrorMsgNbr" maxOccurs="1"  cobol:name="IP43501-EI-ERROR-MSG-NBR" cobol:offset="102" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip43501EiReplText" maxOccurs="3"  cobol:name="IP43501-EI-REPL-TEXT" cobol:offset="106" cobol:length="50" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="50" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip43501EiErrorInfo" maxOccurs="1" cobol:name="IP43501-EI-ERROR-INFO" cobol:offset="256" cobol:length="1039" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip43501EiFieldErrorInd" maxOccurs="1"  cobol:name="IP43501-EI-FIELD-ERROR-IND" cobol:offset="1295" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip43501FieldInError88 VALUE [["E"]].
+                        88 ip43501NoError88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip43501EiAmtCntAccumInd" maxOccurs="1"  cobol:name="IP43501-EI-AMT-CNT-ACCUM-IND" cobol:offset="1296" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip43501AmtCntNeedAccum88 VALUE [["A"]].
+                        88 ip43501NoAccum88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip43501ErrorInfoRecFiller1" maxOccurs="1"  cobol:name="FILLER" cobol:offset="1297" cobol:length="57" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="57" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip43501EiDataLength" type="xs:int" maxOccurs="1"  cobol:name="IP43501-EI-DATA-LENGTH" cobol:offset="1354" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

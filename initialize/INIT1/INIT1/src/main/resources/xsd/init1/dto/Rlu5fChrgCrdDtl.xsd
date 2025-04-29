@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Rlu5fChrgCrdDtl" cobol:name="RLU5F-CHRG-CRD-DTL" cobol:offset="0" cobol:length="1411" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Rlu5fRecId" maxOccurs="1"  cobol:name="RLU5F-REC-ID" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fPgmId" maxOccurs="1"  cobol:name="RLU5F-PGM-ID" cobol:offset="2" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bilrlu5fFiller1" maxOccurs="1"  cobol:name="FILLER" cobol:offset="12" cobol:length="16" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="16" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Rlu5fSuppressInd" maxOccurs="1" cobol:name="RLU5F-SUPPRESS-IND" cobol:offset="28" cobol:length="3" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Rlu5fAccDesc" maxOccurs="1"  cobol:name="RLU5F-ACC-DESC" cobol:offset="31" cobol:length="50" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="50" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fAccAmount" maxOccurs="1"  cobol:name="RLU5F-ACC-AMOUNT" cobol:offset="81" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fAccTypeInd" maxOccurs="1"  cobol:name="RLU5F-ACC-TYPE-IND" cobol:offset="87" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 rlu5fAcCc VALUE [["CC"]].
+                        88 rlu5fAccessCc VALUE [["MC"]].
+                        88 rlu5fUsgeCc VALUE [["UC"]].
+                        88 rlu5fBoboCc VALUE [["BO"]].
+                        88 rlu5fMsoCc VALUE [["MS"]].
+                        88 rlu5fGoDaddy VALUE [["GD"]].
+                        88 rlu5fUsgeDi VALUE [["DI"]].
+                        88 rlu5fVzedge VALUE [["VE"]].
+                        88 rlu5fCellcrypt VALUE [["CL"]].
+                        88 rlu5fSecureCloud VALUE [["SC"]].
+                        88 rlu5fNetwf VALUE [["F1"]].
+                        88 rlu5fFleet VALUE [["F2"]].
+                        88 rlu5fTelgs VALUE [["F3"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="Rlu5fDateFrom" maxOccurs="1" cobol:name="RLU5F-DATE-FROM" cobol:offset="89" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Rlu5fDateTo" maxOccurs="1" cobol:name="RLU5F-DATE-TO" cobol:offset="97" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Rlu5fAccessUsageDesc" maxOccurs="1"  cobol:name="RLU5F-ACCESS-USAGE-DESC" cobol:offset="105" cobol:length="80" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="80" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fPlanChngCode" maxOccurs="1"  cobol:name="RLU5F-PLAN-CHNG-CODE" cobol:offset="185" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 rlu5fOldPlan VALUE [["O"]].
+                        88 rlu5fCurPlan VALUE [["C"]].
+                        88 rlu5fNewPlan VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Rlu5fPlanChgPerMonth" maxOccurs="1"  cobol:name="RLU5F-PLAN-CHG-PER-MONTH" cobol:offset="186" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Rlu5fPlanDays" type="xs:int" maxOccurs="1"  cobol:name="RLU5F-PLAN-DAYS" cobol:offset="192" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+    <xs:element name="Rlu5fPlanChgInadvInd" maxOccurs="1"  cobol:name="RLU5F-PLAN-CHG-INADV-IND" cobol:offset="194" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fDiscountInd" maxOccurs="1"  cobol:name="RLU5F-DISCOUNT-IND" cobol:offset="195" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fPlanType" maxOccurs="1"  cobol:name="RLU5F-PLAN-TYPE" cobol:offset="196" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 rlu5fAddtlShrSvc VALUE [["AS"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Rlu5fUnitType" maxOccurs="1"  cobol:name="RLU5F-UNIT-TYPE" cobol:offset="198" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fPlanId" maxOccurs="1"  cobol:name="RLU5F-PLAN-ID" cobol:offset="200" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fCurDelayInd" maxOccurs="1"  cobol:name="RLU5F-CUR-DELAY-IND" cobol:offset="206" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fDelayShareUsed" maxOccurs="1"  cobol:name="RLU5F-DELAY-SHARE-USED" cobol:offset="207" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="10" />
+                  <xs:fractionDigits value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fDelayShareOvrage" maxOccurs="1"  cobol:name="RLU5F-DELAY-SHARE-OVRAGE" cobol:offset="213" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="10" />
+                  <xs:fractionDigits value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fDiscAmount1" maxOccurs="1"  cobol:name="RLU5F-DISC-AMOUNT-1" cobol:offset="219" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fDiscAmount2" maxOccurs="1"  cobol:name="RLU5F-DISC-AMOUNT-2" cobol:offset="225" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fBoboVenderName" maxOccurs="1"  cobol:name="RLU5F-BOBO-VENDER-NAME" cobol:offset="231" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fBoboVenderNumber" maxOccurs="1"  cobol:name="RLU5F-BOBO-VENDER-NUMBER" cobol:offset="241" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fBoboServDesc" maxOccurs="1"  cobol:name="RLU5F-BOBO-SERV-DESC" cobol:offset="251" cobol:length="40" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="40" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fBoboTaxAmt" maxOccurs="1"  cobol:name="RLU5F-BOBO-TAX-AMT" cobol:offset="291" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fBoboSurAmt" maxOccurs="1"  cobol:name="RLU5F-BOBO-SUR-AMT" cobol:offset="297" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Rlu5fMsoNumOfPurchases" type="xs:long" maxOccurs="1"  cobol:name="RLU5F-MSO-NUM-OF-PURCHASES" cobol:offset="303" cobol:length="4" cobol:datatype="Packed-Dec" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+    <xs:element name="Rlu5fMsoPurchaseDesc" maxOccurs="1"  cobol:name="RLU5F-MSO-PURCHASE-DESC" cobol:offset="307" cobol:length="15" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="15" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Bilrlu5fFiller3" maxOccurs="1"  cobol:name="FILLER" cobol:offset="322" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fMsoDomainName" maxOccurs="1"  cobol:name="RLU5F-MSO-DOMAIN-NAME" cobol:offset="332" cobol:length="65" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="65" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fDipLateFee" maxOccurs="1"  cobol:name="RLU5F-DIP-LATE-FEE" cobol:offset="397" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fDipFinChgDue" maxOccurs="1"  cobol:name="RLU5F-DIP-FIN-CHG-DUE" cobol:offset="403" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fDipFinChgPaid" maxOccurs="1"  cobol:name="RLU5F-DIP-FIN-CHG-PAID" cobol:offset="409" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fDipFinChgPastDue" maxOccurs="1"  cobol:name="RLU5F-DIP-FIN-CHG-PAST-DUE" cobol:offset="415" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fDipBalance" maxOccurs="1"  cobol:name="RLU5F-DIP-BALANCE" cobol:offset="421" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fDipFinChgBalance" maxOccurs="1"  cobol:name="RLU5F-DIP-FIN-CHG-BALANCE" cobol:offset="427" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Rlu5fInstallPaymentNum" type="xs:int" maxOccurs="1"  cobol:name="RLU5F-INSTALL-PAYMENT-NUM" cobol:offset="433" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+         <xs:element name="Rlu5fTotInstallPayments" type="xs:int" maxOccurs="1"  cobol:name="RLU5F-TOT-INSTALL-PAYMENTS" cobol:offset="435" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+         <xs:element name="Rlu5fDipLoanNumber" type="xs:long" maxOccurs="1"  cobol:name="RLU5F-DIP-LOAN-NUMBER" cobol:offset="437" cobol:length="10" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10G"/>
+    <xs:element name="Rlu5fAlpDelayedCapSw" maxOccurs="1"  cobol:name="RLU5F-ALP-DELAYED-CAP-SW" cobol:offset="447" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fAlpUnitType" maxOccurs="1"  cobol:name="RLU5F-ALP-UNIT-TYPE" cobol:offset="448" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fDipSubTotal" maxOccurs="1"  cobol:name="RLU5F-DIP-SUB-TOTAL" cobol:offset="450" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fVzedgeInd" maxOccurs="1"  cobol:name="RLU5F-VZEDGE-IND" cobol:offset="456" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 rlu5fVzedgeBuyout VALUE [["B"]].
+                        88 rlu5fVzedgePayoff VALUE [["O"]].
+                        88 rlu5fVzedgePayment VALUE [["P"]].
+                        88 rlu5fVzedgeCredit VALUE [["C"]].
+                        88 rlu5fVzedgeDeceased VALUE [["D"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Rlu5fVzedgeMsgInd" maxOccurs="1"  cobol:name="RLU5F-VZEDGE-MSG-IND" cobol:offset="457" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 rlu5fVzedgeNew VALUE [["N"]].
+                        88 rlu5fVzedgeNewAct VALUE [["B"]].
+                        88 rlu5fVzedgeAct VALUE [["A"]].
+                        88 rlu5fVzedgeAccelerate VALUE [["X"]].
+                        88 rlu5fVzedgeReinstated VALUE [["R"]].
+                        88 rlu5fVzedgeUpgrade VALUE [["U"]].
+                        88 rlu5fVzedgeFinal VALUE [["F"]].
+                        88 rlu5fVzedgeReactivate VALUE [["V"]].
+                        88 rlu5fVzedgeRecreate VALUE [["C"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="Rlu5fVzedgePaymtSched" maxOccurs="24" cobol:name="RLU5F-VZEDGE-PAYMT-SCHED" cobol:offset="458" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Rlu5fCellcryptRenewalDate" maxOccurs="1"  cobol:name="RLU5F-CELLCRYPT-RENEWAL-DATE" cobol:offset="650" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Rlu5fCellcryptRenewalRed" maxOccurs="1" cobol:name="RLU5F-CELLCRYPT-RENEWAL-RED" cobol:offset="650" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Rlu5fCellcryptActionCode" maxOccurs="1"  cobol:name="RLU5F-CELLCRYPT-ACTION-CODE" cobol:offset="658" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 rlu5fCcryptAdd VALUE [["A"]].
+                        88 rlu5fCcryptCancel VALUE [["C"]].
+                        88 rlu5fCcryptRemove VALUE [["R"]].
+                        88 rlu5fCcrypt1timeChrg VALUE [["O"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Rlu5fCellcryptUnitCost" maxOccurs="1"  cobol:name="RLU5F-CELLCRYPT-UNIT-COST" cobol:offset="659" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fCellcryptTransactionDt" maxOccurs="1"  cobol:name="RLU5F-CELLCRYPT-TRANSACTION-DT" cobol:offset="665" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Rlu5fCellcryptTransactionRd" maxOccurs="1" cobol:name="RLU5F-CELLCRYPT-TRANSACTION-RD" cobol:offset="665" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Rlu5fCellcryptProrateInd" maxOccurs="1"  cobol:name="RLU5F-CELLCRYPT-PRORATE-IND" cobol:offset="673" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 rlu5fCellcryptProrateYes VALUE [["Y"]].
+                        88 rlu5fCellcryptProrateNo VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Rlu5fSharedInd" maxOccurs="1"  cobol:name="RLU5F-SHARED-IND" cobol:offset="674" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Rlu5fShareSet" type="xs:int" maxOccurs="1"  cobol:name="RLU5F-SHARE-SET" cobol:offset="675" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="Rlu5fDevicePrice" maxOccurs="1"  cobol:name="RLU5F-DEVICE-PRICE" cobol:offset="680" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Rlu5fDeviceTax" maxOccurs="5" cobol:name="RLU5F-DEVICE-TAX" cobol:offset="686" cobol:length="56" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Rlu5fCellcryptDiscAmt" maxOccurs="1"  cobol:name="RLU5F-CELLCRYPT-DISC-AMT" cobol:offset="966" cobol:length="13" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="13" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fPlanAmountAfterDisc" maxOccurs="1"  cobol:name="RLU5F-PLAN-AMOUNT-AFTER-DISC" cobol:offset="979" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fOnetimeNewInd" maxOccurs="1"  cobol:name="RLU5F-ONETIME-NEW-IND" cobol:offset="985" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fOverageBillableQty" maxOccurs="1"  cobol:name="RLU5F-OVERAGE-BILLABLE-QTY" cobol:offset="986" cobol:length="7" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1T">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="12" />
+                  <xs:fractionDigits value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fOverageRate" maxOccurs="1"  cobol:name="RLU5F-OVERAGE-RATE" cobol:offset="993" cobol:length="3" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="5" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fInstallLoanAmount" maxOccurs="1"  cobol:name="RLU5F-INSTALL-LOAN-AMOUNT" cobol:offset="996" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fVzedgePaymentInd" maxOccurs="1"  cobol:name="RLU5F-VZEDGE-PAYMENT-IND" cobol:offset="1002" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fAccntUsageAllow" maxOccurs="1"  cobol:name="RLU5F-ACCNT-USAGE-ALLOW" cobol:offset="1003" cobol:length="7" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1T">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="12" />
+                  <xs:fractionDigits value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fTaxSurchrgRecInd" maxOccurs="1"  cobol:name="RLU5F-TAX-SURCHRG-REC-IND" cobol:offset="1010" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 rlu5fTaxInd VALUE [["T"]].
+                        88 rlu5fSurchrgInd VALUE [["S"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="Rlu5fLateFeeDate" maxOccurs="1" cobol:name="RLU5F-LATE-FEE-DATE" cobol:offset="1011" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Rlu5fOnetimeEventType" maxOccurs="1"  cobol:name="RLU5F-ONETIME-EVENT-TYPE" cobol:offset="1019" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fTaxSurchargeInd" maxOccurs="1"  cobol:name="RLU5F-TAX-SURCHARGE-IND" cobol:offset="1023" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fAcctPlanDetailDesc" maxOccurs="1"  cobol:name="RLU5F-ACCT-PLAN-DETAIL-DESC" cobol:offset="1024" cobol:length="254" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="254" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Rlu5fStartDate" maxOccurs="1" cobol:name="RLU5F-START-DATE" cobol:offset="1278" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Rlu5fEndDate" maxOccurs="1" cobol:name="RLU5F-END-DATE" cobol:offset="1286" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Rlu5fSplanCatCd" maxOccurs="1"  cobol:name="RLU5F-SPLAN-CAT-CD" cobol:offset="1294" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fServiceId" maxOccurs="1"  cobol:name="RLU5F-SERVICE-ID" cobol:offset="1296" cobol:length="15" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="15" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Rlu5fBuyoutPaymentDate" maxOccurs="1" cobol:name="RLU5F-BUYOUT-PAYMENT-DATE" cobol:offset="1311" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Rlu5fBuyoutPaymentAmt" maxOccurs="1"  cobol:name="RLU5F-BUYOUT-PAYMENT-AMT" cobol:offset="1319" cobol:length="6" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100G">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                  <xs:totalDigits value="11" />
+                  <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Rlu5fSciProdId" type="xs:int" maxOccurs="1"  cobol:name="RLU5F-SCI-PROD-ID" cobol:offset="1325" cobol:length="5" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="Rlu5fSubscriptionInd" maxOccurs="1"  cobol:name="RLU5F-SUBSCRIPTION-IND" cobol:offset="1330" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 rlu5fMonthlySubscription VALUE [["M"]].
+                        88 rlu5fOnetimeSubscription VALUE [["O"]].
+                        88 rlu5fNewMthlySubscription VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Rlu5fStateCd" maxOccurs="1"  cobol:name="RLU5F-STATE-CD" cobol:offset="1331" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rlu5fFootnoteCd" maxOccurs="1"  cobol:name="RLU5F-FOOTNOTE-CD" cobol:offset="1333" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 rlu5fApoPpfDtlLn VALUE [["Y"]].
+                        88 rlu5fFiosJmp VALUE [["F"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Bilrlu5fFiller4" maxOccurs="1"  cobol:name="FILLER" cobol:offset="1334" cobol:length="77" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="77" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

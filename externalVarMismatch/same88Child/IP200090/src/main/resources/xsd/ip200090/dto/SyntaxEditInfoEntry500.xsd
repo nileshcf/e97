@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="SyntaxEditInfoEntry500" cobol:name="500-SYNTAX-EDIT-INFO-ENTRY" cobol:offset="0" cobol:length="8" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="IsFieldShouldPresent500" maxOccurs="1"  cobol:name="500-IS-FIELD-SHOULD-PRESENT" cobol:offset="5" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 fieldMustBePresent88500 VALUE [["Y"]].
+                        88 fieldWillBePresent88500 VALUE [["N"]].
+                        88 invldFldPresentInd88500 VALUE [["*"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="AdditionalSyntaxChkInd500" maxOccurs="1"  cobol:name="500-ADDITIONAL-SYNTAX-CHK-IND" cobol:offset="6" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 invldAddtionalFlag88500 VALUE [["*"]].
+                        88 noAdditionalChecks88500 VALUE [["1"]].
+                        88 leftJustifyNotSpace88500 VALUE [["2"]].
+                        88 notLowHighValue88500 VALUE [["3"]].
+                        88 numericNotZero88500 VALUE [["4"]].
+                        88 allZeroes88500 VALUE [["5"]].
+                        88 notSpacesZerosAlpha88500 VALUE [["6"]].
+                        88 notAllSpaces88500 VALUE [["7"]].
+                        88 dateOrDayZeros88500 VALUE [["8"]].
+                        88 julianDateYddd88500 VALUE [["9"]].
+                        88 validHhMm88500 VALUE [["A"]].
+                        88 validHh88500 VALUE [["B"]].
+                        88 validMmss88500 VALUE [["C"]].
+                        88 notSpacesZerosNine88500 VALUE [["D"]].
+                        88 notSpacesOrZeros88500 VALUE [["E"]].
+                        88 validYymm88500 VALUE [["F"]].
+                        88 alphnumSpaceDash88500 VALUE [["G"]].
+                        88 maxLengthDivisible88500 VALUE [["H"]].
+                        88 leftJustifyCanSpace88500 VALUE [["I"]].
+                        88 noLhBasicPresence88500 VALUE [["J"]].
+                        88 noZeroBasicPresence88500 VALUE [["K"]].
+                        88 leftJustifyNoBasic88500 VALUE [["L"]].
+                        88 alpnumDasNtAlSpc88500 VALUE [["M"]].
+                        88 alpnumNotSpaceZero88500 VALUE [["N"]].
+                        88 leftJustifyNoSpcZer88500 VALUE [["O"]].
+                        88 alphanumericSpace88500 VALUE [["P"]].
+                        88 mustBeAllSpaces88500 VALUE [["Q"]].
+                        88 mustBeAllZeroes88500 VALUE [["R"]].
+                        88 leftJustNoSpcNum88500 VALUE [["S"]].
+                        88 numericAllSpace88500 VALUE [["T"]].
+                        88 leadSpaceLjAllZeros881001 VALUE [["U"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="EditModuleIndex500" maxOccurs="1"  cobol:name="500-EDIT-MODULE-INDEX" cobol:offset="7" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 programIp20069088500 VALUE [[1]].
+                        88 programIp20233088500 VALUE [[2]].
+                        88 programIp20970088500 VALUE [[3]].
+                        88 programIp20972088500 VALUE [[4]].
+                        88 programIp21862088500 VALUE [[5]].
+                        88 programIp22108088500 VALUE [[6]].
+                        88 programIp22319088500 VALUE [[7]].
+                        88 programIp22387088500 VALUE [[8]].
+                        88 programIp20299088500 VALUE [[9]].
+                        88 validPrograms88500 VALUE [[[1],[9]]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

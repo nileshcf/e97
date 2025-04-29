@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Work" cobol:name="work" cobol:offset="0" cobol:length="4" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="IsItFirstTime100" maxOccurs="1"  cobol:name="100-IS-IT-FIRST-TIME" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 itIsNotFirstTime88100 VALUE [["N"]].
+                        88 itIsFirstTime88100 VALUE [["Y"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Sys001FileStatus200" maxOccurs="1"  cobol:name="200-SYS001-FILE-STATUS" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 sys001IoGood88200 VALUE [["00"]].
+                        88 sys001Eof88200 VALUE [["10"]].
+                        88 sys001NoRecs88200 VALUE [["23"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="AbendParaName300" maxOccurs="1"  cobol:name="300-ABEND-PARA-NAME" cobol:offset="0" cobol:length="30" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 abendPara100088300 VALUE [["1000-DO-INITIALIZATION        "]].
+                        88 abendPara120088300 VALUE [["1200-OPEN-INPUT-SYS001        "]].
+                        88 abendPara200088300 VALUE [["2000-PROCESS-IRD-EXTR         "]].
+                        88 abendPara300088300 VALUE [["3000-CLOSE-IRD-EXTR           "]].
+                        88 abendPara800088300 VALUE [["8000-READ-SYS001-FILE         "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="30" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="AbendCode300" maxOccurs="1"  cobol:name="300-ABEND-CODE" cobol:offset="0" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 openAbendCode88300 VALUE [[3001]].
+                        88 readAbendCode88300 VALUE [[3002]].
+                        88 closeAbendCode88300 VALUE [[3003]].
+                        88 strtAbendCode88300 VALUE [[3004]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="AbendPara900" maxOccurs="1"  cobol:name="900-ABEND-PARA" cobol:offset="4" cobol:length="42" cobol:datatype="Display" cobol:serialize="false" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="42" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

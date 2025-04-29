@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip43501EiErrorInfo" cobol:name="IP43501-EI-ERROR-INFO" cobol:offset="256" cobol:length="1039" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Ip43501EiSourceAmount" type="xs:long" maxOccurs="1"  cobol:name="IP43501-EI-SOURCE-AMOUNT" cobol:offset="0" cobol:length="18" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1E"/>
+    <xs:element name="Ip43501EiSourceCurrency" maxOccurs="1"  cobol:name="IP43501-EI-SOURCE-CURRENCY" cobol:offset="18" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip43501EiSourceCurrExp" type="xs:int" maxOccurs="1"  cobol:name="IP43501-EI-SOURCE-CURR-EXP" cobol:offset="21" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+    <xs:element name="Ip43501EiSourceMtiFunc" maxOccurs="1"  cobol:name="IP43501-EI-SOURCE-MTI-FUNC" cobol:offset="22" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip43501EiElemId" maxOccurs="1" cobol:name="IP43501-EI-ELEM-ID" cobol:offset="30" cobol:length="10" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Ip43501EiData" maxOccurs="1" cobol:name="IP43501-EI-DATA" cobol:offset="40" cobol:length="999" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

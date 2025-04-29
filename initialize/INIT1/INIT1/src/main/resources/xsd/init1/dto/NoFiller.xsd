@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="NoFiller" cobol:name="NO-FILLER" cobol:offset="0" cobol:length="86" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="BiypInit" maxOccurs="1" cobol:name="WS-BIYP-INIT" cobol:offset="0" cobol:length="52" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="Fillerd" type="xs:int" maxOccurs="1"  cobol:name="FILLERD" cobol:offset="52" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+<xs:element name="BiypCurr" maxOccurs="1" cobol:name="WS-BIYP-CURR" cobol:offset="59" cobol:length="24" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="WsbiypAddedSw" maxOccurs="1"  cobol:name="WS-WSBIYP-ADDED-SW" cobol:offset="83" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="BiypPriorCnt" type="xs:int" maxOccurs="1"  cobol:name="WS-BIYP-PRIOR-CNT" cobol:offset="84" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

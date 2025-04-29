@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="EsVersion1270" cobol:name="270-ES-VERSION-1" cobol:offset="0" cobol:length="8024" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="EsHeaderId270" maxOccurs="1"  cobol:name="270-ES-HEADER-ID" cobol:offset="0" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="EsVersion270" maxOccurs="1"  cobol:name="270-ES-VERSION" cobol:offset="2" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 esVersion188270 VALUE [[0x01]].
+                        88 esVersion288270 VALUE [[0x02]].
+                        88 esVersion388270 VALUE [[0x03]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="EsV1HdrLength270" maxOccurs="1"  cobol:name="270-ES-V1-HDR-LENGTH" cobol:offset="3" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="EsV1SrvreqLnth270" type="xs:int" maxOccurs="1"  cobol:name="270-ES-V1-SRVREQ-LNTH" cobol:offset="4" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+<xs:element name="EsV1CorrelId270" maxOccurs="1" cobol:name="270-ES-V1-CORREL-ID" cobol:offset="8" cobol:length="10" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="EsV1SrvVersion270" maxOccurs="1"  cobol:name="270-ES-V1-SRV-VERSION" cobol:offset="18" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="EsV1SiHdrLnth270" maxOccurs="1"  cobol:name="270-ES-V1-SI-HDR-LNTH" cobol:offset="19" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="EsV1SrvStatus270" maxOccurs="1"  cobol:name="270-ES-V1-SRV-STATUS" cobol:offset="20" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="EsV1StatusRc270" maxOccurs="1"  cobol:name="270-ES-V1-STATUS-RC" cobol:offset="21" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="EsV1SrvDataLnth270" type="xs:short" maxOccurs="1"  cobol:name="270-ES-V1-SRV-DATA-LNTH" cobol:offset="22" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="EsV1SrvData270" maxOccurs="1"  cobol:name="270-ES-V1-SRV-DATA" cobol:offset="24" cobol:length="8000" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8000" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

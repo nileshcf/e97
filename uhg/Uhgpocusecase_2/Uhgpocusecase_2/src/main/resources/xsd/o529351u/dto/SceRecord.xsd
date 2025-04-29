@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="SceRecord" cobol:name="SCE-RECORD" cobol:offset="0" cobol:length="48" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="SceKey" maxOccurs="1" cobol:name="SCE-KEY" cobol:offset="0" cobol:length="17" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="SceAltKey" maxOccurs="1" cobol:name="SCE-ALT-KEY" cobol:offset="17" cobol:length="11" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="SceFromHcpcsCpt" maxOccurs="1"  cobol:name="SCE-FROM-HCPCS-CPT" cobol:offset="28" cobol:length="5" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="5" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

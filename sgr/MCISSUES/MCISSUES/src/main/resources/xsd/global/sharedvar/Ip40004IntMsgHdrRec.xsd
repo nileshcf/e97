@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip40004IntMsgHdrRec" cobol:name="IP40004-INT-MSG-HDR-REC" cobol:offset="0" cobol:length="28000" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip40004FileRecType" maxOccurs="1"  cobol:name="IP40004-FILE-REC-TYPE" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip40004FileStatus88 VALUE [["F"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip40004FileSeqNbr" type="xs:int" maxOccurs="1"  cobol:name="IP40004-FILE-SEQ-NBR" cobol:offset="1" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+<xs:element name="Ip40004FileId" maxOccurs="1" cobol:name="IP40004-FILE-ID" cobol:offset="4" cobol:length="25" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Ip40004TransId" maxOccurs="1" cobol:name="IP40004-TRANS-ID" cobol:offset="29" cobol:length="25" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip40004FileStatus" maxOccurs="1"  cobol:name="IP40004-FILE-STATUS" cobol:offset="54" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip40004FileAccepted88 VALUE [["A"]].
+                        88 ip40004FileAccWErrs88 VALUE [["E"]].
+                        88 ip40004FileRejected88 VALUE [["R"]].
+                        88 ip40004FileRejWErrs88 VALUE [["W"]].
+                        88 ip40004FileThreshErr88 VALUE [["T"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip40004RejectStatus" maxOccurs="1"  cobol:name="IP40004-REJECT-STATUS" cobol:offset="55" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip40004HeaderReject88 VALUE [["H"]].
+                        88 ip40004TrailrReject88 VALUE [["T"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip40004ActualCount" type="xs:long" maxOccurs="1"  cobol:name="IP40004-ACTUAL-COUNT" cobol:offset="56" cobol:length="10" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10G"/>
+         <xs:element name="Ip40004ActualAmount" type="xs:long" maxOccurs="1"  cobol:name="IP40004-ACTUAL-AMOUNT" cobol:offset="66" cobol:length="16" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10P"/>
+         <xs:element name="Ip40004TrailerCount" type="xs:long" maxOccurs="1"  cobol:name="IP40004-TRAILER-COUNT" cobol:offset="82" cobol:length="10" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10G"/>
+         <xs:element name="Ip40004TrailerAmount" type="xs:long" maxOccurs="1"  cobol:name="IP40004-TRAILER-AMOUNT" cobol:offset="92" cobol:length="16" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10P"/>
+<xs:element name="Ip40004FileErrors" maxOccurs="10" cobol:name="IP40004-FILE-ERRORS" cobol:offset="108" cobol:length="171" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip40004FileData" maxOccurs="1"  cobol:name="IP40004-FILE-DATA" cobol:offset="1818" cobol:length="200" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="200" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip40004TrlrData" maxOccurs="1"  cobol:name="IP40004-TRLR-DATA" cobol:offset="2018" cobol:length="300" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="300" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip40004TrlrDataLen" type="xs:long" maxOccurs="1"  cobol:name="IP40004-TRLR-DATA-LEN" cobol:offset="2318" cobol:length="4" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Ip40004SourceMsgNbr" type="xs:long" maxOccurs="1"  cobol:name="IP40004-SOURCE-MSG-NBR" cobol:offset="2322" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+    <xs:element name="Ip40004IntMsgHdrRecGroupFiller1" maxOccurs="1"  cobol:name="FILLER" cobol:offset="2330" cobol:length="25670" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="25670" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

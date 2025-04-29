@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip67002DateParm" cobol:name="IP67002-DATE-PARM" cobol:offset="0" cobol:length="20" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip67002Cntl" maxOccurs="1"  cobol:name="IP67002-CNTL" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip67002ValidateDate88 VALUE [["V"]].
+                        88 ip67002ConvertToJulian88 VALUE [["G"]].
+                        88 ip67002GetCalendarDow88 VALUE [["W"]].
+                        88 ip67002ConvertFromJulian88 VALUE [["J"]].
+                        88 ip67002JulianDatesSpan88 VALUE [["C"]].
+                        88 ip67002GetDtBeforeSpan88 VALUE [["B"]].
+                        88 ip67002GetAbsOfGregDt88 VALUE [["A"]].
+                        88 ip67002GetAbsOfJulDt88 VALUE [["Z"]].
+                        88 ip67002GetGregOfAbsDt88 VALUE [["D"]].
+                        88 ip67002GetJulOfAbsDt88 VALUE [["E"]].
+                        88 ip67002GetUtcDtTm88 VALUE [["U"]].
+                        88 ip67002AddonGregJulDow88 VALUE [["O"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip67002Date" type="xs:long" maxOccurs="1"  cobol:name="IP67002-DATE" cobol:offset="1" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="Ip67002DateRedefined" maxOccurs="1" cobol:name="IP67002-DATE-REDEFINED" cobol:offset="1" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Ip67002DateRedefined01" maxOccurs="1" cobol:name="IP67002-DATE-REDEFINED" cobol:offset="1" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Ip67002DateRedefined02" maxOccurs="1" cobol:name="IP67002-DATE-REDEFINED" cobol:offset="1" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="Ip67002Date2" type="xs:long" maxOccurs="1"  cobol:name="IP67002-DATE-2" cobol:offset="9" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+<xs:element name="Ip67002Date2Redefined" maxOccurs="1" cobol:name="IP67002-DATE-2-REDEFINED" cobol:offset="9" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Ip67002Date2Redefined01" maxOccurs="1" cobol:name="IP67002-DATE-2-REDEFINED" cobol:offset="9" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="Ip67002DayOfWeek" type="xs:int" maxOccurs="1"  cobol:name="IP67002-DAY-OF-WEEK" cobol:offset="17" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10"/>
+    <xs:element name="Ip67002UtcOffsetSign" maxOccurs="1"  cobol:name="IP67002-UTC-OFFSET-SIGN" cobol:offset="17" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ip67002JulianDaysSpan" type="xs:short" maxOccurs="1"  cobol:name="IP67002-JULIAN-DAYS-SPAN" cobol:offset="18" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

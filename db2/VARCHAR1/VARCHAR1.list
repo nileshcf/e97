@@ -1,0 +1,1216 @@
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 08/05/2022  Time 16:34:06   Page     1                
+0Invocation parameters:                                                                                                              
+  LIB,OBJECT,RENT,RES,APOST,TRUNC(BIN),,ARITH(EXTEND),OFFSET,NOFDUMP,SOURCE,MAP                                                      
+                                                                                                                                     
+         IGYOS4046-I   The "RESIDENT" option specification is no longer required.  The resident runtime library support is always    
+                       used.                                                                                                         
+                                                                                                                                     
+                                                                                                                                     
+         IGYOS4008-W   The "NOFDUMP" compiler option was specified, but is not supported.  The option was discarded.                 
+                                                                                                                                     
+0Options in effect:                                                                                                                  
+  NOADATA                                                                                                                            
+    ADV                                                                                                                              
+    APOST                                                                                                                            
+    ARITH(EXTEND)                                                                                                                    
+  NOAWO                                                                                                                              
+    BUFSIZE(4096)                                                                                                                    
+  NOCICS                                                                                                                             
+    CODEPAGE(1140)                                                                                                                   
+  NOCOMPILE(S)                                                                                                                       
+  NOCURRENCY                                                                                                                         
+    DATA(31)                                                                                                                         
+  NODATEPROC                                                                                                                         
+    DBCS                                                                                                                             
+  NODECK                                                                                                                             
+  NODIAGTRUNC                                                                                                                        
+  NODLL                                                                                                                              
+  NODUMP                                                                                                                             
+  NODYNAM                                                                                                                            
+  NOEXIT                                                                                                                             
+  NOEXPORTALL                                                                                                                        
+  NOFASTSRT                                                                                                                          
+    FLAG(I,I)                                                                                                                        
+  NOFLAGSTD                                                                                                                          
+    INTDATE(ANSI)                                                                                                                    
+    LANGUAGE(EN)                                                                                                                     
+    LIB                                                                                                                              
+    LINECOUNT(60)                                                                                                                    
+  NOLIST                                                                                                                             
+    MAP                                                                                                                              
+  NOMDECK                                                                                                                            
+  NONAME                                                                                                                             
+    NSYMBOL(NATIONAL)                                                                                                                
+  NONUMBER                                                                                                                           
+    NUMPROC(NOPFD)                                                                                                                   
+    OBJECT                                                                                                                           
+    OFFSET                                                                                                                           
+  NOOPTIMIZE                                                                                                                         
+    OUTDD(SYSOUT)                                                                                                                    
+    PGMNAME(COMPAT)                                                                                                                  
+    RENT                                                                                                                             
+    RMODE(AUTO)                                                                                                                      
+    SEQUENCE                                                                                                                         
+    SIZE(MAX)                                                                                                                        
+    SOURCE                                                                                                                           
+    SPACE(1)                                                                                                                         
+  NOSQL                                                                                                                              
+    SQLCCSID                                                                                                                         
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0                         Date 08/05/2022  Time 16:34:06   Page     2                
+0 NOSSRANGE                                                                                                                          
+  NOTERM                                                                                                                             
+  NOTEST                                                                                                                             
+  NOTHREAD                                                                                                                           
+    TRUNC(BIN)                                                                                                                       
+  NOVBREF                                                                                                                            
+  NOWORD                                                                                                                             
+    XMLPARSE(XMLSS)                                                                                                                  
+    XREF(FULL)                                                                                                                       
+    YEARWINDOW(1900)                                                                                                                 
+    ZWB                                                                                                                              
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page     3                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000001                IDENTIFICATION DIVISION.                                                                                    
+   000002                PROGRAM-ID. VARCHAR1.                                                                                       
+   000003                AUTHOR. ISAAC.                                                                                              
+   000004                ENVIRONMENT DIVISION.                                                                                       
+   000005                DATA DIVISION.                                                                                              
+   000006                WORKING-STORAGE SECTION.                                                                                    
+   000007               *----------------------------------------------------------------*                                           
+   000008               * This test case is to represent an issue found at EDJ. What     *                                           
+   000009               * happens is they have a VARCHAR column in their database and    *                                           
+   000010               * they query this column with a length that changes based on the *                                           
+   000011               * input data. CloudFrame needs to support the dynamic lengths of *                                           
+   000012               * VARCHAR                                                        *                                           
+   000013               *----------------------------------------------------------------*                                           
+   000014                                                                                                                            
+   000015               * Include SQLCA as this is a DB2 program                                                                     
+   000016               *****EXEC SQL                                                                                                
+   000017               *****INCLUDE SQLCA                                                                                           
+   000018               *****END-EXEC.                                                                                               
+   000019                 01 SQLCA.                                                                BLW=00000+000         0CL136      
+   000020                    05 SQLCAID     PIC X(8).                                              BLW=00000+000,0000000 8C          
+   000021                    05 SQLCABC     PIC S9(9) COMP-5.                                      BLW=00000+008,0000008 4C          
+   000022                    05 SQLCODE     PIC S9(9) COMP-5.                                      BLW=00000+00C,000000C 4C          
+   000023                    05 SQLERRM.                                                           BLW=00000+010,0000010 0CL72       
+   000024                       49 SQLERRML PIC S9(4) COMP-5.                                      BLW=00000+010,0000010 2C          
+   000025                       49 SQLERRMC PIC X(70).                                             BLW=00000+012,0000012 70C         
+   000026                    05 SQLERRP     PIC X(8).                                              BLW=00000+058,0000058 8C          
+   000027                    05 SQLERRD     OCCURS 6 TIMES                                         BLW=00000+060,0000060 4C          
+   000028                                   PIC S9(9) COMP-5.                                                                        
+   000029                    05 SQLWARN.                                                           BLW=00000+078,0000078 0CL8        
+   000030                       10 SQLWARN0 PIC X.                                                 BLW=00000+078,0000078 1C          
+   000031                       10 SQLWARN1 PIC X.                                                 BLW=00000+079,0000079 1C          
+   000032                       10 SQLWARN2 PIC X.                                                 BLW=00000+07A,000007A 1C          
+   000033                       10 SQLWARN3 PIC X.                                                 BLW=00000+07B,000007B 1C          
+   000034                       10 SQLWARN4 PIC X.                                                 BLW=00000+07C,000007C 1C          
+   000035                       10 SQLWARN5 PIC X.                                                 BLW=00000+07D,000007D 1C          
+   000036                       10 SQLWARN6 PIC X.                                                 BLW=00000+07E,000007E 1C          
+   000037                       10 SQLWARN7 PIC X.                                                 BLW=00000+07F,000007F 1C          
+   000038                    05 SQLEXT.                                                            BLW=00000+080,0000080 0CL8        
+   000039                       10 SQLWARN8 PIC X.                                                 BLW=00000+080,0000080 1C          
+   000040                       10 SQLWARN9 PIC X.                                                 BLW=00000+081,0000081 1C          
+   000041                       10 SQLWARNA PIC X.                                                 BLW=00000+082,0000082 1C          
+   000042                       10 SQLSTATE PIC X(5).                                              BLW=00000+083,0000083 5C          
+   000043                                                                                                                            
+   000044                                                                                                                            
+   000045               * This is our group var that represents the sql table for VCHAR1                                             
+   000046                01 VCHAR1-TABLE.                                                          BLW=00000+088         0CL51       
+   000047                   05 VCHAR1-ID                  PIC S9(4) COMP.                          BLW=00000+088,0000000 2C          
+   000048                                                                                                                            
+   000049               *   FIRST_NAME in the database is a VARCHAR field                                                            
+   000050                   05 VCHAR1-FIRST-NAME.                                                  BLW=00000+08A,0000002 0CL17       
+   000051                      49 VCHAR1-FIRST-NAME-LEN   PIC S9(4) COMP.                          BLW=00000+08A,0000002 2C          
+   000052                      49 VCHAR1-FIRST-NAME-DATA  PIC X(15).                               BLW=00000+08C,0000004 15C         
+   000053                                                                                                                            
+   000054               *   This field is only a CHAR in the database                                                                
+   000055                   05 VCHAR1-LAST-NAME           PIC X(15).                               BLW=00000+09B,0000013 15C         
+   000056                                                                                                                            
+   000057               *   This field is a VARCHAR field                                                                            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page     4                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000058                   05 VCHAR1-NICK-NAME.                                                   BLW=00000+0AA,0000022 0CL17       
+   000059                      49 VCHAR1-NICK-NAME-LEN    PIC S9(4) COMP.                          BLW=00000+0AA,0000022 2C          
+   000060                      49 VCHAR1-NICK-NAME-DATA   PIC X(15).                               BLW=00000+0AC,0000024 15C         
+   000061                                                                                                                            
+   000062                 77 SQL-TEMP      PIC X(128).                                             BLW=00000+0C0         128C        
+   000063                 77 DSN-TEMP      PIC S9(9)  COMP-5.                                      BLW=00000+140         4C          
+   000064                 77 DSN-TMP2      PIC S9(18) COMP-3.                                      BLW=00000+148         10P         
+   000065                 77 DSNNROWS      PIC S9(9)  COMP-5.                                      BLW=00000+158         4C          
+   000066                 77 DSNNTYPE      PIC S9(4)  COMP-5.                                      BLW=00000+160         2C          
+   000067                 77 DSNNLEN       PIC S9(4)  COMP-5.                                      BLW=00000+168         2C          
+   000068                 77 SQL-NULL      PIC S9(9) COMP-5 VALUE +0.                              BLW=00000+170         4C          
+   000069                 77 SQL-INIT-FLAG PIC S9(4) COMP-5 VALUE +0.                              BLW=00000+178         2C          
+   000070                    88 SQL-INIT-DONE VALUE +1.                                                                              
+   000071                 77 SQL-FILE-READ      PIC S9(9) COMP-5 VALUE +2.                         BLW=00000+180         4C          
+   000072                 77 SQL-FILE-CREATE    PIC S9(9) COMP-5 VALUE +8.                         BLW=00000+188         4C          
+   000073                 77 SQL-FILE-OVERWRITE PIC S9(9) COMP-5 VALUE +16.                        BLW=00000+190         4C          
+   000074                 77 SQL-FILE-APPEND    PIC S9(9) COMP-5 VALUE +32.                        BLW=00000+198         4C          
+   000075                 01 SQL-PLIST1.                                                           BLW=00000+1A0         0CL272      
+   000076                    05 SQL-PLIST-CON   PIC S9(9) COMP-5 VALUE +4211712.                   BLW=00000+1A0,0000000 4C          
+   000077                    05 SQL-CALLTYPE    PIC S9(4) COMP-5 VALUE +30.                        BLW=00000+1A4,0000004 2C          
+   000078                    05 SQL-PROG-NAME   PIC X(8)  VALUE X'5641524348415231'.               BLW=00000+1A6,0000006 8C          
+   000079                    05 SQL-TIMESTAMP-1 PIC S9(9) COMP-5 VALUE +461187415.                 BLW=00000+1AE,000000E 4C          
+   000080                    05 SQL-TIMESTAMP-2 PIC S9(9) COMP-5 VALUE +459528772.                 BLW=00000+1B2,0000012 4C          
+   000081                    05 SQL-SECTION     PIC S9(4) COMP-5 VALUE +1.                         BLW=00000+1B6,0000016 2C          
+   000082                    05 SQL-CODEPTR     PIC S9(9) COMP-5.                                  BLW=00000+1B8,0000018 4C          
+   000083                    05 SQL-VPARMPTR    PIC S9(9) COMP-5 VALUE +0.                         BLW=00000+1BC,000001C 4C          
+   000084                    05 SQL-APARMPTR    PIC S9(9) COMP-5 VALUE +0.                         BLW=00000+1C0,0000020 4C          
+   000085                    05 FILLER          PIC S9(4) COMP-5 VALUE +1208.                      BLW=00000+1C4,0000024 2C          
+   000086                    05 SQL-STMT-TYPE   PIC S9(4) COMP-5 VALUE +231.                       BLW=00000+1C6,0000026 2C          
+   000087                    05 SQL-STMT-NUM    PIC S9(9) COMP-5 VALUE +59.                        BLW=00000+1C8,0000028 4C          
+   000088                    05 SQL-PLIST-FLG   PIC S9(4) COMP-5 VALUE +0.                         BLW=00000+1CC,000002C 2C          
+   000089                    05 FILLER          PIC X(18) VALUE                                    BLW=00000+1CE,000002E 18C         
+   000090                       X'000000000000000000000000000000000000'.                                                             
+   000091                    05 SQL-PVAR-LIST1.                                                    BLW=00000+1E0,0000040 0CL60       
+   000092                       10 PRE-SQLDAID  PIC X(8)  VALUE 'SQLDA  '.                        BLW=00000+1E0,0000040 8C          
+   000093                       10 PRE-SQLDABC  PIC S9(9) COMP-5 VALUE +60.                        BLW=00000+1E8,0000048 4C          
+   000094                       10 PRE-SQLN     PIC S9(4) COMP-5 VALUE +1.                         BLW=00000+1EC,000004C 2C          
+   000095                       10 PRE-SQLLD    PIC S9(4) COMP-5 VALUE +1.                         BLW=00000+1EE,000004E 2C          
+   000096                       10 PRE-SQLVAR.                                                     BLW=00000+1F0,0000050 0CL44       
+   000097                         12 SQLVAR-BASE1.                                                 BLW=00000+1F0,0000050 0CL44       
+   000098                           15 SQL-PVAR-TYPE1      PIC S9(4) COMP-5 VALUE +448.            BLW=00000+1F0,0000050 2C          
+   000099                           15 SQL-PVAR-LEN1       PIC S9(4) COMP-5 VALUE +15.             BLW=00000+1F2,0000052 2C          
+   000100                           15 SQL-PVAR-ADDRS1.                                            BLW=00000+1F4,0000054 0CL8        
+   000101                              20 SQL-PVAR-ADDR1   PIC S9(9) COMP-5.                       BLW=00000+1F4,0000054 4C          
+   000102                              20 SQL-PVAR-IND1    PIC S9(9) COMP-5.                       BLW=00000+1F8,0000058 4C          
+   000103                           15 SQL-PVAR-NAME1.                                             BLW=00000+1FC,000005C 0CL32       
+   000104                              20 SQL-PVAR-NAMEL1  PIC S9(4) COMP-5 VALUE +0.              BLW=00000+1FC,000005C 2C          
+   000105                              20 SQL-PVAR-NAMEC1  PIC X(30) VALUE ' '.                    BLW=00000+1FE,000005E 30C         
+   000106                    05 SQL-AVAR-LIST1.                                                    BLW=00000+21C,000007C 0CL148      
+   000107                       10 PRE-SQLDAID  PIC X(8)  VALUE 'SQLDA  '.                        BLW=00000+21C,000007C 8C          
+   000108                       10 PRE-SQLDABC  PIC S9(9) COMP-5 VALUE +148.                       BLW=00000+224,0000084 4C          
+   000109                       10 PRE-SQLN     PIC S9(4) COMP-5 VALUE +3.                         BLW=00000+228,0000088 2C          
+   000110                       10 PRE-SQLLD    PIC S9(4) COMP-5 VALUE +3.                         BLW=00000+22A,000008A 2C          
+   000111                       10 PRE-SQLVAR.                                                     BLW=00000+22C,000008C 0CL132      
+   000112                         12 SQLVAR-BASE1.                                                 BLW=00000+22C,000008C 0CL44       
+   000113                           15 SQL-AVAR-TYPE1      PIC S9(4) COMP-5 VALUE +500.            BLW=00000+22C,000008C 2C          
+   000114                           15 SQL-AVAR-LEN1       PIC S9(4) COMP-5 VALUE +2.              BLW=00000+22E,000008E 2C          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page     5                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000115                           15 SQL-AVAR-ADDRS1.                                            BLW=00000+230,0000090 0CL8        
+   000116                              20 SQL-AVAR-ADDR1   PIC S9(9) COMP-5.                       BLW=00000+230,0000090 4C          
+   000117                              20 SQL-AVAR-IND1    PIC S9(9) COMP-5.                       BLW=00000+234,0000094 4C          
+   000118                           15 SQL-AVAR-NAME1.                                             BLW=00000+238,0000098 0CL32       
+   000119                              20 SQL-AVAR-NAMEL1  PIC S9(4) COMP-5 VALUE +0.              BLW=00000+238,0000098 2C          
+   000120                              20 SQL-AVAR-NAMEC1  PIC X(30) VALUE ' '.                    BLW=00000+23A,000009A 30C         
+   000121                         12 SQLVAR-BASE2.                                                 BLW=00000+258,00000B8 0CL44       
+   000122                           15 SQL-AVAR-TYPE2      PIC S9(4) COMP-5 VALUE +452.            BLW=00000+258,00000B8 2C          
+   000123                           15 SQL-AVAR-LEN2       PIC S9(4) COMP-5 VALUE +15.             BLW=00000+25A,00000BA 2C          
+   000124                           15 SQL-AVAR-ADDRS2.                                            BLW=00000+25C,00000BC 0CL8        
+   000125                              20 SQL-AVAR-ADDR2   PIC S9(9) COMP-5.                       BLW=00000+25C,00000BC 4C          
+   000126                              20 SQL-AVAR-IND2    PIC S9(9) COMP-5.                       BLW=00000+260,00000C0 4C          
+   000127                           15 SQL-AVAR-NAME2.                                             BLW=00000+264,00000C4 0CL32       
+   000128                              20 SQL-AVAR-NAMEL2  PIC S9(4) COMP-5 VALUE +0.              BLW=00000+264,00000C4 2C          
+   000129                              20 SQL-AVAR-NAMEC2  PIC X(30) VALUE ' '.                    BLW=00000+266,00000C6 30C         
+   000130                         12 SQLVAR-BASE3.                                                 BLW=00000+284,00000E4 0CL44       
+   000131                           15 SQL-AVAR-TYPE3      PIC S9(4) COMP-5 VALUE +448.            BLW=00000+284,00000E4 2C          
+   000132                           15 SQL-AVAR-LEN3       PIC S9(4) COMP-5 VALUE +15.             BLW=00000+286,00000E6 2C          
+   000133                           15 SQL-AVAR-ADDRS3.                                            BLW=00000+288,00000E8 0CL8        
+   000134                              20 SQL-AVAR-ADDR3   PIC S9(9) COMP-5.                       BLW=00000+288,00000E8 4C          
+   000135                              20 SQL-AVAR-IND3    PIC S9(9) COMP-5.                       BLW=00000+28C,00000EC 4C          
+   000136                           15 SQL-AVAR-NAME3.                                             BLW=00000+290,00000F0 0CL32       
+   000137                              20 SQL-AVAR-NAMEL3  PIC S9(4) COMP-5 VALUE +0.              BLW=00000+290,00000F0 2C          
+   000138                              20 SQL-AVAR-NAMEC3  PIC X(30) VALUE ' '.                    BLW=00000+292,00000F2 30C         
+   000139                 01 SQL-PLIST2.                                                           BLW=00000+2B0         0CL272      
+   000140                    05 SQL-PLIST-CON   PIC S9(9) COMP-5 VALUE +4211712.                   BLW=00000+2B0,0000000 4C          
+   000141                    05 SQL-CALLTYPE    PIC S9(4) COMP-5 VALUE +30.                        BLW=00000+2B4,0000004 2C          
+   000142                    05 SQL-PROG-NAME   PIC X(8)  VALUE X'5641524348415231'.               BLW=00000+2B6,0000006 8C          
+   000143                    05 SQL-TIMESTAMP-1 PIC S9(9) COMP-5 VALUE +461187415.                 BLW=00000+2BE,000000E 4C          
+   000144                    05 SQL-TIMESTAMP-2 PIC S9(9) COMP-5 VALUE +459528772.                 BLW=00000+2C2,0000012 4C          
+   000145                    05 SQL-SECTION     PIC S9(4) COMP-5 VALUE +2.                         BLW=00000+2C6,0000016 2C          
+   000146                    05 SQL-CODEPTR     PIC S9(9) COMP-5.                                  BLW=00000+2C8,0000018 4C          
+   000147                    05 SQL-VPARMPTR    PIC S9(9) COMP-5 VALUE +0.                         BLW=00000+2CC,000001C 4C          
+   000148                    05 SQL-APARMPTR    PIC S9(9) COMP-5 VALUE +0.                         BLW=00000+2D0,0000020 4C          
+   000149                    05 FILLER          PIC S9(4) COMP-5 VALUE +1208.                      BLW=00000+2D4,0000024 2C          
+   000150                    05 SQL-STMT-TYPE   PIC S9(4) COMP-5 VALUE +231.                       BLW=00000+2D6,0000026 2C          
+   000151                    05 SQL-STMT-NUM    PIC S9(9) COMP-5 VALUE +96.                        BLW=00000+2D8,0000028 4C          
+   000152                    05 SQL-PLIST-FLG   PIC S9(4) COMP-5 VALUE +0.                         BLW=00000+2DC,000002C 2C          
+   000153                    05 FILLER          PIC X(18) VALUE                                    BLW=00000+2DE,000002E 18C         
+   000154                       X'000000000000000000000000000000000000'.                                                             
+   000155                    05 SQL-PVAR-LIST2.                                                    BLW=00000+2F0,0000040 0CL148      
+   000156                       10 PRE-SQLDAID  PIC X(8)  VALUE 'SQLDA  '.                        BLW=00000+2F0,0000040 8C          
+   000157                       10 PRE-SQLDABC  PIC S9(9) COMP-5 VALUE +148.                       BLW=00000+2F8,0000048 4C          
+   000158                       10 PRE-SQLN     PIC S9(4) COMP-5 VALUE +3.                         BLW=00000+2FC,000004C 2C          
+   000159                       10 PRE-SQLLD    PIC S9(4) COMP-5 VALUE +3.                         BLW=00000+2FE,000004E 2C          
+   000160                       10 PRE-SQLVAR.                                                     BLW=00000+300,0000050 0CL132      
+   000161                         12 SQLVAR-BASE1.                                                 BLW=00000+300,0000050 0CL44       
+   000162                           15 SQL-PVAR-TYPE1      PIC S9(4) COMP-5 VALUE +448.            BLW=00000+300,0000050 2C          
+   000163                           15 SQL-PVAR-LEN1       PIC S9(4) COMP-5 VALUE +15.             BLW=00000+302,0000052 2C          
+   000164                           15 SQL-PVAR-ADDRS1.                                            BLW=00000+304,0000054 0CL8        
+   000165                              20 SQL-PVAR-ADDR1   PIC S9(9) COMP-5.                       BLW=00000+304,0000054 4C          
+   000166                              20 SQL-PVAR-IND1    PIC S9(9) COMP-5.                       BLW=00000+308,0000058 4C          
+   000167                           15 SQL-PVAR-NAME1.                                             BLW=00000+30C,000005C 0CL32       
+   000168                              20 SQL-PVAR-NAMEL1  PIC S9(4) COMP-5 VALUE +0.              BLW=00000+30C,000005C 2C          
+   000169                              20 SQL-PVAR-NAMEC1  PIC X(30) VALUE ' '.                    BLW=00000+30E,000005E 30C         
+   000170                         12 SQLVAR-BASE2.                                                 BLW=00000+32C,000007C 0CL44       
+   000171                           15 SQL-PVAR-TYPE2      PIC S9(4) COMP-5 VALUE +452.            BLW=00000+32C,000007C 2C          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page     6                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000172                           15 SQL-PVAR-LEN2       PIC S9(4) COMP-5 VALUE +15.             BLW=00000+32E,000007E 2C          
+   000173                           15 SQL-PVAR-ADDRS2.                                            BLW=00000+330,0000080 0CL8        
+   000174                              20 SQL-PVAR-ADDR2   PIC S9(9) COMP-5.                       BLW=00000+330,0000080 4C          
+   000175                              20 SQL-PVAR-IND2    PIC S9(9) COMP-5.                       BLW=00000+334,0000084 4C          
+   000176                           15 SQL-PVAR-NAME2.                                             BLW=00000+338,0000088 0CL32       
+   000177                              20 SQL-PVAR-NAMEL2  PIC S9(4) COMP-5 VALUE +0.              BLW=00000+338,0000088 2C          
+   000178                              20 SQL-PVAR-NAMEC2  PIC X(30) VALUE ' '.                    BLW=00000+33A,000008A 30C         
+   000179                         12 SQLVAR-BASE3.                                                 BLW=00000+358,00000A8 0CL44       
+   000180                           15 SQL-PVAR-TYPE3      PIC S9(4) COMP-5 VALUE +448.            BLW=00000+358,00000A8 2C          
+   000181                           15 SQL-PVAR-LEN3       PIC S9(4) COMP-5 VALUE +15.             BLW=00000+35A,00000AA 2C          
+   000182                           15 SQL-PVAR-ADDRS3.                                            BLW=00000+35C,00000AC 0CL8        
+   000183                              20 SQL-PVAR-ADDR3   PIC S9(9) COMP-5.                       BLW=00000+35C,00000AC 4C          
+   000184                              20 SQL-PVAR-IND3    PIC S9(9) COMP-5.                       BLW=00000+360,00000B0 4C          
+   000185                           15 SQL-PVAR-NAME3.                                             BLW=00000+364,00000B4 0CL32       
+   000186                              20 SQL-PVAR-NAMEL3  PIC S9(4) COMP-5 VALUE +0.              BLW=00000+364,00000B4 2C          
+   000187                              20 SQL-PVAR-NAMEC3  PIC X(30) VALUE ' '.                    BLW=00000+366,00000B6 30C         
+   000188                    05 SQL-AVAR-LIST2.                                                    BLW=00000+384,00000D4 0CL60       
+   000189                       10 PRE-SQLDAID  PIC X(8)  VALUE 'SQLDA  '.                        BLW=00000+384,00000D4 8C          
+   000190                       10 PRE-SQLDABC  PIC S9(9) COMP-5 VALUE +60.                        BLW=00000+38C,00000DC 4C          
+   000191                       10 PRE-SQLN     PIC S9(4) COMP-5 VALUE +1.                         BLW=00000+390,00000E0 2C          
+   000192                       10 PRE-SQLLD    PIC S9(4) COMP-5 VALUE +1.                         BLW=00000+392,00000E2 2C          
+   000193                       10 PRE-SQLVAR.                                                     BLW=00000+394,00000E4 0CL44       
+   000194                         12 SQLVAR-BASE1.                                                 BLW=00000+394,00000E4 0CL44       
+   000195                           15 SQL-AVAR-TYPE1      PIC S9(4) COMP-5 VALUE +500.            BLW=00000+394,00000E4 2C          
+   000196                           15 SQL-AVAR-LEN1       PIC S9(4) COMP-5 VALUE +2.              BLW=00000+396,00000E6 2C          
+   000197                           15 SQL-AVAR-ADDRS1.                                            BLW=00000+398,00000E8 0CL8        
+   000198                              20 SQL-AVAR-ADDR1   PIC S9(9) COMP-5.                       BLW=00000+398,00000E8 4C          
+   000199                              20 SQL-AVAR-IND1    PIC S9(9) COMP-5.                       BLW=00000+39C,00000EC 4C          
+   000200                           15 SQL-AVAR-NAME1.                                             BLW=00000+3A0,00000F0 0CL32       
+   000201                              20 SQL-AVAR-NAMEL1  PIC S9(4) COMP-5 VALUE +0.              BLW=00000+3A0,00000F0 2C          
+   000202                              20 SQL-AVAR-NAMEC1  PIC X(30) VALUE ' '.                    BLW=00000+3A2,00000F2 30C         
+   000203                 01 SQL-PLIST3.                                                           BLW=00000+3C0         0CL272      
+   000204                    05 SQL-PLIST-CON   PIC S9(9) COMP-5 VALUE +4211712.                   BLW=00000+3C0,0000000 4C          
+   000205                    05 SQL-CALLTYPE    PIC S9(4) COMP-5 VALUE +30.                        BLW=00000+3C4,0000004 2C          
+   000206                    05 SQL-PROG-NAME   PIC X(8)  VALUE X'5641524348415231'.               BLW=00000+3C6,0000006 8C          
+   000207                    05 SQL-TIMESTAMP-1 PIC S9(9) COMP-5 VALUE +461187415.                 BLW=00000+3CE,000000E 4C          
+   000208                    05 SQL-TIMESTAMP-2 PIC S9(9) COMP-5 VALUE +459528772.                 BLW=00000+3D2,0000012 4C          
+   000209                    05 SQL-SECTION     PIC S9(4) COMP-5 VALUE +3.                         BLW=00000+3D6,0000016 2C          
+   000210                    05 SQL-CODEPTR     PIC S9(9) COMP-5.                                  BLW=00000+3D8,0000018 4C          
+   000211                    05 SQL-VPARMPTR    PIC S9(9) COMP-5 VALUE +0.                         BLW=00000+3DC,000001C 4C          
+   000212                    05 SQL-APARMPTR    PIC S9(9) COMP-5 VALUE +0.                         BLW=00000+3E0,0000020 4C          
+   000213                    05 FILLER          PIC S9(4) COMP-5 VALUE +1208.                      BLW=00000+3E4,0000024 2C          
+   000214                    05 SQL-STMT-TYPE   PIC S9(4) COMP-5 VALUE +231.                       BLW=00000+3E6,0000026 2C          
+   000215                    05 SQL-STMT-NUM    PIC S9(9) COMP-5 VALUE +120.                       BLW=00000+3E8,0000028 4C          
+   000216                    05 SQL-PLIST-FLG   PIC S9(4) COMP-5 VALUE +0.                         BLW=00000+3EC,000002C 2C          
+   000217                    05 FILLER          PIC X(18) VALUE                                    BLW=00000+3EE,000002E 18C         
+   000218                       X'000000000000000000000000000000000000'.                                                             
+   000219                    05 SQL-PVAR-LIST3.                                                    BLW=00000+400,0000040 0CL60       
+   000220                       10 PRE-SQLDAID  PIC X(8)  VALUE 'SQLDA  '.                        BLW=00000+400,0000040 8C          
+   000221                       10 PRE-SQLDABC  PIC S9(9) COMP-5 VALUE +60.                        BLW=00000+408,0000048 4C          
+   000222                       10 PRE-SQLN     PIC S9(4) COMP-5 VALUE +1.                         BLW=00000+40C,000004C 2C          
+   000223                       10 PRE-SQLLD    PIC S9(4) COMP-5 VALUE +1.                         BLW=00000+40E,000004E 2C          
+   000224                       10 PRE-SQLVAR.                                                     BLW=00000+410,0000050 0CL44       
+   000225                         12 SQLVAR-BASE1.                                                 BLW=00000+410,0000050 0CL44       
+   000226                           15 SQL-PVAR-TYPE1      PIC S9(4) COMP-5 VALUE +452.            BLW=00000+410,0000050 2C          
+   000227                           15 SQL-PVAR-LEN1       PIC S9(4) COMP-5 VALUE +15.             BLW=00000+412,0000052 2C          
+   000228                           15 SQL-PVAR-ADDRS1.                                            BLW=00000+414,0000054 0CL8        
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page     7                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000229                              20 SQL-PVAR-ADDR1   PIC S9(9) COMP-5.                       BLW=00000+414,0000054 4C          
+   000230                              20 SQL-PVAR-IND1    PIC S9(9) COMP-5.                       BLW=00000+418,0000058 4C          
+   000231                           15 SQL-PVAR-NAME1.                                             BLW=00000+41C,000005C 0CL32       
+   000232                              20 SQL-PVAR-NAMEL1  PIC S9(4) COMP-5 VALUE +0.              BLW=00000+41C,000005C 2C          
+   000233                              20 SQL-PVAR-NAMEC1  PIC X(30) VALUE ' '.                    BLW=00000+41E,000005E 30C         
+   000234                    05 SQL-AVAR-LIST3.                                                    BLW=00000+43C,000007C 0CL148      
+   000235                       10 PRE-SQLDAID  PIC X(8)  VALUE 'SQLDA  '.                        BLW=00000+43C,000007C 8C          
+   000236                       10 PRE-SQLDABC  PIC S9(9) COMP-5 VALUE +148.                       BLW=00000+444,0000084 4C          
+   000237                       10 PRE-SQLN     PIC S9(4) COMP-5 VALUE +3.                         BLW=00000+448,0000088 2C          
+   000238                       10 PRE-SQLLD    PIC S9(4) COMP-5 VALUE +3.                         BLW=00000+44A,000008A 2C          
+   000239                       10 PRE-SQLVAR.                                                     BLW=00000+44C,000008C 0CL132      
+   000240                         12 SQLVAR-BASE1.                                                 BLW=00000+44C,000008C 0CL44       
+   000241                           15 SQL-AVAR-TYPE1      PIC S9(4) COMP-5 VALUE +500.            BLW=00000+44C,000008C 2C          
+   000242                           15 SQL-AVAR-LEN1       PIC S9(4) COMP-5 VALUE +2.              BLW=00000+44E,000008E 2C          
+   000243                           15 SQL-AVAR-ADDRS1.                                            BLW=00000+450,0000090 0CL8        
+   000244                              20 SQL-AVAR-ADDR1   PIC S9(9) COMP-5.                       BLW=00000+450,0000090 4C          
+   000245                              20 SQL-AVAR-IND1    PIC S9(9) COMP-5.                       BLW=00000+454,0000094 4C          
+   000246                           15 SQL-AVAR-NAME1.                                             BLW=00000+458,0000098 0CL32       
+   000247                              20 SQL-AVAR-NAMEL1  PIC S9(4) COMP-5 VALUE +0.              BLW=00000+458,0000098 2C          
+   000248                              20 SQL-AVAR-NAMEC1  PIC X(30) VALUE ' '.                    BLW=00000+45A,000009A 30C         
+   000249                         12 SQLVAR-BASE2.                                                 BLW=00000+478,00000B8 0CL44       
+   000250                           15 SQL-AVAR-TYPE2      PIC S9(4) COMP-5 VALUE +448.            BLW=00000+478,00000B8 2C          
+   000251                           15 SQL-AVAR-LEN2       PIC S9(4) COMP-5 VALUE +15.             BLW=00000+47A,00000BA 2C          
+   000252                           15 SQL-AVAR-ADDRS2.                                            BLW=00000+47C,00000BC 0CL8        
+   000253                              20 SQL-AVAR-ADDR2   PIC S9(9) COMP-5.                       BLW=00000+47C,00000BC 4C          
+   000254                              20 SQL-AVAR-IND2    PIC S9(9) COMP-5.                       BLW=00000+480,00000C0 4C          
+   000255                           15 SQL-AVAR-NAME2.                                             BLW=00000+484,00000C4 0CL32       
+   000256                              20 SQL-AVAR-NAMEL2  PIC S9(4) COMP-5 VALUE +0.              BLW=00000+484,00000C4 2C          
+   000257                              20 SQL-AVAR-NAMEC2  PIC X(30) VALUE ' '.                    BLW=00000+486,00000C6 30C         
+   000258                         12 SQLVAR-BASE3.                                                 BLW=00000+4A4,00000E4 0CL44       
+   000259                           15 SQL-AVAR-TYPE3      PIC S9(4) COMP-5 VALUE +448.            BLW=00000+4A4,00000E4 2C          
+   000260                           15 SQL-AVAR-LEN3       PIC S9(4) COMP-5 VALUE +15.             BLW=00000+4A6,00000E6 2C          
+   000261                           15 SQL-AVAR-ADDRS3.                                            BLW=00000+4A8,00000E8 0CL8        
+   000262                              20 SQL-AVAR-ADDR3   PIC S9(9) COMP-5.                       BLW=00000+4A8,00000E8 4C          
+   000263                              20 SQL-AVAR-IND3    PIC S9(9) COMP-5.                       BLW=00000+4AC,00000EC 4C          
+   000264                           15 SQL-AVAR-NAME3.                                             BLW=00000+4B0,00000F0 0CL32       
+   000265                              20 SQL-AVAR-NAMEL3  PIC S9(4) COMP-5 VALUE +0.              BLW=00000+4B0,00000F0 2C          
+   000266                              20 SQL-AVAR-NAMEC3  PIC X(30) VALUE ' '.                    BLW=00000+4B2,00000F2 30C         
+   000267                                                                                                                            
+   000268                PROCEDURE DIVISION.                                                                                         
+   000269                DSNSQL SECTION.                                                                                             
+   000270                SQL-SKIP.                                                                                                   
+   000271                    GO TO SQL-INIT-END.                                                   307                               
+   000272                SQL-INITIAL.                                                                                                
+   000273                    MOVE 1 TO SQL-INIT-FLAG.                                              69                                
+   000274                    CALL 'DSNHADDR' USING SQL-VPARMPTR OF SQL-PLIST1 SQL-PVAR-LIS         EXT 83 75 91                      
+   000275               -    T1.                                                                                                     
+   000276                    CALL 'DSNHADD2' USING SQL-PVAR-ADDRS1 IN                              EXT 100                           
+   000277                    SQL-PVAR-LIST1 VCHAR1-FIRST-NAME OF VCHAR1-TABLE SQL-NULL             91 50 46 68                       
+   000278                    CALL 'DSNHADDR' USING SQL-APARMPTR OF SQL-PLIST1 SQL-AVAR-LIS         EXT 84 75 106                     
+   000279               -    T1.                                                                                                     
+   000280                    CALL 'DSNHADD2' USING SQL-AVAR-ADDRS1 IN                              EXT 115                           
+   000281                    SQL-AVAR-LIST1 VCHAR1-ID OF VCHAR1-TABLE SQL-NULL VCHAR1-LAST         106 47 46 68 55                   
+   000282               -    -NAME OF VCHAR1-TABLE SQL-NULL VCHAR1-NICK-NAME OF VCHAR1-TAB         46 68 58 46                       
+   000283               -    LE SQL-NULL.                                                          68                                
+   000284                    CALL 'DSNHADDR' USING SQL-CODEPTR OF SQL-PLIST1 SQLCA.                EXT 82 75 19                      
+   000285                    CALL 'DSNHADDR' USING SQL-VPARMPTR OF SQL-PLIST2 SQL-PVAR-LIS         EXT 147 139 155                   
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page     8                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000286               -    T2.                                                                                                     
+   000287                    CALL 'DSNHADD2' USING SQL-PVAR-ADDRS1 IN                              EXT 164                           
+   000288                    SQL-PVAR-LIST2 VCHAR1-FIRST-NAME OF VCHAR1-TABLE SQL-NULL VCH         155 50 46 68 55                   
+   000289               -    AR1-LAST-NAME OF VCHAR1-TABLE SQL-NULL VCHAR1-NICK-NAME OF VC         46 68 58 46                       
+   000290               -    HAR1-TABLE SQL-NULL                                                   68                                
+   000291                    CALL 'DSNHADDR' USING SQL-APARMPTR OF SQL-PLIST2 SQL-AVAR-LIS         EXT 148 139 188                   
+   000292               -    T2.                                                                                                     
+   000293                    CALL 'DSNHADD2' USING SQL-AVAR-ADDRS1 IN                              EXT 197                           
+   000294                    SQL-AVAR-LIST2 VCHAR1-ID OF VCHAR1-TABLE SQL-NULL.                    188 47 46 68                      
+   000295                    CALL 'DSNHADDR' USING SQL-CODEPTR OF SQL-PLIST2 SQLCA.                EXT 146 139 19                    
+   000296                    CALL 'DSNHADDR' USING SQL-VPARMPTR OF SQL-PLIST3 SQL-PVAR-LIS         EXT 211 203 219                   
+   000297               -    T3.                                                                                                     
+   000298                    CALL 'DSNHADD2' USING SQL-PVAR-ADDRS1 IN                              EXT 228                           
+   000299                    SQL-PVAR-LIST3 VCHAR1-LAST-NAME OF VCHAR1-TABLE SQL-NULL              219 55 46 68                      
+   000300                    CALL 'DSNHADDR' USING SQL-APARMPTR OF SQL-PLIST3 SQL-AVAR-LIS         EXT 212 203 234                   
+   000301               -    T3.                                                                                                     
+   000302                    CALL 'DSNHADD2' USING SQL-AVAR-ADDRS1 IN                              EXT 243                           
+   000303                    SQL-AVAR-LIST3 VCHAR1-ID OF VCHAR1-TABLE SQL-NULL VCHAR1-FIRS         234 47 46 68 50                   
+   000304               -    T-NAME OF VCHAR1-TABLE SQL-NULL VCHAR1-NICK-NAME OF VCHAR1-TA         46 68 58 46                       
+   000305               -    BLE SQL-NULL.                                                         68                                
+   000306                    CALL 'DSNHADDR' USING SQL-CODEPTR OF SQL-PLIST3 SQLCA.                EXT 210 203 19                    
+   000307                SQL-INIT-END.                                                                                               
+   000308                    CONTINUE.                                                                                               
+   000309                                                                                                                            
+   000310                0000-MAINLINE.                                                                                              
+   000311                    DISPLAY "Executing VARCHAR1 Case".                                                                      
+   000312                    PERFORM 1000-MAIN.                                                    317                               
+   000313                    GOBACK                                                                                                  
+   000314                    .                                                                                                       
+   000315                                                                                                                            
+   000316               * This para will select the first record that JAVA Is there.                                                 
+   000317                1000-MAIN.                                                                                                  
+   000318                                                                                                                            
+   000319               *    First we will check for a single varchar field select.                                                  
+   000320                                                                                                                            
+   000321               *    Initalize the query values                                                                              
+   000322                    MOVE LOW-VALUES TO VCHAR1-FIRST-NAME-DATA.                            IMP 52                            
+   000323                    MOVE 'ISAAC' TO VCHAR1-FIRST-NAME-DATA(1:5).                          52                                
+   000324                    MOVE 5 TO VCHAR1-FIRST-NAME-LEN.                                      51                                
+   000325                                                                                                                            
+   000326                    DISPLAY '*1* Fetching from first name : '                                                               
+   000327                            VCHAR1-FIRST-NAME-DATA.                                       52                                
+   000328                                                                                                                            
+   000329               *****EXEC SQL                                                                                                
+   000330               *****     SELECT ID                                                                                          
+   000331               *****     , LAST_NAME                                                                                        
+   000332               *****     , NICK_NAME                                                                                        
+   000333               *****     INTO                                                                                               
+   000334               *****     :VCHAR1-ID                                                                                         
+   000335               *****     , :VCHAR1-LAST-NAME                                                                                
+   000336               *****     , :VCHAR1-NICK-NAME                                                                                
+   000337               *****     FROM VCHAR1                                                                                        
+   000338               *****     WHERE FIRST_NAME = :VCHAR1-FIRST-NAME                                                              
+   000339               *****     FETCH FIRST 1 ROW ONLY                                                                             
+   000340               *****     END-EXEC.                                                                                          
+   000341                    PERFORM SQL-INITIAL UNTIL SQL-INIT-DONE                               272 70                            
+   000342                    CALL 'DSNHLI' USING SQL-PLIST1                                        EXT 75                            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page     9                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000343                    END-CALL.                                                                                               
+   000344                    PERFORM 3000-HANDLE-SQLCODE.                                          428                               
+   000345                                                                                                                            
+   000346               *    Next we will query for three columns two varchar and one char                                           
+   000347               *    This is to test the functioanlity of lengths being ignored                                              
+   000348               *                                                                                                            
+   000349               *    Initalize the input params                                                                              
+   000350                    MOVE LOW-VALUES TO VCHAR1-FIRST-NAME-DATA.                            IMP 52                            
+   000351                    MOVE 'ISAAC' TO VCHAR1-FIRST-NAME-DATA(1:5).                          52                                
+   000352                    MOVE 5 TO VCHAR1-FIRST-NAME-LEN.                                      51                                
+   000353                                                                                                                            
+   000354                    MOVE 'DUARTE' TO VCHAR1-LAST-NAME.                                    55                                
+   000355                                                                                                                            
+   000356                    MOVE 'GUEY' TO VCHAR1-NICK-NAME-DATA(1:5).                            60                                
+   000357                    MOVE 4 TO VCHAR1-NICK-NAME-LEN.                                       59                                
+   000358                                                                                                                            
+   000359                    DISPLAY '*2.1* Fetching from first name : '                                                             
+   000360                            VCHAR1-FIRST-NAME-DATA.                                       52                                
+   000361                                                                                                                            
+   000362                    DISPLAY '*2.2* Fetching from last name : '                                                              
+   000363                            VCHAR1-LAST-NAME.                                             55                                
+   000364                                                                                                                            
+   000365                    DISPLAY '*2.3* Fetching from nick name : '                                                              
+   000366                            VCHAR1-NICK-NAME-DATA.                                        60                                
+   000367                                                                                                                            
+   000368               *    Execute the query to grab one row given the input values                                                
+   000369               *****EXEC SQL                                                                                                
+   000370               *****     SELECT ID                                                                                          
+   000371               *****     INTO                                                                                               
+   000372               *****     :VCHAR1-ID                                                                                         
+   000373               *****     FROM VCHAR1                                                                                        
+   000374               *****     WHERE FIRST_NAME = :VCHAR1-FIRST-NAME                                                              
+   000375               *****     AND LAST_NAME = :VCHAR1-LAST-NAME                                                                  
+   000376               *****     AND NICK_NAME = :VCHAR1-NICK-NAME                                                                  
+   000377               *****     FETCH FIRST 1 ROW ONLY                                                                             
+   000378               *****     END-EXEC.                                                                                          
+   000379                    PERFORM SQL-INITIAL UNTIL SQL-INIT-DONE                               272 70                            
+   000380                    CALL 'DSNHLI' USING SQL-PLIST2                                        EXT 139                           
+   000381                    END-CALL.                                                                                               
+   000382                    PERFORM 3000-HANDLE-SQLCODE.                                          428                               
+   000383                                                                                                                            
+   000384               *    Next we will query for one column but fetch all columns into                                            
+   000385               *    the values then display them.                                                                           
+   000386                                                                                                                            
+   000387               *    This para is to simply display the SQLCODE if the row was found                                         
+   000388               *    or not                                                                                                  
+   000389                    MOVE 'DUARTE' TO VCHAR1-LAST-NAME.                                    55                                
+   000390                    MOVE 0 TO VCHAR1-FIRST-NAME-LEN.                                      51                                
+   000391                    MOVE 0 TO VCHAR1-NICK-NAME-LEN.                                       59                                
+   000392                    DISPLAY '*3.1* Fetching from first name : '                                                             
+   000393                            VCHAR1-FIRST-NAME-DATA.                                       52                                
+   000394                                                                                                                            
+   000395               *    Execute the query to grab one row given the input values                                                
+   000396               *****EXEC SQL                                                                                                
+   000397               *****     SELECT ID                                                                                          
+   000398               *****     , FIRST_NAME                                                                                       
+   000399               *****     , NICK_NAME                                                                                        
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    10                
+   LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference           
+0  000400               *****     INTO                                                                                               
+   000401               *****     :VCHAR1-ID                                                                                         
+   000402               *****     , :VCHAR1-FIRST-NAME                                                                               
+   000403               *****     , :VCHAR1-NICK-NAME                                                                                
+   000404               *****     FROM VCHAR1                                                                                        
+   000405               *****     WHERE LAST_NAME = :VCHAR1-LAST-NAME                                                                
+   000406               *****     FETCH FIRST 1 ROW ONLY                                                                             
+   000407               *****     END-EXEC.                                                                                          
+   000408                    PERFORM SQL-INITIAL UNTIL SQL-INIT-DONE                               272 70                            
+   000409                    CALL 'DSNHLI' USING SQL-PLIST3                                        EXT 203                           
+   000410                    END-CALL.                                                                                               
+   000411                                                                                                                            
+   000412               *    Display the results from the database                                                                   
+   000413                    DISPLAY '*3.2* VCHAR1-FIRST-NAME-DATA : '                                                               
+   000414                            VCHAR1-FIRST-NAME-DATA.                                       52                                
+   000415                                                                                                                            
+   000416                    DISPLAY '*3.3* VCHAR1-FIRST-NAME-LEN : '                                                                
+   000417                            VCHAR1-FIRST-NAME-LEN.                                        51                                
+   000418                                                                                                                            
+   000419                    DISPLAY '*3.4* VCHAR1-NICK-NAME-DATA : '                                                                
+   000420                            VCHAR1-NICK-NAME-DATA.                                        60                                
+   000421                                                                                                                            
+   000422                    DISPLAY '*3.5* VCHAR1-NICK-NAME-LEN : '                                                                 
+   000423                            VCHAR1-NICK-NAME-LEN.                                         59                                
+   000424                                                                                                                            
+   000425               *    Display the sqlcode                                                                                     
+   000426                    PERFORM 3000-HANDLE-SQLCODE.                                          428                               
+   000427                                                                                                                            
+   000428                3000-HANDLE-SQLCODE.                                                                                        
+   000429                    EVALUATE SQLCODE                                                      22                                
+   000430                    WHEN 0                                                                                                  
+   000431      1                  DISPLAY 'Row found'                                                                                
+   000432                    WHEN 100                                                                                                
+   000433      1                  DISPLAY 'Row not found'                                                                            
+   000434                    WHEN OTHER                                                                                              
+   000435      1                  DISPLAY 'Error while fetching the row' SQLCODE                   22                                
+   000436                    END-EVALUATE.                                                                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    11                
+0An "M" preceding a data-name reference indicates that the data-name is modified by this reference.                                  
+                                                                                                                                     
+  Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+       63   DSN-TEMP                                                                                                                 
+       64   DSN-TMP2                                                                                                                 
+       67   DSNNLEN                                                                                                                  
+       65   DSNNROWS                                                                                                                 
+       66   DSNNTYPE                                                                                                                 
+       93   PRE-SQLDABC                                                                                                              
+      108   PRE-SQLDABC                                                                                                              
+      157   PRE-SQLDABC                                                                                                              
+      190   PRE-SQLDABC                                                                                                              
+      221   PRE-SQLDABC                                                                                                              
+      236   PRE-SQLDABC                                                                                                              
+       92   PRE-SQLDAID                                                                                                              
+      107   PRE-SQLDAID                                                                                                              
+      156   PRE-SQLDAID                                                                                                              
+      189   PRE-SQLDAID                                                                                                              
+      220   PRE-SQLDAID                                                                                                              
+      235   PRE-SQLDAID                                                                                                              
+       95   PRE-SQLLD                                                                                                                
+      110   PRE-SQLLD                                                                                                                
+      159   PRE-SQLLD                                                                                                                
+      192   PRE-SQLLD                                                                                                                
+      223   PRE-SQLLD                                                                                                                
+      238   PRE-SQLLD                                                                                                                
+       94   PRE-SQLN                                                                                                                 
+      109   PRE-SQLN                                                                                                                 
+      158   PRE-SQLN                                                                                                                 
+      191   PRE-SQLN                                                                                                                 
+      222   PRE-SQLN                                                                                                                 
+      237   PRE-SQLN                                                                                                                 
+       96   PRE-SQLVAR                                                                                                               
+      111   PRE-SQLVAR                                                                                                               
+      160   PRE-SQLVAR                                                                                                               
+      193   PRE-SQLVAR                                                                                                               
+      224   PRE-SQLVAR                                                                                                               
+      239   PRE-SQLVAR                                                                                                               
+       84   SQL-APARMPTR . . . . . . . . .  278                                                                                      
+      148   SQL-APARMPTR . . . . . . . . .  291                                                                                      
+      212   SQL-APARMPTR . . . . . . . . .  300                                                                                      
+      115   SQL-AVAR-ADDRS1. . . . . . . .  280                                                                                      
+      197   SQL-AVAR-ADDRS1. . . . . . . .  293                                                                                      
+      243   SQL-AVAR-ADDRS1. . . . . . . .  302                                                                                      
+      124   SQL-AVAR-ADDRS2                                                                                                          
+      252   SQL-AVAR-ADDRS2                                                                                                          
+      133   SQL-AVAR-ADDRS3                                                                                                          
+      261   SQL-AVAR-ADDRS3                                                                                                          
+      116   SQL-AVAR-ADDR1                                                                                                           
+      198   SQL-AVAR-ADDR1                                                                                                           
+      244   SQL-AVAR-ADDR1                                                                                                           
+      125   SQL-AVAR-ADDR2                                                                                                           
+      253   SQL-AVAR-ADDR2                                                                                                           
+      134   SQL-AVAR-ADDR3                                                                                                           
+      262   SQL-AVAR-ADDR3                                                                                                           
+      117   SQL-AVAR-IND1                                                                                                            
+      199   SQL-AVAR-IND1                                                                                                            
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    12                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0     245   SQL-AVAR-IND1                                                                                                            
+      126   SQL-AVAR-IND2                                                                                                            
+      254   SQL-AVAR-IND2                                                                                                            
+      135   SQL-AVAR-IND3                                                                                                            
+      263   SQL-AVAR-IND3                                                                                                            
+      114   SQL-AVAR-LEN1                                                                                                            
+      196   SQL-AVAR-LEN1                                                                                                            
+      242   SQL-AVAR-LEN1                                                                                                            
+      123   SQL-AVAR-LEN2                                                                                                            
+      251   SQL-AVAR-LEN2                                                                                                            
+      132   SQL-AVAR-LEN3                                                                                                            
+      260   SQL-AVAR-LEN3                                                                                                            
+      106   SQL-AVAR-LIST1 . . . . . . . .  278 281                                                                                  
+      188   SQL-AVAR-LIST2 . . . . . . . .  291 294                                                                                  
+      234   SQL-AVAR-LIST3 . . . . . . . .  300 303                                                                                  
+      120   SQL-AVAR-NAMEC1                                                                                                          
+      202   SQL-AVAR-NAMEC1                                                                                                          
+      248   SQL-AVAR-NAMEC1                                                                                                          
+      129   SQL-AVAR-NAMEC2                                                                                                          
+      257   SQL-AVAR-NAMEC2                                                                                                          
+      138   SQL-AVAR-NAMEC3                                                                                                          
+      266   SQL-AVAR-NAMEC3                                                                                                          
+      119   SQL-AVAR-NAMEL1                                                                                                          
+      201   SQL-AVAR-NAMEL1                                                                                                          
+      247   SQL-AVAR-NAMEL1                                                                                                          
+      128   SQL-AVAR-NAMEL2                                                                                                          
+      256   SQL-AVAR-NAMEL2                                                                                                          
+      137   SQL-AVAR-NAMEL3                                                                                                          
+      265   SQL-AVAR-NAMEL3                                                                                                          
+      118   SQL-AVAR-NAME1                                                                                                           
+      200   SQL-AVAR-NAME1                                                                                                           
+      246   SQL-AVAR-NAME1                                                                                                           
+      127   SQL-AVAR-NAME2                                                                                                           
+      255   SQL-AVAR-NAME2                                                                                                           
+      136   SQL-AVAR-NAME3                                                                                                           
+      264   SQL-AVAR-NAME3                                                                                                           
+      113   SQL-AVAR-TYPE1                                                                                                           
+      195   SQL-AVAR-TYPE1                                                                                                           
+      241   SQL-AVAR-TYPE1                                                                                                           
+      122   SQL-AVAR-TYPE2                                                                                                           
+      250   SQL-AVAR-TYPE2                                                                                                           
+      131   SQL-AVAR-TYPE3                                                                                                           
+      259   SQL-AVAR-TYPE3                                                                                                           
+       77   SQL-CALLTYPE                                                                                                             
+      141   SQL-CALLTYPE                                                                                                             
+      205   SQL-CALLTYPE                                                                                                             
+       82   SQL-CODEPTR. . . . . . . . . .  284                                                                                      
+      146   SQL-CODEPTR. . . . . . . . . .  295                                                                                      
+      210   SQL-CODEPTR. . . . . . . . . .  306                                                                                      
+       74   SQL-FILE-APPEND                                                                                                          
+       72   SQL-FILE-CREATE                                                                                                          
+       73   SQL-FILE-OVERWRITE                                                                                                       
+       71   SQL-FILE-READ                                                                                                            
+       70   SQL-INIT-DONE. . . . . . . . .  341 379 408                                                                              
+       69   SQL-INIT-FLAG. . . . . . . . .  M273                                                                                     
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    13                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0      68   SQL-NULL . . . . . . . . . . .  277 281 282 283 288 289 290 294 299 303 304 305                                          
+       76   SQL-PLIST-CON                                                                                                            
+      140   SQL-PLIST-CON                                                                                                            
+      204   SQL-PLIST-CON                                                                                                            
+       88   SQL-PLIST-FLG                                                                                                            
+      152   SQL-PLIST-FLG                                                                                                            
+      216   SQL-PLIST-FLG                                                                                                            
+       75   SQL-PLIST1 . . . . . . . . . .  274 278 284 342                                                                          
+      139   SQL-PLIST2 . . . . . . . . . .  285 291 295 380                                                                          
+      203   SQL-PLIST3 . . . . . . . . . .  296 300 306 409                                                                          
+       78   SQL-PROG-NAME                                                                                                            
+      142   SQL-PROG-NAME                                                                                                            
+      206   SQL-PROG-NAME                                                                                                            
+      100   SQL-PVAR-ADDRS1. . . . . . . .  276                                                                                      
+      164   SQL-PVAR-ADDRS1. . . . . . . .  287                                                                                      
+      228   SQL-PVAR-ADDRS1. . . . . . . .  298                                                                                      
+      173   SQL-PVAR-ADDRS2                                                                                                          
+      182   SQL-PVAR-ADDRS3                                                                                                          
+      101   SQL-PVAR-ADDR1                                                                                                           
+      165   SQL-PVAR-ADDR1                                                                                                           
+      229   SQL-PVAR-ADDR1                                                                                                           
+      174   SQL-PVAR-ADDR2                                                                                                           
+      183   SQL-PVAR-ADDR3                                                                                                           
+      102   SQL-PVAR-IND1                                                                                                            
+      166   SQL-PVAR-IND1                                                                                                            
+      230   SQL-PVAR-IND1                                                                                                            
+      175   SQL-PVAR-IND2                                                                                                            
+      184   SQL-PVAR-IND3                                                                                                            
+       99   SQL-PVAR-LEN1                                                                                                            
+      163   SQL-PVAR-LEN1                                                                                                            
+      227   SQL-PVAR-LEN1                                                                                                            
+      172   SQL-PVAR-LEN2                                                                                                            
+      181   SQL-PVAR-LEN3                                                                                                            
+       91   SQL-PVAR-LIST1 . . . . . . . .  274 277                                                                                  
+      155   SQL-PVAR-LIST2 . . . . . . . .  285 288                                                                                  
+      219   SQL-PVAR-LIST3 . . . . . . . .  296 299                                                                                  
+      105   SQL-PVAR-NAMEC1                                                                                                          
+      169   SQL-PVAR-NAMEC1                                                                                                          
+      233   SQL-PVAR-NAMEC1                                                                                                          
+      178   SQL-PVAR-NAMEC2                                                                                                          
+      187   SQL-PVAR-NAMEC3                                                                                                          
+      104   SQL-PVAR-NAMEL1                                                                                                          
+      168   SQL-PVAR-NAMEL1                                                                                                          
+      232   SQL-PVAR-NAMEL1                                                                                                          
+      177   SQL-PVAR-NAMEL2                                                                                                          
+      186   SQL-PVAR-NAMEL3                                                                                                          
+      103   SQL-PVAR-NAME1                                                                                                           
+      167   SQL-PVAR-NAME1                                                                                                           
+      231   SQL-PVAR-NAME1                                                                                                           
+      176   SQL-PVAR-NAME2                                                                                                           
+      185   SQL-PVAR-NAME3                                                                                                           
+       98   SQL-PVAR-TYPE1                                                                                                           
+      162   SQL-PVAR-TYPE1                                                                                                           
+      226   SQL-PVAR-TYPE1                                                                                                           
+      171   SQL-PVAR-TYPE2                                                                                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    14                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0     180   SQL-PVAR-TYPE3                                                                                                           
+       81   SQL-SECTION                                                                                                              
+      145   SQL-SECTION                                                                                                              
+      209   SQL-SECTION                                                                                                              
+       87   SQL-STMT-NUM                                                                                                             
+      151   SQL-STMT-NUM                                                                                                             
+      215   SQL-STMT-NUM                                                                                                             
+       86   SQL-STMT-TYPE                                                                                                            
+      150   SQL-STMT-TYPE                                                                                                            
+      214   SQL-STMT-TYPE                                                                                                            
+       62   SQL-TEMP                                                                                                                 
+       79   SQL-TIMESTAMP-1                                                                                                          
+      143   SQL-TIMESTAMP-1                                                                                                          
+      207   SQL-TIMESTAMP-1                                                                                                          
+       80   SQL-TIMESTAMP-2                                                                                                          
+      144   SQL-TIMESTAMP-2                                                                                                          
+      208   SQL-TIMESTAMP-2                                                                                                          
+       83   SQL-VPARMPTR . . . . . . . . .  274                                                                                      
+      147   SQL-VPARMPTR . . . . . . . . .  285                                                                                      
+      211   SQL-VPARMPTR . . . . . . . . .  296                                                                                      
+       19   SQLCA. . . . . . . . . . . . .  284 295 306                                                                              
+       21   SQLCABC                                                                                                                  
+       20   SQLCAID                                                                                                                  
+       22   SQLCODE. . . . . . . . . . . .  429 435                                                                                  
+       27   SQLERRD                                                                                                                  
+       23   SQLERRM                                                                                                                  
+       25   SQLERRMC                                                                                                                 
+       24   SQLERRML                                                                                                                 
+       26   SQLERRP                                                                                                                  
+       38   SQLEXT                                                                                                                   
+       42   SQLSTATE                                                                                                                 
+       97   SQLVAR-BASE1                                                                                                             
+      112   SQLVAR-BASE1                                                                                                             
+      161   SQLVAR-BASE1                                                                                                             
+      194   SQLVAR-BASE1                                                                                                             
+      225   SQLVAR-BASE1                                                                                                             
+      240   SQLVAR-BASE1                                                                                                             
+      121   SQLVAR-BASE2                                                                                                             
+      170   SQLVAR-BASE2                                                                                                             
+      249   SQLVAR-BASE2                                                                                                             
+      130   SQLVAR-BASE3                                                                                                             
+      179   SQLVAR-BASE3                                                                                                             
+      258   SQLVAR-BASE3                                                                                                             
+       29   SQLWARN                                                                                                                  
+       41   SQLWARNA                                                                                                                 
+       30   SQLWARN0                                                                                                                 
+       31   SQLWARN1                                                                                                                 
+       32   SQLWARN2                                                                                                                 
+       33   SQLWARN3                                                                                                                 
+       34   SQLWARN4                                                                                                                 
+       35   SQLWARN5                                                                                                                 
+       36   SQLWARN6                                                                                                                 
+       37   SQLWARN7                                                                                                                 
+       39   SQLWARN8                                                                                                                 
+       40   SQLWARN9                                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    15                
+0 Defined   Cross-reference of data names   References                                                                               
+                                                                                                                                     
+0      50   VCHAR1-FIRST-NAME. . . . . . .  277 288 303                                                                              
+       52   VCHAR1-FIRST-NAME-DATA . . . .  M322 M323 327 M350 M351 360 393 414                                                      
+       51   VCHAR1-FIRST-NAME-LEN. . . . .  M324 M352 M390 417                                                                       
+       47   VCHAR1-ID. . . . . . . . . . .  281 294 303                                                                              
+       55   VCHAR1-LAST-NAME . . . . . . .  281 288 299 M354 363 M389                                                                
+       58   VCHAR1-NICK-NAME . . . . . . .  282 289 304                                                                              
+       60   VCHAR1-NICK-NAME-DATA. . . . .  M356 366 420                                                                             
+       59   VCHAR1-NICK-NAME-LEN . . . . .  M357 M391 423                                                                            
+       46   VCHAR1-TABLE . . . . . . . . .  277 281 282 282 288 289 289 294 299 303 304 304                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    16                
+0Context usage is indicated by the letter preceding a procedure-name reference.                                                      
+ These letters and their meanings are:                                                                                               
+     A = ALTER (procedure-name)                                                                                                      
+     D = GO TO (procedure-name) DEPENDING ON                                                                                         
+     E = End of range of (PERFORM) through (procedure-name)                                                                          
+     G = GO TO (procedure-name)                                                                                                      
+     P = PERFORM (procedure-name)                                                                                                    
+     T = (ALTER) TO PROCEED TO (procedure-name)                                                                                      
+     U = USE FOR DEBUGGING (procedure-name)                                                                                          
+                                                                                                                                     
+  Defined   Cross-reference of procedures   References                                                                               
+                                                                                                                                     
+      269   DSNSQL                                                                                                                   
+      307   SQL-INIT-END . . . . . . . . .  G271                                                                                     
+      272   SQL-INITIAL. . . . . . . . . .  P341 P379 P408                                                                           
+      270   SQL-SKIP                                                                                                                 
+      310   0000-MAINLINE                                                                                                            
+      317   1000-MAIN. . . . . . . . . . .  P312                                                                                     
+      428   3000-HANDLE-SQLCODE. . . . . .  P344 P382 P426                                                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    17                
+0 Defined   Cross-reference of programs     References                                                                               
+                                                                                                                                     
+ EXTERNAL   DSNHADDR . . . . . . . . . . .  274 278 284 285 291 295 296 300 306                                                      
+ EXTERNAL   DSNHADD2 . . . . . . . . . . .  276 280 287 293 298 302                                                                  
+ EXTERNAL   DSNHLI . . . . . . . . . . . .  342 380 409                                                                              
+        2   VARCHAR1                                                                                                                 
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    18                
+0Data Division Map                                                                                                                   
+0Data Definition Attribute codes (rightmost column) have the following meanings:                                                     
+     D = Object of OCCURS DEPENDING    G = GLOBAL                             S = Spanned file                                       
+     E = EXTERNAL                      O = Has OCCURS clause                  U = Undefined format file                              
+     F = Fixed-length file             OG= Group has own length definition    V = Variable-length file                               
+     FB= Fixed-length blocked file     R = REDEFINES                          VB= Variable-length blocked file                       
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+      2  PROGRAM-ID VARCHAR1----------------------------------------------------------------------------------------------------*    
+     19   1  SQLCA . . . . . . . . . . . . . . . . . . . . BLW=00000  000               DS 0CL136       Group                        
+     20     2  SQLCAID . . . . . . . . . . . . . . . . . . BLW=00000  000   0 000 000   DS 8C           Display                      
+     21     2  SQLCABC . . . . . . . . . . . . . . . . . . BLW=00000  008   0 000 008   DS 4C           Binary                       
+     22     2  SQLCODE . . . . . . . . . . . . . . . . . . BLW=00000  00C   0 000 00C   DS 4C           Binary                       
+     23     2  SQLERRM . . . . . . . . . . . . . . . . . . BLW=00000  010   0 000 010   DS 0CL72        Group                        
+     24       3  SQLERRML. . . . . . . . . . . . . . . . . BLW=00000  010   0 000 010   DS 2C           Binary                       
+     25       3  SQLERRMC. . . . . . . . . . . . . . . . . BLW=00000  012   0 000 012   DS 70C          Display                      
+     26     2  SQLERRP . . . . . . . . . . . . . . . . . . BLW=00000  058   0 000 058   DS 8C           Display                      
+     27     2  SQLERRD . . . . . . . . . . . . . . . . . . BLW=00000  060   0 000 060   DS 4C           Binary         O             
+     29     2  SQLWARN . . . . . . . . . . . . . . . . . . BLW=00000  078   0 000 078   DS 0CL8         Group                        
+     30       3  SQLWARN0. . . . . . . . . . . . . . . . . BLW=00000  078   0 000 078   DS 1C           Display                      
+     31       3  SQLWARN1. . . . . . . . . . . . . . . . . BLW=00000  079   0 000 079   DS 1C           Display                      
+     32       3  SQLWARN2. . . . . . . . . . . . . . . . . BLW=00000  07A   0 000 07A   DS 1C           Display                      
+     33       3  SQLWARN3. . . . . . . . . . . . . . . . . BLW=00000  07B   0 000 07B   DS 1C           Display                      
+     34       3  SQLWARN4. . . . . . . . . . . . . . . . . BLW=00000  07C   0 000 07C   DS 1C           Display                      
+     35       3  SQLWARN5. . . . . . . . . . . . . . . . . BLW=00000  07D   0 000 07D   DS 1C           Display                      
+     36       3  SQLWARN6. . . . . . . . . . . . . . . . . BLW=00000  07E   0 000 07E   DS 1C           Display                      
+     37       3  SQLWARN7. . . . . . . . . . . . . . . . . BLW=00000  07F   0 000 07F   DS 1C           Display                      
+     38     2  SQLEXT. . . . . . . . . . . . . . . . . . . BLW=00000  080   0 000 080   DS 0CL8         Group                        
+     39       3  SQLWARN8. . . . . . . . . . . . . . . . . BLW=00000  080   0 000 080   DS 1C           Display                      
+     40       3  SQLWARN9. . . . . . . . . . . . . . . . . BLW=00000  081   0 000 081   DS 1C           Display                      
+     41       3  SQLWARNA. . . . . . . . . . . . . . . . . BLW=00000  082   0 000 082   DS 1C           Display                      
+     42       3  SQLSTATE. . . . . . . . . . . . . . . . . BLW=00000  083   0 000 083   DS 5C           Display                      
+     46   1  VCHAR1-TABLE. . . . . . . . . . . . . . . . . BLW=00000  088               DS 0CL51        Group                        
+     47     2  VCHAR1-ID . . . . . . . . . . . . . . . . . BLW=00000  088   0 000 000   DS 2C           Binary                       
+     50     2  VCHAR1-FIRST-NAME . . . . . . . . . . . . . BLW=00000  08A   0 000 002   DS 0CL17        Group                        
+     51       3  VCHAR1-FIRST-NAME-LEN . . . . . . . . . . BLW=00000  08A   0 000 002   DS 2C           Binary                       
+     52       3  VCHAR1-FIRST-NAME-DATA. . . . . . . . . . BLW=00000  08C   0 000 004   DS 15C          Display                      
+     55     2  VCHAR1-LAST-NAME. . . . . . . . . . . . . . BLW=00000  09B   0 000 013   DS 15C          Display                      
+     58     2  VCHAR1-NICK-NAME. . . . . . . . . . . . . . BLW=00000  0AA   0 000 022   DS 0CL17        Group                        
+     59       3  VCHAR1-NICK-NAME-LEN. . . . . . . . . . . BLW=00000  0AA   0 000 022   DS 2C           Binary                       
+     60       3  VCHAR1-NICK-NAME-DATA . . . . . . . . . . BLW=00000  0AC   0 000 024   DS 15C          Display                      
+     62   77 SQL-TEMP. . . . . . . . . . . . . . . . . . . BLW=00000  0C0               DS 128C         Display                      
+     63   77 DSN-TEMP. . . . . . . . . . . . . . . . . . . BLW=00000  140               DS 4C           Binary                       
+     64   77 DSN-TMP2. . . . . . . . . . . . . . . . . . . BLW=00000  148               DS 10P          Packed-Dec                   
+     65   77 DSNNROWS. . . . . . . . . . . . . . . . . . . BLW=00000  158               DS 4C           Binary                       
+     66   77 DSNNTYPE. . . . . . . . . . . . . . . . . . . BLW=00000  160               DS 2C           Binary                       
+     67   77 DSNNLEN . . . . . . . . . . . . . . . . . . . BLW=00000  168               DS 2C           Binary                       
+     68   77 SQL-NULL. . . . . . . . . . . . . . . . . . . BLW=00000  170               DS 4C           Binary                       
+     69   77 SQL-INIT-FLAG . . . . . . . . . . . . . . . . BLW=00000  178               DS 2C           Binary                       
+     70   88 SQL-INIT-DONE . . . . . . . . . . . . . . . .                                                                           
+     71   77 SQL-FILE-READ . . . . . . . . . . . . . . . . BLW=00000  180               DS 4C           Binary                       
+     72   77 SQL-FILE-CREATE . . . . . . . . . . . . . . . BLW=00000  188               DS 4C           Binary                       
+     73   77 SQL-FILE-OVERWRITE. . . . . . . . . . . . . . BLW=00000  190               DS 4C           Binary                       
+     74   77 SQL-FILE-APPEND . . . . . . . . . . . . . . . BLW=00000  198               DS 4C           Binary                       
+     75   1  SQL-PLIST1. . . . . . . . . . . . . . . . . . BLW=00000  1A0               DS 0CL272       Group                        
+     76     2  SQL-PLIST-CON . . . . . . . . . . . . . . . BLW=00000  1A0   0 000 000   DS 4C           Binary                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    19                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+     77     2  SQL-CALLTYPE. . . . . . . . . . . . . . . . BLW=00000  1A4   0 000 004   DS 2C           Binary                       
+     78     2  SQL-PROG-NAME . . . . . . . . . . . . . . . BLW=00000  1A6   0 000 006   DS 8C           Display                      
+     79     2  SQL-TIMESTAMP-1 . . . . . . . . . . . . . . BLW=00000  1AE   0 000 00E   DS 4C           Binary                       
+     80     2  SQL-TIMESTAMP-2 . . . . . . . . . . . . . . BLW=00000  1B2   0 000 012   DS 4C           Binary                       
+     81     2  SQL-SECTION . . . . . . . . . . . . . . . . BLW=00000  1B6   0 000 016   DS 2C           Binary                       
+     82     2  SQL-CODEPTR . . . . . . . . . . . . . . . . BLW=00000  1B8   0 000 018   DS 4C           Binary                       
+     83     2  SQL-VPARMPTR. . . . . . . . . . . . . . . . BLW=00000  1BC   0 000 01C   DS 4C           Binary                       
+     84     2  SQL-APARMPTR. . . . . . . . . . . . . . . . BLW=00000  1C0   0 000 020   DS 4C           Binary                       
+     85     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  1C4   0 000 024   DS 2C           Binary                       
+     86     2  SQL-STMT-TYPE . . . . . . . . . . . . . . . BLW=00000  1C6   0 000 026   DS 2C           Binary                       
+     87     2  SQL-STMT-NUM. . . . . . . . . . . . . . . . BLW=00000  1C8   0 000 028   DS 4C           Binary                       
+     88     2  SQL-PLIST-FLG . . . . . . . . . . . . . . . BLW=00000  1CC   0 000 02C   DS 2C           Binary                       
+     89     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  1CE   0 000 02E   DS 18C          Display                      
+     91     2  SQL-PVAR-LIST1. . . . . . . . . . . . . . . BLW=00000  1E0   0 000 040   DS 0CL60        Group                        
+     92       3  PRE-SQLDAID . . . . . . . . . . . . . . . BLW=00000  1E0   0 000 040   DS 8C           Display                      
+     93       3  PRE-SQLDABC . . . . . . . . . . . . . . . BLW=00000  1E8   0 000 048   DS 4C           Binary                       
+     94       3  PRE-SQLN. . . . . . . . . . . . . . . . . BLW=00000  1EC   0 000 04C   DS 2C           Binary                       
+     95       3  PRE-SQLLD . . . . . . . . . . . . . . . . BLW=00000  1EE   0 000 04E   DS 2C           Binary                       
+     96       3  PRE-SQLVAR. . . . . . . . . . . . . . . . BLW=00000  1F0   0 000 050   DS 0CL44        Group                        
+     97         4  SQLVAR-BASE1. . . . . . . . . . . . . . BLW=00000  1F0   0 000 050   DS 0CL44        Group                        
+     98           5  SQL-PVAR-TYPE1. . . . . . . . . . . . BLW=00000  1F0   0 000 050   DS 2C           Binary                       
+     99           5  SQL-PVAR-LEN1 . . . . . . . . . . . . BLW=00000  1F2   0 000 052   DS 2C           Binary                       
+    100           5  SQL-PVAR-ADDRS1 . . . . . . . . . . . BLW=00000  1F4   0 000 054   DS 0CL8         Group                        
+    101             6  SQL-PVAR-ADDR1. . . . . . . . . . . BLW=00000  1F4   0 000 054   DS 4C           Binary                       
+    102             6  SQL-PVAR-IND1 . . . . . . . . . . . BLW=00000  1F8   0 000 058   DS 4C           Binary                       
+    103           5  SQL-PVAR-NAME1. . . . . . . . . . . . BLW=00000  1FC   0 000 05C   DS 0CL32        Group                        
+    104             6  SQL-PVAR-NAMEL1 . . . . . . . . . . BLW=00000  1FC   0 000 05C   DS 2C           Binary                       
+    105             6  SQL-PVAR-NAMEC1 . . . . . . . . . . BLW=00000  1FE   0 000 05E   DS 30C          Display                      
+    106     2  SQL-AVAR-LIST1. . . . . . . . . . . . . . . BLW=00000  21C   0 000 07C   DS 0CL148       Group                        
+    107       3  PRE-SQLDAID . . . . . . . . . . . . . . . BLW=00000  21C   0 000 07C   DS 8C           Display                      
+    108       3  PRE-SQLDABC . . . . . . . . . . . . . . . BLW=00000  224   0 000 084   DS 4C           Binary                       
+    109       3  PRE-SQLN. . . . . . . . . . . . . . . . . BLW=00000  228   0 000 088   DS 2C           Binary                       
+    110       3  PRE-SQLLD . . . . . . . . . . . . . . . . BLW=00000  22A   0 000 08A   DS 2C           Binary                       
+    111       3  PRE-SQLVAR. . . . . . . . . . . . . . . . BLW=00000  22C   0 000 08C   DS 0CL132       Group                        
+    112         4  SQLVAR-BASE1. . . . . . . . . . . . . . BLW=00000  22C   0 000 08C   DS 0CL44        Group                        
+    113           5  SQL-AVAR-TYPE1. . . . . . . . . . . . BLW=00000  22C   0 000 08C   DS 2C           Binary                       
+    114           5  SQL-AVAR-LEN1 . . . . . . . . . . . . BLW=00000  22E   0 000 08E   DS 2C           Binary                       
+    115           5  SQL-AVAR-ADDRS1 . . . . . . . . . . . BLW=00000  230   0 000 090   DS 0CL8         Group                        
+    116             6  SQL-AVAR-ADDR1. . . . . . . . . . . BLW=00000  230   0 000 090   DS 4C           Binary                       
+    117             6  SQL-AVAR-IND1 . . . . . . . . . . . BLW=00000  234   0 000 094   DS 4C           Binary                       
+    118           5  SQL-AVAR-NAME1. . . . . . . . . . . . BLW=00000  238   0 000 098   DS 0CL32        Group                        
+    119             6  SQL-AVAR-NAMEL1 . . . . . . . . . . BLW=00000  238   0 000 098   DS 2C           Binary                       
+    120             6  SQL-AVAR-NAMEC1 . . . . . . . . . . BLW=00000  23A   0 000 09A   DS 30C          Display                      
+    121         4  SQLVAR-BASE2. . . . . . . . . . . . . . BLW=00000  258   0 000 0B8   DS 0CL44        Group                        
+    122           5  SQL-AVAR-TYPE2. . . . . . . . . . . . BLW=00000  258   0 000 0B8   DS 2C           Binary                       
+    123           5  SQL-AVAR-LEN2 . . . . . . . . . . . . BLW=00000  25A   0 000 0BA   DS 2C           Binary                       
+    124           5  SQL-AVAR-ADDRS2 . . . . . . . . . . . BLW=00000  25C   0 000 0BC   DS 0CL8         Group                        
+    125             6  SQL-AVAR-ADDR2. . . . . . . . . . . BLW=00000  25C   0 000 0BC   DS 4C           Binary                       
+    126             6  SQL-AVAR-IND2 . . . . . . . . . . . BLW=00000  260   0 000 0C0   DS 4C           Binary                       
+    127           5  SQL-AVAR-NAME2. . . . . . . . . . . . BLW=00000  264   0 000 0C4   DS 0CL32        Group                        
+    128             6  SQL-AVAR-NAMEL2 . . . . . . . . . . BLW=00000  264   0 000 0C4   DS 2C           Binary                       
+    129             6  SQL-AVAR-NAMEC2 . . . . . . . . . . BLW=00000  266   0 000 0C6   DS 30C          Display                      
+    130         4  SQLVAR-BASE3. . . . . . . . . . . . . . BLW=00000  284   0 000 0E4   DS 0CL44        Group                        
+    131           5  SQL-AVAR-TYPE3. . . . . . . . . . . . BLW=00000  284   0 000 0E4   DS 2C           Binary                       
+    132           5  SQL-AVAR-LEN3 . . . . . . . . . . . . BLW=00000  286   0 000 0E6   DS 2C           Binary                       
+    133           5  SQL-AVAR-ADDRS3 . . . . . . . . . . . BLW=00000  288   0 000 0E8   DS 0CL8         Group                        
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    20                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+    134             6  SQL-AVAR-ADDR3. . . . . . . . . . . BLW=00000  288   0 000 0E8   DS 4C           Binary                       
+    135             6  SQL-AVAR-IND3 . . . . . . . . . . . BLW=00000  28C   0 000 0EC   DS 4C           Binary                       
+    136           5  SQL-AVAR-NAME3. . . . . . . . . . . . BLW=00000  290   0 000 0F0   DS 0CL32        Group                        
+    137             6  SQL-AVAR-NAMEL3 . . . . . . . . . . BLW=00000  290   0 000 0F0   DS 2C           Binary                       
+    138             6  SQL-AVAR-NAMEC3 . . . . . . . . . . BLW=00000  292   0 000 0F2   DS 30C          Display                      
+    139   1  SQL-PLIST2. . . . . . . . . . . . . . . . . . BLW=00000  2B0               DS 0CL272       Group                        
+    140     2  SQL-PLIST-CON . . . . . . . . . . . . . . . BLW=00000  2B0   0 000 000   DS 4C           Binary                       
+    141     2  SQL-CALLTYPE. . . . . . . . . . . . . . . . BLW=00000  2B4   0 000 004   DS 2C           Binary                       
+    142     2  SQL-PROG-NAME . . . . . . . . . . . . . . . BLW=00000  2B6   0 000 006   DS 8C           Display                      
+    143     2  SQL-TIMESTAMP-1 . . . . . . . . . . . . . . BLW=00000  2BE   0 000 00E   DS 4C           Binary                       
+    144     2  SQL-TIMESTAMP-2 . . . . . . . . . . . . . . BLW=00000  2C2   0 000 012   DS 4C           Binary                       
+    145     2  SQL-SECTION . . . . . . . . . . . . . . . . BLW=00000  2C6   0 000 016   DS 2C           Binary                       
+    146     2  SQL-CODEPTR . . . . . . . . . . . . . . . . BLW=00000  2C8   0 000 018   DS 4C           Binary                       
+    147     2  SQL-VPARMPTR. . . . . . . . . . . . . . . . BLW=00000  2CC   0 000 01C   DS 4C           Binary                       
+    148     2  SQL-APARMPTR. . . . . . . . . . . . . . . . BLW=00000  2D0   0 000 020   DS 4C           Binary                       
+    149     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  2D4   0 000 024   DS 2C           Binary                       
+    150     2  SQL-STMT-TYPE . . . . . . . . . . . . . . . BLW=00000  2D6   0 000 026   DS 2C           Binary                       
+    151     2  SQL-STMT-NUM. . . . . . . . . . . . . . . . BLW=00000  2D8   0 000 028   DS 4C           Binary                       
+    152     2  SQL-PLIST-FLG . . . . . . . . . . . . . . . BLW=00000  2DC   0 000 02C   DS 2C           Binary                       
+    153     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  2DE   0 000 02E   DS 18C          Display                      
+    155     2  SQL-PVAR-LIST2. . . . . . . . . . . . . . . BLW=00000  2F0   0 000 040   DS 0CL148       Group                        
+    156       3  PRE-SQLDAID . . . . . . . . . . . . . . . BLW=00000  2F0   0 000 040   DS 8C           Display                      
+    157       3  PRE-SQLDABC . . . . . . . . . . . . . . . BLW=00000  2F8   0 000 048   DS 4C           Binary                       
+    158       3  PRE-SQLN. . . . . . . . . . . . . . . . . BLW=00000  2FC   0 000 04C   DS 2C           Binary                       
+    159       3  PRE-SQLLD . . . . . . . . . . . . . . . . BLW=00000  2FE   0 000 04E   DS 2C           Binary                       
+    160       3  PRE-SQLVAR. . . . . . . . . . . . . . . . BLW=00000  300   0 000 050   DS 0CL132       Group                        
+    161         4  SQLVAR-BASE1. . . . . . . . . . . . . . BLW=00000  300   0 000 050   DS 0CL44        Group                        
+    162           5  SQL-PVAR-TYPE1. . . . . . . . . . . . BLW=00000  300   0 000 050   DS 2C           Binary                       
+    163           5  SQL-PVAR-LEN1 . . . . . . . . . . . . BLW=00000  302   0 000 052   DS 2C           Binary                       
+    164           5  SQL-PVAR-ADDRS1 . . . . . . . . . . . BLW=00000  304   0 000 054   DS 0CL8         Group                        
+    165             6  SQL-PVAR-ADDR1. . . . . . . . . . . BLW=00000  304   0 000 054   DS 4C           Binary                       
+    166             6  SQL-PVAR-IND1 . . . . . . . . . . . BLW=00000  308   0 000 058   DS 4C           Binary                       
+    167           5  SQL-PVAR-NAME1. . . . . . . . . . . . BLW=00000  30C   0 000 05C   DS 0CL32        Group                        
+    168             6  SQL-PVAR-NAMEL1 . . . . . . . . . . BLW=00000  30C   0 000 05C   DS 2C           Binary                       
+    169             6  SQL-PVAR-NAMEC1 . . . . . . . . . . BLW=00000  30E   0 000 05E   DS 30C          Display                      
+    170         4  SQLVAR-BASE2. . . . . . . . . . . . . . BLW=00000  32C   0 000 07C   DS 0CL44        Group                        
+    171           5  SQL-PVAR-TYPE2. . . . . . . . . . . . BLW=00000  32C   0 000 07C   DS 2C           Binary                       
+    172           5  SQL-PVAR-LEN2 . . . . . . . . . . . . BLW=00000  32E   0 000 07E   DS 2C           Binary                       
+    173           5  SQL-PVAR-ADDRS2 . . . . . . . . . . . BLW=00000  330   0 000 080   DS 0CL8         Group                        
+    174             6  SQL-PVAR-ADDR2. . . . . . . . . . . BLW=00000  330   0 000 080   DS 4C           Binary                       
+    175             6  SQL-PVAR-IND2 . . . . . . . . . . . BLW=00000  334   0 000 084   DS 4C           Binary                       
+    176           5  SQL-PVAR-NAME2. . . . . . . . . . . . BLW=00000  338   0 000 088   DS 0CL32        Group                        
+    177             6  SQL-PVAR-NAMEL2 . . . . . . . . . . BLW=00000  338   0 000 088   DS 2C           Binary                       
+    178             6  SQL-PVAR-NAMEC2 . . . . . . . . . . BLW=00000  33A   0 000 08A   DS 30C          Display                      
+    179         4  SQLVAR-BASE3. . . . . . . . . . . . . . BLW=00000  358   0 000 0A8   DS 0CL44        Group                        
+    180           5  SQL-PVAR-TYPE3. . . . . . . . . . . . BLW=00000  358   0 000 0A8   DS 2C           Binary                       
+    181           5  SQL-PVAR-LEN3 . . . . . . . . . . . . BLW=00000  35A   0 000 0AA   DS 2C           Binary                       
+    182           5  SQL-PVAR-ADDRS3 . . . . . . . . . . . BLW=00000  35C   0 000 0AC   DS 0CL8         Group                        
+    183             6  SQL-PVAR-ADDR3. . . . . . . . . . . BLW=00000  35C   0 000 0AC   DS 4C           Binary                       
+    184             6  SQL-PVAR-IND3 . . . . . . . . . . . BLW=00000  360   0 000 0B0   DS 4C           Binary                       
+    185           5  SQL-PVAR-NAME3. . . . . . . . . . . . BLW=00000  364   0 000 0B4   DS 0CL32        Group                        
+    186             6  SQL-PVAR-NAMEL3 . . . . . . . . . . BLW=00000  364   0 000 0B4   DS 2C           Binary                       
+    187             6  SQL-PVAR-NAMEC3 . . . . . . . . . . BLW=00000  366   0 000 0B6   DS 30C          Display                      
+    188     2  SQL-AVAR-LIST2. . . . . . . . . . . . . . . BLW=00000  384   0 000 0D4   DS 0CL60        Group                        
+    189       3  PRE-SQLDAID . . . . . . . . . . . . . . . BLW=00000  384   0 000 0D4   DS 8C           Display                      
+    190       3  PRE-SQLDABC . . . . . . . . . . . . . . . BLW=00000  38C   0 000 0DC   DS 4C           Binary                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    21                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+    191       3  PRE-SQLN. . . . . . . . . . . . . . . . . BLW=00000  390   0 000 0E0   DS 2C           Binary                       
+    192       3  PRE-SQLLD . . . . . . . . . . . . . . . . BLW=00000  392   0 000 0E2   DS 2C           Binary                       
+    193       3  PRE-SQLVAR. . . . . . . . . . . . . . . . BLW=00000  394   0 000 0E4   DS 0CL44        Group                        
+    194         4  SQLVAR-BASE1. . . . . . . . . . . . . . BLW=00000  394   0 000 0E4   DS 0CL44        Group                        
+    195           5  SQL-AVAR-TYPE1. . . . . . . . . . . . BLW=00000  394   0 000 0E4   DS 2C           Binary                       
+    196           5  SQL-AVAR-LEN1 . . . . . . . . . . . . BLW=00000  396   0 000 0E6   DS 2C           Binary                       
+    197           5  SQL-AVAR-ADDRS1 . . . . . . . . . . . BLW=00000  398   0 000 0E8   DS 0CL8         Group                        
+    198             6  SQL-AVAR-ADDR1. . . . . . . . . . . BLW=00000  398   0 000 0E8   DS 4C           Binary                       
+    199             6  SQL-AVAR-IND1 . . . . . . . . . . . BLW=00000  39C   0 000 0EC   DS 4C           Binary                       
+    200           5  SQL-AVAR-NAME1. . . . . . . . . . . . BLW=00000  3A0   0 000 0F0   DS 0CL32        Group                        
+    201             6  SQL-AVAR-NAMEL1 . . . . . . . . . . BLW=00000  3A0   0 000 0F0   DS 2C           Binary                       
+    202             6  SQL-AVAR-NAMEC1 . . . . . . . . . . BLW=00000  3A2   0 000 0F2   DS 30C          Display                      
+    203   1  SQL-PLIST3. . . . . . . . . . . . . . . . . . BLW=00000  3C0               DS 0CL272       Group                        
+    204     2  SQL-PLIST-CON . . . . . . . . . . . . . . . BLW=00000  3C0   0 000 000   DS 4C           Binary                       
+    205     2  SQL-CALLTYPE. . . . . . . . . . . . . . . . BLW=00000  3C4   0 000 004   DS 2C           Binary                       
+    206     2  SQL-PROG-NAME . . . . . . . . . . . . . . . BLW=00000  3C6   0 000 006   DS 8C           Display                      
+    207     2  SQL-TIMESTAMP-1 . . . . . . . . . . . . . . BLW=00000  3CE   0 000 00E   DS 4C           Binary                       
+    208     2  SQL-TIMESTAMP-2 . . . . . . . . . . . . . . BLW=00000  3D2   0 000 012   DS 4C           Binary                       
+    209     2  SQL-SECTION . . . . . . . . . . . . . . . . BLW=00000  3D6   0 000 016   DS 2C           Binary                       
+    210     2  SQL-CODEPTR . . . . . . . . . . . . . . . . BLW=00000  3D8   0 000 018   DS 4C           Binary                       
+    211     2  SQL-VPARMPTR. . . . . . . . . . . . . . . . BLW=00000  3DC   0 000 01C   DS 4C           Binary                       
+    212     2  SQL-APARMPTR. . . . . . . . . . . . . . . . BLW=00000  3E0   0 000 020   DS 4C           Binary                       
+    213     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  3E4   0 000 024   DS 2C           Binary                       
+    214     2  SQL-STMT-TYPE . . . . . . . . . . . . . . . BLW=00000  3E6   0 000 026   DS 2C           Binary                       
+    215     2  SQL-STMT-NUM. . . . . . . . . . . . . . . . BLW=00000  3E8   0 000 028   DS 4C           Binary                       
+    216     2  SQL-PLIST-FLG . . . . . . . . . . . . . . . BLW=00000  3EC   0 000 02C   DS 2C           Binary                       
+    217     2  FILLER. . . . . . . . . . . . . . . . . . . BLW=00000  3EE   0 000 02E   DS 18C          Display                      
+    219     2  SQL-PVAR-LIST3. . . . . . . . . . . . . . . BLW=00000  400   0 000 040   DS 0CL60        Group                        
+    220       3  PRE-SQLDAID . . . . . . . . . . . . . . . BLW=00000  400   0 000 040   DS 8C           Display                      
+    221       3  PRE-SQLDABC . . . . . . . . . . . . . . . BLW=00000  408   0 000 048   DS 4C           Binary                       
+    222       3  PRE-SQLN. . . . . . . . . . . . . . . . . BLW=00000  40C   0 000 04C   DS 2C           Binary                       
+    223       3  PRE-SQLLD . . . . . . . . . . . . . . . . BLW=00000  40E   0 000 04E   DS 2C           Binary                       
+    224       3  PRE-SQLVAR. . . . . . . . . . . . . . . . BLW=00000  410   0 000 050   DS 0CL44        Group                        
+    225         4  SQLVAR-BASE1. . . . . . . . . . . . . . BLW=00000  410   0 000 050   DS 0CL44        Group                        
+    226           5  SQL-PVAR-TYPE1. . . . . . . . . . . . BLW=00000  410   0 000 050   DS 2C           Binary                       
+    227           5  SQL-PVAR-LEN1 . . . . . . . . . . . . BLW=00000  412   0 000 052   DS 2C           Binary                       
+    228           5  SQL-PVAR-ADDRS1 . . . . . . . . . . . BLW=00000  414   0 000 054   DS 0CL8         Group                        
+    229             6  SQL-PVAR-ADDR1. . . . . . . . . . . BLW=00000  414   0 000 054   DS 4C           Binary                       
+    230             6  SQL-PVAR-IND1 . . . . . . . . . . . BLW=00000  418   0 000 058   DS 4C           Binary                       
+    231           5  SQL-PVAR-NAME1. . . . . . . . . . . . BLW=00000  41C   0 000 05C   DS 0CL32        Group                        
+    232             6  SQL-PVAR-NAMEL1 . . . . . . . . . . BLW=00000  41C   0 000 05C   DS 2C           Binary                       
+    233             6  SQL-PVAR-NAMEC1 . . . . . . . . . . BLW=00000  41E   0 000 05E   DS 30C          Display                      
+    234     2  SQL-AVAR-LIST3. . . . . . . . . . . . . . . BLW=00000  43C   0 000 07C   DS 0CL148       Group                        
+    235       3  PRE-SQLDAID . . . . . . . . . . . . . . . BLW=00000  43C   0 000 07C   DS 8C           Display                      
+    236       3  PRE-SQLDABC . . . . . . . . . . . . . . . BLW=00000  444   0 000 084   DS 4C           Binary                       
+    237       3  PRE-SQLN. . . . . . . . . . . . . . . . . BLW=00000  448   0 000 088   DS 2C           Binary                       
+    238       3  PRE-SQLLD . . . . . . . . . . . . . . . . BLW=00000  44A   0 000 08A   DS 2C           Binary                       
+    239       3  PRE-SQLVAR. . . . . . . . . . . . . . . . BLW=00000  44C   0 000 08C   DS 0CL132       Group                        
+    240         4  SQLVAR-BASE1. . . . . . . . . . . . . . BLW=00000  44C   0 000 08C   DS 0CL44        Group                        
+    241           5  SQL-AVAR-TYPE1. . . . . . . . . . . . BLW=00000  44C   0 000 08C   DS 2C           Binary                       
+    242           5  SQL-AVAR-LEN1 . . . . . . . . . . . . BLW=00000  44E   0 000 08E   DS 2C           Binary                       
+    243           5  SQL-AVAR-ADDRS1 . . . . . . . . . . . BLW=00000  450   0 000 090   DS 0CL8         Group                        
+    244             6  SQL-AVAR-ADDR1. . . . . . . . . . . BLW=00000  450   0 000 090   DS 4C           Binary                       
+    245             6  SQL-AVAR-IND1 . . . . . . . . . . . BLW=00000  454   0 000 094   DS 4C           Binary                       
+    246           5  SQL-AVAR-NAME1. . . . . . . . . . . . BLW=00000  458   0 000 098   DS 0CL32        Group                        
+    247             6  SQL-AVAR-NAMEL1 . . . . . . . . . . BLW=00000  458   0 000 098   DS 2C           Binary                       
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    22                
+0Source   Hierarchy and                                    Base       Hex-Displacement  Asmblr Data                    Data Def      
+ LineID   Data Name                                        Locator    Blk   Structure   Definition      Data Type      Attributes    
+    248             6  SQL-AVAR-NAMEC1 . . . . . . . . . . BLW=00000  45A   0 000 09A   DS 30C          Display                      
+    249         4  SQLVAR-BASE2. . . . . . . . . . . . . . BLW=00000  478   0 000 0B8   DS 0CL44        Group                        
+    250           5  SQL-AVAR-TYPE2. . . . . . . . . . . . BLW=00000  478   0 000 0B8   DS 2C           Binary                       
+    251           5  SQL-AVAR-LEN2 . . . . . . . . . . . . BLW=00000  47A   0 000 0BA   DS 2C           Binary                       
+    252           5  SQL-AVAR-ADDRS2 . . . . . . . . . . . BLW=00000  47C   0 000 0BC   DS 0CL8         Group                        
+    253             6  SQL-AVAR-ADDR2. . . . . . . . . . . BLW=00000  47C   0 000 0BC   DS 4C           Binary                       
+    254             6  SQL-AVAR-IND2 . . . . . . . . . . . BLW=00000  480   0 000 0C0   DS 4C           Binary                       
+    255           5  SQL-AVAR-NAME2. . . . . . . . . . . . BLW=00000  484   0 000 0C4   DS 0CL32        Group                        
+    256             6  SQL-AVAR-NAMEL2 . . . . . . . . . . BLW=00000  484   0 000 0C4   DS 2C           Binary                       
+    257             6  SQL-AVAR-NAMEC2 . . . . . . . . . . BLW=00000  486   0 000 0C6   DS 30C          Display                      
+    258         4  SQLVAR-BASE3. . . . . . . . . . . . . . BLW=00000  4A4   0 000 0E4   DS 0CL44        Group                        
+    259           5  SQL-AVAR-TYPE3. . . . . . . . . . . . BLW=00000  4A4   0 000 0E4   DS 2C           Binary                       
+    260           5  SQL-AVAR-LEN3 . . . . . . . . . . . . BLW=00000  4A6   0 000 0E6   DS 2C           Binary                       
+    261           5  SQL-AVAR-ADDRS3 . . . . . . . . . . . BLW=00000  4A8   0 000 0E8   DS 0CL8         Group                        
+    262             6  SQL-AVAR-ADDR3. . . . . . . . . . . BLW=00000  4A8   0 000 0E8   DS 4C           Binary                       
+    263             6  SQL-AVAR-IND3 . . . . . . . . . . . BLW=00000  4AC   0 000 0EC   DS 4C           Binary                       
+    264           5  SQL-AVAR-NAME3. . . . . . . . . . . . BLW=00000  4B0   0 000 0F0   DS 0CL32        Group                        
+    265             6  SQL-AVAR-NAMEL3 . . . . . . . . . . BLW=00000  4B0   0 000 0F0   DS 2C           Binary                       
+    266             6  SQL-AVAR-NAMEC3 . . . . . . . . . . BLW=00000  4B2   0 000 0F2   DS 30C          Display                      
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    23                
+0PROGRAM GLOBAL TABLE BEGINS AT LOCATION 0000FC FOR 000034 BYTES                                                                     
+ THE PGT CONTAINS 000001 CELL(S) FOR ADDRESSABILITY TO THE CGT                                                                       
+ PBL1    AT LOCATION 0004D0 FOR LINE 2                                                                                               
+0                                                                                                                                    
+ LITERAL POOL MAP FOR SYSTEM LITERALS IN THE PGT:                                                                                    
+ 0000FC  (LIT+0)      00000001 00000000 40404040 40404040 40404040 40404040 40404040 40404040  |........                        |    
+ 00011C  (LIT+32)     40404040 40400000 00000000                                               |      ......                    |    
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    24                
+0CONSTANT GLOBAL TABLE BEGINS AT LOCATION 000130 FOR 0003A0 BYTES                                                                    
+ LITERAL POOL MAP FOR LITERALS IN THE CGT:                                                                                           
+                                                                                                                                     
+ 000150  (LIT+0)      FFFFFFFC 00001000 00000001 00000078 00000060 00000094 0000003C 0000003B  |...................-...m........|    
+ 000170  (LIT+32)     1B63DA44 1B7D2957 00404400 00000020 00000010 00000008 00000002 00000000  |.....'... ......................|    
+ 000190  (LIT+64)     00640004 000501C4 01F40003 000F01C0 00E704B8 001E5CF3 4BF15C40 C685A383  |.......D.4.......X....*3.1* Fetc|    
+ 0001B0  (LIT+96)     88899587 40869996 94408689 99A2A340 95819485 407A405C F24BF15C 40C685A3  |hing from first name : *2.1* Fet|    
+ 0001D0  (LIT+128)    83888995 87408699 96944086 8999A2A3 40958194 85407A40 5CF24BF3 5C40C685  |ching from first name : *2.3* Fe|    
+ 0001F0  (LIT+160)    A3838889 95874086 99969440 95898392 40958194 85407A40 5CF24BF2 5C40C685  |tching from nick name : *2.2* Fe|    
+ 000210  (LIT+192)    A3838889 95874086 99969440 9381A2A3 40958194 85407A40 5CF34BF2 5C40E5C3  |tching from last name : *3.2* VC|    
+ 000230  (LIT+224)    C8C1D9F1 60C6C9D9 E2E360D5 C1D4C560 C4C1E3C1 407A405C F15C40C6 85A38388  |HAR1-FIRST-NAME-DATA : *1* Fetch|    
+ 000250  (LIT+256)    89958740 86999694 40868999 A2A34095 81948540 7A405CF3 4BF45C40 E5C3C8C1  |ing from first name : *3.4* VCHA|    
+ 000270  (LIT+288)    D9F160D5 C9C3D260 D5C1D4C5 60C4C1E3 C1407A40 5CF34BF3 5C40E5C3 C8C1D9F1  |R1-NICK-NAME-DATA : *3.3* VCHAR1|    
+ 000290  (LIT+320)    60C6C9D9 E2E360D5 C1D4C560 D3C5D540 7A405CF3 4BF55C40 E5C3C8C1 D9F160D5  |-FIRST-NAME-LEN : *3.5* VCHAR1-N|    
+ 0002B0  (LIT+352)    C9C3D260 D5C1D4C5 60D3C5D5 407A40C5 99999699 40A68889 93854086 85A38388  |ICK-NAME-LEN : Error while fetch|    
+ 0002D0  (LIT+384)    89958740 A3888540 9996A6C5 A78583A4 A3899587 40E5C1D9 C3C8C1D9 F140C381  |ing the rowExecuting VARCHAR1 Ca|    
+ 0002F0  (LIT+416)    A2850000 00000000 00000000 00000000 00000000 D996A640 9596A340 8696A495  |se..................Row not foun|    
+ 000310  (LIT+448)    84D996A6 408696A4 9584E2D8 D3C4C140 40085641 52434841 5231E2E8 E2D6E4E3  |dRow foundSQLDA  .........SYSOUT|    
+ 000330  (LIT+480)    4040C9C7 E9E2D9E3 C3C4C4E4 C1D9E3C5 C7E4C5E8 40C9E2C1 C1C30000 00000000  |  IGZSRTCDDUARTEGUEY ISAAC......|    
+ 000350  (LIT+512)    012C0000 00010000 01300000 00010000 00000000 00000000 00000000 00000000  |................................|    
+ 000370  (LIT+544)    00000000 00000000 00000000 00000000 00008000 00004000 00000000 00000000  |...................... .........|    
+ 000390  (LIT+576)    00004000 00000000 00000000 00000000 00004000 00000025 C00001C0 00080800  |.. ............... .............|    
+ 0003B0  (LIT+608)    002C01B5 01400000 1C080000 2C018F00 04000A09 00012C00 0CFF0140 00000D08  |..... ..................... ....|    
+ 0003D0  (LIT+640)    00002C01 D4FF0140 00000908 00002C01 E1FF0140 00001D08 00002C01 72000200  |....M.. ........... ............|    
+ 0003F0  (LIT+672)    05090001 2C00AAFF 01400000 1E080000 2C013640 00000F09 00012C00 ACFF0140  |......... ......... ........... |    
+ 000410  (LIT+704)    00001E08 00002C01 54000200 05090001 2C008AFF 01400000 1F080000 2C00F840  |..................... ........8 |    
+ 000430  (LIT+736)    00000F09 00012C00 8CFF0140 00002108 00002C00 76400000 0F090001 2C008CFF  |........... ......... ..........|    
+ 000450  (LIT+768)    01400000 20080000 2C00B840 00000F09 00012C00 ACFF0140 00002008 00002C00  |. ......... ........... ........|    
+ 000470  (LIT+800)    D8400000 0F090001 2C009BFF 01400000 21080000 2C009740 00000F09 00012C00  |Q ........... ........p ........|    
+ 000490  (LIT+832)    8CFF0140 00001F08 00002C01 17400000 0F090001 2C008CFF 01400000 17080000  |... ......... ........... ......|    
+ 0004B0  (LIT+864)    2C01ABFF 40000000 0040C000 01400008 0800002C 01B502C0 00080800 002C01B5  |.... .... ... ..................|    
+ LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        LINE #  HEXLOC  VERB                        
+ 000271 000910 GO                            000273 000914 MOVE                          000274 00091A CALL                          
+ 000276 00094C CALL                          000278 000982 CALL                          000280 0009B0 CALL                          
+ 000284 000A06 CALL                          000285 000A34 CALL                          000287 000A62 CALL                          
+ 000291 000AB8 CALL                          000293 000AE6 CALL                          000295 000B1C CALL                          
+ 000296 000B4A CALL                          000298 000B78 CALL                          000300 000BAE CALL                          
+ 000302 000BDC CALL                          000306 000C32 CALL                          000308 000C66 CONTINUE                      
+ 000311 000C66 DISPLAY                       000312 000C74 PERFORM                       000313 000C8C GOBACK                        
+ 000322 000C94 MOVE                          000323 000C9E MOVE                          000324 000CA4 MOVE                          
+ 000326 000CAA DISPLAY                       000341 000CB4 PERFORM                       000342 000CD8 CALL                          
+ 000344 000D02 PERFORM                       000350 000D1A MOVE                          000351 000D24 MOVE                          
+ 000352 000D2A MOVE                          000354 000D30 MOVE                          000356 000D3C MOVE                          
+ 000357 000D42 MOVE                          000359 000D48 DISPLAY                       000362 000D56 DISPLAY                       
+ 000365 000D60 DISPLAY                       000379 000D6A PERFORM                       000380 000D92 CALL                          
+ 000382 000DBC PERFORM                       000389 000DD4 MOVE                          000390 000DE0 MOVE                          
+ 000391 000DE6 MOVE                          000392 000DEC DISPLAY                       000408 000DFA PERFORM                       
+ 000409 000E22 CALL                          000413 000E4C DISPLAY                       000416 000E5A DISPLAY                       
+ 000419 000E64 DISPLAY                       000422 000E6E DISPLAY                       000426 000E78 PERFORM                       
+ 000429 000E96 EVALUATE                      000430 000E96 WHEN                          000431 000EBC DISPLAY                       
+ 000432 000ECE WHEN                          000433 000EF0 DISPLAY                       000434 000F02 WHEN                          
+ 000435 000F02 DISPLAY                                                                                                               
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    25                
+0                   *** TGT MEMORY MAP ***                                                                                           
+                    TGTLOC                                                                                                           
+                                                                                                                                     
+                    000000  RESERVED - 72 BYTES                                                                                      
+                    000048  TGT IDENTIFIER                                                                                           
+                    00004C  RESERVED - 4 BYTES                                                                                       
+                    000050  TGT LEVEL INDICATOR                                                                                      
+                    000051  RESERVED - 3 BYTES                                                                                       
+                    000054  32 BIT SWITCH                                                                                            
+                    000058  POINTER TO RUNCOM                                                                                        
+                    00005C  POINTER TO COBVEC                                                                                        
+                    000060  POINTER TO PROGRAM DYNAMIC BLOCK TABLE                                                                   
+                    000064  NUMBER OF FCB'S                                                                                          
+                    000068  WORKING-STORAGE LENGTH                                                                                   
+                    00006C  RESERVED - 4 BYTES                                                                                       
+                    000070  ADDRESS OF IGZESMG WORK AREA                                                                             
+                    000074  ADDRESS OF 1ST GETMAIN BLOCK (SPACE MGR)                                                                 
+                    000078  RESERVED - 2 BYTES                                                                                       
+                    00007A  RESERVED - 2 BYTES                                                                                       
+                    00007C  RESERVED - 2 BYTES                                                                                       
+                    00007E  MERGE FILE NUMBER                                                                                        
+                    000080  ADDRESS OF CEL COMMON ANCHOR AREA                                                                        
+                    000084  LENGTH OF TGT                                                                                            
+                    000088  RESERVED - 1 SINGLE BYTE FIELD                                                                           
+                    000089  PROGRAM MASK USED BY THIS PROGRAM                                                                        
+                    00008A  RESERVED - 2 SINGLE BYTE FIELDS                                                                          
+                    00008C  NUMBER OF SECONDARY FCB CELLS                                                                            
+                    000090  LENGTH OF THE ALTER VN(VNI) VECTOR                                                                       
+                    000094  COUNT OF NESTED PROGRAMS IN COMPILE UNIT                                                                 
+                    000098  DDNAME FOR DISPLAY OUTPUT                                                                                
+                    0000A0  RESERVED - 8 BYTES                                                                                       
+                    0000A8  POINTER TO COM-REG SPECIAL REGISTER                                                                      
+                    0000AC  RESERVED - 52 BYTES                                                                                      
+                    0000E0  ALTERNATE COLLATING SEQUENCE TABLE PTR.                                                                  
+                    0000E4  ADDRESS OF SORT G.N. ADDRESS BLOCK                                                                       
+                    0000E8  ADDRESS OF PGT                                                                                           
+                    0000EC  RESERVED - 4 BYTES                                                                                       
+                    0000F0  POINTER TO 1ST IPCB                                                                                      
+                    0000F4  ADDRESS OF THE CLLE FOR THIS PROGRAM                                                                     
+                    0000F8  POINTER TO ABEND INFORMATION TABLE                                                                       
+                    0000FC  POINTER TO TEST INFO FIELDS IN THE TGT                                                                   
+                    000100  ADDRESS OF START OF COBOL PROGRAM                                                                        
+                    000104  POINTER TO ALTER VNI'S IN CGT                                                                            
+                    000108  POINTER TO ALTER VN'S IN TGT                                                                             
+                    00010C  POINTER TO FIRST PBL IN THE PGT                                                                          
+                    000110  POINTER TO FIRST FCB CELL                                                                                
+                    000114  WORKING-STORAGE ADDRESS                                                                                  
+                    000118  POINTER TO FIRST SECONDARY FCB CELL                                                                      
+                    00011C  POINTER TO STATIC CLASS INFO BLOCK 1                                                                     
+                    000120  POINTER TO STATIC CLASS INFO BLOCK 2                                                                     
+                                                                                                                                     
+                    *** VARIABLE PORTION OF TGT ***                                                                                  
+                                                                                                                                     
+                    000124  BASE LOCATORS FOR SPECIAL REGISTERS                                                                      
+                    00012C  BASE LOCATORS FOR WORKING-STORAGE                                                                        
+                    000130  BASE LOCATORS FOR LINKAGE-SECTION                                                                        
+                    000134  CLLE ADDR. CELLS FOR CALL LIT. SUB-PGMS.                                                                 
+                    00017C  INTERNAL PROGRAM CONTROL BLOCKS                                                                          
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    26                
+0                                                                                                                                    
+                    *** DSA MEMORY MAP ***                                                                                           
+                  DSALOC                                                                                                             
+                                                                                                                                     
+                  00000000  REGISTER SAVE AREA                                                                                       
+                  0000004C  STACK NAB (NEXT AVAILABLE BYTE)                                                                          
+                  00000058  ADDRESS OF INLINE-CODE PRIMARY DSA                                                                       
+                  0000005C  ADDRESS OF TGT                                                                                           
+                  00000060  ADDRESS OF CAA                                                                                           
+                  00000080  XML PARSE WORK AREA ANCHOR                                                                               
+                  00000084  SWITCHES                                                                                                 
+                  00000088  CURRENT INT. PROGRAM OR METHOD NUMBER                                                                    
+                  0000008C  ADDRESS OF CALL STATEMENT PROGRAM NAME                                                                   
+                  00000090  CALC ROUTINE REGISTER SAVE AREA                                                                          
+                  000000C4  ADDRESS OF FILE MUTEX USE COUNT CELLS                                                                    
+                  000000C8  PROCEDURE DIVISION RETURNING VALUE                                                                       
+                                                                                                                                     
+                    *** VARIABLE PORTION OF DSA ***                                                                                  
+                                                                                                                                     
+                  000000D0  SAVE AREA FOR FLOAT REGISTERS 8-15                                                                       
+                  00000110  BACKSTORE CELLS FOR SYMBOLIC REGISTERS                                                                   
+                  00000120  VARIABLE-LENGTH CELLS                                                                                    
+                  00000138  VARIABLE NAME (VN) CELLS FOR PERFORM                                                                     
+                  0000014C  PERFORM SAVE CELLS                                                                                       
+                  00000170  TEMPORARY STORAGE-2                                                                                      
+0                                                                                                                                    
+ TGT      WILL BE ALLOCATED FOR 00000190 BYTES                                                                                       
+ SPEC-REG WILL BE ALLOCATED FOR 0000007E BYTES                                                                                       
+ WRK-STOR WILL BE ALLOCATED FOR 000004D0 BYTES                                                                                       
+ DSA      WILL BE ALLOCATED FOR 00000190 BYTES                                                                                       
+0CONSTANT GLOBAL TABLE FOR DYNAMIC STORAGE INITIALIZATION AT LOCATION 000FC8                                                         
+0INITD CODE FOR DYNAMIC STORAGE INITIALIZATION BEGINS AT LOCATION 001148 FOR LENGTH 000088                                           
+1PP 5655-S71 IBM Enterprise COBOL for z/OS  4.1.0               VARCHAR1  Date 08/05/2022  Time 16:34:06   Page    27                
+0LineID  Message code  Message text                                                                                                  
+                                                                                                                                     
+         IGYDS0139-W   Diagnostic messages were issued during processing of compiler options.  These messages are located at the     
+                       beginning of the listing.                                                                                     
+-Messages    Total    Informational    Warning    Error    Severe    Terminating                                                     
+0Printed:       3           1              2                                                                                         
+-* Statistics for COBOL program VARCHAR1:                                                                                            
+ *    Source records = 436                                                                                                           
+ *    Data Division statements = 228                                                                                                 
+ *    Procedure Division statements = 55                                                                                             
+0End of compilation 1,  program VARCHAR1,  highest severity 4.                                                                       
+0Return code 4                                                                                                                       

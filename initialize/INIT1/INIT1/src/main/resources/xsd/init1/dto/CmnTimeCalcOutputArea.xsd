@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="CmnTimeCalcOutputArea" cobol:name="CMN-TIME-CALC-OUTPUT-AREA" cobol:offset="1046" cobol:length="16" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="CmnTimeCalcReturnCode" maxOccurs="1"  cobol:name="CMN-TIME-CALC-RETURN-CODE" cobol:offset="0" cobol:length="1" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 successfullCall15 VALUE [[0ALL]].
+                        88 validParameters15 VALUE [[0ALL]].
+                        88 errorInCall15 VALUE [[[1],[9]]].
+                        88 secondsEqualsZero15 VALUE [[4]].
+                        88 invalidCalcType15 VALUE [[5]].
+                        88 outOfRangeStartTime15 VALUE [[6]].
+                        88 outOfRangeEndTime15 VALUE [[3]].
+                        88 nonNumericTimeStrtInput15 VALUE [[7]].
+                        88 nonNumericTimeEndInput15 VALUE [[8]].
+                        88 nonNumericTimeSecInput15 VALUE [[9]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="CmnTimeCalcNewTime" type="xs:long" maxOccurs="1"  cobol:name="CMN-TIME-CALC-NEW-TIME" cobol:offset="1" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+<xs:element name="CmnTimeCalcNewTimeR" maxOccurs="1" cobol:name="CMN-TIME-CALC-NEW-TIME-R" cobol:offset="1" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="CmnTimeCalcNumOfSecElap" type="xs:int" maxOccurs="1"  cobol:name="CMN-TIME-CALC-NUM-OF-SEC-ELAP" cobol:offset="7" cobol:length="9" cobol:datatype="Disp-Num" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

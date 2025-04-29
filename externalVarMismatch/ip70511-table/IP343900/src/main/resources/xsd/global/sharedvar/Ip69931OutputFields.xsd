@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip69931OutputFields" cobol:name="IP69931-OUTPUT-FIELDS" cobol:offset="14" cobol:length="124" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip69931DatabaseId" maxOccurs="1"  cobol:name="IP69931-DATABASE-ID" cobol:offset="0" cobol:length="18" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="18" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip69931CollectionId" maxOccurs="1"  cobol:name="IP69931-COLLECTION-ID" cobol:offset="18" cobol:length="18" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="18" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip69931WherePaProcessedSw" maxOccurs="1"  cobol:name="IP69931-WHERE-PA-PROCESSED-SW" cobol:offset="36" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip69931PaProcessLocally88 VALUE [[0ALL]].
+                        88 ip69931PaProcesRemotely88 VALUE [[1]].
+                        88 ip69931PaProcesRegionaly88 VALUE [[2]].
+                        88 ip69931PaProcessUnknown88 VALUE [[99]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip69931ResponseStatus" maxOccurs="1"  cobol:name="IP69931-RESPONSE-STATUS" cobol:offset="40" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip69931RequestSuccessful88 VALUE [[0ALL]].
+                        88 ip69931RequestFailed88 VALUE [[1]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip69931ErrorMsg" maxOccurs="1"  cobol:name="IP69931-ERROR-MSG" cobol:offset="44" cobol:length="80" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="80" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="SpecEntry530" cobol:name="530-SPEC-ENTRY" cobol:offset="0" cobol:length="171" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="SpecDd530" maxOccurs="1"  cobol:name="530-SPEC-DD" cobol:offset="0" cobol:length="8" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100M" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 specDdSrceDflt88530 VALUE [["GFTSRCE "]].
+                        88 specDdTrgtDflt88530 VALUE [["GFTTRGT "]].
+                        88 specDdUtilWork88530 VALUE [["GFTWORK "]].
+                        88 specDdSysout88530 VALUE [["SYSOUT  "]].
+                        88 specDdSyslst88530 VALUE [["SYSLST  "]].
+                        88 specDdInput88530 VALUE [[["SYS000  "],["SYS199  "]]].
+                        88 specDdOutput88530 VALUE [[["SYS100  "],["SYS299  "]]].
+                        88 specDdCtrl88530 VALUE [["SYS900  "]].
+                        88 specDdTarafpl88530 VALUE [["TARAFPL "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="8" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="SpecFile530" maxOccurs="1" cobol:name="530-SPEC-FILE" cobol:offset="8" cobol:length="52" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="SpecUseCode530" maxOccurs="1"  cobol:name="530-SPEC-USE-CODE" cobol:offset="60" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 specUseNone88530 VALUE [[" "]].
+                        88 specUseNtrn88530 VALUE [["I"], ["O"], ["H"]].
+                        88 specUseXtrn88530 VALUE [["S"], ["T"]].
+                        88 specUseSrce88530 VALUE [["I"], ["S"]].
+                        88 specUseTrgt88530 VALUE [["O"], ["T"]].
+                        88 specUseNtrnSrce88530 VALUE [["I"]].
+                        88 specUseNtrnTrgt88530 VALUE [["O"]].
+                        88 specUseNtrnHold88530 VALUE [["H"]].
+                        88 specUseXtrnSrce88530 VALUE [["S"]].
+                        88 specUseXtrnTrgt88530 VALUE [["T"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="SpecStatStatus530" maxOccurs="1"  cobol:name="530-SPEC-STAT-STATUS" cobol:offset="61" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 specStatInactive88530 VALUE [[" "]].
+                        88 specStatAlloc88530 VALUE [["A"]].
+                        88 specStatReady88530 VALUE [["R"]].
+                        88 specStatOpened88530 VALUE [["O"]].
+                        88 specStatEof88530 VALUE [["E"]].
+                        88 specStatClosed88530 VALUE [["C"]].
+                        88 specStatUnall88530 VALUE [["U"]].
+                        88 specStatDeleted88530 VALUE [["D"]].
+                        88 specStatError88530 VALUE [["X"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="SpecIdCode530" maxOccurs="1"  cobol:name="530-SPEC-ID-CODE" cobol:offset="62" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 specIdNone88530 VALUE [[" "]].
+                        88 specIdDd88530 VALUE [["D"]].
+                        88 specIdDsn88530 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="SpecAtype530" maxOccurs="1"  cobol:name="530-SPEC-ATYPE" cobol:offset="63" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 specAtypeValid88530 VALUE [["C"], ["T"], ["B"]].
+                        88 specAtypeCyl88530 VALUE [["C"]].
+                        88 specAtypeTrk88530 VALUE [["T"]].
+                        88 specAtypeBlk88530 VALUE [["B"]].
+                        88 specAtypeNot88530 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="SpecRecfm530" maxOccurs="1"  cobol:name="530-SPEC-RECFM" cobol:offset="64" cobol:length="3" cobol:datatype="Group" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1000" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 specRecfmFba88530 VALUE [["FBA"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+    </xs:element>  
+         <xs:element name="SpecUnits530" type="xs:int" maxOccurs="1"  cobol:name="530-SPEC-UNITS" cobol:offset="67" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="SpecPspace530" type="xs:int" maxOccurs="1"  cobol:name="530-SPEC-PSPACE" cobol:offset="71" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="SpecSspace530" type="xs:int" maxOccurs="1"  cobol:name="530-SPEC-SSPACE" cobol:offset="75" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="SpecLrecl530" type="xs:int" maxOccurs="1"  cobol:name="530-SPEC-LRECL" cobol:offset="79" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="SpecBlksz530" type="xs:int" maxOccurs="1"  cobol:name="530-SPEC-BLKSZ" cobol:offset="83" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="SpecSeqio530" maxOccurs="1"  cobol:name="530-SPEC-SEQIO" cobol:offset="87" cobol:length="84" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="84" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

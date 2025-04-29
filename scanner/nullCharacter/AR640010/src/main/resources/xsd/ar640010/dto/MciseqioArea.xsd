@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="MciseqioArea" cobol:name="MCISEQIO-AREA" cobol:offset="0" cobol:length="198" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="MciseqioModule" maxOccurs="1"  cobol:name="MCISEQIO-MODULE" cobol:offset="0" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="McseqioModule" maxOccurs="1"  cobol:name="MCSEQIO-MODULE" cobol:offset="8" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MciseqioAreaFiller1" maxOccurs="1"  cobol:name="FILLER" cobol:offset="16" cobol:length="25" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="25" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="MciseqioParms" maxOccurs="1" cobol:name="MCISEQIO-PARMS" cobol:offset="41" cobol:length="84" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="MciseqioCodes" maxOccurs="1" cobol:name="MCISEQIO-CODES" cobol:offset="125" cobol:length="38" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="MciseqioReturnCode" maxOccurs="1"  cobol:name="MCISEQIO-RETURN-CODE" cobol:offset="163" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 mciseqioGood VALUE [[0ALL]].
+                        88 mciseqioEndAllTapes VALUE [[4]].
+                        88 mciseqioEof VALUE [[8]].
+                        88 mciseqioErrorIllreq VALUE [[12]].
+                        88 mciseqioErrorInvreq VALUE [[16]].
+                        88 mciseqioErrorOpen VALUE [[20]].
+                        88 mciseqioVolSwitch VALUE [[24]].
+                        88 mciseqioErrorGetmain VALUE [[28]].
+                        88 mciseqioErrorDdname VALUE [[32]].
+                        88 mciseqioErrorJfcb VALUE [[36]].
+                        88 mciseqioErrorVsam VALUE [[40]].
+                        88 mciseqioErrorTtcd VALUE [[44]].
+                        88 mciseqioErrorNumVols VALUE [[48]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="MciseqioAreaFiller2" maxOccurs="1"  cobol:name="FILLER" cobol:offset="165" cobol:length="33" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="33" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

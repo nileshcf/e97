@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip40004MsgDatax" cobol:name="IP40004-MSG-DATAX" cobol:offset="0" cobol:length="613" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip40004RecType" maxOccurs="1"  cobol:name="IP40004-REC-TYPE" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip40004MessageDetail88 VALUE [["D"]].
+                        88 ip40004HeaderMessage88 VALUE [["H"]].
+                        88 ip40004TrailerMessage88 VALUE [["T"]].
+                        88 ip40004AdminFileErr88 VALUE [["1"], ["2"], ["3"], ["4"], ["5"], ["6"], ["7"], ["8"]].
+                        88 ip40004NeedAdmin164469988 VALUE [["2"], ["3"], ["4"], ["5"], ["6"], ["8"]].
+                        88 ip40004AdminMsgErr88 VALUE [["M"]].
+                        88 ip40004AdminUnpErr88 VALUE [["U"]].
+                        88 ip40004AdminMissHdr88 VALUE [["1"]].
+                        88 ip40004AdminMissTrlr88 VALUE [["2"]].
+                        88 ip40004AdminNoDetail88 VALUE [["3"]].
+                        88 ip40004AdminAllDetRej88 VALUE [["4"]].
+                        88 ip40004AdminThreshRej88 VALUE [["5"]].
+                        88 ip40004AdminTrlCntOff88 VALUE [["6"]].
+                        88 ip40004AdminHdrErrors88 VALUE [["7"]].
+                        88 ip40004AdminTrlErrors88 VALUE [["8"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip40004DtlFileSeqNbr" type="xs:int" maxOccurs="1"  cobol:name="IP40004-DTL-FILE-SEQ-NBR" cobol:offset="1" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+    <xs:element name="Ip40004CollOnlyInd" maxOccurs="1"  cobol:name="IP40004-COLL-ONLY-IND" cobol:offset="4" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip40004CollOnlyMsg88 VALUE [["Y"]].
+                        88 ip40004NonCollOnlyMsg88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip40004SourceMsgNum" type="xs:long" maxOccurs="1"  cobol:name="IP40004-SOURCE-MSG-NUM" cobol:offset="5" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+         <xs:element name="Ip40004TransAmount" type="xs:long" maxOccurs="1"  cobol:name="IP40004-TRANS-AMOUNT" cobol:offset="13" cobol:length="16" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10P"/>
+    <xs:element name="Ip40004TransDbCrInd" maxOccurs="1"  cobol:name="IP40004-TRANS-DB-CR-IND" cobol:offset="29" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip40004TransDebit88 VALUE [["DR"]].
+                        88 ip40004TransCredit88 VALUE [["CR"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip40004ErrorMsgNbr" type="xs:int" maxOccurs="1"  cobol:name="IP40004-ERROR-MSG-NBR" cobol:offset="31" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+<xs:element name="Ip40004FinStatRec" maxOccurs="1" cobol:name="IP40004-FIN-STAT-REC" cobol:offset="35" cobol:length="578" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

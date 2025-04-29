@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="FileIoErrMsgTxt600" cobol:name="600-FILE-IO-ERR-MSG-TXT" cobol:offset="0" cobol:length="59" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="FileIoErrMsgTxt600ConditionGroup1" maxOccurs="1"  cobol:name="FILLER" cobol:offset="0" cobol:length="14" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100T" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 fileOpenErr88600 VALUE [["ERROR OPENING "]].
+                        88 fileReadErr88600 VALUE [["ERROR READING "]].
+                        88 fileWriteErr88600 VALUE [["ERROR WRITING "]].
+                        88 fileCloseErr88600 VALUE [["ERROR CLOSING "]].
+                        88 fileEmptyErr88600 VALUE [["EMPTY INPUT   "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="14" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="FileName600" maxOccurs="1"  cobol:name="600-FILE-NAME" cobol:offset="14" cobol:length="30" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="30" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="FileIoErrMsgTxt600Filler2" maxOccurs="1"  cobol:name="FILLER" cobol:offset="44" cobol:length="13" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="13" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="FileStatus600" maxOccurs="1"  cobol:name="600-FILE-STATUS" cobol:offset="57" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

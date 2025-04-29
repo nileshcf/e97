@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Si583ParserArea" cobol:name="SI583-PARSER-AREA" cobol:offset="0" cobol:length="34156" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Si583DataAddr" type="xs:int" maxOccurs="1"  cobol:name="SI583-DATA-ADDR" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Si583DataPtr" type="xs:int" maxOccurs="1"  cobol:name="SI583-DATA-PTR" cobol:offset="0" cobol:length="4" cobol:datatype="Pointer" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+         <xs:element name="Si583FormatAddr" type="xs:int" maxOccurs="1"  cobol:name="SI583-FORMAT-ADDR" cobol:offset="4" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Si583FormatPtr" type="xs:int" maxOccurs="1"  cobol:name="SI583-FORMAT-PTR" cobol:offset="4" cobol:length="4" cobol:datatype="Pointer" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+    <xs:element name="Si583ReturnCode" maxOccurs="1"  cobol:name="SI583-RETURN-CODE" cobol:offset="8" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 si583ParsingSuccessful88 VALUE [[0ALL]].
+                        88 si583Mti1Error88 VALUE [[1]].
+                        88 si583Mti2Error88 VALUE [[2]].
+                        88 si583Lth1Error88 VALUE [[101]].
+                        88 si583Lth2Error88 VALUE [[102]].
+                        88 si583Def1Error88 VALUE [[201]].
+                        88 si583Def2Error88 VALUE [[202]].
+                        88 si583InvalidPtr88 VALUE [[999]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Si583DataElementInError" type="xs:short" maxOccurs="1"  cobol:name="SI583-DATA-ELEMENT-IN-ERROR" cobol:offset="10" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="Si583ReturnMessage" maxOccurs="1"  cobol:name="SI583-RETURN-MESSAGE" cobol:offset="12" cobol:length="80" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="80" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Si583Mti1" maxOccurs="1"  cobol:name="SI583-MTI-1" cobol:offset="92" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Si583Mti2" maxOccurs="1"  cobol:name="SI583-MTI-2" cobol:offset="96" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Si583DataLength" type="xs:int" maxOccurs="1"  cobol:name="SI583-DATA-LENGTH" cobol:offset="100" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Si583FormatLength" type="xs:int" maxOccurs="1"  cobol:name="SI583-FORMAT-LENGTH" cobol:offset="104" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="Si583ExtendData" maxOccurs="1"  cobol:name="SI583-EXTEND-DATA" cobol:offset="108" cobol:length="32768" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="32768" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Si583DataElementWorkArea1" maxOccurs="1" cobol:name="SI583-DATA-ELEMENT-WORK-AREA-1" cobol:offset="32876" cobol:length="640" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Si583DataElementWorkArea2" maxOccurs="1" cobol:name="SI583-DATA-ELEMENT-WORK-AREA-2" cobol:offset="33516" cobol:length="640" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

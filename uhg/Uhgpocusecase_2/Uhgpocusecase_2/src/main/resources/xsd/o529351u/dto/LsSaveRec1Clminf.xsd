@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="LsSaveRec1Clminf" cobol:name="LS-SAVE-REC1-CLMINF" cobol:offset="0" cobol:length="561" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="SavProviderArea" maxOccurs="2" cobol:name="SAV-PROVIDER-AREA" cobol:offset="0" cobol:length="49" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="SavDiagnosisCodePoa" maxOccurs="1" cobol:name="SAV-DIAGNOSIS-CODE-POA" cobol:offset="121" cobol:length="54" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="SavDiagCodePoa" maxOccurs="1"  cobol:name="SAV-DIAG-CODE-POA" cobol:offset="121" cobol:length="54" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="54" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="SavInputProcId" maxOccurs="1" cobol:name="SAV-INPUT-PROC-ID" cobol:offset="237" cobol:length="9" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="SavInputProcIdNum" type="xs:long" maxOccurs="1"  cobol:name="SAV-INPUT-PROC-ID-NUM" cobol:offset="237" cobol:length="9" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1G"/>
+    <xs:element name="SavOncologyInd" maxOccurs="1"  cobol:name="SAV-ONCOLOGY-IND" cobol:offset="374" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="SavReferingNpi" maxOccurs="1"  cobol:name="SAV-REFERING-NPI" cobol:offset="412" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="SavAttendingNpi" maxOccurs="1"  cobol:name="SAV-ATTENDING-NPI" cobol:offset="412" cobol:length="10" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="10" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

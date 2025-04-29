@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="DrstRestartDataArea" cobol:name="DRST-RESTART-DATA-AREA" cobol:offset="0" cobol:length="1209" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="DrstReturnArea" maxOccurs="1" cobol:name="DRST-RETURN-AREA" cobol:offset="299" cobol:length="43" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="DrstSqlErrorMsgArea" maxOccurs="1" cobol:name="DRST-SQL-ERROR-MSG-AREA" cobol:offset="342" cobol:length="115" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="DrstCicsErrorMsgArea" maxOccurs="1" cobol:name="DRST-CICS-ERROR-MSG-AREA" cobol:offset="342" cobol:length="115" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="DrstRetSupplementalArea" maxOccurs="1" cobol:name="DRST-RET-SUPPLEMENTAL-AREA" cobol:offset="459" cobol:length="750" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="DrstRetLbmsub90Area" maxOccurs="1"  cobol:name="DRST-RET-LBMSUB90-AREA" cobol:offset="459" cobol:length="750" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="750" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

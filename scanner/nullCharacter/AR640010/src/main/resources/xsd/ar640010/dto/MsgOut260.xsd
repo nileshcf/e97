@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="MsgOut260" cobol:name="260-MSG-OUT" cobol:offset="0" cobol:length="1904" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="SysMsgOutArray260" maxOccurs="20" cobol:name="260-SYS-MSG-OUT-ARRAY" cobol:offset="0" cobol:length="80" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="SysMsgOutMaxCnt260" type="xs:int" maxOccurs="1"  cobol:name="260-SYS-MSG-OUT-MAX-CNT" cobol:offset="1600" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+         <xs:element name="SysMsgOutCnt260" type="xs:int" maxOccurs="1"  cobol:name="260-SYS-MSG-OUT-CNT" cobol:offset="1602" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+    <xs:element name="ConsMsgOut260" maxOccurs="1"  cobol:name="260-CONS-MSG-OUT" cobol:offset="1604" cobol:length="300" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="300" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

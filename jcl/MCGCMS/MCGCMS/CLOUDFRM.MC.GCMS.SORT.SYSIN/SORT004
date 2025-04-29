@@ -1,0 +1,27 @@
+  SORT FIELDS=(1,40,CH,A,41,72,CH,A)              :T:-SORT-FIELD                
+   SUM FIELDS=(113,11,ZD,                         :T:-COUNT                     
+               124,15,ZD,                         :T:-TXN-BASE-AMT-DR           
+               139,15,ZD,                         :T:-TXN-BASE-AMT-CR           
+               171,15,ZD,                         :T:-INTERCHNG-FEE-DR          
+               186,15,ZD,                         :T:-INTERCHNG-FEE-CR          
+               218,15,ZD,                         :T:-SETLMENT-AMT-DR           
+               233,15,ZD)                         :T:-SETLMENT-AMT-CR           
+   OUTFIL FNAMES=SORTOF01,                                                      
+          OUTREC=(1,40,                           :T:-DISTRIB-KEY               
+                  41,72,                          :T:-DISTRIB-DATA              
+                  113,11,                         :T:-COUNT                     
+                  124,15,                         :T:-TXN-BASE-AMT-DR           
+                  139,15,                         :T:-TXN-BASE-AMT-CR           
+                  124,15,ZD,SUB,139,15,ZD,                                      
+                  EDIT=('TTTTTTTTTTTTTTTS'),LENGTH=16,                          
+                  SIGNS=(,,D,C),C'R',                                           
+                  171,15,                         :T:-INTERCHNG-FEE-DR          
+                  186,15,                         :T:-INTERCHNG-FEE-CR          
+                  171,15,ZD,SUB,186,15,ZD,                                      
+                  EDIT=('TTTTTTTTTTTTTTTS'),LENGTH=16,                          
+                  SIGNS=(,,D,C),C'R',                                           
+                  218,15,                         :T:-SETLMENT-AMT-DR           
+                  233,15,                         :T:-SETLMENT-AMT-CR           
+                  218,15,ZD,SUB,233,15,ZD,                                      
+                  EDIT=('TTTTTTTTTTTTTTTS'),LENGTH=16,                          
+                  SIGNS=(,,D,C),C'R')                                           

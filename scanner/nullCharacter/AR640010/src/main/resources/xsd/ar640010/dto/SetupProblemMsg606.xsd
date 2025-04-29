@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="SetupProblemMsg606" cobol:name="606-SETUP-PROBLEM-MSG" cobol:offset="0" cobol:length="70" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="SetupProblemMsg606Filler1" maxOccurs="1"  cobol:name="FILLER" cobol:offset="0" cobol:length="30" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="30" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="SetupProblemMsg606ConditionGroup2" maxOccurs="1"  cobol:name="FILLER" cobol:offset="30" cobol:length="40" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 setupEptMissing88606 VALUE [["ORIGINAL ENDPOINT TARAEPT ROW IS MISSING"]].
+                        88 setupEptBackup88606 VALUE [["BACKUP ENDPOINT TARAEPT ROW IS MISSING  "]].
+                        88 setupEptBroken88606 VALUE [["BACKUP ENDPOINT TARAEPT CHAIN IS BROKEN "]].
+                        88 setupEptLoops88606 VALUE [["BACKUP ENDPOINT TARAEPT CHAIN HAS A LOOP"]].
+                        88 setupEptNonFtss88606 VALUE [["ENDPOINT IS NOT AN FTSS ENDOINT         "]].
+                        88 setupEfpMissing88606 VALUE [["ORIGINAL ENDPOINT TARAEFP ROW IS MISSING"]].
+                        88 setupEfpBackup88606 VALUE [["BACKUP ENDPOINT TARAEFP ROW IS MISSING  "]].
+                        88 setupUnkProblem88606 VALUE [["** NOTIFY GFT - UNKNOWN SETUP PROBLEM **"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="40" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip00321CurrEditInfo" cobol:name="IP00321-CURR-EDIT-INFO" cobol:offset="176004" cobol:length="44" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip00321EditType" maxOccurs="1"  cobol:name="IP00321-EDIT-TYPE" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00321EditModule" maxOccurs="1"  cobol:name="IP00321-EDIT-MODULE" cobol:offset="1" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ip00321EditModulePtr" maxOccurs="1"  cobol:name="IP00321-EDIT-MODULE-PTR" cobol:offset="9" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip00321ErrorInfo" maxOccurs="1" cobol:name="IP00321-ERROR-INFO" cobol:offset="17" cobol:length="19" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip00321ModuleLocationInd" maxOccurs="1"  cobol:name="IP00321-MODULE-LOCATION-IND" cobol:offset="36" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip00321PreeditOnly88 VALUE [["P"]].
+                        88 ip00321CentralSiteOnly88 VALUE [["C"]].
+                        88 ip00321CntrlAndPreedit88 VALUE [["B"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="Ip00321ReplErrTextInfo" maxOccurs="1" cobol:name="IP00321-REPL-ERR-TEXT-INFO" cobol:offset="37" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip00321BypEditIrddrvSrv" maxOccurs="1"  cobol:name="IP00321-BYP-EDIT-IRDDRV-SRV" cobol:offset="43" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip00321IrdDrvBypEdit88 VALUE [["Y"]].
+                        88 ip00321IrdDrvNtBypEdit88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

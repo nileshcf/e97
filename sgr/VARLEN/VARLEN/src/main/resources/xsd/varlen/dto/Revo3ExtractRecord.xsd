@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Revo3ExtractRecord" cobol:name="REVO3-EXTRACT-RECORD" cobol:offset="0" cobol:length="11518" cobol:datatype="Grp-VarLen" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Revo3FixedPartOfRecord" maxOccurs="1"  cobol:name="REVO3-FIXED-PART-OF-RECORD" cobol:offset="2" cobol:length="32" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="32" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Revo3HeaderRecord" maxOccurs="1" cobol:name="REVO3-HEADER-RECORD" cobol:offset="2" cobol:length="32" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Revo3DetailRecord" maxOccurs="1" cobol:name="REVO3-DETAIL-RECORD" cobol:offset="2" cobol:length="32" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Revo3TrailerRecord" maxOccurs="1" cobol:name="REVO3-TRAILER-RECORD" cobol:offset="2" cobol:length="32" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

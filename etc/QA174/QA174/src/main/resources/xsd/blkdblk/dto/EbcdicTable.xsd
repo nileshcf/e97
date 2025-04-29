@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="EbcdicTable" cobol:name="EBCDIC-TABLE" cobol:offset="0" cobol:length="512" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="MapEbcdicTbl" maxOccurs="1" cobol:name="MAP-EBCDIC-TBL" cobol:offset="0" cobol:length="256" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="EbcdicToAscii" maxOccurs="256"  cobol:name="EBCDIC-TO-ASCII" cobol:offset="256" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

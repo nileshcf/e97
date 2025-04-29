@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ar649Parameters" cobol:name="AR649-PARAMETERS" cobol:offset="0" cobol:length="28" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ar649ProgramId" maxOccurs="1"  cobol:name="AR649-PROGRAM-ID" cobol:offset="0" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ar649UserParms" maxOccurs="1" cobol:name="AR649-USER-PARMS" cobol:offset="8" cobol:length="14" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ar649ReturnCode" maxOccurs="1"  cobol:name="AR649-RETURN-CODE" cobol:offset="22" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ar649ReturnValid88 VALUE [[0ALL]].
+                        88 ar649ReturnError88 VALUE [[4]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ar649ActionCode" maxOccurs="1"  cobol:name="AR649-ACTION-CODE" cobol:offset="24" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ar649ActionSuccessful88 VALUE [[[0ALL],[9]]].
+                        88 ar649ProfileRowFound88 VALUE [[0ALL]].
+                        88 ar649ProfileRowBuilt88 VALUE [[1]].
+                        88 ar649ActionError88 VALUE [[[10],[100]]].
+                        88 ar649ParmEndptId88 VALUE [[10]].
+                        88 ar649ParmBulkId88 VALUE [[11]].
+                        88 ar649ParmCyclNum88 VALUE [[12]].
+                        88 ar649ParmEndptNotFtss88 VALUE [[13]].
+                        88 ar649ControlFileOpen88 VALUE [[20]].
+                        88 ar649ControlFileRead88 VALUE [[21]].
+                        88 ar649ControlFileEmpty88 VALUE [[22]].
+                        88 ar649ControlFileClose88 VALUE [[23]].
+                        88 ar649ControlDataDbid88 VALUE [[30]].
+                        88 ar649ControlDataPkgid88 VALUE [[31]].
+                        88 ar649Ar642Notification88 VALUE [[40]].
+                        88 ar649DynamInitialize88 VALUE [[41]].
+                        88 ar649DynamAllocate88 VALUE [[42]].
+                        88 ar649DynamInformation88 VALUE [[43]].
+                        88 ar649DynamUnallocate88 VALUE [[44]].
+                        88 ar649DynamEnd88 VALUE [[45]].
+                        88 ar649ApplExitOpen88 VALUE [[50]].
+                        88 ar649ApplExitRead88 VALUE [[51]].
+                        88 ar649ApplExitSize88 VALUE [[52]].
+                        88 ar649ApplExitFull88 VALUE [[53]].
+                        88 ar649ApplExitClose88 VALUE [[54]].
+                        88 ar649SqlUserDbStore88 VALUE [[60]].
+                        88 ar649SqlUserPkgStore88 VALUE [[61]].
+                        88 ar649SqlGftPkgSet88 VALUE [[62]].
+                        88 ar649SqlGftDbConnect88 VALUE [[63]].
+                        88 ar649SqlGftDbRelease88 VALUE [[64]].
+                        88 ar649SqlUserPkgSet88 VALUE [[65]].
+                        88 ar649SqlUserDbConnect88 VALUE [[66]].
+                        88 ar649SqlDbRelease88 VALUE [[67]].
+                        88 ar649SqlDbReleaseCommit88 VALUE [[68]].
+                        88 ar649SqlEfpError88 VALUE [[70]].
+                        88 ar649SqlEfpInsert88 VALUE [[71]].
+                        88 ar649SqlEfpInsertCommit88 VALUE [[72]].
+                        88 ar649SqlEptError88 VALUE [[73]].
+                        88 ar649SqlEptNotFound88 VALUE [[74]].
+                        88 ar649SqlXtkError88 VALUE [[75]].
+                        88 ar649SqlXtkNotFound88 VALUE [[76]].
+                        88 ar649EntryAfterFatality88 VALUE [[100]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ar649XferMthdCd" maxOccurs="1"  cobol:name="AR649-XFER-MTHD-CD" cobol:offset="26" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Ar649CommitActionCd" maxOccurs="1"  cobol:name="AR649-COMMIT-ACTION-CD" cobol:offset="27" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ar649PerformCommit88 VALUE [["Y"]].
+                        88 ar649PerformNoCommit88 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

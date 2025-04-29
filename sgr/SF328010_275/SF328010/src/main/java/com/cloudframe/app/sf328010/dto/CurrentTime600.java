@@ -1,0 +1,66 @@
+package com.cloudframe.app.sf328010.dto;
+
+/**
+*  The class CurrentTime600 is used to handle fields declared in it
+*  @author CloudFrame Inc.
+*  created on 2025-04-29 at 05:33. using version 5.0.0.257
+**/
+
+
+import com.cloudframe.annotation.processor.Data;
+import com.cloudframe.annotation.processor.Getter;
+import com.cloudframe.annotation.processor.Setter;
+import com.cloudframe.app.data.Field;
+
+
+@Data
+public class CurrentTime600 extends CurrentTime600Serialized { 
+   
+
+						@Getter @Setter private char[] currTimeHh600 = new char[2];
+
+
+						@Getter @Setter private char[] currTimeMm600 = new char[2];
+
+
+						@Getter @Setter private char[] currTimeSs600 = new char[2];
+	
+	/**
+	* Constructor for CurrentTime600
+	**/
+    public CurrentTime600() {
+	// TO-DO auto generated code
+    }
+
+
+	/**
+	* Constructor for CurrentTime600. sets the parent value to the parent
+	* @param parent
+	* @param begin
+	**/
+    public CurrentTime600(Field parent,int begin) {
+    	   setParent(parent,begin);
+    }
+    
+     @Override
+    public void setParent(Field parent,int begin) {
+    	super.setParent(parent, begin);
+								setCurrTimeHh600(fillSpace(2));
+       replaceValue( // serialize and save the value
+             (":").toCharArray()
+             , getStartOffset() + 2
+             ,1
+             );
+								setCurrTimeMm600(fillSpace(2));
+       replaceValue( // serialize and save the value
+             (":").toCharArray()
+             , getStartOffset() + 5
+             ,1
+             );
+								setCurrTimeSs600(fillSpace(2));
+    } 
+
+
+
+}
+  

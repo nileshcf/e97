@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ar648LinkArea" cobol:name="AR648-LINK-AREA" cobol:offset="0" cobol:length="4" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ar648RequestCode" maxOccurs="1"  cobol:name="AR648-REQUEST-CODE" cobol:offset="0" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ar648RequestJclExec88 VALUE [[0ALL]].
+                        88 ar648RequestSubPgm88 VALUE [[[1],[4]]].
+                        88 ar648RequestMgrOpen88 VALUE [[1]].
+                        88 ar648RequestMgrWrite88 VALUE [[2]].
+                        88 ar648RequestMgrClose88 VALUE [[3]].
+                        88 ar648RequestUtilTotal88 VALUE [[4]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ar648ReturnCode" maxOccurs="1"  cobol:name="AR648-RETURN-CODE" cobol:offset="2" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ar648ReturnRequestValid88 VALUE [[0ALL]].
+                        88 ar648ReturnRequestError88 VALUE [[4]].
+                        88 ar648ReturnRequestOrder88 VALUE [[8]].
+                        88 ar648ReturnRequestEntry88 VALUE [[12]].
+                        88 ar648ReturnSyslstIoErr88 VALUE [[16]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

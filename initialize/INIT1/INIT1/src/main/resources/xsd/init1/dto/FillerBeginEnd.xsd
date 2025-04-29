@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="FillerBeginEnd" cobol:name="FILLER-BEGIN-END" cobol:offset="0" cobol:length="106" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="IypInit7" maxOccurs="1" cobol:name="WS-7IYP-INIT" cobol:offset="0" cobol:length="72" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="IypCurr7" maxOccurs="1" cobol:name="WS-7IYP-CURR" cobol:offset="72" cobol:length="24" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ws7iypAddedSw" maxOccurs="1"  cobol:name="WS-WS7IYP-ADDED-SW" cobol:offset="96" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="IypPriorCnt7" type="xs:int" maxOccurs="1"  cobol:name="WS-7IYP-PRIOR-CNT" cobol:offset="97" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+         <xs:element name="FillerBeginEndFiller3" type="xs:int" maxOccurs="1"  cobol:name="FILLER" cobol:offset="99" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="FillerBeginEndFiller4" maxOccurs="1"  cobol:name="FILLER" cobol:offset="103" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

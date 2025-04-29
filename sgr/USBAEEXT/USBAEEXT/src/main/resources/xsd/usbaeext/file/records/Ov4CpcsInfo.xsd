@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ov4CpcsInfo" cobol:name="OV4-CPCS-INFO" cobol:offset="73" cobol:length="52" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Ov4CycleDate" type="xs:long" maxOccurs="1"  cobol:name="OV4-CYCLE-DATE" cobol:offset="0" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+<xs:element name="Ov4CycleDateRedefined" maxOccurs="1" cobol:name="OV4-CYCLE-DATE-REDEFINED" cobol:offset="0" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ov4CycleNo" maxOccurs="1"  cobol:name="OV4-CYCLE-NO" cobol:offset="6" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Ov4EntryNumber" type="xs:int" maxOccurs="1"  cobol:name="OV4-ENTRY-NUMBER" cobol:offset="8" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="Ov4TrcrNo" type="xs:int" maxOccurs="1"  cobol:name="OV4-TRCR-NO" cobol:offset="12" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="Ov4BlkNo" type="xs:int" maxOccurs="1"  cobol:name="OV4-BLK-NO" cobol:offset="16" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="Ov4SeqNo" type="xs:long" maxOccurs="1"  cobol:name="OV4-SEQ-NO" cobol:offset="20" cobol:length="12" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1T"/>
+    <xs:element name="Ov4ParameterListFiller3" maxOccurs="1"  cobol:name="FILLER" cobol:offset="32" cobol:length="20" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="20" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="LsParmG" cobol:name="LS-PARM-G" cobol:offset="2" cobol:length="13" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="LsParmMode" maxOccurs="1"  cobol:name="LS-PARM-MODE" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 lsParmModeValid VALUE [["B"], ["R"], ["W"]].
+                        88 lsParmModeWrite VALUE [["W"], ["B"]].
+                        88 lsParmModeRead VALUE [["R"], ["B"]].
+                        88 lsParmModeBoth VALUE [["B"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="LsParmFiller1" maxOccurs="1"  cobol:name="FILLER" cobol:offset="1" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="LsParmDataLenMin" type="xs:long" maxOccurs="1"  cobol:name="LS-PARM-DATA-LEN-MIN" cobol:offset="2" cobol:length="5" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+    <xs:element name="LsParmFiller2" maxOccurs="1"  cobol:name="FILLER" cobol:offset="7" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="LsParmDataLenMax" type="xs:long" maxOccurs="1"  cobol:name="LS-PARM-DATA-LEN-MAX" cobol:offset="8" cobol:length="5" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

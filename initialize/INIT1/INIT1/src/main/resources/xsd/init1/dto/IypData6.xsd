@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="IypData6" cobol:name="WS-6IYP-DATA" cobol:offset="0" cobol:length="99" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="IypInit6" maxOccurs="1" cobol:name="WS-6IYP-INIT" cobol:offset="0" cobol:length="72" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="IypCurr6" maxOccurs="1" cobol:name="WS-6IYP-CURR" cobol:offset="72" cobol:length="24" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ws6iypAddedSw" maxOccurs="1"  cobol:name="WS-WS6IYP-ADDED-SW" cobol:offset="96" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ws6iypNotAdded VALUE [["N"]].
+                        88 ws6iypAdded VALUE [["Y"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="IypPriorCnt6" type="xs:int" maxOccurs="1"  cobol:name="WS-6IYP-PRIOR-CNT" cobol:offset="97" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

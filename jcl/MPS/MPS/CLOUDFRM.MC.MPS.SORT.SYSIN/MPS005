@@ -1,0 +1,18 @@
+SORT FIELDS=COPY
+  OUTFIL FILES=01,
+   IFTRAIL=(HD=YES,TRLID=(1,2,CH,EQ,C'99'),
+    TRLUPD=(41:COUNT=(M11,LENGTH=12)))
+  OUTFIL FILES=02,INCLUDE=((1,2,CH,EQ,C'01',AND,
+                           810,3,CH,EQ,C'356'),OR,
+                          (1,2,CH,EQ,C'01',AND,
+                           858,3,CH,EQ,C'356',AND,
+                           1203,3,CH,EQ,C'IND'),OR,
+                          (1,2,CH,EQ,C'02',AND,
+                           35,4,CH,EQ,C'0400',AND,
+                           807,3,CH,EQ,C'IND',AND,
+                           1094,3,CH,EQ,C'356'),OR,
+                          (1,2,CH,EQ,C'02',AND,
+                           35,4,CH,EQ,C'0420',AND,
+                           890,3,CH,EQ,C'356')),
+   IFTRAIL=(HD=YES,TRLID=(1,2,CH,EQ,C'99'),
+    TRLUPD=(41:COUNT=(M11,LENGTH=12)))

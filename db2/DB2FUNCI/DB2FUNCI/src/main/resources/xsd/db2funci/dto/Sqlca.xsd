@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Sqlca" cobol:name="SQLCA" cobol:offset="0" cobol:length="136" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Sqlcaid" maxOccurs="1"  cobol:name="SQLCAID" cobol:offset="0" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Sqlcabc" type="xs:int" maxOccurs="1"  cobol:name="SQLCABC" cobol:offset="8" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Sqlcode" type="xs:int" maxOccurs="1"  cobol:name="SQLCODE" cobol:offset="12" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+<xs:element name="Sqlerrm" maxOccurs="1" cobol:name="SQLERRM" cobol:offset="16" cobol:length="72" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Sqlerrp" maxOccurs="1"  cobol:name="SQLERRP" cobol:offset="88" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="Sqlerrd" type="xs:int" maxOccurs="6"  cobol:name="SQLERRD" cobol:offset="96" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+<xs:element name="Sqlwarn" maxOccurs="1" cobol:name="SQLWARN" cobol:offset="120" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Sqlext" maxOccurs="1" cobol:name="SQLEXT" cobol:offset="128" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

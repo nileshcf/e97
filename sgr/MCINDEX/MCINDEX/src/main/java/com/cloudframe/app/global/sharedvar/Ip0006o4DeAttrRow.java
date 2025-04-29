@@ -1,0 +1,62 @@
+package com.cloudframe.app.global.sharedvar;
+
+/**
+*  The class Ip0006o4DeAttrRow is used to handle fields declared in it
+*  @author CloudFrame Inc.
+*  created on 2025-04-29 at 05:33. using version 5.0.0.257
+**/
+
+
+import com.cloudframe.annotation.processor.Data;
+import com.cloudframe.annotation.processor.Getter;
+import com.cloudframe.annotation.processor.Setter;
+import com.cloudframe.app.data.Field;
+
+
+@Data
+public class Ip0006o4DeAttrRow extends Ip0006o4DeAttrRowSerialized { 
+   
+
+								@Getter @Setter private int ip0006o4DeFirstAb;
+
+						@Getter @Setter private char[] ip0006o4DeFirstAbRedefined = Field.fillLowValue(4);
+				@Getter @Setter private Ip0006o4DeAttrUserRow ip0006o4DeAttrUserRow = new Ip0006o4DeAttrUserRow();
+	
+	/**
+	* Constructor for Ip0006o4DeAttrRow
+	**/
+    public Ip0006o4DeAttrRow() {
+	// TO-DO auto generated code
+    }
+
+
+	/**
+	* Constructor for Ip0006o4DeAttrRow. sets the parent value to the parent
+	* @param parent
+	* @param begin
+	**/
+    public Ip0006o4DeAttrRow(Field parent,int begin) {
+    	   setParent(parent,begin);
+    }
+    
+     @Override
+    public void setParent(Field parent,int begin) {
+    	super.setParent(parent, begin);
+					getIp0006o4DeAttrUserRow().setParent(this,getStartOffset() + 4);
+    } 
+
+	/**
+	 * 	initializes Ip0006o4DeAttrRow
+	 *  String fields defaults to Spaces
+	 *  short/int/long defaults to zero
+	 *  BigDecimal defaults to BigDecimal.ZERO
+	 */
+   public void initialize() {
+                     setIp0006o4DeFirstAb(0);
+          getIp0006o4DeAttrUserRow().initialize();
+     
+   }
+
+
+}
+  

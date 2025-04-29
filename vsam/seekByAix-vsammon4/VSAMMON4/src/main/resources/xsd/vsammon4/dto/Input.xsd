@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Input" cobol:name="WS-INPUT" cobol:offset="0" cobol:length="80" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="InputCommand" maxOccurs="1"  cobol:name="WS-INPUT-COMMAND" cobol:offset="0" cobol:length="7" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10M" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 cOpeno VALUE [["OPENO  "]].
+                        88 cCloseo VALUE [["CLOSEO "]].
+                        88 cOpenio VALUE [["OPENIO "]].
+                        88 cOpenextend VALUE [["OPENXT "]].
+                        88 cCloseio VALUE [["CLOSEIO"]].
+                        88 cOpeni VALUE [["OPENI  "]].
+                        88 cClosei VALUE [["CLOSEI "]].
+                        88 cCloseextended VALUE [["CLOSEXT"]].
+                        88 cInsall VALUE [["INSALL "]].
+                        88 cInsert VALUE [["INSERT "]].
+                        88 cDelete VALUE [["DELETE "]].
+                        88 cDeleteLastRead VALUE [["D_LSTRD"]].
+                        88 cRewrite VALUE [["REWRIT "]].
+                        88 cKeyread VALUE [["KYREAD "]].
+                        88 cReadall VALUE [["READALL"]].
+                        88 cReadnxt VALUE [["READNXT"]].
+                        88 cDelall VALUE [["DELALL "]].
+                        88 cStart VALUE [["START  "]].
+                        88 cStartAlternate VALUE [["START* "]].
+                        88 cComment VALUE [["*      "]].
+                        88 cTerminate VALUE [["*END*  "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="7" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="InputData" maxOccurs="1"  cobol:name="WS-INPUT-DATA" cobol:offset="7" cobol:length="73" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="73" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="OpenioData" maxOccurs="1" cobol:name="WS-OPENIO-DATA" cobol:offset="7" cobol:length="15" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="InsallData" maxOccurs="1" cobol:name="WS-INSALL-DATA" cobol:offset="7" cobol:length="9" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="InsertData" maxOccurs="1" cobol:name="WS-INSERT-DATA" cobol:offset="7" cobol:length="31" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="DeleteData" maxOccurs="1" cobol:name="WS-DELETE-DATA" cobol:offset="7" cobol:length="9" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="RewriteData" maxOccurs="1" cobol:name="WS-REWRITE-DATA" cobol:offset="7" cobol:length="31" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="KeyreadData" maxOccurs="1" cobol:name="WS-KEYREAD-DATA" cobol:offset="7" cobol:length="9" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="ReadallData" maxOccurs="1" cobol:name="WS-READALL-DATA" cobol:offset="7" cobol:length="9" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="StartData" maxOccurs="1" cobol:name="WS-START-DATA" cobol:offset="7" cobol:length="12" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="DsmCommonArea" cobol:name="DSM-COMMON-AREA" cobol:offset="24" cobol:length="966" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="DsmReturnCode" maxOccurs="1"  cobol:name="DSM-RETURN-CODE" cobol:offset="2" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1000" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dsmNoError VALUE [[0ALL]].
+                        88 dsmEditError VALUE [[1]].
+                        88 dsmEntryNotFndInq VALUE [[100]].
+                        88 dsmEntryNotFndUpd VALUE [[900]].
+                        88 dsmApplError VALUE [[998]].
+                        88 dsmDb2Error VALUE [[999]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="DsmEditErrorField" maxOccurs="1"  cobol:name="DSM-EDIT-ERROR-FIELD" cobol:offset="5" cobol:length="30" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="30" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="DsmEditErrorOccurs" type="xs:long" maxOccurs="1"  cobol:name="DSM-EDIT-ERROR-OCCURS" cobol:offset="35" cobol:length="5" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100K"/>
+<xs:element name="DsmEditErrorValueTxt" maxOccurs="1" cobol:name="DSM-EDIT-ERROR-VALUE-TXT" cobol:offset="40" cobol:length="21" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="DsmSqlErrorLevel" maxOccurs="1"  cobol:name="DSM-SQL-ERROR-LEVEL" cobol:offset="64" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 dsmCriticalError VALUE [[70], [90]].
+                        88 dsmSystemError VALUE [[90]].
+                        88 dsmPackageError VALUE [[70]].
+                        88 dsmUserError VALUE [[50]].
+                        88 dsmProcessError VALUE [[30]].
+                        88 dsmValueError VALUE [[20]].
+                        88 dsmDuplicateError VALUE [[10]].
+                        88 dsmNotfoundError VALUE [[2]].
+                        88 dsmUndefinedError VALUE [[1]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

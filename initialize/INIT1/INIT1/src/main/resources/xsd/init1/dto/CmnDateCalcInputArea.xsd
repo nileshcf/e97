@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="CmnDateCalcInputArea" cobol:name="CMN-DATE-CALC-INPUT-AREA" cobol:offset="1024" cobol:length="32" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="CmnDateCalcType" maxOccurs="1"  cobol:name="CMN-DATE-CALC-TYPE" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 daysElapsed12 VALUE [["1"]].
+                        88 futureDate12 VALUE [["2"]].
+                        88 pastDate12 VALUE [["3"]].
+                        88 dayOFWeek12 VALUE [["4"]].
+                        88 dateDowOnBeforThisDate12 VALUE [["5"]].
+                        88 dateDowAfterThisDate12 VALUE [["6"]].
+                        88 monthsInFuture12 VALUE [["7"]].
+                        88 monthsInPast12 VALUE [["8"]].
+                        88 lastDayInMonth12 VALUE [["9"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="CmnDateCalcCalcTypOptions" maxOccurs="1" cobol:name="CMN-DATE-CALC-CALC-TYP-OPTIONS" cobol:offset="1" cobol:length="4" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="CmnDateCalcInputDateArea" maxOccurs="1" cobol:name="CMN-DATE-CALC-INPUT-DATE-AREA" cobol:offset="5" cobol:length="27" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

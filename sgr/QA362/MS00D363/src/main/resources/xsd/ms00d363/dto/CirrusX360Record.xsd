@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="CirrusX360Record" cobol:name="CIRRUS-X360-RECORD" cobol:offset="0" cobol:length="1400" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="X360RecordType" maxOccurs="1"  cobol:name="X360-RECORD-TYPE" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 x360RecTypeHeader VALUE [["0"]].
+                        88 x360RecTypeData VALUE [["1"]].
+                        88 x360RecTypeTrailer VALUE [["9"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="X360HeaderRecord" maxOccurs="1" cobol:name="X360-HEADER-RECORD" cobol:offset="1" cobol:length="1399" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="X360DataRecord" maxOccurs="1" cobol:name="X360-DATA-RECORD" cobol:offset="1" cobol:length="1399" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

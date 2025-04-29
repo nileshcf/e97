@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Rl001CustomerDetailRec" cobol:name="RL001-CUSTOMER-DETAIL-REC" cobol:offset="19" cobol:length="681" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Rl001VbmCustInd" maxOccurs="1"  cobol:name="RL001-VBM-CUST-IND" cobol:offset="148" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 rl001VbmCust VALUE [["Y"]].
+                        88 rl001NotVbmCust VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="Rl001MachToMachInfo" maxOccurs="1" cobol:name="RL001-MACH-TO-MACH-INFO" cobol:offset="173" cobol:length="2" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Rl001MachToMachInfoRedefined" maxOccurs="1"  cobol:name="RL001-MACH-TO-MACH-INFO-REDEFINED" cobol:offset="173" cobol:length="2" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 rl001MachTdp VALUE [["MB"]].
+                        88 rl001MachOpp VALUE [["MS"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="2" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Rl001PricingLabInd" maxOccurs="1"  cobol:name="RL001-PRICING-LAB-IND" cobol:offset="231" cobol:length="1" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="1" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="Rl001FirstBillInd" maxOccurs="1"  cobol:name="RL001-FIRST-BILL-IND" cobol:offset="292" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 rl001FirstBill VALUE [["Y"]].
+                        88 rl001NotFirstBill VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

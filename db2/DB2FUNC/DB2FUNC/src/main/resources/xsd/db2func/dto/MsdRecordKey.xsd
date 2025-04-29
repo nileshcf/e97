@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="MsdRecordKey" cobol:name="MSD-RECORD-KEY" cobol:offset="106" cobol:length="8" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="MsdSecurityNo" maxOccurs="1"  cobol:name="MSD-SECURITY-NO" cobol:offset="0" cobol:length="7" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="7" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="MsdSecurityNoRedefined" maxOccurs="1" cobol:name="MSD-SECURITY-NO-REDEFINED" cobol:offset="0" cobol:length="7" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="MsdWhenIssuedCode" maxOccurs="1"  cobol:name="MSD-WHEN-ISSUED-CODE" cobol:offset="7" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 msdWhenIssued VALUE [["1"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

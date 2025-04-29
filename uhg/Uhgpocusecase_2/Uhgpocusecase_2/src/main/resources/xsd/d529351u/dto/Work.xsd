@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Work" cobol:name="work" cobol:offset="0" cobol:length="16" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="DsmFuncCd" maxOccurs="1"  cobol:name="WS-DSM-FUNC-CD" cobol:offset="0" cobol:length="2" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 funcCd1 VALUE [[1]].
+                        88 funcCd2 VALUE [[2]].
+                        88 funcCd3 VALUE [[3]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Sub" type="xs:int" maxOccurs="1"  cobol:name="WS-SUB" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="CsSub" type="xs:int" maxOccurs="1"  cobol:name="CS-SUB" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="FrtoSub" type="xs:int" maxOccurs="1"  cobol:name="FRTO-SUB" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="PtypSub" type="xs:int" maxOccurs="1"  cobol:name="PTYP-SUB" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="IcdSub" type="xs:int" maxOccurs="1"  cobol:name="ICD-SUB" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="FcndSub" type="xs:int" maxOccurs="1"  cobol:name="FCND-SUB" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="CausSub" type="xs:int" maxOccurs="1"  cobol:name="CAUS-SUB" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="IpaSub" type="xs:int" maxOccurs="1"  cobol:name="IPA-SUB" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="CflgSub" type="xs:int" maxOccurs="1"  cobol:name="CFLG-SUB" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="MainCtr" type="xs:int" maxOccurs="1"  cobol:name="WS-MAIN-CTR" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="PlanMatch" type="xs:int" maxOccurs="1"  cobol:name="WS-PLAN-MATCH" cobol:offset="0" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="PlanEffDate" type="xs:long" maxOccurs="1"  cobol:name="WS-PLAN-EFF-DATE" cobol:offset="0" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+         <xs:element name="PlanCanDate" type="xs:long" maxOccurs="1"  cobol:name="WS-PLAN-CAN-DATE" cobol:offset="8" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+    <xs:element name="FetchEnd" maxOccurs="1"  cobol:name="WS-FETCH-END" cobol:offset="16" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 endOfFetch VALUE [["Y"]].
+                        88 notEndOfFetch VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="CloseCsrInd" maxOccurs="1"  cobol:name="CLOSE-CSR-IND" cobol:offset="16" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 closeCsrOk VALUE [["Y"]].
+                        88 closeCsrNg VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="FetchEndMain" maxOccurs="1"  cobol:name="WS-FETCH-END-MAIN" cobol:offset="16" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 endOfFetchMain VALUE [["Y"]].
+                        88 notEndOfFetchMain VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="FetchEndFrto" maxOccurs="1"  cobol:name="WS-FETCH-END-FRTO" cobol:offset="16" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 endOfFetchFrto VALUE [["Y"]].
+                        88 notEndOfFetchFrto VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="FetchEndPtyp" maxOccurs="1"  cobol:name="WS-FETCH-END-PTYP" cobol:offset="16" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 endOfFetchPtyp VALUE [["Y"]].
+                        88 notEndOfFetchPtyp VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="FetchEndIcd" maxOccurs="1"  cobol:name="WS-FETCH-END-ICD" cobol:offset="16" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 endOfFetchIcd VALUE [["Y"]].
+                        88 notEndOfFetchIcd VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="FetchEndFcnd" maxOccurs="1"  cobol:name="WS-FETCH-END-FCND" cobol:offset="16" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 endOfFetchFcnd VALUE [["Y"]].
+                        88 notEndOfFetchFcnd VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="FetchEndComb" maxOccurs="1"  cobol:name="WS-FETCH-END-COMB" cobol:offset="16" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 endOfFetchComb VALUE [["Y"]].
+                        88 notEndOfFetchComb VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Sqlcode_Ws" maxOccurs="1"  cobol:name="WS-SQLCODE" cobol:offset="16" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="false">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 sqlcodeOk VALUE [[0ALL]].
+                        88 sqlcodeNotFound VALUE [[100], [-305]].
+                        88 sqlcodeFetchEnd VALUE [[100]].
+                        88 sqlcodePositive VALUE [[[0ALL],[999]]].
+                        88 sqlcodeNegative VALUE [[[-999],[-1]]].
+                        88 sqlcodeInvalidDate VALUE [[-180], [-181]].
+                        88 sqlcodeNullValueReturned VALUE [[-305]].
+                        88 sqlcodeOverflow VALUE [[-413]].
+                        88 sqlcodeCursorErr VALUE [[[-509],[-501]]].
+                        88 sqlcodeDupViolation VALUE [[-803]].
+                        88 sqlcodeBindErr VALUE [[-805], [-818]].
+                        88 sqlcodeMultRows VALUE [[-811]].
+                        88 sqlcodeNoServer VALUE [[-900]].
+                        88 sqlcodeDb2SysErr VALUE [[-901]].
+                        88 sqlcodeResourceErr VALUE [[-904]].
+                        88 sqlcodeTimeOut VALUE [[-905]].
+                        88 sqlcodeDeadlockNorb VALUE [[-911]].
+                        88 sqlcodeDeadlockRb VALUE [[-913]].
+                        88 sqlcodePlanSecurityErr VALUE [[-922]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Dsnnrows" type="xs:int" maxOccurs="1"  cobol:name="DSNNROWS" cobol:offset="16" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="false" cobol:max="Long.MAX_VALUE"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

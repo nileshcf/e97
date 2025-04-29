@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="MonPriKey" cobol:name="MON-PRI-KEY" cobol:offset="0" cobol:length="65" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="MonXcdtTskStrtDt" maxOccurs="1" cobol:name="MON-XCDT-TSK-STRT-DT" cobol:offset="0" cobol:length="10" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="MonXcdtTskStrtTm" maxOccurs="1"  cobol:name="MON-XCDT-TSK-STRT-TM" cobol:offset="10" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MonXcdtProgNm" maxOccurs="1"  cobol:name="MON-XCDT-PROG-NM" cobol:offset="18" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="MonXcdtMthdNm" maxOccurs="1"  cobol:name="MON-XCDT-MTHD-NM" cobol:offset="26" cobol:length="35" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="35" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="MonXctorTskNo" type="xs:int" maxOccurs="1"  cobol:name="MON-XCTOR-TSK-NO" cobol:offset="61" cobol:length="4" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

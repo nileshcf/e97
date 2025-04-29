@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="RequestParms1000" cobol:name="1000-REQUEST-PARMS" cobol:offset="0" cobol:length="332" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="FunctionRequest1000" maxOccurs="1"  cobol:name="1000-FUNCTION-REQUEST" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 addApplFile881000 VALUE [["A"]].
+                        88 bulkBroadcast881000 VALUE [["B"]].
+                        88 countFiles881000 VALUE [["C"]].
+                        88 fiforetrFile881000 VALUE [["F"]].
+                        88 installExit881000 VALUE [["I"]].
+                        88 listBroadcast881000 VALUE [["L"]].
+                        88 retrieveFile881000 VALUE [["R"]].
+                        88 sendFile881000 VALUE [["S"]].
+                        88 resetFile881000 VALUE [["X"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="BulkId1000" maxOccurs="1"  cobol:name="1000-BULK-ID" cobol:offset="1" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="EndptId1000" maxOccurs="1"  cobol:name="1000-ENDPT-ID" cobol:offset="5" cobol:length="7" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10M" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 endptIdNull881000 VALUE [["       "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="7" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="DeleteInd1000" maxOccurs="1"  cobol:name="1000-DELETE-IND" cobol:offset="12" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 deleteDsnNo881000 VALUE [["N"]].
+                        88 deleteDsnYes881000 VALUE [["Y"]].
+                        88 deleteIndNull881000 VALUE [[" "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="CyclNum1000" maxOccurs="1"  cobol:name="1000-CYCL-NUM" cobol:offset="13" cobol:length="3" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1000" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 cyclNumNull881000 VALUE [["   "]].
+                        88 cyclNumAll881000 VALUE [["ALL"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="3" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="CyclNum1000Redefined" maxOccurs="1" cobol:name="1000-CYCL-NUM-REDEFINED" cobol:offset="13" cobol:length="3" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="ListBroadcastDd1000" maxOccurs="1"  cobol:name="1000-LIST-BROADCAST-DD" cobol:offset="16" cobol:length="8" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100M" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 listBroadcastNull881000 VALUE [["        "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="8" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="ApplicationDsn1000" maxOccurs="1"  cobol:name="1000-APPLICATION-DSN" cobol:offset="24" cobol:length="44" cobol:datatype="Group" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 applicationDsnNull881000 VALUE [["                                            "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+    </xs:element>  
+    <xs:element name="GftDsn1000" maxOccurs="1"  cobol:name="1000-GFT-DSN" cobol:offset="68" cobol:length="44" cobol:datatype="Group" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 gftDsnNull881000 VALUE [["                                            "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+    </xs:element>  
+    <xs:element name="GftRetrieveDsn1000" maxOccurs="1"  cobol:name="1000-GFT-RETRIEVE-DSN" cobol:offset="68" cobol:length="44" cobol:datatype="Group" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 gftRetrieveDsnNull881000 VALUE [["                                            "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+    </xs:element>  
+    <xs:element name="BroadcastResult1000" maxOccurs="1"  cobol:name="1000-BROADCAST-RESULT" cobol:offset="112" cobol:length="8" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100M" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 broadcastResultNull881000 VALUE [["        "]].
+                        88 broadcastDisplay881000 VALUE [["DISPLAY "]].
+                        88 broadcastReport881000 VALUE [["SYSLST  "]].
+                        88 broadcastRecord881000 VALUE [[["SYS100  "],["SYS299  "]]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="8" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="ProcDate1000" maxOccurs="1"  cobol:name="1000-PROC-DATE" cobol:offset="120" cobol:length="10" cobol:datatype="Group" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10G" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 procDateNull881000 VALUE [["          "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+    </xs:element>  
+    <xs:element name="RecCount1000" maxOccurs="1"  cobol:name="1000-REC-COUNT" cobol:offset="130" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 reccntNull881000 VALUE [[0ALL]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="ByteCount1000" maxOccurs="1"  cobol:name="1000-BYTE-COUNT" cobol:offset="134" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 bytcntNull881000 VALUE [[0ALL]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="ApplicationPdsDsn1000" maxOccurs="1"  cobol:name="1000-APPLICATION-PDS-DSN" cobol:offset="138" cobol:length="54" cobol:datatype="Group" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 applPdsDsnNull881000 VALUE [["                                                      "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+    </xs:element>  
+    <xs:element name="RecCountLarge1000" maxOccurs="1"  cobol:name="1000-REC-COUNT-LARGE" cobol:offset="192" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 reccntLargeNull881000 VALUE [[0ALL]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="ByteCountLarge1000" maxOccurs="1"  cobol:name="1000-BYTE-COUNT-LARGE" cobol:offset="196" cobol:length="8" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 bytcntLargeNull881000 VALUE [[0ALL]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:long">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Tknname1000" maxOccurs="1"  cobol:name="1000-TKNNAME" cobol:offset="204" cobol:length="128" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="Long.MAX_VALUE" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 tknnameNull881000 VALUE [["                                                                                                                                "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="128" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

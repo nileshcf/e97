@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ioi02bInterface" cobol:name="IOI-02B-INTERFACE" cobol:offset="0" cobol:length="470" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Ioi02bPassedRecAddr" type="xs:int" maxOccurs="1"  cobol:name="IOI-02B-PASSED-REC-ADDR" cobol:offset="20" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Ioi02bPassedRecPtr" type="xs:int" maxOccurs="1"  cobol:name="IOI-02B-PASSED-REC-PTR" cobol:offset="20" cobol:length="4" cobol:datatype="Pointer" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10M"/>
+<xs:element name="Ioi02bCurRecAddrArea" maxOccurs="1" cobol:name="IOI-02B-CUR-REC-ADDR-AREA" cobol:offset="24" cobol:length="16" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ioi02bError" maxOccurs="1"  cobol:name="IOI-02B-ERROR" cobol:offset="314" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ioi02bNotFound VALUE [["F"]].
+                        88 ioi02bEof VALUE [["E"]].
+                        88 ioi02bGood VALUE [[" "]].
+                        88 ioi02bBadRequest VALUE [["B"], ["N"]].
+                        88 ioi02bNotInitialized VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="Ioi02bReserveArea" maxOccurs="1" cobol:name="IOI-02B-RESERVE-AREA" cobol:offset="350" cobol:length="120" cobol:datatype="Group" cobol:serialize="true" />
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="ErrAcctRecord" cobol:name="WS-ERR-ACCT-RECORD" cobol:offset="432" cobol:length="66" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+<xs:element name="ErrCustAcct" maxOccurs="1" cobol:name="WS-ERR-CUST-ACCT" cobol:offset="0" cobol:length="8" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="ErrCodes" maxOccurs="1" cobol:name="WS-ERR-CODES" cobol:offset="8" cobol:length="15" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="ErrRejectCd" maxOccurs="1"  cobol:name="WS-ERR-REJECT-CD" cobol:offset="23" cobol:length="3" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="3" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="ErrRejectReason" maxOccurs="1"  cobol:name="WS-ERR-REJECT-REASON" cobol:offset="26" cobol:length="40" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="40" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

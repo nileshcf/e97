@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip00321ErrorInfo" cobol:name="IP00321-ERROR-INFO" cobol:offset="176021" cobol:length="19" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="Ip00321ErrorMsgSevCd" type="xs:int" maxOccurs="1"  cobol:name="IP00321-ERROR-MSG-SEV-CD" cobol:offset="0" cobol:length="2" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100"/>
+         <xs:element name="Ip00321ErrorNumber" type="xs:int" maxOccurs="1"  cobol:name="IP00321-ERROR-NUMBER" cobol:offset="2" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+         <xs:element name="Ip00321ErrorMessageNumber" type="xs:int" maxOccurs="1"  cobol:name="IP00321-ERROR-MESSAGE-NUMBER" cobol:offset="6" cobol:length="4" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_10K"/>
+    <xs:element name="Ip00321IpmFieldType" maxOccurs="1"  cobol:name="IP00321-IPM-FIELD-TYPE" cobol:offset="10" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip00321MMti88 VALUE [["1"]].
+                        88 ip00321DDataElement88 VALUE [["2"]].
+                        88 ip00321PPds88 VALUE [["3"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip00321IpmFieldNumber" type="xs:long" maxOccurs="1"  cobol:name="IP00321-IPM-FIELD-NUMBER" cobol:offset="11" cobol:length="4" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="Ip00321IpmSubfieldNumber" type="xs:long" maxOccurs="1"  cobol:name="IP00321-IPM-SUBFIELD-NUMBER" cobol:offset="15" cobol:length="4" cobol:datatype="Binary" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="ReqWorkAreas810" cobol:name="810-REQ-WORK-AREAS" cobol:offset="0" cobol:length="378" cobol:datatype="Group" cobol:hasParent="false" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="ApplTkn810" maxOccurs="1"  cobol:name="810-APPL-TKN" cobol:offset="0" cobol:length="128" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="128" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="FunctionTs810" maxOccurs="1"  cobol:name="810-FUNCTION-TS" cobol:offset="128" cobol:length="26" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="26" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="BulkId810" maxOccurs="1"  cobol:name="810-BULK-ID" cobol:offset="154" cobol:length="4" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="EndptId810" maxOccurs="1"  cobol:name="810-ENDPT-ID" cobol:offset="158" cobol:length="7" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="7" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="EndptIdOrig810" maxOccurs="1"  cobol:name="810-ENDPT-ID-ORIG" cobol:offset="165" cobol:length="7" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10M" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 endptIdOriginal88810 VALUE [["       "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="7" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="BusPrtnrIdOrig810" maxOccurs="1"  cobol:name="810-BUS-PRTNR-ID-ORIG" cobol:offset="172" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="CyclNum810" maxOccurs="1"  cobol:name="810-CYCL-NUM" cobol:offset="178" cobol:length="2" cobol:datatype="Packed-Dec" cobol:signed="true" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1000" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 cyclNumDflt88810 VALUE [[1]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:short">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="CyclNumRange810" maxOccurs="1" cobol:name="810-CYCL-NUM-RANGE" cobol:offset="180" cobol:length="4" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="BusPrtnrId810" maxOccurs="1"  cobol:name="810-BUS-PRTNR-ID" cobol:offset="184" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="ProcDate810" maxOccurs="1" cobol:name="810-PROC-DATE" cobol:offset="190" cobol:length="10" cobol:datatype="Group" cobol:serialize="true" />
+         <xs:element name="ProcJulDay810" type="xs:int" maxOccurs="1"  cobol:name="810-PROC-JUL-DAY" cobol:offset="200" cobol:length="3" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1000"/>
+         <xs:element name="ComputeDate810" type="xs:long" maxOccurs="1"  cobol:name="810-COMPUTE-DATE" cobol:offset="203" cobol:length="8" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_100M"/>
+    <xs:element name="StatCd810" maxOccurs="1"  cobol:name="810-STAT-CD" cobol:offset="211" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 statAvailOutbound88810 VALUE [["A"]].
+                        88 statFileComplete88810 VALUE [["C"]].
+                        88 statFileDownloading88810 VALUE [["D"]].
+                        88 statFileError88810 VALUE [["E"]].
+                        88 statHubRouting88810 VALUE [["H"]].
+                        88 statLogicExitWait88810 VALUE [["L"]].
+                        88 statFilePended88810 VALUE [["P"]].
+                        88 statQuiescedEndpt88810 VALUE [["Q"]].
+                        88 statReadyInbound88810 VALUE [["R"]].
+                        88 statLogicalDelete88810 VALUE [["T"]].
+                        88 statFileUploading88810 VALUE [["U"]].
+                        88 statExitProcessing88810 VALUE [["X"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="XferMthdCd810" maxOccurs="1"  cobol:name="810-XFER-MTHD-CD" cobol:offset="212" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 xferMthdBroadcast88810 VALUE [["B"]].
+                        88 xferMthdConnectDir88810 VALUE [["C"]].
+                        88 xferMthdFtss88810 VALUE [["F"], ["G"]].
+                        88 xferMthdInternal88810 VALUE [["I"]].
+                        88 xferMthdMfe88810 VALUE [["M"]].
+                        88 xferMthdConnectEnt88810 VALUE [["N"]].
+                        88 xferMthdInterpel88810 VALUE [["P"], ["Y"]].
+                        88 xferMthdXcom88810 VALUE [["X"]].
+                        88 xferMthdMfePush88810 VALUE [["S"]].
+                        88 xferMthdUnknown88810 VALUE [["U"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="XferTypeCd810" maxOccurs="1"  cobol:name="810-XFER-TYPE-CD" cobol:offset="213" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 xferTypeAscii88810 VALUE [["A"]].
+                        88 xferTypeBinary88810 VALUE [["B"]].
+                        88 xferTypeEbcdic88810 VALUE [["E"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="SndRcvPrmsnCd810" maxOccurs="1"  cobol:name="810-SND-RCV-PRMSN-CD" cobol:offset="214" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 sndRcvPrmsnRecv88810 VALUE [["R"]].
+                        88 sndRcvPrmsnSend88810 VALUE [["S"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="RenameHlq810" maxOccurs="1"  cobol:name="810-RENAME-HLQ" cobol:offset="215" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="RenameSystemId810" maxOccurs="1"  cobol:name="810-RENAME-SYSTEM-ID" cobol:offset="223" cobol:length="8" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="8" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+    <xs:element name="PreExitDsn810" maxOccurs="1"  cobol:name="810-PRE-EXIT-DSN" cobol:offset="231" cobol:length="44" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="44" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="ApplExitWork810" maxOccurs="1" cobol:name="810-APPL-EXIT-WORK" cobol:offset="275" cobol:length="102" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="RteToHubSw810" maxOccurs="1"  cobol:name="810-RTE-TO-HUB-SW" cobol:offset="377" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 rteToHubActive88810 VALUE [["Y"]].
+                        88 rteToHubNotActive88810 VALUE [["N"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

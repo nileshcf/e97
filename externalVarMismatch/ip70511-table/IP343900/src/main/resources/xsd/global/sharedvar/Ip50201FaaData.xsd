@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip50201FaaData" cobol:name="IP50201-FAA-DATA" cobol:offset="0" cobol:length="55" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip50201PrimaryAcctNbr" maxOccurs="1"  cobol:name="IP50201-PRIMARY-ACCT-NBR" cobol:offset="0" cobol:length="19" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="19" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip50201ExpirationDate" maxOccurs="1" cobol:name="IP50201-EXPIRATION-DATE" cobol:offset="19" cobol:length="6" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip50201AccntStatus" maxOccurs="1"  cobol:name="IP50201-ACCNT-STATUS" cobol:offset="25" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip50201Open88 VALUE [["O"]].
+                        88 ip50201Close88 VALUE [["C"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+<xs:element name="Ip50201ClosedDate" maxOccurs="1" cobol:name="IP50201-CLOSED-DATE" cobol:offset="26" cobol:length="10" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip50201VrtlAcctNum" maxOccurs="1"  cobol:name="IP50201-VRTL-ACCT-NUM" cobol:offset="36" cobol:length="19" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="19" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

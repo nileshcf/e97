@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="RlcbmBillMessageRec" cobol:name="RLCBM-BILL-MESSAGE-REC" cobol:offset="1" cobol:length="161" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+         <xs:element name="RlcbmInvoiceNo" type="xs:long" maxOccurs="1"  cobol:name="RLCBM-INVOICE-NO" cobol:offset="24" cobol:length="8" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+    <xs:element name="RlcbmCustTypCd" maxOccurs="1"  cobol:name="RLCBM-CUST-TYP-CD" cobol:offset="32" cobol:length="2" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+         <xs:element name="RlcbmEcpdProfileId" type="xs:int" maxOccurs="1"  cobol:name="RLCBM-ECPD-PROFILE-ID" cobol:offset="34" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+         <xs:element name="RlcbmActiveMtnsQty" type="xs:int" maxOccurs="1"  cobol:name="RLCBM-ACTIVE-MTNS-QTY" cobol:offset="38" cobol:length="4" cobol:datatype="Binary" cobol:signed="true" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="Long.MAX_VALUE"/>
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cobol="http://www.cloudframe.com/COBOLSchema">
+<xs:element name="Ip38201AllocateParms" cobol:name="IP38201-ALLOCATE-PARMS" cobol:offset="56" cobol:length="79" cobol:datatype="Group" cobol:hasParent="true" cobol:dependingArrayLen="0" cobol:offsetToVariableArray="0"  >
+ <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Ip38201InputOutputFileInd" maxOccurs="1"  cobol:name="IP38201-INPUT-OUTPUT-FILE-IND" cobol:offset="0" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip38201InputFile88 VALUE [["I"]].
+                        88 ip38201OutputFile88 VALUE [["O"]].
+                        88 ip38201ValidIOIndicator88 VALUE [["I"], ["O"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip38201StorageMedia" maxOccurs="1"  cobol:name="IP38201-STORAGE-MEDIA" cobol:offset="1" cobol:length="1" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip38201Tape80Cartridge88 VALUE [["C"]].
+                        88 ip38201TapeReel88 VALUE [["R"]].
+                        88 ip38201Disk88 VALUE [["D"]].
+                        88 ip38201DiskWorkPacks88 VALUE [["W"]].
+                        88 ip38201StorageMediaBlank88 VALUE [[" "]].
+                        88 ip38201StorageMediaValid88 VALUE [["C"], ["R"], ["D"], ["W"], [" "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="1" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip38201TapeLabelType" maxOccurs="1"  cobol:name="IP38201-TAPE-LABEL-TYPE" cobol:offset="2" cobol:length="3" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_1000" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip38201ValidTapeLabel88 VALUE [["SL "], ["BLP"], ["NL "], ["NSL"], ["SUL"], ["LTM"], ["AL "], ["AUL"]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="3" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+         <xs:element name="Ip38201TapeSequenceNumber" type="xs:long" maxOccurs="1"  cobol:name="IP38201-TAPE-SEQUENCE-NUMBER" cobol:offset="5" cobol:length="6" cobol:datatype="Disp-Num" cobol:signed="false" cobol:signLeading="false" cobol:signTrailing="true"  cobol:signSeparate="false" cobol:serialize="true" cobol:max="MAX_1M"/>
+    <xs:element name="Ip38201DiskVolSer" maxOccurs="1"  cobol:name="IP38201-DISK-VOL-SER" cobol:offset="5" cobol:length="6" cobol:datatype="Display" cobol:serialize="true" cobol:blankWhenZero="false" >
+        <xs:simpleType>
+            <xs:restriction base="xs:string" cobol:justify="false" >
+                  <xs:length value="6" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>        
+<xs:element name="Ip38201SpaceParms" maxOccurs="1" cobol:name="IP38201-SPACE-PARMS" cobol:offset="11" cobol:length="12" cobol:datatype="Group" cobol:serialize="true" />
+<xs:element name="Ip38201DcbInfo" maxOccurs="1" cobol:name="IP38201-DCB-INFO" cobol:offset="23" cobol:length="39" cobol:datatype="Group" cobol:serialize="true" />
+    <xs:element name="Ip38201EnvironmentIndicator" maxOccurs="1"  cobol:name="IP38201-ENVIRONMENT-INDICATOR" cobol:offset="62" cobol:length="4" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip38201EnvrnmntIndTest88 VALUE [["TEST"]].
+                        88 ip38201EnvrnmntIndProd88 VALUE [["MCI "]].
+                        88 ip38201EnvrnmntIndDtf88 VALUE [["DTF "]].
+                        88 ip38201EnvrnmntIndItf88 VALUE [["ITF "]].
+                        88 ip38201EnvrnmntIndYtf88 VALUE [["YTF "]].
+                        88 ip38201EnvrnmntIndMtf88 VALUE [["MTF "]].
+                        88 ip38201EnvrnmntIndZtf88 VALUE [["ZTF "]].
+                        88 ip38201EnvrnmntIndFtf88 VALUE [["FTF "]].
+                        88 ip38201EnvrnmntIndValid88 VALUE [["TEST"], ["MCI "], ["DTF "], ["ITF "], ["MTF "], ["ZTF "], ["YTF "], ["FTF "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="4" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip38201BulkType" maxOccurs="1"  cobol:name="IP38201-BULK-TYPE" cobol:offset="66" cobol:length="4" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip38201BulkTypeBlank88 VALUE [["    "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="4" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip38201ClearingIdentifier" maxOccurs="1"  cobol:name="IP38201-CLEARING-IDENTIFIER" cobol:offset="70" cobol:length="5" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_100K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip38201ClearingIdBlank88 VALUE [["     "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="5" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+    <xs:element name="Ip38201DsnThirdQualifier" maxOccurs="1"  cobol:name="IP38201-DSN-THIRD-QUALIFIER" cobol:offset="75" cobol:length="4" cobol:datatype="Display" cobol:signed="false" cobol:signLeading="false"  cobol:signSeparate="false" cobol:max="MAX_10K" cobol:serialize="true">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[
+                        88 ip38201DsnThrdQualBlank88 VALUE [["    "]].
+                ]]>
+            </xs:documentation> 
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                  <xs:length value="4" />     
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  
+   </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>
